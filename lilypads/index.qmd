@@ -2,11 +2,52 @@
 title: "Lilypads"
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+LilyPads are hands-on learning spaces where you can build practical skills for making your research more open and reproducible.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+Choose a place to land.
 
-![](../images/frog_soon.gif){fig-align="center" width="250px"}
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card}
+::: {.card-body}
+### Data
+
+Learn how to **find, organize, document, clean, share, and preserve research data** so that others — including your future self — can understand and reuse it.
+
+::: {.text-center}
+[Explore Data](data/index.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card}
+::: {.card-body}
+### Software
+
+Learn practices for creating **reusable and sustainable research software**, from version control and documentation to testing, licensing, and publishing.
+
+::: {.text-center}
+[Explore Software](software/index.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card}
+::: {.card-body}
+### Workflow
+
+Learn how to make the **entire path from data to results reproducible**, including computational environments, provenance, notebooks, and sharing complete workflows.
+
+::: {.text-center}
+[Explore Workflows](workflow/index.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
 :::
