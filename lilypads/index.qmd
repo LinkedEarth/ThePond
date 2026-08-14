@@ -2,6 +2,11 @@
 title: "Lilypads"
 ---
 
-This is a Quarto website.
+::: {.callout-note appearance="simple"}
+## Coming soon
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+**A frog will be here shortly.**  
+This part of The Pond is still being prepared. Check back soon for new learning materials.
+
+![](../images/frog_soon.gif){fig-align="center" width="250px"}
+:::
