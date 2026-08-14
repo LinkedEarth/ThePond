@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/21940394.svg)](https://doi.org/10.5281/zenodo.21940394)
+
+
 # ThePond
 
 This repository contains a Quarto-based platform for asynchronous teaching of open and reproducible science principles. 

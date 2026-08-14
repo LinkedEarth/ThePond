@@ -1,4 +1,4 @@
-cff-version: 0.0.1.0
+cff-version: 0.0.1.1
 message: "If you use this platform, please cite it as below."
 authors:
 - family-names: "Khider"
@@ -11,5 +11,6 @@ authors:
   given-names: "Tim"
 title: "ThePond: Interactive learning for open, reproducible geoscience"
 version: 0.0.1
+doi: 10.5281/zenodo.21940394
 date-released: 2026-08-14
 url: "https://github.com/LinkedEarth/ThePond"
