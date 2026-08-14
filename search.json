@@ -35,11 +35,32 @@
     "text": "Where should I start?\nNew to open science? Begin in The Shallows.\nLooking for practical skills? Jump straight to the LilyPads.\nAlready comfortable with the basics? Dive into Deep Water."
   },
   {
+    "objectID": "lilypads/workflow/index.html",
+    "href": "lilypads/workflow/index.html",
+    "title": "Workflow",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
+    "objectID": "lilypads/data/index.html",
+    "href": "lilypads/data/index.html",
+    "title": "Data",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
+    "objectID": "lilypads/software/index.html",
+    "href": "lilypads/software/index.html",
+    "title": "Software",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
     "objectID": "lilypads/index.html",
     "href": "lilypads/index.html",
     "title": "Lilypads",
     "section": "",
-    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+    "text": "LilyPads are hands-on learning spaces where you can build practical skills for making your research more open and reproducible.\nChoose a place to land.\n\n\n\n\nData\nLearn how to find, organize, document, clean, share, and preserve research data so that others — including your future self — can understand and reuse it.\n\nExplore Data\n\n\n\n\n\n\n\nSoftware\nLearn practices for creating reusable and sustainable research software, from version control and documentation to testing, licensing, and publishing.\n\nExplore Software\n\n\n\n\n\n\n\nWorkflow\nLearn how to make the entire path from data to results reproducible, including computational environments, provenance, notebooks, and sharing complete workflows.\n\nExplore Workflows"
   },
   {
     "objectID": "deep-water/index.html",
