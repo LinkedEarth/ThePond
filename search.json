@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "spring/index.html",
+    "href": "spring/index.html",
+    "title": "Spring",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Pond",
+    "section": "",
+    "text": "Welcome to The Pond, an interactive learning environment to learn how to make your science more open and reproducible.\nWhether you are new to open science or looking to deepen your technical skills, The Pond is designed to let you learn by doing."
+  },
+  {
+    "objectID": "index.html#explore-the-pond",
+    "href": "index.html#explore-the-pond",
+    "title": "The Pond",
+    "section": "Explore The Pond",
+    "text": "Explore The Pond\n\n\n\n\nThe Shallows\nStart here to explore why open science matters. Learn about the ideas behind open, reproducible, and FAIR science and the problems these practices are designed to solve.\n\nEnter The Shallows\n\n\n\n\n\n\n\nLilyPads\nHop onto a LilyPad for hands-on learning. Explore self-contained modules, courses, and project workstations focused on data, software, and scientific workflows.\n\nExplore the LilyPads\n\n\n\n\n\n\n\nDeep Water\nReady to dive deeper? Explore advanced topics and technical tracks, including licensing frameworks, infrastructure, and more complex approaches to implementing open science.\n\nDive into Deep Water\n\n\n\n\n\n\n\nThe Spring\nOpen science is a community effort. Ask questions, share experiences, and continue the conversation with other learners and practitioners.\n\nVisit The Spring"
+  },
+  {
+    "objectID": "index.html#where-should-i-start",
+    "href": "index.html#where-should-i-start",
+    "title": "The Pond",
+    "section": "Where should I start?",
+    "text": "Where should I start?\nNew to open science? Begin in The Shallows.\nLooking for practical skills? Jump straight to the LilyPads.\nAlready comfortable with the basics? Dive into Deep Water."
+  },
+  {
+    "objectID": "deep-water/index.html",
+    "href": "deep-water/index.html",
+    "title": "Deep Water",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "lilypads/index.html",
+    "href": "lilypads/index.html",
+    "title": "Lilypads",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "shallows/index.html",
+    "href": "shallows/index.html",
+    "title": "The Shallows",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]
