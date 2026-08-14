@@ -17,8 +17,6 @@ website:
         text: Deep Water
       - href: spring/index.qmd
         text: The Spring
-      - href: about.qmd
-        text: About
   page-footer: "The Pond is part of [FROGS](https://linked.earth/FROGS/), a [LinkedEarth](https://linked.earth/) project."
 
 format:

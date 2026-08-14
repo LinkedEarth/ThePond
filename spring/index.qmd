@@ -1,7 +1,19 @@
 ---
-title: "Spring"
+title: "The Spring"
+format:
+  html:
+    include-in-header:
+      text: |
+        <script src="https://discourse.linked.earth/javascripts/embed-topics.js"></script>
 ---
 
-This is a Quarto website.
+The Spring is a place to ask questions, share experiences, and learn from the community.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Recent discussions
+
+<d-topics-list
+  discourse-url="https://discourse.linked.earth"
+  per-page="8"
+  template="complete"
+  allow-create="true">
+</d-topics-list>
