@@ -1,5 +1,6 @@
 ---
 title: "The Spring"
+page-layout: full
 format:
   html:
     include-in-header:
@@ -13,6 +14,7 @@ The Spring is a place to ask questions, share experiences, and learn from the co
 
 <d-topics-list
   discourse-url="https://discourse.linked.earth"
+  tags="open-science"
   per-page="8"
   template="complete"
   allow-create="true">
