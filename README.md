@@ -1,4 +1,5 @@
-[![DOI](https://zenodo.org/badge/1334510665.svg)](https://doi.org/10.5281/zenodo.21940394)
+[![DOI](https://zenodo.org/badge/21940394.svg)](https://doi.org/10.5281/zenodo.21940394)
+
 
 # ThePond
 
