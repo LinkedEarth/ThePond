@@ -2,9 +2,16 @@
   {
     "objectID": "spring/index.html",
     "href": "spring/index.html",
-    "title": "Spring",
+    "title": "The Spring",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "The Spring is a place to ask questions, share experiences, and learn from the community."
+  },
+  {
+    "objectID": "spring/index.html#recent-discussions",
+    "href": "spring/index.html#recent-discussions",
+    "title": "The Spring",
+    "section": "Recent discussions",
+    "text": "Recent discussions"
   },
   {
     "objectID": "index.html",
@@ -28,6 +35,13 @@
     "text": "Where should I start?\nNew to open science? Begin in The Shallows.\nLooking for practical skills? Jump straight to the LilyPads.\nAlready comfortable with the basics? Dive into Deep Water."
   },
   {
+    "objectID": "lilypads/index.html",
+    "href": "lilypads/index.html",
+    "title": "Lilypads",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
     "objectID": "deep-water/index.html",
     "href": "deep-water/index.html",
     "title": "Deep Water",
@@ -35,24 +49,10 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
-    "objectID": "lilypads/index.html",
-    "href": "lilypads/index.html",
-    "title": "Lilypads",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "shallows/index.html",
     "href": "shallows/index.html",
     "title": "The Shallows",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
   }
 ]
