@@ -14,3 +14,13 @@
 .card-body .text-center {
   margin-top: auto;
 }
+
+d-topics-list {
+  display: block;
+  width: 100%;
+}
+
+d-topics-list iframe {
+  width: 100% !important;
+  max-width: none !important;
+}
