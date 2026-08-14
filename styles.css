@@ -1,0 +1,16 @@
+/* css styles */
+
+.card {
+  height: 100%;
+  margin-bottom: 1rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body .text-center {
+  margin-top: auto;
+}

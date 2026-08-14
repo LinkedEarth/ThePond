@@ -1,0 +1,17 @@
+# _brand.yml
+
+logo:
+  small: images/FROGSlogo.jpg
+
+color:
+  palette:
+    pond: "#147E78"
+    water: "#24B0A6"
+    lilypad: "#B1CA2C"
+    deep-water: "#125D4B"
+    cream: "#EAE4B8"
+    ink: "#101319"
+
+  primary: pond
+  foreground: ink
+  background: "#FFFFFF"
