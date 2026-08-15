@@ -3,11 +3,80 @@ title: "Workflow"
 subtitle: Reproducibility, Computational Environments, Provenance, Notebooks, and Sharing.
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+These LilyPads build on one another. **Start with LilyPad 1 and work through them in order.**
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+::: {.grid}
 
-![](../images/frog_soon.gif){fig-align="center" width="250px"}
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 1. Are Methods Actionable?
+
+Try to reproduce a scientific result from a methods description—and discover what information is missing.
+
+[Start LilyPad →](methods-actionable/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 2. What Is a Workflow?
+
+Explore what scientists mean by a workflow and identify the pieces needed to make one reproducible.
+
+[Start LilyPad →](what-is-a-workflow/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 3. Sketching a Workflow
+
+Turn a scientific process into a visual workflow by identifying its major steps and connections.
+
+[Start LilyPad →](sketching-workflows/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 4. From Sketch to Notebook
+
+Connect the steps in a workflow sketch to the code, data, and outputs in a computational notebook.
+
+[Start LilyPad →](sketches-vs-notebooks/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 5. Why Containers Matter
+
+See how changing the computational environment can change scientific results—even when the workflow stays the same.
+
+[Start LilyPad →](containers/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 6. Citing Workflows
+
+Explore how computational workflows can be documented, shared, and cited as research products.
+
+[Start LilyPad →](citing-workflows/index.qmd)
+:::
+:::
+:::
+
 :::

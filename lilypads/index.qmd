@@ -1,5 +1,5 @@
 ---
-title: "Lilypads"
+title: "LilyPads"
 ---
 
 LilyPads are hands-on learning spaces where you can build practical skills for making your research more open and reproducible.
