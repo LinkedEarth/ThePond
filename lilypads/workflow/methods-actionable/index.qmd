@@ -2,133 +2,767 @@
 title: "Are Methods Actionable?"
 execute:
   echo: false
+resources:
+  - images/generated/**
 ---
 
 ## Can you reproduce this result?
 
-::: {.callout-note title="Methods"}
-We examined interannual variability in the El Niño Southern Oscillation (ENSO) using spectral analysis. Results of this analysis are shown in Figure 1.
+::: {.callout-note title="Instructions"}
+
+The paragraph below is an excerpt from a methods section of a scientific paper. The goal of this exercise is to determine whether the instructions provided in the paper are sufficient to reproduce the results shown in Figure 1. As you complete this exercise, consider what information is missing from the methods section that would have helped you reproduce the results.
+
 :::
+
+
+We examined interannual variability in the El Niño Southern Oscillation (ENSO) using spectral analysis. Results of this analysis are shown in Figure 1.
+
 
 ![Figure 1. Spectral power of ENSO variability.](images/figure1.png){width=75% fig-align="center"}
 
-## Reproduce the analysis
+## **Reproduce the analysis**
 
 Use the information provided in the Methods section to reproduce Figure 1.
 
-::: {.grid}
+```{ojs}
+//| echo: false
 
-::: {.g-col-12 .g-col-md-6}
-### 1. Choose the data
+manifest = FileAttachment("images/generated/manifest.json").json()
+```
 
 ```{ojs}
 //| echo: false
 
-viewof enso_index = Inputs.select(
-  ["Niño 3", "Niño 3.4", "Niño 4"],
-  {
-    label: "ENSO index",
-    value: "Niño 3"
+activity = {
+  const attempts = [];
+  let currentAttempt = null;
+
+  const labels = {
+    dataset: {
+      "nino3": "Niño 3",
+      "nino34": "Niño 3.4",
+      "nino4": "Niño 4"
+    },
+
+    detrend: {
+      "none": "None",
+      "linear": "Linear",
+      "constant": "Constant",
+      "savitzky-golay": "Savitzky-Golay",
+      "emd": "EMD"
+    },
+
+    regridding: {
+      "none": "None",
+      "linear": "Linear interpolation",
+      "cubic": "Cubic spline interpolation",
+      "bin": "Binning"
+    },
+
+    spectral: {
+      "lomb-scargle": "Lomb–Scargle",
+      "fourier": "Fourier",
+      "mtm": "MTM"
+    },
+
+    significance: {
+      "none": "None",
+      "100": "100 simulations",
+      "250": "250 simulations",
+      "500": "500 simulations"
+    }
+  };
+
+
+  const root = html`
+    <div>
+
+      <div class="row g-4">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-12 col-md-4">
+
+          <h3><strong>Your choices</strong></h3>
+
+          <h4><strong>1. Data</strong></h4>
+
+          <div class="mb-4">
+            <label class="form-label">ENSO index</label>
+            <select class="form-select" id="dataset">
+              <option value="nino3">Niño 3</option>
+              <option value="nino34">Niño 3.4</option>
+              <option value="nino4">Niño 4</option>
+            </select>
+          </div>
+
+
+          <h4><strong>2. Detrending</strong></h4>
+
+          <div class="mb-4">
+            <label class="form-label">Detrending method</label>
+            <select class="form-select" id="detrend">
+              <option value="none">None</option>
+              <option value="linear">Linear</option>
+              <option value="constant">Constant</option>
+              <option value="savitzky-golay">Savitzky-Golay</option>
+              <option value="emd">EMD</option>
+            </select>
+          </div>
+
+
+          <h4><strong>3. Regridding</strong></h4>
+
+          <div class="mb-4">
+            <label class="form-label">Regridding method</label>
+            <select class="form-select" id="regridding">
+              <option value="none">None</option>
+              <option value="linear">Linear interpolation</option>
+              <option value="cubic">Cubic spline interpolation</option>
+              <option value="bin">Binning</option>
+            </select>
+          </div>
+
+
+          <h4><strong>4. Spectral analysis</strong></h4>
+
+          <div class="mb-4">
+            <label class="form-label">Spectral method</label>
+            <select class="form-select" id="spectral">
+              <option value="lomb-scargle">Lomb–Scargle</option>
+            </select>
+          </div>
+
+
+          <h4><strong>5. Significance</strong></h4>
+
+          <div class="mb-4">
+            <label class="form-label">Monte Carlo simulations</label>
+            <select class="form-select" id="significance">
+              <option value="none">None</option>
+              <option value="100">100</option>
+              <option value="250">250</option>
+              <option value="500">500</option>
+            </select>
+          </div>
+
+
+          <button
+            type="button"
+            class="btn btn-primary w-100"
+            id="generate">
+            Generate figure
+          </button>
+
+        </div>
+
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-12 col-md-8">
+
+          <h3><strong>Your workflow</strong></h3>
+
+          <div class="callout callout-style-default callout-info">
+            <div class="callout-body-container callout-body">
+
+              <p>
+                <strong>Data:</strong>
+                <span id="summary-dataset">Niño 3</span>
+              </p>
+
+              <p>
+                <strong>Detrending:</strong>
+                <span id="summary-detrend">None</span>
+              </p>
+
+              <p>
+                <strong>Regridding:</strong>
+                <span id="summary-regridding">None</span>
+              </p>
+
+              <p>
+                <strong>Spectral method:</strong>
+                <span id="summary-spectral">Lomb–Scargle</span>
+              </p>
+
+              <p>
+                <strong>Significance:</strong>
+                <span id="summary-significance">None</span>
+              </p>
+
+            </div>
+          </div>
+
+
+          <h3 class="mt-4"><strong>Your result</strong></h3>
+
+          <div id="result" style="min-height: 250px;">
+            <em>Your generated spectrum will appear here.</em>
+          </div>
+
+          <p id="attempt-status" class="text-muted mt-2"></p>
+
+        </div>
+
+      </div>
+
+
+      <hr class="my-5">
+
+
+      <!-- NOTEPAD -->
+      <h2><strong>Notepad</strong></h2>
+
+      <p id="notes-label">
+        As you work, keep track of information you wish the Methods section had provided.
+      </p>
+
+      <textarea
+        id="notes"
+        class="form-control"
+        rows="8"
+        placeholder="What information is missing? What decisions did you have to make?"
+      ></textarea>
+
+
+      <button
+        type="button"
+        class="btn btn-primary mt-3"
+        id="download">
+        Download notes
+      </button>
+
+
+      <details id="history-container" class="mt-4" hidden>
+        <summary><strong>Attempt history</strong></summary>
+        <div id="history" class="mt-3"></div>
+      </details>
+
+    </div>
+  `;
+
+
+  // --------------------------------------------------
+  // Get controls
+  // --------------------------------------------------
+
+  const dataset = root.querySelector("#dataset");
+  const detrend = root.querySelector("#detrend");
+  const regridding = root.querySelector("#regridding");
+  const spectral = root.querySelector("#spectral");
+  const significance = root.querySelector("#significance");
+
+  const result = root.querySelector("#result");
+  const status = root.querySelector("#attempt-status");
+
+  const notes = root.querySelector("#notes");
+  const notesLabel = root.querySelector("#notes-label");
+
+  const historyContainer =
+    root.querySelector("#history-container");
+
+  const history =
+    root.querySelector("#history");
+
+
+  // --------------------------------------------------
+  // Current workflow
+  // --------------------------------------------------
+
+  function getWorkflow() {
+    return {
+      dataset: dataset.value,
+      detrend: detrend.value,
+      regridding: regridding.value,
+      spectral: spectral.value,
+      significance: significance.value
+    };
   }
-)
-```
-:::
 
-::: {.g-col-12 .g-col-md-6}
-### 2. Detrending
 
-```{ojs}
-//| echo: false
+  // --------------------------------------------------
+  // Update workflow summary
+  // --------------------------------------------------
 
-viewof detrend = Inputs.select(
-  ["None", "Linear", "Constant", "Savitzky-Golay", "EMD"],
-  {
-    label: "Detrending method",
-    value: "Linear"
+  function updateSummary() {
+
+    const workflow = getWorkflow();
+
+    root.querySelector("#summary-dataset").textContent =
+      labels.dataset[workflow.dataset];
+
+    root.querySelector("#summary-detrend").textContent =
+      labels.detrend[workflow.detrend];
+
+    root.querySelector("#summary-regridding").textContent =
+      labels.regridding[workflow.regridding];
+
+    root.querySelector("#summary-spectral").textContent =
+      labels.spectral[workflow.spectral];
+
+    root.querySelector("#summary-significance").textContent =
+      labels.significance[workflow.significance];
+
+    updateStatus();
   }
-)
-```
-:::
 
-::: {.g-col-12 .g-col-md-6}
-### 3. Interpolation
 
-```{ojs}
-//| echo: false
+  // --------------------------------------------------
+  // Spectral options
+  // --------------------------------------------------
 
-viewof interpolation = Inputs.select(
-  ["None", "Linear", "Cubic spline"],
-  {
-    label: "Interpolation method",
-    value: "None"
+  function updateSpectralOptions() {
+
+    const previous = spectral.value;
+
+    let options;
+
+    if (regridding.value === "none") {
+
+      options = [
+        ["lomb-scargle", "Lomb–Scargle"]
+      ];
+
+    } else {
+
+      options = [
+        ["lomb-scargle", "Lomb–Scargle"],
+        ["fourier", "Fourier"],
+        ["mtm", "MTM"]
+      ];
+
+    }
+
+
+    spectral.replaceChildren();
+
+
+    for (const [value, label] of options) {
+
+      const option =
+        document.createElement("option");
+
+      option.value = value;
+      option.textContent = label;
+
+      spectral.appendChild(option);
+    }
+
+
+    // Keep the previous method if it is still valid.
+    if (options.some(d => d[0] === previous)) {
+
+      spectral.value = previous;
+
+    } else {
+
+      spectral.value = "lomb-scargle";
+
+    }
+
+
+    updateSummary();
   }
-)
-```
-:::
 
-::: {.g-col-12 .g-col-md-6}
-### 4. Standardization
 
-```{ojs}
-//| echo: false
+  // --------------------------------------------------
+  // Compare workflows
+  // --------------------------------------------------
 
-viewof standardize = Inputs.toggle({
-  label: "Standardize the time series",
-  value: false
-})
-```
-:::
+  function sameWorkflow(a, b) {
 
-:::
+    if (!a || !b) return false;
 
-### 5. Spectral analysis
-
-```{ojs}
-//| echo: false
-
-spectral_options =
-  interpolation === "None"
-    ? ["Lomb–Scargle"]
-    : ["Fourier", "MTM", "Lomb–Scargle"]
-
-viewof spectral_method = Inputs.select(
-  spectral_options,
-  {
-    label: "Spectral method",
-    value: spectral_options.includes("MTM") ? "MTM" : "Lomb–Scargle"
+    return (
+      a.dataset === b.dataset &&
+      a.detrend === b.detrend &&
+      a.regridding === b.regridding &&
+      a.spectral === b.spectral &&
+      a.significance === b.significance
+    );
   }
-)
-```
 
-### 6. Significance testing
 
-```{ojs}
-//| echo: false
+  function updateStatus() {
 
-viewof significance = Inputs.select(
-  ["None", "100", "250", "500"],
-  {
-    label: "Monte Carlo simulations",
-    value: "None"
+    if (!currentAttempt) {
+      status.textContent = "";
+      return;
+    }
+
+
+    if (sameWorkflow(getWorkflow(), currentAttempt)) {
+
+      status.textContent =
+        `Showing result from Attempt ${currentAttempt.number}.`;
+
+    } else {
+
+      status.textContent =
+        "Your selections have changed. Click Generate figure to see the new result.";
+
+    }
   }
-)
-```
 
-### Your workflow
 
-```{ojs}
-//| echo: false
+  // --------------------------------------------------
+  // Attempt history
+  // --------------------------------------------------
 
-html`
-<div class="callout callout-style-default callout-info">
-  <div class="callout-body-container callout-body">
-    <p><strong>Data:</strong> ${enso_index}</p>
-    <p><strong>Detrending:</strong> ${detrend}</p>
-    <p><strong>Interpolation:</strong> ${interpolation}</p>
-    <p><strong>Standardization:</strong> ${standardize ? "Yes" : "No"}</p>
-    <p><strong>Spectral method:</strong> ${spectral_method}</p>
-    <p><strong>Significance:</strong> ${significance === "None" ? "None" : significance + " simulations"}</p>
-  </div>
-</div>
-`
+  function renderHistory() {
+
+    history.replaceChildren();
+
+
+    for (const attempt of attempts) {
+
+      const entry =
+        document.createElement("div");
+
+      entry.className =
+        "border-bottom pb-3 mb-3";
+
+
+      const title =
+        document.createElement("strong");
+
+      title.textContent =
+        `Attempt ${attempt.number}`;
+
+
+      const workflow =
+        document.createElement("div");
+
+      workflow.className = "small mt-1";
+
+      workflow.textContent =
+        `${labels.dataset[attempt.dataset]} → ` +
+        `${labels.detrend[attempt.detrend]} detrending → ` +
+        `${labels.regridding[attempt.regridding]} → ` +
+        `${labels.spectral[attempt.spectral]} → ` +
+        `${labels.significance[attempt.significance]}`;
+
+
+      entry.append(title, workflow);
+
+
+      if (attempt.notes.trim()) {
+
+        const note =
+          document.createElement("div");
+
+        note.className = "small mt-2";
+
+        note.textContent =
+          `Notes: ${attempt.notes}`;
+
+        entry.appendChild(note);
+      }
+
+
+      history.appendChild(entry);
+    }
+
+
+    historyContainer.hidden =
+      attempts.length === 0;
+  }
+
+
+  // --------------------------------------------------
+  // Generate figure
+  // --------------------------------------------------
+
+  root.querySelector("#generate")
+    .addEventListener("click", () => {
+
+
+      // Save notes associated with the current attempt
+      if (currentAttempt) {
+
+        currentAttempt.notes =
+          notes.value;
+
+      }
+
+
+      const workflow =
+        getWorkflow();
+
+
+      const match =
+        manifest.find(d =>
+
+          d.dataset === workflow.dataset &&
+
+          d.detrend === workflow.detrend &&
+
+          d.regridding === workflow.regridding &&
+
+          d.spectral === workflow.spectral &&
+
+          d.significance === workflow.significance
+
+        );
+
+
+      if (!match) {
+
+        result.innerHTML =
+          `<div class="alert alert-warning">
+             No precomputed result was found for this workflow.
+           </div>`;
+
+        return;
+      }
+
+
+      // First notes entered before generating
+      // belong to Attempt 1.
+      const firstNotes =
+        attempts.length === 0
+          ? notes.value
+          : "";
+
+
+      const attempt = {
+
+        number: attempts.length + 1,
+
+        ...workflow,
+
+        notes: firstNotes
+
+      };
+
+
+      attempts.push(attempt);
+
+      currentAttempt = attempt;
+
+
+      // Clear notes for a new attempt,
+      // except for the first attempt.
+      if (attempt.number > 1) {
+
+        notes.value = "";
+
+      }
+
+
+      // Display figure
+      result.replaceChildren();
+
+
+      const img =
+        document.createElement("img");
+
+
+      img.src =
+        match.image;
+
+
+      img.alt =
+        `Generated spectrum for Attempt ${attempt.number}`;
+
+
+      img.style.width =
+        "100%";
+
+
+      img.style.height =
+        "auto";
+
+
+      result.appendChild(img);
+
+
+      notesLabel.textContent =
+        `Notes for Attempt ${attempt.number}: ` +
+        "record what you observe and what information you wish had been provided.";
+
+
+      renderHistory();
+
+      updateStatus();
+
+    });
+
+
+  // --------------------------------------------------
+  // Continuously save current notes
+  // --------------------------------------------------
+
+  notes.addEventListener("input", () => {
+
+    if (currentAttempt) {
+
+      currentAttempt.notes =
+        notes.value;
+
+    }
+
+  });
+
+
+  // --------------------------------------------------
+  // Download notes + attempts
+  // --------------------------------------------------
+
+  root.querySelector("#download")
+    .addEventListener("click", () => {
+
+
+      // Save anything currently typed
+      if (currentAttempt) {
+
+        currentAttempt.notes =
+          notes.value;
+
+      }
+
+
+      let output =
+        "ARE METHODS ACTIONABLE?\n" +
+        "Workflow reproduction exercise\n" +
+        "========================================\n\n";
+
+
+      if (attempts.length === 0) {
+
+        output +=
+          "No figures were generated.\n\n";
+
+
+        if (notes.value.trim()) {
+
+          output +=
+            "NOTES\n";
+
+          output +=
+            notes.value.trim() + "\n";
+
+        }
+
+      } else {
+
+
+        for (const attempt of attempts) {
+
+          output +=
+            `ATTEMPT ${attempt.number}\n`;
+
+          output +=
+            "----------------------------------------\n";
+
+          output +=
+            `Data: ${labels.dataset[attempt.dataset]}\n`;
+
+          output +=
+            `Detrending: ${labels.detrend[attempt.detrend]}\n`;
+
+          output +=
+            `Regridding: ${labels.regridding[attempt.regridding]}\n`;
+
+          output +=
+            `Spectral method: ${labels.spectral[attempt.spectral]}\n`;
+
+          output +=
+            `Significance: ${labels.significance[attempt.significance]}\n\n`;
+
+          output +=
+            "Notes:\n";
+
+          output +=
+            attempt.notes.trim()
+              ? attempt.notes.trim()
+              : "(No notes recorded)";
+
+          output +=
+            "\n\n========================================\n\n";
+
+        }
+
+      }
+
+
+      const blob =
+        new Blob(
+          [output],
+          {type: "text/plain;charset=utf-8"}
+        );
+
+
+      const url =
+        URL.createObjectURL(blob);
+
+
+      const link =
+        document.createElement("a");
+
+
+      link.href =
+        url;
+
+
+      link.download =
+        "workflow-reproduction-notes.txt";
+
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      link.remove();
+
+
+      URL.revokeObjectURL(url);
+
+    });
+
+
+  // --------------------------------------------------
+  // Control listeners
+  // --------------------------------------------------
+
+  dataset.addEventListener(
+    "change",
+    updateSummary
+  );
+
+
+  detrend.addEventListener(
+    "change",
+    updateSummary
+  );
+
+
+  regridding.addEventListener(
+    "change",
+    updateSpectralOptions
+  );
+
+
+  spectral.addEventListener(
+    "change",
+    updateSummary
+  );
+
+
+  significance.addEventListener(
+    "change",
+    updateSummary
+  );
+
+
+  // --------------------------------------------------
+  // Initial state
+  // --------------------------------------------------
+
+  updateSpectralOptions();
+
+  updateSummary();
+
+
+  return root;
+}
 ```
