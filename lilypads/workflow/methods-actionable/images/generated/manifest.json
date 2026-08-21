@@ -1,0 +1,4802 @@
+[
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-none__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-linear__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-constant__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino3",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino3__detrend-emd__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-none__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-linear__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-constant__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino34",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino34__detrend-emd__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "none",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-none__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "linear",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-linear__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "constant",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-constant__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "savitzky-golay",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-savitzky-golay__regrid-bin__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-none__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-none__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-none__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "none",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-none__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "linear",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-linear__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "cubic",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-cubic__spec-lomb-scargle__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-fourier__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-fourier__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-fourier__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "fourier",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-fourier__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-mtm__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-mtm__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-mtm__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "mtm",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-mtm__sig-500.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "none",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-lomb-scargle__sig-none.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "100",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-lomb-scargle__sig-100.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "250",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-lomb-scargle__sig-250.png"
+  },
+  {
+    "dataset": "nino4",
+    "detrend": "emd",
+    "regridding": "bin",
+    "spectral": "lomb-scargle",
+    "significance": "500",
+    "image": "images/generated/nino4__detrend-emd__regrid-bin__spec-lomb-scargle__sig-500.png"
+  }
+]

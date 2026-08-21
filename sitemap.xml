@@ -2,34 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/spring/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.462Z</lastmod>
+    <lastmod>2026-08-21T22:38:24.156Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.461Z</lastmod>
+    <lastmod>2026-08-21T22:38:23.643Z</lastmod>
   </url>
   <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.462Z</lastmod>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/citing-workflows/index.html</loc>
+    <lastmod>2026-08-21T22:38:23.645Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/index.html</loc>
+    <lastmod>2026-08-21T22:38:24.156Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketching-workflows/index.html</loc>
+    <lastmod>2026-08-21T22:38:24.156Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/containers/index.html</loc>
+    <lastmod>2026-08-21T22:38:23.645Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/lilypads/data/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.462Z</lastmod>
+    <lastmod>2026-08-21T22:38:23.645Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/lilypads/software/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.462Z</lastmod>
+    <lastmod>2026-08-21T22:38:23.645Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/lilypads/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.462Z</lastmod>
+    <lastmod>2026-08-21T22:38:23.645Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/index.html</loc>
+    <lastmod>2026-08-21T22:38:23.645Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/methods-actionable/index.html</loc>
+    <lastmod>2026-08-21T22:38:24.155Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/what-is-a-workflow/index.html</loc>
+    <lastmod>2026-08-21T22:38:24.156Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/deep-water/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.455Z</lastmod>
+    <lastmod>2026-08-21T22:38:23.638Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/shallows/index.html</loc>
-    <lastmod>2026-08-14T23:19:28.462Z</lastmod>
+    <lastmod>2026-08-21T22:38:24.156Z</lastmod>
   </url>
 </urlset>
