@@ -43,12 +43,12 @@ Hop onto a LilyPad for **hands-on learning**. Explore self-contained modules, co
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card}
 ::: {.card-body}
-### Deep Water
+### The Deep End
 
 Ready to dive deeper? Explore **advanced topics and technical tracks**, including licensing frameworks, infrastructure, and more complex approaches to implementing open science.
 
 ::: {.text-center}
-[Dive into Deep Water](deep-water/index.qmd){.btn .btn-primary}
+[Dive into The Deep End](deep-water/index.qmd){.btn .btn-primary}
 :::
 :::
 :::
@@ -76,4 +76,4 @@ Open science is a community effort. **Ask questions, share experiences, and cont
 
 **Looking for practical skills?** Jump straight to the [LilyPads](lilypads/index.qmd).
 
-**Already comfortable with the basics?** Dive into [Deep Water](deep-water/index.qmd).
+**Already comfortable with the basics?** Dive into [The Deep End](deep-water/index.qmd).

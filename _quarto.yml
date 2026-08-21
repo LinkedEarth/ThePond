@@ -14,7 +14,7 @@ website:
       - href: lilypads/index.qmd
         text: LilyPads
       - href: deep-water/index.qmd
-        text: Deep Water
+        text: The Deep End
       - href: spring/index.qmd
         text: The Spring
   page-footer: "The Pond is part of [FROGS](https://linked.earth/FROGS/), a [LinkedEarth](https://linked.earth/) project."
