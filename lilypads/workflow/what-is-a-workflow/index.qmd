@@ -2,8 +2,288 @@
 title: "What is a Workflow?"
 ---
 
+This section of The Pond explores what scientists mean by a workflow and identifies the pieces needed to make one reproducible.
+
+## 1. What comes to mind?
+
+Before we define a scientific workflow, take a moment to think about what the term means to you. Your response will be added to a growing word cloud created by participants in these workshop trainings.
+
+```{ojs}
+//| echo: false
+
+d3 = require("d3@7")
+d3Cloud = require("d3-cloud@1")
+
+SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwnGmUuYWu6leFSUG6Qe0F59NBbRUqrCLzpIhDzHpeK78KbflS-PJbI9Jk79L3GdmEU/exec"
+
+
+// Load existing responses
+
+savedResponses = await fetch(SCRIPT_URL)
+  .then(response => response.json())
+
+savedWords = savedResponses
+  .flatMap(d => [d.word1, d.word2, d.word3])
+  .filter(Boolean)
+
+
+// Participant response form
+
+viewof workflowWords = {
+
+  const form = html`
+    <form style="max-width: 600px;">
+
+      <label style="display:block; margin-bottom:0.5rem;">
+        <strong>
+          In 1–3 words, what comes to mind when you think of a scientific workflow?
+          Separate your words with commas.
+        </strong>
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="e.g., cats, dogs, horses"
+      >
+
+      <div style="margin-top:0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Add my words
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-secondary show-cloud"
+        >
+          Just show me the word cloud
+        </button>
+
+      </div>
+
+      <div
+        class="message"
+        style="margin-top:0.5rem;"
+      ></div>
+
+    </form>
+  `
+
+  const input = form.querySelector("input")
+  const submitButton = form.querySelector('button[type="submit"]')
+  const showButton = form.querySelector(".show-cloud")
+  const message = form.querySelector(".message")
+
+  form.value = null
+
+
+  // Submit participant words
+
+  form.addEventListener("submit", async event => {
+
+    event.preventDefault()
+
+    const words = input.value
+      .split(",")
+      .map(d => d.trim().toLowerCase())
+      .filter(Boolean)
+
+    if (words.length === 0) {
+      message.textContent = "Please enter at least one word."
+      return
+    }
+
+    if (words.length > 3) {
+      message.textContent = "Please enter no more than three words."
+      return
+    }
+
+    message.textContent = "Adding your words..."
+
+    try {
+
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+          event: "The Pond",
+          word1: words[0] || "",
+          word2: words[1] || "",
+          word3: words[2] || ""
+        })
+      })
+
+      input.disabled = true
+      submitButton.disabled = true
+      showButton.disabled = true
+
+      submitButton.textContent = "Submitted"
+
+      message.textContent =
+        "Thanks! Your words have been added."
+
+      form.value = words
+
+      form.dispatchEvent(
+        new Event("input", { bubbles: true })
+      )
+
+    } catch (error) {
+
+      message.textContent =
+        "Something went wrong. Please try again."
+
+    }
+
+  })
+
+
+  // Reveal cloud without submitting
+
+  showButton.addEventListener("click", () => {
+
+    input.disabled = true
+    submitButton.disabled = true
+    showButton.disabled = true
+
+    showButton.textContent = "Word cloud shown"
+
+    message.textContent =
+      "No response was submitted."
+
+    form.value = []
+
+    form.dispatchEvent(
+      new Event("input", { bubbles: true })
+    )
+
+  })
+
+  return form
+}
+
+
+// Build the word cloud
+
+workflowCloud = {
+
+  if (!workflowWords) return html``
+
+  const allWords = [
+    ...savedWords,
+    ...workflowWords
+  ]
+
+  const counts = d3.rollups(
+    allWords,
+    values => values.length,
+    word => word
+  )
+
+  const maxCount = d3.max(counts, d => d[1])
+
+  const sizeScale = d3.scaleSqrt()
+    .domain([1, Math.max(maxCount, 2)])
+    .range([24, 60])
+
+  const colorScale = d3.scaleLinear()
+    .domain([1, Math.max(maxCount, 2)])
+    .range(["#8fd3c1", "#1f6f78"])
+
+  const words = counts.map(([text, count]) => ({
+    text,
+    count,
+    size: maxCount === 1
+      ? 38
+      : sizeScale(count)
+  }))
+
+  const width = 700
+  const height = 300
+
+  const placedWords = await new Promise(resolve => {
+
+    d3Cloud()
+      .size([width, height])
+      .words(words)
+      .padding(18)
+      .rotate(0)
+      .font("sans-serif")
+      .fontSize(d => d.size)
+      .on("end", resolve)
+      .start()
+
+  })
+
+  const svg = d3.create("svg")
+    .attr("viewBox", [0, 0, width, height])
+    .attr(
+      "style",
+      "width:100%; max-width:700px; height:auto;"
+    )
+
+  svg.append("g")
+    .attr(
+      "transform",
+      `translate(${width / 2},${height / 2})`
+    )
+    .selectAll("text")
+    .data(placedWords)
+    .join("text")
+      .style("font-family", "sans-serif")
+      .style("font-weight", "600")
+      .style("font-size", d => `${d.size}px`)
+      .style("fill", d => colorScale(d.count))
+      .attr("text-anchor", "middle")
+      .attr(
+        "transform",
+        d =>
+          `translate(${d.x},${d.y}) rotate(${d.rotate})`
+      )
+      .text(d => d.text)
+
+  const container = html`
+    <div style="margin-top:2rem;">
+      <p>
+        <strong>
+          Here’s how participants describe scientific workflows:
+        </strong>
+      </p>
+    </div>
+  `
+
+  container.append(svg.node())
+
+  return container
+}
+```
+
+
+---
+
+## 2. What is a scientific workflow?
+
 ::: {.callout-note appearance="simple"}
-## Coming soon
+
+**A frog will be here shortly.**  
+This part of The Pond is still being prepared. Check back soon for new learning materials.
+
+![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
+:::
+
+---
+
+## 3. Revisit your answer
+
+
+::: {.callout-note appearance="simple"}
 
 **A frog will be here shortly.**  
 This part of The Pond is still being prepared. Check back soon for new learning materials.
