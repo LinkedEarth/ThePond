@@ -10,19 +10,21 @@ resources:
 
 ::: {.callout-note title="Instructions"}
 
-The paragraph below is an excerpt from a methods section of a scientific paper. The goal of this exercise is to determine whether the instructions provided in the paper are sufficient to reproduce the results shown in Figure 1. As you complete this exercise, consider what information is missing from the methods section that would have helped you reproduce the results.
+Chances are you have come across results in scientific publications, posters or talks, and wondered: "How did they get here?" Supposedly that is what the Methods section explains, but that information is not always actionable. 
+
+The paragraph below is an excerpt from a (fictitious) methods section. The goal of the exercise is to determine whether the provided instructions are sufficient to reproduce the results shown in Figure 1. As you complete this exercise, take careful notes about what information is missing from the methods section that would help you reproduce the results.
 
 :::
 
 
-We examined interannual variability in the El Niño Southern Oscillation (ENSO) using spectral analysis. Results of this analysis are shown in Figure 1.
+_We examined interannual variability in the El Niño Southern Oscillation (ENSO) using spectral analysis. Results of this analysis are shown in Figure 1._
 
 
 ![Figure 1. Spectral power of ENSO variability.](images/figure1.png){width=75% fig-align="center"}
 
-## **Reproduce the analysis**
+## **Reproducing the analysis**
 
-Use the information provided in the Methods section to reproduce Figure 1.
+Use the information provided in this cursory "Methods section" to reproduce Figure 1. Before you begin, know that while spectral analysis is a complex topic, you absolutely do not need to know anything about it for the purposes of this exercise. Suffice it say that it involves many possible decisions, and we give you several possible choices for you to appreciate how deceptively simple the phrase "using spectral analysis" can be. 
 
 ```{ojs}
 //| echo: false
@@ -61,7 +63,7 @@ activity = {
 
     spectral: {
       "lomb-scargle": "Lomb–Scargle",
-      "fourier": "Fourier",
+      "fourier": "Periodogram",
       "mtm": "MTM"
     },
 
@@ -86,6 +88,13 @@ activity = {
 
           <h4><strong>1. Data</strong></h4>
 
+          <p>
+            The first decision to make is what measure of "ENSO" to use.
+            Several indices are available for this purpose. Here we provide
+            3 common ones (whose exact definitions are not important for the
+            purposes of this exercise).
+          </p>
+
           <div class="mb-4">
             <label class="form-label">ENSO index</label>
             <select class="form-select" id="dataset">
@@ -97,6 +106,10 @@ activity = {
 
 
           <h4><strong>2. Detrending</strong></h4>
+
+          <p>
+            Next we need to decide how to take out trends, as those can bias the low end of a spectrum. Here are 5 of many possible choices:
+          </p>
 
           <div class="mb-4">
             <label class="form-label">Detrending method</label>
@@ -112,6 +125,10 @@ activity = {
 
           <h4><strong>3. Regridding</strong></h4>
 
+          <p>
+            The series we provided contained missing data, so you need to decide what to do about that. Some methods only work with complete datasets, while others are tolerant to missing data. Depending on the choice you make here, different spectral methods will be open to you. 
+          </p>
+
           <div class="mb-4">
             <label class="form-label">Regridding method</label>
             <select class="form-select" id="regridding">
@@ -125,6 +142,10 @@ activity = {
 
           <h4><strong>4. Spectral analysis</strong></h4>
 
+          <p>
+            Now for the methods: several are available. Lomb–Scargle is designed to work with missing data; the other two are not. Their other differences are important, but not relevant to this exercise. 
+          </p>
+
           <div class="mb-4">
             <label class="form-label">Spectral method</label>
             <select class="form-select" id="spectral">
@@ -135,8 +156,12 @@ activity = {
 
           <h4><strong>5. Significance</strong></h4>
 
+          <p>
+            The final decision to make is how statistical significance is established. Fig 1 features a red dashed line that shows the 95% benchmark against the null hypothesis that the series is a form of pure noise with some short-term memory ("red noise" for those who are familiar). This benchmark allows one to judge which parts of the spectrum are statistically significant, and is obtained by applying the same spectral method to several examples of such noise (this is called "Monte Carlo simulations", a tribute to Monte Carlo and its games of chance). Since this is simulation-based, the number of simulations can make a difference:
+          </p>
+
           <div class="mb-4">
-            <label class="form-label">Monte Carlo simulations</label>
+            <label class="form-label">Number of simulations</label>
             <select class="form-select" id="significance">
               <option value="none">None</option>
               <option value="100">100</option>
@@ -326,7 +351,7 @@ activity = {
 
       options = [
         ["lomb-scargle", "Lomb–Scargle"],
-        ["fourier", "Fourier"],
+        ["fourier", "Periodogram"],
         ["mtm", "MTM"]
       ];
 
