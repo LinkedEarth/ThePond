@@ -27,5 +27,5 @@ If you would like to create content for this course, fork the repository to make
 
 ## Acknowledgements
 
-This platform is supported by the National Science Foundation Grant RISE #2606390 and 2606391.
+This platform is supported by National Science Foundation Grants RISE #2606390 and #2606391.
 
