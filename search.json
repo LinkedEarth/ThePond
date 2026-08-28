@@ -137,7 +137,7 @@
     "href": "lilypads/workflow/what-is-a-workflow/index.html#revisit-your-answer",
     "title": "What is a Workflow?",
     "section": "3. Revisit your answer",
-    "text": "3. Revisit your answer\n\n\n\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+    "text": "3. Revisit your answer\nThink about a scientific analysis you have worked on—or one you have tried to reproduce.\nWhat information would someone else need to reproduce your work? or what information do you wish had been shared with you when you tried to reproduce someone else’s work?\n\nviewof reflection = Inputs.textarea({\n  label: \"Your reflection\",\n  rows: 10,\n  placeholder: \"Write your reflection here...\"\n})\n\n\n\n\n\n\n\n\n\n\ndownloadReflection = {\n  const button = html`&lt;button class=\"btn btn-primary\"&gt;\n    Download my reflection\n  &lt;/button&gt;`;\n\n  button.onclick = () =&gt; {\n    const content = `# My workflow reflection\n\n${reflection}\n`;\n\n    const blob = new Blob(\n      [content],\n      { type: \"text/markdown;charset=utf-8\" }\n    );\n\n    const url = URL.createObjectURL(blob);\n\n    const link = document.createElement(\"a\");\n    link.href = url;\n    link.download = \"workflow-reflection.md\";\n\n    document.body.appendChild(link);\n    link.click();\n    link.remove();\n\n    URL.revokeObjectURL(url);\n  };\n\n  return button;\n}\n\n\n\n\n\n\nYour response stays in your browser. Nothing is submitted or stored."
   },
   {
     "objectID": "deep-water/index.html",
