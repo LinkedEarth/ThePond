@@ -282,11 +282,54 @@ This part of The Pond is still being prepared. Check back soon for new learning 
 
 ## 3. Revisit your answer
 
+Think about a scientific analysis you have worked on—or one you have tried to reproduce.
 
-::: {.callout-note appearance="simple"}
+**What information would someone else need to reproduce your work?** or **what information do you wish had been shared with you when you tried to reproduce someone else’s work?**
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+```{ojs}
+//| echo: false
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
-:::
+viewof reflection = Inputs.textarea({
+  label: "Your reflection",
+  rows: 10,
+  placeholder: "Write your reflection here..."
+})
+```
+<div style="height: 1rem;"></div>
+
+```{ojs}
+//| echo: false
+downloadReflection = {
+  const button = html`<button class="btn btn-primary">
+    Download my reflection
+  </button>`;
+
+  button.onclick = () => {
+    const content = `# My workflow reflection
+
+${reflection}
+`;
+
+    const blob = new Blob(
+      [content],
+      { type: "text/markdown;charset=utf-8" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "workflow-reflection.md";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+  };
+
+  return button;
+}
+```
+Your response stays in your browser. Nothing is submitted or stored.
+
