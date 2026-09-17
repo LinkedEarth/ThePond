@@ -48,9 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f9b4f484ae34e7e621b22ea44aa862d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-e4ecec33761f869fdd7a4083c1e9f3c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-f9b4f484ae34e7e621b22ea44aa862d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-04a0210ca842d2ced31ed87a124cf1c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-952c5f95f050d75e006c05de3d2d7b1a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-04a0210ca842d2ced31ed87a124cf1c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -135,8 +135,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#choose-a-scenario" id="toc-choose-a-scenario" class="nav-link active" data-scroll-target="#choose-a-scenario">Choose a scenario</a></li>
+  <li><a href="#sketch-your-workflow" id="toc-sketch-your-workflow" class="nav-link" data-scroll-target="#sketch-your-workflow">Sketch your workflow</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -160,27 +167,2612 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>A scientific workflow is more than a list of tasks. It shows how the different parts of a scientific process fit together — including data collection, preprocessing, analysis, decisions, parameter choices, and outputs. In this activity, you will practice turning a short scientific description into a visual workflow.</p>
+<section id="choose-a-scenario" class="level2">
+<h2 class="anchored" data-anchor-id="choose-a-scenario">Choose a scenario</h2>
+<p>Choose one of the scenarios below based on the field that feels most familiar or interesting to you. You do not need specialized knowledge of the topic, and you only need to complete one scenario.</p>
+<p>For your chosen scenario, you will:<br>
+1. identify the major steps in the scientific process,<br>
+2. create and arrange those steps on a canvas,<br>
+3. connect them to show how the workflow progresses,<br>
+4. include important choices or parameter values needed for reproducibility,<br>
+5. compare your workflow with the answer.</p>
+<p>Choose one scenario to complete:</p>
+<div class="tabset-margin-container"></div><div id="workflow-scenarios" class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Hydrology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Seismology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Oceanography</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Geophysics</a></li></ul>
+<div id="workflow-scenarios" class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Scenario: Quality</strong></p>
+<p><strong>Scientific question:</strong><br>
+<em>Does water quality change as a stream flows past a developed area?</em></p>
+<p>A research team collects water samples from several stations upstream and downstream of a developed area. Each sample is labeled with its station number and collection date, and the team measures its nitrate concentration. Their measurement method is valid for nitrate concentrations between 0 and 50 mg/L.</p>
+<p>Before analyzing the data, they:</p>
+<ul>
+<li>convert all nitrate measurements to the same units,</li>
+<li>average duplicate measurements collected at the same station on the same date,</li>
+<li>remove measurements without a completed quality-control check,</li>
+<li>discard nitrate values greater than 50 mg/L, outside the valid measurement range.</li>
+</ul>
+<p>They then calculate the average nitrate concentration at each station and plot how nitrate levels change along the stream.</p>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Coming soon
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>Scenario: Earthquake frequency</strong></p>
+<p><strong>Scientific question:</strong></p>
+<p><em>Where are earthquakes occurring most frequently in a region?</em></p>
+<p>A research team uses an earthquake catalog containing the event identifier, date and time, location, and magnitude of each recorded earthquake. The catalog is considered complete for earthquakes of magnitude 2.0 or greater between 2015 and 2024.</p>
+<p>Before analyzing the data, they:</p>
+<ul>
+<li>remove duplicate records with the same event identifier,</li>
+<li>remove records without a latitude or longitude,</li>
+<li>retain earthquakes recorded between 2015 and 2024,</li>
+<li>discard earthquakes with magnitudes below 2.0.</li>
+</ul>
+<p>They then divide the region into 10 × 10 km grid cells, count the earthquakes within each cell, and create a map showing the number of earthquakes across the region.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Scenario: Ocean temperature profile</strong></p>
+<p><strong>Scientific question:</strong></p>
+<p><em>How does ocean temperature change with depth?</em></p>
+<p>A research team collects several ocean temperature profiles at the same location. Each measurement includes the profile identifier, depth, temperature, and a quality-control flag.</p>
+<p>Before analyzing the data, they:</p>
+<ul>
+<li>convert all depths to meters,</li>
+<li>convert all temperatures to degrees Celsius,</li>
+<li>remove measurements without a completed quality-control check,</li>
+<li>retain measurements from the upper 500 meters of the ocean.</li>
+</ul>
+<p>They then divide the water column into 10-meter depth intervals, calculate the average temperature within each interval, and plot average temperature against depth.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><strong>Scenario: Ground movement</strong></p>
+<p><strong>Scientific question:</strong></p>
+<p><em>Is the ground moving in this area over time?</em></p>
+<p>A research team uses daily position measurements from several GNSS stations. Each measurement includes the station identifier, date, east–west and north–south position, measurement uncertainty, and a quality-control flag.</p>
+<p>Before analyzing the data, they:</p>
+<ul>
+<li>convert all positions to a common reference frame and units,</li>
+<li>remove measurements without a completed quality-control check,</li>
+<li>discard measurements with horizontal uncertainty greater than 10 mm,</li>
+<li>retain stations with at least three years of observations.</li>
+</ul>
+<p>For each remaining station, they fit linear trends to the east–west and north–south positions over time. They combine the two trends to calculate the speed and direction of ground movement and plot the resulting velocity arrows on a map.</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p><strong>A frog will be here shortly.</strong><br>
-This part of The Pond is still being prepared. Check back soon for new learning materials.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../../images/frog_soon.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" width="250"></p>
-</figure>
 </div>
+</section>
+<section id="sketch-your-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="sketch-your-workflow">Sketch your workflow</h2>
+<p>Turn the scientific process above into a workflow.</p>
+<p>Create as many steps as you think you need, arrange them on the canvas, and connect them to show how information moves through the analysis. Each step should include an input data (with optional parameters), an analysis, and an output. Intermediate outputs can be used as inputs for later steps.</p>
+<p><strong>Remember:</strong> Include choices and parameter values that someone would need to reproduce the workflow. For example, don’t just write <em>remove invalid values</em> if the description tells you exactly what counts as invalid.</p>
+
+<div class="workflow-builder">
+
+  <div class="workflow-toolbar">
+    <button id="add-data" class="workflow-btn data-btn">
+      + Data
+    </button>
+
+    <button id="add-analysis" class="workflow-btn analysis-btn">
+      + Analysis
+    </button>
+
+    <button id="add-parameter" class="workflow-btn parameter-btn">
+      + Parameter
+    </button>
+
+    <button id="connect-mode" class="workflow-btn">
+      Connect: off
+    </button>
+
+    <button id="delete-connection" class="workflow-btn" disabled="">
+        Delete connection
+    </button>
+
+    <button id="clear-workflow" class="workflow-btn">
+      Clear
+    </button>
+  </div>
+
+  <p class="workflow-instructions">
+    Add components to your workflow and describe each one. You can move components around the canvas by dragging the ⠿ handle.
+    Turn <strong>Connect</strong> on, then click the component an arrow
+    should start from followed by the component it should point to.
+  </p>
+
+  <div id="workflow-canvas" class="workflow-canvas">
+
+    <svg id="workflow-lines" class="workflow-lines" aria-hidden="true">
+    </svg>
+
+    <div id="workflow-placeholder" class="workflow-placeholder">
+      Add data, analysis steps, and parameters to begin.
+    </div>
+
+  </div>
+
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const canvas = document.getElementById("workflow-canvas");
+  const svg = document.getElementById("workflow-lines");
+  const placeholder = document.getElementById("workflow-placeholder");
+
+  const addData = document.getElementById("add-data");
+  const addAnalysis = document.getElementById("add-analysis");
+  const addParameter = document.getElementById("add-parameter");
+
+  const connectButton = document.getElementById("connect-mode");
+  const deleteConnectionButton =
+    document.getElementById("delete-connection");
+
+  const clearButton =
+    document.getElementById("clear-workflow");
+
+  const downloadButton =
+    document.getElementById("download-workflow");
+
+  const showAnswerButton =
+    document.getElementById("show-answer");
+
+  const answerPanel =
+    document.getElementById("workflow-answer");
+
+  const answerTitle =
+    document.getElementById("workflow-answer-title");
+
+  const answerIntro =
+    document.getElementById("workflow-answer-intro");
+
+  const answerCanvas =
+    document.getElementById("answer-canvas");
+
+  const answerSvg =
+    document.getElementById("answer-lines");
+
+  const answerNote =
+    document.getElementById("workflow-answer-note");
+
+  const message =
+    document.getElementById("workflow-message");
+
+
+  let componentCount = 0;
+  let connectMode = false;
+  let connectionStart = null;
+  let selectedConnection = null;
+
+  const connections = [];
+
+
+  // ==================================================
+  // ADD COMPONENTS
+  // ==================================================
+
+  addData.addEventListener("click", () => {
+    createComponent("data", "Data");
+  });
+
+  addAnalysis.addEventListener("click", () => {
+    createComponent("analysis", "Analysis step");
+  });
+
+  addParameter.addEventListener("click", () => {
+    createComponent("parameter", "Parameter");
+  });
+
+
+  // ==================================================
+  // CONNECT MODE
+  // ==================================================
+
+  connectButton.addEventListener("click", () => {
+
+    connectMode = !connectMode;
+
+    connectButton.textContent =
+      connectMode
+        ? "Connect: on"
+        : "Connect: off";
+
+    connectButton.classList.toggle(
+      "connect-active",
+      connectMode
+    );
+
+
+    if (!connectMode && connectionStart) {
+
+      connectionStart.classList.remove(
+        "connection-selected"
+      );
+
+      connectionStart = null;
+
+    }
+
+  });
+
+
+  // ==================================================
+  // DELETE SELECTED CONNECTION
+  // ==================================================
+
+  deleteConnectionButton.addEventListener(
+    "click",
+    () => {
+
+      if (selectedConnection === null) return;
+
+      connections.splice(
+        selectedConnection,
+        1
+      );
+
+      selectedConnection = null;
+
+      deleteConnectionButton.disabled = true;
+
+      drawConnections();
+
+    }
+  );
+
+
+  // ==================================================
+  // CLEAR WORKFLOW
+  // ==================================================
+
+  clearButton.addEventListener("click", () => {
+
+    canvas
+      .querySelectorAll(".workflow-component")
+      .forEach(component => component.remove());
+
+    connections.length = 0;
+
+    componentCount = 0;
+    connectionStart = null;
+    selectedConnection = null;
+    connectMode = false;
+
+    connectButton.textContent =
+      "Connect: off";
+
+    connectButton.classList.remove(
+      "connect-active"
+    );
+
+    deleteConnectionButton.disabled = true;
+
+    placeholder.style.display = "block";
+
+    message.textContent = "";
+
+    drawConnections();
+
+  });
+
+
+  // ==================================================
+  // CREATE COMPONENT
+  // ==================================================
+
+  function createComponent(type, label) {
+
+    componentCount++;
+
+    placeholder.style.display = "none";
+
+    const component =
+      document.createElement("div");
+
+    component.className =
+      `workflow-component workflow-${type}`;
+
+    component.dataset.id =
+      componentCount;
+
+
+    component.style.left =
+      `${30 + ((componentCount - 1) % 3) * 230}px`;
+
+    component.style.top =
+      `${30 + Math.floor((componentCount - 1) / 3) * 130}px`;
+
+
+    component.innerHTML = `
+      <div class="workflow-component-header">
+
+        <span class="workflow-handle">
+          ⠿
+        </span>
+
+        <span class="workflow-component-label">
+          ${label}
+        </span>
+
+        <button
+          type="button"
+          class="workflow-delete"
+          aria-label="Delete ${label}">
+          ×
+        </button>
+
+      </div>
+
+      <textarea
+        class="workflow-component-text"
+        placeholder="Describe ${label.toLowerCase()}..."
+        aria-label="${label}">
+      </textarea>
+    `;
+
+
+    canvas.appendChild(component);
+
+
+    // ----------------------------------------------
+    // Delete component
+    // ----------------------------------------------
+
+    const deleteButton =
+      component.querySelector(
+        ".workflow-delete"
+      );
+
+
+    deleteButton.addEventListener(
+      "click",
+      event => {
+
+        event.stopPropagation();
+
+        const id =
+          component.dataset.id;
+
+
+        for (
+          let i = connections.length - 1;
+          i >= 0;
+          i--
+        ) {
+
+          if (
+            connections[i].from === id ||
+            connections[i].to === id
+          ) {
+
+            connections.splice(i, 1);
+
+          }
+
+        }
+
+
+        if (
+          connectionStart === component
+        ) {
+
+          connectionStart = null;
+
+        }
+
+
+        selectedConnection = null;
+
+        deleteConnectionButton.disabled =
+          true;
+
+
+        component.remove();
+
+
+        if (
+          canvas.querySelectorAll(
+            ".workflow-component"
+          ).length === 0
+        ) {
+
+          placeholder.style.display =
+            "block";
+
+        }
+
+
+        drawConnections();
+
+      }
+    );
+
+
+    makeDraggable(component);
+
+
+    // ----------------------------------------------
+    // Select component for connection
+    // ----------------------------------------------
+
+    component.addEventListener(
+      "click",
+      event => {
+
+        if (!connectMode) return;
+
+
+        if (
+          event.target.tagName === "TEXTAREA" ||
+          event.target.classList.contains(
+            "workflow-handle"
+          ) ||
+          event.target.classList.contains(
+            "workflow-delete"
+          )
+        ) {
+
+          return;
+
+        }
+
+
+        handleConnection(component);
+
+      }
+    );
+
+  }
+
+
+  // ==================================================
+  // BUILD CONNECTION
+  // ==================================================
+
+  function handleConnection(component) {
+
+    if (!connectionStart) {
+
+      connectionStart = component;
+
+      component.classList.add(
+        "connection-selected"
+      );
+
+      return;
+
+    }
+
+
+    if (connectionStart === component) {
+
+      connectionStart.classList.remove(
+        "connection-selected"
+      );
+
+      connectionStart = null;
+
+      return;
+
+    }
+
+
+    const from =
+      connectionStart.dataset.id;
+
+    const to =
+      component.dataset.id;
+
+
+    const alreadyExists =
+      connections.some(
+        connection =>
+          connection.from === from &&
+          connection.to === to
+      );
+
+
+    if (!alreadyExists) {
+
+      connections.push({
+        from: from,
+        to: to
+      });
+
+    }
+
+
+    connectionStart.classList.remove(
+      "connection-selected"
+    );
+
+    connectionStart = null;
+
+    selectedConnection = null;
+
+    deleteConnectionButton.disabled =
+      true;
+
+    drawConnections();
+
+  }
+
+
+  // ==================================================
+  // DRAW WORKFLOW CONNECTIONS
+  // ==================================================
+
+  function drawConnections() {
+
+    svg.innerHTML = `
+      <defs>
+
+        <marker
+          id="workflow-arrow"
+          markerWidth="10"
+          markerHeight="10"
+          refX="9"
+          refY="3"
+          orient="auto"
+          markerUnits="strokeWidth">
+
+          <path
+            d="M0,0 L0,6 L9,3 z">
+          </path>
+
+        </marker>
+
+      </defs>
+    `;
+
+
+    const canvasRect =
+      canvas.getBoundingClientRect();
+
+
+    connections.forEach(
+      (connection, index) => {
+
+        const from =
+          canvas.querySelector(
+            `[data-id="${connection.from}"]`
+          );
+
+        const to =
+          canvas.querySelector(
+            `[data-id="${connection.to}"]`
+          );
+
+
+        if (!from || !to) return;
+
+
+        const fromRect =
+          from.getBoundingClientRect();
+
+        const toRect =
+          to.getBoundingClientRect();
+
+
+        const x1 =
+          fromRect.left -
+          canvasRect.left +
+          fromRect.width / 2;
+
+        const y1 =
+          fromRect.top -
+          canvasRect.top +
+          fromRect.height / 2;
+
+        const x2 =
+          toRect.left -
+          canvasRect.left +
+          toRect.width / 2;
+
+        const y2 =
+          toRect.top -
+          canvasRect.top +
+          toRect.height / 2;
+
+
+        const line =
+          document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line"
+          );
+
+
+        line.setAttribute("x1", x1);
+        line.setAttribute("y1", y1);
+        line.setAttribute("x2", x2);
+        line.setAttribute("y2", y2);
+
+        line.setAttribute(
+          "marker-end",
+          "url(#workflow-arrow)"
+        );
+
+        line.classList.add(
+          "workflow-arrow"
+        );
+
+
+        if (
+          selectedConnection === index
+        ) {
+
+          line.classList.add(
+            "workflow-arrow-selected"
+          );
+
+        }
+
+
+        line.addEventListener(
+          "click",
+          event => {
+
+            event.stopPropagation();
+
+            selectedConnection = index;
+
+            deleteConnectionButton.disabled =
+              false;
+
+            drawConnections();
+
+          }
+        );
+
+
+        svg.appendChild(line);
+
+      }
+    );
+
+  }
+
+
+  // ==================================================
+  // DRAG COMPONENTS
+  // ==================================================
+
+  function makeDraggable(component) {
+
+    const handle =
+      component.querySelector(
+        ".workflow-handle"
+      );
+
+
+    let dragging = false;
+
+    let offsetX = 0;
+    let offsetY = 0;
+
+
+    handle.addEventListener(
+      "pointerdown",
+      event => {
+
+        dragging = true;
+
+        const rect =
+          component.getBoundingClientRect();
+
+        offsetX =
+          event.clientX - rect.left;
+
+        offsetY =
+          event.clientY - rect.top;
+
+
+        handle.setPointerCapture(
+          event.pointerId
+        );
+
+      }
+    );
+
+
+    handle.addEventListener(
+      "pointermove",
+      event => {
+
+        if (!dragging) return;
+
+
+        const canvasRect =
+          canvas.getBoundingClientRect();
+
+
+        let x =
+          event.clientX -
+          canvasRect.left -
+          offsetX;
+
+        let y =
+          event.clientY -
+          canvasRect.top -
+          offsetY;
+
+
+        x = Math.max(
+          0,
+          Math.min(
+            x,
+            canvas.clientWidth -
+            component.offsetWidth
+          )
+        );
+
+        y = Math.max(
+          0,
+          Math.min(
+            y,
+            canvas.clientHeight -
+            component.offsetHeight
+          )
+        );
+
+
+        component.style.left =
+          `${x}px`;
+
+        component.style.top =
+          `${y}px`;
+
+
+        drawConnections();
+
+      }
+    );
+
+
+    handle.addEventListener(
+      "pointerup",
+      event => {
+
+        dragging = false;
+
+
+        if (
+          handle.hasPointerCapture(
+            event.pointerId
+          )
+        ) {
+
+          handle.releasePointerCapture(
+            event.pointerId
+          );
+
+        }
+
+      }
+    );
+
+
+    handle.addEventListener(
+      "pointercancel",
+      event => {
+
+        dragging = false;
+
+
+        if (
+          handle.hasPointerCapture(
+            event.pointerId
+          )
+        ) {
+
+          handle.releasePointerCapture(
+            event.pointerId
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  // ==================================================
+  // FIND ACTIVE SCENARIO TAB
+  // ==================================================
+
+  function getActiveScenario() {
+
+    const activeTab =
+      document.querySelector(
+        "#workflow-scenarios .nav-link.active"
+      );
+
+
+    if (!activeTab) {
+
+      return "hydrology";
+
+    }
+
+
+    return activeTab
+      .textContent
+      .trim()
+      .toLowerCase();
+
+  }
+
+
+  // ==================================================
+  // SHOW ANSWER
+  // ==================================================
+
+  showAnswerButton.addEventListener(
+    "click",
+    () => {
+
+      const opening =
+        answerPanel.hidden;
+
+
+      answerPanel.hidden =
+        !answerPanel.hidden;
+
+
+      showAnswerButton.textContent =
+        opening
+          ? "Hide the answer"
+          : "Show the answer";
+
+
+      if (opening) {
+
+        const scenario =
+          getActiveScenario();
+
+        renderAnswer(scenario);
+
+      }
+
+    }
+  );
+
+
+  // ==================================================
+  // ROUTE TO CORRECT ANSWER
+  // ==================================================
+
+  function renderAnswer(scenario) {
+
+    clearAnswerCanvas();
+
+
+    if (scenario === "hydrology") {
+
+      renderHydrologyAnswer();
+
+      return;
+
+    }
+
+
+    if (scenario === "seismology") {
+
+      renderSeismologyAnswer();
+
+      return;
+
+    }
+
+
+    if (scenario === "oceanography") {
+
+      renderOceanographyAnswer();
+
+      return;
+
+    }
+
+
+    if (scenario === "geophysics") {
+
+      renderGeophysicsAnswer();
+
+      return;
+
+    }
+
+
+    renderUnavailableAnswer(scenario);
+
+  }
+
+
+  // ==================================================
+  // CLEAR ANSWER AREA
+  // ==================================================
+
+  function clearAnswerCanvas() {
+
+    answerCanvas
+      .querySelectorAll(
+        ".answer-component"
+      )
+      .forEach(
+        component =>
+          component.remove()
+      );
+
+
+    answerSvg.innerHTML = "";
+
+    answerIntro.innerHTML = "";
+
+    answerNote.innerHTML = "";
+
+  }
+
+
+  // ==================================================
+  // HYDROLOGY ANSWER
+  // ==================================================
+
+  function renderHydrologyAnswer() {
+
+    answerTitle.textContent =
+      "Hydrology: Answer";
+
+
+    answerIntro.innerHTML = `
+      Your workflow does not need to use
+      exactly the same wording or layout,
+      but it should capture the data,
+      preprocessing steps, analysis,
+      outputs, and parameter values needed
+      to reproduce the analysis.
+    `;
+
+
+    const nodes = [
+
+        {
+            id: "raw",
+            type: "data",
+            label: "Data",
+            text:
+            "Nitrate measurements + station number + collection date",
+            x: 40,
+            y: 30
+        },
+
+        {
+            id: "units",
+            type: "analysis",
+            label: "Analysis step",
+            text:
+            "Convert nitrate measurements to common units",
+            x: 360,
+            y: 30
+        },
+
+        {
+            id: "standard",
+            type: "data",
+            label: "Data",
+            text:
+            "Standardized nitrate measurements",
+            x: 680,
+            y: 30
+        },
+
+        {
+            id: "duplicates",
+            type: "analysis",
+            label: "Analysis step",
+            text:
+            "Average duplicate measurements from the same station and date",
+            x: 680,
+            y: 190
+        },
+
+        {
+            id: "deduplicated",
+            type: "data",
+            label: "Data",
+            text:
+            "One nitrate value per station and date",
+            x: 360,
+            y: 190
+        },
+
+        {
+            id: "qc",
+            type: "analysis",
+            label: "Analysis step",
+            text:
+            "Remove measurements without a completed quality-control check",
+            x: 40,
+            y: 190
+        },
+
+        {
+            id: "qcdata",
+            type: "data",
+            label: "Data",
+            text:
+            "Quality-controlled nitrate data",
+            x: 40,
+            y: 350
+        },
+
+        {
+            id: "filter",
+            type: "analysis",
+            label: "Analysis step",
+            text:
+            "Remove nitrate values above the valid measurement range",
+            x: 360,
+            y: 350
+        },
+
+        {
+            id: "clean",
+            type: "data",
+            label: "Data",
+            text:
+            "Preprocessed nitrate dataset",
+            x: 680,
+            y: 350
+        },
+
+        {
+            id: "threshold",
+            type: "parameter",
+            label: "Parameter",
+            text:
+            "Maximum valid nitrate concentration = 50 mg/L",
+            x: 40,
+            y: 520
+        },
+
+        {
+            id: "average",
+            type: "analysis",
+            label: "Analysis step",
+            text:
+            "Calculate average nitrate concentration at each station",
+            x: 680,
+            y: 520
+        },
+
+        {
+            id: "station",
+            type: "data",
+            label: "Data",
+            text:
+            "Average nitrate concentration by station",
+            x: 360,
+            y: 520
+        },
+
+        {
+            id: "plot",
+            type: "analysis",
+            label: "Analysis step",
+            text:
+            "Plot nitrate concentration along the stream",
+            x: 40,
+            y: 700
+        },
+
+        {
+            id: "figure",
+            type: "data",
+            label: "Output",
+            text:
+            "Plot showing nitrate levels along the stream",
+            x: 360,
+            y: 700
+        }
+
+        ];
+
+
+    const answerConnections = [
+
+      ["raw", "units"],
+      ["units", "standard"],
+
+      ["standard", "duplicates"],
+      ["duplicates", "deduplicated"],
+
+      ["deduplicated", "qc"],
+      ["qc", "qcdata"],
+
+      ["qcdata", "filter"],
+      ["threshold", "filter"],
+
+      ["filter", "clean"],
+
+      ["clean", "average"],
+      ["average", "station"],
+
+      ["station", "plot"],
+      ["plot", "figure"]
+
+    ];
+
+
+    buildAnswerDiagram(
+      nodes,
+      answerConnections
+    );
+
+
+    answerNote.innerHTML = `
+      <strong>Notice the parameter.</strong>
+
+      <p>
+        The workflow does not simply say
+        <em>remove invalid measurements</em>.
+        It records that nitrate measurements
+        greater than <strong>50 mg/L</strong>
+        are removed.
+      </p>
+
+      <p>
+        That threshold is part of the workflow.
+        Changing it could change which observations
+        enter the analysis and therefore change the
+        final result.
+      </p>
+
+      <p>
+        Also notice that
+        <strong>data preprocessing is part of the
+        scientific workflow</strong>.
+        Converting units, combining duplicate
+        measurements, and applying quality-control
+        criteria are not separate from the analysis;
+        they help determine the dataset that is
+        ultimately analyzed.
+      </p>
+    `;
+
+  }
+
+
+  // ==================================================
+  // FUTURE ANSWERS
+  // ==================================================
+
+  function renderSeismologyAnswer() {
+    answerTitle.textContent =
+        "Seismology: Answer";
+
+    answerIntro.innerHTML = `
+        Your workflow does not need to use
+        exactly the same wording or layout,
+        but it should capture the data,
+        preprocessing steps, analysis,
+        outputs, and parameter values needed
+        to reproduce the analysis.
+    `;
+
+    const nodes = [
+        {
+        id: "raw",
+        type: "data",
+        label: "Data",
+        text:
+            "Earthquake catalog with event ID, date and time, location, and magnitude",
+        x: 40,
+        y: 30
+        },
+        {
+        id: "duplicates",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Remove duplicate records with the same event identifier",
+        x: 360,
+        y: 30
+        },
+        {
+        id: "unique",
+        type: "data",
+        label: "Data",
+        text:
+            "Earthquake catalog with one record per event",
+        x: 680,
+        y: 30
+        },
+        {
+        id: "coordinates",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Remove records without a latitude or longitude",
+        x: 680,
+        y: 180
+        },
+        {
+        id: "located",
+        type: "data",
+        label: "Data",
+        text:
+            "Earthquakes with valid locations",
+        x: 360,
+        y: 180
+        },
+        {
+        id: "date-filter",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Retain earthquakes within the selected date range",
+        x: 40,
+        y: 180
+        },
+        {
+        id: "date-range",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Date range = 2015–2024",
+        x: 40,
+        y: 330
+        },
+        {
+        id: "period-data",
+        type: "data",
+        label: "Data",
+        text:
+            "Earthquakes recorded between 2015 and 2024",
+        x: 360,
+        y: 330
+        },
+        {
+        id: "magnitude-filter",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Discard earthquakes below the catalog completeness threshold",
+        x: 680,
+        y: 330
+        },
+        {
+        id: "magnitude",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Minimum magnitude = 2.0",
+        x: 680,
+        y: 480
+        },
+        {
+        id: "selected-events",
+        type: "data",
+        label: "Data",
+        text:
+            "Earthquakes of magnitude 2.0 or greater",
+        x: 360,
+        y: 480
+        },
+        {
+        id: "grid-count",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Divide the region into grid cells and count earthquakes in each cell",
+        x: 40,
+        y: 480
+        },
+        {
+        id: "grid-size",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Grid-cell size = 10 × 10 km",
+        x: 40,
+        y: 640
+        },
+        {
+        id: "counts",
+        type: "data",
+        label: "Data",
+        text:
+            "Earthquake count for each grid cell",
+        x: 360,
+        y: 640
+        },
+        {
+        id: "map",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Map the number of earthquakes across the region",
+        x: 680,
+        y: 640
+        },
+        {
+        id: "figure",
+        type: "data",
+        label: "Output",
+        text:
+            "Map showing where earthquakes occur most frequently",
+        x: 360,
+        y: 800
+        }
+    ];
+
+    const answerConnections = [
+        ["raw", "duplicates"],
+        ["duplicates", "unique"],
+        ["unique", "coordinates"],
+        ["coordinates", "located"],
+        ["located", "date-filter"],
+        ["date-range", "date-filter"],
+        ["date-filter", "period-data"],
+        ["period-data", "magnitude-filter"],
+        ["magnitude", "magnitude-filter"],
+        ["magnitude-filter", "selected-events"],
+        ["selected-events", "grid-count"],
+        ["grid-size", "grid-count"],
+        ["grid-count", "counts"],
+        ["counts", "map"],
+        ["map", "figure"]
+    ];
+
+    buildAnswerDiagram(
+        nodes,
+        answerConnections
+    );
+
+    answerNote.innerHTML = `
+        <strong>Notice the parameters.</strong>
+
+        <p>
+        The <strong>date range</strong> and
+        <strong>minimum magnitude</strong> determine
+        which earthquakes are included in the analysis.
+        The magnitude threshold is especially important
+        because the catalog may not reliably record
+        smaller earthquakes.
+        </p>
+
+        <p>
+        The <strong>10 × 10 km grid-cell size</strong>
+        controls how the earthquakes are grouped in space.
+        A different grid size could reveal a different
+        spatial pattern or change which areas appear to
+        have the most earthquakes.
+        </p>
+
+        <p>
+        Removing duplicate events and records without
+        locations is also part of the scientific workflow.
+        These preprocessing steps determine the dataset
+        used to calculate and map earthquake frequency.
+        </p>
+    `;
+    }
+
+
+  function renderOceanographyAnswer() {
+    answerTitle.textContent =
+        "Oceanography: Answer";
+
+    answerIntro.innerHTML = `
+        Your workflow does not need to use
+        exactly the same wording or layout,
+        but it should capture the data,
+        preprocessing steps, analysis,
+        outputs, and parameter values needed
+        to reproduce the analysis.
+    `;
+
+    const nodes = [
+        {
+        id: "raw",
+        type: "data",
+        label: "Data",
+        text:
+            "Ocean profiles with profile ID, depth, temperature, and quality-control flag",
+        x: 40,
+        y: 30
+        },
+        {
+        id: "depth-units",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Convert all depth measurements to meters",
+        x: 360,
+        y: 30
+        },
+        {
+        id: "depth-data",
+        type: "data",
+        label: "Data",
+        text:
+            "Ocean profiles with depth recorded in meters",
+        x: 680,
+        y: 30
+        },
+        {
+        id: "temperature-units",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Convert all temperature measurements to degrees Celsius",
+        x: 680,
+        y: 190
+        },
+        {
+        id: "standardized",
+        type: "data",
+        label: "Data",
+        text:
+            "Ocean profiles with standardized depth and temperature units",
+        x: 360,
+        y: 190
+        },
+        {
+        id: "quality-control",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Remove measurements without a completed quality-control check",
+        x: 40,
+        y: 190
+        },
+        {
+        id: "quality-data",
+        type: "data",
+        label: "Data",
+        text:
+            "Quality-controlled ocean temperature profiles",
+        x: 40,
+        y: 350
+        },
+        {
+        id: "depth-filter",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Retain measurements from the selected depth range",
+        x: 360,
+        y: 350
+        },
+        {
+        id: "upper-ocean",
+        type: "data",
+        label: "Data",
+        text:
+            "Temperature measurements from the upper 500 meters",
+        x: 680,
+        y: 350
+        },
+        {
+        id: "maximum-depth",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Maximum depth = 500 m",
+        x: 40,
+        y: 520
+        },
+        {
+        id: "depth-bins",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Depth-interval size = 10 m",
+        x: 360,
+        y: 520
+        },
+        {
+        id: "group-depths",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Group measurements into depth intervals",
+        x: 680,
+        y: 520
+        },
+        {
+        id: "grouped-data",
+        type: "data",
+        label: "Data",
+        text:
+            "Temperature measurements grouped into 10-meter depth intervals",
+        x: 680,
+        y: 700
+        },
+        {
+        id: "average",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Calculate the average temperature within each depth interval",
+        x: 360,
+        y: 700
+        },
+        {
+        id: "average-data",
+        type: "data",
+        label: "Data",
+        text:
+            "Average temperature by depth interval",
+        x: 40,
+        y: 700
+        },
+        {
+        id: "plot",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Plot average temperature against depth",
+        x: 40,
+        y: 870
+        },
+        {
+        id: "figure",
+        type: "data",
+        label: "Output",
+        text:
+            "Plot showing how ocean temperature changes with depth",
+        x: 360,
+        y: 870
+        }
+    ];
+
+    const answerConnections = [
+        ["raw", "depth-units"],
+        ["depth-units", "depth-data"],
+        ["depth-data", "temperature-units"],
+        ["temperature-units", "standardized"],
+        ["standardized", "quality-control"],
+        ["quality-control", "quality-data"],
+        ["quality-data", "depth-filter"],
+        ["maximum-depth", "depth-filter"],
+        ["depth-filter", "upper-ocean"],
+        ["upper-ocean", "group-depths"],
+        ["depth-bins", "group-depths"],
+        ["group-depths", "grouped-data"],
+        ["grouped-data", "average"],
+        ["average", "average-data"],
+        ["average-data", "plot"],
+        ["plot", "figure"]
+    ];
+
+    buildAnswerDiagram(
+        nodes,
+        answerConnections
+    );
+
+    answerNote.innerHTML = `
+        <strong>Notice the parameters.</strong>
+
+        <p>
+        The <strong>500 m maximum depth</strong>
+        defines the part of the ocean included in the
+        analysis. Extending the analysis deeper could
+        produce a different temperature profile.
+        </p>
+
+        <p>
+        The <strong>10 m depth interval</strong>
+        determines the vertical resolution of the result.
+        Larger intervals produce a smoother profile but
+        may hide small-scale temperature changes. Smaller
+        intervals preserve more detail but may contain
+        fewer measurements.
+        </p>
+
+        <p>
+        Unit conversions and quality-control filtering
+        are also part of the scientific workflow. They
+        determine which measurements can be compared and
+        included in the final temperature profile.
+        </p>
+    `;
+    }
+
+
+  function renderGeophysicsAnswer() {
+    answerTitle.textContent =
+        "Geophysics: Answer";
+
+    answerIntro.innerHTML = `
+        Your workflow does not need to use
+        exactly the same wording or layout,
+        but it should capture the data,
+        preprocessing steps, analysis,
+        outputs, and parameter values needed
+        to reproduce the analysis.
+    `;
+
+    const nodes = [
+        {
+        id: "raw",
+        type: "data",
+        label: "Data",
+        text:
+            "Daily GNSS positions with station ID, date, horizontal position, uncertainty, and quality-control flag",
+        x: 40,
+        y: 30
+        },
+        {
+        id: "standardize",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Convert positions to a common reference frame and units",
+        x: 360,
+        y: 30
+        },
+        {
+        id: "standardized",
+        type: "data",
+        label: "Data",
+        text:
+            "GNSS positions in a common reference frame and units",
+        x: 680,
+        y: 30
+        },
+        {
+        id: "quality-control",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Remove measurements without a completed quality-control check",
+        x: 680,
+        y: 190
+        },
+        {
+        id: "quality-data",
+        type: "data",
+        label: "Data",
+        text:
+            "Quality-controlled GNSS measurements",
+        x: 360,
+        y: 190
+        },
+        {
+        id: "uncertainty-filter",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Remove measurements with uncertainty above the selected threshold",
+        x: 40,
+        y: 190
+        },
+        {
+        id: "uncertainty",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Maximum horizontal uncertainty = 10 mm",
+        x: 40,
+        y: 350
+        },
+        {
+        id: "filtered-data",
+        type: "data",
+        label: "Data",
+        text:
+            "GNSS measurements with horizontal uncertainty of 10 mm or less",
+        x: 360,
+        y: 350
+        },
+        {
+        id: "record-filter",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Calculate each station’s record length and retain sufficiently long records",
+        x: 680,
+        y: 350
+        },
+        {
+        id: "record-length",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Minimum station record length = 3 years",
+        x: 680,
+        y: 520
+        },
+        {
+        id: "eligible-stations",
+        type: "data",
+        label: "Data",
+        text:
+            "GNSS measurements from stations with at least three years of observations",
+        x: 360,
+        y: 520
+        },
+        {
+        id: "fit-trends",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Fit trends to east–west and north–south position through time",
+        x: 40,
+        y: 520
+        },
+        {
+        id: "trend-model",
+        type: "parameter",
+        label: "Parameter",
+        text:
+            "Trend model = linear",
+        x: 40,
+        y: 700
+        },
+        {
+        id: "component-trends",
+        type: "data",
+        label: "Data",
+        text:
+            "East–west and north–south movement rates for each station",
+        x: 360,
+        y: 700
+        },
+        {
+        id: "combine-trends",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Combine movement rates to calculate speed and direction",
+        x: 680,
+        y: 700
+        },
+        {
+        id: "velocities",
+        type: "data",
+        label: "Data",
+        text:
+            "Ground-movement speed and direction for each station",
+        x: 680,
+        y: 870
+        },
+        {
+        id: "map",
+        type: "analysis",
+        label: "Analysis step",
+        text:
+            "Plot station velocity arrows on a map",
+        x: 360,
+        y: 870
+        },
+        {
+        id: "figure",
+        type: "data",
+        label: "Output",
+        text:
+            "Map showing the speed and direction of ground movement",
+        x: 40,
+        y: 870
+        }
+    ];
+
+    const answerConnections = [
+        ["raw", "standardize"],
+        ["standardize", "standardized"],
+        ["standardized", "quality-control"],
+        ["quality-control", "quality-data"],
+        ["quality-data", "uncertainty-filter"],
+        ["uncertainty", "uncertainty-filter"],
+        ["uncertainty-filter", "filtered-data"],
+        ["filtered-data", "record-filter"],
+        ["record-length", "record-filter"],
+        ["record-filter", "eligible-stations"],
+        ["eligible-stations", "fit-trends"],
+        ["trend-model", "fit-trends"],
+        ["fit-trends", "component-trends"],
+        ["component-trends", "combine-trends"],
+        ["combine-trends", "velocities"],
+        ["velocities", "map"],
+        ["map", "figure"]
+    ];
+
+    buildAnswerDiagram(
+        nodes,
+        answerConnections
+    );
+
+    answerNote.innerHTML = `
+        <strong>Notice the different choices.</strong>
+
+        <p>
+        The <strong>10 mm uncertainty threshold</strong>
+        determines which individual measurements are
+        considered reliable enough to include.
+        </p>
+
+        <p>
+        The <strong>three-year minimum record length</strong>
+        is applied to entire stations rather than individual
+        measurements. Short records may not provide enough
+        information to estimate long-term movement reliably.
+        </p>
+
+        <p>
+        The <strong>linear trend model</strong> is also an
+        important methodological choice. It assumes that the
+        average rate of movement is approximately constant
+        during the observation period. A different model
+        could produce different velocity estimates.
+        </p>
+
+        <p>
+        Converting all positions to a common reference frame
+        is an essential preprocessing step. Positions cannot
+        be compared meaningfully until they use the same
+        spatial reference.
+        </p>
+    `;
+    }
+
+
+  function renderUnavailableAnswer(
+    scenario
+  ) {
+
+    answerTitle.textContent =
+      `${capitalize(scenario)}: Answer`;
+
+
+    answerIntro.innerHTML = `
+      We have not added the reference workflow
+      for this scenario yet.
+    `;
+
+  }
+
+
+  // ==================================================
+  // BUILD ANSWER DIAGRAM
+  // ==================================================
+
+  function buildAnswerDiagram(
+    nodes,
+    answerConnections
+  ) {
+
+    nodes.forEach(node => {
+
+      const component =
+        document.createElement("div");
+
+
+      component.className =
+        `workflow-component workflow-${node.type} answer-component`;
+
+
+      component.dataset.answerId =
+        node.id;
+
+
+      component.style.left =
+        `${node.x}px`;
+
+      component.style.top =
+        `${node.y}px`;
+
+
+      component.innerHTML = `
+        <div class="workflow-component-header">
+
+          <span class="workflow-component-label">
+            ${node.label}
+          </span>
+
+        </div>
+
+        <div class="answer-component-text">
+          ${node.text}
+        </div>
+      `;
+
+
+      answerCanvas.appendChild(
+        component
+      );
+
+    });
+
+
+    requestAnimationFrame(() => {
+
+      drawAnswerConnections(
+        answerConnections
+      );
+
+    });
+
+  }
+
+
+  // ==================================================
+  // DRAW ANSWER CONNECTIONS
+  // ==================================================
+
+  function drawAnswerConnections(
+    answerConnections
+    ) {
+
+    answerSvg.innerHTML = `
+        <defs>
+
+        <marker
+            id="answer-arrow"
+            markerWidth="10"
+            markerHeight="10"
+            refX="9"
+            refY="3"
+            orient="auto"
+            markerUnits="strokeWidth">
+
+            <path
+            d="M0,0 L0,6 L9,3 z">
+            </path>
+
+        </marker>
+
+        </defs>
+    `;
+
+
+    const canvasRect =
+        answerCanvas.getBoundingClientRect();
+
+
+    answerConnections.forEach(
+        connection => {
+
+        const from =
+            answerCanvas.querySelector(
+            `[data-answer-id="${connection[0]}"]`
+            );
+
+        const to =
+            answerCanvas.querySelector(
+            `[data-answer-id="${connection[1]}"]`
+            );
+
+
+        if (!from || !to) return;
+
+
+        const fromRect =
+            from.getBoundingClientRect();
+
+        const toRect =
+            to.getBoundingClientRect();
+
+
+        const fromCenter = {
+            x:
+            fromRect.left -
+            canvasRect.left +
+            fromRect.width / 2,
+
+            y:
+            fromRect.top -
+            canvasRect.top +
+            fromRect.height / 2
+        };
+
+
+        const toCenter = {
+            x:
+            toRect.left -
+            canvasRect.left +
+            toRect.width / 2,
+
+            y:
+            toRect.top -
+            canvasRect.top +
+            toRect.height / 2
+        };
+
+
+        const start =
+            boxEdgePoint(
+            fromCenter,
+            toCenter,
+            fromRect.width,
+            fromRect.height
+            );
+
+
+        const end =
+            boxEdgePoint(
+            toCenter,
+            fromCenter,
+            toRect.width,
+            toRect.height
+            );
+
+
+        const line =
+            document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line"
+            );
+
+
+        line.setAttribute(
+            "x1",
+            start.x
+        );
+
+        line.setAttribute(
+            "y1",
+            start.y
+        );
+
+        line.setAttribute(
+            "x2",
+            end.x
+        );
+
+        line.setAttribute(
+            "y2",
+            end.y
+        );
+
+
+        line.setAttribute(
+            "marker-end",
+            "url(#answer-arrow)"
+        );
+
+        line.classList.add(
+            "workflow-arrow"
+        );
+
+
+        answerSvg.appendChild(line);
+
+        }
+    );
+
+    }
+
+
+    function boxEdgePoint(
+    center,
+    target,
+    width,
+    height
+    ) {
+
+    const dx =
+        target.x - center.x;
+
+    const dy =
+        target.y - center.y;
+
+
+    if (dx === 0 && dy === 0) {
+
+        return center;
+
+    }
+
+
+    const scaleX =
+        dx !== 0
+        ? (width / 2) / Math.abs(dx)
+        : Infinity;
+
+    const scaleY =
+        dy !== 0
+        ? (height / 2) / Math.abs(dy)
+        : Infinity;
+
+
+    const scale =
+        Math.min(
+        scaleX,
+        scaleY
+        );
+
+
+    return {
+
+        x:
+        center.x +
+        dx * scale,
+
+        y:
+        center.y +
+        dy * scale
+
+    };
+
+    }
+
+
+  // ==================================================
+  // DOWNLOAD WORKFLOW AS SVG
+  // ==================================================
+
+  downloadButton.addEventListener(
+    "click",
+    downloadWorkflow
+  );
+
+
+  function downloadWorkflow() {
+
+    const components =
+      Array.from(
+        canvas.querySelectorAll(
+          ".workflow-component"
+        )
+      );
+
+
+    if (
+      components.length === 0
+    ) {
+
+      message.textContent =
+        "Add at least one component before downloading.";
+
+      return;
+
+    }
+
+
+    message.textContent = "";
+
+
+    const canvasRect =
+      canvas.getBoundingClientRect();
+
+
+    const width =
+      canvas.clientWidth;
+
+    const height =
+      canvas.clientHeight;
+
+
+    const nodeInfo =
+      new Map();
+
+
+    components.forEach(
+      component => {
+
+        const rect =
+          component.getBoundingClientRect();
+
+
+        nodeInfo.set(
+          component.dataset.id,
+          {
+
+            x:
+              rect.left -
+              canvasRect.left,
+
+            y:
+              rect.top -
+              canvasRect.top,
+
+            width:
+              rect.width,
+
+            height:
+              rect.height,
+
+            type:
+              component.classList.contains(
+                "workflow-data"
+              )
+                ? "data"
+                : component.classList.contains(
+                    "workflow-analysis"
+                  )
+                ? "analysis"
+                : "parameter",
+
+            text:
+              component.querySelector(
+                ".workflow-component-text"
+              ).value
+
+          }
+        );
+
+      }
+    );
+
+
+    let svgContent = `
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="${width}"
+        height="${height}"
+        viewBox="0 0 ${width} ${height}">
+
+        <rect
+          width="100%"
+          height="100%"
+          fill="white"/>
+
+        <defs>
+
+          <marker
+            id="download-arrow"
+            markerWidth="10"
+            markerHeight="10"
+            refX="9"
+            refY="3"
+            orient="auto">
+
+            <path
+              d="M0,0 L0,6 L9,3 z"
+              fill="#495057"/>
+
+          </marker>
+
+        </defs>
+    `;
+
+
+    // ----------------------------------------------
+    // Download arrows
+    // ----------------------------------------------
+
+    connections.forEach(
+      connection => {
+
+        const from =
+          nodeInfo.get(
+            connection.from
+          );
+
+        const to =
+          nodeInfo.get(
+            connection.to
+          );
+
+
+        if (!from || !to) return;
+
+
+        svgContent += `
+          <line
+            x1="${from.x + from.width / 2}"
+            y1="${from.y + from.height / 2}"
+            x2="${to.x + to.width / 2}"
+            y2="${to.y + to.height / 2}"
+            stroke="#495057"
+            stroke-width="2.5"
+            marker-end="url(#download-arrow)"/>
+        `;
+
+      }
+    );
+
+
+    // ----------------------------------------------
+    // Download components
+    // ----------------------------------------------
+
+    nodeInfo.forEach(
+      node => {
+
+        let border;
+        let header;
+
+
+        if (node.type === "data") {
+
+          border = "#4c78a8";
+          header = "#dce8f5";
+
+        }
+
+        else if (
+          node.type === "analysis"
+        ) {
+
+          border = "#59a14f";
+          header = "#e1f0df";
+
+        }
+
+        else {
+
+          border = "#f28e2b";
+          header = "#fae7d3";
+
+        }
+
+
+        const title =
+          node.type === "data"
+            ? "Data"
+            : node.type === "analysis"
+            ? "Analysis step"
+            : "Parameter";
+
+
+        svgContent += `
+          <rect
+            x="${node.x}"
+            y="${node.y}"
+            width="${node.width}"
+            height="${node.height}"
+            rx="8"
+            fill="white"
+            stroke="${border}"
+            stroke-width="2"/>
+
+          <rect
+            x="${node.x}"
+            y="${node.y}"
+            width="${node.width}"
+            height="32"
+            rx="8"
+            fill="${header}"/>
+
+          <text
+            x="${node.x + 10}"
+            y="${node.y + 21}"
+            font-family="Arial, sans-serif"
+            font-size="13"
+            font-weight="bold"
+            fill="#212529">
+
+            ${escapeXML(title)}
+
+          </text>
+        `;
+
+
+        const lines =
+          wrapText(
+            node.text ||
+            "(no description)",
+            28
+          );
+
+
+        lines.forEach(
+          (line, index) => {
+
+            svgContent += `
+              <text
+                x="${node.x + 10}"
+                y="${node.y + 52 + index * 17}"
+                font-family="Arial, sans-serif"
+                font-size="13"
+                fill="#212529">
+
+                ${escapeXML(line)}
+
+              </text>
+            `;
+
+          }
+        );
+
+      }
+    );
+
+
+    svgContent += `
+      </svg>
+    `;
+
+
+    const blob =
+      new Blob(
+        [svgContent],
+        {
+          type:
+            "image/svg+xml;charset=utf-8"
+        }
+      );
+
+
+    const url =
+      URL.createObjectURL(blob);
+
+
+    const link =
+      document.createElement("a");
+
+
+    const scenario =
+      getActiveScenario();
+
+
+    link.href = url;
+
+    link.download =
+      `${scenario}-workflow.svg`;
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+
+    URL.revokeObjectURL(url);
+
+
+    message.textContent =
+      "Workflow downloaded.";
+
+  }
+
+
+  // ==================================================
+  // HELPERS
+  // ==================================================
+
+  function wrapText(
+    text,
+    maxLength
+  ) {
+
+    const words =
+      text.trim().split(/\s+/);
+
+    const lines = [];
+
+    let line = "";
+
+
+    words.forEach(word => {
+
+      const test =
+        line
+          ? `${line} ${word}`
+          : word;
+
+
+      if (
+        test.length >
+        maxLength &&
+        line
+      ) {
+
+        lines.push(line);
+
+        line = word;
+
+      }
+
+      else {
+
+        line = test;
+
+      }
+
+    });
+
+
+    if (line) {
+
+      lines.push(line);
+
+    }
+
+
+    return lines.slice(0, 4);
+
+  }
+
+
+  function escapeXML(text) {
+
+    return text
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&apos;");
+
+  }
+
+
+  function capitalize(text) {
+
+    return (
+      text.charAt(0).toUpperCase() +
+      text.slice(1)
+    );
+
+  }
+
+
+  // ==================================================
+  // RESIZE
+  // ==================================================
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      drawConnections();
+
+
+      if (!answerPanel.hidden) {
+
+        const scenario =
+          getActiveScenario();
+
+        renderAnswer(
+          scenario
+        );
+
+      }
+
+    }
+  );
+
+});
+</script>
+
+<div class="workflow-output-actions">
+
+  <button id="download-workflow" class="workflow-btn">
+    Download workflow
+  </button>
+
+  <button id="show-answer" class="workflow-btn">
+    Show the answer
+  </button>
+
+  <span id="workflow-message" class="workflow-message" aria-live="polite">
+  </span>
+
 </div>
 
 
+<div id="workflow-answer" class="workflow-answer" hidden="">
+
+  <h3 id="workflow-answer-title" class="anchored">
+    Answer
+  </h3>
+
+  <p id="workflow-answer-intro"></p>
+
+  <div class="workflow-answer-scroll">
+
+    <div id="answer-canvas" class="workflow-canvas workflow-answer-canvas">
+
+      <svg id="answer-lines" class="workflow-lines" aria-hidden="true">
+      </svg>
+
+    </div>
+
+  </div>
+
+  <div id="workflow-answer-note" class="workflow-answer-note">
+  </div>
+
+</div>
+
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
