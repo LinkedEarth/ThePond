@@ -227,3 +227,50 @@ d-topics-list iframe {
   background: #f8f9fa;
   border-left: 4px solid #6c757d;
 }
+
+.deep-water-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.deep-water-filters label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.deep-water-filters select {
+  min-width: 11rem;
+  padding: 0.4rem;
+  border: 1px solid #8b9298;
+  border-radius: 0.25rem;
+  background: white;
+}
+
+.deep-water-count {
+  color: #505a63;
+}
+
+.deep-water-card[hidden],
+#deep-empty[hidden] {
+  display: none !important;
+}
+
+.deep-water-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.deep-water-tags span {
+  border: 1px solid #b7c9d8;
+  border-radius: 1rem;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.85rem;
+  color: #24465c;
+  background: #f2f7fa;
+}

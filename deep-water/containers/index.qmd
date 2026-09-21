@@ -1,0 +1,14 @@
+---
+title: "Containers"
+---
+
+A computational environment records the software your work needs. Containers and services such as Binder help others run that work in a consistent environment. These pads will begin with the shared ideas, then give separate instructions where Python and R need different setup.
+
+## Planned pads
+
+1. Understand computational environments and containers
+2. Describe the dependencies for your Python or R project
+3. Share a runnable project with Binder
+4. Build and share a container image
+
+While these pads are being prepared, explore the existing LeapFROGS materials for [Python](https://github.com/LinkedEarth/LeapFROGS/blob/main/chapters/module6.md) or [R](https://github.com/LinkedEarth/RLeapFROGS/blob/main/chapters/module6.md).
