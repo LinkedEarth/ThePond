@@ -280,6 +280,12 @@ This part of The Pond is still being prepared. Check back soon for new learning 
 
 ---
 
+Now that you have a sense of what a scientific workflow is, let's think about how workflows are different than software, even though both of them are often referred to as "code". In short, **Software is a tool. A workflow is the process in which tools are used.**
+
+Software performs particular tasks, such as reading data, calculating statistics, or creating a figure. A workflow connects data, actions, decisions, parameters, and outputs into a sequence that answers a scientific question. A workflow may use several software tools—and may also include manual steps that happen outside software.
+
+A script or notebook can implement part (along with manual steps) or all of a workflow, but software and workflows are not interchangeable. Sharing the software does not necessarily reveal which data were used, what decisions were made, which parameters were selected, or what happened outside the software.
+
 ## 3. Revisit your answer
 
 Think about a scientific analysis you have worked on—or one you have tried to reproduce.

@@ -2656,3 +2656,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ```
 
+## Sofware vs. Workflows - Revisited
+
+In a [previous LiLyPad](https://linked.earth/ThePond/lilypads/workflow/what-is-a-workflow/index.html), we discussed the difference between software and workflows. Form this exercise, you should have a better understanding how workflows use software (e.g., the analysis cards) but they represent much more than just that computational step. Workflows also include the data, parameters, and decisions that are used to produce a scientific result.
