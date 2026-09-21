@@ -133,6 +133,13 @@
     "text": "Sketch your workflow\nTurn the scientific process above into a workflow.\nCreate as many steps as you think you need, arrange them on the canvas, and connect them to show how information moves through the analysis. Each step should include an input data (with optional parameters), an analysis, and an output. Intermediate outputs can be used as inputs for later steps.\nRemember: Include choices and parameter values that someone would need to reproduce the workflow. For example, don’t just write remove invalid values if the description tells you exactly what counts as invalid.\n\n\n\n  \n    \n      + Data\n    \n\n    \n      + Analysis\n    \n\n    \n      + Parameter\n    \n\n    \n      Connect: off\n    \n\n    \n        Delete connection\n    \n\n    \n      Clear\n    \n  \n\n  \n    Add components to your workflow and describe each one. You can move components around the canvas by dragging the ⠿ handle.\n    Turn Connect on, then click the component an arrow\n    should start from followed by the component it should point to.\n  \n\n  \n\n    \n    \n\n    \n      Add data, analysis steps, and parameters to begin.\n    \n\n  \n\n\n\n\n\n\n\n  \n    Download workflow\n  \n\n  \n    Show the answer\n  \n\n  \n  \n\n\n\n\n\n\n  \n    Answer"
   },
   {
+    "objectID": "lilypads/workflow/sketching-workflows/index.html#sofware-vs.-workflows---revisited",
+    "href": "lilypads/workflow/sketching-workflows/index.html#sofware-vs.-workflows---revisited",
+    "title": "Sketching Workflows",
+    "section": "Sofware vs. Workflows - Revisited",
+    "text": "Sofware vs. Workflows - Revisited\nIn a previous LiLyPad, we discussed the difference between software and workflows. Form this exercise, you should have a better understanding how workflows use software (e.g., the analysis cards) but they represent much more than just that computational step. Workflows also include the data, parameters, and decisions that are used to produce a scientific result."
+  },
+  {
     "objectID": "lilypads/workflow/what-is-a-workflow/index.html",
     "href": "lilypads/workflow/what-is-a-workflow/index.html",
     "title": "What is a Workflow?",
@@ -151,7 +158,7 @@
     "href": "lilypads/workflow/what-is-a-workflow/index.html#what-is-a-scientific-workflow",
     "title": "What is a Workflow?",
     "section": "2. What is a scientific workflow?",
-    "text": "2. What is a scientific workflow?\n\n\n\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+    "text": "2. What is a scientific workflow?\n\n\n\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials.\n\n\n\n\n\n\n\n\n\nNow that you have a sense of what a scientific workflow is, let’s think about how workflows are different than software, even though both of them are often referred to as “code”. In short, Software is a tool. A workflow is the process in which tools are used.\nSoftware performs particular tasks, such as reading data, calculating statistics, or creating a figure. A workflow connects data, actions, decisions, parameters, and outputs into a sequence that answers a scientific question. A workflow may use several software tools—and may also include manual steps that happen outside software.\nA script or notebook can implement part (along with manual steps) or all of a workflow, but software and workflows are not interchangeable. Sharing the software does not necessarily reveal which data were used, what decisions were made, which parameters were selected, or what happened outside the software."
   },
   {
     "objectID": "lilypads/workflow/what-is-a-workflow/index.html#revisit-your-answer",
