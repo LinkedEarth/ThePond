@@ -49,11 +49,25 @@
     "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
   },
   {
-    "objectID": "deep-water/index.html",
-    "href": "deep-water/index.html",
-    "title": "The Deep End",
+    "objectID": "deep-water/containers/index.html",
+    "href": "deep-water/containers/index.html",
+    "title": "Containers",
     "section": "",
-    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+    "text": "A computational environment records the software your work needs. Containers and services such as Binder help others run that work in a consistent environment. These pads will begin with the shared ideas, then give separate instructions where Python and R need different setup."
+  },
+  {
+    "objectID": "deep-water/containers/index.html#planned-pads",
+    "href": "deep-water/containers/index.html#planned-pads",
+    "title": "Containers",
+    "section": "Planned pads",
+    "text": "Planned pads\n\nUnderstand computational environments and containers\nDescribe the dependencies for your Python or R project\nShare a runnable project with Binder\nBuild and share a container image\n\nWhile these pads are being prepared, explore the existing LeapFROGS materials for Python or R."
+  },
+  {
+    "objectID": "deep-water/github/index.html",
+    "href": "deep-water/github/index.html",
+    "title": "GitHub",
+    "section": "",
+    "text": "Start with the first pad if you are new to GitHub. The later pads build on the same research repository, so you can practice each skill on a project of your own.\n\n  \n    Focus\n    \n      All focuses\n      Data\n      Software\n      Workflow\n      Project Management\n    \n  \n  \n    Language\n    \n      All languages\n      Python\n      R\n    \n  \n  Clear filters\n\n\n\n\n\n\n\n1. Start a Research Repository\nLearn what Git and GitHub each do, then create a repository with a README and an appropriate license.\n\nDataSoftwareWorkflowPythonR\n\n\nComing soon\n\n\n\n\n\n\n\n2. Save and Share Changes\nMake a change to your project, record it in a commit, and share it on GitHub. Practice with GitHub Desktop if you prefer a visual interface.\n\nDataSoftwareWorkflowPythonR\n\n\nComing soon\n\n\n\n\n\n\n\n3. Collaborate on a Change\nDescribe a task in an issue, work on a branch, and propose your change through a pull request.\n\nDataSoftwareWorkflowProject ManagementPythonR\n\n\nComing soon\n\n\n\n\n\n\n\n4. Plan Work with GitHub\nUse issues, labels, milestones, and a project board to organize research tasks and track progress.\n\nProject ManagementPythonR\n\n\nComing soon\n\n\n\n\n\n\n\n5. Release and Cite Your Work\nAdd citation information, make a release, and connect it to Zenodo so others can cite a specific version.\n\nDataSoftwareWorkflowPythonR\n\n\nComing soon\n\n\n\n\n\n\n\n6. Automate a Task\nCreate a small GitHub Actions workflow that runs a useful check or task when your project changes.\n\nSoftwareWorkflowPythonR\n\n\nComing soon\n\n\n\n\n\n\nNo pads match those filters. Try changing or clearing a filter.\n\nThese pads are being developed from the LeapFROGS GitHub module.\n← Back to The Deep End"
   },
   {
     "objectID": "index.html",
@@ -96,6 +110,13 @@
     "title": "The Shallows",
     "section": "",
     "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
+    "objectID": "deep-water/index.html",
+    "href": "deep-water/index.html",
+    "title": "The Deep End",
+    "section": "",
+    "text": "Ready to go deeper? Choose a topic, then work through its hands-on pads. Use the filters to find topics relevant to your research.\n\n  \n    Focus\n    \n      All focuses\n      Data\n      Software\n      Workflow\n      Project Management\n    \n  \n  \n    Language\n    \n      All languages\n      Python\n      R\n    \n  \n  Clear filters\n\n\n\n\n\n\n\nGitHub\nUse GitHub to track changes, collaborate, plan projects, and share research. Start with the basics, then explore issues, pull requests, releases, and automation.\n\nDataSoftwareWorkflowProject ManagementPythonR\n\n\nExplore GitHub\n\n\n\n\n\n\n\nContainers\nCapture the computational environment your research needs, then make it easier for others to run and reuse your work. Follow instructions for Python or R where they differ.\n\nSoftwareWorkflowPythonR\n\n\nExplore Containers\n\n\n\n\n\n\nNo topics match those filters. Try changing or clearing a filter."
   },
   {
     "objectID": "lilypads/index.html",
