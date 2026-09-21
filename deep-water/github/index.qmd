@@ -1,0 +1,96 @@
+---
+title: "GitHub"
+subtitle: Track changes, collaborate, organize projects, and share research.
+---
+
+Start with the first pad if you are new to GitHub. The later pads build on the same research repository, so you can practice each skill on a project of your own.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 1. Start a Research Repository
+
+Learn what Git and GitHub each do, then create a repository with a README and an appropriate license.
+
+::: {.text-center}
+*Coming soon*
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 2. Save and Share Changes
+
+Make a change to your project, record it in a commit, and share it on GitHub. Practice with GitHub Desktop if you prefer a visual interface.
+
+::: {.text-center}
+*Coming soon*
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 3. Collaborate on a Change
+
+Describe a task in an issue, work on a branch, and propose your change through a pull request.
+
+::: {.text-center}
+*Coming soon*
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 4. Plan Work with GitHub
+
+Use issues, labels, milestones, and a project board to organize research tasks and track progress.
+
+::: {.text-center}
+*Coming soon*
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 5. Release and Cite Your Work
+
+Add citation information, make a release, and connect it to Zenodo so others can cite a specific version.
+
+::: {.text-center}
+*Coming soon*
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 6. Automate a Task
+
+Create a small GitHub Actions workflow that runs a useful check or task when your project changes.
+
+::: {.text-center}
+*Coming soon*
+:::
+:::
+:::
+:::
+
+:::
+
+These pads are being developed from the [LeapFROGS GitHub module](https://github.com/LinkedEarth/LeapFROGS/blob/main/chapters/module5.md).

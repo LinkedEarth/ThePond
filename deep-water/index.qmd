@@ -2,11 +2,101 @@
 title: "The Deep End"
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+Ready to go deeper? Choose a topic, then work through its hands-on pads. Use the filters to find topics relevant to your research.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+```{=html}
+<div class="deep-water-filters" role="group" aria-label="Filter Deep End topics">
+  <div>
+    <label for="deep-focus">Focus</label>
+    <select id="deep-focus">
+      <option value="">All focuses</option>
+      <option value="data">Data</option>
+      <option value="software">Software</option>
+      <option value="workflow">Workflow</option>
+      <option value="project-management">Project Management</option>
+    </select>
+  </div>
+  <div>
+    <label for="deep-language">Language</label>
+    <select id="deep-language">
+      <option value="">All languages</option>
+      <option value="python">Python</option>
+      <option value="r">R</option>
+    </select>
+  </div>
+  <button id="deep-clear" type="button" class="btn btn-outline-secondary">Clear filters</button>
+</div>
+```
 
-![](../images/frog_soon.gif){fig-align="center" width="250px"}
+<p id="deep-count" class="deep-water-count" aria-live="polite"></p>
+
+::: {.grid #deep-cards}
+
+::: {.g-col-12 .g-col-md-6 .deep-water-card data-focus="data software workflow project-management" data-language="python r"}
+::: {.card}
+::: {.card-body}
+### GitHub
+
+Use GitHub to **track changes, collaborate, plan projects, and share research**. Start with the basics, then explore issues, pull requests, releases, and automation.
+
+<div class="deep-water-tags" aria-label="GitHub tags"><span>Data</span><span>Software</span><span>Workflow</span><span>Project Management</span><span>Python</span><span>R</span></div>
+
+::: {.text-center}
+[Explore GitHub](github/index.qmd){.btn .btn-primary}
 :::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6 .deep-water-card data-focus="software workflow" data-language="python r"}
+::: {.card}
+::: {.card-body}
+### Containers
+
+Capture the **computational environment your research needs**, then make it easier for others to run and reuse your work. Follow instructions for Python or R where they differ.
+
+<div class="deep-water-tags" aria-label="Containers tags"><span>Software</span><span>Workflow</span><span>Python</span><span>R</span></div>
+
+::: {.text-center}
+[Explore Containers](containers/index.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
+:::
+
+<p id="deep-empty" hidden>No topics match those filters. Try changing or clearing a filter.</p>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filters = {
+    focus: document.getElementById("deep-focus"),
+    language: document.getElementById("deep-language")
+  };
+  const cards = [...document.querySelectorAll(".deep-water-card")];
+  const count = document.getElementById("deep-count");
+  const empty = document.getElementById("deep-empty");
+
+  function updateCards() {
+    let shown = 0;
+    for (const card of cards) {
+      const matches = Object.entries(filters).every(([key, select]) =>
+        !select.value || card.dataset[key].split(" ").includes(select.value)
+      );
+      card.hidden = !matches;
+      if (matches) shown++;
+    }
+    count.textContent = `${shown} ${shown === 1 ? "topic" : "topics"} shown`;
+    empty.hidden = shown !== 0;
+  }
+
+  Object.values(filters).forEach(select => select.addEventListener("change", updateCards));
+  document.getElementById("deep-clear").addEventListener("click", () => {
+    Object.values(filters).forEach(select => { select.value = ""; });
+    updateCards();
+    filters.focus.focus();
+  });
+  updateCards();
+});
+</script>
