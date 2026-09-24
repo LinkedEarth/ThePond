@@ -22,7 +22,7 @@ Choose one scenario to complete:
 
 ## Hydrology
 
-**Scenario: Quality**
+**Scenario: Water Quality**
 
 **Scientific question:**  
 *Does water quality change as a stream flows past a developed area?*
@@ -44,7 +44,7 @@ They then calculate the average nitrate concentration at each station and plot h
 
 **Scientific question:**  
 
-*Where are earthquakes occurring most frequently in a region?*
+*Where are earthquakes occurring most frequently in a given region?*
 
 A research team uses an earthquake catalog containing the event identifier, date and time, location, and magnitude of each recorded earthquake. The catalog is considered complete for earthquakes of magnitude 2.0 or greater between 2015 and 2024.
 
@@ -59,7 +59,7 @@ They then divide the region into 10 × 10 km grid cells, count the earthquakes w
 
 ## Oceanography
 
-**Scenario: Ocean temperature profile**
+**Scenario: Ocean thermal structure**
 
 **Scientific question:**  
 
@@ -71,20 +71,20 @@ Before analyzing the data, they:
 
 - convert all depths to meters,
 - convert all temperatures to degrees Celsius,
-- remove measurements without a completed quality-control check,
+- remove measurements without a completed quality-control check from the QA column (0 = valid, 1 = invalid),
 - retain measurements from the upper 500 meters of the ocean.
 
 They then divide the water column into 10-meter depth intervals, calculate the average temperature within each interval, and plot average temperature against depth.
 
 ## Geophysics
 
-**Scenario: Ground movement**
+**Scenario: Ground motion**
 
 **Scientific question:**  
 
 *Is the ground moving in this area over time?*
 
-A research team uses daily position measurements from several GNSS stations. Each measurement includes the station identifier, date, east–west and north–south position, measurement uncertainty, and a quality-control flag.
+A research team uses daily position measurements from several GNSS stations, which are high-precision geodetic monitoring sites permanently anchored to bedrock or stable ground to measure tectonic and surface displacement over time. Each measurement includes the station identifier, date, east–west and north–south position, measurement uncertainty, and a quality-control flag.
 
 Before analyzing the data, they:
 
