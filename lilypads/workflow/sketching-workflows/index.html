@@ -48,9 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-04a0210ca842d2ced31ed87a124cf1c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-952c5f95f050d75e006c05de3d2d7b1a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-04a0210ca842d2ced31ed87a124cf1c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Hydrology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Seismology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Oceanography</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Geophysics</a></li></ul>
 <div id="workflow-scenarios" class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>Scenario: Quality</strong></p>
+<p><strong>Scenario: Water Quality</strong></p>
 <p><strong>Scientific question:</strong><br>
 <em>Does water quality change as a stream flows past a developed area?</em></p>
 <p>A research team collects water samples from several stations upstream and downstream of a developed area. Each sample is labeled with its station number and collection date, and the team measures its nitrate concentration. Their measurement method is valid for nitrate concentrations between 0 and 50 mg/L.</p>
@@ -199,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><strong>Scenario: Earthquake frequency</strong></p>
 <p><strong>Scientific question:</strong></p>
-<p><em>Where are earthquakes occurring most frequently in a region?</em></p>
+<p><em>Where are earthquakes occurring most frequently in a given region?</em></p>
 <p>A research team uses an earthquake catalog containing the event identifier, date and time, location, and magnitude of each recorded earthquake. The catalog is considered complete for earthquakes of magnitude 2.0 or greater between 2015 and 2024.</p>
 <p>Before analyzing the data, they:</p>
 <ul>
@@ -211,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 <p>They then divide the region into 10 × 10 km grid cells, count the earthquakes within each cell, and create a map showing the number of earthquakes across the region.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><strong>Scenario: Ocean temperature profile</strong></p>
+<p><strong>Scenario: Ocean thermal structure</strong></p>
 <p><strong>Scientific question:</strong></p>
 <p><em>How does ocean temperature change with depth?</em></p>
 <p>A research team collects several ocean temperature profiles at the same location. Each measurement includes the profile identifier, depth, temperature, and a quality-control flag.</p>
@@ -219,16 +219,16 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>convert all depths to meters,</li>
 <li>convert all temperatures to degrees Celsius,</li>
-<li>remove measurements without a completed quality-control check,</li>
+<li>remove measurements without a completed quality-control check from the QA column (0 = valid, 1 = invalid),</li>
 <li>retain measurements from the upper 500 meters of the ocean.</li>
 </ul>
 <p>They then divide the water column into 10-meter depth intervals, calculate the average temperature within each interval, and plot average temperature against depth.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><strong>Scenario: Ground movement</strong></p>
+<p><strong>Scenario: Ground motion</strong></p>
 <p><strong>Scientific question:</strong></p>
 <p><em>Is the ground moving in this area over time?</em></p>
-<p>A research team uses daily position measurements from several GNSS stations. Each measurement includes the station identifier, date, east–west and north–south position, measurement uncertainty, and a quality-control flag.</p>
+<p>A research team uses daily position measurements from several GNSS stations, which are high-precision geodetic monitoring sites permanently anchored to bedrock or stable ground to measure tectonic and surface displacement over time. Each measurement includes the station identifier, date, east–west and north–south position, measurement uncertainty, and a quality-control flag.</p>
 <p>Before analyzing the data, they:</p>
 <ul>
 <li>convert all positions to a common reference frame and units,</li>
