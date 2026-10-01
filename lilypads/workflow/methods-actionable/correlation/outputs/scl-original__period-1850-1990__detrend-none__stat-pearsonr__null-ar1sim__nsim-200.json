@@ -1,0 +1,47 @@
+{
+  "choices": {
+    "scl_treatment": "original",
+    "period": [
+      1850,
+      1990
+    ],
+    "detrend": "none",
+    "statistic": "pearsonr",
+    "null_model": "ar1sim",
+    "n_sim": 200
+  },
+  "fixed_settings": {
+    "temp_smoothing_years": 11,
+    "seed": 42,
+    "alpha": 0.05
+  },
+  "result": {
+    "correlation": -0.8608224957747954,
+    "p_value": 0.005,
+    "significant": true,
+    "n_points": 130,
+    "window": [
+      1855.5,
+      1984.9160000000002
+    ]
+  },
+  "versions": {
+    "python": "3.12.0",
+    "pyleoclim": "1.3.1b0 (7cd7732)",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.3",
+    "matplotlib": "3.10.8"
+  },
+  "data": {
+    "silso_sunspots_monthly.csv": {
+      "url": "https://www.sidc.be/SILSO/INFO/snmtotcsv.php",
+      "retrieved": "2026-09-30"
+    },
+    "crutem5_nh_monthly.csv": {
+      "url": "https://www.metoffice.gov.uk/hadobs/crutem5/data/CRUTEM.5.0.2.0/diagnostics/CRUTEM.5.0.2.0.summary_series.northern_hemisphere.monthly.csv",
+      "retrieved": "2026-09-30"
+    }
+  },
+  "run_at": "2026-09-30T17:22:08"
+}
