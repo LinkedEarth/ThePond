@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Geophysics: Ground Motion – The Pond</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../images/FROGSlogo.jpg" rel="icon" type="image/jpeg">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo light-content">
+    <img src="../../../../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">The Pond</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../shallows/index.html"> 
+<span class="menu-text">The Shallows</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../lilypads/index.html"> 
+<span class="menu-text">LilyPads</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../deep-water/index.html"> 
+<span class="menu-text">The Deep End</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../spring/index.html"> 
+<span class="menu-text">The Spring</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#geophysics-from-sketch-to-notebook" id="toc-geophysics-from-sketch-to-notebook" class="nav-link active" data-scroll-target="#geophysics-from-sketch-to-notebook">Geophysics: from sketch to notebook</a>
+  <ul class="collapse">
+  <li><a href="#preamble-from-sketch-to-notebook" id="toc-preamble-from-sketch-to-notebook" class="nav-link" data-scroll-target="#preamble-from-sketch-to-notebook">Preamble: From sketch to notebook</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+  <li><a href="#data-pre-processing" id="toc-data-pre-processing" class="nav-link" data-scroll-target="#data-pre-processing">Data Pre-Processing</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Geophysics: Ground Motion</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="geophysics-from-sketch-to-notebook" class="level1">
+<h1>Geophysics: from sketch to notebook</h1>
+<p><strong>Question:</strong> Is the ground moving in this area over time?</p>
+<p>Reference notebook for The Pond. All observations and locations are <strong>synthetic</strong>, created for this activity; results are not evidence about a real site.</p>
+<section id="preamble-from-sketch-to-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="preamble-from-sketch-to-notebook">Preamble: From sketch to notebook</h2>
+<p>In a previous <a href="https://linked.earth/ThePond/lilypads/workflow/sketching-workflows/index.html">LiLyPad</a>, you sketched a workflow to investigate ground movement over time.</p>
+<p>Here, we use daily position measurements from several Global Navigation Satellite System (GNSS) stations. These stations are anchored to the ground, allowing repeated measurements of their positions to reveal movement.</p>
+<p>We will standardize the positions, apply quality-control and uncertainty criteria, and retain stations with at least three years of observations. For each remaining station, we will estimate east–west and north–south movement rates, then combine them to calculate the speed and direction of horizontal ground movement.</p>
+<p>In this notebook, we will translate that sketch into a computational workflow. As you work through each section, notice:</p>
+<ul>
+<li>What data does the step receive?</li>
+<li>What operation does it perform?</li>
+<li>What parameters or decisions control that operation?</li>
+<li>What does it produce, and which step uses that output?</li>
+</ul>
+<p>An output does not need to be saved as a separate file. It can be a table or another object held in memory, provided we explain what it contains and how it is used.</p>
+<p>Follow each input → analysis → output connection in your sketch. Markdown explains meaning, documents choices, and describes manual steps; code performs computational operations; displayed tables and figures let us inspect the results.</p>
+<div class="alert alert-block alert-info">
+<pre><code>&lt;b&gt;Note:&lt;/b&gt; A notebook’s preamble introduces the scientific questions it addresses and explains how its analyses fit into the broader study. It is also a useful place to document data sources and software dependencies, including their versions.</code></pre>
+</div>
+</section>
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
+<p>Let’s first load our data and understand how it is organized.</p>
+<p>Each row is one daily observation. <code>station</code> identifies the GNSS station, and <code>date</code> gives the observation date. <code>east</code> and <code>north</code> record its horizontal position components, with <code>unit</code> indicating meters (<code>m</code>) or millimeters (<code>mm</code>). Positive values point east and north, respectively.</p>
+<p>The <code>frame</code> column identifies the reference frame used to report each position. Our synthetic dataset uses two fictional frames, A and B, which we will convert to a common frame before analysis.</p>
+<p><code>horizontal_uncertainty_mm</code> gives the reported horizontal measurement uncertainty in millimeters. <code>qc_complete</code> indicates whether quality control was completed and the measurement accepted (1) or remains incomplete (0).</p>
+<p>Finally, <code>map_east_km</code> and <code>map_north_km</code> give fixed station locations on a local map, in kilometers. We will use these to position the velocity arrows in our final figure.</p>
+<div id="cell-2" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> pd.read_csv(<span class="st">"data/geophysics.csv"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Input: </span><span class="sc">{</span><span class="bu">len</span>(raw)<span class="sc">}</span><span class="ss"> daily observations"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>display(raw.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Input: 6209 daily observations</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">station</th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">east</th>
+<th data-quarto-table-cell-role="th">north</th>
+<th data-quarto-table-cell-role="th">unit</th>
+<th data-quarto-table-cell-role="th">frame</th>
+<th data-quarto-table-cell-role="th">horizontal_uncertainty_mm</th>
+<th data-quarto-table-cell-role="th">qc_complete</th>
+<th data-quarto-table-cell-role="th">map_east_km</th>
+<th data-quarto-table-cell-role="th">map_north_km</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>G1</td>
+<td>2019-01-01</td>
+<td>-0.000625</td>
+<td>0.001372</td>
+<td>m</td>
+<td>A</td>
+<td>12</td>
+<td>0</td>
+<td>10</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>G1</td>
+<td>2019-01-02</td>
+<td>99.281148</td>
+<td>-48.949710</td>
+<td>mm</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>G1</td>
+<td>2019-01-03</td>
+<td>-0.603323</td>
+<td>-0.222897</td>
+<td>mm</td>
+<td>A</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>G1</td>
+<td>2019-01-04</td>
+<td>0.100937</td>
+<td>-0.050366</td>
+<td>m</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>G1</td>
+<td>2019-01-05</td>
+<td>-0.670823</td>
+<td>0.050816</td>
+<td>mm</td>
+<td>A</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="data-pre-processing" class="level2">
+<h2 class="anchored" data-anchor-id="data-pre-processing">Data Pre-Processing</h2>
+<p>Our first step is to express all positions in millimeters and in reference frame A. We multiply positions reported in meters by 1,000; values already in millimeters remain unchanged.</p>
+<p>In our synthetic dataset, frame B reports east positions 100 mm higher and north positions 50 mm lower than frame A. After converting the units, we subtract 100 mm from the east component and add 50 mm to the north component for observations in frame B.</p>
+<p>We retain the original columns and store the standardized positions in <code>east_mm</code> and <code>north_mm</code>. We also convert the dates into a format that lets us calculate elapsed time.</p>
+<div class="alert alert-block alert-info">
+<pre><code>&lt;b&gt;Note:&lt;/b&gt; These fictional reference frames differ only by constant offsets. This simplifies the conversion for the exercise. Transformations between real GNSS reference frames can be more complex and require an appropriate transformation model.</code></pre>
+</div>
+<div id="cell-4" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>standardized <span class="op">=</span> raw.copy()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>standardized[<span class="st">"date"</span>] <span class="op">=</span> pd.to_datetime(standardized[<span class="st">"date"</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>unit_factor <span class="op">=</span> standardized[<span class="st">"unit"</span>].<span class="bu">map</span>({<span class="st">"m"</span>: <span class="dv">1000</span>, <span class="st">"mm"</span>: <span class="dv">1</span>})</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>east_offset_mm <span class="op">=</span> standardized[<span class="st">"frame"</span>].<span class="bu">map</span>({<span class="st">"A"</span>: <span class="dv">0</span>, <span class="st">"B"</span>: <span class="dv">100</span>})</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>north_offset_mm <span class="op">=</span> standardized[<span class="st">"frame"</span>].<span class="bu">map</span>({<span class="st">"A"</span>: <span class="dv">0</span>, <span class="st">"B"</span>: <span class="op">-</span><span class="dv">50</span>})</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>standardized[<span class="st">"east_mm"</span>] <span class="op">=</span> (</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    standardized[<span class="st">"east"</span>] <span class="op">*</span> unit_factor <span class="op">-</span> east_offset_mm</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>standardized[<span class="st">"north_mm"</span>] <span class="op">=</span> (</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    standardized[<span class="st">"north"</span>] <span class="op">*</span> unit_factor <span class="op">-</span> north_offset_mm</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> standardized[[<span class="st">"east_mm"</span>, <span class="st">"north_mm"</span>]].notna().<span class="bu">all</span>().<span class="bu">all</span>()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>display(</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    standardized[</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        [<span class="st">"station"</span>, <span class="st">"date"</span>, <span class="st">"unit"</span>, <span class="st">"frame"</span>, <span class="st">"east_mm"</span>, <span class="st">"north_mm"</span>]</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    ].head()</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">station</th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">unit</th>
+<th data-quarto-table-cell-role="th">frame</th>
+<th data-quarto-table-cell-role="th">east_mm</th>
+<th data-quarto-table-cell-role="th">north_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>G1</td>
+<td>2019-01-01</td>
+<td>m</td>
+<td>A</td>
+<td>-0.624949</td>
+<td>1.371646</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>G1</td>
+<td>2019-01-02</td>
+<td>mm</td>
+<td>B</td>
+<td>-0.718852</td>
+<td>1.050290</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>G1</td>
+<td>2019-01-03</td>
+<td>mm</td>
+<td>A</td>
+<td>-0.603323</td>
+<td>-0.222897</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>G1</td>
+<td>2019-01-04</td>
+<td>m</td>
+<td>B</td>
+<td>0.936832</td>
+<td>-0.365928</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>G1</td>
+<td>2019-01-05</td>
+<td>mm</td>
+<td>A</td>
+<td>-0.670823</td>
+<td>0.050816</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We now retain only observations for which quality control was completed and the measurement accepted, indicated by <code>qc_complete = 1</code>.</p>
+<p>The resulting dataset contains accepted daily positions expressed in millimeters in reference frame A.</p>
+<div id="cell-6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quality <span class="op">=</span> standardized.loc[</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    standardized[<span class="st">"qc_complete"</span>].eq(<span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>].copy()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(standardized)<span class="sc">}</span><span class="ss"> observations → </span><span class="sc">{</span><span class="bu">len</span>(quality)<span class="sc">}</span><span class="ss"> accepted observations"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>display(quality.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6209 observations → 6063 accepted observations</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">station</th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">east</th>
+<th data-quarto-table-cell-role="th">north</th>
+<th data-quarto-table-cell-role="th">unit</th>
+<th data-quarto-table-cell-role="th">frame</th>
+<th data-quarto-table-cell-role="th">horizontal_uncertainty_mm</th>
+<th data-quarto-table-cell-role="th">qc_complete</th>
+<th data-quarto-table-cell-role="th">map_east_km</th>
+<th data-quarto-table-cell-role="th">map_north_km</th>
+<th data-quarto-table-cell-role="th">east_mm</th>
+<th data-quarto-table-cell-role="th">north_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1</th>
+<td>G1</td>
+<td>2019-01-02</td>
+<td>99.281148</td>
+<td>-48.949710</td>
+<td>mm</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>-0.718852</td>
+<td>1.050290</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2</th>
+<td>G1</td>
+<td>2019-01-03</td>
+<td>-0.603323</td>
+<td>-0.222897</td>
+<td>mm</td>
+<td>A</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>-0.603323</td>
+<td>-0.222897</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3</th>
+<td>G1</td>
+<td>2019-01-04</td>
+<td>0.100937</td>
+<td>-0.050366</td>
+<td>m</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>0.936832</td>
+<td>-0.365928</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4</th>
+<td>G1</td>
+<td>2019-01-05</td>
+<td>-0.670823</td>
+<td>0.050816</td>
+<td>mm</td>
+<td>A</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>-0.670823</td>
+<td>0.050816</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5</th>
+<td>G1</td>
+<td>2019-01-06</td>
+<td>100.087251</td>
+<td>-49.597380</td>
+<td>mm</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>0.087251</td>
+<td>0.402620</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We next remove observations with a reported horizontal uncertainty greater than 10 mm. Observations with an uncertainty exactly equal to 10 mm are retained.</p>
+<p>The resulting dataset contains accepted daily positions that meet our uncertainty criterion. The uncertainty column is already expressed in millimeters, so no additional unit conversion is needed.</p>
+<div id="cell-8" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>MAX_UNCERTAINTY_MM <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>precise <span class="op">=</span> quality.loc[</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    quality[<span class="st">"horizontal_uncertainty_mm"</span>].le(MAX_UNCERTAINTY_MM)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>].copy()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(quality)<span class="sc">}</span><span class="ss"> observations → </span><span class="sc">{</span><span class="bu">len</span>(precise)<span class="sc">}</span><span class="ss"> with uncertainty ≤ 10 mm"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>display(precise.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6063 observations → 5869 with uncertainty ≤ 10 mm</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">station</th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">east</th>
+<th data-quarto-table-cell-role="th">north</th>
+<th data-quarto-table-cell-role="th">unit</th>
+<th data-quarto-table-cell-role="th">frame</th>
+<th data-quarto-table-cell-role="th">horizontal_uncertainty_mm</th>
+<th data-quarto-table-cell-role="th">qc_complete</th>
+<th data-quarto-table-cell-role="th">map_east_km</th>
+<th data-quarto-table-cell-role="th">map_north_km</th>
+<th data-quarto-table-cell-role="th">east_mm</th>
+<th data-quarto-table-cell-role="th">north_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1</th>
+<td>G1</td>
+<td>2019-01-02</td>
+<td>99.281148</td>
+<td>-48.949710</td>
+<td>mm</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>-0.718852</td>
+<td>1.050290</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2</th>
+<td>G1</td>
+<td>2019-01-03</td>
+<td>-0.603323</td>
+<td>-0.222897</td>
+<td>mm</td>
+<td>A</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>-0.603323</td>
+<td>-0.222897</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3</th>
+<td>G1</td>
+<td>2019-01-04</td>
+<td>0.100937</td>
+<td>-0.050366</td>
+<td>m</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>0.936832</td>
+<td>-0.365928</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4</th>
+<td>G1</td>
+<td>2019-01-05</td>
+<td>-0.670823</td>
+<td>0.050816</td>
+<td>mm</td>
+<td>A</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>-0.670823</td>
+<td>0.050816</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5</th>
+<td>G1</td>
+<td>2019-01-06</td>
+<td>100.087251</td>
+<td>-49.597380</td>
+<td>mm</td>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>0.087251</td>
+<td>0.402620</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We now retain stations with at least three years of observations after quality-control and uncertainty filtering. For each station, we calculate the elapsed time between its first and last remaining observation, using 365.25 days per year.</p>
+<p>The resulting dataset contains daily positions from stations whose retained records span at least three years.</p>
+<div class="alert alert-block alert-info">
+<pre><code>&lt;b&gt;Note:&lt;/b&gt; We interpret record length as the time between the first and last retained observations. This does not guarantee continuous coverage: a station could have gaps within that period. We document this choice because requiring three years of daily measurements would be a different criterion.</code></pre>
+</div>
+<div id="cell-10" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>MIN_YEARS <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>DAYS_PER_YEAR <span class="op">=</span> <span class="fl">365.25</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>record_lengths <span class="op">=</span> (</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    precise.groupby(<span class="st">"station"</span>)[<span class="st">"date"</span>]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    .agg(first_date<span class="op">=</span><span class="st">"min"</span>, last_date<span class="op">=</span><span class="st">"max"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>record_lengths[<span class="st">"years"</span>] <span class="op">=</span> (</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    (record_lengths[<span class="st">"last_date"</span>] <span class="op">-</span> record_lengths[<span class="st">"first_date"</span>]).dt.days</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span> DAYS_PER_YEAR</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>keep <span class="op">=</span> record_lengths.index[</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    record_lengths[<span class="st">"years"</span>].ge(MIN_YEARS)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>eligible <span class="op">=</span> precise.loc[</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    precise[<span class="st">"station"</span>].isin(keep)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>].copy()</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>display(record_lengths)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>precise[<span class="st">'station'</span>]<span class="sc">.</span>nunique()<span class="sc">}</span><span class="ss"> stations → "</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>eligible[<span class="st">'station'</span>]<span class="sc">.</span>nunique()<span class="sc">}</span><span class="ss"> with records spanning at least </span><span class="sc">{</span>MIN_YEARS<span class="sc">}</span><span class="ss"> years"</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">first_date</th>
+<th data-quarto-table-cell-role="th">last_date</th>
+<th data-quarto-table-cell-role="th">years</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">station</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">G1</th>
+<td>2019-01-02</td>
+<td>2023-12-31</td>
+<td>4.993840</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">G2</th>
+<td>2019-01-02</td>
+<td>2023-12-31</td>
+<td>4.993840</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">G3</th>
+<td>2019-01-02</td>
+<td>2023-12-31</td>
+<td>4.993840</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">G4</th>
+<td>2019-01-02</td>
+<td>2020-12-31</td>
+<td>1.995893</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4 stations → 3 with records spanning at least 3 years</code></pre>
+</div>
+</div>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>For each retained station, we fit separate straight lines to its east and north positions over time. The slope of each line gives the movement rate in that direction, expressed in millimeters per year.</p>
+<p>We measure time from each station’s first retained observation and give all retained observations equal weight in the fit. Positive slopes indicate movement eastward or northward; negative slopes indicate movement westward or southward.</p>
+<p>The resulting table contains one row per station, with its east and north movement rates and its location for plotting.</p>
+<div class="alert alert-block alert-info">
+<pre><code>&lt;b&gt;Note:&lt;/b&gt; A linear model describes movement at a constant average rate over the observation period. Here, we use ordinary least squares with an intercept and no uncertainty weighting. More detailed analyses may need to account for seasonal motion, sudden position changes, and correlated measurement errors.</code></pre>
+</div>
+<div id="cell-12" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>records <span class="op">=</span> []</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> station, group <span class="kw">in</span> eligible.groupby(<span class="st">"station"</span>):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    time_years <span class="op">=</span> (</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        (group[<span class="st">"date"</span>] <span class="op">-</span> group[<span class="st">"date"</span>].<span class="bu">min</span>()).dt.total_seconds()</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">/</span> (<span class="dv">86400</span> <span class="op">*</span> DAYS_PER_YEAR)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    east_rate, east_intercept <span class="op">=</span> np.polyfit(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        time_years, group[<span class="st">"east_mm"</span>], <span class="dv">1</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    north_rate, north_intercept <span class="op">=</span> np.polyfit(</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        time_years, group[<span class="st">"north_mm"</span>], <span class="dv">1</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    records.append({</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"station"</span>: station,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"east_mm_yr"</span>: east_rate,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"north_mm_yr"</span>: north_rate,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"map_east_km"</span>: group[<span class="st">"map_east_km"</span>].iloc[<span class="dv">0</span>],</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"map_north_km"</span>: group[<span class="st">"map_north_km"</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>trends <span class="op">=</span> pd.DataFrame(records)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>display(trends)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">station</th>
+<th data-quarto-table-cell-role="th">east_mm_yr</th>
+<th data-quarto-table-cell-role="th">north_mm_yr</th>
+<th data-quarto-table-cell-role="th">map_east_km</th>
+<th data-quarto-table-cell-role="th">map_north_km</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>G1</td>
+<td>4.002121</td>
+<td>1.989086</td>
+<td>10</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>G2</td>
+<td>1.992006</td>
+<td>4.993067</td>
+<td>20</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>G3</td>
+<td>-2.992803</td>
+<td>1.013062</td>
+<td>30</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We combine each station’s east and north movement rates to calculate its horizontal speed and direction. Speed is the square root of the sum of the squared component rates, expressed in millimeters per year.</p>
+<p>We report direction clockwise from north: 0° indicates northward movement, 90° eastward, 180° southward, and 270° westward.</p>
+<p>The resulting table retains the component rates and adds <code>speed_mm_yr</code> and <code>direction_deg</code>. These describe horizontal movement in our chosen reference frame.</p>
+<div id="cell-14" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>velocities <span class="op">=</span> trends.copy()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>velocities[<span class="st">"speed_mm_yr"</span>] <span class="op">=</span> np.hypot(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    velocities[<span class="st">"east_mm_yr"</span>],</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    velocities[<span class="st">"north_mm_yr"</span>]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>velocities[<span class="st">"direction_deg"</span>] <span class="op">=</span> (</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    np.degrees(</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        np.arctan2(</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            velocities[<span class="st">"east_mm_yr"</span>],</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            velocities[<span class="st">"north_mm_yr"</span>]</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">%</span> <span class="dv">360</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Direction is undefined when speed is zero.</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>velocities.loc[</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    velocities[<span class="st">"speed_mm_yr"</span>].eq(<span class="dv">0</span>), <span class="st">"direction_deg"</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>] <span class="op">=</span> np.nan</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>display(velocities)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">station</th>
+<th data-quarto-table-cell-role="th">east_mm_yr</th>
+<th data-quarto-table-cell-role="th">north_mm_yr</th>
+<th data-quarto-table-cell-role="th">map_east_km</th>
+<th data-quarto-table-cell-role="th">map_north_km</th>
+<th data-quarto-table-cell-role="th">speed_mm_yr</th>
+<th data-quarto-table-cell-role="th">direction_deg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>G1</td>
+<td>4.002121</td>
+<td>1.989086</td>
+<td>10</td>
+<td>6</td>
+<td>4.469165</td>
+<td>63.572252</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>G2</td>
+<td>1.992006</td>
+<td>4.993067</td>
+<td>20</td>
+<td>12</td>
+<td>5.375761</td>
+<td>21.749743</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>G3</td>
+<td>-2.992803</td>
+<td>1.013062</td>
+<td>30</td>
+<td>18</td>
+<td>3.159615</td>
+<td>288.700935</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<p>Let’s show each station’s horizontal movement as an arrow on a local map. The arrow points in the direction of movement, and its length represents speed. A reference arrow shows the length corresponding to 5 mm per year.</p>
+<p>Station locations are expressed in kilometers, while velocities are expressed in millimeters per year. The arrows are enlarged for visibility; their endpoints do not represent future station locations.</p>
+<div id="cell-16" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>arrows <span class="op">=</span> ax.quiver(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    velocities[<span class="st">"map_east_km"</span>],</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    velocities[<span class="st">"map_north_km"</span>],</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    velocities[<span class="st">"east_mm_yr"</span>],</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    velocities[<span class="st">"north_mm_yr"</span>],</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    angles<span class="op">=</span><span class="st">"xy"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    scale_units<span class="op">=</span><span class="st">"xy"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    scale<span class="op">=</span><span class="fl">0.6</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>ax.quiverkey(</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    arrows,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    X<span class="op">=</span><span class="fl">0.78</span>,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    Y<span class="op">=</span><span class="fl">0.9</span>,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    U<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"5 mm/year"</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    coordinates<span class="op">=</span><span class="st">"axes"</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> velocities.itertuples():</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    ax.annotate(</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        row.station,</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>        (row.map_east_km, row.map_north_km),</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>        xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="op">-</span><span class="dv">12</span>),</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        textcoords<span class="op">=</span><span class="st">"offset points"</span>,</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">"center"</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    xlim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">45</span>),</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    ylim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">35</span>),</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    aspect<span class="op">=</span><span class="st">"equal"</span>,</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    xlabel<span class="op">=</span><span class="st">"Local east (km)"</span>,</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    ylabel<span class="op">=</span><span class="st">"Local north (km)"</span>,</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Synthetic horizontal velocities"</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="geophysics_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The retained stations show different horizontal movement speeds and directions in our chosen reference frame. Station G4 is excluded because its retained observations span less than three years.</p>
+<p>These arrows summarize average movement over each station’s observation period. We have not estimated uncertainties in the fitted velocities, so the figure alone does not establish whether differences between stations are statistically significant.</p>
+<details>
+<summary>
+<strong>Show the reference workflow</strong>
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figures/geophysics-workflow-answer.png" class="img-fluid figure-img"></p>
+<figcaption>Reference workflow for the geophysics scenario</figcaption>
+</figure>
+</div>
+</details>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/LinkedEarth\.github\.io\/ThePond\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>The Pond is part of <a href="https://linked.earth/FROGS/">FROGS</a>, a <a href="https://linked.earth/">LinkedEarth</a> project.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
