@@ -44,7 +44,7 @@ Learn practices for creating **reusable and sustainable research software**, fro
 Learn how to make the **entire path from data to results reproducible**, including computational environments, provenance, notebooks, and sharing complete workflows.
 
 ::: {.text-center}
-[Explore Workflows](workflows/index.qmd){.btn .btn-primary}
+[Explore Workflows](workflow/index.qmd){.btn .btn-primary}
 :::
 :::
 :::
