@@ -1,5 +1,5 @@
 ---
-title: "Workflow"
+title: "Workflows"
 subtitle: Reproducibility, Computational Environments, Provenance, Notebooks, and Sharing.
 ---
 

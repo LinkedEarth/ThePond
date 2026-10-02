@@ -1,5 +1,11 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "*.md"
+    # Backend notebook for the correlation LilyPad; not a page
+    - "!lilypads/workflow/methods-actionable/correlation/workflow.ipynb"
 
 website:
   title: "The Pond"

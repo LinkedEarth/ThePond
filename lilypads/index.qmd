@@ -39,7 +39,7 @@ Learn practices for creating **reusable and sustainable research software**, fro
 ::: {.g-col-12 .g-col-md-4}
 ::: {.card}
 ::: {.card-body}
-### Workflow
+### Workflows
 
 Learn how to make the **entire path from data to results reproducible**, including computational environments, provenance, notebooks, and sharing complete workflows.
 

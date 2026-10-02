@@ -1,0 +1,8 @@
+# Exact versions used to produce the results in workflow.ipynb (Python 3.12.0).
+# The notebook's first cell compares your installed versions against this file.
+# pyleoclim is pinned to a GitHub commit because this version is not on PyPI yet.
+pyleoclim @ git+https://github.com/LinkedEarth/Pyleoclim_util.git@7cd7732dbecd1dc49b3a36558b90a665280180c7
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.3
+matplotlib==3.10.8
