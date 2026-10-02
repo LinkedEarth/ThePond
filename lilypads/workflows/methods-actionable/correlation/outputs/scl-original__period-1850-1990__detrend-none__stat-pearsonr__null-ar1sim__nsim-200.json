@@ -11,18 +11,21 @@
     "n_sim": 200
   },
   "fixed_settings": {
-    "temp_smoothing_years": 11,
+    "baseline": [
+      1951,
+      1980
+    ],
     "seed": 42,
     "alpha": 0.05
   },
   "result": {
-    "correlation": -0.8608224957747954,
-    "p_value": 0.005,
+    "correlation": -0.8885545312383475,
+    "p_value": 0.0,
     "significant": true,
-    "n_points": 130,
+    "n_points": 24,
     "window": [
-      1855.5,
-      1984.9160000000002
+      1858.0410000000002,
+      1981.3759999999982
     ]
   },
   "versions": {
@@ -43,5 +46,5 @@
       "retrieved": "2026-09-30"
     }
   },
-  "run_at": "2026-09-30T17:22:08"
+  "run_at": "2026-10-01T09:59:23"
 }

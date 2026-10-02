@@ -12,7 +12,7 @@ Ready to go deeper? Choose a topic, then work through its hands-on pads. Use the
       <option value="">All focuses</option>
       <option value="data">Data</option>
       <option value="software">Software</option>
-      <option value="workflow">Workflow</option>
+      <option value="workflow">Workflows</option>
       <option value="project-management">Project Management</option>
     </select>
   </div>
@@ -39,7 +39,7 @@ Ready to go deeper? Choose a topic, then work through its hands-on pads. Use the
 
 Use GitHub to **track changes, collaborate, plan projects, and share research**. Start with the basics, then explore issues, pull requests, releases, and automation.
 
-<div class="deep-water-tags" aria-label="GitHub tags"><span>Data</span><span>Software</span><span>Workflow</span><span>Project Management</span><span>Python</span><span>R</span></div>
+<div class="deep-water-tags" aria-label="GitHub tags"><span>Data</span><span>Software</span><span>Workflows</span><span>Project Management</span><span>Python</span><span>R</span></div>
 
 ::: {.text-center}
 [Explore GitHub](github/index.qmd){.btn .btn-primary}
@@ -55,7 +55,7 @@ Use GitHub to **track changes, collaborate, plan projects, and share research**.
 
 Capture the **computational environment your research needs**, then make it easier for others to run and reuse your work. Follow instructions for Python or R where they differ.
 
-<div class="deep-water-tags" aria-label="Containers tags"><span>Software</span><span>Workflow</span><span>Python</span><span>R</span></div>
+<div class="deep-water-tags" aria-label="Containers tags"><span>Software</span><span>Workflows</span><span>Python</span><span>R</span></div>
 
 ::: {.text-center}
 [Explore Containers](containers/index.qmd){.btn .btn-primary}
