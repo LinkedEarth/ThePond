@@ -1,5 +1,6 @@
 {
   "choices": {
+    "smoothing": "12221",
     "scl_treatment": "original",
     "period": [
       1850,
@@ -7,25 +8,26 @@
     ],
     "detrend": "none",
     "statistic": "pearsonr",
-    "null_model": "ar1sim",
     "n_sim": 200
   },
   "fixed_settings": {
+    "null_model": "phaseran",
     "baseline": [
       1951,
       1980
     ],
+    "lanczos_cutoff_years": 11,
     "seed": 42,
     "alpha": 0.05
   },
   "result": {
-    "correlation": -0.8885545312383475,
-    "p_value": 0.0,
-    "significant": true,
-    "n_points": 24,
+    "correlation": -0.8351835701347685,
+    "p_value": 0.055,
+    "significant": false,
+    "n_points": 19,
     "window": [
-      1858.0410000000002,
-      1981.3759999999982
+      1881.458,
+      1979.7258604651179
     ]
   },
   "versions": {
@@ -46,5 +48,5 @@
       "retrieved": "2026-09-30"
     }
   },
-  "run_at": "2026-10-01T09:59:23"
+  "run_at": "2026-10-02T12:54:06"
 }

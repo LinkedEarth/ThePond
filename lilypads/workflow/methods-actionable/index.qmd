@@ -11,7 +11,7 @@ resources:
 
 ::: {.callout-note title="Instructions"}
 
-Chances are you have come across results in scientific publications, posters or talks, and wondered: "How did they get here?" Supposedly that is what the Methods section explains, but that information is not always actionable. 
+Chances are you have come across results in scientific publications, posters or talks, and wondered: "How did they get here?". Supposedly that is what the Methods section explains, but that information is not always actionable. 
 
 Each scenario below starts from an excerpt of a methods section (a real one for Correlations, a fictitious one for Spectral Analysis). The goal of the exercise is to determine whether the provided instructions are sufficient to reproduce the results shown in Figure 1. As you complete this exercise, take careful notes about what information is missing from the methods section that would help you reproduce the results.
 
@@ -23,7 +23,7 @@ Each scenario below starts from an excerpt of a methods section (a real one for 
 
 ## Correlations
 
-A famous example of how scientifically impactful the details of a workflow can be is the case of [Friis-Christensen & Lassen (1991)](https://doi.org/10.1126/science.254.5032.698), who reported a striking match between the length of the solar cycle and Northern Hemisphere land temperature. Later, [Laut (2003)](https://doi.org/10.1016/S1364-6826(03)00041-5) showed that the result hinged entirely on how the data were processed. In this example, you will tinker with parts of that workflow to understand just how brittle the results were.
+A famous example of how scientifically impactful the details of a workflow can be is the study of [Friis-Christensen & Lassen (1991)](https://doi.org/10.1126/science.254.5032.698), who reported a striking match between the length of the solar cycle and Northern Hemisphere land temperature. Later, [Laut (2003)](https://doi.org/10.1016/S1364-6826(03)00041-5) showed that the result hinged entirely on how the data were processed. In this example, you will tinker with parts of that workflow to understand just how brittle the results are when the workflow is ambiguous.
 
 Here is everything the paper says about how the two series were prepared:
 
@@ -37,18 +37,18 @@ And here is how the result is reported:
 
 > "Furthermore, a strikingly good agreement between these two curves is revealed. There is a close association between the two curves in the up-going trends from 1900 to 1940 and since 1970, as well as in the important decrease from 1945 to 1970."
 
-The paper gives no correlation coefficient and no test of statistical significance. Figure 1 below re-creates its central figure with today's versions of the data.
+The paper gives no quantitative measure of association (e.g. a correlation coefficient) and no test of statistical significance. Figure 1 below re-creates its central figure with today's versions of the data.
 
 ![Figure 1. Solar cycle length (blue, inverted axis: shorter cycles plotted upward) and Northern Hemisphere land temperature (red), 1850–1990, re-created after Fig. 2 of Friis-Christensen & Lassen (1991).](correlation/images/figure1.png){width=75% fig-align="center"}
 
 ### **Reproducing the analysis**
 
-Use the information in these excerpts to reproduce Figure 1. Then go one step further than the paper: measure how strong the correlation is and whether it is statistically significant, and see how much those answers depend on choices the paper leaves open. You do not need to know anything about solar physics or statistics for this exercise: each choice is explained below.
+Use the information in these excerpts to reproduce Figure 1 (the match won't be exact but since the claims are qualitative, we are just trying to come as close as we can). Then you'll go what the paper should have done: measure how strong the correlation is and whether it is statistically significant, and see how much those answers depend on choices the paper leaves open. You do not need to know anything about solar physics or statistics for this exercise: each choice is explained below.
 
 The data are fixed for this exercise:
 
-- **Solar activity**: monthly sunspot counts since 1749 from the [Royal Observatory of Belgium](https://www.sidc.be/SILSO/datafiles). The Sun's activity rises and falls in cycles of about 11 years, but some cycles are shorter than others. Friis-Christensen & Lassen used cycle *length* as a measure of solar activity: shorter cycles mean a more active Sun.
-- **Temperature**: Northern Hemisphere land temperatures since 1850 from the [CRUTEM5](https://crudata.uea.ac.uk/cru/data/temperature/) dataset, expressed relative to 1951–1980 and, as in the paper, averaged over each half solar cycle (from maximum to minimum and from minimum to maximum). The paper's series was also "smoothed by Jones", which isn't described further, so no extra smoothing is applied here.
+- **Solar activity**: monthly sunspot counts since 1749 from the [Royal Observatory of Belgium](https://www.sidc.be/SILSO/datafiles). The Sun's activity rises and falls in cycles of about 11 years, but some cycles are shorter than others. Friis-Christensen & Lassen used cycle *length* as a measure of solar activity: shorter cycles are interpreted to mean a more active Sun.
+- **Temperature**: Northern Hemisphere land temperatures since 1850 from the [CRUTEM5](https://crudata.uea.ac.uk/cru/data/temperature/) dataset, expressed relative to 1951–1980 and, as in the paper, averaged over each half solar cycle (from maximum to minimum and from minimum to maximum). The paper's series was also "smoothed by Jones", which isn't described further, so here you choose how both series are smoothed (choice 1 below).
 
 The cycle lengths sit at the center of each full cycle and the temperature averages at the center of each half cycle, so the two series fall at different times. The paper only compared them by eye. To calculate a correlation, both are interpolated onto the same evenly spaced time steps, about 5.5 years apart.
 
@@ -66,6 +66,11 @@ corrActivity = {
   let currentAttempt = null;
 
   const labels = {
+    smoothing: {
+      "12221": "1-2-2-2-1",
+      "lanczos": "Lanczos, 11-year cutoff",
+      "none": "None"
+    },
     treatment: {
       "original": "Estimate the next extremum",
       "consistent": "Same smoothing throughout"
@@ -83,10 +88,6 @@ corrActivity = {
       "pearsonr": "Pearson's r",
       "spearmanr": "Spearman's ρ",
       "kendalltau": "Kendall's τ"
-    },
-    null: {
-      "ar1sim": "Red noise (AR(1))",
-      "phaseran": "Phase randomization"
     },
     nsim: {
       "20": "20 simulations",
@@ -113,30 +114,53 @@ corrActivity = {
 
           <h3><strong>Your choices</strong></h3>
 
-          <h4><strong>1. Solar cycle length</strong></h4>
+          <h4><strong>1. Smoothing</strong></h4>
 
           <p>
-            First, the dates of each sunspot maximum and minimum are found. These dates jump around
-            a lot, so, as the paper describes, each date is replaced by a weighted average of five
-            consecutive dates of the same kind (maxima with maxima, minima with minima), with
-            weights 1-2-2-2-1. Cycle lengths are then the time between consecutive smoothed dates,
-            measured from minimum to minimum and from maximum to maximum. This gives one value about
-            every 5.5 years, each summarizing about 55 years of solar activity.
+            First, the dates of each sunspot maximum and minimum are found. Cycle lengths are the
+            time from one minimum to the next and from one maximum to the next, giving one value
+            about every 5.5 years. Temperatures are averaged over each half cycle, between a maximum
+            and the next minimum or vice versa. Both series jump around a lot, so they are smoothed,
+            here always in the same way:
           </p>
 
+          <ul>
+            <li><strong>1-2-2-2-1 (as in the paper):</strong> each value is replaced by a weighted
+              average of five consecutive values of the same kind (for cycle lengths, the dates of
+              maxima with maxima and minima with minima), with weights 1-2-2-2-1. Each smoothed value
+              summarizes about 55 years. This is strong smoothing, and it needs two later values,
+              so it raises the question of what to do at the end of the record (below).</li>
+            <li><strong>Lanczos, 11-year cutoff:</strong> a standard low-pass filter that removes
+              ups and downs shorter than 11 years, applied to both series on yearly steps. It is much
+              gentler than 1-2-2-2-1, and it handles the ends of the record on its own.</li>
+            <li><strong>None:</strong> the raw cycle lengths and half-cycle temperature averages.</li>
+          </ul>
+
+          <div class="mb-4">
+            <label class="form-label">Smoothing</label>
+            <select class="form-select" id="c-smoothing">
+              <option value="12221">1-2-2-2-1 (as in the paper)</option>
+              <option value="lanczos">Lanczos, 11-year cutoff</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+
           <p>
-            At the end of the record, the most recent dates don't have two later dates yet,
-            so the full average can't be computed there. There are two ways to handle this:
+            <strong>End of the record (1-2-2-2-1 only).</strong>
+            The most recent values don't have two later values yet, so the full average can't be
+            computed there. There are two ways to handle this:
           </p>
 
           <ul>
             <li><strong>Estimate the next extremum:</strong> what the paper did. The second-to-last
               date is smoothed using a guess for the next, not-yet-observed extremum (the paper
               doesn't say how it was guessed; here it is the last date plus the average cycle length),
-              and the last date is left unsmoothed. The curve reaches the most recent years, but its
-              last four points are processed differently from the rest.</li>
-            <li><strong>Same smoothing throughout:</strong> drop the dates where the full average
-              can't be computed. Every point is treated the same way, but the curve stops
+              and the last date is left unsmoothed. Temperature is treated as closely as possible
+              to this: the next half cycle can't be guessed, so its second-to-last value is averaged
+              over the four available values and its last value is left unsmoothed. The curves reach
+              the most recent years, but their last points are processed differently from the rest.</li>
+            <li><strong>Same smoothing throughout:</strong> drop the values where the full average
+              can't be computed. Every point is treated the same way, but the curves stop
               more than a decade earlier.</li>
           </ul>
 
@@ -233,30 +257,19 @@ corrActivity = {
           </p>
 
           <p>
-            First, choose how the random series are made:
+            Here the random series are made by <strong>phase randomization</strong>, which scrambles
+            the timing of each series while keeping its balance of slow and fast variations, so the
+            random series are just as smooth as the real ones (see
+            <a href="https://linked.earth/PyleoTutorials/notebooks/L1_surrogates.html#non-parametric-surrogates">this Pyleoclim tutorial</a>
+            for details).
           </p>
 
-          <ul>
-            <li><strong>Red noise (AR(1)):</strong> random series with the same short-term memory
-              as the originals, so each year resembles the year before to the same degree.</li>
-            <li><strong>Phase randomization:</strong> scrambles the timing of each series while keeping
-              its balance of slow and fast variations, so the random series are equally smooth.</li>
-          </ul>
-
           <p>
-            Then choose how many random series to generate. In principle, the real correlation
+            Choose how many random series to generate. In principle, the real correlation
             <em>should</em> be compared with many of them, but how many is a choice, and it affects
             the result. With 20 simulations, for example, the p-value can only take steps of 1/20 = 0.05.
             Try different numbers and see for yourself.
           </p>
-
-          <div class="mb-3">
-            <label class="form-label">Random series</label>
-            <select class="form-select" id="c-null">
-              <option value="ar1sim">Red noise (AR(1))</option>
-              <option value="phaseran">Phase randomization</option>
-            </select>
-          </div>
 
           <div class="mb-4">
             <label class="form-label">Number of simulations</label>
@@ -286,11 +299,12 @@ corrActivity = {
 
           <div class="callout callout-style-default callout-info">
             <div class="callout-body-container callout-body">
+              <p><strong>Smoothing:</strong> <span id="c-summary-smoothing"></span></p>
               <p><strong>End of the record:</strong> <span id="c-summary-treatment"></span></p>
               <p><strong>Time period:</strong> <span id="c-summary-period"></span></p>
               <p><strong>Detrending:</strong> <span id="c-summary-detrend"></span></p>
               <p><strong>Correlation measure:</strong> <span id="c-summary-statistic"></span></p>
-              <p><strong>Significance:</strong> <span id="c-summary-null"></span>, <span id="c-summary-nsim"></span></p>
+              <p><strong>Significance:</strong> phase randomization, <span id="c-summary-nsim"></span></p>
             </div>
           </div>
 
@@ -345,7 +359,7 @@ corrActivity = {
   // Get controls
   // --------------------------------------------------
 
-  const keys = ["treatment", "period", "detrend", "statistic", "null", "nsim"];
+  const keys = ["smoothing", "treatment", "period", "detrend", "statistic", "nsim"];
 
   const controls = Object.fromEntries(
     keys.map(k => [k, root.querySelector(`#c-${k}`)])
@@ -372,14 +386,19 @@ corrActivity = {
     return keys.every(k => a[k] === b[k]);
   }
 
+  function label(k, w) {
+    if (k === "treatment" && w.smoothing !== "12221") return "(not used)";
+    return labels[k][w[k]];
+  }
+
   function describe(w) {
-    return keys.map(k => labels[k][w[k]]).join(" → ");
+    return keys.map(k => label(k, w)).join(" → ");
   }
 
   function updateSummary() {
     const workflow = getWorkflow();
     for (const k of keys) {
-      root.querySelector(`#c-summary-${k}`).textContent = labels[k][workflow[k]];
+      root.querySelector(`#c-summary-${k}`).textContent = label(k, workflow);
     }
     updateStatus();
   }
@@ -524,11 +543,12 @@ corrActivity = {
       for (const attempt of attempts) {
         output += `ATTEMPT ${attempt.number}\n`;
         output += "----------------------------------------\n";
-        output += `End of the record: ${labels.treatment[attempt.treatment]}\n`;
+        output += `Smoothing: ${labels.smoothing[attempt.smoothing]}\n`;
+        output += `End of the record: ${attempt.smoothing === "12221" ? labels.treatment[attempt.treatment] : "(not used)"}\n`;
         output += `Time period: ${labels.period[attempt.period]}\n`;
         output += `Detrending: ${labels.detrend[attempt.detrend]}\n`;
         output += `Correlation measure: ${labels.statistic[attempt.statistic]}\n`;
-        output += `Significance: ${labels.null[attempt.null]}, ${labels.nsim[attempt.nsim]}\n`;
+        output += `Significance: phase randomization, ${labels.nsim[attempt.nsim]}\n`;
         output += `Result: ${attempt.result}\n\n`;
         output += "Notes:\n";
         output += attempt.notes.trim() ? attempt.notes.trim() : "(No notes recorded)";
@@ -554,6 +574,13 @@ corrActivity = {
 
   for (const k of keys) controls[k].addEventListener("change", updateSummary);
 
+  // The end-of-record choice only applies to 1-2-2-2-1 smoothing
+  function updateTreatment() {
+    controls.treatment.disabled = controls.smoothing.value !== "12221";
+  }
+  controls.smoothing.addEventListener("change", updateTreatment);
+
+  updateTreatment();
   updateSummary();
 
   return root;
@@ -562,15 +589,14 @@ corrActivity = {
 
 
 ## Spectral Analysis
-
+Imagine the following line in an article, without further description: 
 _We examined interannual variability in the El Niño Southern Oscillation (ENSO) using spectral analysis. Results of this analysis are shown in Figure 1._
-
 
 ![Figure 1. Spectral power of ENSO variability.](images/figure1.png){width=75% fig-align="center"}
 
 ### **Reproducing the analysis**
 
-Use the information provided in this cursory "Methods section" to reproduce Figure 1. Before you begin, know that while spectral analysis is a complex topic, you absolutely do not need to know anything about it for the purposes of this exercise. Suffice it say that it involves many possible decisions, and we give you several possible choices for you to appreciate how deceptively simple the phrase "using spectral analysis" can be. 
+Use the information provided in this cursory "Methods section" to reproduce Figure 1. Before you begin, know that while spectral analysis is a complex topic, you do not need to know anything about it for the purposes of this exercise. You can treat it as "black box"  involving many possible decisions, and the point of the exercise is to show just how ambiguous the deceptively simple the phrase "using spectral analysis" can be. 
 
 ```{ojs}
 //| echo: false
