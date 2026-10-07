@@ -1,5 +1,7 @@
 project:
   type: website
+  resources: 
+    - "deep-water/github/start-research-repository/studies/*.zip"
 
 website:
   title: "The Pond"

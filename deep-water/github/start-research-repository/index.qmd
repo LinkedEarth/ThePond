@@ -1,0 +1,1237 @@
+---
+title: "Start a Research Repository"
+description: "Learn what Git and GitHub each do, then create and describe a well-organized research repository."
+toc: true
+---
+
+A research repository gives the files associated with a project a shared home. It can help you keep track of your work, explain it to others, and prepare it for collaboration or publication.
+
+In this Pad, you will create a GitHub repository for a supplied geoscience project. If you prefer, you can use one of your own research projects instead.
+
+## What you will learn
+
+By the end of this Pad, you will be able to:
+
+- explain the difference between Git and GitHub;
+- decide what belongs in a research repository—and what does not;
+- create a repository on GitHub; and
+- write a README that helps someone understand the project; 
+
+## What you will need
+
+- [A GitHub account](https://github.com/signup)
+- A web browser. We recommend using the latest version of Chrome, Firefox, or Safari for the best experience.
+- Approximately 15-20 minutes
+- Optional: Your own files to share on GitHub. If you do not have any research project that you are willing to share **publicly** on GitHub yet, you can use the supplied geoscience project for this activity.  
+
+You do not need prior experience with Git or GitHub. You will complete this activity through GitHub's website; no command-line tools are required.
+
+## Git and GitHub are not the same thing
+
+Although their names are similar, Git and GitHub play different roles.
+
+**Git** is a version-control system. It records changes to files over time, allowing you to examine the history of a project or return to an earlier version. Git can work locally on your computer without an internet connection.
+
+**GitHub** is an online platform that hosts Git repositories. It also provides tools for sharing projects, discussing work, reviewing proposed changes, and organizing tasks.
+
+A Git repository can exist without GitHub, and GitHub is not the only service that can host Git repositories.
+
+### Sort the cards
+
+Place each card under **Git** or **GitHub**.
+
+You can drag the cards or select a card and then select the category where it belongs.
+
+```{=html}
+<style>
+.git-sort-bank,
+.git-sort-bin {
+  min-height: 9rem;
+  padding: 1rem;
+  border: 2px dashed #adb5bd;
+  border-radius: 0.75rem;
+  background: #f8f9fa;
+}
+
+.git-sort-bank {
+  margin-bottom: 1.25rem;
+}
+
+.git-sort-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.git-sort-bin h4 {
+  margin-top: 0;
+}
+
+.git-sort-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.git-sort-card {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #6c757d;
+  border-radius: 0.5rem;
+  background: white;
+  color: inherit;
+  text-align: left;
+  cursor: grab;
+}
+
+.git-sort-card:hover,
+.git-sort-card:focus {
+  border-color: #0d6efd;
+}
+
+.git-sort-card.is-selected {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgb(13 110 253 / 25%);
+}
+
+.git-sort-card.is-correct {
+  border-color: #198754;
+  background: #f0fff6;
+}
+
+.git-sort-card.is-incorrect {
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.git-sort-bin.is-dragover {
+  border-color: #0d6efd;
+  background: #eef5ff;
+}
+
+.git-sort-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .git-sort-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div id="git-sort-activity">
+
+  <div class="git-sort-bank">
+    <h4>Cards to sort</h4>
+    <div id="git-sort-bank-cards" class="git-sort-cards">
+
+      <button
+        type="button"
+        class="git-sort-card"
+        draggable="true"
+        data-answer="git"
+        data-explanation="Git is the version-control system that records changes to project files."
+      >
+        Records a history of changes made to project files.
+      </button>
+
+      <button
+        type="button"
+        class="git-sort-card"
+        draggable="true"
+        data-answer="git"
+        data-explanation="Git runs locally and can track work without an internet connection."
+      >
+        Can track work locally without an internet connection.
+      </button>
+
+      <button
+        type="button"
+        class="git-sort-card"
+        draggable="true"
+        data-answer="github"
+        data-explanation="GitHub hosts Git repositories online."
+      >
+        Stores a research repository online.
+      </button>
+
+      <button
+        type="button"
+        class="git-sort-card"
+        draggable="true"
+        data-answer="github"
+        data-explanation="Issues, pull requests, and project boards are tools provided by GitHub."
+      >
+        Provides issues, pull requests, and project boards.
+      </button>
+
+      <button
+        type="button"
+        class="git-sort-card"
+        draggable="true"
+        data-answer="git"
+        data-explanation="A commit is a snapshot recorded by Git."
+      >
+        Creates commits that preserve meaningful snapshots of a project.
+      </button>
+
+      <button
+        type="button"
+        class="git-sort-card"
+        draggable="true"
+        data-answer="github"
+        data-explanation="GitHub provides an online location where other people can discover and access a repository."
+      >
+        Makes a public repository discoverable and accessible to other people.
+      </button>
+
+    </div>
+  </div>
+
+  <div class="git-sort-grid">
+
+    <div
+      class="git-sort-bin"
+      data-category="git"
+      role="button"
+      tabindex="0"
+      aria-label="Place the selected card under Git"
+    >
+      <h4>Git</h4>
+      <p>The version-control system</p>
+      <div class="git-sort-cards"></div>
+    </div>
+
+    <div
+      class="git-sort-bin"
+      data-category="github"
+      role="button"
+      tabindex="0"
+      aria-label="Place the selected card under GitHub"
+    >
+      <h4>GitHub</h4>
+      <p>The online hosting and collaboration platform</p>
+      <div class="git-sort-cards"></div>
+    </div>
+
+  </div>
+
+  <div class="git-sort-actions">
+    <button id="git-sort-check" type="button" class="btn btn-primary">
+      Check my answers
+    </button>
+
+    <button id="git-sort-reset" type="button" class="btn btn-outline-secondary">
+      Start over
+    </button>
+  </div>
+
+  <div
+    id="git-sort-feedback"
+    class="mt-3"
+    aria-live="polite"
+  ></div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const activity = document.getElementById("git-sort-activity");
+  const bank = document.getElementById("git-sort-bank-cards");
+  const cards = [...activity.querySelectorAll(".git-sort-card")];
+  const bins = [...activity.querySelectorAll(".git-sort-bin")];
+  const feedback = document.getElementById("git-sort-feedback");
+
+  let selectedCard = null;
+  let draggedCard = null;
+
+  function clearResults() {
+    cards.forEach(card => {
+      card.classList.remove("is-correct", "is-incorrect");
+    });
+    feedback.innerHTML = "";
+  }
+
+  function selectCard(card) {
+    cards.forEach(item => item.classList.remove("is-selected"));
+
+    if (selectedCard === card) {
+      selectedCard = null;
+      return;
+    }
+
+    selectedCard = card;
+    card.classList.add("is-selected");
+  }
+
+  function placeCard(card, bin) {
+    bin.querySelector(".git-sort-cards").appendChild(card);
+    card.classList.remove("is-selected");
+    selectedCard = null;
+    clearResults();
+  }
+
+  cards.forEach(card => {
+    card.addEventListener("click", event => {
+      event.stopPropagation();
+      selectCard(card);
+    });
+
+    card.addEventListener("dragstart", () => {
+      draggedCard = card;
+      card.classList.add("is-selected");
+    });
+
+    card.addEventListener("dragend", () => {
+      draggedCard = null;
+      card.classList.remove("is-selected");
+      bins.forEach(bin => bin.classList.remove("is-dragover"));
+    });
+  });
+
+  bins.forEach(bin => {
+    bin.addEventListener("dragover", event => {
+      event.preventDefault();
+      bin.classList.add("is-dragover");
+    });
+
+    bin.addEventListener("dragleave", () => {
+      bin.classList.remove("is-dragover");
+    });
+
+    bin.addEventListener("drop", event => {
+      event.preventDefault();
+      bin.classList.remove("is-dragover");
+
+      if (draggedCard) {
+        placeCard(draggedCard, bin);
+      }
+    });
+
+    bin.addEventListener("click", () => {
+      if (selectedCard) {
+        placeCard(selectedCard, bin);
+      }
+    });
+
+    bin.addEventListener("keydown", event => {
+      if ((event.key === "Enter" || event.key === " ") && selectedCard) {
+        event.preventDefault();
+        placeCard(selectedCard, bin);
+      }
+    });
+  });
+
+  document.getElementById("git-sort-check").addEventListener("click", () => {
+    const unsorted = cards.filter(card => card.parentElement === bank);
+
+    if (unsorted.length > 0) {
+      feedback.innerHTML = `
+        <div class="alert alert-warning" role="alert">
+          Place all six cards before checking your answers.
+        </div>
+      `;
+      return;
+    }
+
+    let correct = 0;
+    const corrections = [];
+
+    cards.forEach(card => {
+      const chosenCategory =
+        card.closest(".git-sort-bin")?.dataset.category;
+
+      const isCorrect = chosenCategory === card.dataset.answer;
+
+      card.classList.toggle("is-correct", isCorrect);
+      card.classList.toggle("is-incorrect", !isCorrect);
+
+      if (isCorrect) {
+        correct += 1;
+      } else {
+        const correctLabel =
+          card.dataset.answer === "git" ? "Git" : "GitHub";
+
+        corrections.push(`
+          <li>
+            <strong>${card.textContent.trim()}</strong><br>
+            This belongs under <strong>${correctLabel}</strong>.
+            ${card.dataset.explanation}
+          </li>
+        `);
+      }
+    });
+
+    if (correct === cards.length) {
+      feedback.innerHTML = `
+        <div class="alert alert-success" role="status">
+          <strong>All six cards are correct.</strong>
+          Git tracks the history of the project. GitHub gives that
+          history an online home and adds collaboration tools.
+        </div>
+      `;
+    } else {
+      feedback.innerHTML = `
+        <div class="alert alert-info" role="status">
+          <strong>${correct} of ${cards.length} cards are correct.</strong>
+          Review the cards outlined in red, then move them and check again.
+          <ul class="mt-2 mb-0">
+            ${corrections.join("")}
+          </ul>
+        </div>
+      `;
+    }
+  });
+
+  document.getElementById("git-sort-reset").addEventListener("click", () => {
+    cards.forEach(card => {
+      bank.appendChild(card);
+      card.classList.remove(
+        "is-selected",
+        "is-correct",
+        "is-incorrect"
+      );
+    });
+
+    selectedCard = null;
+    draggedCard = null;
+    feedback.innerHTML = "";
+  });
+});
+</script>
+```
+
+::: {.callout-tip title="The distinction to remember"}
+**Git tracks the history. GitHub gives that history an online home and adds tools for working with other people.**
+:::
+
+## Plan your research repository
+
+A research repository should contain the files needed to understand, inspect, and—when possible—reproduce the work. That does not mean every file associated with a project belongs in GitHub.
+
+### Decide where project files belong
+
+GitHub works well for versioning code, notebooks, documentation, configuration instructions, and reasonably sized files that you have permission to share.
+
+Other files need a different approach.
+
+| Type of file | What to do | Why |
+|---|---|---|
+| Code, notebooks, documentation, and small shareable data | Include in GitHub | These files help others understand and reproduce the work. |
+| API keys, passwords, access tokens, and other login credentials | Do not include in GitHub | Anyone who obtains the credential may be able to access the associated account or service. |
+| Large data files | Store elsewhere and document | Large data generally belong in an appropriate data repository. The README can link to the data and identify the version used. |
+| Restricted or sensitive data | Store in an approved access-controlled location and document | The README can describe the data and explain how authorized researchers may request access. |
+| Data created by someone else | Check permission before deciding | Downloading data does not necessarily grant permission to redistribute them. Check the license and terms of use. |
+| Temporary files and copies created only to preserve an earlier version | Do not include in GitHub | Git already records the history of tracked files. |
+| Generated figures and results | Include when they are meaningful research products | Important outputs can help readers understand the study even when they can also be regenerated. |
+
+#### Credentials and `.env` files
+
+Projects sometimes need an API key, access token, username, or another local setting.
+
+A common approach is to:
+
+1. Create a local `.env` file.
+2. Add `.env` to `.gitignore` **before entering any credentials**.
+3. Enter the credentials only after Git has been told to ignore the file.
+4. Document the required variable names in the README without including their values.
+
+The `.env` filename is only a convention. Git does not automatically protect it.
+
+::: {.callout-warning title="Ignoring a file does not erase its history"}
+If a file has already been committed, adding it to `.gitignore` does not remove it from earlier commits.
+
+If a credential is accidentally committed, treat it as exposed and replace or revoke it.
+:::
+
+::: {.callout-note title="Coming in the next Pad: .gitignore"}
+A `.gitignore` file tells Git which untracked files it should leave out of commits. It is commonly used for local `.env` files, caches, temporary files, and software-generated files.
+
+You will create and use a `.gitignore` file in **Save and Share Changes**, when you begin working with the repository on your computer.
+:::
+
+### Check your understanding
+
+For each item, decide how it should be handled:
+
+- **Include in GitHub**
+- **Do not include in GitHub**
+- **Store elsewhere and document**
+- **Check permission before deciding**
+
+```{=html}
+<style>
+.repo-file-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.repo-file-card {
+  padding: 1rem;
+  border: 2px solid #ced4da;
+  border-radius: 0.75rem;
+  background: white;
+}
+
+.repo-file-card.is-correct {
+  border-color: #198754;
+  background: #f0fff6;
+}
+
+.repo-file-card.is-incorrect {
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.repo-file-card code {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.repo-file-card select {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.repo-file-actions,
+.repo-check-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.repo-study-card .card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.repo-study-card .study-download {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.repo-final-check {
+  padding: 1.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.75rem;
+  background: #f8f9fa;
+}
+
+.repo-final-check label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.repo-final-check input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.repo-url-field {
+  margin-top: 1rem;
+}
+
+.repo-url-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.repo-url-field input {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .repo-file-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div id="repo-file-activity">
+
+  <div class="repo-file-grid">
+
+    <div
+      class="repo-file-card"
+      data-answer="include"
+      data-explanation="A README explains the purpose, contents, and use of the repository."
+    >
+      <code>README.md</code>
+      <p>An introduction to the project and its contents.</p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>
+
+    <div
+      class="repo-file-card"
+      data-answer="include"
+      data-explanation="Dependency information helps another researcher recreate the software environment."
+    >
+      <code>environment.yml</code>
+      <p>The software and dependencies needed to run the analysis.</p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>
+
+    <div
+      class="repo-file-card"
+      data-answer="include"
+      data-explanation="A meaningful research figure can be included as a project output, particularly when it helps readers understand the result."
+    >
+      <code>figures/summary.png</code>
+      <p>A figure presenting one of the study’s main results.</p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>
+
+    <div
+      class="repo-file-card"
+      data-answer="exclude"
+      data-explanation="API keys and other login credentials must not be committed to a Git repository."
+    >
+      <code>.env</code>
+      <p>A local file containing API keys or other login credentials.</p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>
+
+    <div
+      class="repo-file-card"
+      data-answer="external"
+      data-explanation="Large data files may exceed GitHub's limits and are often better stored in a data repository."
+    >
+      <code>raw_sensor_data.csv</code>
+      <p>A 4 GB raw-data file used by the analysis.</p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>
+
+    <div
+      class="repo-file-card"
+      data-answer="external"
+      data-explanation="Restricted data require permission and an appropriate access-controlled location."
+    >
+      <code>restricted_field_data.csv</code>
+      <p>Field observations that cannot currently be shared publicly.</p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select> 
+    </div>
+
+    <div
+      class="repo-file-card"
+      data-answer="include"
+      data-explanation="These notebooks have distinct purposes, and their numbered names communicate the intended order of the workflow."
+    >
+      <code>01_DataExploration.ipynb</code><br>
+      <code>02_Analysis.ipynb</code><br>
+      <code>03_Figures_For_Paper.ipynb</code>
+
+      <p>
+        Three notebooks that perform different stages of the research workflow.
+      </p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>
+
+    <div
+      class="repo-file-card"
+      data-answer="exclude"
+      data-explanation="This copy was created only to preserve an earlier version. Git records that history, so a second versioned filename is unnecessary."
+    >
+      <code>02_Analysis_v2.ipynb</code>
+
+      <p>
+        A copy of <code>02_Analysis.ipynb</code> made before editing so that the
+        earlier version would not be lost.
+      </p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>    
+
+    <div
+      class="repo-file-card"
+      data-answer="check"
+      data-explanation="You must check the original source's license and terms before redistributing data created by someone else."
+    >
+      <code>downloaded_dataset.csv</code>
+      <p>A dataset downloaded from another research group’s website.</p>
+
+      <select aria-label="Decision for this file">
+        <option value="">Choose...</option>
+        <option value="include">Include in GitHub</option>
+        <option value="exclude">Do not include in GitHub</option>
+        <option value="external">Store elsewhere and document</option>
+        <option value="check">Check permission before deciding</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="repo-file-actions">
+
+    <button
+      id="repo-files-check"
+      type="button"
+      class="btn btn-primary"
+    >
+      Check my decisions
+    </button>
+
+    <button
+      id="repo-files-reset"
+      type="button"
+      class="btn btn-outline-secondary"
+    >
+      Start over
+    </button>
+
+  </div>
+
+  <div
+    id="repo-files-feedback"
+    class="mt-3"
+    aria-live="polite"
+  ></div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const activity = document.getElementById("repo-file-activity");
+  const cards = [...activity.querySelectorAll(".repo-file-card")];
+  const feedback = document.getElementById("repo-files-feedback");
+
+  function clearResults() {
+    cards.forEach(card => {
+      card.classList.remove("is-correct", "is-incorrect");
+    });
+
+    feedback.innerHTML = "";
+  }
+
+  cards.forEach(card => {
+    card.querySelector("select").addEventListener("change", clearResults);
+  });
+
+  document
+    .getElementById("repo-files-check")
+    .addEventListener("click", () => {
+      const unanswered = cards.filter(card =>
+        card.querySelector("select").value === ""
+      );
+
+      if (unanswered.length > 0) {
+        feedback.innerHTML = `
+          <div class="alert alert-warning" role="alert">
+            Make a decision for every item before checking your answers.
+          </div>
+        `;
+        return;
+      }
+
+      let correct = 0;
+      const corrections = [];
+
+      cards.forEach(card => {
+        const selected = card.querySelector("select").value;
+        const isCorrect = selected === card.dataset.answer;
+
+        card.classList.toggle("is-correct", isCorrect);
+        card.classList.toggle("is-incorrect", !isCorrect);
+
+        if (isCorrect) {
+          correct += 1;
+        } else {
+          corrections.push(`
+            <li>${card.dataset.explanation}</li>
+          `);
+        }
+      });
+
+      if (correct === cards.length) {
+        feedback.innerHTML = `
+          <div class="alert alert-success" role="status">
+            <strong>All ${cards.length} decisions are appropriate.</strong>
+            A useful repository contains the materials needed to understand
+            the work without exposing credentials, restricted information,
+            or files that require a different storage location.
+          </div>
+        `;
+      } else {
+        feedback.innerHTML = `
+          <div class="alert alert-info" role="status">
+            <strong>${correct} of ${cards.length} decisions are appropriate.</strong>
+            Review the cards outlined in red:
+            <ul class="mt-2 mb-0">
+              ${corrections.join("")}
+            </ul>
+          </div>
+        `;
+      }
+    });
+
+  document
+    .getElementById("repo-files-reset")
+    .addEventListener("click", () => {
+      cards.forEach(card => {
+        card.querySelector("select").value = "";
+      });
+
+      clearResults();
+    });
+});
+</script>
+```
+
+## Create a research repository
+
+Now you will create an actual GitHub repository using a complete study package.
+
+Each supplied package contains multiple files, including a notebook, data, and supporting research materials. You may use your own project instead, but check its files carefully before adding them to GitHub.
+
+### 1. Choose a study
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6 .repo-study-card}
+::: {.card}
+::: {.card-body}
+
+#### Hydrology
+
+**Question:** Does water quality change as a stream flows past a developed area?
+
+The package contains the analysis notebook, synthetic water-quality data, and supporting files.
+
+::: {.study-download}
+[Download the hydrology study](studies/hydrology-study.zip){.btn .btn-primary download=""}
+:::
+
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6 .repo-study-card}
+::: {.card}
+::: {.card-body}
+
+#### Seismology
+
+**Question:** Where are earthquakes occurring most frequently in a region?
+
+The package contains the analysis notebook, synthetic earthquake data, and supporting files.
+
+::: {.study-download}
+[Download the seismology study](studies/seismology-study.zip){.btn .btn-primary download=""}
+:::
+
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6 .repo-study-card}
+::: {.card}
+::: {.card-body}
+
+#### Oceanography
+
+**Question:** How does ocean temperature change with depth?
+
+The package contains the analysis notebook, synthetic ocean-profile data, and supporting files.
+
+::: {.study-download}
+[Download the oceanography study](studies/oceanography-study.zip){.btn .btn-primary download=""}
+:::
+
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6 .repo-study-card}
+::: {.card}
+::: {.card-body}
+
+#### Geophysics
+
+**Question:** Is the ground moving in this area over time?
+
+The package contains the analysis notebook, synthetic ground-motion data, and supporting files.
+
+::: {.study-download}
+[Download the geophysics study](studies/geophysics-study.zip){.btn .btn-primary download=""}
+:::
+
+:::
+:::
+:::
+
+:::
+
+::: {.callout-tip title="Using your own project"}
+You may use your own research project instead. Begin with files that you have permission to share and that do not contain credentials, restricted information, or sensitive data.
+
+If you are uncertain, create a private repository. However, some of the later exercises in the GitHub deep dive may require a public repository.
+:::
+
+After downloading the study package:
+
+1. Unzip the package.
+2. Look through its folders and files.
+3. Keep the files together so that you can upload the complete project structure.
+
+### 2. Create the repository
+
+Open [GitHub’s new repository page](https://github.com/new){target="_blank"}.
+
+Complete the form using the following guidance:
+
+- **Owner:** Select your personal account or the organization where the project belongs. For funded projects, you should discuss with the principal investigator where they want the repository.
+- **Repository name:** Use a short, descriptive name such as `stream-water-quality`. Names must be unique for that account (personal or organization).
+- **Description:** Write one sentence describing the scientific question.
+- **Visibility:** A supplied study may be public or private. For your own research, choose private if you are uncertain about sharing any materials yet. Repositories should be made publicly available once the results are published. 
+- **Add a README file:** Select this option.
+- **Add `.gitignore`:** Leave this set to **None** for now.
+- **Choose a license:** Leave this set to **None** for now.
+
+Then select **Create repository**.
+
+::: {.callout-note title="What about the license?"}
+A public repository is not automatically open for reuse. Choosing a license requires considering what the repository contains and whether you have permission to share it.
+
+Licensing will be covered in a separate Deep End Pad. For now, leave **Choose a license** set to **None**.
+:::
+
+### 3. Add the study files
+
+On the repository page:
+
+1. Select **Add file**.
+2. Select **Upload files**.
+3. Open the unzipped study package on your computer.
+4. Drag all of the supplied project files and folders into the upload area.
+5. Check that the files and folder structure appear in the list.
+6. In the commit message field, enter:
+
+   ```text
+   Add study files
+   ```
+
+7. Select **Commit changes**.
+
+You have now added the working materials to the repository. GitHub recorded this upload as a change in the repository’s history.
+
+### 4. Write the README
+
+Return to the repository’s main page and open `README.md`.
+
+Select the pencil icon to edit it. Replace the initial contents with information that helps a new visitor understand the project.
+
+You can use this structure:
+
+```markdown
+# Project title
+
+## Research question
+
+State the scientific question addressed by this study.
+
+## Project summary
+
+Briefly explain what the study examines and why.
+
+## Repository contents
+
+Describe the purpose of the main files and folders.
+
+- `analysis.ipynb`:
+- `data/`:
+- `figures/`:
+- `environment.yml`:
+
+## Data
+
+Describe each dataset used by the study. Delete any sections below that do not apply.
+
+### Data included in this repository
+
+For data stored in the repository, describe:
+
+- what the data represent;
+- who created or published them;
+- the relevant dates, locations, variables, and units;
+- the file format;
+- any processing already applied; 
+- the license or terms governing their use; and
+- citation for the dataset, if applicable
+
+### Data stored elsewhere
+
+For large data or data deposited in another repository, provide:
+
+- the name of the repository or archive;
+- a link or DOI;
+- the dataset version or access date;
+- the files used in this analysis; 
+- instructions for obtaining the data;
+- citation for the dataset, if applicable.
+
+### Restricted or sensitive data
+
+If data cannot be shared publicly, explain:
+
+- what data are not included;
+- why access is restricted;
+- where the data are stored; 
+- how an authorized researcher can request access; and
+- citation for the dataset, if applicable.
+
+Do not include restricted values or sensitive details in the README itself.
+
+### Data created by someone else
+
+For third-party data, provide:
+
+- the original creator or publisher;
+- a citation and link to the original source;
+- the version or date accessed;
+- the license or terms of use; and
+- instructions for obtaining the data when redistribution is not permitted.
+
+### Synthetic data
+
+If the study uses synthetic data, explain:
+
+- that the values are simulated rather than observations;
+- why the synthetic data were created;
+- how they were generated;
+- whether a random seed was used; and
+- where the generation code can be found.
+
+## How to reproduce the analysis
+
+Explain the main steps needed to run the notebook.
+
+## Contributors
+
+List the people responsible for the project.
+
+## Acknowledgments
+
+Recognize any individuals, organizations, or funding sources that contributed to the project.
+```
+
+Adapt the filenames and sections to match the study package you selected.
+
+::: {.callout-note title="Formal citation information comes later"}
+A `CITATION.cff` file provides structured citation information for a repository. GitHub can use it to display a recommended citation.
+
+You will create this file in **Release and Cite Your Work**, together with a versioned release and DOI.
+:::
+
+When the README is ready:
+
+1. Select **Commit changes**.
+2. Use a short commit message such as:
+
+   ```text
+   Document the study
+   ```
+
+3. Confirm the commit.
+
+Return to the repository’s main page. GitHub should display the rendered README beneath the file list.
+
+### 5. Check your repository
+
+Use this checklist to review your work.
+
+```{=html}
+<div id="repo-final-check" class="repo-final-check">
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    I created a GitHub repository.
+  </label>
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    I added all of the supplied study files and folders.
+  </label>
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    I preserved the project’s folder structure.
+  </label>
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    My README explains the research question and project contents.
+  </label>
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    My README explains where the data came from.
+  </label>
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    My README provides instructions for reproducing the analysis.
+  </label>
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    I checked that the repository does not contain API keys,
+    login credentials, restricted information, or sensitive data.
+  </label>
+
+  <label>
+    <input type="checkbox" class="repo-final-item">
+    I left the license unset until completing the licensing Pad.
+  </label>
+
+  <div class="repo-url-field">
+    <label for="repo-final-url">Repository URL</label>
+    <input
+      id="repo-final-url"
+      type="url"
+      placeholder="https://github.com/username/repository"
+    >
+    <small>
+      This address is checked only in your browser and is not submitted.
+    </small>
+  </div>
+
+  <div class="repo-check-actions">
+    <button
+      id="repo-final-button"
+      type="button"
+      class="btn btn-primary"
+    >
+      Check my repository
+    </button>
+  </div>
+
+  <div
+    id="repo-final-feedback"
+    class="mt-3"
+    aria-live="polite"
+  ></div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("repo-final-button");
+  const feedback = document.getElementById("repo-final-feedback");
+
+  button.addEventListener("click", () => {
+    const checklist = [
+      ...document.querySelectorAll(".repo-final-item")
+    ];
+
+    const unchecked = checklist.filter(item => !item.checked);
+    const repositoryUrl =
+      document.getElementById("repo-final-url").value.trim();
+
+    const validUrl =
+      /^https:\/\/github\.com\/[^/\s]+\/[^/\s]+\/?$/.test(repositoryUrl);
+
+    if (unchecked.length > 0) {
+      feedback.innerHTML = `
+        <div class="alert alert-warning" role="alert">
+          ${unchecked.length} checklist
+          ${unchecked.length === 1 ? "item remains" : "items remain"}.
+          Review the repository before finishing the Pad.
+        </div>
+      `;
+      return;
+    }
+
+    if (!validUrl) {
+      feedback.innerHTML = `
+        <div class="alert alert-warning" role="alert">
+          Enter the repository address in the form
+          <code>https://github.com/username/repository</code>.
+        </div>
+      `;
+      return;
+    }
+
+    feedback.innerHTML = `
+      <div class="alert alert-success" role="status">
+        <strong>Your research repository is ready.</strong>
+        You created a repository, added the study files, and documented
+        the project for another researcher.
+      </div>
+    `;
+  });
+});
+</script>
+```
+
+## What comes next?
+
+You created and documented a research repository through GitHub’s website.
+
+In **Save and Share Changes**, you will use GitHub Desktop to:
+
+- download the repository to your computer;
+- decide which local files Git should ignore;
+- make and review changes;
+- record those changes in commits; and
+- publish the changes back to GitHub.
