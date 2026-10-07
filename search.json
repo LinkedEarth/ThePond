@@ -296,7 +296,7 @@
   {
     "objectID": "lilypads/workflow/index.html",
     "href": "lilypads/workflow/index.html",
-    "title": "Workflow",
+    "title": "Workflows",
     "section": "",
     "text": "These LilyPads build on one another. Start with LilyPad 1 and work through them in order.\n\n\n\n\n1. Are Methods Actionable?\nTry to reproduce a scientific result from a methods description—and discover what information is missing.\nStart LilyPad →\n\n\n\n\n\n\n2. What Is a Workflow?\nExplore what scientists mean by a workflow and identify the pieces needed to make one reproducible.\nStart LilyPad →\n\n\n\n\n\n\n3. Sketching a Workflow\nTurn a scientific process into a visual workflow by identifying its major steps and connections.\nStart LilyPad →\n\n\n\n\n\n\n4. From Sketch to Notebook\nConnect the steps in a workflow sketch to the code, data, and outputs in a computational notebook.\nStart LilyPad →\n\n\n\n\n\n\n5. Why Containers Matter\nSee how changing the computational environment can change scientific results—even when the workflow stays the same.\nStart LilyPad →\n\n\n\n\n\n\n6. Citing Workflows\nExplore how computational workflows can be documented, shared, and cited as research products.\nStart LilyPad →"
   },
