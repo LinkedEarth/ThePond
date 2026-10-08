@@ -64,6 +64,22 @@ Capture the **computational environment your research needs**, then make it easi
 :::
 :::
 
+::: {.g-col-12 .g-col-md-6 .deep-water-card data-focus="workflow" data-language="python r"}
+::: {.card}
+::: {.card-body}
+### Correlations
+
+Revisit a famous **solar cycle–climate correlation** and see how its strength and statistical significance depend on choices the paper left open. No coding required.
+
+<div class="deep-water-tags" aria-label="Correlations tags"><span>Workflows</span></div>
+
+::: {.text-center}
+[Explore Correlations](correlation-workflow/index.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
 :::
 
 <p id="deep-empty" hidden>No topics match those filters. Try changing or clearing a filter.</p>

@@ -4,8 +4,9 @@ project:
     - "*.qmd"
     - "*.ipynb"
     - "*.md"
-    # Backend notebook for the correlation LilyPad; not a page
+    # Backend notebooks for the correlation exercises; not pages
     - "!lilypads/workflow/methods-actionable/correlation/workflow.ipynb"
+    - "!deep-water/correlation-workflow/correlation/workflow.ipynb"
 
 website:
   title: "The Pond"
