@@ -1,87 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://LinkedEarth.github.io/ThePond/deep-water/containers/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.574Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/deep-water/github/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.574Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/shallows/index.html</loc>
-    <lastmod>2026-10-07T18:19:32.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/spring/index.html</loc>
-    <lastmod>2026-10-07T18:19:32.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/containers/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.582Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/what-is-a-workflow/index.html</loc>
-    <lastmod>2026-10-07T18:19:32.101Z</lastmod>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/workflow-notebooks/seismology.html</loc>
+    <lastmod>2026-10-16T21:07:07.684Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/workflow-notebooks/hydrology.html</loc>
-    <lastmod>2026-10-07T18:19:32.099Z</lastmod>
+    <lastmod>2026-10-16T21:07:07.681Z</lastmod>
   </url>
   <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/workflow-notebooks/geophysics.html</loc>
-    <lastmod>2026-10-07T18:19:32.099Z</lastmod>
+    <loc>https://LinkedEarth.github.io/ThePond/spring/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/what-is-a-workflow/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.685Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/index.html</loc>
-    <lastmod>2026-10-07T18:19:32.092Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/data/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.582Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/software/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.582Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.582Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/citing-workflows/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.582Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/workflow-notebooks/seismology.html</loc>
-    <lastmod>2026-10-07T18:19:32.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/workflow-notebooks/oceanography.html</loc>
-    <lastmod>2026-10-07T18:19:32.101Z</lastmod>
+    <lastmod>2026-10-16T21:07:07.673Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.582Z</lastmod>
+    <lastmod>2026-10-16T21:07:07.141Z</lastmod>
   </url>
   <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/methods-actionable/index.html</loc>
-    <lastmod>2026-10-07T18:19:32.083Z</lastmod>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/citing-workflows/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.141Z</lastmod>
   </url>
   <url>
-    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketching-workflows/index.html</loc>
-    <lastmod>2026-10-07T18:19:32.101Z</lastmod>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.141Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.581Z</lastmod>
+    <lastmod>2026-10-16T21:07:07.139Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/deep-water/github/start-research-repository/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.574Z</lastmod>
+    <lastmod>2026-10-16T21:07:07.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/deep-water/correlation-workflow/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/deep-water/containers/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/deep-water/github/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.132Z</lastmod>
   </url>
   <url>
     <loc>https://LinkedEarth.github.io/ThePond/deep-water/index.html</loc>
-    <lastmod>2026-10-07T18:19:31.575Z</lastmod>
+    <lastmod>2026-10-16T21:07:07.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/data/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.141Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/software/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.141Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/containers/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.141Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/methods-actionable/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.665Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketching-workflows/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/shallows/index.html</loc>
+    <lastmod>2026-10-16T21:07:07.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/workflow-notebooks/geophysics.html</loc>
+    <lastmod>2026-10-16T21:07:07.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LinkedEarth.github.io/ThePond/lilypads/workflow/sketches-vs-notebooks/workflow-notebooks/oceanography.html</loc>
+    <lastmod>2026-10-16T21:07:07.684Z</lastmod>
   </url>
 </urlset>

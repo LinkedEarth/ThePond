@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Correlations: The Deep End – The Pond</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/FROGSlogo.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo light-content">
+    <img src="../../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">The Pond</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../shallows/index.html"> 
+<span class="menu-text">The Shallows</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lilypads/index.html"> 
+<span class="menu-text">LilyPads</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../deep-water/index.html"> 
+<span class="menu-text">The Deep End</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../spring/index.html"> 
+<span class="menu-text">The Spring</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#reproducible-robust-replicable" id="toc-reproducible-robust-replicable" class="nav-link active" data-scroll-target="#reproducible-robust-replicable">Reproducible, robust, replicable</a></li>
+  <li><a href="#reproducing-the-analysis" id="toc-reproducing-the-analysis" class="nav-link" data-scroll-target="#reproducing-the-analysis">Reproducing the analysis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Correlations: The Deep End</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This is the full version of the Correlations scenario from the LilyPad <a href="../../lilypads/workflow/methods-actionable/index.html">Are Methods Actionable?</a>. The LilyPad version focuses on what the paper’s description leaves ambiguous; here you make all the choices that go into the analysis, including whether the correlation is statistically significant, something the original paper never tested.</p>
+<section id="reproducible-robust-replicable" class="level2">
+<h2 class="anchored" data-anchor-id="reproducible-robust-replicable">Reproducible, robust, replicable</h2>
+<p>These words are used in different, sometimes opposite, ways across fields. A helpful way to keep them apart, following <a href="https://doi.org/10.5281/zenodo.3233853">The Turing Way Community (2022)</a>, is to ask whether the data and the analysis are the same as in the original study or different:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Same data</th>
+<th>Different data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Same analysis</strong></td>
+<td>Reproducible</td>
+<td>Replicable</td>
+</tr>
+<tr class="even">
+<td><strong>Different analysis</strong></td>
+<td>Robust</td>
+<td>Generalisable</td>
+</tr>
+</tbody>
+</table>
+<p>The LilyPad version asks whether the result is <em>reproducible</em>: can you get it from the paper’s description alone? This version goes further. Changing the smoothing, detrending, correlation measure or significance test asks whether the result is <em>robust</em> to other reasonable analysis choices. Extending the record to the present asks whether it is <em>replicable</em> with data the authors didn’t have. (Strictly speaking, all versions use today’s datasets rather than the ones available in 1991, which have since been revised.)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Instructions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The goal of the exercise is to determine whether the methods described below are sufficient to reproduce the results shown in Figure 1, and how strongly the conclusions depend on choices the paper leaves open. As you work, take careful notes about what information is missing from the methods section that would help you reproduce the results.</p>
+</div>
+</div>
+<p>A famous example of how scientifically impactful the details of a workflow can be is the study of <a href="https://doi.org/10.1126/science.254.5032.698">Friis-Christensen &amp; Lassen (1991)</a>, who reported a striking match between the length of the solar cycle and Northern Hemisphere land temperature. Later, <a href="https://doi.org/10.1016/S1364-6826(03)00041-5">Laut (2003)</a> showed that the result hinged entirely on how the data were processed. In this example, you will tinker with parts of that workflow to understand just how brittle the results are when the workflow is ambiguous.</p>
+<p>Here is everything the paper says about how the two series were prepared:</p>
+<blockquote class="blockquote">
+<p>“[W]e have used the land air temperature for the Northern Hemisphere, expressed as anomalies relative to the interval 1951 to 1980, smoothed by Jones [see (10)].”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“We determined the length of the sunspot cycle using epochs of maxima and minima found by the secular smoothing procedure introduced by Gleissberg (12) (Fig. 2). This procedure corresponds to the application of a low-pass filter with coefficients 1, 2, 2, 2, 1 to the series of individual sunspot maximum and minimum epochs. This particular filter was selected because it has been generally used in the determination of long-term trends in solar activity, but the use of a different filter would not change the results significantly, as long as the short-term variations related to the 11-year cycle and shorter periods are removed. For the last two extrema, the available data do not allow full smoothing. Therefore, we filtered the second to last extrema by estimating the next extremum (because this is included in the filtering with a weight of one-eighth only); the last extrema express the unfiltered epochs.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Figure captions: “The symbols (*) represent average values of the temperature record corresponding to individual solar cycles from solar maximum to solar minimum and from solar minimum to solar maximum, respectively.” “Variation of the sunspot cycle length (left-hand scale) determined as the difference between the actual smoothed sunspot extremum and the previous one. The cycle length is plotted at the central time of the actual cycle (+). The unsmoothed last values of the time series have been indicated with a different symbol (*) which represents, as in Fig. 1, the Northern Hemisphere temperature anomalies.”</p>
+</blockquote>
+<p>And here is how the result is reported:</p>
+<blockquote class="blockquote">
+<p>“Furthermore, a strikingly good agreement between these two curves is revealed. There is a close association between the two curves in the up-going trends from 1900 to 1940 and since 1970, as well as in the important decrease from 1945 to 1970.”</p>
+</blockquote>
+<p>The paper gives no quantitative measure of association (e.g.&nbsp;a correlation coefficient) and no test of statistical significance. Figure 1 below re-creates its central figure with today’s versions of the data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="correlation/images/figure1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>Figure 1. Solar cycle length (blue, inverted axis: shorter cycles plotted upward) and Northern Hemisphere land temperature (red), 1850–1990, re-created after Fig. 2 of Friis-Christensen &amp; Lassen (1991).</figcaption>
+</figure>
+</div>
+</section>
+<section id="reproducing-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="reproducing-the-analysis">Reproducing the analysis</h2>
+<p>Use the information in these excerpts to reproduce Figure 1 (the match won’t be exact but since the claims are qualitative, we are just trying to come as close as we can). Then you’ll do what the paper should have done: measure how strong the correlation is and whether it is statistically significant, and see how much those answers depend on choices the paper leaves open. You do not need to know anything about solar physics or statistics for this exercise: each choice is explained below.</p>
+<p>The data are fixed for this exercise:</p>
+<ul>
+<li><strong>Solar activity</strong>: monthly sunspot counts since 1749 from the <a href="https://www.sidc.be/SILSO/datafiles">Royal Observatory of Belgium</a>. The Sun’s activity rises and falls in cycles of about 11 years, but some cycles are shorter than others. Friis-Christensen &amp; Lassen used cycle <em>length</em> as a measure of solar activity: shorter cycles are interpreted to mean a more active Sun.</li>
+<li><strong>Temperature</strong>: Northern Hemisphere land temperatures since 1850 from the <a href="https://crudata.uea.ac.uk/cru/data/temperature/">CRUTEM5</a> dataset, expressed relative to 1951–1980 and, as in the paper, averaged over each half solar cycle (from maximum to minimum and from minimum to maximum). The paper’s series was also “smoothed by Jones”, which isn’t described further, so here you choose how both series are smoothed (choice 1 below).</li>
+</ul>
+<p>The cycle lengths sit at the center of each full cycle and the temperature averages at the center of each half cycle, so the two series fall at different times. The paper only compared them by eye. To calculate a correlation, both are interpolated onto the same evenly spaced time steps, about 5.5 years apart.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="59" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 58;"><span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>corrManifest <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"correlation/images/manifest.json"</span>)<span class="op">.</span><span class="fu">json</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="65" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 64;"><span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>corrActivity <span class="op">=</span> {</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> attempts <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> currentAttempt <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> labels <span class="op">=</span> {</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="dt">smoothing</span><span class="op">:</span> {</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12221"</span><span class="op">:</span> <span class="st">"1-2-2-2-1"</span><span class="op">,</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>      <span class="st">"lanczos"</span><span class="op">:</span> <span class="st">"Lanczos, 11-year cutoff"</span><span class="op">,</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>      <span class="st">"none"</span><span class="op">:</span> <span class="st">"None"</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="dt">treatment</span><span class="op">:</span> {</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>      <span class="st">"original"</span><span class="op">:</span> <span class="st">"Estimate the next extremum"</span><span class="op">,</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>      <span class="st">"consistent"</span><span class="op">:</span> <span class="st">"Same smoothing throughout"</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>    <span class="dt">period</span><span class="op">:</span> {</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1850-1980"</span><span class="op">:</span> <span class="st">"1850–1980"</span><span class="op">,</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1850-1990"</span><span class="op">:</span> <span class="st">"1850–1990"</span><span class="op">,</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1850-2025"</span><span class="op">:</span> <span class="st">"1850–present"</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>    <span class="dt">detrend</span><span class="op">:</span> {</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>      <span class="st">"none"</span><span class="op">:</span> <span class="st">"None"</span><span class="op">,</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>      <span class="st">"linear"</span><span class="op">:</span> <span class="st">"Linear"</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="dt">statistic</span><span class="op">:</span> {</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>      <span class="st">"pearsonr"</span><span class="op">:</span> <span class="st">"Pearson's r"</span><span class="op">,</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>      <span class="st">"spearmanr"</span><span class="op">:</span> <span class="st">"Spearman's ρ"</span><span class="op">,</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>      <span class="st">"kendalltau"</span><span class="op">:</span> <span class="st">"Kendall's τ"</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    <span class="dt">nsim</span><span class="op">:</span> {</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>      <span class="st">"20"</span><span class="op">:</span> <span class="st">"20 simulations"</span><span class="op">,</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>      <span class="st">"50"</span><span class="op">:</span> <span class="st">"50 simulations"</span><span class="op">,</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>      <span class="st">"200"</span><span class="op">:</span> <span class="st">"200 simulations"</span><span class="op">,</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1000"</span><span class="op">:</span> <span class="st">"1000 simulations"</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> symbols <span class="op">=</span> {</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pearsonr"</span><span class="op">:</span> <span class="st">"r"</span><span class="op">,</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>    <span class="st">"spearmanr"</span><span class="op">:</span> <span class="st">"ρ"</span><span class="op">,</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    <span class="st">"kendalltau"</span><span class="op">:</span> <span class="st">"τ"</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="bu">root</span> <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div&gt;</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="row g-4"&gt;</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;!-- LEFT COLUMN --&gt;</span></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="col-12 col-md-4"&gt;</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h3&gt;&lt;strong&gt;Your choices&lt;/strong&gt;&lt;/h3&gt;</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h4&gt;&lt;strong&gt;1. Smoothing&lt;/strong&gt;&lt;/h4&gt;</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="vs">            First, the dates of each sunspot maximum and minimum are found. Cycle lengths are the</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="vs">            time from one minimum to the next and from one maximum to the next, giving one value</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="vs">            about every 5.5 years. Temperatures are averaged over each half cycle, between a maximum</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="vs">            and the next minimum or vice versa. Both series jump around a lot, so they are smoothed,</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="vs">            here always in the same way:</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;ul&gt;</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;1-2-2-2-1 (as in the paper):&lt;/strong&gt; each value is replaced by a weighted</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="vs">              average of five consecutive values of the same kind (for cycle lengths, the dates of</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="vs">              maxima with maxima and minima with minima), with weights 1-2-2-2-1. Each smoothed value</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="vs">              summarizes about 55 years. This is strong smoothing, and it needs two later values,</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="vs">              so it raises the question of what to do at the end of the record (below).&lt;/li&gt;</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;Lanczos, 11-year cutoff:&lt;/strong&gt; a standard low-pass filter that removes</span></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="vs">              ups and downs shorter than 11 years, applied to both series on yearly steps. It is much</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a><span class="vs">              gentler than 1-2-2-2-1, and it handles the ends of the record on its own.&lt;/li&gt;</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;None:&lt;/strong&gt; the raw cycle lengths and half-cycle temperature averages.&lt;/li&gt;</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/ul&gt;</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="mb-4"&gt;</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;label class="form-label"&gt;Smoothing&lt;/label&gt;</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;select class="form-select" id="c-smoothing"&gt;</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="12221"&gt;1-2-2-2-1 (as in the paper)&lt;/option&gt;</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="lanczos"&gt;Lanczos, 11-year cutoff&lt;/option&gt;</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="none"&gt;None&lt;/option&gt;</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/select&gt;</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;strong&gt;End of the record (1-2-2-2-1 only).&lt;/strong&gt;</span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a><span class="vs">            The most recent values don't have two later values yet, so the full average can't be</span></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="vs">            computed there. There are two ways to handle this:</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;ul&gt;</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;Estimate the next extremum:&lt;/strong&gt; what the paper did. The second-to-last</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="vs">              date is smoothed using a guess for the next, not-yet-observed extremum (the paper</span></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="vs">              doesn't say how it was guessed; here it is the last date plus the average cycle length),</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="vs">              and the last date is left unsmoothed. Temperature is treated as closely as possible</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="vs">              to this: the next half cycle can't be guessed, so its second-to-last value is averaged</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="vs">              over the four available values and its last value is left unsmoothed. The curves reach</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="vs">              the most recent years, but their last points are processed differently from the rest.&lt;/li&gt;</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;Same smoothing throughout:&lt;/strong&gt; drop the values where the full average</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="vs">              can't be computed. Every point is treated the same way, but the curves stop</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="vs">              more than a decade earlier.&lt;/li&gt;</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/ul&gt;</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="mb-4"&gt;</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;label class="form-label"&gt;End of the record&lt;/label&gt;</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;select class="form-select" id="c-treatment"&gt;</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="original"&gt;Estimate the next extremum&lt;/option&gt;</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="consistent"&gt;Same smoothing throughout&lt;/option&gt;</span></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/select&gt;</span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h4&gt;&lt;strong&gt;2. Time period&lt;/strong&gt;&lt;/h4&gt;</span></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="vs">            Which years to compare. Data after the end year are ignored, as if the analysis</span></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a><span class="vs">            had been done in that year, so the end-of-record choice above applies to whichever</span></span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a><span class="vs">            year you stop at. Friis-Christensen &amp; Lassen published in 1991, with data up to</span></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="vs">            about 1990. Choosing "present" adds more than three decades of data they didn't have.</span></span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="mb-4"&gt;</span></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;label class="form-label"&gt;Period&lt;/label&gt;</span></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;select class="form-select" id="c-period"&gt;</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="1850-1980"&gt;1850–1980&lt;/option&gt;</span></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="1850-1990"&gt;1850–1990&lt;/option&gt;</span></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="1850-2025"&gt;1850–present&lt;/option&gt;</span></span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/select&gt;</span></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h4&gt;&lt;strong&gt;3. Detrending&lt;/strong&gt;&lt;/h4&gt;</span></span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a><span class="vs">            Two series that both drift up or down over time will look correlated even if they are</span></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a><span class="vs">            unrelated: almost any two things that grew over the 20th century "correlate". Here,</span></span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a><span class="vs">            temperatures rose over the period and solar cycles became shorter in the early 1900s.</span></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a><span class="vs">            Detrending removes the best-fitting straight line from each series before comparing</span></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a><span class="vs">            them. That changes the question from "did both change over time?" to "do their ups</span></span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a><span class="vs">            and downs around the long-term trend match?" With &lt;strong&gt;None&lt;/strong&gt;, the series are</span></span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a><span class="vs">            compared as they are.</span></span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="mb-4"&gt;</span></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;label class="form-label"&gt;Detrending method&lt;/label&gt;</span></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;select class="form-select" id="c-detrend"&gt;</span></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="none"&gt;None&lt;/option&gt;</span></span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="linear"&gt;Linear&lt;/option&gt;</span></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/select&gt;</span></span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h4&gt;&lt;strong&gt;4. Correlation measure&lt;/strong&gt;&lt;/h4&gt;</span></span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a><span class="vs">            There are several ways to measure how closely two series move together. All range from</span></span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a><span class="vs">            −1 (one goes up exactly when the other goes down) to +1 (they move in lockstep), with 0</span></span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a><span class="vs">            meaning no relationship. Here the expected sign is negative: shorter cycles (a more active</span></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a><span class="vs">            Sun) should go with warmer temperatures.</span></span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;ul&gt;</span></span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;Pearson's r&lt;/strong&gt; measures how well the two follow a straight-line</span></span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a><span class="vs">              relationship. It is the most common choice, but a few extreme values can strongly affect it.&lt;/li&gt;</span></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;Spearman's ρ&lt;/strong&gt; ("rho") replaces each value by its rank (1st, 2nd, 3rd…)</span></span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a><span class="vs">              and then does the same thing. It only asks whether the two rise and fall together,</span></span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a><span class="vs">              not whether they do so in proportion.&lt;/li&gt;</span></span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;li&gt;&lt;strong&gt;Kendall's τ&lt;/strong&gt; ("tau") compares every pair of years and counts how often</span></span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="vs">              both series change in the same direction. Its values tend to be smaller than the other</span></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a><span class="vs">              two for the same data, so the numbers aren't directly comparable across measures.&lt;/li&gt;</span></span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/ul&gt;</span></span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="mb-4"&gt;</span></span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;label class="form-label"&gt;Correlation measure&lt;/label&gt;</span></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;select class="form-select" id="c-statistic"&gt;</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="pearsonr"&gt;Pearson's r&lt;/option&gt;</span></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="spearmanr"&gt;Spearman's ρ&lt;/option&gt;</span></span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="kendalltau"&gt;Kendall's τ&lt;/option&gt;</span></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/select&gt;</span></span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h4&gt;&lt;strong&gt;5. Significance&lt;/strong&gt;&lt;/h4&gt;</span></span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a><span class="vs">            Both curves are smooth, and smooth curves can line up by chance far more often than</span></span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a><span class="vs">            jagged ones. To judge whether a correlation could be a fluke, it is compared with</span></span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a><span class="vs">            correlations between random series that resemble the real ones but are unrelated by</span></span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a><span class="vs">            construction. The p-value is the fraction of those random pairs that correlate at least</span></span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a><span class="vs">            as strongly as the real data. Below 0.05 is usually called "significant".</span></span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a><span class="vs">            Here the random series are made by &lt;strong&gt;phase randomization&lt;/strong&gt;, which scrambles</span></span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a><span class="vs">            the timing of each series while keeping its balance of slow and fast variations, so the</span></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a><span class="vs">            random series are just as smooth as the real ones (see</span></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;a href="https://linked.earth/PyleoTutorials/notebooks/L1_surrogates.html#non-parametric-surrogates"&gt;this Pyleoclim tutorial&lt;/a&gt;</span></span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a><span class="vs">            for details).</span></span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p&gt;</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a><span class="vs">            Choose how many random series to generate. In principle, the real correlation</span></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;em&gt;should&lt;/em&gt; be compared with many of them, but how many is a choice, and it affects</span></span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a><span class="vs">            the result. With 20 simulations, for example, the p-value can only take steps of 1/20 = 0.05.</span></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="vs">            Try different numbers and see for yourself.</span></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/p&gt;</span></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="mb-4"&gt;</span></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;label class="form-label"&gt;Number of simulations&lt;/label&gt;</span></span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;select class="form-select" id="c-nsim"&gt;</span></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="20"&gt;20&lt;/option&gt;</span></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="50"&gt;50&lt;/option&gt;</span></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="200"&gt;200&lt;/option&gt;</span></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;option value="1000"&gt;1000&lt;/option&gt;</span></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/select&gt;</span></span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;button</span></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a><span class="vs">            type="button"</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a><span class="vs">            class="btn btn-primary w-100"</span></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a><span class="vs">            id="c-generate"&gt;</span></span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a><span class="vs">            Generate figure</span></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/button&gt;</span></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;!-- RIGHT COLUMN --&gt;</span></span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="col-12 col-md-8"&gt;</span></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h3&gt;&lt;strong&gt;Your workflow&lt;/strong&gt;&lt;/h3&gt;</span></span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="callout callout-style-default callout-info"&gt;</span></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;div class="callout-body-container callout-body"&gt;</span></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p&gt;&lt;strong&gt;Smoothing:&lt;/strong&gt; &lt;span id="c-summary-smoothing"&gt;&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p&gt;&lt;strong&gt;End of the record:&lt;/strong&gt; &lt;span id="c-summary-treatment"&gt;&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p&gt;&lt;strong&gt;Time period:&lt;/strong&gt; &lt;span id="c-summary-period"&gt;&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p&gt;&lt;strong&gt;Detrending:&lt;/strong&gt; &lt;span id="c-summary-detrend"&gt;&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p&gt;&lt;strong&gt;Correlation measure:&lt;/strong&gt; &lt;span id="c-summary-statistic"&gt;&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a><span class="vs">              &lt;p&gt;&lt;strong&gt;Significance:&lt;/strong&gt; phase randomization, &lt;span id="c-summary-nsim"&gt;&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;/div&gt;</span></span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;h3 class="mt-4"&gt;&lt;strong&gt;Your result&lt;/strong&gt;&lt;/h3&gt;</span></span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div id="c-result" style="min-height: 250px;"&gt;</span></span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;em&gt;Your generated figure will appear here.&lt;/em&gt;</span></span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;p id="c-attempt-status" class="text-muted mt-2"&gt;&lt;/p&gt;</span></span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;hr class="my-5"&gt;</span></span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;!-- NOTEPAD --&gt;</span></span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;h2&gt;&lt;strong&gt;Notepad&lt;/strong&gt;&lt;/h2&gt;</span></span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;p id="c-notes-label"&gt;</span></span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a><span class="vs">        As you work, keep track of information you wish the Methods section had provided.</span></span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/p&gt;</span></span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;textarea</span></span>
+<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a><span class="vs">        id="c-notes"</span></span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a><span class="vs">        class="form-control"</span></span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a><span class="vs">        rows="8"</span></span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a><span class="vs">        placeholder="What information is missing? What decisions did you have to make?"</span></span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a><span class="vs">      &gt;&lt;/textarea&gt;</span></span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button</span></span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a><span class="vs">        type="button"</span></span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a><span class="vs">        class="btn btn-primary mt-3"</span></span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a><span class="vs">        id="c-download"&gt;</span></span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a><span class="vs">        Download notes</span></span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;details id="c-history-container" class="mt-4" hidden&gt;</span></span>
+<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;summary&gt;&lt;strong&gt;Attempt history&lt;/strong&gt;&lt;/summary&gt;</span></span>
+<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div id="c-history" class="mt-3"&gt;&lt;/div&gt;</span></span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/details&gt;</span></span>
+<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Get controls</span></span>
+<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> keys <span class="op">=</span> [<span class="st">"smoothing"</span><span class="op">,</span> <span class="st">"treatment"</span><span class="op">,</span> <span class="st">"period"</span><span class="op">,</span> <span class="st">"detrend"</span><span class="op">,</span> <span class="st">"statistic"</span><span class="op">,</span> <span class="st">"nsim"</span>]<span class="op">;</span></span>
+<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> controls <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">fromEntries</span>(</span>
+<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a>    keys<span class="op">.</span><span class="fu">map</span>(k <span class="kw">=&gt;</span> [k<span class="op">,</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="vs">`#c-</span><span class="sc">${</span>k<span class="sc">}</span><span class="vs">`</span>)])</span>
+<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> result <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-result"</span>)<span class="op">;</span></span>
+<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> status <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-attempt-status"</span>)<span class="op">;</span></span>
+<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> notes <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-notes"</span>)<span class="op">;</span></span>
+<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> notesLabel <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-notes-label"</span>)<span class="op">;</span></span>
+<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> historyContainer <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-history-container"</span>)<span class="op">;</span></span>
+<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> history <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-history"</span>)<span class="op">;</span></span>
+<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Current workflow and summary</span></span>
+<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">getWorkflow</span>() {</span>
+<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">fromEntries</span>(keys<span class="op">.</span><span class="fu">map</span>(k <span class="kw">=&gt;</span> [k<span class="op">,</span> controls[k]<span class="op">.</span><span class="at">value</span>]))<span class="op">;</span></span>
+<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">sameWorkflow</span>(a<span class="op">,</span> b) {</span>
+<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>a <span class="op">||</span> <span class="op">!</span>b) <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> keys<span class="op">.</span><span class="fu">every</span>(k <span class="kw">=&gt;</span> a[k] <span class="op">===</span> b[k])<span class="op">;</span></span>
+<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">label</span>(k<span class="op">,</span> w) {</span>
+<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (k <span class="op">===</span> <span class="st">"treatment"</span> <span class="op">&amp;&amp;</span> w<span class="op">.</span><span class="at">smoothing</span> <span class="op">!==</span> <span class="st">"12221"</span>) <span class="cf">return</span> <span class="st">"(not used)"</span><span class="op">;</span></span>
+<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> labels[k][w[k]]<span class="op">;</span></span>
+<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">describe</span>(w) {</span>
+<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> keys<span class="op">.</span><span class="fu">map</span>(k <span class="kw">=&gt;</span> <span class="fu">label</span>(k<span class="op">,</span> w))<span class="op">.</span><span class="fu">join</span>(<span class="st">" → "</span>)<span class="op">;</span></span>
+<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">updateSummary</span>() {</span>
+<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> workflow <span class="op">=</span> <span class="fu">getWorkflow</span>()<span class="op">;</span></span>
+<span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> k <span class="kw">of</span> keys) {</span>
+<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a>      <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="vs">`#c-summary-</span><span class="sc">${</span>k<span class="sc">}</span><span class="vs">`</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="fu">label</span>(k<span class="op">,</span> workflow)<span class="op">;</span></span>
+<span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updateStatus</span>()<span class="op">;</span></span>
+<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">updateStatus</span>() {</span>
+<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>currentAttempt) {</span>
+<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a>      status<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a>    status<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="fu">sameWorkflow</span>(<span class="fu">getWorkflow</span>()<span class="op">,</span> currentAttempt)</span>
+<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a>      <span class="op">?</span> <span class="vs">`Showing result from Attempt </span><span class="sc">${</span>currentAttempt<span class="op">.</span><span class="at">number</span><span class="sc">}</span><span class="vs">.`</span></span>
+<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a>      <span class="op">:</span> <span class="st">"Your selections have changed. Click Generate figure to see the new result."</span><span class="op">;</span></span>
+<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">formatResult</span>(match<span class="op">,</span> statistic) {</span>
+<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> p <span class="op">=</span> match<span class="op">.</span><span class="at">p</span> <span class="op">===</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">"&lt; "</span> <span class="op">+</span> (<span class="dv">1</span> <span class="op">/</span> <span class="bu">Number</span>(match<span class="op">.</span><span class="at">nsim</span>))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>) <span class="op">:</span> match<span class="op">.</span><span class="at">p</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="op">;</span></span>
+<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>symbols[statistic]<span class="sc">}</span><span class="vs"> = </span><span class="sc">${</span>match<span class="op">.</span><span class="at">r</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">, p </span><span class="sc">${</span>match<span class="op">.</span><span class="at">p</span> <span class="op">===</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">""</span> <span class="op">:</span> <span class="st">"= "</span><span class="sc">}${</span>p<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Attempt history</span></span>
+<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">renderHistory</span>() {</span>
+<span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a>    history<span class="op">.</span><span class="fu">replaceChildren</span>()<span class="op">;</span></span>
+<span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> attempt <span class="kw">of</span> attempts) {</span>
+<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> entry <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a>      entry<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">"border-bottom pb-3 mb-3"</span><span class="op">;</span></span>
+<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> title <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"strong"</span>)<span class="op">;</span></span>
+<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a>      title<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`Attempt </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">number</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> workflow <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a>      workflow<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">"small mt-1"</span><span class="op">;</span></span>
+<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a>      workflow<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span><span class="fu">describe</span>(attempt)<span class="sc">}</span><span class="vs"> → </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">result</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a>      entry<span class="op">.</span><span class="fu">append</span>(title<span class="op">,</span> workflow)<span class="op">;</span></span>
+<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (attempt<span class="op">.</span><span class="at">notes</span><span class="op">.</span><span class="fu">trim</span>()) {</span>
+<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> note <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a>        note<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">"small mt-2"</span><span class="op">;</span></span>
+<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a>        note<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`Notes: </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">notes</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a>        entry<span class="op">.</span><span class="fu">appendChild</span>(note)<span class="op">;</span></span>
+<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a>      history<span class="op">.</span><span class="fu">appendChild</span>(entry)<span class="op">;</span></span>
+<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a>    historyContainer<span class="op">.</span><span class="at">hidden</span> <span class="op">=</span> attempts<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Generate figure</span></span>
+<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a>  <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-generate"</span>)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (currentAttempt) currentAttempt<span class="op">.</span><span class="at">notes</span> <span class="op">=</span> notes<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
+<span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> workflow <span class="op">=</span> <span class="fu">getWorkflow</span>()<span class="op">;</span></span>
+<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> match <span class="op">=</span> corrManifest<span class="op">.</span><span class="fu">find</span>(d <span class="kw">=&gt;</span> keys<span class="op">.</span><span class="fu">every</span>(k <span class="kw">=&gt;</span> d[k] <span class="op">===</span> workflow[k]))<span class="op">;</span></span>
+<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>match) {</span>
+<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a>      result<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span></span>
+<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`&lt;div class="alert alert-warning"&gt;</span></span>
+<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a><span class="vs">           No precomputed result was found for this workflow.</span></span>
+<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a><span class="vs">         &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> resultText <span class="op">=</span> <span class="fu">formatResult</span>(match<span class="op">,</span> workflow<span class="op">.</span><span class="at">statistic</span>)<span class="op">;</span></span>
+<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a>    <span class="co">// First notes entered before generating belong to Attempt 1.</span></span>
+<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> attempt <span class="op">=</span> {</span>
+<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a>      <span class="dt">number</span><span class="op">:</span> attempts<span class="op">.</span><span class="at">length</span> <span class="op">+</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a>      <span class="op">...</span>workflow<span class="op">,</span></span>
+<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a>      <span class="dt">result</span><span class="op">:</span> resultText<span class="op">,</span></span>
+<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a>      <span class="dt">notes</span><span class="op">:</span> attempts<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span> <span class="op">?</span> notes<span class="op">.</span><span class="at">value</span> <span class="op">:</span> <span class="st">""</span></span>
+<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a>    attempts<span class="op">.</span><span class="fu">push</span>(attempt)<span class="op">;</span></span>
+<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>    currentAttempt <span class="op">=</span> attempt<span class="op">;</span></span>
+<span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (attempt<span class="op">.</span><span class="at">number</span> <span class="op">&gt;</span> <span class="dv">1</span>) notes<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Display figure and numbers</span></span>
+<span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="fu">replaceChildren</span>()<span class="op">;</span></span>
+<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-494"><a href="#cb2-494" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> img <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"img"</span>)<span class="op">;</span></span>
+<span id="cb2-495"><a href="#cb2-495" aria-hidden="true" tabindex="-1"></a>    img<span class="op">.</span><span class="at">src</span> <span class="op">=</span> match<span class="op">.</span><span class="at">image</span><span class="op">;</span></span>
+<span id="cb2-496"><a href="#cb2-496" aria-hidden="true" tabindex="-1"></a>    img<span class="op">.</span><span class="at">alt</span> <span class="op">=</span> <span class="vs">`Generated figure for Attempt </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">number</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-497"><a href="#cb2-497" aria-hidden="true" tabindex="-1"></a>    img<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">width</span> <span class="op">=</span> <span class="st">"100%"</span><span class="op">;</span></span>
+<span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a>    img<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">height</span> <span class="op">=</span> <span class="st">"auto"</span><span class="op">;</span></span>
+<span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> numbers <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"p"</span>)<span class="op">;</span></span>
+<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a>    numbers<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">"mt-2"</span><span class="op">;</span></span>
+<span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a>    numbers<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span></span>
+<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a>      <span class="vs">`&lt;strong&gt;</span><span class="sc">${</span>resultText<span class="sc">}</span><span class="vs">&lt;/strong&gt; `</span> <span class="op">+</span></span>
+<span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a>      <span class="vs">`(</span><span class="sc">${</span>match<span class="op">.</span><span class="at">significant</span> <span class="op">?</span> <span class="st">"significant"</span> <span class="op">:</span> <span class="st">"not significant"</span><span class="sc">}</span><span class="vs"> at the 5% level). `</span> <span class="op">+</span></span>
+<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a>      <span class="vs">`&lt;span class="text-muted"&gt;Years compared: </span><span class="sc">${</span>match<span class="op">.</span><span class="at">window</span><span class="sc">}</span><span class="vs"> (</span><span class="sc">${</span>match<span class="op">.</span><span class="at">n</span><span class="sc">}</span><span class="vs"> values).&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb2-506"><a href="#cb2-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="fu">append</span>(img<span class="op">,</span> numbers)<span class="op">;</span></span>
+<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a>    notesLabel<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a>      <span class="vs">`Notes for Attempt </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">number</span><span class="sc">}</span><span class="vs">: `</span> <span class="op">+</span></span>
+<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a>      <span class="st">"record what you observe and what information you wish had been provided."</span><span class="op">;</span></span>
+<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-513"><a href="#cb2-513" aria-hidden="true" tabindex="-1"></a>    <span class="fu">renderHistory</span>()<span class="op">;</span></span>
+<span id="cb2-514"><a href="#cb2-514" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updateStatus</span>()<span class="op">;</span></span>
+<span id="cb2-515"><a href="#cb2-515" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-516"><a href="#cb2-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-517"><a href="#cb2-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-518"><a href="#cb2-518" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-519"><a href="#cb2-519" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Continuously save current notes</span></span>
+<span id="cb2-520"><a href="#cb2-520" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-521"><a href="#cb2-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-522"><a href="#cb2-522" aria-hidden="true" tabindex="-1"></a>  notes<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"input"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-523"><a href="#cb2-523" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (currentAttempt) currentAttempt<span class="op">.</span><span class="at">notes</span> <span class="op">=</span> notes<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
+<span id="cb2-524"><a href="#cb2-524" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-525"><a href="#cb2-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-526"><a href="#cb2-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-527"><a href="#cb2-527" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Download notes + attempts</span></span>
+<span id="cb2-529"><a href="#cb2-529" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-530"><a href="#cb2-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-531"><a href="#cb2-531" aria-hidden="true" tabindex="-1"></a>  <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#c-download"</span>)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-532"><a href="#cb2-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-533"><a href="#cb2-533" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (currentAttempt) currentAttempt<span class="op">.</span><span class="at">notes</span> <span class="op">=</span> notes<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
+<span id="cb2-534"><a href="#cb2-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-535"><a href="#cb2-535" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> output <span class="op">=</span></span>
+<span id="cb2-536"><a href="#cb2-536" aria-hidden="true" tabindex="-1"></a>      <span class="st">"ARE METHODS ACTIONABLE?</span><span class="sc">\n</span><span class="st">"</span> <span class="op">+</span></span>
+<span id="cb2-537"><a href="#cb2-537" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Workflow reproduction exercise: Correlations</span><span class="sc">\n</span><span class="st">"</span> <span class="op">+</span></span>
+<span id="cb2-538"><a href="#cb2-538" aria-hidden="true" tabindex="-1"></a>      <span class="st">"========================================</span><span class="sc">\n\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb2-539"><a href="#cb2-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-540"><a href="#cb2-540" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (attempts<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb2-541"><a href="#cb2-541" aria-hidden="true" tabindex="-1"></a>      output <span class="op">+=</span> <span class="st">"No figures were generated.</span><span class="sc">\n\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb2-542"><a href="#cb2-542" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (notes<span class="op">.</span><span class="at">value</span><span class="op">.</span><span class="fu">trim</span>()) output <span class="op">+=</span> <span class="st">"NOTES</span><span class="sc">\n</span><span class="st">"</span> <span class="op">+</span> notes<span class="op">.</span><span class="at">value</span><span class="op">.</span><span class="fu">trim</span>() <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb2-543"><a href="#cb2-543" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-544"><a href="#cb2-544" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="kw">const</span> attempt <span class="kw">of</span> attempts) {</span>
+<span id="cb2-545"><a href="#cb2-545" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`ATTEMPT </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">number</span><span class="sc">}\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-546"><a href="#cb2-546" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="st">"----------------------------------------</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`Smoothing: </span><span class="sc">${</span>labels<span class="op">.</span><span class="at">smoothing</span>[attempt<span class="op">.</span><span class="at">smoothing</span>]<span class="sc">}\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-548"><a href="#cb2-548" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`End of the record: </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">smoothing</span> <span class="op">===</span> <span class="st">"12221"</span> <span class="op">?</span> labels<span class="op">.</span><span class="at">treatment</span>[attempt<span class="op">.</span><span class="at">treatment</span>] <span class="op">:</span> <span class="st">"(not used)"</span><span class="sc">}\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-549"><a href="#cb2-549" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`Time period: </span><span class="sc">${</span>labels<span class="op">.</span><span class="at">period</span>[attempt<span class="op">.</span><span class="at">period</span>]<span class="sc">}\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-550"><a href="#cb2-550" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`Detrending: </span><span class="sc">${</span>labels<span class="op">.</span><span class="at">detrend</span>[attempt<span class="op">.</span><span class="at">detrend</span>]<span class="sc">}\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-551"><a href="#cb2-551" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`Correlation measure: </span><span class="sc">${</span>labels<span class="op">.</span><span class="at">statistic</span>[attempt<span class="op">.</span><span class="at">statistic</span>]<span class="sc">}\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-552"><a href="#cb2-552" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`Significance: phase randomization, </span><span class="sc">${</span>labels<span class="op">.</span><span class="at">nsim</span>[attempt<span class="op">.</span><span class="at">nsim</span>]<span class="sc">}\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-553"><a href="#cb2-553" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="vs">`Result: </span><span class="sc">${</span>attempt<span class="op">.</span><span class="at">result</span><span class="sc">}\n\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-554"><a href="#cb2-554" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="st">"Notes:</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb2-555"><a href="#cb2-555" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> attempt<span class="op">.</span><span class="at">notes</span><span class="op">.</span><span class="fu">trim</span>() <span class="op">?</span> attempt<span class="op">.</span><span class="at">notes</span><span class="op">.</span><span class="fu">trim</span>() <span class="op">:</span> <span class="st">"(No notes recorded)"</span><span class="op">;</span></span>
+<span id="cb2-556"><a href="#cb2-556" aria-hidden="true" tabindex="-1"></a>        output <span class="op">+=</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">========================================</span><span class="sc">\n\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb2-557"><a href="#cb2-557" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-558"><a href="#cb2-558" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-559"><a href="#cb2-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-560"><a href="#cb2-560" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> blob <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([output]<span class="op">,</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"text/plain;charset=utf-8"</span>})<span class="op">;</span></span>
+<span id="cb2-561"><a href="#cb2-561" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> url <span class="op">=</span> URL<span class="op">.</span><span class="fu">createObjectURL</span>(blob)<span class="op">;</span></span>
+<span id="cb2-562"><a href="#cb2-562" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> link <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"a"</span>)<span class="op">;</span></span>
+<span id="cb2-563"><a href="#cb2-563" aria-hidden="true" tabindex="-1"></a>    link<span class="op">.</span><span class="at">href</span> <span class="op">=</span> url<span class="op">;</span></span>
+<span id="cb2-564"><a href="#cb2-564" aria-hidden="true" tabindex="-1"></a>    link<span class="op">.</span><span class="at">download</span> <span class="op">=</span> <span class="st">"correlation-reproduction-notes.txt"</span><span class="op">;</span></span>
+<span id="cb2-565"><a href="#cb2-565" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="fu">appendChild</span>(link)<span class="op">;</span></span>
+<span id="cb2-566"><a href="#cb2-566" aria-hidden="true" tabindex="-1"></a>    link<span class="op">.</span><span class="fu">click</span>()<span class="op">;</span></span>
+<span id="cb2-567"><a href="#cb2-567" aria-hidden="true" tabindex="-1"></a>    link<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-568"><a href="#cb2-568" aria-hidden="true" tabindex="-1"></a>    URL<span class="op">.</span><span class="fu">revokeObjectURL</span>(url)<span class="op">;</span></span>
+<span id="cb2-569"><a href="#cb2-569" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-570"><a href="#cb2-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-571"><a href="#cb2-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-572"><a href="#cb2-572" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-573"><a href="#cb2-573" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Control listeners and initial state</span></span>
+<span id="cb2-574"><a href="#cb2-574" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --------------------------------------------------</span></span>
+<span id="cb2-575"><a href="#cb2-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-576"><a href="#cb2-576" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> k <span class="kw">of</span> keys) controls[k]<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"change"</span><span class="op">,</span> updateSummary)<span class="op">;</span></span>
+<span id="cb2-577"><a href="#cb2-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-578"><a href="#cb2-578" aria-hidden="true" tabindex="-1"></a>  <span class="co">// The end-of-record choice only applies to 1-2-2-2-1 smoothing</span></span>
+<span id="cb2-579"><a href="#cb2-579" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">updateTreatment</span>() {</span>
+<span id="cb2-580"><a href="#cb2-580" aria-hidden="true" tabindex="-1"></a>    controls<span class="op">.</span><span class="at">treatment</span><span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> controls<span class="op">.</span><span class="at">smoothing</span><span class="op">.</span><span class="at">value</span> <span class="op">!==</span> <span class="st">"12221"</span><span class="op">;</span></span>
+<span id="cb2-581"><a href="#cb2-581" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-582"><a href="#cb2-582" aria-hidden="true" tabindex="-1"></a>  controls<span class="op">.</span><span class="at">smoothing</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"change"</span><span class="op">,</span> updateTreatment)<span class="op">;</span></span>
+<span id="cb2-583"><a href="#cb2-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-584"><a href="#cb2-584" aria-hidden="true" tabindex="-1"></a>  <span class="fu">updateTreatment</span>()<span class="op">;</span></span>
+<span id="cb2-585"><a href="#cb2-585" aria-hidden="true" tabindex="-1"></a>  <span class="fu">updateSummary</span>()<span class="op">;</span></span>
+<span id="cb2-586"><a href="#cb2-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-587"><a href="#cb2-587" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">root</span><span class="op">;</span></span>
+<span id="cb2-588"><a href="#cb2-588" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuY29yck1hbmlmZXN0ID0gRmlsZUF0dGFjaG1lbnQoXCJjb3JyZWxhdGlvbi9pbWFnZXMvbWFuaWZlc3QuanNvblwiKS5qc29uKClcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuY29yckFjdGl2aXR5ID0ge1xuICBjb25zdCBhdHRlbXB0cyA9IFtdO1xuICBsZXQgY3VycmVudEF0dGVtcHQgPSBudWxsO1xuXG4gIGNvbnN0IGxhYmVscyA9IHtcbiAgICBzbW9vdGhpbmc6IHtcbiAgICAgIFwiMTIyMjFcIjogXCIxLTItMi0yLTFcIixcbiAgICAgIFwibGFuY3pvc1wiOiBcIkxhbmN6b3MsIDExLXllYXIgY3V0b2ZmXCIsXG4gICAgICBcIm5vbmVcIjogXCJOb25lXCJcbiAgICB9LFxuICAgIHRyZWF0bWVudDoge1xuICAgICAgXCJvcmlnaW5hbFwiOiBcIkVzdGltYXRlIHRoZSBuZXh0IGV4dHJlbXVtXCIsXG4gICAgICBcImNvbnNpc3RlbnRcIjogXCJTYW1lIHNtb290aGluZyB0aHJvdWdob3V0XCJcbiAgICB9LFxuICAgIHBlcmlvZDoge1xuICAgICAgXCIxODUwLTE5ODBcIjogXCIxODUw4oCTMTk4MFwiLFxuICAgICAgXCIxODUwLTE5OTBcIjogXCIxODUw4oCTMTk5MFwiLFxuICAgICAgXCIxODUwLTIwMjVcIjogXCIxODUw4oCTcHJlc2VudFwiXG4gICAgfSxcbiAgICBkZXRyZW5kOiB7XG4gICAgICBcIm5vbmVcIjogXCJOb25lXCIsXG4gICAgICBcImxpbmVhclwiOiBcIkxpbmVhclwiXG4gICAgfSxcbiAgICBzdGF0aXN0aWM6IHtcbiAgICAgIFwicGVhcnNvbnJcIjogXCJQZWFyc29uJ3MgclwiLFxuICAgICAgXCJzcGVhcm1hbnJcIjogXCJTcGVhcm1hbidzIM+BXCIsXG4gICAgICBcImtlbmRhbGx0YXVcIjogXCJLZW5kYWxsJ3Mgz4RcIlxuICAgIH0sXG4gICAgbnNpbToge1xuICAgICAgXCIyMFwiOiBcIjIwIHNpbXVsYXRpb25zXCIsXG4gICAgICBcIjUwXCI6IFwiNTAgc2ltdWxhdGlvbnNcIixcbiAgICAgIFwiMjAwXCI6IFwiMjAwIHNpbXVsYXRpb25zXCIsXG4gICAgICBcIjEwMDBcIjogXCIxMDAwIHNpbXVsYXRpb25zXCJcbiAgICB9XG4gIH07XG5cbiAgY29uc3Qgc3ltYm9scyA9IHtcbiAgICBcInBlYXJzb25yXCI6IFwiclwiLFxuICAgIFwic3BlYXJtYW5yXCI6IFwiz4FcIixcbiAgICBcImtlbmRhbGx0YXVcIjogXCLPhFwiXG4gIH07XG5cblxuICBjb25zdCByb290ID0gaHRtbGBcbiAgICA8ZGl2PlxuXG4gICAgICA8ZGl2IGNsYXNzPVwicm93IGctNFwiPlxuXG4gICAgICAgIDwhLS0gTEVGVCBDT0xVTU4gLS0+XG4gICAgICAgIDxkaXYgY2xhc3M9XCJjb2wtMTIgY29sLW1kLTRcIj5cblxuICAgICAgICAgIDxoMz48c3Ryb25nPllvdXIgY2hvaWNlczwvc3Ryb25nPjwvaDM+XG5cbiAgICAgICAgICA8aDQ+PHN0cm9uZz4xLiBTbW9vdGhpbmc8L3N0cm9uZz48L2g0PlxuXG4gICAgICAgICAgPHA+XG4gICAgICAgICAgICBGaXJzdCwgdGhlIGRhdGVzIG9mIGVhY2ggc3Vuc3BvdCBtYXhpbXVtIGFuZCBtaW5pbXVtIGFyZSBmb3VuZC4gQ3ljbGUgbGVuZ3RocyBhcmUgdGhlXG4gICAgICAgICAgICB0aW1lIGZyb20gb25lIG1pbmltdW0gdG8gdGhlIG5leHQgYW5kIGZyb20gb25lIG1heGltdW0gdG8gdGhlIG5leHQsIGdpdmluZyBvbmUgdmFsdWVcbiAgICAgICAgICAgIGFib3V0IGV2ZXJ5IDUuNSB5ZWFycy4gVGVtcGVyYXR1cmVzIGFyZSBhdmVyYWdlZCBvdmVyIGVhY2ggaGFsZiBjeWNsZSwgYmV0d2VlbiBhIG1heGltdW1cbiAgICAgICAgICAgIGFuZCB0aGUgbmV4dCBtaW5pbXVtIG9yIHZpY2UgdmVyc2EuIEJvdGggc2VyaWVzIGp1bXAgYXJvdW5kIGEgbG90LCBzbyB0aGV5IGFyZSBzbW9vdGhlZCxcbiAgICAgICAgICAgIGhlcmUgYWx3YXlzIGluIHRoZSBzYW1lIHdheTpcbiAgICAgICAgICA8L3A+XG5cbiAgICAgICAgICA8dWw+XG4gICAgICAgICAgICA8bGk+PHN0cm9uZz4xLTItMi0yLTEgKGFzIGluIHRoZSBwYXBlcik6PC9zdHJvbmc+IGVhY2ggdmFsdWUgaXMgcmVwbGFjZWQgYnkgYSB3ZWlnaHRlZFxuICAgICAgICAgICAgICBhdmVyYWdlIG9mIGZpdmUgY29uc2VjdXRpdmUgdmFsdWVzIG9mIHRoZSBzYW1lIGtpbmQgKGZvciBjeWNsZSBsZW5ndGhzLCB0aGUgZGF0ZXMgb2ZcbiAgICAgICAgICAgICAgbWF4aW1hIHdpdGggbWF4aW1hIGFuZCBtaW5pbWEgd2l0aCBtaW5pbWEpLCB3aXRoIHdlaWdodHMgMS0yLTItMi0xLiBFYWNoIHNtb290aGVkIHZhbHVlXG4gICAgICAgICAgICAgIHN1bW1hcml6ZXMgYWJvdXQgNTUgeWVhcnMuIFRoaXMgaXMgc3Ryb25nIHNtb290aGluZywgYW5kIGl0IG5lZWRzIHR3byBsYXRlciB2YWx1ZXMsXG4gICAgICAgICAgICAgIHNvIGl0IHJhaXNlcyB0aGUgcXVlc3Rpb24gb2Ygd2hhdCB0byBkbyBhdCB0aGUgZW5kIG9mIHRoZSByZWNvcmQgKGJlbG93KS48L2xpPlxuICAgICAgICAgICAgPGxpPjxzdHJvbmc+TGFuY3pvcywgMTEteWVhciBjdXRvZmY6PC9zdHJvbmc+IGEgc3RhbmRhcmQgbG93LXBhc3MgZmlsdGVyIHRoYXQgcmVtb3Zlc1xuICAgICAgICAgICAgICB1cHMgYW5kIGRvd25zIHNob3J0ZXIgdGhhbiAxMSB5ZWFycywgYXBwbGllZCB0byBib3RoIHNlcmllcyBvbiB5ZWFybHkgc3RlcHMuIEl0IGlzIG11Y2hcbiAgICAgICAgICAgICAgZ2VudGxlciB0aGFuIDEtMi0yLTItMSwgYW5kIGl0IGhhbmRsZXMgdGhlIGVuZHMgb2YgdGhlIHJlY29yZCBvbiBpdHMgb3duLjwvbGk+XG4gICAgICAgICAgICA8bGk+PHN0cm9uZz5Ob25lOjwvc3Ryb25nPiB0aGUgcmF3IGN5Y2xlIGxlbmd0aHMgYW5kIGhhbGYtY3ljbGUgdGVtcGVyYXR1cmUgYXZlcmFnZXMuPC9saT5cbiAgICAgICAgICA8L3VsPlxuXG4gICAgICAgICAgPGRpdiBjbGFzcz1cIm1iLTRcIj5cbiAgICAgICAgICAgIDxsYWJlbCBjbGFzcz1cImZvcm0tbGFiZWxcIj5TbW9vdGhpbmc8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdCBjbGFzcz1cImZvcm0tc2VsZWN0XCIgaWQ9XCJjLXNtb290aGluZ1wiPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiMTIyMjFcIj4xLTItMi0yLTEgKGFzIGluIHRoZSBwYXBlcik8L29wdGlvbj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cImxhbmN6b3NcIj5MYW5jem9zLCAxMS15ZWFyIGN1dG9mZjwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwibm9uZVwiPk5vbmU8L29wdGlvbj5cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPHA+XG4gICAgICAgICAgICA8c3Ryb25nPkVuZCBvZiB0aGUgcmVjb3JkICgxLTItMi0yLTEgb25seSkuPC9zdHJvbmc+XG4gICAgICAgICAgICBUaGUgbW9zdCByZWNlbnQgdmFsdWVzIGRvbid0IGhhdmUgdHdvIGxhdGVyIHZhbHVlcyB5ZXQsIHNvIHRoZSBmdWxsIGF2ZXJhZ2UgY2FuJ3QgYmVcbiAgICAgICAgICAgIGNvbXB1dGVkIHRoZXJlLiBUaGVyZSBhcmUgdHdvIHdheXMgdG8gaGFuZGxlIHRoaXM6XG4gICAgICAgICAgPC9wPlxuXG4gICAgICAgICAgPHVsPlxuICAgICAgICAgICAgPGxpPjxzdHJvbmc+RXN0aW1hdGUgdGhlIG5leHQgZXh0cmVtdW06PC9zdHJvbmc+IHdoYXQgdGhlIHBhcGVyIGRpZC4gVGhlIHNlY29uZC10by1sYXN0XG4gICAgICAgICAgICAgIGRhdGUgaXMgc21vb3RoZWQgdXNpbmcgYSBndWVzcyBmb3IgdGhlIG5leHQsIG5vdC15ZXQtb2JzZXJ2ZWQgZXh0cmVtdW0gKHRoZSBwYXBlclxuICAgICAgICAgICAgICBkb2Vzbid0IHNheSBob3cgaXQgd2FzIGd1ZXNzZWQ7IGhlcmUgaXQgaXMgdGhlIGxhc3QgZGF0ZSBwbHVzIHRoZSBhdmVyYWdlIGN5Y2xlIGxlbmd0aCksXG4gICAgICAgICAgICAgIGFuZCB0aGUgbGFzdCBkYXRlIGlzIGxlZnQgdW5zbW9vdGhlZC4gVGVtcGVyYXR1cmUgaXMgdHJlYXRlZCBhcyBjbG9zZWx5IGFzIHBvc3NpYmxlXG4gICAgICAgICAgICAgIHRvIHRoaXM6IHRoZSBuZXh0IGhhbGYgY3ljbGUgY2FuJ3QgYmUgZ3Vlc3NlZCwgc28gaXRzIHNlY29uZC10by1sYXN0IHZhbHVlIGlzIGF2ZXJhZ2VkXG4gICAgICAgICAgICAgIG92ZXIgdGhlIGZvdXIgYXZhaWxhYmxlIHZhbHVlcyBhbmQgaXRzIGxhc3QgdmFsdWUgaXMgbGVmdCB1bnNtb290aGVkLiBUaGUgY3VydmVzIHJlYWNoXG4gICAgICAgICAgICAgIHRoZSBtb3N0IHJlY2VudCB5ZWFycywgYnV0IHRoZWlyIGxhc3QgcG9pbnRzIGFyZSBwcm9jZXNzZWQgZGlmZmVyZW50bHkgZnJvbSB0aGUgcmVzdC48L2xpPlxuICAgICAgICAgICAgPGxpPjxzdHJvbmc+U2FtZSBzbW9vdGhpbmcgdGhyb3VnaG91dDo8L3N0cm9uZz4gZHJvcCB0aGUgdmFsdWVzIHdoZXJlIHRoZSBmdWxsIGF2ZXJhZ2VcbiAgICAgICAgICAgICAgY2FuJ3QgYmUgY29tcHV0ZWQuIEV2ZXJ5IHBvaW50IGlzIHRyZWF0ZWQgdGhlIHNhbWUgd2F5LCBidXQgdGhlIGN1cnZlcyBzdG9wXG4gICAgICAgICAgICAgIG1vcmUgdGhhbiBhIGRlY2FkZSBlYXJsaWVyLjwvbGk+XG4gICAgICAgICAgPC91bD5cblxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJtYi00XCI+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3M9XCJmb3JtLWxhYmVsXCI+RW5kIG9mIHRoZSByZWNvcmQ8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdCBjbGFzcz1cImZvcm0tc2VsZWN0XCIgaWQ9XCJjLXRyZWF0bWVudFwiPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwib3JpZ2luYWxcIj5Fc3RpbWF0ZSB0aGUgbmV4dCBleHRyZW11bTwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiY29uc2lzdGVudFwiPlNhbWUgc21vb3RoaW5nIHRocm91Z2hvdXQ8L29wdGlvbj5cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDwvZGl2PlxuXG5cbiAgICAgICAgICA8aDQ+PHN0cm9uZz4yLiBUaW1lIHBlcmlvZDwvc3Ryb25nPjwvaDQ+XG5cbiAgICAgICAgICA8cD5cbiAgICAgICAgICAgIFdoaWNoIHllYXJzIHRvIGNvbXBhcmUuIERhdGEgYWZ0ZXIgdGhlIGVuZCB5ZWFyIGFyZSBpZ25vcmVkLCBhcyBpZiB0aGUgYW5hbHlzaXNcbiAgICAgICAgICAgIGhhZCBiZWVuIGRvbmUgaW4gdGhhdCB5ZWFyLCBzbyB0aGUgZW5kLW9mLXJlY29yZCBjaG9pY2UgYWJvdmUgYXBwbGllcyB0byB3aGljaGV2ZXJcbiAgICAgICAgICAgIHllYXIgeW91IHN0b3AgYXQuIEZyaWlzLUNocmlzdGVuc2VuICYgTGFzc2VuIHB1Ymxpc2hlZCBpbiAxOTkxLCB3aXRoIGRhdGEgdXAgdG9cbiAgICAgICAgICAgIGFib3V0IDE5OTAuIENob29zaW5nIFwicHJlc2VudFwiIGFkZHMgbW9yZSB0aGFuIHRocmVlIGRlY2FkZXMgb2YgZGF0YSB0aGV5IGRpZG4ndCBoYXZlLlxuICAgICAgICAgIDwvcD5cblxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJtYi00XCI+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3M9XCJmb3JtLWxhYmVsXCI+UGVyaW9kPC9sYWJlbD5cbiAgICAgICAgICAgIDxzZWxlY3QgY2xhc3M9XCJmb3JtLXNlbGVjdFwiIGlkPVwiYy1wZXJpb2RcIj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIjE4NTAtMTk4MFwiPjE4NTDigJMxOTgwPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCIxODUwLTE5OTBcIj4xODUw4oCTMTk5MDwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiMTg1MC0yMDI1XCI+MTg1MOKAk3ByZXNlbnQ8L29wdGlvbj5cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDwvZGl2PlxuXG5cbiAgICAgICAgICA8aDQ+PHN0cm9uZz4zLiBEZXRyZW5kaW5nPC9zdHJvbmc+PC9oND5cblxuICAgICAgICAgIDxwPlxuICAgICAgICAgICAgVHdvIHNlcmllcyB0aGF0IGJvdGggZHJpZnQgdXAgb3IgZG93biBvdmVyIHRpbWUgd2lsbCBsb29rIGNvcnJlbGF0ZWQgZXZlbiBpZiB0aGV5IGFyZVxuICAgICAgICAgICAgdW5yZWxhdGVkOiBhbG1vc3QgYW55IHR3byB0aGluZ3MgdGhhdCBncmV3IG92ZXIgdGhlIDIwdGggY2VudHVyeSBcImNvcnJlbGF0ZVwiLiBIZXJlLFxuICAgICAgICAgICAgdGVtcGVyYXR1cmVzIHJvc2Ugb3ZlciB0aGUgcGVyaW9kIGFuZCBzb2xhciBjeWNsZXMgYmVjYW1lIHNob3J0ZXIgaW4gdGhlIGVhcmx5IDE5MDBzLlxuICAgICAgICAgIDwvcD5cblxuICAgICAgICAgIDxwPlxuICAgICAgICAgICAgRGV0cmVuZGluZyByZW1vdmVzIHRoZSBiZXN0LWZpdHRpbmcgc3RyYWlnaHQgbGluZSBmcm9tIGVhY2ggc2VyaWVzIGJlZm9yZSBjb21wYXJpbmdcbiAgICAgICAgICAgIHRoZW0uIFRoYXQgY2hhbmdlcyB0aGUgcXVlc3Rpb24gZnJvbSBcImRpZCBib3RoIGNoYW5nZSBvdmVyIHRpbWU/XCIgdG8gXCJkbyB0aGVpciB1cHNcbiAgICAgICAgICAgIGFuZCBkb3ducyBhcm91bmQgdGhlIGxvbmctdGVybSB0cmVuZCBtYXRjaD9cIiBXaXRoIDxzdHJvbmc+Tm9uZTwvc3Ryb25nPiwgdGhlIHNlcmllcyBhcmVcbiAgICAgICAgICAgIGNvbXBhcmVkIGFzIHRoZXkgYXJlLlxuICAgICAgICAgIDwvcD5cblxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJtYi00XCI+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3M9XCJmb3JtLWxhYmVsXCI+RGV0cmVuZGluZyBtZXRob2Q8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdCBjbGFzcz1cImZvcm0tc2VsZWN0XCIgaWQ9XCJjLWRldHJlbmRcIj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIm5vbmVcIj5Ob25lPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJsaW5lYXJcIj5MaW5lYXI8L29wdGlvbj5cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDwvZGl2PlxuXG5cbiAgICAgICAgICA8aDQ+PHN0cm9uZz40LiBDb3JyZWxhdGlvbiBtZWFzdXJlPC9zdHJvbmc+PC9oND5cblxuICAgICAgICAgIDxwPlxuICAgICAgICAgICAgVGhlcmUgYXJlIHNldmVyYWwgd2F5cyB0byBtZWFzdXJlIGhvdyBjbG9zZWx5IHR3byBzZXJpZXMgbW92ZSB0b2dldGhlci4gQWxsIHJhbmdlIGZyb21cbiAgICAgICAgICAgIOKIkjEgKG9uZSBnb2VzIHVwIGV4YWN0bHkgd2hlbiB0aGUgb3RoZXIgZ29lcyBkb3duKSB0byArMSAodGhleSBtb3ZlIGluIGxvY2tzdGVwKSwgd2l0aCAwXG4gICAgICAgICAgICBtZWFuaW5nIG5vIHJlbGF0aW9uc2hpcC4gSGVyZSB0aGUgZXhwZWN0ZWQgc2lnbiBpcyBuZWdhdGl2ZTogc2hvcnRlciBjeWNsZXMgKGEgbW9yZSBhY3RpdmVcbiAgICAgICAgICAgIFN1bikgc2hvdWxkIGdvIHdpdGggd2FybWVyIHRlbXBlcmF0dXJlcy5cbiAgICAgICAgICA8L3A+XG5cbiAgICAgICAgICA8dWw+XG4gICAgICAgICAgICA8bGk+PHN0cm9uZz5QZWFyc29uJ3Mgcjwvc3Ryb25nPiBtZWFzdXJlcyBob3cgd2VsbCB0aGUgdHdvIGZvbGxvdyBhIHN0cmFpZ2h0LWxpbmVcbiAgICAgICAgICAgICAgcmVsYXRpb25zaGlwLiBJdCBpcyB0aGUgbW9zdCBjb21tb24gY2hvaWNlLCBidXQgYSBmZXcgZXh0cmVtZSB2YWx1ZXMgY2FuIHN0cm9uZ2x5IGFmZmVjdCBpdC48L2xpPlxuICAgICAgICAgICAgPGxpPjxzdHJvbmc+U3BlYXJtYW4ncyDPgTwvc3Ryb25nPiAoXCJyaG9cIikgcmVwbGFjZXMgZWFjaCB2YWx1ZSBieSBpdHMgcmFuayAoMXN0LCAybmQsIDNyZOKApilcbiAgICAgICAgICAgICAgYW5kIHRoZW4gZG9lcyB0aGUgc2FtZSB0aGluZy4gSXQgb25seSBhc2tzIHdoZXRoZXIgdGhlIHR3byByaXNlIGFuZCBmYWxsIHRvZ2V0aGVyLFxuICAgICAgICAgICAgICBub3Qgd2hldGhlciB0aGV5IGRvIHNvIGluIHByb3BvcnRpb24uPC9saT5cbiAgICAgICAgICAgIDxsaT48c3Ryb25nPktlbmRhbGwncyDPhDwvc3Ryb25nPiAoXCJ0YXVcIikgY29tcGFyZXMgZXZlcnkgcGFpciBvZiB5ZWFycyBhbmQgY291bnRzIGhvdyBvZnRlblxuICAgICAgICAgICAgICBib3RoIHNlcmllcyBjaGFuZ2UgaW4gdGhlIHNhbWUgZGlyZWN0aW9uLiBJdHMgdmFsdWVzIHRlbmQgdG8gYmUgc21hbGxlciB0aGFuIHRoZSBvdGhlclxuICAgICAgICAgICAgICB0d28gZm9yIHRoZSBzYW1lIGRhdGEsIHNvIHRoZSBudW1iZXJzIGFyZW4ndCBkaXJlY3RseSBjb21wYXJhYmxlIGFjcm9zcyBtZWFzdXJlcy48L2xpPlxuICAgICAgICAgIDwvdWw+XG5cbiAgICAgICAgICA8ZGl2IGNsYXNzPVwibWItNFwiPlxuICAgICAgICAgICAgPGxhYmVsIGNsYXNzPVwiZm9ybS1sYWJlbFwiPkNvcnJlbGF0aW9uIG1lYXN1cmU8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdCBjbGFzcz1cImZvcm0tc2VsZWN0XCIgaWQ9XCJjLXN0YXRpc3RpY1wiPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwicGVhcnNvbnJcIj5QZWFyc29uJ3Mgcjwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwic3BlYXJtYW5yXCI+U3BlYXJtYW4ncyDPgTwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwia2VuZGFsbHRhdVwiPktlbmRhbGwncyDPhDwvb3B0aW9uPlxuICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgPC9kaXY+XG5cblxuICAgICAgICAgIDxoND48c3Ryb25nPjUuIFNpZ25pZmljYW5jZTwvc3Ryb25nPjwvaDQ+XG5cbiAgICAgICAgICA8cD5cbiAgICAgICAgICAgIEJvdGggY3VydmVzIGFyZSBzbW9vdGgsIGFuZCBzbW9vdGggY3VydmVzIGNhbiBsaW5lIHVwIGJ5IGNoYW5jZSBmYXIgbW9yZSBvZnRlbiB0aGFuXG4gICAgICAgICAgICBqYWdnZWQgb25lcy4gVG8ganVkZ2Ugd2hldGhlciBhIGNvcnJlbGF0aW9uIGNvdWxkIGJlIGEgZmx1a2UsIGl0IGlzIGNvbXBhcmVkIHdpdGhcbiAgICAgICAgICAgIGNvcnJlbGF0aW9ucyBiZXR3ZWVuIHJhbmRvbSBzZXJpZXMgdGhhdCByZXNlbWJsZSB0aGUgcmVhbCBvbmVzIGJ1dCBhcmUgdW5yZWxhdGVkIGJ5XG4gICAgICAgICAgICBjb25zdHJ1Y3Rpb24uIFRoZSBwLXZhbHVlIGlzIHRoZSBmcmFjdGlvbiBvZiB0aG9zZSByYW5kb20gcGFpcnMgdGhhdCBjb3JyZWxhdGUgYXQgbGVhc3RcbiAgICAgICAgICAgIGFzIHN0cm9uZ2x5IGFzIHRoZSByZWFsIGRhdGEuIEJlbG93IDAuMDUgaXMgdXN1YWxseSBjYWxsZWQgXCJzaWduaWZpY2FudFwiLlxuICAgICAgICAgIDwvcD5cblxuICAgICAgICAgIDxwPlxuICAgICAgICAgICAgSGVyZSB0aGUgcmFuZG9tIHNlcmllcyBhcmUgbWFkZSBieSA8c3Ryb25nPnBoYXNlIHJhbmRvbWl6YXRpb248L3N0cm9uZz4sIHdoaWNoIHNjcmFtYmxlc1xuICAgICAgICAgICAgdGhlIHRpbWluZyBvZiBlYWNoIHNlcmllcyB3aGlsZSBrZWVwaW5nIGl0cyBiYWxhbmNlIG9mIHNsb3cgYW5kIGZhc3QgdmFyaWF0aW9ucywgc28gdGhlXG4gICAgICAgICAgICByYW5kb20gc2VyaWVzIGFyZSBqdXN0IGFzIHNtb290aCBhcyB0aGUgcmVhbCBvbmVzIChzZWVcbiAgICAgICAgICAgIDxhIGhyZWY9XCJodHRwczovL2xpbmtlZC5lYXJ0aC9QeWxlb1R1dG9yaWFscy9ub3RlYm9va3MvTDFfc3Vycm9nYXRlcy5odG1sI25vbi1wYXJhbWV0cmljLXN1cnJvZ2F0ZXNcIj50aGlzIFB5bGVvY2xpbSB0dXRvcmlhbDwvYT5cbiAgICAgICAgICAgIGZvciBkZXRhaWxzKS5cbiAgICAgICAgICA8L3A+XG5cbiAgICAgICAgICA8cD5cbiAgICAgICAgICAgIENob29zZSBob3cgbWFueSByYW5kb20gc2VyaWVzIHRvIGdlbmVyYXRlLiBJbiBwcmluY2lwbGUsIHRoZSByZWFsIGNvcnJlbGF0aW9uXG4gICAgICAgICAgICA8ZW0+c2hvdWxkPC9lbT4gYmUgY29tcGFyZWQgd2l0aCBtYW55IG9mIHRoZW0sIGJ1dCBob3cgbWFueSBpcyBhIGNob2ljZSwgYW5kIGl0IGFmZmVjdHNcbiAgICAgICAgICAgIHRoZSByZXN1bHQuIFdpdGggMjAgc2ltdWxhdGlvbnMsIGZvciBleGFtcGxlLCB0aGUgcC12YWx1ZSBjYW4gb25seSB0YWtlIHN0ZXBzIG9mIDEvMjAgPSAwLjA1LlxuICAgICAgICAgICAgVHJ5IGRpZmZlcmVudCBudW1iZXJzIGFuZCBzZWUgZm9yIHlvdXJzZWxmLlxuICAgICAgICAgIDwvcD5cblxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJtYi00XCI+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3M9XCJmb3JtLWxhYmVsXCI+TnVtYmVyIG9mIHNpbXVsYXRpb25zPC9sYWJlbD5cbiAgICAgICAgICAgIDxzZWxlY3QgY2xhc3M9XCJmb3JtLXNlbGVjdFwiIGlkPVwiYy1uc2ltXCI+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCIyMFwiPjIwPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCI1MFwiPjUwPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCIyMDBcIj4yMDA8L29wdGlvbj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIjEwMDBcIj4xMDAwPC9vcHRpb24+XG4gICAgICAgICAgICA8L3NlbGVjdD5cbiAgICAgICAgICA8L2Rpdj5cblxuXG4gICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgdHlwZT1cImJ1dHRvblwiXG4gICAgICAgICAgICBjbGFzcz1cImJ0biBidG4tcHJpbWFyeSB3LTEwMFwiXG4gICAgICAgICAgICBpZD1cImMtZ2VuZXJhdGVcIj5cbiAgICAgICAgICAgIEdlbmVyYXRlIGZpZ3VyZVxuICAgICAgICAgIDwvYnV0dG9uPlxuXG4gICAgICAgIDwvZGl2PlxuXG5cbiAgICAgICAgPCEtLSBSSUdIVCBDT0xVTU4gLS0+XG4gICAgICAgIDxkaXYgY2xhc3M9XCJjb2wtMTIgY29sLW1kLThcIj5cblxuICAgICAgICAgIDxoMz48c3Ryb25nPllvdXIgd29ya2Zsb3c8L3N0cm9uZz48L2gzPlxuXG4gICAgICAgICAgPGRpdiBjbGFzcz1cImNhbGxvdXQgY2FsbG91dC1zdHlsZS1kZWZhdWx0IGNhbGxvdXQtaW5mb1wiPlxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cImNhbGxvdXQtYm9keS1jb250YWluZXIgY2FsbG91dC1ib2R5XCI+XG4gICAgICAgICAgICAgIDxwPjxzdHJvbmc+U21vb3RoaW5nOjwvc3Ryb25nPiA8c3BhbiBpZD1cImMtc3VtbWFyeS1zbW9vdGhpbmdcIj48L3NwYW4+PC9wPlxuICAgICAgICAgICAgICA8cD48c3Ryb25nPkVuZCBvZiB0aGUgcmVjb3JkOjwvc3Ryb25nPiA8c3BhbiBpZD1cImMtc3VtbWFyeS10cmVhdG1lbnRcIj48L3NwYW4+PC9wPlxuICAgICAgICAgICAgICA8cD48c3Ryb25nPlRpbWUgcGVyaW9kOjwvc3Ryb25nPiA8c3BhbiBpZD1cImMtc3VtbWFyeS1wZXJpb2RcIj48L3NwYW4+PC9wPlxuICAgICAgICAgICAgICA8cD48c3Ryb25nPkRldHJlbmRpbmc6PC9zdHJvbmc+IDxzcGFuIGlkPVwiYy1zdW1tYXJ5LWRldHJlbmRcIj48L3NwYW4+PC9wPlxuICAgICAgICAgICAgICA8cD48c3Ryb25nPkNvcnJlbGF0aW9uIG1lYXN1cmU6PC9zdHJvbmc+IDxzcGFuIGlkPVwiYy1zdW1tYXJ5LXN0YXRpc3RpY1wiPjwvc3Bhbj48L3A+XG4gICAgICAgICAgICAgIDxwPjxzdHJvbmc+U2lnbmlmaWNhbmNlOjwvc3Ryb25nPiBwaGFzZSByYW5kb21pemF0aW9uLCA8c3BhbiBpZD1cImMtc3VtbWFyeS1uc2ltXCI+PC9zcGFuPjwvcD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG5cbiAgICAgICAgICA8aDMgY2xhc3M9XCJtdC00XCI+PHN0cm9uZz5Zb3VyIHJlc3VsdDwvc3Ryb25nPjwvaDM+XG5cbiAgICAgICAgICA8ZGl2IGlkPVwiYy1yZXN1bHRcIiBzdHlsZT1cIm1pbi1oZWlnaHQ6IDI1MHB4O1wiPlxuICAgICAgICAgICAgPGVtPllvdXIgZ2VuZXJhdGVkIGZpZ3VyZSB3aWxsIGFwcGVhciBoZXJlLjwvZW0+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICA8cCBpZD1cImMtYXR0ZW1wdC1zdGF0dXNcIiBjbGFzcz1cInRleHQtbXV0ZWQgbXQtMlwiPjwvcD5cblxuICAgICAgICA8L2Rpdj5cblxuICAgICAgPC9kaXY+XG5cblxuICAgICAgPGhyIGNsYXNzPVwibXktNVwiPlxuXG5cbiAgICAgIDwhLS0gTk9URVBBRCAtLT5cbiAgICAgIDxoMj48c3Ryb25nPk5vdGVwYWQ8L3N0cm9uZz48L2gyPlxuXG4gICAgICA8cCBpZD1cImMtbm90ZXMtbGFiZWxcIj5cbiAgICAgICAgQXMgeW91IHdvcmssIGtlZXAgdHJhY2sgb2YgaW5mb3JtYXRpb24geW91IHdpc2ggdGhlIE1ldGhvZHMgc2VjdGlvbiBoYWQgcHJvdmlkZWQuXG4gICAgICA8L3A+XG5cbiAgICAgIDx0ZXh0YXJlYVxuICAgICAgICBpZD1cImMtbm90ZXNcIlxuICAgICAgICBjbGFzcz1cImZvcm0tY29udHJvbFwiXG4gICAgICAgIHJvd3M9XCI4XCJcbiAgICAgICAgcGxhY2Vob2xkZXI9XCJXaGF0IGluZm9ybWF0aW9uIGlzIG1pc3Npbmc/IFdoYXQgZGVjaXNpb25zIGRpZCB5b3UgaGF2ZSB0byBtYWtlP1wiXG4gICAgICA+PC90ZXh0YXJlYT5cblxuICAgICAgPGJ1dHRvblxuICAgICAgICB0eXBlPVwiYnV0dG9uXCJcbiAgICAgICAgY2xhc3M9XCJidG4gYnRuLXByaW1hcnkgbXQtM1wiXG4gICAgICAgIGlkPVwiYy1kb3dubG9hZFwiPlxuICAgICAgICBEb3dubG9hZCBub3Rlc1xuICAgICAgPC9idXR0b24+XG5cbiAgICAgIDxkZXRhaWxzIGlkPVwiYy1oaXN0b3J5LWNvbnRhaW5lclwiIGNsYXNzPVwibXQtNFwiIGhpZGRlbj5cbiAgICAgICAgPHN1bW1hcnk+PHN0cm9uZz5BdHRlbXB0IGhpc3Rvcnk8L3N0cm9uZz48L3N1bW1hcnk+XG4gICAgICAgIDxkaXYgaWQ9XCJjLWhpc3RvcnlcIiBjbGFzcz1cIm10LTNcIj48L2Rpdj5cbiAgICAgIDwvZGV0YWlscz5cblxuICAgIDwvZGl2PlxuICBgO1xuXG5cbiAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbiAgLy8gR2V0IGNvbnRyb2xzXG4gIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5cbiAgY29uc3Qga2V5cyA9IFtcInNtb290aGluZ1wiLCBcInRyZWF0bWVudFwiLCBcInBlcmlvZFwiLCBcImRldHJlbmRcIiwgXCJzdGF0aXN0aWNcIiwgXCJuc2ltXCJdO1xuXG4gIGNvbnN0IGNvbnRyb2xzID0gT2JqZWN0LmZyb21FbnRyaWVzKFxuICAgIGtleXMubWFwKGsgPT4gW2ssIHJvb3QucXVlcnlTZWxlY3RvcihgI2MtJHtrfWApXSlcbiAgKTtcblxuICBjb25zdCByZXN1bHQgPSByb290LnF1ZXJ5U2VsZWN0b3IoXCIjYy1yZXN1bHRcIik7XG4gIGNvbnN0IHN0YXR1cyA9IHJvb3QucXVlcnlTZWxlY3RvcihcIiNjLWF0dGVtcHQtc3RhdHVzXCIpO1xuICBjb25zdCBub3RlcyA9IHJvb3QucXVlcnlTZWxlY3RvcihcIiNjLW5vdGVzXCIpO1xuICBjb25zdCBub3Rlc0xhYmVsID0gcm9vdC5xdWVyeVNlbGVjdG9yKFwiI2Mtbm90ZXMtbGFiZWxcIik7XG4gIGNvbnN0IGhpc3RvcnlDb250YWluZXIgPSByb290LnF1ZXJ5U2VsZWN0b3IoXCIjYy1oaXN0b3J5LWNvbnRhaW5lclwiKTtcbiAgY29uc3QgaGlzdG9yeSA9IHJvb3QucXVlcnlTZWxlY3RvcihcIiNjLWhpc3RvcnlcIik7XG5cblxuICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuICAvLyBDdXJyZW50IHdvcmtmbG93IGFuZCBzdW1tYXJ5XG4gIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5cbiAgZnVuY3Rpb24gZ2V0V29ya2Zsb3coKSB7XG4gICAgcmV0dXJuIE9iamVjdC5mcm9tRW50cmllcyhrZXlzLm1hcChrID0+IFtrLCBjb250cm9sc1trXS52YWx1ZV0pKTtcbiAgfVxuXG4gIGZ1bmN0aW9uIHNhbWVXb3JrZmxvdyhhLCBiKSB7XG4gICAgaWYgKCFhIHx8ICFiKSByZXR1cm4gZmFsc2U7XG4gICAgcmV0dXJuIGtleXMuZXZlcnkoayA9PiBhW2tdID09PSBiW2tdKTtcbiAgfVxuXG4gIGZ1bmN0aW9uIGxhYmVsKGssIHcpIHtcbiAgICBpZiAoayA9PT0gXCJ0cmVhdG1lbnRcIiAmJiB3LnNtb290aGluZyAhPT0gXCIxMjIyMVwiKSByZXR1cm4gXCIobm90IHVzZWQpXCI7XG4gICAgcmV0dXJuIGxhYmVsc1trXVt3W2tdXTtcbiAgfVxuXG4gIGZ1bmN0aW9uIGRlc2NyaWJlKHcpIHtcbiAgICByZXR1cm4ga2V5cy5tYXAoayA9PiBsYWJlbChrLCB3KSkuam9pbihcIiDihpIgXCIpO1xuICB9XG5cbiAgZnVuY3Rpb24gdXBkYXRlU3VtbWFyeSgpIHtcbiAgICBjb25zdCB3b3JrZmxvdyA9IGdldFdvcmtmbG93KCk7XG4gICAgZm9yIChjb25zdCBrIG9mIGtleXMpIHtcbiAgICAgIHJvb3QucXVlcnlTZWxlY3RvcihgI2Mtc3VtbWFyeS0ke2t9YCkudGV4dENvbnRlbnQgPSBsYWJlbChrLCB3b3JrZmxvdyk7XG4gICAgfVxuICAgIHVwZGF0ZVN0YXR1cygpO1xuICB9XG5cbiAgZnVuY3Rpb24gdXBkYXRlU3RhdHVzKCkge1xuICAgIGlmICghY3VycmVudEF0dGVtcHQpIHtcbiAgICAgIHN0YXR1cy50ZXh0Q29udGVudCA9IFwiXCI7XG4gICAgICByZXR1cm47XG4gICAgfVxuICAgIHN0YXR1cy50ZXh0Q29udGVudCA9IHNhbWVXb3JrZmxvdyhnZXRXb3JrZmxvdygpLCBjdXJyZW50QXR0ZW1wdClcbiAgICAgID8gYFNob3dpbmcgcmVzdWx0IGZyb20gQXR0ZW1wdCAke2N1cnJlbnRBdHRlbXB0Lm51bWJlcn0uYFxuICAgICAgOiBcIllvdXIgc2VsZWN0aW9ucyBoYXZlIGNoYW5nZWQuIENsaWNrIEdlbmVyYXRlIGZpZ3VyZSB0byBzZWUgdGhlIG5ldyByZXN1bHQuXCI7XG4gIH1cblxuICBmdW5jdGlvbiBmb3JtYXRSZXN1bHQobWF0Y2gsIHN0YXRpc3RpYykge1xuICAgIGNvbnN0IHAgPSBtYXRjaC5wID09PSAwID8gXCI8IFwiICsgKDEgLyBOdW1iZXIobWF0Y2gubnNpbSkpLnRvRml4ZWQoMykgOiBtYXRjaC5wLnRvRml4ZWQoMyk7XG4gICAgcmV0dXJuIGAke3N5bWJvbHNbc3RhdGlzdGljXX0gPSAke21hdGNoLnIudG9GaXhlZCgyKX0sIHAgJHttYXRjaC5wID09PSAwID8gXCJcIiA6IFwiPSBcIn0ke3B9YDtcbiAgfVxuXG5cbiAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbiAgLy8gQXR0ZW1wdCBoaXN0b3J5XG4gIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5cbiAgZnVuY3Rpb24gcmVuZGVySGlzdG9yeSgpIHtcbiAgICBoaXN0b3J5LnJlcGxhY2VDaGlsZHJlbigpO1xuXG4gICAgZm9yIChjb25zdCBhdHRlbXB0IG9mIGF0dGVtcHRzKSB7XG4gICAgICBjb25zdCBlbnRyeSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gICAgICBlbnRyeS5jbGFzc05hbWUgPSBcImJvcmRlci1ib3R0b20gcGItMyBtYi0zXCI7XG5cbiAgICAgIGNvbnN0IHRpdGxlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcInN0cm9uZ1wiKTtcbiAgICAgIHRpdGxlLnRleHRDb250ZW50ID0gYEF0dGVtcHQgJHthdHRlbXB0Lm51bWJlcn1gO1xuXG4gICAgICBjb25zdCB3b3JrZmxvdyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gICAgICB3b3JrZmxvdy5jbGFzc05hbWUgPSBcInNtYWxsIG10LTFcIjtcbiAgICAgIHdvcmtmbG93LnRleHRDb250ZW50ID0gYCR7ZGVzY3JpYmUoYXR0ZW1wdCl9IOKGkiAke2F0dGVtcHQucmVzdWx0fWA7XG5cbiAgICAgIGVudHJ5LmFwcGVuZCh0aXRsZSwgd29ya2Zsb3cpO1xuXG4gICAgICBpZiAoYXR0ZW1wdC5ub3Rlcy50cmltKCkpIHtcbiAgICAgICAgY29uc3Qgbm90ZSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gICAgICAgIG5vdGUuY2xhc3NOYW1lID0gXCJzbWFsbCBtdC0yXCI7XG4gICAgICAgIG5vdGUudGV4dENvbnRlbnQgPSBgTm90ZXM6ICR7YXR0ZW1wdC5ub3Rlc31gO1xuICAgICAgICBlbnRyeS5hcHBlbmRDaGlsZChub3RlKTtcbiAgICAgIH1cblxuICAgICAgaGlzdG9yeS5hcHBlbmRDaGlsZChlbnRyeSk7XG4gICAgfVxuXG4gICAgaGlzdG9yeUNvbnRhaW5lci5oaWRkZW4gPSBhdHRlbXB0cy5sZW5ndGggPT09IDA7XG4gIH1cblxuXG4gIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gIC8vIEdlbmVyYXRlIGZpZ3VyZVxuICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuXG4gIHJvb3QucXVlcnlTZWxlY3RvcihcIiNjLWdlbmVyYXRlXCIpLmFkZEV2ZW50TGlzdGVuZXIoXCJjbGlja1wiLCAoKSA9PiB7XG5cbiAgICBpZiAoY3VycmVudEF0dGVtcHQpIGN1cnJlbnRBdHRlbXB0Lm5vdGVzID0gbm90ZXMudmFsdWU7XG5cbiAgICBjb25zdCB3b3JrZmxvdyA9IGdldFdvcmtmbG93KCk7XG4gICAgY29uc3QgbWF0Y2ggPSBjb3JyTWFuaWZlc3QuZmluZChkID0+IGtleXMuZXZlcnkoayA9PiBkW2tdID09PSB3b3JrZmxvd1trXSkpO1xuXG4gICAgaWYgKCFtYXRjaCkge1xuICAgICAgcmVzdWx0LmlubmVySFRNTCA9XG4gICAgICAgIGA8ZGl2IGNsYXNzPVwiYWxlcnQgYWxlcnQtd2FybmluZ1wiPlxuICAgICAgICAgICBObyBwcmVjb21wdXRlZCByZXN1bHQgd2FzIGZvdW5kIGZvciB0aGlzIHdvcmtmbG93LlxuICAgICAgICAgPC9kaXY+YDtcbiAgICAgIHJldHVybjtcbiAgICB9XG5cbiAgICBjb25zdCByZXN1bHRUZXh0ID0gZm9ybWF0UmVzdWx0KG1hdGNoLCB3b3JrZmxvdy5zdGF0aXN0aWMpO1xuXG4gICAgLy8gRmlyc3Qgbm90ZXMgZW50ZXJlZCBiZWZvcmUgZ2VuZXJhdGluZyBiZWxvbmcgdG8gQXR0ZW1wdCAxLlxuICAgIGNvbnN0IGF0dGVtcHQgPSB7XG4gICAgICBudW1iZXI6IGF0dGVtcHRzLmxlbmd0aCArIDEsXG4gICAgICAuLi53b3JrZmxvdyxcbiAgICAgIHJlc3VsdDogcmVzdWx0VGV4dCxcbiAgICAgIG5vdGVzOiBhdHRlbXB0cy5sZW5ndGggPT09IDAgPyBub3Rlcy52YWx1ZSA6IFwiXCJcbiAgICB9O1xuXG4gICAgYXR0ZW1wdHMucHVzaChhdHRlbXB0KTtcbiAgICBjdXJyZW50QXR0ZW1wdCA9IGF0dGVtcHQ7XG5cbiAgICBpZiAoYXR0ZW1wdC5udW1iZXIgPiAxKSBub3Rlcy52YWx1ZSA9IFwiXCI7XG5cbiAgICAvLyBEaXNwbGF5IGZpZ3VyZSBhbmQgbnVtYmVyc1xuICAgIHJlc3VsdC5yZXBsYWNlQ2hpbGRyZW4oKTtcblxuICAgIGNvbnN0IGltZyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJpbWdcIik7XG4gICAgaW1nLnNyYyA9IG1hdGNoLmltYWdlO1xuICAgIGltZy5hbHQgPSBgR2VuZXJhdGVkIGZpZ3VyZSBmb3IgQXR0ZW1wdCAke2F0dGVtcHQubnVtYmVyfWA7XG4gICAgaW1nLnN0eWxlLndpZHRoID0gXCIxMDAlXCI7XG4gICAgaW1nLnN0eWxlLmhlaWdodCA9IFwiYXV0b1wiO1xuXG4gICAgY29uc3QgbnVtYmVycyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJwXCIpO1xuICAgIG51bWJlcnMuY2xhc3NOYW1lID0gXCJtdC0yXCI7XG4gICAgbnVtYmVycy5pbm5lckhUTUwgPVxuICAgICAgYDxzdHJvbmc+JHtyZXN1bHRUZXh0fTwvc3Ryb25nPiBgICtcbiAgICAgIGAoJHttYXRjaC5zaWduaWZpY2FudCA/IFwic2lnbmlmaWNhbnRcIiA6IFwibm90IHNpZ25pZmljYW50XCJ9IGF0IHRoZSA1JSBsZXZlbCkuIGAgK1xuICAgICAgYDxzcGFuIGNsYXNzPVwidGV4dC1tdXRlZFwiPlllYXJzIGNvbXBhcmVkOiAke21hdGNoLndpbmRvd30gKCR7bWF0Y2gubn0gdmFsdWVzKS48L3NwYW4+YDtcblxuICAgIHJlc3VsdC5hcHBlbmQoaW1nLCBudW1iZXJzKTtcblxuICAgIG5vdGVzTGFiZWwudGV4dENvbnRlbnQgPVxuICAgICAgYE5vdGVzIGZvciBBdHRlbXB0ICR7YXR0ZW1wdC5udW1iZXJ9OiBgICtcbiAgICAgIFwicmVjb3JkIHdoYXQgeW91IG9ic2VydmUgYW5kIHdoYXQgaW5mb3JtYXRpb24geW91IHdpc2ggaGFkIGJlZW4gcHJvdmlkZWQuXCI7XG5cbiAgICByZW5kZXJIaXN0b3J5KCk7XG4gICAgdXBkYXRlU3RhdHVzKCk7XG4gIH0pO1xuXG5cbiAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbiAgLy8gQ29udGludW91c2x5IHNhdmUgY3VycmVudCBub3Rlc1xuICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuXG4gIG5vdGVzLmFkZEV2ZW50TGlzdGVuZXIoXCJpbnB1dFwiLCAoKSA9PiB7XG4gICAgaWYgKGN1cnJlbnRBdHRlbXB0KSBjdXJyZW50QXR0ZW1wdC5ub3RlcyA9IG5vdGVzLnZhbHVlO1xuICB9KTtcblxuXG4gIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gIC8vIERvd25sb2FkIG5vdGVzICsgYXR0ZW1wdHNcbiAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblxuICByb290LnF1ZXJ5U2VsZWN0b3IoXCIjYy1kb3dubG9hZFwiKS5hZGRFdmVudExpc3RlbmVyKFwiY2xpY2tcIiwgKCkgPT4ge1xuXG4gICAgaWYgKGN1cnJlbnRBdHRlbXB0KSBjdXJyZW50QXR0ZW1wdC5ub3RlcyA9IG5vdGVzLnZhbHVlO1xuXG4gICAgbGV0IG91dHB1dCA9XG4gICAgICBcIkFSRSBNRVRIT0RTIEFDVElPTkFCTEU/XFxuXCIgK1xuICAgICAgXCJXb3JrZmxvdyByZXByb2R1Y3Rpb24gZXhlcmNpc2U6IENvcnJlbGF0aW9uc1xcblwiICtcbiAgICAgIFwiPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxcblxcblwiO1xuXG4gICAgaWYgKGF0dGVtcHRzLmxlbmd0aCA9PT0gMCkge1xuICAgICAgb3V0cHV0ICs9IFwiTm8gZmlndXJlcyB3ZXJlIGdlbmVyYXRlZC5cXG5cXG5cIjtcbiAgICAgIGlmIChub3Rlcy52YWx1ZS50cmltKCkpIG91dHB1dCArPSBcIk5PVEVTXFxuXCIgKyBub3Rlcy52YWx1ZS50cmltKCkgKyBcIlxcblwiO1xuICAgIH0gZWxzZSB7XG4gICAgICBmb3IgKGNvbnN0IGF0dGVtcHQgb2YgYXR0ZW1wdHMpIHtcbiAgICAgICAgb3V0cHV0ICs9IGBBVFRFTVBUICR7YXR0ZW1wdC5udW1iZXJ9XFxuYDtcbiAgICAgICAgb3V0cHV0ICs9IFwiLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxcblwiO1xuICAgICAgICBvdXRwdXQgKz0gYFNtb290aGluZzogJHtsYWJlbHMuc21vb3RoaW5nW2F0dGVtcHQuc21vb3RoaW5nXX1cXG5gO1xuICAgICAgICBvdXRwdXQgKz0gYEVuZCBvZiB0aGUgcmVjb3JkOiAke2F0dGVtcHQuc21vb3RoaW5nID09PSBcIjEyMjIxXCIgPyBsYWJlbHMudHJlYXRtZW50W2F0dGVtcHQudHJlYXRtZW50XSA6IFwiKG5vdCB1c2VkKVwifVxcbmA7XG4gICAgICAgIG91dHB1dCArPSBgVGltZSBwZXJpb2Q6ICR7bGFiZWxzLnBlcmlvZFthdHRlbXB0LnBlcmlvZF19XFxuYDtcbiAgICAgICAgb3V0cHV0ICs9IGBEZXRyZW5kaW5nOiAke2xhYmVscy5kZXRyZW5kW2F0dGVtcHQuZGV0cmVuZF19XFxuYDtcbiAgICAgICAgb3V0cHV0ICs9IGBDb3JyZWxhdGlvbiBtZWFzdXJlOiAke2xhYmVscy5zdGF0aXN0aWNbYXR0ZW1wdC5zdGF0aXN0aWNdfVxcbmA7XG4gICAgICAgIG91dHB1dCArPSBgU2lnbmlmaWNhbmNlOiBwaGFzZSByYW5kb21pemF0aW9uLCAke2xhYmVscy5uc2ltW2F0dGVtcHQubnNpbV19XFxuYDtcbiAgICAgICAgb3V0cHV0ICs9IGBSZXN1bHQ6ICR7YXR0ZW1wdC5yZXN1bHR9XFxuXFxuYDtcbiAgICAgICAgb3V0cHV0ICs9IFwiTm90ZXM6XFxuXCI7XG4gICAgICAgIG91dHB1dCArPSBhdHRlbXB0Lm5vdGVzLnRyaW0oKSA/IGF0dGVtcHQubm90ZXMudHJpbSgpIDogXCIoTm8gbm90ZXMgcmVjb3JkZWQpXCI7XG4gICAgICAgIG91dHB1dCArPSBcIlxcblxcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cXG5cXG5cIjtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBjb25zdCBibG9iID0gbmV3IEJsb2IoW291dHB1dF0sIHt0eXBlOiBcInRleHQvcGxhaW47Y2hhcnNldD11dGYtOFwifSk7XG4gICAgY29uc3QgdXJsID0gVVJMLmNyZWF0ZU9iamVjdFVSTChibG9iKTtcbiAgICBjb25zdCBsaW5rID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImFcIik7XG4gICAgbGluay5ocmVmID0gdXJsO1xuICAgIGxpbmsuZG93bmxvYWQgPSBcImNvcnJlbGF0aW9uLXJlcHJvZHVjdGlvbi1ub3Rlcy50eHRcIjtcbiAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGxpbmspO1xuICAgIGxpbmsuY2xpY2soKTtcbiAgICBsaW5rLnJlbW92ZSgpO1xuICAgIFVSTC5yZXZva2VPYmplY3RVUkwodXJsKTtcbiAgfSk7XG5cblxuICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuICAvLyBDb250cm9sIGxpc3RlbmVycyBhbmQgaW5pdGlhbCBzdGF0ZVxuICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuXG4gIGZvciAoY29uc3QgayBvZiBrZXlzKSBjb250cm9sc1trXS5hZGRFdmVudExpc3RlbmVyKFwiY2hhbmdlXCIsIHVwZGF0ZVN1bW1hcnkpO1xuXG4gIC8vIFRoZSBlbmQtb2YtcmVjb3JkIGNob2ljZSBvbmx5IGFwcGxpZXMgdG8gMS0yLTItMi0xIHNtb290aGluZ1xuICBmdW5jdGlvbiB1cGRhdGVUcmVhdG1lbnQoKSB7XG4gICAgY29udHJvbHMudHJlYXRtZW50LmRpc2FibGVkID0gY29udHJvbHMuc21vb3RoaW5nLnZhbHVlICE9PSBcIjEyMjIxXCI7XG4gIH1cbiAgY29udHJvbHMuc21vb3RoaW5nLmFkZEV2ZW50TGlzdGVuZXIoXCJjaGFuZ2VcIiwgdXBkYXRlVHJlYXRtZW50KTtcblxuICB1cGRhdGVUcmVhdG1lbnQoKTtcbiAgdXBkYXRlU3VtbWFyeSgpO1xuXG4gIHJldHVybiByb290O1xufVxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../deep-water/correlation-workflow";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/LinkedEarth\.github\.io\/ThePond\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>The Pond is part of <a href="https://linked.earth/FROGS/">FROGS</a>, a <a href="https://linked.earth/">LinkedEarth</a> project.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
