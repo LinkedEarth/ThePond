@@ -1,12 +1,89 @@
 ---
-title: "From Sketch to Notebook"
+title: "Tracing a Workflow in a Notebook"
+format:
+  html:
+    toc: false
+page-layout: full
+resources:
+  - activities/**
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+A scientific notebook brings together the question, data, methodological choices, code, and results of an investigation. In this LiLyPad, you will trace how those pieces connect.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+## Choose a scenario
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
+Choose **one** of the four scenarios below. You do not need to run or edit the code. Read the notebook and use its narrative, code, and displayed results to reconstruct the workflow.
+
+1. **Select a passage or code** in the notebook on the left.
+2. Choose **Data / output**, **Analysis**, or **Parameter**, give the component a meaningful name, and select **Create box**.
+3. Drag the box by its header to arrange it on the canvas. You can also focus a header and use the arrow keys to move it.
+4. Draw an arrow by selecting **Connect** on the source box, then **Connect** on the destination box. Arrows show where data and parameters are used and what an analysis produces.
+5. Select **Source** on a box to return to the passage that supports it.
+
+A workflow component may be described in several places. Choose a passage that helps you explain its role; you do not need a box for every sentence or line of code. Intermediate results count as data even when they are held in memory rather than saved to a file.
+
+Use **Download my work** to save your boxes, source quotations, and arrows. **Restore download** loads that file back into the same scenario. Progress is also saved in this browser when available; use the download to keep a portable copy. Switching scenario tabs preserves each scenario's work separately.
+
+::: {.callout-tip}
+The reference sketch is collapsed at the end of each notebook. Try tracing the workflow yourself before opening **Show the reference workflow**. Your wording and layout can differ from the reference.
 :::
+
+::: {.panel-tabset}
+
+## Hydrology
+
+[Open the Hydrology activity in a full browser tab](activities/hydrology.html){target="_blank" rel="noopener"}
+
+```{=html}
+<iframe class="workflow-exercise-frame" src="activities/hydrology.html" title="Hydrology notebook and workflow canvas"></iframe>
+```
+
+## Seismology
+
+[Open the Seismology activity in a full browser tab](activities/seismology.html){target="_blank" rel="noopener"}
+
+```{=html}
+<iframe class="workflow-exercise-frame" src="activities/seismology.html" title="Seismology notebook and workflow canvas"></iframe>
+```
+
+## Oceanography
+
+[Open the Oceanography activity in a full browser tab](activities/oceanography.html){target="_blank" rel="noopener"}
+
+```{=html}
+<iframe class="workflow-exercise-frame" src="activities/oceanography.html" title="Oceanography notebook and workflow canvas"></iframe>
+```
+
+## Geophysics
+
+[Open the Geophysics activity in a full browser tab](activities/geophysics.html){target="_blank" rel="noopener"}
+
+```{=html}
+<iframe class="workflow-exercise-frame" src="activities/geophysics.html" title="Geophysics notebook and workflow canvas"></iframe>
+```
+
+:::
+
+## Reflect on your workflow
+
+Compare your reconstruction with the reference sketch:
+
+- Can you trace an intermediate dataset from the step that creates it to the step that uses it?
+- Which parameters affect the final result, and where are their values documented?
+- Did the notebook specify a choice that was not explicit in the original sketch?
+
+```{=html}
+<style>
+.workflow-exercise-frame {
+  display: block;
+  width: 100%;
+  height: 1060px;
+  border: 1px solid #d3ddd5;
+  border-radius: 8px;
+  background: white;
+}
+@media (max-width: 1000px) {
+  .workflow-exercise-frame { height: 1540px; }
+}
+</style>
+```
