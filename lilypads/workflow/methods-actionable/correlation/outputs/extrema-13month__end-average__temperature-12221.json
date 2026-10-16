@@ -1,0 +1,36 @@
+{
+  "choices": {
+    "extrema": "13month",
+    "end_of_record": "average",
+    "temperature": "12221"
+  },
+  "fixed_settings": {
+    "end_year": 1990,
+    "baseline": [
+      1951,
+      1980
+    ]
+  },
+  "result": {
+    "last_cycle_length_center": 1984.9,
+    "last_temperature_center": 1988.3
+  },
+  "versions": {
+    "python": "3.12.0",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.3",
+    "matplotlib": "3.10.8"
+  },
+  "data": {
+    "silso_sunspots_monthly.csv": {
+      "url": "https://www.sidc.be/SILSO/INFO/snmtotcsv.php",
+      "retrieved": "2026-09-30"
+    },
+    "crutem5_nh_monthly.csv": {
+      "url": "https://www.metoffice.gov.uk/hadobs/crutem5/data/CRUTEM.5.0.2.0/diagnostics/CRUTEM.5.0.2.0.summary_series.northern_hemisphere.monthly.csv",
+      "retrieved": "2026-09-30"
+    }
+  },
+  "run_at": "2026-10-07T16:59:34"
+}

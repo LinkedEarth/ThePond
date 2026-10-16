@@ -2,3 +2,9 @@
 **/*.quarto_ipynb
 .DS_Store
 /_site
+
+# Jupyter / JupyterLab
+.ipynb_checkpoints/
+.virtual_documents/
+.jupyter/
+*.jupyterlab-workspace

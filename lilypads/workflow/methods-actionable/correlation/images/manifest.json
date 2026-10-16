@@ -1,0 +1,164 @@
+[
+  {
+    "extrema": "13month",
+    "end": "average",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-13month__end-average__temperature-12221.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "average",
+    "temperature": "none",
+    "image": "correlation/images/extrema-13month__end-average__temperature-none.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "average",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-13month__end-average__temperature-running11.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "last",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-13month__end-last__temperature-12221.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "last",
+    "temperature": "none",
+    "image": "correlation/images/extrema-13month__end-last__temperature-none.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "last",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-13month__end-last__temperature-running11.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "leave_out",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-13month__end-leave_out__temperature-12221.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "leave_out",
+    "temperature": "none",
+    "image": "correlation/images/extrema-13month__end-leave_out__temperature-none.png"
+  },
+  {
+    "extrema": "13month",
+    "end": "leave_out",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-13month__end-leave_out__temperature-running11.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "average",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-yearly__end-average__temperature-12221.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "average",
+    "temperature": "none",
+    "image": "correlation/images/extrema-yearly__end-average__temperature-none.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "average",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-yearly__end-average__temperature-running11.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "last",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-yearly__end-last__temperature-12221.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "last",
+    "temperature": "none",
+    "image": "correlation/images/extrema-yearly__end-last__temperature-none.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "last",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-yearly__end-last__temperature-running11.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "leave_out",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-yearly__end-leave_out__temperature-12221.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "leave_out",
+    "temperature": "none",
+    "image": "correlation/images/extrema-yearly__end-leave_out__temperature-none.png"
+  },
+  {
+    "extrema": "yearly",
+    "end": "leave_out",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-yearly__end-leave_out__temperature-running11.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "average",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-monthly__end-average__temperature-12221.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "average",
+    "temperature": "none",
+    "image": "correlation/images/extrema-monthly__end-average__temperature-none.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "average",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-monthly__end-average__temperature-running11.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "last",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-monthly__end-last__temperature-12221.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "last",
+    "temperature": "none",
+    "image": "correlation/images/extrema-monthly__end-last__temperature-none.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "last",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-monthly__end-last__temperature-running11.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "leave_out",
+    "temperature": "12221",
+    "image": "correlation/images/extrema-monthly__end-leave_out__temperature-12221.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "leave_out",
+    "temperature": "none",
+    "image": "correlation/images/extrema-monthly__end-leave_out__temperature-none.png"
+  },
+  {
+    "extrema": "monthly",
+    "end": "leave_out",
+    "temperature": "running11",
+    "image": "correlation/images/extrema-monthly__end-leave_out__temperature-running11.png"
+  }
+]

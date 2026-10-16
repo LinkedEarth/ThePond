@@ -1,5 +1,12 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "*.md"
+    # Backend notebooks for the correlation exercises; not pages
+    - "!lilypads/workflow/methods-actionable/correlation/workflow.ipynb"
+    - "!deep-water/correlation-workflow/correlation/workflow.ipynb"
   resources: 
     - "deep-water/github/start-research-repository/studies/*.zip"
 
