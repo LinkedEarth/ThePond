@@ -1,5 +1,1202 @@
 ---
 title: "Collaborate on GitHub"
-subtitle: Track changes, collaborate, organize projects, and share research.
+subtitle: "Learn to collaborate on research projects using GitHub branches, pull requests, and scientific reviews. Practice proposing, discussing, and merging changes."
 ---
 
+# Overview
+
+Research is rarely a solitary activity. A colleague may notice that a dataset needs better documentation, question an analysis decision, or suggest a clearer way to present results. But how do we make these improvements without disrupting someone else's work? And how do we preserve the discussions and decisions that led to a change?
+
+GitHub provides a way to propose, discuss, and review changes before incorporating them into a shared project. In this LilyPad, you'll use **branches and pull requests** to improve your own repository while participating in a simulated collaboration on a scientific research project. You'll discover that contributing to research involves more than writing code: reviewing documentation, questioning scientific assumptions, and providing constructive feedback are equally valuable.
+
+## What you will learn
+
+By the end of this LilyPad, you will be able to:
+
+- **Work on a branch:** Create and manage a branch in GitHub Desktop to propose changes without directly modifying `main`.
+- **Propose an improvement:** Make a focused change, commit and publish it, and open a pull request on GitHub.
+- **Review scientific changes:** Examine changes to documentation and Jupyter notebooks, recognizing which changes may affect scientific interpretation or reproducibility.
+- **Participate in a review:** Use comments, approvals, and requests for changes to provide constructive feedback.
+- **Respond to feedback:** Revise your work and update an existing pull request.
+- **Merge and synchronize:** Incorporate an accepted change into `main` and update your local repository.
+
+## Before you begin
+
+For this LilyPad, you'll need:
+
+- A [GitHub account](https://github.com/signup) and [GitHub Desktop](https://desktop.github.com/) installed on your computer.
+- The research repository you created in [Starting a Research Repository on GitHub](../start-a-research-repository/index.qmd) and cloned to your computer in [Save and Share Changes on GitHub](../save-share-changes/index.qmd).
+- A small improvement you could make to your project, such as clarifying documentation, adding information about your data, or correcting an explanation.
+
+**You don't need to know Python or find a collaborator to complete this LilyPad.**
+
+You'll work in two environments:
+
+- **Your own repository on GitHub:** You'll create a branch, make a change, open a pull request, and eventually merge it.
+- **An interactive research scenario in The Pond:** You'll take part in a fictional collaboration, reviewing proposed changes and responding to scientific questions through activities that simulate GitHub's interface.
+
+## Meet your research collaborators
+
+Throughout this LilyPad, we'll follow a fictional research team investigating whether nitrate concentrations change as a stream flows through a developed area.
+
+The researchers are working together on a GitHub repository containing their data documentation and an analysis notebook. As they improve their study, they need to propose changes, examine each other's work, and decide when those changes are ready to become part of the project.
+
+**You'll take on the role of a collaborator**, helping the team evaluate proposed changes. You'll examine documentation, inspect notebook changes, and participate in simulated pull-request discussions. No programming expertise is required: your scientific reasoning is what matters.
+
+At the same time, you'll practice the corresponding GitHub actions in your own repository.
+
+Let's begin by exploring why researchers might want to work on separate branches.
+
+# Why work on a branch?
+
+Imagine you're part of a research team investigating how nitrate concentrations change as a stream flows through a developed area.
+
+Your colleague is working on the analysis notebook, while you've noticed that the `README.md` could better explain how the measurements were collected and checked for quality. You both need to make changes to the same research repository. But what happens if you make changes directly to the version everyone else is using?
+
+Of course, collaborators aren't always working on different files. Sometimes, two researchers need to modify the same notebook, dataset description, or analysis script. When their changes overlap, Git may not be able to combine them automatically. This is called a merge conflict, and we'll return to it later.
+
+## Keeping shared work stable
+
+When you create a GitHub repository, it typically starts with a branch named `main`. Think of this as the primary version of your research project.
+
+A **branch** allows you to work on a proposed change without immediately incorporating it into `main`. You can experiment, revise your work, and ask others to review it before deciding whether the change should become part of the shared project.
+
+For example, your team might have:
+
+- `main` — the primary version of the study.
+- `improve-data-documentation` — a branch for clarifying the data descriptions.
+- `update-analysis-methods` — another branch for improving the analysis notebook.
+
+All three branches belong to the same repository. Changes made and committed to one branch don't automatically become part of the others.
+
+Branches make it easier to work on different improvements independently. Later, a **pull request** will allow you to propose incorporating your branch's changes into `main`.
+
+## Try it: Create a branch
+
+Let's create a branch for improving the water-quality project's documentation.
+
+We'll first practice in a simulation of GitHub Desktop. Then you'll repeat the process in your own repository.
+
+**In GitHub Desktop, creating a branch involves four steps:**
+
+1. Click **Current Branch** at the top of the window to see the available branches.
+2. Click **New Branch**.
+3. Enter a descriptive name for your branch, such as `improve-data-documentation`. Branch names should help collaborators understand what you're working on.
+4. Make sure you're creating the branch from `main`, then click **Create Branch**.
+
+**Now try it yourself in the simulation below.** You can explore the interface and start over if needed.
+
+Once you've created your branch, look at two things: Which branch is now selected under **Current Branch**? And what happened to the **Fetch origin** button?
+
+```{=html}
+<div id="pond-github-desktop">
+
+  <div class="pd-window">
+
+    <!-- macOS title bar -->
+    <div class="pd-titlebar">
+      <span class="pd-dot pd-red"></span>
+      <span class="pd-dot pd-yellow"></span>
+      <span class="pd-dot pd-green"></span>
+    </div>
+
+    <!-- GitHub Desktop toolbar -->
+    <div class="pd-toolbar">
+
+      <div class="pd-repository">
+        <span class="pd-toolbar-icon">▣</span>
+        <div>
+          <div class="pd-toolbar-label">Current Repository</div>
+          <div class="pd-toolbar-value">stream-water-quality</div>
+        </div>
+        <span class="pd-chevron">▾</span>
+      </div>
+
+      <div class="pd-branch-area">
+        <button type="button" id="pd-current-branch"
+                class="pd-toolbar-button"
+                aria-expanded="false">
+          <span class="pd-toolbar-icon">⑂</span>
+          <span class="pd-toolbar-text">
+            <span class="pd-toolbar-label">Current Branch</span>
+            <strong id="pd-current-name">main</strong>
+          </span>
+          <span class="pd-chevron" id="pd-current-chevron">▾</span>
+        </button>
+
+        <!-- Branch dropdown -->
+        <div id="pd-branch-dropdown" class="pd-dropdown" hidden>
+
+          <div class="pd-dropdown-tabs">
+            <button type="button" class="pd-tab active" id="pd-tab-branches">
+              Branches
+            </button>
+            <button type="button" class="pd-tab" id="pd-tab-pr">
+              Pull Requests
+            </button>
+          </div>
+
+          <div id="pd-branches-panel">
+            <div class="pd-filter-row">
+              <input id="pd-filter" type="text" placeholder="⌕  Filter"
+                     aria-label="Filter branches">
+              <button type="button" id="pd-new-branch" class="pd-outline-button">
+                New Branch
+              </button>
+            </div>
+
+            <div class="pd-section-heading">Default Branch</div>
+            <button type="button" id="pd-main-row" class="pd-branch-row">
+              <span id="pd-main-check">✓</span>
+              <span class="pd-git-icon">⑂</span>
+              <span class="pd-branch-row-name">main</span>
+            </button>
+
+            <div id="pd-created-section" hidden>
+              <div class="pd-section-heading">Recent Branches</div>
+              <button type="button" id="pd-created-row" class="pd-branch-row">
+                <span id="pd-created-check">✓</span>
+                <span class="pd-git-icon">⑂</span>
+                <span id="pd-created-name" class="pd-branch-row-name"></span>
+              </button>
+            </div>
+
+            <div class="pd-section-heading">Other Branches</div>
+            <div class="pd-branch-row pd-muted-row">
+              <span class="pd-empty-check"></span>
+              <span class="pd-git-icon">⑂</span>
+              <span class="pd-branch-row-name">origin/update-analysis-methods</span>
+            </div>
+          </div>
+
+          <div id="pd-pr-panel" class="pd-empty-panel" hidden>
+            No pull requests to display.
+            <p>You'll work with pull requests later in this LilyPad.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pd-sync">
+        <span class="pd-toolbar-icon">⟳</span>
+        <div>
+          <div class="pd-toolbar-value" id="pd-sync-label">Fetch origin</div>
+          <div class="pd-toolbar-label" id="pd-sync-detail">
+            Check for updates
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop workspace -->
+    <div class="pd-workspace">
+      <div class="pd-sidebar">
+        <div class="pd-workspace-tabs">
+          <span class="pd-workspace-tab active">Changes <span class="pd-count">0</span></span>
+          <span class="pd-workspace-tab">History</span>
+        </div>
+        <div class="pd-file-filter">☰ &nbsp; Filter</div>
+        <div class="pd-file-count">0 changed files</div>
+      </div>
+
+      <div class="pd-editor">
+        <div class="pd-editor-top">No local changes</div>
+        <div class="pd-editor-body">
+          <div class="pd-large-icon">✓</div>
+          <strong>No local changes</strong>
+          <p>Your working directory is clean.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Branch dialog -->
+    <div id="pd-dialog-backdrop" class="pd-dialog-backdrop" hidden>
+      <div class="pd-dialog" role="dialog" aria-modal="true"
+           aria-labelledby="pd-dialog-title">
+        <h3 id="pd-dialog-title">Create a Branch</h3>
+        <label for="pd-branch-input">Name</label>
+        <input id="pd-branch-input" type="text"
+               placeholder="improve-data-documentation">
+
+        <div class="pd-dialog-subtitle">Create branch based on...</div>
+        <div class="pd-base-row">
+          <span class="pd-selected-radio">●</span>
+          <span>main</span>
+        </div>
+
+        <div id="pd-input-error" class="pd-input-error"
+             role="alert" hidden></div>
+
+        <div class="pd-dialog-actions">
+          <button type="button" id="pd-cancel" class="pd-outline-button">
+            Cancel
+          </button>
+          <button type="button" id="pd-create" class="pd-primary-button">
+            Create Branch
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Educational feedback, outside the GitHub Desktop simulation -->
+  <div id="pd-feedback" class="pd-feedback" role="status"
+       aria-live="polite"></div>
+  <button type="button" id="pd-reset" class="pd-reset">
+    ↻ Reset simulation
+  </button>
+
+</div>
+
+<style>
+#pond-github-desktop {
+  max-width: 950px;
+  margin: 1.5rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+}
+
+#pond-github-desktop [hidden] {
+  display: none !important;
+}
+
+#pond-github-desktop button,
+#pond-github-desktop input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+#pond-github-desktop button {
+  cursor: pointer;
+}
+
+#pond-github-desktop .pd-window {
+  position: relative;
+  background: #16191d;
+  color: #e5e8eb;
+  border: 1px solid #3c434b;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 8px 22px rgba(0,0,0,.16);
+}
+
+#pond-github-desktop .pd-titlebar {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  background: #343a40;
+  border-radius: 9px 9px 0 0;
+  border-bottom: 1px solid #111;
+}
+
+#pond-github-desktop .pd-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+#pond-github-desktop .pd-red { background: #ff5f57; }
+#pond-github-desktop .pd-yellow { background: #febc2e; }
+#pond-github-desktop .pd-green { background: #28c840; }
+
+#pond-github-desktop .pd-toolbar {
+  display: flex;
+  height: 65px;
+  background: #20252a;
+  border-bottom: 1px solid #080a0c;
+}
+
+#pond-github-desktop .pd-repository,
+#pond-github-desktop .pd-sync {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  min-width: 0;
+}
+
+#pond-github-desktop .pd-repository {
+  flex: 1.4;
+  border-right: 1px solid #101216;
+}
+
+#pond-github-desktop .pd-sync {
+  flex: .75;
+}
+
+#pond-github-desktop .pd-toolbar-icon {
+  font-size: 23px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+#pond-github-desktop .pd-toolbar-label {
+  color: #a2aab4;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+#pond-github-desktop .pd-toolbar-value,
+#pond-github-desktop #pd-current-name {
+  color: #f3f5f7;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+#pond-github-desktop .pd-chevron {
+  margin-left: auto;
+  color: #d7dce2;
+}
+
+#pond-github-desktop .pd-branch-area {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+#pond-github-desktop .pd-toolbar-button {
+  width: 100%;
+  height: 100%;
+  background: #292e35;
+  border: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+#pond-github-desktop .pd-toolbar-button:hover {
+  background: #363d46;
+}
+
+#pond-github-desktop .pd-toolbar-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#pond-github-desktop .pd-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: min(490px, 88vw);
+  background: #262b32;
+  border: 1px solid #111;
+  box-shadow: 0 8px 20px rgba(0,0,0,.45);
+  z-index: 20;
+  color: #ecedf0;
+}
+
+#pond-github-desktop .pd-dropdown-tabs {
+  display: flex;
+  border-bottom: 1px solid #101216;
+}
+
+#pond-github-desktop .pd-tab {
+  width: 50%;
+  padding: 12px;
+  background: #252a31;
+  color: #e6e8eb;
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+#pond-github-desktop .pd-tab.active {
+  border-bottom-color: #1684f8;
+  background: #303741;
+}
+
+#pond-github-desktop .pd-filter-row {
+  display: flex;
+  gap: 10px;
+  padding: 13px;
+}
+
+#pond-github-desktop #pd-filter,
+#pond-github-desktop #pd-branch-input {
+  background: #1b1f24;
+  color: #f4f5f6;
+  border: 1px solid #68737f;
+  border-radius: 6px;
+  padding: 8px 10px;
+  min-width: 0;
+}
+
+#pond-github-desktop #pd-filter {
+  flex: 1;
+}
+
+#pond-github-desktop input:focus {
+  outline: 2px solid #1684f8;
+  outline-offset: 0;
+}
+
+#pond-github-desktop .pd-outline-button {
+  background: #343b44;
+  color: #f4f5f6;
+  border: 1px solid #88929f;
+  border-radius: 6px;
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+
+#pond-github-desktop .pd-outline-button:hover {
+  background: #49535e;
+}
+
+#pond-github-desktop .pd-section-heading {
+  font-weight: 650;
+  padding: 13px 15px 7px;
+}
+
+#pond-github-desktop .pd-branch-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #e4e8ec;
+}
+
+#pond-github-desktop button.pd-branch-row:hover {
+  background: #414b56;
+}
+
+#pond-github-desktop .pd-git-icon {
+  font-size: 18px;
+}
+
+#pond-github-desktop .pd-branch-row-name {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+#pond-github-desktop #pd-main-check,
+#pond-github-desktop #pd-created-check,
+#pond-github-desktop .pd-empty-check {
+  width: 13px;
+  display: inline-block;
+}
+
+#pond-github-desktop .pd-muted-row {
+  color: #bbc2cb;
+  cursor: default;
+}
+
+#pond-github-desktop .pd-empty-panel {
+  padding: 25px 15px;
+  text-align: center;
+  color: #c9cfd6;
+}
+
+#pond-github-desktop .pd-empty-panel p {
+  margin: 8px 0 0;
+  color: #9aa4af;
+}
+
+#pond-github-desktop .pd-workspace {
+  display: flex;
+  min-height: 230px;
+}
+
+#pond-github-desktop .pd-sidebar {
+  width: 40%;
+  background: #15181b;
+  border-right: 1px solid #0a0c0e;
+}
+
+#pond-github-desktop .pd-workspace-tabs {
+  display: flex;
+  border-bottom: 1px solid #080a0c;
+}
+
+#pond-github-desktop .pd-workspace-tab {
+  width: 50%;
+  text-align: center;
+  padding: 12px 4px;
+  color: #9299a2;
+}
+
+#pond-github-desktop .pd-workspace-tab.active {
+  border-bottom: 3px solid #156ec5;
+  color: #e5e7ea;
+}
+
+#pond-github-desktop .pd-count {
+  background: #30363c;
+  border-radius: 12px;
+  padding: 2px 6px;
+}
+
+#pond-github-desktop .pd-file-filter {
+  margin: 12px 8px;
+  padding: 8px;
+  border: 1px solid #3e454d;
+  border-radius: 5px;
+  color: #9098a3;
+}
+
+#pond-github-desktop .pd-file-count {
+  padding: 8px 12px;
+  border-bottom: 1px solid #31363b;
+  color: #b7bec6;
+}
+
+#pond-github-desktop .pd-editor {
+  width: 60%;
+  background: #101316;
+}
+
+#pond-github-desktop .pd-editor-top {
+  height: 42px;
+  padding: 12px;
+  background: #191d21;
+  border-bottom: 1px solid #090b0d;
+  color: #b4bdc7;
+}
+
+#pond-github-desktop .pd-editor-body {
+  text-align: center;
+  padding: 35px 15px;
+  color: #e6e9ed;
+}
+
+#pond-github-desktop .pd-editor-body p {
+  color: #929ca7;
+  margin-top: 8px;
+}
+
+#pond-github-desktop .pd-large-icon {
+  font-size: 29px;
+  color: #56b477;
+  margin-bottom: 10px;
+}
+
+#pond-github-desktop .pd-dialog-backdrop {
+  position: absolute;
+  inset: 32px 0 0;
+  z-index: 30;
+  background: rgba(0,0,0,.68);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+#pond-github-desktop .pd-dialog {
+  width: min(420px, 100%);
+  background: #292e35;
+  color: #eff1f3;
+  border: 1px solid #545d67;
+  border-radius: 9px;
+  padding: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+}
+
+#pond-github-desktop .pd-dialog h3 {
+  font-size: 19px;
+  margin: 0 0 18px;
+  color: #f0f2f5;
+}
+
+#pond-github-desktop .pd-dialog label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+#pond-github-desktop #pd-branch-input {
+  width: 100%;
+}
+
+#pond-github-desktop .pd-dialog-subtitle {
+  margin-top: 20px;
+  color: #c2cad3;
+  font-size: 12px;
+}
+
+#pond-github-desktop .pd-base-row {
+  display: flex;
+  gap: 9px;
+  padding: 11px;
+  background: #363d46;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+#pond-github-desktop .pd-selected-radio {
+  color: #258cf8;
+}
+
+#pond-github-desktop .pd-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+#pond-github-desktop .pd-primary-button {
+  background: #238636;
+  color: #fff;
+  border: 1px solid #2c9b43;
+  border-radius: 6px;
+  padding: 7px 12px;
+}
+
+#pond-github-desktop .pd-primary-button:hover {
+  background: #2ea043;
+}
+
+#pond-github-desktop .pd-input-error {
+  margin-top: 10px;
+  color: #ff8585;
+}
+
+#pond-github-desktop .pd-feedback {
+  margin-top: 12px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#pond-github-desktop .pd-feedback:empty {
+  display: none;
+}
+
+#pond-github-desktop .pd-feedback.success {
+  background: #e6f4ea;
+  color: #155724;
+  border: 1px solid #8dc99b;
+}
+
+#pond-github-desktop .pd-feedback.info {
+  background: #e8f1ff;
+  color: #184c85;
+  border: 1px solid #91b8e8;
+}
+
+#pond-github-desktop .pd-reset {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: #0969da;
+}
+
+@media (max-width: 650px) {
+  #pond-github-desktop .pd-toolbar {
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  #pond-github-desktop .pd-repository {
+    flex: 1 1 100%;
+    min-height: 55px;
+  }
+
+  #pond-github-desktop .pd-branch-area {
+    flex: 1 1 50%;
+    min-height: 60px;
+  }
+
+  #pond-github-desktop .pd-sync {
+    flex: 1 1 40%;
+  }
+
+  #pond-github-desktop .pd-dropdown {
+    width: min(430px, 94vw);
+    left: 0;
+  }
+
+  #pond-github-desktop .pd-workspace {
+    min-height: 200px;
+  }
+}
+</style>
+
+<style>
+/* Light theme for GitHub Desktop simulation */
+
+#pond-github-desktop .pd-window {
+  background: #fff;
+  color: #24292f;
+  border-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-titlebar {
+  background: #e9edf1;
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-toolbar,
+#pond-github-desktop .pd-toolbar-button {
+  background: #f6f8fa;
+  color: #24292f;
+  border-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-toolbar-button:hover {
+  background: #eaeef2;
+}
+
+#pond-github-desktop .pd-repository {
+  border-right-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-toolbar-label,
+#pond-github-desktop .pd-chevron {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-toolbar-value,
+#pond-github-desktop #pd-current-name {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-dropdown,
+#pond-github-desktop .pd-dialog {
+  background: #fff;
+  color: #24292f;
+  border-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-dropdown-tabs,
+#pond-github-desktop .pd-workspace-tabs {
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-tab,
+#pond-github-desktop .pd-tab.active {
+  background: #f6f8fa;
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-tab.active {
+  background: #fff;
+}
+
+#pond-github-desktop .pd-outline-button {
+  background: #f6f8fa;
+  color: #24292f;
+  border-color: #8c959f;
+}
+
+#pond-github-desktop .pd-outline-button:hover {
+  background: #eaeef2;
+}
+
+#pond-github-desktop #pd-filter,
+#pond-github-desktop #pd-branch-input {
+  background: #fff;
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-branch-row {
+  color: #24292f;
+}
+
+#pond-github-desktop button.pd-branch-row:hover {
+  background: #eaeef2;
+}
+
+#pond-github-desktop .pd-muted-row {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-sidebar {
+  background: #f6f8fa;
+  border-right-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-workspace-tab {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-workspace-tab.active {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-count {
+  background: #d8dee4;
+}
+
+#pond-github-desktop .pd-file-filter {
+  border-color: #d0d7de;
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-file-count {
+  color: #57606a;
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-editor {
+  background: #fff;
+}
+
+#pond-github-desktop .pd-editor-top {
+  background: #f6f8fa;
+  color: #57606a;
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-editor-body {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-editor-body p {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-dialog h3 {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-dialog-subtitle,
+#pond-github-desktop .pd-empty-panel,
+#pond-github-desktop .pd-empty-panel p {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-base-row {
+  background: #f6f8fa;
+}
+
+#pond-github-desktop .pd-input-error {
+  color: #cf222e;
+}
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-github-desktop");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const el = id => root.querySelector("#" + id);
+
+  const currentButton = el("pd-current-branch");
+  const dropdown = el("pd-branch-dropdown");
+  const backdrop = el("pd-dialog-backdrop");
+  const input = el("pd-branch-input");
+  const feedback = el("pd-feedback");
+
+  let currentBranch = "main";
+  let createdBranch = null;
+
+  function showFeedback(message, type = "info") {
+    feedback.textContent = message;
+    feedback.className = "pd-feedback " + type;
+  }
+
+  function closeDropdown() {
+    dropdown.hidden = true;
+    currentButton.setAttribute("aria-expanded", "false");
+  }
+
+  function showTab(which) {
+    const branches = which === "branches";
+    el("pd-branches-panel").hidden = !branches;
+    el("pd-pr-panel").hidden = branches;
+    el("pd-tab-branches").classList.toggle("active", branches);
+    el("pd-tab-pr").classList.toggle("active", !branches);
+  }
+
+  function switchBranch(name) {
+    currentBranch = name;
+    el("pd-current-name").textContent = name;
+    el("pd-main-check").textContent = name === "main" ? "✓" : "";
+    el("pd-created-check").textContent =
+      name === createdBranch ? "✓" : "";
+
+    if (name === "main") {
+      el("pd-sync-label").textContent = "Fetch origin";
+      el("pd-sync-detail").textContent = "Check for updates";
+    } else {
+      el("pd-sync-label").textContent = "Publish branch";
+      el("pd-sync-detail").textContent = "Local branch";
+    }
+
+    closeDropdown();
+  }
+
+  currentButton.addEventListener("click", () => {
+    dropdown.hidden = !dropdown.hidden;
+    currentButton.setAttribute(
+      "aria-expanded", String(!dropdown.hidden)
+    );
+    showTab("branches");
+  });
+
+  el("pd-tab-branches").addEventListener("click", () => {
+    showTab("branches");
+  });
+
+  el("pd-tab-pr").addEventListener("click", () => {
+    showTab("pr");
+  });
+
+  el("pd-filter").addEventListener("input", event => {
+    const query = event.target.value.trim().toLowerCase();
+    root.querySelectorAll(".pd-branch-row").forEach(row => {
+      row.hidden = !row.textContent.toLowerCase().includes(query);
+    });
+  });
+
+  el("pd-main-row").addEventListener("click", () => {
+    switchBranch("main");
+    showFeedback(
+      "You are on main. Create a new branch to work on your proposed improvement without committing directly to main."
+    );
+  });
+
+  el("pd-created-row").addEventListener("click", () => {
+    if (createdBranch) {
+      switchBranch(createdBranch);
+      showFeedback("You have switched back to your working branch.", "success");
+    }
+  });
+
+  el("pd-new-branch").addEventListener("click", () => {
+    closeDropdown();
+    el("pd-input-error").hidden = true;
+    backdrop.hidden = false;
+    input.focus();
+  });
+
+  function closeDialog() {
+    backdrop.hidden = true;
+  }
+
+  el("pd-cancel").addEventListener("click", closeDialog);
+
+  el("pd-create").addEventListener("click", () => {
+    const name = input.value.trim();
+    const valid =
+      /^[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(name) &&
+      !name.includes("..") &&
+      !name.includes("//") &&
+      !name.endsWith("/") &&
+      !name.endsWith(".lock") &&
+      name !== "main";
+
+    if (!valid) {
+      el("pd-input-error").textContent =
+        "Enter a valid new branch name, such as improve-data-documentation. Avoid spaces.";
+      el("pd-input-error").hidden = false;
+      input.focus();
+      return;
+    }
+
+    createdBranch = name;
+    el("pd-created-section").hidden = false;
+    el("pd-created-name").textContent = name;
+
+    input.value = "";
+    closeDialog();
+    switchBranch(name);
+
+    showFeedback(
+      "Branch created! You are now working on '" + name +
+      "'. Your main branch is unchanged. Notice that GitHub Desktop now shows 'Publish branch': your new branch exists locally and has not yet been sent to GitHub.",
+      "success"
+    );
+  });
+
+  input.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      el("pd-create").click();
+    }
+  });
+
+  el("pd-reset").addEventListener("click", () => {
+    createdBranch = null;
+    el("pd-created-section").hidden = true;
+    el("pd-filter").value = "";
+    root.querySelectorAll(".pd-branch-row").forEach(row => {
+      row.hidden = false;
+    });
+    input.value = "";
+    el("pd-input-error").hidden = true;
+    closeDialog();
+    switchBranch("main");
+    feedback.textContent = "";
+    feedback.className = "pd-feedback";
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeDialog();
+      closeDropdown();
+    }
+  });
+
+})();
+</script>
+```
+
+## Your turn: Create a branch in GitHub Desktop
+
+Now let's do this in your own repository.
+
+1. Open **GitHub Desktop** and select the repository you created in [Starting a Research Repository on GitHub](../start-a-research-repository/index.qmd).
+2. Make sure you're on `main`, using the **Current Branch** dropdown. If you have uncommitted changes, save or commit them appropriately before proceeding.
+3. Click **Current Branch → New Branch**.
+4. Give the branch a descriptive name that reflects an improvement you'd like to make. For example, `improve-data-documentation`.
+5. Make sure the branch is based on `main`, then click **Create Branch**.
+
+Look at the top of GitHub Desktop. The **Current Branch** field should now display your new branch's name.
+
+::: {.callout-tip}
+## Local versus remote branches
+
+The branch you just created exists **locally**, on your computer. It won't appear in your GitHub repository online until you select **Publish branch**.
+
+You don't need to publish it yet. We'll do that after making and committing a change in the next section.
+:::
+
+## Check your progress
+
+You should now have:
+
+- A new branch with a descriptive name.
+- GitHub Desktop showing that branch as the current branch.
+- Your original `main` branch unchanged.
+
+You now have a separate place to work on your proposed improvement. Next, we'll make a change and use a pull request to propose incorporating it into the research project.
+
+# From improvement to proposal
+
+You've created a branch where you can work independently without immediately changing `main`. Now it's time to use it!
+
+## A small change can make a big difference
+
+Let's return to our water-quality research team.
+
+Your colleague is updating the analysis notebook, while you're improving the project's documentation. You've noticed that the `README.md` doesn't clearly describe where the nitrate measurements came from or how their quality was assessed.
+
+You could simply edit the README and add your changes directly to `main`. But what if your colleague has questions about the documentation? Or notices that something important is missing?
+
+This is where a **pull request** becomes useful.
+
+A pull request (often abbreviated **PR**) allows you to propose changes from one branch into another. Instead of incorporating changes immediately, you create a space where collaborators can:
+
+- See exactly what changed.
+- Understand why the change was proposed.
+- Ask questions and suggest improvements.
+- Review the changes before they're incorporated into `main`.
+
+Importantly, a pull request is not limited to code. You can propose changes to documentation, analysis notebooks, figures, or any other files tracked in your repository.
+
+## Your turn: Make a meaningful improvement
+
+Now let's work with your own research repository.
+
+**1. Choose an improvement**
+
+Think of one small change that would make your project easier for someone else to understand or use.
+
+For example, you could:
+
+- Clarify where your data came from.
+- Add information about the units of measurement or the meaning of a variable.
+- Explain an analysis parameter or a scientific decision.
+- Improve instructions for reproducing an analysis.
+- Clarify a description in a notebook's Markdown cell.
+
+Choose something that is genuinely useful for your project. You don't need to modify Python code.
+
+**2. Make the change**
+
+1. Open GitHub Desktop and select your research repository.
+2. Check that **Current Branch** shows the branch you created in Part 1, not `main`.
+3. Open the relevant file in your preferred text editor.
+4. Make your improvement and save the file.
+
+::: {.callout-tip}
+If you're using one of the supplied study packages, you can work with its `README.md` or the Markdown cells in its notebook. You don't need to invent scientific information. Focus on clarifying information already available in the project.
+:::
+
+**3. Review and commit your change**
+
+Return to GitHub Desktop.
+
+1. Select the **Changes** tab.
+2. Click the file you modified to inspect the differences.
+3. Look at the highlighted lines. Red indicates removed content, while green indicates added content.
+4. Make sure the changes reflect what you intended and don't include unrelated modifications.
+5. Enter a descriptive message in the **Summary** field, such as `Clarify data sources in README`.
+6. Click **Commit to [your branch name]**.
+
+Remember from [Save and Share Changes on GitHub](../save-share-changes/index.qmd): a commit records a meaningful checkpoint in your project's history.
+
+## Publish your branch
+
+So far, your branch and its new commit exist on your computer.
+
+To make the branch available on GitHub:
+
+1. In GitHub Desktop, click **Publish branch** in the top toolbar.
+2. Wait for the publication to finish.
+3. Open your repository on GitHub and locate your new branch.
+
+Your changes are now available on GitHub, but **they have not been incorporated into `main`**.
+
+This is an important distinction: publishing a branch makes your work available; opening a pull request proposes incorporating it into another branch.
+
+## Open your first pull request
+
+Let's turn your improvement into a proposal.
+
+1. Return to GitHub Desktop and click **Preview Pull Request**.
+2. Confirm that the **base branch** is `main` and your new branch contains the proposed changes.
+3. Click **Create Pull Request**. GitHub Desktop will open GitHub in your browser.
+4. Give your pull request a descriptive title.
+5. Write a short description that explains:
+   - **What changed?** What did you add, remove, or clarify?
+   - **Why?** How does the change improve the research project?
+   - **What should be checked?** Is there something you'd want a collaborator to examine?
+6. Click **Create pull request** on GitHub.
+
+For example, our fictional water-quality team might write:
+
+> **Title:** Clarify nitrate data documentation
+>
+> **What changed:** Expanded the README to describe the data source and the quality-control information.
+>
+> **Why:** The previous documentation did not provide enough information for another researcher to understand how the dataset was assembled.
+>
+> **What to check:** Are the descriptions sufficiently clear for someone unfamiliar with the study?
+
+Notice that the description focuses on the research improvement, not just which file was modified.
+
+## Take a look at your pull request
+
+Your pull request should now be marked **Open** on GitHub.
+
+Explore the interface briefly:
+
+- **Conversation** contains the pull request description and any subsequent discussion.
+- **Commits** shows the commits included in the proposed change.
+- **Files changed** allows collaborators to inspect the differences between the branches.
+
+Don't merge your pull request yet! We'll return to it after exploring the review process.
+
+::: {.callout-important}
+## Keep your pull request open
+
+We'll use this same pull request later in the LilyPad to practice responding to feedback, making another commit, and merging the accepted change.
+
+You don't need to find a collaborator or request a real review. In the next section, we'll practice reviewing a fictional research team's pull request through an interactive simulation.
+:::
