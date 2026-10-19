@@ -4,6 +4,8 @@ description: "Learn how to use GitHub Desktop to work on your research project l
 toc: true
 ---
 
+# Overview
+
 Creating a GitHub repository is just the beginning. As your research progresses, you'll update files, refine analyses, and correct mistakes. Keeping track of these changes helps you understand how your project has evolved and makes it easier to share your work with collaborators.
 
 In this LilyPad, you'll learn how to use [**GitHub Desktop**](https://desktop.github.com/) to manage changes to your research project, maintain a meaningful version history, and share updates on GitHub—all without using the command line.
@@ -32,7 +34,7 @@ To complete this LilyPad, you will need:
 
 You don't need any previous experience with Git or the command line. We'll guide you through each step using GitHub Desktop.
 
-## From GitHub to your computer
+# From GitHub to your computer
 
 In the previous [LilyPad](../start-research-repository/index.qmd), you created a GitHub repository for your research project. You organized your files, documented your project in a README, and decided what should (and should not) be shared.
 
@@ -48,14 +50,14 @@ In this LilyPad, you'll use [GitHub Desktop](https://desktop.github.com/) to mak
 You won't need to use the command line. We'll use GitHub Desktop throughout this LilyPad.
 :::
 
-### Your starting point
+## Your starting point
 
 You'll continue working with the repository you created in the [previous LilyPad](../start-research-repository/index.qmd). You can use the geoscience study package you selected earlier or your own research project.
 
 By the end of this activity, you'll have a local working copy of your repository, a record of the changes you've made, and an updated version of your project on GitHub.
 
 
-### Activity 1: Bring your repository to your computer
+## Activity 1: Bring your repository to your computer
 
 So far, you've been working with your repository through the GitHub website. Your files live on GitHub, and you've been making changes using your browser.
 
@@ -74,7 +76,7 @@ Cloning a repository copies your project files **and their Git history** from Gi
 These repositories don't automatically stay synchronized. You'll learn how to share your local changes with GitHub later in this LilyPad.
 :::
 
-#### Step 1: Install GitHub Desktop
+### Step 1: Install GitHub Desktop
 
 If you haven't already, [download and install GitHub Desktop](https://desktop.github.com/).
 
@@ -99,7 +101,7 @@ Authentication problems can happen, especially if you've used GitHub Desktop bef
 For more help, see [GitHub's authentication troubleshooting guide](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop).
 :::
 
-#### Step 2: Clone your repository
+### Step 2: Clone your repository
 
 1. In GitHub Desktop, select **File → Clone Repository**.
 2. Select the **GitHub.com** tab.
@@ -109,7 +111,7 @@ For more help, see [GitHub's authentication troubleshooting guide](https://docs.
 
 GitHub Desktop will create a local copy of your repository.
 
-#### Step 3: Explore your local repository
+### Step 3: Explore your local repository
 
 In GitHub Desktop, select **Repository → Show in Finder** (macOS) or **Show in Explorer** (Windows).
 
@@ -130,7 +132,7 @@ GitHub Desktop will help you track the changes you make and share them with GitH
 :::
 
 
-### What should Git track?
+## What should Git track?
 
 Not every file on your computer belongs in your GitHub repository.
 
@@ -145,7 +147,7 @@ For example, you might want to ignore:
 - `.DS_Store` — metadata files created by macOS.
 - `.env` — local environment settings that may contain credentials.
 
-#### Adding files to .gitignore with GitHub Desktop
+### Adding files to .gitignore with GitHub Desktop
 
 You don't need to write `.gitignore` from scratch. GitHub Desktop can help you create or update it.
 
@@ -157,7 +159,7 @@ You don't need to write `.gitignore` from scratch. GitHub Desktop can help you c
 
 You can also ignore an entire folder or all files with a particular extension, but be careful: you might accidentally ignore files that are important to your research.
 
-#### What happens when you ignore a file?
+### What happens when you ignore a file?
 
 GitHub Desktop updates `.gitignore` with a rule matching your selected file.
 
@@ -190,7 +192,7 @@ If everything looks good, you can move on!
 :::
 
 
-## Make and review changes
+# Make and review changes
 
 Research projects evolve. You might update your methods, correct an error, add new observations, or improve your documentation.
 
@@ -198,7 +200,7 @@ Now that you have a local repository, you can make these changes directly on you
 
 Git will help you keep track of what changed.
 
-### Activity 2: Update your README
+## Activity 2: Update your README
 
 Let's start with a small change to your project documentation.
 
@@ -213,7 +215,7 @@ Let's start with a small change to your project documentation.
 
 You have now modified a file in your local repository!
 
-### See what Git noticed
+## See what Git noticed
 
 Return to GitHub Desktop and select the **Changes** tab.
 
@@ -248,7 +250,7 @@ Did you change a parameter? Correct a calculation? Remove some observations? Or 
 
 Git helps answer these questions by recording the history of your project. But to create a useful history, you first need to understand **what you're saving**.
 
-### Activity 3: Review before you commit
+## Activity 3: Review before you commit
 
 Return to the **Changes** tab in GitHub Desktop.
 
@@ -259,7 +261,7 @@ Return to the **Changes** tab in GitHub Desktop.
 
 This is an opportunity to catch mistakes before recording them in your project's history.
 
-### Which changes belong together?
+## Which changes belong together?
 
 You may have noticed the checkboxes next to each file in the Changes tab.
 
@@ -296,7 +298,7 @@ If you only changed your README, that's perfectly fine!
 :::
 
 
-## Save your project's history
+# Save your project's history
 
 You've made changes to your README and reviewed them in GitHub Desktop. But what happens when you want to remember why you made those changes, or find out what your project looked like several months ago?
 
@@ -306,7 +308,7 @@ A commit records a set of changes in your project's Git history. Each commit inc
 
 You also provide a **commit message** explaining the purpose of those changes.
 
-### Activity 4: Create your first commit
+## Activity 4: Create your first commit
 
 Let's record the README changes you made earlier.
 
@@ -338,7 +340,7 @@ Try to keep each commit focused on a meaningful change or a small group of relat
 Remember that you're writing these messages for your future self and potentially your collaborators!
 :::
 
-### Explore your project's history
+## Explore your project's history
 
 Now let's see what Git recorded.
 
@@ -362,7 +364,7 @@ This lets you inspect earlier versions of your work and understand how your proj
 However, Git can only preserve changes to files that it tracks. It won't record files excluded by `.gitignore` or changes you haven't committed.
 :::
 
-### Local history versus GitHub
+## Local history versus GitHub
 
 You've now recorded your changes in Git, but there's one important distinction:
 
@@ -387,7 +389,7 @@ You now have a local record of your work!
 :::
 
 
-## Share your changes on GitHub
+# Share your changes on GitHub
 
 You've made changes to your research project and recorded them in your local Git history.
 
@@ -400,7 +402,7 @@ That's because **committing and sharing are two different actions**.
 
 This separation is useful. You can work on your research, experiment, and record changes locally, even without an internet connection. When you're ready, you can share your commits with GitHub.
 
-### Activity 5: Push your changes
+## Activity 5: Push your changes
 
 Let's share the commit you created in the previous activity.
 
@@ -421,7 +423,7 @@ If you're sure you created a commit, check the History tab and verify that you'r
 If GitHub has newer changes that aren't on your computer, you may need to pull those changes before pushing. We'll explore this in the next LilyPad on collaboration.
 :::
 
-### Verify your changes on GitHub
+## Verify your changes on GitHub
 
 How do you know your changes actually made it to GitHub?
 
@@ -435,10 +437,7 @@ You should see the same commit message and changes that you examined in GitHub D
 
 Your project now has a shared history that you can access from another computer or share with collaborators who have access to the repository.
 
-### Putting it all together
-
-
-### Putting it all together
+## Putting it all together
 
 You've now practiced the basic Git workflow. Can you connect each action to what it does?
 
@@ -701,7 +700,8 @@ Make sure you can:
 You now have the tools to maintain a version history of your research project without manually creating files named `analysis_final_v2_REALLY_FINAL.ipynb`!
 
 ::: {.callout-tip}
-## What's next?
+
+# What's next?
 
 Research is rarely a solo activity. What happens when two people want to modify the same project?
 
