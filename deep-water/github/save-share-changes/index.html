@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Learn how to use GitHub Desktop to work on your research project locally, track changes, create meaningful commits, and share your updates on GitHub—all without using the command line.">
+
+<title>Save and Share Changes – The Pond</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/FROGSlogo.jpg" rel="icon" type="image/jpeg">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo light-content">
+    <img src="../../../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">The Pond</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../shallows/index.html"> 
+<span class="menu-text">The Shallows</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../lilypads/index.html"> 
+<span class="menu-text">LilyPads</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../deep-water/index.html"> 
+<span class="menu-text">The Deep End</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../spring/index.html"> 
+<span class="menu-text">The Spring</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#from-github-to-your-computer" id="toc-from-github-to-your-computer" class="nav-link active" data-scroll-target="#from-github-to-your-computer">From GitHub to your computer</a>
+  <ul class="collapse">
+  <li><a href="#your-starting-point" id="toc-your-starting-point" class="nav-link" data-scroll-target="#your-starting-point">Your starting point</a></li>
+  <li><a href="#activity-1-bring-your-repository-to-your-computer" id="toc-activity-1-bring-your-repository-to-your-computer" class="nav-link" data-scroll-target="#activity-1-bring-your-repository-to-your-computer">Activity 1: Bring your repository to your computer</a></li>
+  <li><a href="#what-should-git-track" id="toc-what-should-git-track" class="nav-link" data-scroll-target="#what-should-git-track">What should Git track?</a></li>
+  </ul></li>
+  <li><a href="#make-and-review-changes" id="toc-make-and-review-changes" class="nav-link" data-scroll-target="#make-and-review-changes">Make and review changes</a>
+  <ul class="collapse">
+  <li><a href="#activity-2-update-your-readme" id="toc-activity-2-update-your-readme" class="nav-link" data-scroll-target="#activity-2-update-your-readme">Activity 2: Update your README</a></li>
+  <li><a href="#see-what-git-noticed" id="toc-see-what-git-noticed" class="nav-link" data-scroll-target="#see-what-git-noticed">See what Git noticed</a></li>
+  <li><a href="#activity-3-review-before-you-commit" id="toc-activity-3-review-before-you-commit" class="nav-link" data-scroll-target="#activity-3-review-before-you-commit">Activity 3: Review before you commit</a></li>
+  <li><a href="#which-changes-belong-together" id="toc-which-changes-belong-together" class="nav-link" data-scroll-target="#which-changes-belong-together">Which changes belong together?</a></li>
+  </ul></li>
+  <li><a href="#save-your-projects-history" id="toc-save-your-projects-history" class="nav-link" data-scroll-target="#save-your-projects-history">Save your project’s history</a>
+  <ul class="collapse">
+  <li><a href="#activity-4-create-your-first-commit" id="toc-activity-4-create-your-first-commit" class="nav-link" data-scroll-target="#activity-4-create-your-first-commit">Activity 4: Create your first commit</a></li>
+  <li><a href="#explore-your-projects-history" id="toc-explore-your-projects-history" class="nav-link" data-scroll-target="#explore-your-projects-history">Explore your project’s history</a></li>
+  <li><a href="#local-history-versus-github" id="toc-local-history-versus-github" class="nav-link" data-scroll-target="#local-history-versus-github">Local history versus GitHub</a></li>
+  </ul></li>
+  <li><a href="#share-your-changes-on-github" id="toc-share-your-changes-on-github" class="nav-link" data-scroll-target="#share-your-changes-on-github">Share your changes on GitHub</a>
+  <ul class="collapse">
+  <li><a href="#activity-5-push-your-changes" id="toc-activity-5-push-your-changes" class="nav-link" data-scroll-target="#activity-5-push-your-changes">Activity 5: Push your changes</a></li>
+  <li><a href="#verify-your-changes-on-github" id="toc-verify-your-changes-on-github" class="nav-link" data-scroll-target="#verify-your-changes-on-github">Verify your changes on GitHub</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
+  <li><a href="#putting-it-all-together-1" id="toc-putting-it-all-together-1" class="nav-link" data-scroll-target="#putting-it-all-together-1">Putting it all together</a></li>
+  <li><a href="#before-you-leave-this-lilypad" id="toc-before-you-leave-this-lilypad" class="nav-link" data-scroll-target="#before-you-leave-this-lilypad">Before you leave this LilyPad</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Save and Share Changes</h1>
+</div>
+
+<div>
+  <div class="description">
+    Learn how to use GitHub Desktop to work on your research project locally, track changes, create meaningful commits, and share your updates on GitHub—all without using the command line.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="from-github-to-your-computer" class="level2">
+<h2 class="anchored" data-anchor-id="from-github-to-your-computer">From GitHub to your computer</h2>
+<p>In the previous <a href="../../../deep-water/github/start-research-repository/index.html">LilyPad</a>, you created a GitHub repository for your research project. You organized your files, documented your project in a README, and decided what should (and should not) be shared.</p>
+<p>But research projects rarely stay the same. You might collect new observations, correct an error in a dataset, refine an analysis, or improve your documentation.</p>
+<p>How can you keep track of these changes and share them without repeatedly uploading files through your browser?</p>
+<p><strong>That’s where Git and GitHub Desktop come in.</strong></p>
+<p>In this LilyPad, you’ll use <a href="https://desktop.github.com/">GitHub Desktop</a> to make a copy of your repository on your computer, modify your project, record meaningful changes, and share those changes on GitHub.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="No coding required!">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>No coding required!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You won’t need to use the command line. We’ll use GitHub Desktop throughout this LilyPad.</p>
+</div>
+</div>
+<section id="your-starting-point" class="level3">
+<h3 class="anchored" data-anchor-id="your-starting-point">Your starting point</h3>
+<p>You’ll continue working with the repository you created in the <a href="../../../deep-water/github/start-research-repository/index.html">previous LilyPad</a>. You can use the geoscience study package you selected earlier or your own research project.</p>
+<p>By the end of this activity, you’ll have a local working copy of your repository, a record of the changes you’ve made, and an updated version of your project on GitHub.</p>
+</section>
+<section id="activity-1-bring-your-repository-to-your-computer" class="level3">
+<h3 class="anchored" data-anchor-id="activity-1-bring-your-repository-to-your-computer">Activity 1: Bring your repository to your computer</h3>
+<p>So far, you’ve been working with your repository through the GitHub website. Your files live on GitHub, and you’ve been making changes using your browser.</p>
+<p>But you probably don’t want to edit your research notebooks, datasets, or scripts through a web browser!</p>
+<p>Instead, we’ll create a <strong>local copy</strong> of your repository on your computer. In Git terminology, this is called <strong>cloning</strong>.</p>
+<p>Cloning a repository copies your project files <strong>and their Git history</strong> from GitHub to your computer.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Two copies, one project
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Remote repository:</strong> Your project hosted on GitHub.</li>
+<li><strong>Local repository:</strong> Your copy of the project on your computer.</li>
+</ul>
+<p>These repositories don’t automatically stay synchronized. You’ll learn how to share your local changes with GitHub later in this LilyPad.</p>
+</div>
+</div>
+<section id="step-1-install-github-desktop" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-install-github-desktop">Step 1: Install GitHub Desktop</h4>
+<p>If you haven’t already, <a href="https://desktop.github.com/">download and install GitHub Desktop</a>.</p>
+<p>Next, make sure GitHub Desktop is connected to your GitHub account:</p>
+<ol type="1">
+<li>Open GitHub Desktop.</li>
+<li>Go to <strong>GitHub Desktop → Settings → Accounts</strong> (macOS) or <strong>File → Options → Accounts</strong> (Windows).</li>
+<li>If you’re not signed in, select <strong>Sign Into GitHub.com</strong>.</li>
+<li>Follow the instructions to authenticate through your web browser. You may need to complete two-factor authentication.</li>
+<li>Return to GitHub Desktop and verify that you’re signed in with the account you used in the previous LilyPad.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Having trouble signing in?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Authentication problems can happen, especially if you’ve used GitHub Desktop before or have multiple GitHub accounts.</p>
+<ul>
+<li><strong>Wrong account?</strong> Check that GitHub Desktop is connected to the same account you used to create your repository.</li>
+<li><strong>Browser doesn’t return to GitHub Desktop?</strong> Look for a browser prompt asking permission to open GitHub Desktop.</li>
+<li><strong>Authentication expired or failed?</strong> Try signing out of GitHub Desktop and signing in again.</li>
+<li><strong>Using an institutional GitHub organization?</strong> You may need additional organization authorization.</li>
+</ul>
+<p>For more help, see <a href="https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop">GitHub’s authentication troubleshooting guide</a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-clone-your-repository" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-clone-your-repository">Step 2: Clone your repository</h4>
+<ol type="1">
+<li>In GitHub Desktop, select <strong>File → Clone Repository</strong>.</li>
+<li>Select the <strong>GitHub.com</strong> tab.</li>
+<li>Find and select the repository you created in the previous LilyPad.</li>
+<li>Under <strong>Local Path</strong>, choose where you’d like to store your project on your computer. Remember this location!</li>
+<li>Click <strong>Clone</strong>.</li>
+</ol>
+<p>GitHub Desktop will create a local copy of your repository.</p>
+</section>
+<section id="step-3-explore-your-local-repository" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-explore-your-local-repository">Step 3: Explore your local repository</h4>
+<p>In GitHub Desktop, select <strong>Repository → Show in Finder</strong> (macOS) or <strong>Show in Explorer</strong> (Windows).</p>
+<p>Open the folder and take a look around.</p>
+<ul>
+<li>Can you find your <code>README.md</code>?</li>
+<li>Are the folders and files you uploaded in the previous LilyPad present?</li>
+<li>Does the folder structure match what you see on GitHub?</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What just happened?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You now have a local Git repository!</p>
+<p>You can open and edit these files using your usual tools, such as JupyterLab, VS Code, or a text editor.</p>
+<p>GitHub Desktop will help you track the changes you make and share them with GitHub.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="what-should-git-track" class="level3">
+<h3 class="anchored" data-anchor-id="what-should-git-track">What should Git track?</h3>
+<p>Not every file on your computer belongs in your GitHub repository.</p>
+<p>Scientific projects often generate temporary files, caches, or application-specific files that aren’t necessary to reproduce your research. Tracking these files can clutter your repository and make it harder to identify meaningful changes.</p>
+<p>Git lets you specify which files and folders to ignore using a file called <strong><code>.gitignore</code></strong>.</p>
+<p>For example, you might want to ignore:</p>
+<ul>
+<li><code>.ipynb_checkpoints/</code> — automatic checkpoints created by Jupyter.</li>
+<li><code>__pycache__/</code> — temporary files generated by Python.</li>
+<li><code>.DS_Store</code> — metadata files created by macOS.</li>
+<li><code>.env</code> — local environment settings that may contain credentials.</li>
+</ul>
+<section id="adding-files-to-.gitignore-with-github-desktop" class="level4">
+<h4 class="anchored" data-anchor-id="adding-files-to-.gitignore-with-github-desktop">Adding files to .gitignore with GitHub Desktop</h4>
+<p>You don’t need to write <code>.gitignore</code> from scratch. GitHub Desktop can help you create or update it.</p>
+<ol type="1">
+<li>Open GitHub Desktop and select your repository.</li>
+<li>Under the <strong>Changes</strong> tab, find a file you don’t want Git to track.</li>
+<li>Right-click the file and select <strong>Ignore File (Add to .gitignore)</strong>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/repo-gitignore.png" class="img-fluid figure-img"></p>
+<figcaption>Adding a file to .gitignore using the GitHub Desktop context menu.</figcaption>
+</figure>
+</div>
+<p>You can also ignore an entire folder or all files with a particular extension, but be careful: you might accidentally ignore files that are important to your research.</p>
+</section>
+<section id="what-happens-when-you-ignore-a-file" class="level4">
+<h4 class="anchored" data-anchor-id="what-happens-when-you-ignore-a-file">What happens when you ignore a file?</h4>
+<p>GitHub Desktop updates <code>.gitignore</code> with a rule matching your selected file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/repo-aftergitignore.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub Desktop displaying the updated .gitignore file after ignoring a temporary file.</figcaption>
+</figure>
+</div>
+<p>Notice that:</p>
+<ul>
+<li>The temporary file no longer appears in the list of changes.</li>
+<li>The <code>.gitignore</code> file now contains a rule identifying the file to ignore.</li>
+<li><code>.gitignore</code> itself is tracked by Git, so its rules can be shared with collaborators.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What if a file is already tracked?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>.gitignore</code> only prevents Git from tracking files that are not already tracked.</p>
+<p>If you’ve previously committed a file, adding it to <code>.gitignore</code> will not automatically stop Git from tracking it. You must also remove it from Git’s tracking, which is different from deleting the file from your computer.</p>
+<p>Also, <code>.gitignore</code> is not a security tool. If a sensitive file was committed previously, ignoring it does not remove it from the repository’s history.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your repository
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Look through the files listed under <strong>Changes</strong> in GitHub Desktop.</p>
+<p>Are there any temporary or automatically generated files that shouldn’t be shared? If so, consider adding them to <code>.gitignore</code>.</p>
+<p>If everything looks good, you can move on!</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="make-and-review-changes" class="level2">
+<h2 class="anchored" data-anchor-id="make-and-review-changes">Make and review changes</h2>
+<p>Research projects evolve. You might update your methods, correct an error, add new observations, or improve your documentation.</p>
+<p>Now that you have a local repository, you can make these changes directly on your computer using your usual tools.</p>
+<p>Git will help you keep track of what changed.</p>
+<section id="activity-2-update-your-readme" class="level3">
+<h3 class="anchored" data-anchor-id="activity-2-update-your-readme">Activity 2: Update your README</h3>
+<p>Let’s start with a small change to your project documentation.</p>
+<ol type="1">
+<li>Open your local repository folder using Finder (macOS) or File Explorer (Windows).</li>
+<li>Find your <code>README.md</code> file and open it in your preferred text editor (e.g., VS Code).</li>
+<li>Make a meaningful change to your README. For example:
+<ul>
+<li>Add a short description of your project’s current status.</li>
+<li>Update your research objectives.</li>
+<li>Add information about a dataset or analysis.</li>
+<li>Correct or clarify something you wrote in the previous LilyPad.</li>
+</ul></li>
+<li><strong>Save the file</strong> in your text editor.</li>
+</ol>
+<p>You have now modified a file in your local repository!</p>
+</section>
+<section id="see-what-git-noticed" class="level3">
+<h3 class="anchored" data-anchor-id="see-what-git-noticed">See what Git noticed</h3>
+<p>Return to GitHub Desktop and select the <strong>Changes</strong> tab.</p>
+<p>You should see <code>README.md</code> in the list of changed files. Select it to examine what Git detected.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/repo-satus.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub Desktop displaying changes made to project files.</figcaption>
+</figure>
+</div>
+<p>GitHub Desktop uses colors and symbols to help you understand changes:</p>
+<ul>
+<li><strong>Green (+):</strong> Content that was added.</li>
+<li><strong>Red (-):</strong> Content that was removed.</li>
+<li><strong>Yellow indicator:</strong> An existing file that was modified.</li>
+<li><strong>Green file indicator:</strong> A new file that Git hasn’t tracked before.</li>
+</ul>
+<p>The display showing added and removed lines is called a <strong>diff</strong> (short for difference). It compares your current changes with the last committed version of the file.</p>
+<p>Your README will look different from the example above, but the same principles apply.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Saving is not committing!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you saved your README, you updated the file on your computer.</p>
+<p>GitHub Desktop detected the change, but it hasn’t yet been recorded as a new commit in Git’s history or shared with GitHub.</p>
+<p>We’ll learn how to do that next.</p>
+</div>
+</div>
+<p>Imagine you’re revisiting an analysis you completed six months ago. The results look different, but you’re not sure why.</p>
+<p>Did you change a parameter? Correct a calculation? Remove some observations? Or simply update the documentation?</p>
+<p>Git helps answer these questions by recording the history of your project. But to create a useful history, you first need to understand <strong>what you’re saving</strong>.</p>
+</section>
+<section id="activity-3-review-before-you-commit" class="level3">
+<h3 class="anchored" data-anchor-id="activity-3-review-before-you-commit">Activity 3: Review before you commit</h3>
+<p>Return to the <strong>Changes</strong> tab in GitHub Desktop.</p>
+<ol type="1">
+<li>Select your modified <code>README.md</code>.</li>
+<li>Look at the differences displayed on the right.</li>
+<li>Check that the changes match what you intended to do.</li>
+<li>If you notice an error, return to your text editor, correct it, and save the file. GitHub Desktop will update automatically.</li>
+</ol>
+<p>This is an opportunity to catch mistakes before recording them in your project’s history.</p>
+</section>
+<section id="which-changes-belong-together" class="level3">
+<h3 class="anchored" data-anchor-id="which-changes-belong-together">Which changes belong together?</h3>
+<p>You may have noticed the checkboxes next to each file in the Changes tab.</p>
+<p>These checkboxes determine which files will be included in your next <strong>commit</strong> (a saved record of changes in Git).</p>
+<p>By default, GitHub Desktop selects all changed files. You can uncheck files that you don’t want to include in a particular commit.</p>
+<p>For example, imagine you’ve made three changes:</p>
+<ul>
+<li>Updated your README to describe a new analysis.</li>
+<li>Modified a Python script to correct a calculation.</li>
+<li>Added some unrelated notes about a future project.</li>
+</ul>
+<p>You might want to record the README and script changes together, while leaving the unrelated notes for another commit.</p>
+<p><strong>Why does this matter?</strong></p>
+<p>A useful Git history does more than record when files changed. It helps you understand <strong>what changed and why</strong>.</p>
+<p>For scientific research, that could mean identifying when you changed a filtering threshold, corrected a unit conversion, or updated an analysis method.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your changes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before moving on, make sure that:</p>
+<ul>
+<li>Your README contains the changes you intended.</li>
+<li>You understand what the green and red lines represent.</li>
+<li>The files you want to include in your next commit are checked.</li>
+</ul>
+<p>If you only changed your README, that’s perfectly fine!</p>
+<p><strong>Don’t commit anything yet.</strong> We’ll do that in the next activity.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="save-your-projects-history" class="level2">
+<h2 class="anchored" data-anchor-id="save-your-projects-history">Save your project’s history</h2>
+<p>You’ve made changes to your README and reviewed them in GitHub Desktop. But what happens when you want to remember why you made those changes, or find out what your project looked like several months ago?</p>
+<p>This is where <strong>commits</strong> come in.</p>
+<p>A commit records a set of changes in your project’s Git history. Each commit includes information about what changed, who made the change, and when it happened.</p>
+<p>You also provide a <strong>commit message</strong> explaining the purpose of those changes.</p>
+<section id="activity-4-create-your-first-commit" class="level3">
+<h3 class="anchored" data-anchor-id="activity-4-create-your-first-commit">Activity 4: Create your first commit</h3>
+<p>Let’s record the README changes you made earlier.</p>
+<ol type="1">
+<li>Return to the <strong>Changes</strong> tab in GitHub Desktop.</li>
+<li>Make sure <code>README.md</code> is checked. If you have other changed files, uncheck any that don’t belong in this commit.</li>
+<li>At the bottom left, find the <strong>Summary (required)</strong> field.</li>
+<li>Write a short message describing what you changed.</li>
+<li>Optionally, use the <strong>Description</strong> field to explain why you made the change.</li>
+<li>Click <strong>Commit to main</strong> (or the name of your current branch).</li>
+</ol>
+<p>Congratulations! You’ve created a commit in your local repository.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Writing useful commit messages
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A good commit message explains what you changed, rather than simply stating that something changed.</p>
+<p>For example:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Less useful</th>
+<th>More useful</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Update files</td>
+<td>Document project objectives in README</td>
+</tr>
+<tr class="even">
+<td>Fix code</td>
+<td>Correct temperature conversion from K to °C</td>
+</tr>
+<tr class="odd">
+<td>Changes to analysis</td>
+<td>Exclude stations with incomplete QC records</td>
+</tr>
+<tr class="even">
+<td>New stuff</td>
+<td>Add preliminary stream nitrate analysis</td>
+</tr>
+</tbody>
+</table>
+<p>Try to keep each commit focused on a meaningful change or a small group of related changes.</p>
+<p>Remember that you’re writing these messages for your future self and potentially your collaborators!</p>
+</div>
+</div>
+</section>
+<section id="explore-your-projects-history" class="level3">
+<h3 class="anchored" data-anchor-id="explore-your-projects-history">Explore your project’s history</h3>
+<p>Now let’s see what Git recorded.</p>
+<ol type="1">
+<li>In GitHub Desktop, select the <strong>History</strong> tab.</li>
+<li>Find the commit you just created. It should appear near the top of the list.</li>
+<li>Select your commit.</li>
+<li>Examine the files listed and click <code>README.md</code> to see the changes included in that commit.</li>
+<li>Select an earlier commit to explore what was changed previously.</li>
+</ol>
+<p>Notice that you can examine changes made at different points in your project’s development.</p>
+<p>This is particularly useful in scientific research. You might be able to identify when you modified a parameter, changed a data-processing method, or corrected a mistake in your analysis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What does a commit preserve?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A commit records a snapshot of the tracked files in your project, along with information about the changes introduced by that commit.</p>
+<p>This lets you inspect earlier versions of your work and understand how your project evolved.</p>
+<p>However, Git can only preserve changes to files that it tracks. It won’t record files excluded by <code>.gitignore</code> or changes you haven’t committed.</p>
+</div>
+</div>
+</section>
+<section id="local-history-versus-github" class="level3">
+<h3 class="anchored" data-anchor-id="local-history-versus-github">Local history versus GitHub</h3>
+<p>You’ve now recorded your changes in Git, but there’s one important distinction:</p>
+<p><strong>Your new commit exists on your computer, not yet on GitHub.</strong></p>
+<p>If you visit your repository on GitHub in your browser, you won’t see these latest changes.</p>
+<p>To share your commits, you need to <strong>push</strong> them to GitHub.</p>
+<p>We’ll do that in the next activity.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before moving on:</p>
+<ul>
+<li>Find your new commit in the History tab.</li>
+<li>Verify that the commit message describes the change you made.</li>
+<li>Select the commit and inspect the recorded changes.</li>
+</ul>
+<p>You now have a local record of your work!</p>
+</div>
+</div>
+</section>
+</section>
+<section id="share-your-changes-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="share-your-changes-on-github">Share your changes on GitHub</h2>
+<p>You’ve made changes to your research project and recorded them in your local Git history.</p>
+<p>But if you open your repository on the GitHub website, you won’t see those changes yet!</p>
+<p>That’s because <strong>committing and sharing are two different actions</strong>.</p>
+<ul>
+<li><strong>Commit:</strong> Records changes in the Git history on your computer.</li>
+<li><strong>Push:</strong> Sends your local commits to the remote repository on GitHub.</li>
+</ul>
+<p>This separation is useful. You can work on your research, experiment, and record changes locally, even without an internet connection. When you’re ready, you can share your commits with GitHub.</p>
+<section id="activity-5-push-your-changes" class="level3">
+<h3 class="anchored" data-anchor-id="activity-5-push-your-changes">Activity 5: Push your changes</h3>
+<p>Let’s share the commit you created in the previous activity.</p>
+<ol type="1">
+<li>Open GitHub Desktop and select your repository.</li>
+<li>Make sure you’re on the same branch where you created your commit (typically <code>main</code>).</li>
+<li>Near the top of the window, look for the <strong>Push origin</strong> button.</li>
+<li>Click <strong>Push origin</strong>.</li>
+</ol>
+<p>GitHub Desktop will send your local commits to GitHub.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Don’t see the Push origin button?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If GitHub Desktop displays <strong>Fetch origin</strong> instead, you may not have any local commits waiting to be pushed.</p>
+<p>If you’re sure you created a commit, check the History tab and verify that you’re working in the correct repository and branch.</p>
+<p>If GitHub has newer changes that aren’t on your computer, you may need to pull those changes before pushing. We’ll explore this in the next LilyPad on collaboration.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="verify-your-changes-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="verify-your-changes-on-github">Verify your changes on GitHub</h3>
+<p>How do you know your changes actually made it to GitHub?</p>
+<ol type="1">
+<li>In GitHub Desktop, select <strong>Repository → View on GitHub</strong>.</li>
+<li>Your repository will open in your web browser.</li>
+<li>Open your <code>README.md</code>. Does it contain the changes you made locally?</li>
+<li>Find the <strong>Commits</strong> link on the repository page and open the commit history.</li>
+<li>Locate the commit you just pushed. Select it to inspect the recorded changes.</li>
+</ol>
+<p>You should see the same commit message and changes that you examined in GitHub Desktop.</p>
+<p>Your project now has a shared history that you can access from another computer or share with collaborators who have access to the repository.</p>
+</section>
+<section id="putting-it-all-together" class="level3">
+<h3 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h3>
+</section>
+<section id="putting-it-all-together-1" class="level3">
+<h3 class="anchored" data-anchor-id="putting-it-all-together-1">Putting it all together</h3>
+<p>You’ve now practiced the basic Git workflow. Can you connect each action to what it does?</p>
+<p>Select an action on the left, then its matching description on the right. You’ll get immediate feedback.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="421" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 420;"><span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>gitMatching <span class="op">=</span> {</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> actions <span class="op">=</span> [</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"save"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Edit &amp; save"</span><span class="op">,</span></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Update files on your computer"</span> }<span class="op">,</span></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"review"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Review"</span><span class="op">,</span></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Inspect changes before recording them"</span> }<span class="op">,</span></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"commit"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Commit"</span><span class="op">,</span></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Record changes in your local Git history"</span> }<span class="op">,</span></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"push"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Push"</span><span class="op">,</span></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Send your local commits to GitHub"</span> }</span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> byId <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">fromEntries</span>(actions<span class="op">.</span><span class="fu">map</span>(a <span class="kw">=&gt;</span> [a<span class="op">.</span><span class="at">id</span><span class="op">,</span> a]))<span class="op">;</span></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> descriptionOrder <span class="op">=</span> [<span class="st">"push"</span><span class="op">,</span> <span class="st">"save"</span><span class="op">,</span> <span class="st">"commit"</span><span class="op">,</span> <span class="st">"review"</span>]<span class="op">;</span></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="bu">root</span> <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="pond-match"&gt;</span></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;style&gt;</span></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match {</span></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 1px solid #ddd;</span></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 10px;</span></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 1.2rem;</span></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin: 1rem 0;</span></span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-grid {</span></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="vs">          display: grid;</span></span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a><span class="vs">          grid-template-columns: 1fr 1.4fr;</span></span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="vs">          gap: 1rem;</span></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-column {</span></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="vs">          display: flex;</span></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="vs">          flex-direction: column;</span></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="vs">          gap: 0.6rem;</span></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-column &gt; strong {</span></span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin-bottom: 0.3rem;</span></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option {</span></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="vs">          width: 100%;</span></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="vs">          min-height: 58px;</span></span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 0.7rem;</span></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 2px solid #ddd;</span></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 8px;</span></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #f8f9fa;</span></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #222;</span></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="vs">          text-align: left;</span></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: pointer;</span></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="vs">          transition: background 0.15s, border-color 0.15s;</span></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option:hover:not(:disabled) {</span></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #64748b;</span></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-selected {</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #2563eb;</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #eff6ff;</span></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-correct {</span></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #15803d;</span></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #dcfce7;</span></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #14532d;</span></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: default;</span></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a><span class="vs">          opacity: 1;</span></span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-correct::after {</span></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="vs">          content: " ✓";</span></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: bold;</span></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-wrong {</span></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #dc2626;</span></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #fee2e2;</span></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #991b1b;</span></span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-wrong::after {</span></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="vs">          content: " ✕";</span></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: bold;</span></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback {</span></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin: 1rem 0;</span></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="vs">          min-height: 1.5rem;</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: 500;</span></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback[data-result="wrong"] {</span></span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #b91c1c;</span></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback[data-result="correct"] {</span></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #15803d;</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-reset {</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 0.4rem 1rem;</span></span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 1px solid #aaa;</span></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 6px;</span></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: transparent;</span></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: inherit;</span></span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: pointer;</span></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a><span class="vs">        @media (max-width: 600px) {</span></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="vs">          .pond-match-grid {</span></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a><span class="vs">            grid-template-columns: 1fr;</span></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a><span class="vs">          }</span></span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/style&gt;</span></span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="pond-match-grid"&gt;</span></span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="pond-match-column"&gt;</span></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;strong&gt;Action&lt;/strong&gt;</span></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="pond-match-column pond-match-actions"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="pond-match-column"&gt;</span></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;strong&gt;What it does&lt;/strong&gt;</span></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="pond-match-column pond-match-descriptions"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;p class="pond-match-feedback" aria-live="polite"&gt;</span></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="vs">        Select an action, then its description.</span></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/p&gt;</span></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-reset"&gt;</span></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a><span class="vs">        Start over</span></span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> actionButtons <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> descriptionButtons <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> matched <span class="op">=</span> <span class="kw">new</span> <span class="bu">Set</span>()<span class="op">;</span></span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> feedback <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-feedback"</span>)<span class="op">;</span></span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">message</span>(text<span class="op">,</span> result <span class="op">=</span> <span class="st">""</span>) {</span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> text<span class="op">;</span></span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="at">dataset</span><span class="op">.</span><span class="at">result</span> <span class="op">=</span> result<span class="op">;</span></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">render</span>() {</span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> [id<span class="op">,</span> button] <span class="kw">of</span> actionButtons) {</span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-selected"</span><span class="op">,</span></span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a>        selected <span class="op">===</span> id <span class="op">&amp;&amp;</span> wrong <span class="op">===</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-correct"</span><span class="op">,</span> matched<span class="op">.</span><span class="fu">has</span>(id))<span class="op">;</span></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-wrong"</span><span class="op">,</span></span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> wrong<span class="op">.</span><span class="at">action</span> <span class="op">===</span> id)<span class="op">;</span></span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> matched<span class="op">.</span><span class="fu">has</span>(id)<span class="op">;</span></span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">"aria-pressed"</span><span class="op">,</span> selected <span class="op">===</span> id)<span class="op">;</span></span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> [id<span class="op">,</span> button] <span class="kw">of</span> descriptionButtons) {</span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-correct"</span><span class="op">,</span> matched<span class="op">.</span><span class="fu">has</span>(id))<span class="op">;</span></span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-wrong"</span><span class="op">,</span></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> wrong<span class="op">.</span><span class="at">description</span> <span class="op">===</span> id)<span class="op">;</span></span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> matched<span class="op">.</span><span class="fu">has</span>(id)<span class="op">;</span></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> action <span class="kw">of</span> actions) {</span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> button <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-option"&gt;</span></span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>action<span class="op">.</span><span class="at">label</span><span class="sc">}</span></span>
+<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a>    button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a>      selected <span class="op">=</span> action<span class="op">.</span><span class="at">id</span><span class="op">;</span></span>
+<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>      wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a>      <span class="fu">message</span>(<span class="st">"Now select the matching description."</span>)<span class="op">;</span></span>
+<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>      <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a>    actionButtons<span class="op">.</span><span class="fu">set</span>(action<span class="op">.</span><span class="at">id</span><span class="op">,</span> button)<span class="op">;</span></span>
+<span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-actions"</span>)<span class="op">.</span><span class="fu">append</span>(button)<span class="op">;</span></span>
+<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> id <span class="kw">of</span> descriptionOrder) {</span>
+<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> action <span class="op">=</span> byId[id]<span class="op">;</span></span>
+<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> button <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-option"&gt;</span></span>
+<span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>action<span class="op">.</span><span class="at">description</span><span class="sc">}</span></span>
+<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
+<span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a>    button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (selected <span class="op">===</span> <span class="kw">null</span>) {</span>
+<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"Choose an action on the left first."</span>)<span class="op">;</span></span>
+<span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (selected <span class="op">===</span> id) {</span>
+<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>        matched<span class="op">.</span><span class="fu">add</span>(id)<span class="op">;</span></span>
+<span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a>        selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (matched<span class="op">.</span><span class="at">size</span> <span class="op">===</span> actions<span class="op">.</span><span class="at">length</span>) {</span>
+<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a>          <span class="fu">message</span>(</span>
+<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Great work! Edit &amp; save → Review → Commit → Push"</span><span class="op">,</span></span>
+<span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a>            <span class="st">"correct"</span></span>
+<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a>          )<span class="op">;</span></span>
+<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a>          <span class="fu">message</span>(<span class="st">"Correct! Choose another action."</span><span class="op">,</span> <span class="st">"correct"</span>)<span class="op">;</span></span>
+<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">=</span> { <span class="dt">action</span><span class="op">:</span> selected<span class="op">,</span> <span class="dt">description</span><span class="op">:</span> id }<span class="op">;</span></span>
+<span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"Not quite! Try another description."</span><span class="op">,</span> <span class="st">"wrong"</span>)<span class="op">;</span></span>
+<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a>      <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a>    descriptionButtons<span class="op">.</span><span class="fu">set</span>(id<span class="op">,</span> button)<span class="op">;</span></span>
+<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-descriptions"</span>)<span class="op">.</span><span class="fu">append</span>(button)<span class="op">;</span></span>
+<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a>  <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-reset"</span>)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>    matched<span class="op">.</span><span class="fu">clear</span>()<span class="op">;</span></span>
+<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a>    selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>    wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Select an action, then its description."</span>)<span class="op">;</span></span>
+<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">root</span><span class="op">;</span></span>
+<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Remember: GitHub doesn’t automatically receive your changes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Saving a file does not create a commit, and creating a commit does not automatically push it to GitHub.</p>
+<p>You decide when to record your changes and when to share them.</p>
+<p>Only committed changes are included when you push.</p>
+</div>
+</div>
+</section>
+<section id="before-you-leave-this-lilypad" class="level3">
+<h3 class="anchored" data-anchor-id="before-you-leave-this-lilypad">Before you leave this LilyPad</h3>
+<p>You’ve now completed the basic Git workflow using GitHub Desktop!</p>
+<p>Make sure you can:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Find your local repository on your computer.</label></li>
+<li><label><input type="checkbox">Recognize files that Git has detected as changed.</label></li>
+<li><label><input type="checkbox">Use <code>.gitignore</code> when appropriate.</label></li>
+<li><label><input type="checkbox">Review changes before committing.</label></li>
+<li><label><input type="checkbox">Create a commit with a meaningful message.</label></li>
+<li><label><input type="checkbox">Find that commit in the History tab.</label></li>
+<li><label><input type="checkbox">Push your commits to GitHub.</label></li>
+<li><label><input type="checkbox">Verify that your changes appear on the GitHub website.</label></li>
+</ul>
+<p>You now have the tools to maintain a version history of your research project without manually creating files named <code>analysis_final_v2_REALLY_FINAL.ipynb</code>!</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What’s next?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Research is rarely a solo activity. What happens when two people want to modify the same project?</p>
+<p>In the next LilyPad, <a href="../../../deep-water/github/collaborate-change/index.html"><strong>Collaborate on a Change</strong></a>, you’ll learn how to use GitHub to propose, review, and integrate changes made by different contributors.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuZ2l0TWF0Y2hpbmcgPSB7XG4gIGNvbnN0IGFjdGlvbnMgPSBbXG4gICAgeyBpZDogXCJzYXZlXCIsIGxhYmVsOiBcIkVkaXQgJiBzYXZlXCIsXG4gICAgICBkZXNjcmlwdGlvbjogXCJVcGRhdGUgZmlsZXMgb24geW91ciBjb21wdXRlclwiIH0sXG4gICAgeyBpZDogXCJyZXZpZXdcIiwgbGFiZWw6IFwiUmV2aWV3XCIsXG4gICAgICBkZXNjcmlwdGlvbjogXCJJbnNwZWN0IGNoYW5nZXMgYmVmb3JlIHJlY29yZGluZyB0aGVtXCIgfSxcbiAgICB7IGlkOiBcImNvbW1pdFwiLCBsYWJlbDogXCJDb21taXRcIixcbiAgICAgIGRlc2NyaXB0aW9uOiBcIlJlY29yZCBjaGFuZ2VzIGluIHlvdXIgbG9jYWwgR2l0IGhpc3RvcnlcIiB9LFxuICAgIHsgaWQ6IFwicHVzaFwiLCBsYWJlbDogXCJQdXNoXCIsXG4gICAgICBkZXNjcmlwdGlvbjogXCJTZW5kIHlvdXIgbG9jYWwgY29tbWl0cyB0byBHaXRIdWJcIiB9XG4gIF07XG5cbiAgY29uc3QgYnlJZCA9IE9iamVjdC5mcm9tRW50cmllcyhhY3Rpb25zLm1hcChhID0+IFthLmlkLCBhXSkpO1xuICBjb25zdCBkZXNjcmlwdGlvbk9yZGVyID0gW1wicHVzaFwiLCBcInNhdmVcIiwgXCJjb21taXRcIiwgXCJyZXZpZXdcIl07XG5cbiAgY29uc3Qgcm9vdCA9IGh0bWxgXG4gICAgPGRpdiBjbGFzcz1cInBvbmQtbWF0Y2hcIj5cbiAgICAgIDxzdHlsZT5cbiAgICAgICAgLnBvbmQtbWF0Y2gge1xuICAgICAgICAgIGJvcmRlcjogMXB4IHNvbGlkICNkZGQ7XG4gICAgICAgICAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgICAgICAgICBwYWRkaW5nOiAxLjJyZW07XG4gICAgICAgICAgbWFyZ2luOiAxcmVtIDA7XG4gICAgICAgIH1cbiAgICAgICAgLnBvbmQtbWF0Y2gtZ3JpZCB7XG4gICAgICAgICAgZGlzcGxheTogZ3JpZDtcbiAgICAgICAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxLjRmcjtcbiAgICAgICAgICBnYXA6IDFyZW07XG4gICAgICAgIH1cbiAgICAgICAgLnBvbmQtbWF0Y2gtY29sdW1uIHtcbiAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgICAgICAgZ2FwOiAwLjZyZW07XG4gICAgICAgIH1cbiAgICAgICAgLnBvbmQtbWF0Y2gtY29sdW1uID4gc3Ryb25nIHtcbiAgICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjNyZW07XG4gICAgICAgIH1cbiAgICAgICAgLnBvbmQtbWF0Y2gtb3B0aW9uIHtcbiAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICBtaW4taGVpZ2h0OiA1OHB4O1xuICAgICAgICAgIHBhZGRpbmc6IDAuN3JlbTtcbiAgICAgICAgICBib3JkZXI6IDJweCBzb2xpZCAjZGRkO1xuICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiAjZjhmOWZhO1xuICAgICAgICAgIGNvbG9yOiAjMjIyO1xuICAgICAgICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICAgIHRyYW5zaXRpb246IGJhY2tncm91bmQgMC4xNXMsIGJvcmRlci1jb2xvciAwLjE1cztcbiAgICAgICAgfVxuICAgICAgICAucG9uZC1tYXRjaC1vcHRpb246aG92ZXI6bm90KDpkaXNhYmxlZCkge1xuICAgICAgICAgIGJvcmRlci1jb2xvcjogIzY0NzQ4YjtcbiAgICAgICAgfVxuICAgICAgICAucG9uZC1tYXRjaC1vcHRpb24uaXMtc2VsZWN0ZWQge1xuICAgICAgICAgIGJvcmRlci1jb2xvcjogIzI1NjNlYjtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiAjZWZmNmZmO1xuICAgICAgICB9XG4gICAgICAgIC5wb25kLW1hdGNoLW9wdGlvbi5pcy1jb3JyZWN0IHtcbiAgICAgICAgICBib3JkZXItY29sb3I6ICMxNTgwM2Q7XG4gICAgICAgICAgYmFja2dyb3VuZDogI2RjZmNlNztcbiAgICAgICAgICBjb2xvcjogIzE0NTMyZDtcbiAgICAgICAgICBjdXJzb3I6IGRlZmF1bHQ7XG4gICAgICAgICAgb3BhY2l0eTogMTtcbiAgICAgICAgfVxuICAgICAgICAucG9uZC1tYXRjaC1vcHRpb24uaXMtY29ycmVjdDo6YWZ0ZXIge1xuICAgICAgICAgIGNvbnRlbnQ6IFwiIOKck1wiO1xuICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgICAgICB9XG4gICAgICAgIC5wb25kLW1hdGNoLW9wdGlvbi5pcy13cm9uZyB7XG4gICAgICAgICAgYm9yZGVyLWNvbG9yOiAjZGMyNjI2O1xuICAgICAgICAgIGJhY2tncm91bmQ6ICNmZWUyZTI7XG4gICAgICAgICAgY29sb3I6ICM5OTFiMWI7XG4gICAgICAgIH1cbiAgICAgICAgLnBvbmQtbWF0Y2gtb3B0aW9uLmlzLXdyb25nOjphZnRlciB7XG4gICAgICAgICAgY29udGVudDogXCIg4pyVXCI7XG4gICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgICAgIH1cbiAgICAgICAgLnBvbmQtbWF0Y2gtZmVlZGJhY2sge1xuICAgICAgICAgIG1hcmdpbjogMXJlbSAwO1xuICAgICAgICAgIG1pbi1oZWlnaHQ6IDEuNXJlbTtcbiAgICAgICAgICBmb250LXdlaWdodDogNTAwO1xuICAgICAgICB9XG4gICAgICAgIC5wb25kLW1hdGNoLWZlZWRiYWNrW2RhdGEtcmVzdWx0PVwid3JvbmdcIl0ge1xuICAgICAgICAgIGNvbG9yOiAjYjkxYzFjO1xuICAgICAgICB9XG4gICAgICAgIC5wb25kLW1hdGNoLWZlZWRiYWNrW2RhdGEtcmVzdWx0PVwiY29ycmVjdFwiXSB7XG4gICAgICAgICAgY29sb3I6ICMxNTgwM2Q7XG4gICAgICAgIH1cbiAgICAgICAgLnBvbmQtbWF0Y2gtcmVzZXQge1xuICAgICAgICAgIHBhZGRpbmc6IDAuNHJlbSAxcmVtO1xuICAgICAgICAgIGJvcmRlcjogMXB4IHNvbGlkICNhYWE7XG4gICAgICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuICAgICAgICAgIGNvbG9yOiBpbmhlcml0O1xuICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgfVxuICAgICAgICBAbWVkaWEgKG1heC13aWR0aDogNjAwcHgpIHtcbiAgICAgICAgICAucG9uZC1tYXRjaC1ncmlkIHtcbiAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgPC9zdHlsZT5cblxuICAgICAgPGRpdiBjbGFzcz1cInBvbmQtbWF0Y2gtZ3JpZFwiPlxuICAgICAgICA8ZGl2IGNsYXNzPVwicG9uZC1tYXRjaC1jb2x1bW5cIj5cbiAgICAgICAgICA8c3Ryb25nPkFjdGlvbjwvc3Ryb25nPlxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJwb25kLW1hdGNoLWNvbHVtbiBwb25kLW1hdGNoLWFjdGlvbnNcIj48L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3M9XCJwb25kLW1hdGNoLWNvbHVtblwiPlxuICAgICAgICAgIDxzdHJvbmc+V2hhdCBpdCBkb2VzPC9zdHJvbmc+XG4gICAgICAgICAgPGRpdiBjbGFzcz1cInBvbmQtbWF0Y2gtY29sdW1uIHBvbmQtbWF0Y2gtZGVzY3JpcHRpb25zXCI+PC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIDxwIGNsYXNzPVwicG9uZC1tYXRjaC1mZWVkYmFja1wiIGFyaWEtbGl2ZT1cInBvbGl0ZVwiPlxuICAgICAgICBTZWxlY3QgYW4gYWN0aW9uLCB0aGVuIGl0cyBkZXNjcmlwdGlvbi5cbiAgICAgIDwvcD5cbiAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwicG9uZC1tYXRjaC1yZXNldFwiPlxuICAgICAgICBTdGFydCBvdmVyXG4gICAgICA8L2J1dHRvbj5cbiAgICA8L2Rpdj5cbiAgYDtcblxuICBjb25zdCBhY3Rpb25CdXR0b25zID0gbmV3IE1hcCgpO1xuICBjb25zdCBkZXNjcmlwdGlvbkJ1dHRvbnMgPSBuZXcgTWFwKCk7XG4gIGNvbnN0IG1hdGNoZWQgPSBuZXcgU2V0KCk7XG5cbiAgbGV0IHNlbGVjdGVkID0gbnVsbDtcbiAgbGV0IHdyb25nID0gbnVsbDtcblxuICBjb25zdCBmZWVkYmFjayA9IHJvb3QucXVlcnlTZWxlY3RvcihcIi5wb25kLW1hdGNoLWZlZWRiYWNrXCIpO1xuXG4gIGZ1bmN0aW9uIG1lc3NhZ2UodGV4dCwgcmVzdWx0ID0gXCJcIikge1xuICAgIGZlZWRiYWNrLnRleHRDb250ZW50ID0gdGV4dDtcbiAgICBmZWVkYmFjay5kYXRhc2V0LnJlc3VsdCA9IHJlc3VsdDtcbiAgfVxuXG4gIGZ1bmN0aW9uIHJlbmRlcigpIHtcbiAgICBmb3IgKGNvbnN0IFtpZCwgYnV0dG9uXSBvZiBhY3Rpb25CdXR0b25zKSB7XG4gICAgICBidXR0b24uY2xhc3NMaXN0LnRvZ2dsZShcImlzLXNlbGVjdGVkXCIsXG4gICAgICAgIHNlbGVjdGVkID09PSBpZCAmJiB3cm9uZyA9PT0gbnVsbCk7XG4gICAgICBidXR0b24uY2xhc3NMaXN0LnRvZ2dsZShcImlzLWNvcnJlY3RcIiwgbWF0Y2hlZC5oYXMoaWQpKTtcbiAgICAgIGJ1dHRvbi5jbGFzc0xpc3QudG9nZ2xlKFwiaXMtd3JvbmdcIixcbiAgICAgICAgd3JvbmcgIT09IG51bGwgJiYgd3JvbmcuYWN0aW9uID09PSBpZCk7XG4gICAgICBidXR0b24uZGlzYWJsZWQgPSBtYXRjaGVkLmhhcyhpZCk7XG4gICAgICBidXR0b24uc2V0QXR0cmlidXRlKFwiYXJpYS1wcmVzc2VkXCIsIHNlbGVjdGVkID09PSBpZCk7XG4gICAgfVxuXG4gICAgZm9yIChjb25zdCBbaWQsIGJ1dHRvbl0gb2YgZGVzY3JpcHRpb25CdXR0b25zKSB7XG4gICAgICBidXR0b24uY2xhc3NMaXN0LnRvZ2dsZShcImlzLWNvcnJlY3RcIiwgbWF0Y2hlZC5oYXMoaWQpKTtcbiAgICAgIGJ1dHRvbi5jbGFzc0xpc3QudG9nZ2xlKFwiaXMtd3JvbmdcIixcbiAgICAgICAgd3JvbmcgIT09IG51bGwgJiYgd3JvbmcuZGVzY3JpcHRpb24gPT09IGlkKTtcbiAgICAgIGJ1dHRvbi5kaXNhYmxlZCA9IG1hdGNoZWQuaGFzKGlkKTtcbiAgICB9XG4gIH1cblxuICBmb3IgKGNvbnN0IGFjdGlvbiBvZiBhY3Rpb25zKSB7XG4gICAgY29uc3QgYnV0dG9uID0gaHRtbGBcbiAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwicG9uZC1tYXRjaC1vcHRpb25cIj5cbiAgICAgICAgJHthY3Rpb24ubGFiZWx9XG4gICAgICA8L2J1dHRvbj5cbiAgICBgO1xuXG4gICAgYnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoXCJjbGlja1wiLCAoKSA9PiB7XG4gICAgICBzZWxlY3RlZCA9IGFjdGlvbi5pZDtcbiAgICAgIHdyb25nID0gbnVsbDtcbiAgICAgIG1lc3NhZ2UoXCJOb3cgc2VsZWN0IHRoZSBtYXRjaGluZyBkZXNjcmlwdGlvbi5cIik7XG4gICAgICByZW5kZXIoKTtcbiAgICB9KTtcblxuICAgIGFjdGlvbkJ1dHRvbnMuc2V0KGFjdGlvbi5pZCwgYnV0dG9uKTtcbiAgICByb290LnF1ZXJ5U2VsZWN0b3IoXCIucG9uZC1tYXRjaC1hY3Rpb25zXCIpLmFwcGVuZChidXR0b24pO1xuICB9XG5cbiAgZm9yIChjb25zdCBpZCBvZiBkZXNjcmlwdGlvbk9yZGVyKSB7XG4gICAgY29uc3QgYWN0aW9uID0gYnlJZFtpZF07XG4gICAgY29uc3QgYnV0dG9uID0gaHRtbGBcbiAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwicG9uZC1tYXRjaC1vcHRpb25cIj5cbiAgICAgICAgJHthY3Rpb24uZGVzY3JpcHRpb259XG4gICAgICA8L2J1dHRvbj5cbiAgICBgO1xuXG4gICAgYnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoXCJjbGlja1wiLCAoKSA9PiB7XG4gICAgICBpZiAoc2VsZWN0ZWQgPT09IG51bGwpIHtcbiAgICAgICAgbWVzc2FnZShcIkNob29zZSBhbiBhY3Rpb24gb24gdGhlIGxlZnQgZmlyc3QuXCIpO1xuICAgICAgICByZXR1cm47XG4gICAgICB9XG5cbiAgICAgIGlmIChzZWxlY3RlZCA9PT0gaWQpIHtcbiAgICAgICAgbWF0Y2hlZC5hZGQoaWQpO1xuICAgICAgICBzZWxlY3RlZCA9IG51bGw7XG4gICAgICAgIHdyb25nID0gbnVsbDtcblxuICAgICAgICBpZiAobWF0Y2hlZC5zaXplID09PSBhY3Rpb25zLmxlbmd0aCkge1xuICAgICAgICAgIG1lc3NhZ2UoXG4gICAgICAgICAgICBcIkdyZWF0IHdvcmshIEVkaXQgJiBzYXZlIOKGkiBSZXZpZXcg4oaSIENvbW1pdCDihpIgUHVzaFwiLFxuICAgICAgICAgICAgXCJjb3JyZWN0XCJcbiAgICAgICAgICApO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIG1lc3NhZ2UoXCJDb3JyZWN0ISBDaG9vc2UgYW5vdGhlciBhY3Rpb24uXCIsIFwiY29ycmVjdFwiKTtcbiAgICAgICAgfVxuICAgICAgfSBlbHNlIHtcbiAgICAgICAgd3JvbmcgPSB7IGFjdGlvbjogc2VsZWN0ZWQsIGRlc2NyaXB0aW9uOiBpZCB9O1xuICAgICAgICBtZXNzYWdlKFwiTm90IHF1aXRlISBUcnkgYW5vdGhlciBkZXNjcmlwdGlvbi5cIiwgXCJ3cm9uZ1wiKTtcbiAgICAgIH1cblxuICAgICAgcmVuZGVyKCk7XG4gICAgfSk7XG5cbiAgICBkZXNjcmlwdGlvbkJ1dHRvbnMuc2V0KGlkLCBidXR0b24pO1xuICAgIHJvb3QucXVlcnlTZWxlY3RvcihcIi5wb25kLW1hdGNoLWRlc2NyaXB0aW9uc1wiKS5hcHBlbmQoYnV0dG9uKTtcbiAgfVxuXG4gIHJvb3QucXVlcnlTZWxlY3RvcihcIi5wb25kLW1hdGNoLXJlc2V0XCIpLmFkZEV2ZW50TGlzdGVuZXIoXCJjbGlja1wiLCAoKSA9PiB7XG4gICAgbWF0Y2hlZC5jbGVhcigpO1xuICAgIHNlbGVjdGVkID0gbnVsbDtcbiAgICB3cm9uZyA9IG51bGw7XG4gICAgbWVzc2FnZShcIlNlbGVjdCBhbiBhY3Rpb24sIHRoZW4gaXRzIGRlc2NyaXB0aW9uLlwiKTtcbiAgICByZW5kZXIoKTtcbiAgfSk7XG5cbiAgcmVuZGVyKCk7XG4gIHJldHVybiByb290O1xufVxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../deep-water/github/save-share-changes";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/LinkedEarth\.github\.io\/ThePond\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>The Pond is part of <a href="https://linked.earth/FROGS/">FROGS</a>, a <a href="https://linked.earth/">LinkedEarth</a> project.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
