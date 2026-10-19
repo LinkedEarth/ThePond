@@ -707,3 +707,4 @@ Research is rarely a solo activity. What happens when two people want to modify 
 
 In the next LilyPad, [**Collaborate on a Change**](../collaborate-change/index.qmd), you'll learn how to use GitHub to propose, review, and integrate changes made by different contributors.
 :::
+
