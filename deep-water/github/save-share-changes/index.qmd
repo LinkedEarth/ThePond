@@ -32,7 +32,6 @@ To complete this LilyPad, you will need:
 
 You don't need any previous experience with Git or the command line. We'll guide you through each step using GitHub Desktop.
 
-
 ## From GitHub to your computer
 
 In the previous [LilyPad](../start-research-repository/index.qmd), you created a GitHub repository for your research project. You organized your files, documented your project in a README, and decided what should (and should not) be shared.
