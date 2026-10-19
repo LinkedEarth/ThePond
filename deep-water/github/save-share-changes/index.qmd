@@ -4,6 +4,23 @@ description: "Learn how to use GitHub Desktop to work on your research project l
 toc: true
 ---
 
+Creating a GitHub repository is just the beginning. As your research progresses, you'll update files, refine analyses, and correct mistakes. Keeping track of these changes helps you understand how your project has evolved and makes it easier to share your work with collaborators.
+
+In this LilyPad, you'll learn how to use [**GitHub Desktop**](https://desktop.github.com/) to manage changes to your research project, maintain a meaningful version history, and share updates on GitHub—all without using the command line.
+
+## What you will learn
+
+By the end of this LilyPad, you will be able to:
+
+- Clone a GitHub repository to your computer using GitHub Desktop.
+- Identify files that should not be tracked and use `.gitignore` to exclude them.
+- Make and review changes to your research project.
+- Create meaningful commits to document how your project evolves.
+- Explore your project's history to understand what changed and when.
+- Push your changes to GitHub and verify that they were shared.
+
+**No command line required!**
+
 
 ## From GitHub to your computer
 
