@@ -17,7 +17,9 @@ By the end of this Pad, you will be able to:
 - create a repository on GitHub; and
 - write a README that helps someone understand the project; 
 
-## What you will need
+## Before you begin
+
+To complete this LiLyPad, you will need:
 
 - [A GitHub account](https://github.com/signup)
 - A web browser. We recommend using the latest version of Chrome, Firefox, or Safari for the best experience.
