@@ -1228,7 +1228,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 You created and documented a research repository through GitHub’s website.
 
-In **Save and Share Changes**, you will use GitHub Desktop to:
+In [**Save and Share Changes**](../save-share-changes/index.qmd), you will use GitHub Desktop to:
 
 - download the repository to your computer;
 - decide which local files Git should ignore;
