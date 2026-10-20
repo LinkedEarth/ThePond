@@ -1432,3 +1432,235 @@ But we haven't completed any of our issues yet.
 In Part 6, you'll return to the README issue, make the documentation change using the GitHub workflow you learned in earlier lessons, and link the resulting pull request to the issue.
 
 You'll see how GitHub connects **planned work to completed changes**, creating a traceable record of the research process.
+
+
+# Part 6 — From Issue to Pull Request
+
+You've learned how to use GitHub Issues to plan research work, discuss scientific questions, and organize tasks.
+
+But how do you connect an issue to the work that actually resolves it?
+
+In this final exercise, you'll return to the **README documentation issue** you created in Part 3 and complete it using the GitHub workflow you practiced in the previous lessons.
+
+The goal is to connect the entire process:
+
+**Identify a task → Create an issue → Make a change → Open a pull request → Merge → Close the issue.**
+
+## Step 1 — Return to your README issue
+
+Open your repository on GitHub and navigate to **Issues**.
+
+Find the issue you created to update the README documentation.
+
+For our water-quality project, the issue was:
+
+*Update README to document QC before replicate averaging.*
+
+Read the description and checklist again.
+
+Before starting, make sure you understand:
+
+- What documentation needs to change.
+- Why the change matters for reproducibility.
+- What the completed documentation should explain.
+
+Note your **issue number** (for example, `#3`). You'll need it when creating the pull request.
+
+::: {.callout-note title="Using your own research project"}
+If you're working with another geoscience study or a research software project, use the documentation issue you created in Part 3.
+
+You might clarify how an analysis is performed, document a parameter choice, or improve instructions for reproducing results.
+
+Your change should address a genuine documentation need in your repository. You don't need to reproduce the water-quality example.
+:::
+
+## Step 2 — Make the documentation change
+
+Open **GitHub Desktop** and select your repository.
+
+You've already practiced creating branches, making commits, and pushing changes. We'll briefly revisit those steps here.
+
+1. Switch to `main` (or your repository's default branch).
+2. Click **Fetch origin**, then **Pull origin** if GitHub Desktop indicates that new commits are available.
+3. Create a new branch from the updated default branch, with a descriptive name such as `document-nitrate-qc`.
+4. Open `README.md` in your preferred text editor.
+5. Update the relevant documentation and save the file.
+
+For our water-quality project, the revised documentation should explain that:
+
+- QC is applied to individual nitrate measurements.
+- Measurements that fail QC are excluded.
+- Accepted replicate measurements are then averaged.
+- The resulting values are used in subsequent analysis.
+
+Make sure your description matches the actual workflow, including any assumptions about missing or rejected measurements.
+
+**You are updating the documentation, not changing the analysis itself.**
+
+### Commit and publish your change
+
+Return to GitHub Desktop.
+
+1. Review the changes in the **Changes** tab.
+2. Check that the diff contains only the documentation changes you intended.
+3. Write a meaningful commit message, such as `Document revised nitrate QC procedure`.
+4. Click **Commit to document-nitrate-qc**.
+5. Click **Publish branch** to send your new branch to GitHub.
+
+Your documentation change is now available on GitHub, but it has not yet been merged into `main`.
+
+## Step 3 — Create a pull request linked to the issue
+
+In GitHub Desktop, click **Preview Pull Request**, then **Create Pull Request** to open GitHub in your browser.
+
+Confirm that the pull request proposes merging your documentation branch into the repository's default branch.
+
+Give it a descriptive title, such as:
+
+**Document revised nitrate QC procedure in README**
+
+In the description, explain what changed and why.
+
+For example:
+
+::: {.callout-note title="Example pull request description"}
+### Summary
+
+- Update `README.md` to describe QC checks before replicate averaging.
+- Clarify how rejected measurements are handled.
+- Align the documentation with the corrected nitrate analysis.
+
+### Verification
+
+- Checked that the revised description matches the current processing workflow.
+
+Closes #3
+:::
+
+**Replace `#3` with your actual issue number.**
+
+### What does `Closes #3` do?
+
+GitHub recognizes special keywords that link a pull request to an issue.
+
+For example:
+
+- `Closes #3`
+- `Fixes #3`
+- `Resolves #3`
+
+When used in a pull request description targeting the default branch, these keywords tell GitHub that merging the pull request should resolve the referenced issue.
+
+This creates a connection between **why the work was needed** and **the changes made to complete it**.
+
+::: {.callout-tip title="One issue (or sub-issue), one pull request"}
+A useful rule of thumb is to create one focused pull request for each issue or sub-issue that requires changes to repository files.
+
+This makes proposed changes easier to review and connects them to a clear purpose.
+
+It's not a strict rule. Large issues may require several pull requests, while issues involving meetings, decisions, or investigations might not need a pull request at all.
+
+For larger tasks, consider breaking the work into sub-issues, each with its own focused changes.
+:::
+
+Create your pull request.
+
+## Step 4 — Review and merge your change
+
+Before merging, open the **Files changed** tab in your pull request.
+
+Check that:
+
+- Only the intended documentation was modified.
+- The new wording accurately describes the research workflow.
+- The changes address the checklist in your issue.
+- The pull request description references the correct issue.
+
+If you're using your own practice repository and everything looks correct, you can merge the pull request using **Merge pull request** and **Confirm merge**.
+
+In a shared research repository, this is where collaborators would review the changes before merging. If your repository requires approval or other checks, follow those requirements rather than bypassing them.
+
+## Step 5 — Did GitHub close the issue?
+
+Now return to the **Issues** tab.
+
+Find your README documentation issue.
+
+If your pull request was merged into the default branch and automatic issue closing is enabled, GitHub should have **closed the issue automatically**.
+
+Open the issue and examine its history.
+
+You should see that the pull request was linked and that the issue was closed after the merge.
+
+This provides a traceable connection between:
+
+1. The original research documentation problem.
+2. The planned work in the Issue.
+3. The changes proposed in the pull request.
+4. The merged documentation update.
+
+::: {.callout-note title="What if the issue is still open?"}
+Check that:
+
+- The pull request description contains `Closes #N`, using your actual issue number.
+- The pull request was merged into the repository's default branch.
+- Automatic closing of issues is enabled in the repository settings.
+
+If the issue is genuinely resolved but did not close automatically, you can close it manually. Add a comment linking to the merged pull request so the reason for closing remains clear.
+:::
+
+### What about the scientific investigation?
+
+Return to your second issue, concerning sampling dates and comparisons between stream reaches.
+
+**That issue should still be open.**
+
+You've documented the concern and identified next steps, but you haven't completed the scientific investigation.
+
+This is exactly how Issues should work: tasks are closed when their completion criteria have been met, not simply because a lesson, meeting, or project phase has ended.
+
+## Step 6 — Update your local repository
+
+There's one final housekeeping step.
+
+The README change has been merged on GitHub, but your local `main` branch may not yet contain it.
+
+In GitHub Desktop:
+
+1. Switch back to `main`.
+2. Click **Fetch origin**.
+3. Click **Pull origin** to bring the merged changes into your local repository.
+
+You can now continue working from the updated version of your project.
+
+If you no longer need your documentation branch, you may also delete it after confirming the pull request was successfully merged.
+
+## What you've accomplished
+
+Over the course of this lesson, you've used GitHub to:
+
+- Identify actionable research tasks and scientific questions.
+- Create Issues that describe why work is needed.
+- Organize responsibility and track progress.
+- Record scientific discussions and unresolved decisions.
+- Find and prioritize work.
+- Link a pull request to an Issue.
+- Complete and close a task while preserving its history.
+
+::: {.callout-tip title="From planning to reproducible research"}
+GitHub can help you keep track of more than changes to code or documentation.
+
+It can preserve **what researchers intended to do, why they made particular decisions, who contributed, and how the work was completed**.
+
+This history is valuable for maintaining reproducible scientific workflows, developing research software, coordinating collaborators, and revisiting research decisions over time.
+:::
+
+## Beyond individual issues
+
+So far, we've worked with a small number of tasks in one repository.
+
+But research projects often involve multiple collaborators, deadlines, competing priorities, and tasks that depend on one another.
+
+GitHub provides additional tools to help manage that complexity, including **sub-issues, milestones, Projects, and Discussions**.
+
+In the following **Good to Know** section, we'll explore how these tools can support broader research project management, from preparing for an advisor meeting to coordinating work for an AGU presentation.
