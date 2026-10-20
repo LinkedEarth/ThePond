@@ -1,0 +1,15 @@
+---
+title: "Plan Work with GitHub"
+subtitle: "Learn to use GitHub to plan and manage research projects. Practice creating issues, assigning tasks, and tracking progress."
+---
+
+# Plan Your Work
+
+::: {.callout-note appearance="simple"}
+## Coming soon
+
+**A frog will be here shortly.**  
+This part of The Pond is still being prepared. Check back soon for new learning materials.
+
+![](../images/frog_soon.gif){fig-align="center" width="250px"}
+:::

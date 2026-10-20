@@ -18,12 +18,32 @@ website:
     left:
       - href: index.qmd
         text: Home
+
       - href: shallows/index.qmd
         text: The Shallows
-      - href: lilypads/index.qmd
-        text: LilyPads
-      - href: deep-water/index.qmd
-        text: The Deep End
+
+      - text: LilyPads
+        menu:
+          - text: "Overview"
+            href: lilypads/index.qmd
+          - href: lilypads/data/index.qmd
+            text: Data
+          - href: lilypads/softwareindex.qmd
+            text: Software
+          - href: lilypads/workflow/index.qmd
+            text: Workflow
+          
+      - text: The Deep End
+        menu:
+          - href: deep-water/index.qmd
+            text: Overview
+          - href: deep-water/github/index.qmd
+            text: GitHub
+          - href: deep-water/containers/index.qmd
+            text: Containers
+          - href: deep-water/correlation-workflow/index.qmd
+            text: Correlation Workflow 
+
       - href: spring/index.qmd
         text: The Spring
   page-footer: "The Pond is part of [FROGS](https://linked.earth/FROGS/), a [LinkedEarth](https://linked.earth/) project."
