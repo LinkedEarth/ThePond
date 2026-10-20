@@ -1292,3 +1292,143 @@ In the next part, we'll explore how labels, assignments, and issue filters help 
   refreshPreview();
 })();
 </script>
+
+# Part 5 — Find and track the work
+
+You've created two Issues, documented a scientific concern, and identified some next steps.
+
+With only two issues, keeping track of everything is relatively easy. But imagine a research project with dozens of open tasks, several collaborators, and multiple deadlines.
+
+How do you find what matters?
+
+GitHub provides **filters, search, and sorting tools** to help you locate relevant work without reading through every issue.
+
+## Step 1 — What's on your research to-do list?
+
+Imagine you're preparing for your next meeting with your advisor.
+
+You want to answer three questions:
+
+- **What still needs to be done?**
+- **Which tasks are my responsibility?**
+- **Which issues need a decision or discussion?**
+
+Open your repository on GitHub and select the **Issues** tab.
+
+You'll see the issues you've created, along with their titles, labels, assignees, and other information.
+
+Notice the **Open** and **Closed** views.
+
+- **Open:** Work or questions that still need attention.
+- **Closed:** Work that has been completed, resolved, or closed for another documented reason.
+
+An open issue isn't necessarily being actively worked on. It might be waiting for data, feedback, or funding.
+
+Similarly, closing an issue doesn't necessarily mean code was written. A scientific question may have been answered or a research decision documented.
+
+## Step 2 — Find the work that matters
+
+### Find issues assigned to you
+
+On the Issues page, locate the filtering controls and filter by **Assignee**, selecting yourself.
+
+You should see the README issue if you assigned it to yourself in Part 3.
+
+In a collaborative project, this is an easy way to identify your responsibilities without sorting through everyone else's tasks.
+
+### Find a particular kind of work
+
+Now clear the assignee filter and filter by **Label**.
+
+Select `documentation`, if you used that label earlier.
+
+You should see the README issue.
+
+Next, try filtering by `question`, if you assigned that label to your scientific investigation.
+
+GitHub also lets you combine filters. For example, you can search for open documentation issues using:
+
+`is:issue is:open label:documentation`
+
+Or find open issues assigned to you:
+
+`is:issue is:open assignee:@me`
+
+You can enter these expressions in the Issues search/filter bar. GitHub will suggest available filters as you type.
+
+If your repository uses different labels, substitute the ones you've chosen.
+
+### Find issues that haven't been updated recently
+
+Clear your filters, then locate the **Sort** menu.
+
+Try sorting by **Least recently updated** (or **Oldest updated**, depending on the interface).
+
+This helps identify issues that haven't received attention for a while.
+
+But remember: **an old issue is not necessarily an irrelevant issue.** It may represent important work that the team hasn't yet had the resources to address.
+
+The goal is to review whether the issue remains relevant and whether its next steps are clear, not to close it simply because it's old.
+
+## Step 3 — Prepare for a research meeting
+
+Return to your two open issues.
+
+Imagine your team has limited time before its next meeting.
+
+The README issue has a clear solution: update the documentation to match the corrected QC workflow.
+
+The sampling-date issue is different. Before the team can confidently compare nitrate concentrations across reaches, it needs to examine sampling coverage and decide how to proceed.
+
+Consider these questions:
+
+1. **What can you work on independently?** The README correction may be ready to implement.
+2. **What requires discussion?** The sampling-date issue may need input from your advisor or collaborators.
+3. **What should take priority?** If the team is preparing results for a conference, resolving the scientific comparison may be especially urgent, while documentation remains essential for reproducibility.
+
+There's no universal priority order. It depends on the research goals, deadlines, dependencies, and available resources.
+
+::: {.callout-tip title="Make research meetings more productive"}
+Instead of beginning every meeting by asking *"What has everyone been working on?"*, a research group can review its GitHub Issues beforehand.
+
+The meeting can then focus on:
+
+- Work completed since the previous meeting.
+- Tasks that are blocked or need help.
+- Scientific questions requiring decisions.
+- Priorities and deadlines for the next phase.
+
+After the meeting, comments and updated checklists can document decisions and new responsibilities.
+
+This is useful for scientific workflows, research software development, manuscript preparation, and other collaborative research activities.
+:::
+
+## Step 4 — Share a view of the work
+
+Here's one more useful trick.
+
+When you filter or sort issues on GitHub, the URL in your browser updates to represent that view.
+
+For example, you could filter for open issues labeled `question`, then copy the browser URL and share it with your advisor before a meeting.
+
+They can open the link to see the same filtered list, provided they have access to the repository.
+
+**Try it:** Filter your Issues list by one of your labels, then copy the browser URL. You don't need to send it to anyone for this exercise.
+
+This becomes particularly useful when a research group has many issues and wants to focus a meeting on a particular kind of work.
+
+::: {.callout-note title="What if your project has several repositories?"}
+GitHub also provides an [Issues dashboard](https://github.com/issues) where you can find work across repositories, including issues assigned to you.
+
+We'll explore how **GitHub Projects** can bring together tasks from multiple repositories, display priorities, and track progress toward research goals in the Good to Know section.
+:::
+
+## What's next?
+
+You've now seen how GitHub can help you organize research work, identify responsibilities, prepare discussions, and revisit outstanding questions.
+
+But we haven't completed any of our issues yet.
+
+In Part 6, you'll return to the README issue, make the documentation change using the GitHub workflow you learned in earlier lessons, and link the resulting pull request to the issue.
+
+You'll see how GitHub connects **planned work to completed changes**, creating a traceable record of the research process.
