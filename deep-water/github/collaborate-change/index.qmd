@@ -1099,6 +1099,44 @@ A pull request (often abbreviated **PR**) allows you to propose changes from one
 
 Importantly, a pull request is not limited to code. You can propose changes to documentation, analysis notebooks, figures, or any other files tracked in your repository.
 
+## How does a pull request work?
+
+A branch allows you to work on a proposed change without immediately modifying main. But how do you eventually incorporate that change into the shared project?
+
+That's where a pull request comes in.
+
+A pull request (often shortened to PR) allows you to propose changes from one branch to another, usually into main. It gives collaborators an opportunity to examine, discuss, and improve those changes before they're incorporated into the project.
+
+Think of it as saying to your collaborators:
+
+> "I've made some improvements to the project. Here's what I changed and why. Could you take a look before we incorporate them?"
+
+When you open a pull request, GitHub compares two branches:
+
+- **Base branch:** Where you want your changes to go (usually `main`).
+- **Compare branch:** The branch containing your proposed changes.
+
+GitHub then shows the differences between them, allowing collaborators to examine what was added, removed, or modified.
+
+A pull request provides a space where researchers can:
+
+1. **Propose:** Describe what changed and why.
+2. **Discuss:** Ask questions, identify problems, and suggest improvements.
+3. **Revise:** Make additional changes in response to feedback.
+4. **Merge:** Incorporate the accepted changes into the target branch.
+
+Importantly, **opening a pull request does not change `main`**. Your proposed changes remain on your branch until they are merged.
+
+### Why is this useful for research?
+
+Imagine that our water-quality team wants to update how nitrate measurements are handled.
+
+One researcher proposes changing the analysis, but another notices that the new method might exclude scientifically meaningful observations.
+
+A pull request allows them to discuss that decision *before* incorporating the change into the shared analysis. The discussion also provides a record of why the team made its decision.
+
+This is one of GitHub's benefits for research: **it helps preserve not only what changed, but also the reasoning behind the change.**
+
 ## Your turn: Make a meaningful improvement
 
 Now let's work with your own research repository.
@@ -1200,3 +1238,391 @@ We'll use this same pull request later in the LilyPad to practice responding to 
 
 You don't need to find a collaborator or request a real review. In the next section, we'll practice reviewing a fictional research team's pull request through an interactive simulation.
 :::
+
+# Reviewing a scientific change
+
+You've opened a pull request in your own repository. Before a proposed change becomes part of a shared research project, someone should consider not just whether the files changed as intended, but whether the **scientific workflow still makes sense**.
+
+Now you'll act as a reviewer for our fictional stream-water-quality team. You won't need a collaborator or any Python knowledge to complete the review.
+
+## How a pull-request review works
+
+In a GitHub pull request, **Files changed** shows the differences between the proposed branch and the target branch. A reviewer can select a changed line using the **+** icon, write a comment, and start a review. Comments in a pending review aren't submitted until the reviewer finishes it.
+
+GitHub provides three ways to submit a review:
+
+- **Comment:** Share feedback without explicitly approving the change or requesting revisions.
+- **Approve:** Indicate that the proposed changes are ready to merge.
+- **Request changes:** Ask the author to revise the proposal before merging. Whether this formally blocks merging depends on the repository's settings.
+
+A scientific review should consider whether the changes are **justified, clear, and reproducible**. Reviewers can contribute valuable insights by examining the methods and documentation, even if they don't write code.
+
+## Try it: Review the team's pull request
+
+Our team measures nitrate concentrations at different stations along a stream. Some station–date pairs have **replicate measurements**. Each individual measurement has a quality-control flag:
+
+- `qc_complete = 1`: the measurement has been checked and accepted for analysis.
+- `qc_complete = 0`: the quality check is incomplete, so the measurement is **not yet accepted for analysis**. This does *not* necessarily mean the measurement is erroneous.
+
+A teammate proposes changing the order in which the analysis handles quality control and averages replicates. Your task is to assess the proposal as a collaborator, rather than simply verifying that the code runs.
+
+1. Read the proposed change in **Conversation**.
+2. Open **Files changed**. Examine `README.md` and `analysis.ipynb`. You can switch to a readable notebook preview if the JSON diff is difficult to follow.
+3. Think about what happens when **some**, or **none**, of the replicates for a station and date are accepted. Is the proposed method—and the documentation—clear enough?
+4. Click a blue **+** beside a changed line, write a review comment **in your own words**, and select **Start a review**.
+5. Click **Review changes**, choose **Comment**, **Approve**, or **Request changes**, then click **Submit review**.
+
+After submitting, you'll see one possible scientific review to compare with your own. The simulation stays on this page; nothing is posted to GitHub.
+
+```{=html}
+<div id="pond-pr3" class="pond-pr3">
+  <div class="ppr-shell">
+    <div class="ppr-repo"><span aria-hidden="true">▣</span> <strong>stream-team</strong> <span class="ppr-muted">/</span> <strong>stream-water-quality</strong> <span class="ppr-repo-pill">Public</span></div>
+    <div class="ppr-title"><span>Apply quality control before averaging nitrate replicates</span> <span class="ppr-number">#12</span></div>
+    <div class="ppr-byline"><span class="ppr-open">⤴ Open</span> <strong>maya</strong> wants to merge 1 commit into <code>main</code> from <code>qc-before-averaging</code></div>
+    <div class="ppr-tabs" role="tablist" aria-label="Pull request sections">
+      <button type="button" role="tab" class="active" data-tab="conversation" aria-selected="true">Conversation</button>
+      <button type="button" role="tab" data-tab="commits" aria-selected="false">Commits <span>1</span></button>
+      <button type="button" role="tab" data-tab="files" aria-selected="false">Files changed <span>2</span></button>
+    </div>
+
+    <section class="ppr-panel" data-panel="conversation" role="tabpanel">
+      <div class="ppr-thread">
+        <div class="ppr-avatar" aria-hidden="true">M</div>
+        <div class="ppr-comment">
+          <div class="ppr-comment-top"><strong>maya</strong> opened this pull request</div>
+          <div class="ppr-comment-body">
+            <p><strong>What changed?</strong> The analysis previously averaged replicate nitrate measurements by station and date, then kept an averaged result only if every contributing measurement had passed QC. This PR changes the order: select accepted measurements first, then average the remaining replicates.</p>
+            <p><strong>Why?</strong> We don't want one measurement with incomplete QC to cause us to discard an otherwise accepted replicate from the same station and date.</p>
+            <p><strong>What to check:</strong> Does this handling of replicates make scientific sense, and is the updated documentation sufficient to reproduce it?</p>
+          </div>
+        </div>
+      </div>
+      <div id="ppr-conversation-review" class="ppr-review-event" hidden></div>
+      <p class="ppr-guidance">Next, open <strong>Files changed</strong> to examine what Maya proposes to merge.</p>
+    </section>
+
+    <section class="ppr-panel" data-panel="commits" role="tabpanel" hidden>
+      <div class="ppr-commit">◉ <strong>Filter accepted nitrate replicates before averaging</strong><span class="ppr-muted"> — maya</span></div>
+      <p class="ppr-guidance">This PR contains one commit. If the author makes another commit to <code>qc-before-averaging</code> and pushes it, this same pull request updates automatically.</p>
+    </section>
+
+    <section class="ppr-panel" data-panel="files" role="tabpanel" hidden>
+      <div class="ppr-files-toolbar"><strong>Showing 2 changed files</strong><button type="button" id="ppr-review-button" class="ppr-review-button">Review changes <span id="ppr-pending-count">0</span> ▾</button></div>
+      <div class="ppr-file">
+        <div class="ppr-file-name">▤ README.md <span>Data processing</span></div>
+        <div class="ppr-hunk">@@ How nitrate replicates are processed</div>
+        <div class="ppr-line"><span class="ppr-line-number">16</span><code>For the same station and date, several measurements may be available.</code></div>
+        <div class="ppr-line removed"><span class="ppr-line-number">17</span><code>- Replicate measurements are averaged, then groups with any incomplete QC are discarded.</code></div>
+        <div class="ppr-line added" data-line="17" data-file="README.md"><button type="button" class="ppr-add" aria-label="Comment on README.md line 17">+</button><span class="ppr-line-number">17</span><code>+ Only measurements with qc_complete = 1 are selected before averaging.</code></div>
+        <div class="ppr-line added" data-line="18" data-file="README.md"><button type="button" class="ppr-add" aria-label="Comment on README.md line 18">+</button><span class="ppr-line-number">18</span><code>+ The mean nitrate concentration is calculated from accepted replicates for each station and date.</code></div>
+      </div>
+      <div class="ppr-file">
+        <div class="ppr-file-name">▤ analysis.ipynb <span>Selected changes</span></div>
+        <div class="ppr-view-switch"><button type="button" id="ppr-source-tab" class="active">Source diff (JSON)</button><button type="button" id="ppr-preview-tab">Notebook preview <small>(learning aid)</small></button></div>
+        <div id="ppr-notebook-source">
+          <div class="ppr-hunk">@@ Notebook cell changes (simplified source diff)</div>
+          <div class="ppr-line removed"><span class="ppr-line-number">24</span><code>- "execution_count": 7,</code></div>
+          <div class="ppr-line added"><span class="ppr-line-number">24</span><code>+ "execution_count": 8,</code></div>
+          <div class="ppr-line removed"><span class="ppr-line-number">32</span><code>- "source": ["Average replicates, then exclude groups with incomplete QC."]</code></div>
+          <div class="ppr-line added" data-line="32" data-file="analysis.ipynb"><button type="button" class="ppr-add" aria-label="Comment on notebook line 32">+</button><span class="ppr-line-number">32</span><code>+ "source": ["Select accepted measurements before averaging replicates."]</code></div>
+          <div class="ppr-line removed"><span class="ppr-line-number">48</span><code>- "source": ["grouped = measurements.groupby(['station','date']).agg(nitrate=('nitrate_mg_L','mean'), qc=('qc_complete','min'))", "means = grouped[grouped['qc'] == 1]"]</code></div>
+          <div class="ppr-line added" data-line="48" data-file="analysis.ipynb"><button type="button" class="ppr-add" aria-label="Comment on notebook line 48">+</button><span class="ppr-line-number">48</span><code>+ "source": ["accepted = measurements[measurements['qc_complete'] == 1]", "means = accepted.groupby(['station','date'])['nitrate_mg_L'].mean()"]</code></div>
+        </div>
+        <div id="ppr-notebook-preview" hidden>
+          <div class="ppr-notebook-cell">
+            <span class="ppr-cell-label">Markdown cell</span>
+            <p><strong>Processing replicate nitrate measurements</strong></p>
+            <p>Replicate measurements at the same station on the same date are combined. We now select accepted measurements (QC = 1) before calculating the mean concentration.</p>
+          </div>
+          <div class="ppr-notebook-cell">
+            <span class="ppr-cell-label">Example observations (mg/L)</span>
+            <table class="ppr-sample-table"><thead><tr><th>Station</th><th>Date</th><th>Nitrate</th><th>QC</th></tr></thead><tbody>
+              <tr><td>A</td><td>June 1</td><td>2.0</td><td>1</td></tr>
+              <tr><td>A</td><td>June 1</td><td>10.0</td><td>0</td></tr>
+              <tr><td>B</td><td>June 1</td><td>4.1</td><td>0</td></tr>
+              <tr><td>B</td><td>June 1</td><td>4.3</td><td>0</td></tr>
+            </tbody></table>
+          </div>
+          <div class="ppr-notebook-cell">
+            <span class="ppr-cell-label">Code cell (optional to interpret)</span>
+            <pre>accepted = measurements[measurements["qc_complete"] == 1]
+means = accepted.groupby(["station", "date"])["nitrate_mg_L"].mean()</pre>
+          </div>
+          <p class="ppr-guidance">This rendered notebook view is a <strong>learning aid</strong>, not a replacement for GitHub's source diff. You can review the scientific steps without understanding Python. Return to <strong>Source diff (JSON)</strong> if you'd like to comment on the notebook change.</p>
+        </div>
+      </div>
+      <p class="ppr-guidance">Click a blue <strong>+</strong> beside a changed line to start a review comment. You can comment on the README, the notebook, or both.</p>
+    </section>
+
+    <div id="ppr-finish" class="ppr-finish" hidden role="dialog" aria-modal="true" aria-labelledby="ppr-finish-title">
+      <div class="ppr-finish-card">
+        <h3 id="ppr-finish-title">Finish your review</h3>
+        <p class="ppr-muted"><span id="ppr-review-count">0</span> pending comment(s)</p>
+        <label for="ppr-summary">Review summary (optional)</label>
+        <textarea id="ppr-summary" rows="3" placeholder="Summarize your review..."></textarea>
+        <fieldset>
+          <legend>Submit as</legend>
+          <label><input type="radio" name="ppr-outcome" value="comment"> <strong>Comment</strong> — Leave feedback without explicit approval.</label>
+          <label><input type="radio" name="ppr-outcome" value="approve"> <strong>Approve</strong> — This is ready to merge.</label>
+          <label><input type="radio" name="ppr-outcome" value="changes"> <strong>Request changes</strong> — Changes are needed before merging.</label>
+        </fieldset>
+        <div class="ppr-error" id="ppr-finish-error" role="alert"></div>
+        <div class="ppr-actions"><button type="button" class="ppr-secondary" id="ppr-cancel-review">Cancel</button><button type="button" class="ppr-primary" id="ppr-submit-review">Submit review</button></div>
+      </div>
+    </div>
+  </div>
+  <div id="ppr-feedback" class="ppr-feedback" hidden aria-live="polite"></div>
+  <button type="button" id="ppr-reset" class="ppr-reset">↻ Start review again</button>
+</div>
+
+<style>
+#pond-pr3 {max-width:960px;margin:1.5rem auto;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2328}
+#pond-pr3 [hidden]{display:none!important}
+#pond-pr3 button,#pond-pr3 textarea{font:inherit}
+#pond-pr3 button{cursor:pointer}
+#pond-pr3 .ppr-shell{background:#fff;border:1px solid #d1d9e0;border-radius:9px;position:relative;overflow:hidden}
+#pond-pr3 .ppr-repo{padding:13px 19px;color:#0969da;border-bottom:1px solid #d1d9e0}
+#pond-pr3 .ppr-repo-pill{color:#59636e;border:1px solid #d1d9e0;border-radius:14px;padding:2px 7px;font-size:11px;margin-left:8px}
+#pond-pr3 .ppr-title{font-size:22px;font-weight:600;padding:17px 19px 5px;line-height:1.25}
+#pond-pr3 .ppr-number,.ppr-muted{color:#59636e;font-weight:400}
+#pond-pr3 .ppr-byline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:4px 19px 17px;color:#59636e}
+#pond-pr3 .ppr-byline code{color:#1f2328;background:#f0f3f6;padding:2px 6px;border-radius:12px}
+#pond-pr3 .ppr-open{color:#fff;background:#1f883d;border-radius:20px;padding:5px 11px;font-weight:600;margin-right:4px}
+#pond-pr3 .ppr-tabs{display:flex;gap:7px;padding:0 15px;border-bottom:1px solid #d1d9e0;overflow:auto}
+#pond-pr3 .ppr-tabs button{background:transparent;border:0;border-bottom:2px solid transparent;color:#59636e;padding:13px 9px;white-space:nowrap}
+#pond-pr3 .ppr-tabs button.active{color:#1f2328;border-bottom-color:#fd8c73;font-weight:600}
+#pond-pr3 .ppr-tabs button span{background:#eaeef2;padding:1px 6px;border-radius:15px;font-size:12px}
+#pond-pr3 .ppr-panel{padding:17px 18px 22px;min-height:170px}
+#pond-pr3 .ppr-thread{display:flex;gap:10px;align-items:flex-start}
+#pond-pr3 .ppr-avatar{background:#9165b5;color:white;display:grid;place-items:center;width:33px;height:33px;border-radius:50%;font-weight:bold;flex-shrink:0}
+#pond-pr3 .ppr-comment{flex:1;min-width:0;border:1px solid #d1d9e0;border-radius:7px;overflow:hidden}
+#pond-pr3 .ppr-comment-top{background:#f6f8fa;border-bottom:1px solid #d1d9e0;padding:10px 12px}
+#pond-pr3 .ppr-comment-body{padding:12px}
+#pond-pr3 .ppr-comment-body p{margin:0 0 10px}
+#pond-pr3 .ppr-comment-body p:last-child{margin-bottom:0}
+#pond-pr3 .ppr-guidance{font-size:13px;color:#59636e;background:#f6f8fa;border-radius:5px;padding:10px 12px;margin:13px 0 0}
+#pond-pr3 .ppr-review-event{margin:16px 0 0 43px;border:1px solid #d1d9e0;padding:11px;border-radius:7px}
+#pond-pr3 .ppr-commit{padding:14px;border:1px solid #d1d9e0;border-radius:6px}
+#pond-pr3 .ppr-files-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+#pond-pr3 .ppr-review-button,#pond-pr3 .ppr-secondary{border:1px solid #d1d9e0;background:#f6f8fa;border-radius:6px;padding:7px 11px;color:#1f2328}
+#pond-pr3 .ppr-review-button:hover,#pond-pr3 .ppr-secondary:hover{background:#eaeef2}
+#pond-pr3 .ppr-review-button span{background:#dbeafe;color:#0969da;border-radius:10px;padding:0 5px}
+#pond-pr3 .ppr-file{border:1px solid #d1d9e0;border-radius:7px;margin-bottom:17px;overflow:hidden}
+#pond-pr3 .ppr-file-name{background:#f6f8fa;border-bottom:1px solid #d1d9e0;font-weight:600;padding:10px 12px}
+#pond-pr3 .ppr-file-name span{font-size:12px;color:#59636e;margin-left:10px;font-weight:normal}
+#pond-pr3 .ppr-hunk{background:#eaf5ff;color:#325a80;font:12px ui-monospace,SFMono-Regular,Consolas,monospace;padding:6px 12px;border-bottom:1px solid #d1d9e0}
+#pond-pr3 .ppr-line{position:relative;display:flex;min-height:29px;align-items:center;border-bottom:1px solid #ffffff88;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+#pond-pr3 .ppr-line.added{background:#dafbe1}
+#pond-pr3 .ppr-line.removed{background:#ffebe9}
+#pond-pr3 .ppr-line-number{width:49px;flex-shrink:0;text-align:right;padding:5px 8px;color:#68727d;border-right:1px solid #d1d9e080}
+#pond-pr3 .ppr-line code{white-space:pre-wrap;overflow-wrap:anywhere;color:inherit;padding:5px 9px;background:transparent;font:inherit}
+#pond-pr3 .ppr-add{border:0;border-radius:4px;background:#0969da;color:white;width:22px;height:22px;flex-shrink:0;font-weight:700;margin:0 3px 0 5px}
+#pond-pr3 .ppr-add:hover{background:#0550ae}
+#pond-pr3 .ppr-view-switch{display:flex;gap:5px;padding:9px;background:#fff;border-bottom:1px solid #d1d9e0;flex-wrap:wrap}
+#pond-pr3 .ppr-view-switch button{padding:5px 10px;border:1px solid #d1d9e0;border-radius:6px;background:#fff;color:#1f2328}
+#pond-pr3 .ppr-view-switch button.active{background:#eaf5ff;border-color:#0969da}
+#pond-pr3 .ppr-notebook-cell{border-bottom:1px solid #d1d9e0;padding:13px 16px}
+#pond-pr3 .ppr-notebook-cell p{margin:8px 0}
+#pond-pr3 .ppr-cell-label{color:#59636e;font-size:12px}
+#pond-pr3 .ppr-notebook-cell pre{background:#f6f8fa;padding:9px;overflow:auto}
+#pond-pr3 #ppr-notebook-preview .ppr-guidance{margin:12px}
+#pond-pr3 .ppr-inline-editor,#pond-pr3 .ppr-pending-comment{padding:12px;background:#fff;border:1px solid #d1d9e0;border-radius:7px;margin:8px 10px 10px 36px;box-shadow:0 2px 8px #00000012}
+#pond-pr3 .ppr-inline-editor label{display:block;font-weight:600;margin-bottom:6px}
+#pond-pr3 .ppr-inline-editor textarea,#pond-pr3 #ppr-summary{width:100%;box-sizing:border-box;border:1px solid #b7c0cb;border-radius:6px;padding:10px;color:#1f2328;background:white;resize:vertical}
+#pond-pr3 .ppr-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+#pond-pr3 .ppr-primary{border:1px solid #1a7f37;border-radius:6px;background:#1f883d;color:#fff;padding:7px 12px}
+#pond-pr3 .ppr-primary:hover{background:#1a7f37}
+#pond-pr3 .ppr-pending-comment strong{color:#59636e;display:block;margin-bottom:5px}
+#pond-pr3 .ppr-pending-comment div{white-space:pre-wrap;overflow-wrap:anywhere}
+#pond-pr3 .ppr-finish{position:absolute;inset:0;background:#1f232873;display:flex;align-items:flex-start;justify-content:center;padding:20px 10px;z-index:3}
+#pond-pr3 .ppr-finish-card{background:#fff;border-radius:8px;box-shadow:0 6px 35px #0004;padding:20px;width:min(460px,100%);box-sizing:border-box}
+#pond-pr3 .ppr-finish-card h3{font-size:18px;color:#1f2328;margin:0 0 7px}
+#pond-pr3 .ppr-finish-card label{display:block;margin:10px 0 6px;color:#1f2328}
+#pond-pr3 .ppr-finish-card fieldset{border:0;padding:0;margin-top:13px}
+#pond-pr3 .ppr-finish-card legend{font-weight:600}
+#pond-pr3 .ppr-finish-card fieldset label{padding:4px 0}
+#pond-pr3 .ppr-error{color:#cf222e;font-size:13px;margin-top:8px}
+#pond-pr3 .ppr-feedback{background:#f6f8fa;border:1px solid #d1d9e0;border-radius:8px;padding:14px 18px;margin-top:14px;color:#1f2328}
+#pond-pr3 .ppr-feedback p{margin:7px 0}
+#pond-pr3 .ppr-feedback blockquote{border-left:3px solid #8c959f;margin:8px 0;padding:6px 12px;background:#fff}
+#pond-pr3 .ppr-reset{border:0;color:#0969da;background:none;padding:9px 2px}
+@media(max-width:570px){#pond-pr3 .ppr-title{font-size:18px}#pond-pr3 .ppr-panel{padding:12px 9px}#pond-pr3 .ppr-thread{gap:5px}#pond-pr3 .ppr-avatar{display:none}#pond-pr3 .ppr-line{font-size:11px}#pond-pr3 .ppr-line-number{width:30px;padding:4px}#pond-pr3 .ppr-inline-editor,#pond-pr3 .ppr-pending-comment{margin-left:6px}#pond-pr3 .ppr-finish{padding:8px}}
+#pond-pr3 .ppr-sample-table {width:100%;max-width:530px;border-collapse:collapse;margin-top:10px;font-size:13px}
+#pond-pr3 .ppr-sample-table th,#pond-pr3 .ppr-sample-table td {padding:7px 11px;border:1px solid #d1d9e0;text-align:left}
+#pond-pr3 .ppr-sample-table th {background:#f6f8fa}
+#pond-pr3 .ppr-sample-table tbody tr:nth-child(even) {background:#f8fafc}
+#pond-pr3 .ppr-file-name {overflow-wrap:anywhere}
+
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-pr3");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "yes";
+  const $ = selector => root.querySelector(selector);
+  const $$ = selector => Array.from(root.querySelectorAll(selector));
+  const pending = [];
+  let selectedRow = null;
+  let inlineEditor = null;
+  let submitted = false;
+
+  function tab(name) {
+    $$(".ppr-tabs button").forEach(b => {
+      const active = b.dataset.tab === name;
+      b.classList.toggle("active", active);
+      b.setAttribute("aria-selected", String(active));
+    });
+    $$(".ppr-panel").forEach(p => p.hidden = p.dataset.panel !== name);
+  }
+  $$(".ppr-tabs button").forEach(b => b.addEventListener("click", () => tab(b.dataset.tab)));
+
+  function makeButton(label, cssClass, onClick) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = cssClass;
+    b.textContent = label;
+    b.addEventListener("click", onClick);
+    return b;
+  }
+  function removeInlineEditor() {
+    if (inlineEditor) inlineEditor.remove();
+    inlineEditor = null;
+    selectedRow = null;
+  }
+  function openComment(row) {
+    if (submitted) return;
+    removeInlineEditor();
+    selectedRow = row;
+    const box = document.createElement("div");
+    box.className = "ppr-inline-editor";
+    const label = document.createElement("label");
+    label.textContent = `Comment on ${row.dataset.file}, line ${row.dataset.line}`;
+    const textArea = document.createElement("textarea");
+    textArea.rows = 3;
+    textArea.placeholder = "Ask a question or explain a concern about this change...";
+    const warning = document.createElement("div");
+    warning.className = "ppr-error";
+    const actions = document.createElement("div");
+    actions.className = "ppr-actions";
+    actions.append(makeButton("Cancel", "ppr-secondary", removeInlineEditor));
+    actions.append(makeButton(pending.length ? "Add review comment" : "Start a review", "ppr-primary", () => {
+      const comment = textArea.value.trim();
+      if (!comment) {warning.textContent = "Write a comment before adding it to your review.";return;}
+      pending.push({file: row.dataset.file, line: row.dataset.line, comment});
+      const saved = document.createElement("div");
+      saved.className = "ppr-pending-comment";
+      const heading = document.createElement("strong");
+      heading.textContent = `Your pending review comment · ${row.dataset.file}:${row.dataset.line}`;
+      const body = document.createElement("div");
+      body.textContent = comment;
+      saved.append(heading, body);
+      row.after(saved);
+      removeInlineEditor();
+      $("#ppr-pending-count").textContent = pending.length;
+      $("#ppr-review-count").textContent = pending.length;
+    }));
+    box.append(label, textArea, warning, actions);
+    row.after(box);
+    inlineEditor = box;
+    textArea.focus();
+  }
+  $$(".ppr-add").forEach(btn => btn.addEventListener("click", () => openComment(btn.closest(".ppr-line"))));
+
+  $("#ppr-source-tab").addEventListener("click", () => {
+    removeInlineEditor();
+    $("#ppr-notebook-source").hidden = false;
+    $("#ppr-notebook-preview").hidden = true;
+    $("#ppr-source-tab").classList.add("active");
+    $("#ppr-preview-tab").classList.remove("active");
+  });
+  $("#ppr-preview-tab").addEventListener("click", () => {
+    removeInlineEditor();
+    $("#ppr-notebook-source").hidden = true;
+    $("#ppr-notebook-preview").hidden = false;
+    $("#ppr-source-tab").classList.remove("active");
+    $("#ppr-preview-tab").classList.add("active");
+  });
+
+  $("#ppr-review-button").addEventListener("click", () => {
+    if (submitted) return;
+    if (!pending.length) {
+      $("#ppr-feedback").hidden = false;
+      $("#ppr-feedback").textContent = "First, click + beside a changed line, write a comment, and select Start a review. This practice activity asks you to include at least one line-specific comment.";
+      return;
+    }
+    removeInlineEditor();
+    $("#ppr-finish-error").textContent = "";
+    $("#ppr-finish").hidden = false;
+  });
+  $("#ppr-cancel-review").addEventListener("click", () => $("#ppr-finish").hidden = true);
+  $("#ppr-submit-review").addEventListener("click", () => {
+    const selected = $("input[name='ppr-outcome']:checked");
+    if (!selected) {$("#ppr-finish-error").textContent = "Choose a review outcome before submitting.";return;}
+    submitted = true;
+    $("#ppr-finish").hidden = true;
+    $("#ppr-review-button").disabled = true;
+    $$(".ppr-pending-comment strong").forEach(e => e.textContent = e.textContent.replace("Your pending review comment", "Your review comment"));
+    $$(".ppr-add").forEach(b => b.disabled = true);
+    const status = {comment:"Commented",approve:"Approved",changes:"Changes requested"}[selected.value];
+    const summary = $("#ppr-summary").value.trim();
+    const event = $("#ppr-conversation-review");
+    event.hidden = false;
+    event.textContent = `You submitted a review: ${status}. ${pending.length} line comment(s).` + (summary ? ` Summary: ${summary}` : "");
+    const feedback = $("#ppr-feedback");
+    feedback.hidden = false;
+    feedback.textContent = "";
+    const title = document.createElement("strong");
+    title.textContent = `Review submitted — ${status}`;
+    const advice = document.createElement("p");
+    advice.textContent = selected.value === "changes"
+      ? "Requesting changes is reasonable if you think the missing details affect the reproducibility of this analysis. The revised order preserves accepted replicates that the old workflow would have discarded, but the treatment of station–date groups with no accepted measurements should be clear."
+      : selected.value === "approve"
+      ? "The proposed order is scientifically defensible. Before approving, however, consider whether the documentation makes clear what happens when all replicates for a station and date have incomplete QC. If that omission could affect interpretation or reproducibility, asking for a revision is reasonable."
+      : "Commenting is useful for questions and suggestions. If the ambiguity about excluded station–date groups affects whether the analysis can be reproduced, you could also request changes before merging.";
+    const example = document.createElement("blockquote");
+    example.textContent = "Filtering accepted observations before calculating a replicate mean seems appropriate. Could the README also say what happens when none of the replicates for a station–date pair has QC = 1? Is that station–date absent from the summarized data, and how is that exclusion documented? Since QC = 0 means incomplete checks rather than confirmed erroneous data, this policy seems important to make explicit.";
+    const note = document.createElement("p");
+    note.textContent = "Think through two cases from the notebook: at station A, the old method averages 2.0 and 10.0 mg/L, then discards that group; the new method retains the accepted 2.0 mg/L measurement. At station B, neither measurement is accepted, so the new average is absent. A changed execution count in the JSON diff is different from these scientifically meaningful changes. Your written comment was not automatically graded; compare its reasoning with the example above.";
+    feedback.append(title, advice, example, note);
+    feedback.scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+
+  $("#ppr-reset").addEventListener("click", () => {
+    pending.length = 0;
+    submitted = false;
+    removeInlineEditor();
+    $$(".ppr-pending-comment").forEach(e => e.remove());
+    $$(".ppr-add").forEach(b => b.disabled = false);
+    $("#ppr-review-button").disabled = false;
+    $("#ppr-pending-count").textContent = "0";
+    $("#ppr-review-count").textContent = "0";
+    $("#ppr-summary").value = "";
+    $$("input[name='ppr-outcome']").forEach(r => r.checked = false);
+    $("#ppr-finish").hidden = true;
+    $("#ppr-finish-error").textContent = "";
+    $("#ppr-feedback").hidden = true;
+    $("#ppr-feedback").textContent = "";
+    $("#ppr-conversation-review").hidden = true;
+    $("#ppr-conversation-review").textContent = "";
+    $("#ppr-source-tab").click();
+    tab("conversation");
+  });
+})();
+</script>
+```
+
+## Why did the notebook diff look strange?
+
+A Jupyter notebook (`.ipynb`) is stored as **JSON**. It contains Markdown text, code, metadata, execution counts, and sometimes saved outputs. A source diff can therefore look quite different from the notebook you read in Jupyter—even when a change is scientifically straightforward.
+
+GitHub can display notebooks as readable static pages when browsing a repository, but source diffs may expose JSON details or be harder to review. In this simulation, **Notebook preview** is a teaching aid that lets you examine the scientific narrative and sample observations without deciphering Python or JSON. In a real review, you can ask the author to explain a change, inspect a rendered notebook when available, or open it in Jupyter.
+
+The important distinction is between *incidental file changes* (such as a changed execution count) and changes that affect **which observations enter an analysis**. Saved notebook outputs can be scientifically meaningful too; they shouldn't automatically be dismissed.
+
+## Bring the reviewer's perspective to your own PR
+
+Go back to your **own open pull request** and select **Files changed**. Could another researcher understand what you changed and why? Is any information missing that might be important for reproducing the work?
+
+Keep your pull request open. In Part 4, you'll update it in response to feedback and then merge it.
