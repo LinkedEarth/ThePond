@@ -1626,3 +1626,257 @@ The important distinction is between *incidental file changes* (such as a change
 Go back to your **own open pull request** and select **Files changed**. Could another researcher understand what you changed and why? Is any information missing that might be important for reproducing the work?
 
 Keep your pull request open. In Part 4, you'll update it in response to feedback and then merge it.
+
+# Respond, merge, and synchronize
+
+In Part 3, you examined a proposed change to the water-quality team's nitrate workflow. The team wanted to **apply quality control to individual measurements before averaging replicates**, so accepted measurements would not be lost just because another replicate had incomplete QC.
+
+But a reviewer raised a question: **what happens when no measurements at a station and date have passed quality control?** A good pull request gives collaborators a place to resolve that question *before* the change reaches `main`.
+
+## Follow the conversation: What happens after a review?
+
+In our fictional team, Alex requested clarification. Maya didn't create a separate pull request: she revised the existing branch, committed the additional documentation, and pushed it to GitHub. The original pull request updated automatically.
+
+Explore the continuation below:
+
+1. Read Alex's review and Maya's response in **Conversation**.
+2. Open **Commits** to find the additional commit.
+3. Inspect **Files changed** to see how the documentation addresses the concern. The blue margin identifies the second-commit changes *in this simulation only*.
+4. When you're satisfied with the revision, choose **Merge pull request**, then **Confirm merge**. You can also try **Delete branch** afterward.
+
+This simulation does not alter any real GitHub repository.
+
+```{=html}
+<div id="pond-pr4" class="pond-pr4">
+  <div class="p4-shell">
+    <div class="p4-repo">▣ <strong>stream-team</strong> / <strong>stream-water-quality</strong> <span class="p4-repo-pill">Public</span></div>
+    <div class="p4-title">Apply quality control before averaging nitrate replicates <span class="p4-muted">#12</span></div>
+    <div class="p4-byline"><span id="p4-status" class="p4-status">⤴ Open</span> <strong>maya</strong> wants to merge 2 commits into <code>main</code> from <code>qc-before-averaging</code></div>
+    <div class="p4-tabs" role="tablist" aria-label="Pull request sections">
+      <button type="button" data-p4-tab="conversation" class="active" role="tab" aria-selected="true">Conversation</button>
+      <button type="button" data-p4-tab="commits" role="tab" aria-selected="false">Commits <span>2</span></button>
+      <button type="button" data-p4-tab="files" role="tab" aria-selected="false">Files changed <span>2</span></button>
+    </div>
+    <section class="p4-panel" role="tabpanel" data-p4-panel="conversation">
+      <div class="p4-thread">
+        <div class="p4-avatar p4-alex">A</div>
+        <div class="p4-comment">
+          <div class="p4-comment-top"><strong>alex</strong> requested changes</div>
+          <div class="p4-comment-body">The QC-first approach seems sensible. Could we document what happens when *all* replicates for a station and date have incomplete QC? Is that station–date excluded from the summary?</div>
+        </div>
+      </div>
+      <div class="p4-thread">
+        <div class="p4-avatar p4-maya">M</div>
+        <div class="p4-comment">
+          <div class="p4-comment-top"><strong>maya</strong> replied</div>
+          <div class="p4-comment-body">Good point. I've added an explanation to the README and notebook. The derived summary excludes station–date pairs with no accepted measurements, but the original observations remain in the source dataset. I've pushed the update to this branch.</div>
+        </div>
+      </div>
+      <div class="p4-event">◉ <strong>maya</strong> added a commit: <strong>Document station–date groups with no accepted replicates</strong></div>
+      <div class="p4-event p4-approval">✓ <strong>alex</strong> approved these changes after reviewing the revision.</div>
+      <p class="p4-hint">A reply explains the decision to the reviewer. The additional commit also makes that decision part of the project's documented files.</p>
+    </section>
+    <section class="p4-panel" role="tabpanel" data-p4-panel="commits" hidden>
+      <div class="p4-event">◉ <strong>Filter accepted nitrate replicates before averaging</strong><span class="p4-muted"> — maya, first commit</span></div>
+      <div class="p4-event">◉ <strong>Document station–date groups with no accepted replicates</strong><span class="p4-muted"> — maya, follow-up commit</span></div>
+      <p class="p4-hint">Both commits belong to <code>qc-before-averaging</code>. Pushing the second commit updated pull request #12 automatically.</p>
+    </section>
+    <section class="p4-panel" role="tabpanel" data-p4-panel="files" hidden>
+      <p class="p4-file-intro">This view compares the proposed branch with <code>main</code>. The green lines below include the clarification added after the review.</p>
+      <div class="p4-file">
+        <div class="p4-file-header">▤ README.md <span>Data processing</span></div>
+        <div class="p4-hunk">@@ Processing replicate nitrate measurements</div>
+        <div class="p4-line p4-removed"><code>- Average replicates first, then remove groups with incomplete QC.</code></div>
+        <div class="p4-line p4-added"><code>+ Select measurements with qc_complete = 1 before averaging.</code></div>
+        <div class="p4-line p4-added"><code>+ Calculate the mean from the accepted replicates for each station and date.</code></div>
+        <div class="p4-line p4-added p4-new"><code>+ If no measurements pass QC, that station–date pair has no value in the derived summary.</code></div>
+        <div class="p4-line p4-added p4-new"><code>+ Original measurements, including those with incomplete QC, remain in the source dataset.</code></div>
+      </div>
+      <div class="p4-file">
+        <div class="p4-file-header">▤ analysis.ipynb <span>Notebook Markdown cell</span></div>
+        <div class="p4-hunk">@@ Description of the updated workflow (simplified)</div>
+        <div class="p4-line p4-added"><code>+ Filter for accepted measurements before calculating replicate means.</code></div>
+        <div class="p4-line p4-added p4-new"><code>+ Groups with zero accepted measurements are absent from the resulting mean table.</code></div>
+      </div>
+      <p class="p4-hint">The blue edge marks text added in the **second** commit. This highlighting is provided by the simulation to help you follow the story; GitHub's ordinary Files changed view shows the overall difference between the branches.</p>
+    </section>
+    <div id="p4-merge-area" class="p4-merge-area">
+      <div class="p4-merge-note">✓ Review approved · Proposed changes can be merged into <code>main</code>.</div>
+      <button type="button" id="p4-merge" class="p4-primary">Merge pull request</button>
+      <p id="p4-need-view" class="p4-warning" hidden>Before merging, open <strong>Files changed</strong> and inspect the updated documentation.</p>
+    </div>
+    <div id="p4-confirm-area" class="p4-confirm-area" hidden>
+      <strong>Confirm the merge</strong>
+      <p>This will incorporate the proposed changes into <code>main</code>.</p>
+      <button type="button" class="p4-secondary" id="p4-cancel">Cancel</button>
+      <button type="button" class="p4-primary" id="p4-confirm">Confirm merge</button>
+    </div>
+    <div id="p4-merged-area" class="p4-merged-area" hidden>
+      <strong>✓ Pull request successfully merged and closed</strong>
+      <p>The changes are now part of the remote <code>main</code> branch. Your local <code>main</code> would still need to be updated.</p>
+      <button type="button" id="p4-delete" class="p4-secondary">Delete branch</button>
+      <span id="p4-deleted" hidden>Remote branch deleted.</span>
+    </div>
+  </div>
+  <button type="button" id="p4-reset" class="p4-reset">↻ Reset simulation</button>
+</div>
+<style>
+#pond-pr4{max-width:960px;margin:1.5rem auto;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2328}
+#pond-pr4 [hidden]{display:none!important}
+#pond-pr4 button{font:inherit;cursor:pointer}
+#pond-pr4 .p4-shell{border:1px solid #d1d9e0;border-radius:9px;overflow:hidden;background:#fff}
+#pond-pr4 .p4-repo{border-bottom:1px solid #d1d9e0;padding:12px 17px;color:#0969da}
+#pond-pr4 .p4-repo-pill{font-size:11px;color:#59636e;border:1px solid #d1d9e0;border-radius:12px;padding:2px 7px;margin-left:7px}
+#pond-pr4 .p4-title{font-size:20px;font-weight:650;padding:17px 17px 6px}
+#pond-pr4 .p4-muted{color:#59636e;font-weight:400}
+#pond-pr4 .p4-byline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#59636e;padding:0 17px 16px}
+#pond-pr4 .p4-byline code,#pond-pr4 .p4-merge-note code{background:#f0f3f6;border-radius:12px;color:#24292f;padding:2px 6px}
+#pond-pr4 .p4-status{color:#fff;background:#1f883d;border-radius:20px;padding:5px 11px;font-weight:600;margin-right:4px}
+#pond-pr4 .p4-status.merged{background:#8250df}
+#pond-pr4 .p4-tabs{display:flex;gap:8px;border-bottom:1px solid #d1d9e0;padding:0 14px;overflow:auto}
+#pond-pr4 .p4-tabs button{border:0;border-bottom:2px solid transparent;background:transparent;padding:13px 9px;color:#59636e;white-space:nowrap}
+#pond-pr4 .p4-tabs button.active{color:#1f2328;border-bottom-color:#fd8c73;font-weight:600}
+#pond-pr4 .p4-tabs button span{background:#eaeef2;border-radius:12px;font-size:12px;padding:1px 6px}
+#pond-pr4 .p4-panel{padding:18px;min-height:120px}
+#pond-pr4 .p4-thread{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px}
+#pond-pr4 .p4-avatar{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:#fff;font-weight:700;flex-shrink:0}
+#pond-pr4 .p4-alex{background:#216e90}#pond-pr4 .p4-maya{background:#9165b5}
+#pond-pr4 .p4-comment{flex:1;border:1px solid #d1d9e0;border-radius:7px;overflow:hidden;min-width:0}
+#pond-pr4 .p4-comment-top{background:#f6f8fa;border-bottom:1px solid #d1d9e0;padding:9px 11px}
+#pond-pr4 .p4-comment-body{padding:12px}
+#pond-pr4 .p4-event{padding:11px 12px;border:1px solid #d1d9e0;border-radius:6px;margin:9px 0}
+#pond-pr4 .p4-approval{border-left:4px solid #1f883d}
+#pond-pr4 .p4-hint{background:#f6f8fa;border-radius:5px;color:#59636e;padding:10px 12px;margin:12px 0 0;font-size:13px}
+#pond-pr4 .p4-file-intro{margin:0 0 13px;color:#59636e}
+#pond-pr4 .p4-file{border:1px solid #d1d9e0;border-radius:7px;overflow:hidden;margin-bottom:14px}
+#pond-pr4 .p4-file-header{background:#f6f8fa;font-weight:650;padding:10px 12px;border-bottom:1px solid #d1d9e0}
+#pond-pr4 .p4-file-header span{font-weight:400;font-size:12px;color:#59636e;margin-left:9px}
+#pond-pr4 .p4-hunk{background:#eaf5ff;color:#325a80;padding:7px 12px;font:12px ui-monospace,SFMono-Regular,Consolas,monospace}
+#pond-pr4 .p4-line{font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;padding:7px 12px;overflow-wrap:anywhere;border-top:1px solid #ffffff90}
+#pond-pr4 .p4-line code{font:inherit;color:inherit;background:none;white-space:pre-wrap;overflow-wrap:anywhere}
+#pond-pr4 .p4-added{background:#dafbe1}#pond-pr4 .p4-removed{background:#ffebe9}
+#pond-pr4 .p4-new{border-left:4px solid #0969da}
+#pond-pr4 .p4-merge-area,#pond-pr4 .p4-confirm-area,#pond-pr4 .p4-merged-area{border-top:1px solid #d1d9e0;padding:17px;background:#f6f8fa}
+#pond-pr4 .p4-merge-note{padding:0 0 12px;color:#24753a}
+#pond-pr4 .p4-primary{border-radius:6px;color:#fff;background:#1f883d;border:1px solid #1a7f37;padding:8px 13px}
+#pond-pr4 .p4-primary:hover{background:#1a7f37}
+#pond-pr4 .p4-secondary{border-radius:6px;background:#fff;border:1px solid #d1d9e0;padding:8px 13px;color:#1f2328;margin-right:8px}
+#pond-pr4 .p4-warning{color:#9a6700;margin:10px 0 0}
+#pond-pr4 .p4-confirm-area p,#pond-pr4 .p4-merged-area p{margin:8px 0 14px}
+#pond-pr4 .p4-merged-area{background:#dafbe1;color:#1f2328}
+#pond-pr4 #p4-deleted{color:#24753a;font-weight:600}
+#pond-pr4 .p4-reset{background:none;color:#0969da;border:0;padding:10px 0}
+@media(max-width:570px){#pond-pr4 .p4-title{font-size:17px}#pond-pr4 .p4-panel{padding:12px}#pond-pr4 .p4-thread{gap:5px}#pond-pr4 .p4-avatar{display:none}#pond-pr4 .p4-line{font-size:11px}}
+</style>
+<script>
+(() => {
+  const root = document.getElementById("pond-pr4");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+  const $ = id => root.querySelector("#" + id);
+  const $$ = sel => [...root.querySelectorAll(sel)];
+  let reviewedFiles = false;
+  function tab(name){
+    $$('[data-p4-tab]').forEach(b => {
+      const active = b.dataset.p4Tab === name;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected',String(active));
+    });
+    $$('[data-p4-panel]').forEach(p => p.hidden = p.dataset.p4Panel !== name);
+    if (name === 'files') reviewedFiles = true;
+  }
+  $$('[data-p4-tab]').forEach(b => b.addEventListener('click', () => tab(b.dataset.p4Tab)));
+  $('p4-merge').addEventListener('click', () => {
+    if (!reviewedFiles){$('p4-need-view').hidden = false;tab('files');return;}
+    $('p4-need-view').hidden = true;
+    $('p4-merge-area').hidden = true;
+    $('p4-confirm-area').hidden = false;
+  });
+  $('p4-cancel').addEventListener('click', () => {
+    $('p4-confirm-area').hidden = true;
+    $('p4-merge-area').hidden = false;
+  });
+  $('p4-confirm').addEventListener('click', () => {
+    $('p4-confirm-area').hidden = true;
+    $('p4-merged-area').hidden = false;
+    $('p4-status').textContent = '✓ Merged';
+    $('p4-status').classList.add('merged');
+    tab('conversation');
+  });
+  $('p4-delete').addEventListener('click', () => {
+    $('p4-delete').hidden = true;
+    $('p4-deleted').hidden = false;
+  });
+  $('p4-reset').addEventListener('click', () => {
+    reviewedFiles = false;
+    $('p4-status').textContent = '⤴ Open';
+    $('p4-status').classList.remove('merged');
+    $('p4-merge-area').hidden = false;
+    $('p4-confirm-area').hidden = true;
+    $('p4-merged-area').hidden = true;
+    $('p4-need-view').hidden = true;
+    $('p4-delete').hidden = false;
+    $('p4-deleted').hidden = true;
+    tab('conversation');
+  });
+})();
+</script>
+```
+
+::: {.callout-note}
+## What changed in the conversation?
+
+A reviewer didn't need to write Python to identify a scientific gap: the treatment of station–date pairs with **zero accepted replicates** needed to be explicit. Maya clarified that these pairs have no mean in the *derived summary*, while their original measurements remain available in the source dataset. This is an example of review improving the **interpretability and reproducibility** of a workflow.
+:::
+
+## Your turn: Update your open pull request
+
+Now return to the **real pull request you created in Part 2**. You don't need a real reviewer: use the perspective you practiced in Part 3 and identify one additional improvement to your own changes. For example, you might clarify a data source, explain a quality-control decision, or make a documentation instruction easier to follow. Avoid inventing research details you don't know.
+
+1. In **GitHub Desktop**, select your repository and make sure **Current Branch** is the branch used for your open pull request, **not** `main`.
+2. Edit the relevant file locally, then save it.
+3. Return to GitHub Desktop and inspect the new changes in the **Changes** tab.
+4. Write a focused commit message, such as `Clarify treatment of excluded observations`, and click **Commit to [your branch name]**.
+5. Select **Push origin** to send that commit to GitHub. (If Desktop offers **Publish branch** instead, check that you're on the branch you published in Part 2.)
+6. Open your **existing pull request** in GitHub. Check **Commits** and **Files changed**. Your new commit should appear in that *same* pull request—no second PR is necessary.
+
+::: {.callout-tip}
+## Why not open another pull request?
+
+A pull request follows changes on a particular branch. When you push another commit to that branch, GitHub incorporates it into the open PR. That lets reviewers follow the evolution of a single proposal and the decisions made along the way.
+:::
+
+## Merge your improvement
+
+A collaborator would normally assess the updated proposal and provide approval when appropriate. Because you're working independently, **your own inspection is not an independent review**, and you cannot approve your own pull request on GitHub. For this exercise, you can merge your own PR if the repository's settings permit it.
+
+1. Open your pull request on the **GitHub website** and confirm its **Files changed** tab shows the intended final edits.
+2. Return to **Conversation** and find **Merge pull request**. If your repository allows the merge, select it and then **Confirm merge**. If the button is unavailable, read GitHub's explanation rather than changing project rules simply to finish the activity.
+3. Once the pull request is merged, GitHub may offer **Delete branch**. You may delete the remote working branch, since the accepted changes are now in `main`.
+
+Notice that merging updates `main` **on GitHub**. Your local copy of `main` still needs to catch up.
+
+## Synchronize your local repository
+
+1. Return to **GitHub Desktop**.
+2. Open **Current Branch** and switch to **main**. Before switching, make sure you don't have uncommitted local edits that could interfere.
+3. Click **Fetch origin** to check for changes on GitHub. If Desktop shows **Pull origin**, click it to bring the merged commits into your local `main`.
+4. Verify that your edited file now contains the merged improvement, even though you're on `main` rather than your working branch.
+5. Optionally delete the *local* working branch when you're sure you no longer need it. Deleting a branch is different from deleting the commits already merged into `main`.
+
+::: {.callout-important}
+## Keep the roles distinct
+
+- **Commit** saves your change locally on the current branch.
+- **Push origin** sends new local commits to GitHub and updates an open PR based on that branch.
+- **Merge pull request** incorporates the accepted change into the *remote* `main` branch.
+- **Fetch origin / Pull origin** helps update your *local* `main` after the merge.
+:::
+
+## Check your progress
+
+By the end of this activity, you should have a **merged pull request** in your GitHub repository, at least two commits documenting the improvement and its revision, and a local `main` branch that contains the final changes.
+
+As you look back at your pull request, notice what the process preserved: not just *what* changed, but *why* it changed and how a proposed improvement became part of the research project.
+
+
