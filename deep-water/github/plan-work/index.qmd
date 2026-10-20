@@ -546,11 +546,17 @@ Now it's time to turn these concerns into real GitHub Issues.
 You'll create **two issues in your repository**: one describing a specific task and another identifying a scientific question that needs investigation.
 
 ::: {.callout-note title="Working with your own repository"}
-The water-quality project provides our example, but your repository might contain a different geoscience study.
+The water-quality project provides our example, but your repository might contain a different geoscience study or a research software project.
 
-Adapt the issues to your own research files. For instance, if your README doesn't contain an incorrect QC description, you might create an issue to add missing methods or reproduction instructions instead.
+You can use GitHub Issues to track:
 
-The important thing is to create issues describing meaningful work for your project, not to invent problems that don't exist.
+- **Scientific workflows:** Document methods, investigate data-quality concerns, plan analyses, or discuss scientific interpretations.
+- **Research software:** Report bugs, propose features, improve documentation, plan releases, or investigate unexpected software behavior.
+- **Research project activities:** Coordinate meetings, prepare manuscripts, organize conference presentations, or record decisions.
+
+Adapt the exercises to your own project. For example, instead of updating a README's scientific methods description, you might document how a software function handles missing values.
+
+The important thing is to create issues describing meaningful work, not to invent problems that don't exist.
 :::
 
 ## Step 1 — Create an issue for the README
@@ -625,6 +631,7 @@ Once you're satisfied with your title and description, click **Create** (or **Su
 Congratulations! You've created your first GitHub Issue.
 
 Notice that GitHub assigns it a number, such as `#1`. That number lets you reference the issue elsewhere in the repository.
+
 
 ## Step 2 — Create an issue for a scientific investigation
 
@@ -778,3 +785,28 @@ You now have two open issues representing different kinds of research work.
 In Part 4, we'll focus on the **scientific investigation issue**. A colleague will raise an important concern, and you'll practice documenting the discussion and updating the issue as the team's understanding develops.
 
 Later in the lesson, you'll return to the README issue, make a small documentation change, and link it to a pull request. When the work is accepted and merged, you'll see how GitHub can automatically close the associated issue.
+
+
+### What happens to issues that stay open?
+
+Not every issue can be resolved immediately. A scientific question may require additional data, a software improvement may need expertise that isn't currently available, or a research team may decide to prioritize other work.
+
+**An issue doesn't become irrelevant simply because it has been open for a long time.**
+
+However, it's good practice to review open issues periodically, particularly before research group meetings or when planning a new phase of a project.
+
+During these reviews, consider:
+
+- **Is the issue still relevant?** Has the research question or project changed?
+- **What's preventing progress?** Is the task waiting for data, funding, expertise, or a scientific decision?
+- **Is the next step clear?** Would breaking the issue into smaller tasks help?
+- **Has the issue been resolved elsewhere?** If so, document the outcome and close it.
+- **Should the priority change?** Something that wasn't urgent six months ago might now be essential for an upcoming deadline.
+
+::: {.callout-tip title="An open issue can be an opportunity"}
+In open-source research software, issues may remain open for years until someone has the time, expertise, or funding to address them.
+
+A well-documented issue allows new contributors to understand the problem, review earlier discussions, and potentially take the work forward.
+
+The goal isn't to close every old issue. It's to **keep the project's outstanding work understandable and useful**.
+:::
