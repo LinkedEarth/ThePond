@@ -810,3 +810,485 @@ A well-documented issue allows new contributors to understand the problem, revie
 
 The goal isn't to close every old issue. It's to **keep the project's outstanding work understandable and useful**.
 :::
+
+# Part 4 — Discuss before deciding
+
+Research rarely progresses without questions, disagreements, or unexpected complications.
+
+An important benefit of GitHub Issues is that they provide a place to **discuss scientific decisions and preserve the reasoning behind them**.
+
+This is useful even when no code or research files need to change. Rather than losing an important decision in an email exchange or forgetting why an approach was chosen, the team can document the discussion alongside the task.
+
+Let's return to the scientific investigation issue you created in Part 3.
+
+## Step 1 — A colleague raises a concern
+
+Your team wants to compare nitrate concentrations across upstream, developed, and downstream stream reaches.
+
+You've created an issue to investigate whether differences in sampling dates could affect that comparison.
+
+Imagine that a colleague reads your issue and adds the following comment.
+
+```{=html}
+<div class="pond4-discussion" id="pond4-discussion">
+  <div class="pond4-sim-comment">
+    <div class="pond4-sim-header">
+      <strong>Research collaborator</strong>
+      <span>Simulated GitHub Issue comment</span>
+    </div>
+    <div class="pond4-sim-body">
+      <p>Before we compare average nitrate concentrations across the stream reaches, shouldn't we check whether the stations were sampled during comparable periods?</p>
+      <p>Nitrate concentrations might vary seasonally or after rainfall. If one reach was sampled more often during wet periods than another, a difference in average concentrations might reflect sampling conditions rather than differences between reaches.</p>
+      <p>Do we know how much overlap there is between the sampling dates?</p>
+    </div>
+  </div>
+</div>
+```
+
+This is a reasonable scientific concern. The colleague isn't necessarily saying the proposed comparison is wrong, but is questioning whether it would support the intended interpretation.
+
+**How should the team respond?**
+
+## Step 2 — Consider the next step
+
+Below are three possible responses. Select each one to explore its implications.
+
+```{=html}
+<div id="pond4-response-activity" class="pond4-response-activity">
+  <div class="pond4-response-options" role="group" aria-label="Possible responses to the scientific concern">
+    <button type="button" data-response="average" aria-pressed="false">
+      <strong>A.</strong> Continue comparing average nitrate concentrations using all available observations. The larger sample size should help.
+    </button>
+    <button type="button" data-response="matching" aria-pressed="false">
+      <strong>B.</strong> Restrict the analysis to dates when all stations were sampled, so every comparison uses matching dates.
+    </button>
+    <button type="button" data-response="investigate" aria-pressed="false">
+      <strong>C.</strong> First examine sampling coverage across stations and reaches, then decide which comparison method is scientifically appropriate.
+    </button>
+  </div>
+  <div id="pond4-response-feedback" class="pond4-response-feedback" role="status" aria-live="polite">
+    Select a response to see feedback.
+  </div>
+</div>
+```
+
+::: {.callout-tip title="Scientific planning is not always about choosing a solution"}
+Notice the distinction between **making a decision** and **identifying the evidence needed to make a decision**.
+
+A good scientific Issue can help a team do both. Sometimes the immediate outcome is a new analysis. Other times, it's a better understanding of what needs to be investigated.
+
+An issue is useful when the next step is clear, even if the final answer is not.
+:::
+
+## Step 3 — Document the discussion
+
+Suppose you're preparing an update to the issue after considering your colleague's feedback.
+
+A useful response should:
+
+- **Acknowledge the concern:** What scientific problem might affect the analysis?
+- **Identify the next step:** What information should be examined before deciding?
+- **Keep the decision visible:** What remains unresolved?
+
+Draft a short planning update below. The text will be formatted as a GitHub comment that you can copy into your issue.
+
+```{=html}
+<div id="pond4-comment-builder" class="pond4-comment-builder">
+  <div class="pond4-field">
+    <label for="pond4-concern"><strong>1. What is the concern?</strong></label>
+    <textarea id="pond4-concern" rows="2" placeholder="Explain why differences in sampling coverage might matter..."></textarea>
+  </div>
+
+  <div class="pond4-field">
+    <label for="pond4-next"><strong>2. What should happen next?</strong></label>
+    <textarea id="pond4-next" rows="2" placeholder="Describe what the team should check or investigate..."></textarea>
+  </div>
+
+  <div class="pond4-field">
+    <label for="pond4-decision"><strong>3. What decision remains open?</strong></label>
+    <textarea id="pond4-decision" rows="2" placeholder="Describe what the team still needs to decide..."></textarea>
+  </div>
+
+  <h3>Your GitHub comment</h3>
+  <pre id="pond4-comment-preview" class="pond4-comment-preview">Your comment will appear here as you write.</pre>
+
+  <div class="pond4-copy-row">
+    <button type="button" id="pond4-copy-comment">Copy comment</button>
+    <span id="pond4-comment-status" role="status" aria-live="polite"></span>
+  </div>
+</div>
+```
+
+<details>
+<summary><strong>See an example planning update</strong></summary>
+
+**Concern**
+
+Differences in sampling dates may affect comparisons between reaches, particularly if nitrate concentrations vary seasonally or in response to rainfall.
+
+**Next step**
+
+Summarize the number and dates of observations at each station, identify overlapping sampling periods, and assess whether the coverage differs substantially between reaches.
+
+**Decision still open**
+
+After reviewing sampling coverage, decide whether direct comparisons are justified, whether comparisons should be restricted to comparable periods, or whether another approach is needed.
+
+This investigation remains open until the team has evaluated the evidence and documented its decision.
+
+</details>
+
+## Step 4 — Update your real GitHub Issue
+
+Now return to the scientific investigation issue you created in Part 3.
+
+The colleague's comment was simulated, so you'll record your response as a **planning update** in your own Issue.
+
+1. Open the Issue about sampling dates or the equivalent scientific investigation in your project.
+2. Find the comment box below the issue's description.
+3. Paste your planning update from Step 3. You can edit it further before posting.
+4. Submit the comment.
+
+Your issue now contains both the original research question and an update explaining what needs to be considered next.
+
+### Keep the next steps visible
+
+If your investigation has changed or become more specific, update the checklist in the original issue description.
+
+For our water-quality example, it might now include:
+
+- [ ] Summarize sampling dates and observation counts for each station.
+- [ ] Identify overlap in sampling periods across reaches.
+- [ ] Evaluate which approaches would support a meaningful comparison.
+- [ ] Discuss the evidence and agree on an analysis approach.
+- [ ] Document the decision and its justification.
+
+You do not need to complete these tasks now.
+
+**Leave the issue open.** The purpose of this exercise was to identify and document the next steps, not to claim that the scientific investigation has been completed.
+
+::: {.callout-note title="Why use comments instead of rewriting the issue?"}
+An issue's description is useful for maintaining the current task definition and checklist.
+
+Comments let collaborators record observations, raise questions, discuss alternatives, and provide updates over time.
+
+You can update the issue description as plans evolve while preserving the earlier discussion in comments. Together, these provide a record of how the research progressed.
+:::
+
+## Issues or Discussions?
+
+GitHub also provides a feature called **Discussions**, designed for broader conversations, brainstorming, and sharing ideas.
+
+A useful distinction is:
+
+- **Issues:** Track a specific task, investigation, or decision with a reasonably clear purpose or outcome.
+- **Discussions:** Explore broader questions and ideas that may not yet have a defined next step.
+
+For example, deciding how to address uneven sampling coverage in a particular analysis fits naturally in an Issue.
+
+A broader conversation about *which scientific questions the research community should investigate next* might be better suited to a Discussion.
+
+A Discussion can eventually lead to one or more Issues when the team identifies concrete work to pursue.
+
+We'll explore Discussions further in the **Good to Know** section.
+
+## What have you accomplished?
+
+Your scientific investigation Issue now documents:
+
+- The research question.
+- A concern that could affect the scientific interpretation.
+- What evidence is needed before deciding how to proceed.
+- The next tasks and the decision that remains open.
+
+You haven't necessarily changed any research files, but you've made progress by clarifying the scientific work that needs to happen.
+
+**GitHub can preserve not only what researchers did, but also why they chose to do it.**
+
+In the next part, we'll explore how labels, assignments, and issue filters help manage this work as a project grows.
+
+<style>
+/* Part 4: scientific discussion exercise */
+
+.pond4-discussion,
+.pond4-response-activity,
+.pond4-comment-builder {
+  max-width: 900px;
+  margin: 1rem 0 1.5rem;
+}
+
+.pond4-sim-comment {
+  border: 1px solid var(--bs-border-color, #d0d7de);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.pond4-sim-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  background: var(--bs-tertiary-bg, #f6f8fa);
+  border-bottom: 1px solid var(--bs-border-color, #d0d7de);
+  font-size: 0.9rem;
+}
+
+.pond4-sim-header span {
+  color: var(--bs-secondary-color, #666);
+  font-size: 0.8rem;
+}
+
+.pond4-sim-body {
+  padding: 1rem;
+}
+
+.pond4-sim-body p:last-child {
+  margin-bottom: 0;
+}
+
+.pond4-response-options {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.pond4-response-options button {
+  text-align: left;
+  border: 2px solid var(--bs-border-color, #ddd);
+  border-radius: 8px;
+  background: var(--bs-body-bg, white);
+  color: var(--bs-body-color, #222);
+  font: inherit;
+  line-height: 1.5;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+}
+
+.pond4-response-options button:hover {
+  background: var(--bs-tertiary-bg, #f1f3f5);
+}
+
+.pond4-response-options button:focus-visible,
+.pond4-copy-row button:focus-visible {
+  outline: 3px solid var(--bs-primary, #2780e3);
+  outline-offset: 2px;
+}
+
+.pond4-response-options button.pond4-selected {
+  border-color: var(--bs-primary, #2780e3);
+  background: var(--bs-tertiary-bg, #eef5ff);
+}
+
+.pond4-response-feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-left: 4px solid var(--bs-primary, #2780e3);
+  border-radius: 6px;
+  line-height: 1.55;
+}
+
+.pond4-response-feedback[data-level="caution"] {
+  border-left-color: #c57a15;
+}
+
+.pond4-response-feedback[data-level="strong"] {
+  border-left-color: #198754;
+}
+
+.pond4-comment-builder {
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: 9px;
+  padding: 1.25rem;
+}
+
+.pond4-field {
+  margin-bottom: 1rem;
+}
+
+.pond4-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.pond4-field textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--bs-border-color, #aaa);
+  border-radius: 6px;
+  background: var(--bs-body-bg, white);
+  color: var(--bs-body-color, #222);
+  font: inherit;
+  resize: vertical;
+}
+
+.pond4-comment-preview {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--bs-tertiary-bg, #f6f8fa);
+  color: var(--bs-body-color, #222);
+  border: 1px solid var(--bs-border-color, #ddd);
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.pond4-copy-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pond4-copy-row button {
+  padding: 0.5rem 0.9rem;
+  background: var(--bs-primary, #2780e3);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#pond4-comment-status {
+  font-size: 0.85rem;
+  color: var(--bs-secondary-color, #666);
+}
+</style>
+
+<script>
+(() => {
+  // Immediate feedback for the simulated discussion
+  const activity = document.getElementById("pond4-response-activity");
+
+  if (activity && !activity.dataset.initialized) {
+    activity.dataset.initialized = "true";
+
+    const feedback = document.getElementById("pond4-response-feedback");
+
+    const responses = {
+      average: {
+        level: "caution",
+        heading: "The concern is not yet addressed.",
+        message:
+          "Using all observations may improve sample size, but it doesn't " +
+          "resolve potential differences in sampling conditions. A larger " +
+          "sample doesn't necessarily produce a scientifically valid " +
+          "comparison if temporal coverage differs systematically."
+      },
+      matching: {
+        level: "caution",
+        heading: "A reasonable possibility, but perhaps premature.",
+        message:
+          "Matching sampling dates could help control differences in " +
+          "temporal coverage. However, we don't yet know how many matching " +
+          "observations exist or how much information this would discard. " +
+          "It's worth evaluating rather than prescribing immediately."
+      },
+      investigate: {
+        level: "strong",
+        heading: "A well-justified next step.",
+        message:
+          "Examining sampling coverage will help the team understand the " +
+          "problem before selecting a method. The issue can track the " +
+          "investigation, alternatives considered, and eventual decision. " +
+          "This doesn't guarantee a valid comparison, but it creates a " +
+          "scientifically defensible process for deciding what to do."
+      }
+    };
+
+    activity.querySelectorAll("button[data-response]").forEach(button => {
+      button.addEventListener("click", () => {
+        const selected = responses[button.dataset.response];
+
+        activity.querySelectorAll("button[data-response]").forEach(b => {
+          const active = b === button;
+          b.classList.toggle("pond4-selected", active);
+          b.setAttribute("aria-pressed", String(active));
+        });
+
+        feedback.dataset.level = selected.level;
+        feedback.replaceChildren();
+
+        const title = document.createElement("strong");
+        title.textContent = selected.heading;
+
+        const message = document.createElement("p");
+        message.textContent = selected.message;
+        message.style.margin = "0.5rem 0 0";
+
+        feedback.append(title, message);
+      });
+    });
+  }
+
+  // Construct a Markdown comment from the learner's own response
+  const builder = document.getElementById("pond4-comment-builder");
+
+  if (!builder || builder.dataset.initialized) return;
+  builder.dataset.initialized = "true";
+
+  const concern = document.getElementById("pond4-concern");
+  const next = document.getElementById("pond4-next");
+  const decision = document.getElementById("pond4-decision");
+  const preview = document.getElementById("pond4-comment-preview");
+  const copyButton = document.getElementById("pond4-copy-comment");
+  const status = document.getElementById("pond4-comment-status");
+
+  function buildComment() {
+    const a = concern.value.trim();
+    const b = next.value.trim();
+    const c = decision.value.trim();
+
+    if (!a || !b || !c) return null;
+
+    return [
+      "### Planning update",
+      "",
+      "**Concern**",
+      "",
+      a,
+      "",
+      "**Next step**",
+      "",
+      b,
+      "",
+      "**Decision still open**",
+      "",
+      c
+    ].join("\n");
+  }
+
+  function refreshPreview() {
+    const comment = buildComment();
+
+    preview.textContent = comment ||
+      "Complete all three fields to generate your GitHub comment.";
+
+    status.textContent = "";
+  }
+
+  [concern, next, decision].forEach(field => {
+    field.addEventListener("input", refreshPreview);
+  });
+
+  copyButton.addEventListener("click", async () => {
+    const comment = buildComment();
+
+    if (!comment) {
+      status.textContent = "Complete all three fields first.";
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(comment);
+      status.textContent = "Copied! Paste this into your GitHub Issue.";
+    } catch (error) {
+      status.textContent =
+        "Clipboard unavailable. Select and copy the preview manually.";
+    }
+  });
+
+  refreshPreview();
+})();
+</script>
