@@ -532,3 +532,249 @@ You can use your own research project or adapt the water-quality examples.
   });
 })();
 </script>
+
+
+# Part 3 — Create and organize GitHub Issues
+
+You've identified two concerns in the water-quality project:
+
+1. The `README.md` does not accurately document the current nitrate QC procedure.
+2. Differences in sampling dates could affect comparisons between stream reaches.
+
+Now it's time to turn these concerns into real GitHub Issues.
+
+You'll create **two issues in your repository**: one describing a specific task and another identifying a scientific question that needs investigation.
+
+::: {.callout-note title="Working with your own repository"}
+The water-quality project provides our example, but your repository might contain a different geoscience study.
+
+Adapt the issues to your own research files. For instance, if your README doesn't contain an incorrect QC description, you might create an issue to add missing methods or reproduction instructions instead.
+
+The important thing is to create issues describing meaningful work for your project, not to invent problems that don't exist.
+:::
+
+## Step 1 — Create an issue for the README
+
+Open your repository on [GitHub](https://github.com).
+
+1. Select the **Issues** tab near the top of your repository.
+2. Click **New issue**.
+3. If GitHub offers templates, choose **Open a blank issue**.
+4. Enter a descriptive title and an explanation of the work.
+
+### Write a useful title
+
+A title should help someone understand the task without opening the issue.
+
+For example:
+
+**Too vague:** Update README
+
+**More useful:** Update README to document QC before replicate averaging
+
+The second title tells us exactly which part of the documentation needs attention.
+
+### Describe the task
+
+A useful issue description answers three questions:
+
+- **Context:** What is the problem, and why does it matter?
+- **Work to do:** What needs to happen?
+- **Completion:** How will we know the issue is finished?
+
+GitHub supports Markdown in issue descriptions, including checklists.
+
+Try writing your own description before looking at the example below.
+
+::: {.callout-tip title="Using checklists"}
+You can create a checkbox in a GitHub Issue using this Markdown syntax:
+
+`- [ ] Describe the first task`
+
+`- [ ] Describe the second task`
+
+When a task is completed, click its checkbox. This lets you track progress without creating a separate issue for every small action.
+:::
+
+<details>
+<summary><strong>See an example README issue</strong></summary>
+
+**Title: Update README to document QC before replicate averaging**
+
+**Context**
+
+The nitrate analysis was updated to remove measurements that fail QC before averaging accepted replicates. However, the methods section of `README.md` still describes the previous processing sequence.
+
+This discrepancy could lead someone trying to reproduce the analysis to follow the wrong procedure.
+
+**Work to do**
+
+- [ ] Find the description of nitrate processing in `README.md`.
+- [ ] Explain that QC is applied to individual measurements before averaging.
+- [ ] Check that the description matches the current workflow.
+- [ ] Document any relevant assumptions about rejected measurements and replicates.
+
+**Done when**
+
+The README accurately describes the QC and averaging procedure used in the analysis.
+
+</details>
+
+Once you're satisfied with your title and description, click **Create** (or **Submit new issue**, depending on the interface).
+
+Congratulations! You've created your first GitHub Issue.
+
+Notice that GitHub assigns it a number, such as `#1`. That number lets you reference the issue elsewhere in the repository.
+
+## Step 2 — Create an issue for a scientific investigation
+
+Now create a second issue.
+
+This time, the concern isn't a straightforward correction. The team has noticed that sampling dates differ across stream reaches.
+
+They need to understand whether this affects the scientific comparison before deciding how to proceed.
+
+Open **Issues → New issue** again.
+
+### Give the scientific question a clear scope
+
+Consider a title such as:
+
+**Investigate whether sampling dates affect comparisons across stream reaches**
+
+The title makes it clear that the purpose is an investigation, not an already-decided change to the analysis.
+
+### Describe what needs to be investigated
+
+Think about:
+
+- Why might differing sampling dates affect the interpretation?
+- What information would the team need to examine?
+- What decision should result from the investigation?
+- How will you know that the investigation is complete?
+
+Your description should make the next steps clear without assuming what the scientific conclusion will be.
+
+<details>
+<summary><strong>See an example scientific investigation issue</strong></summary>
+
+**Title: Investigate whether sampling dates affect comparisons across stream reaches**
+
+**Context**
+
+The team wants to compare nitrate concentrations in upstream, developed, and downstream stream reaches. However, the stations were not always sampled on the same dates.
+
+Differences in sampling coverage might influence apparent differences in nitrate concentrations.
+
+**Questions to investigate**
+
+- How do sampling dates differ between stations and reaches?
+- Are there enough observations from comparable periods?
+- Would comparing overall averages potentially produce misleading results?
+
+**Proposed next steps**
+
+- [ ] Summarize sampling dates and coverage for each station.
+- [ ] Identify differences in temporal coverage between reaches.
+- [ ] Discuss possible comparison approaches with the research team.
+- [ ] Document the chosen approach and its scientific justification.
+
+**Done when**
+
+The team has documented whether the sampling coverage supports a meaningful comparison and agreed on an appropriate next step.
+
+</details>
+
+Create your second issue.
+
+::: {.callout-important title="An investigation does not need a predetermined outcome"}
+Notice that this second issue doesn't tell someone to change the analysis in a specific way.
+
+The research team might decide to compare only matching dates, use a different analysis strategy, or collect additional data. They might even conclude that the available observations do not support a meaningful comparison.
+
+All of these could be valid scientific outcomes.
+
+The issue is complete when the investigation and decision have been documented, not necessarily when code has been changed.
+:::
+
+## Step 3 — Organize your issues
+
+Now that your two issues exist, let's make them easier to find and manage.
+
+### Assign responsibility
+
+Open your README issue.
+
+On the right side of the issue, find **Assignees**. Click it and select your GitHub username.
+
+Assigning someone to an issue communicates who is responsible for moving the task forward.
+
+For this exercise, you're working independently, so you'll assign yourself. In a real research group, you might assign an issue to a graduate student, advisor, or collaborator.
+
+You can assign multiple people to the same issue, but it is useful to be clear about who is coordinating the work.
+
+### Add labels
+
+Labels help categorize issues so you can recognize and filter different types of work.
+
+Find **Labels** in the right sidebar of your README issue.
+
+Try assigning the `documentation` label if it is available.
+
+For your scientific investigation issue, consider the `question` label.
+
+| Label | Example use |
+|---|---|
+| `documentation` | Improve a README or methods description |
+| `question` | Investigate a scientific or methodological question |
+| `enhancement` | Propose an improvement to an existing workflow |
+| `bug` | Track something that is not working as intended |
+
+These are common GitHub default labels, but the labels available in your repository may differ.
+
+You can create custom labels later, but there's no need to establish an elaborate labeling system for this exercise.
+
+### What about priority?
+
+Not all issues are equally urgent.
+
+For example, updating the README might be important before sharing the analysis with a collaborator, while investigating the sampling dates may be essential before preparing a conference presentation.
+
+For now, you can record timing or priority in the issue description, such as:
+
+*Priority: Complete before the next research group meeting.*
+
+Some teams use labels for priority, while GitHub Projects can provide more structured priority fields. We'll explore those options in the **Good to Know** section.
+
+The goal is to make priorities visible without adding unnecessary administrative work.
+
+## Step 4 — Review your research task list
+
+Return to the **Issues** tab of your repository.
+
+You should now have two open issues.
+
+Take a moment to explore:
+
+1. Can you identify the type of work from each title?
+2. Can you see the labels and assignees?
+3. Open an issue. Can you find its checklist?
+4. Notice the **Open** and **Closed** issue views. These let you distinguish work that still needs attention from work that has been completed.
+
+You can also use filters to find issues with particular labels or assignees. This becomes especially helpful as your project grows.
+
+::: {.callout-tip title="Keeping a record of research work"}
+Over time, a project's Issues can provide a useful history of the research process.
+
+They show what questions arose, which tasks were prioritized, who worked on them, what decisions were made, and which activities were completed.
+
+This record can be useful when preparing a manuscript, meeting with collaborators, onboarding a new student, or revisiting a methodological choice months later.
+:::
+
+## What's next?
+
+You now have two open issues representing different kinds of research work.
+
+In Part 4, we'll focus on the **scientific investigation issue**. A colleague will raise an important concern, and you'll practice documenting the discussion and updating the issue as the team's understanding develops.
+
+Later in the lesson, you'll return to the README issue, make a small documentation change, and link it to a pull request. When the work is accepted and merged, you'll see how GitHub can automatically close the associated issue.
