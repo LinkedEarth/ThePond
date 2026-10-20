@@ -3,13 +3,532 @@ title: "Plan Work with GitHub"
 subtitle: "Learn to use GitHub to plan and manage research projects. Practice creating issues, assigning tasks, and tracking progress."
 ---
 
-# Plan Your Work
+# Overview
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+In the previous lessons, you learned how to save changes, collaborate with others, and review proposed improvements to your research project.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+But there's an important question we haven't addressed yet:
 
-![](../images/frog_soon.gif){fig-align="center" width="250px"}
+**How do you decide what work needs to be done in the first place, and how do you keep track of it?**
+
+Research projects rarely follow a perfectly linear path. You might discover a problem in your data, identify a new analysis to explore, need feedback from your advisor, or realize that an upcoming conference deadline requires you to prioritize some tasks over others.
+
+Keeping track of these activities can become challenging, especially when several people are involved.
+
+**GitHub can help you manage the research process, not just the files it produces.**
+
+In this lesson, you'll use **GitHub Issues** to organize research tasks, document scientific questions, discuss decisions, and track progress. You'll also discover how GitHub can support the management of larger research projects.
+
+## What you'll learn
+
+By the end of this lesson, you will be able to:
+
+- Explain how GitHub Issues differ from pull requests.
+- Break a broad research objective into smaller, actionable tasks.
+- Create issues with clear descriptions, relevant context, and criteria for completion.
+- Use comments, labels, and assignments to organize work and document scientific decisions.
+- Connect an issue to a pull request and track its completion.
+- Recognize how sub-issues, milestones, Projects, and Discussions can help manage larger research efforts.
+
+## Before you begin
+
+You'll need:
+
+- [**A GitHub account**](https://github.com/signup) and access to the repository you worked with in the previous lessons.
+- **GitHub Issues enabled** in your repository. Look for the **Issues** tab near the top of your repository on GitHub. If it isn't visible, open **Settings**, find **Features**, and enable **Issues**.
+- [**GitHub Desktop**](https://desktop.github.com/), which you used in the previous lessons. You'll use it again for a small change near the end.
+
+You do not need a collaborator or knowledge of Python.
+
+We'll continue following the fictional water-quality research project introduced in the [previous lesson](../collaborate-change/index.qmd). However, **you'll create issues in your own repository**, using tasks relevant to your research project. We'll provide examples if you're not sure where to start.
+
+# Part 1 — Plan before you change
+
+## The water-quality project continues
+
+Remember the problem we addressed in the [previous lesson](../collaborate-change/index.qmd)?
+
+Our research team discovered that the nitrate analysis was averaging replicate measurements **before** applying quality-control (QC) checks. This could cause acceptable measurements to be discarded along with unacceptable ones.
+
+We created a branch, corrected the procedure, reviewed the change through a pull request, and merged the improvement.
+
+But while reviewing the analysis, the team noticed several other things that deserved attention:
+
+- The documentation still needs to explain the revised QC procedure.
+- Nitrate measurements may need more consistent unit conversions.
+- The nitrate threshold should be explicitly recorded.
+- The team wants a visualization comparing upstream, developed, and downstream stream reaches.
+- The README could provide clearer instructions for reproducing the analysis.
+- An apparent increase in nitrate concentrations needs further investigation.
+
+None of these necessarily needs to be addressed immediately. Some are straightforward improvements, while others require scientific decisions.
+
+**How should the team organize this work without losing track of important questions?**
+
+## Introducing GitHub Issues
+
+A **GitHub Issue** is a place to describe, discuss, and track something that needs attention in a project.
+
+An issue might represent:
+
+- **A task:** Update the documentation to explain the QC procedure.
+- **A problem:** Investigate inconsistent nitrate units across datasets.
+- **A scientific question:** Determine how best to compare nitrate concentrations across stream reaches.
+- **A decision:** Meet with the research team to select which results to present at AGU.
+- **A future improvement:** Explore whether additional sampling locations should be included.
+
+An issue can contain a description, links to relevant files or results, checklists, comments, and information about who is responsible.
+
+Importantly, **an issue does not need to involve changing code.** Meeting with an advisor, reviewing a manuscript, investigating an unexpected scientific result, or planning a conference presentation are all legitimate research activities worth tracking.
+
+
+::: {.callout-tip title="Think of Issues as a research to-do list with context"}
+A conventional to-do list might say *"Check nitrate data."*
+
+A GitHub Issue can explain:
+
+- **Why** the data need checking.
+- **What** concerns have been identified.
+- **Where** relevant information can be found.
+- **Who** is responsible for the work (using assignees).
+- **How important or urgent** the task is relative to other work (for example, using labels or a priority field in GitHub Projects).
+- **What** needs to happen before the task can be considered complete.
+
+It also preserves the discussions, scientific reasoning, and decisions associated with that work.
 :::
+
+
+## Issues versus pull requests
+
+You've already used pull requests in the previous lesson. So how are they different from issues?
+
+| | GitHub Issue | Pull Request |
+|---|---|---|
+| **Purpose** | Describe work that needs attention | Propose changes to repository files |
+| **When?** | Often before work begins | After changes have been made on a branch |
+| **Discussion** | What should we do, and why? | Are these proposed changes appropriate? |
+| **Completion** | Close when the task or investigation is finished | Merge or close the proposed changes |
+
+For example, the research team might create an issue titled:
+
+*Document how nitrate QC is applied before replicate averaging.*
+
+Once the documentation is updated, they could open a pull request to review the changes. The pull request can be linked to the original issue so the team can see how the task was completed.
+
+But other issues, such as *Meet with advisor to decide which analysis to prioritize*, might be closed after the meeting and its decisions are documented, without any pull request.
+
+
+**Issues track the work; pull requests track proposed changes to files.** They complement each other, and whenever a pull request addresses an existing issue, it should be linked to that issue.
+
+A useful rule of thumb is:
+
+**One issue (or sub-issue) = one pull request.**
+
+Keeping pull requests focused on a single, well-defined task makes changes easier to review, discuss, and trace back to their original purpose.
+
+This isn't a strict rule. Some issues require multiple pull requests, while others, such as planning meetings or scientific discussions, may not involve changing files at all.
+
+When a pull request completes an issue, you can include a closing keyword such as `Closes #12` in the pull request description (replacing `12` with the actual issue number). GitHub can then automatically close the linked issue when the pull request is merged into the default branch.
+
+**The goal is to maintain a clear connection between what needed to be done, why it mattered, and how it was completed.**
+
+
+## From a broad goal to a research plan
+
+Our team initially described its next objective as:
+
+> Improve the water-quality analysis and documentation.
+
+This is a reasonable research goal, but it's difficult to act on directly.
+
+What does "improve" mean? Which part of the analysis needs attention? How would we know when the work is finished? What should we tackle first?
+
+In the next activity, you'll help the research team turn this broad goal into manageable tasks, and distinguish work that is ready to begin from questions that require further investigation.
+
+
+# Part 2 — From research goals to actionable issues
+
+Our water-quality team has a new goal:
+
+> **Improve the water-quality analysis and documentation.**
+
+That's a reasonable objective, but it's too broad to manage as a single task. Different aspects of the work may require different people, different approaches, and different amounts of time.
+
+Before creating GitHub Issues, it helps to break a large goal into smaller pieces.
+
+
+
+## Step 1 — Identify the work that needs to be done
+
+The water-quality team is preparing for its next research meeting. They want to discuss whether nitrate concentrations differ between the upstream, developed, and downstream reaches of the stream.
+
+The QC problem from the previous lesson has been corrected, but the team has identified two concerns:
+
+1. **The README is out of date.** The `README.md` file contains a documentation of the methods for this particular workflow. It still says that replicate nitrate measurements are averaged before applying quality-control (QC) checks. However, the analysis now removes measurements that fail QC before averaging the remaining replicates. Someone needs to make sure the README accurately describes the current procedure.
+
+2. **The sampling dates don't always match.** Some stations were sampled on different dates from others. The team wants to compare nitrate concentrations across stream reaches, but isn't sure whether those differences in sampling dates might affect the interpretation.
+
+Before the next meeting, the team wants to organize these concerns into GitHub Issues so that the work doesn't get lost.
+
+**Your task:** Propose an issue for each concern.
+
+For each issue, write:
+
+- A short, descriptive **title**.
+- A brief explanation of **what needs to be done or investigated**.
+- How the team will **know when the issue can be closed**.
+
+Don't worry about writing a perfect issue yet. You'll learn how to structure one in Part 3.
+
+Remember that an issue can describe a task with a known solution or a scientific question that still needs investigation.
+
+
+```{=html}
+<div id="pond-pad4-part2" class="pond4-p2">
+
+  <div class="pond4-draft">
+    <label for="pond4-task-draft"><strong>Your proposed tasks or questions</strong></label>
+    <textarea id="pond4-task-draft" rows="5" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+    <p class="pond4-hint">This is your working notepad. You can revise it after the next activity.</p>
+    <div class="pond4-copy-row">
+      <button type="button" id="pond4-copy-draft">Copy my draft</button>
+      <span id="pond4-copy-status" role="status"></span>
+    </div>
+  </div>
+
+  <h3>Step 2 — Examine the team's proposed tasks</h3>
+
+  <p>The team came up with several possible Issues. Some are ready to become well-defined tasks, some require scientific decisions, and others still need to be broken down.</p>
+
+  <p>For each proposal, decide what kind of planning it needs. You'll receive feedback immediately.</p>
+
+  <div class="pond4-legend">
+    <p><strong>Defined next action:</strong> The next step and expected outcome are sufficiently clear.</p>
+    <p><strong>Scientific decision:</strong> The issue is focused, but the team needs to investigate alternatives or agree on an approach.</p>
+    <p><strong>Too broad:</strong> The proposal needs to be clarified or divided into smaller pieces.</p>
+  </div>
+
+  <div id="pond4-card-grid" class="pond4-card-grid"></div>
+
+  <p id="pond4-card-progress" class="pond4-progress" role="status">Explore the six proposals above.</p>
+
+  <h3>Step 3 — Revisit your plan</h3>
+
+  <p>Return to your draft at the beginning of this activity. Would you change any of your proposed tasks?</p>
+
+  <p>Consider whether each task answers these questions:</p>
+
+  <ul>
+    <li><strong>What</strong> needs to be done or investigated?</li>
+    <li><strong>Why</strong> does it matter to the research?</li>
+    <li><strong>How</strong> will the team recognize that the work is complete?</li>
+  </ul>
+
+  <p>Some issues will lead to changes in research files. Others will lead to a documented decision, a discussion, or a new research direction. All can be legitimate outcomes.</p>
+
+  <details class="pond4-examples">
+    <summary>See one possible breakdown of the team's goal</summary>
+    <ul>
+      <li><strong>Document the revised nitrate QC procedure</strong> — Explain which measurements are excluded and when accepted replicates are averaged.</li>
+      <li><strong>Audit nitrate concentration units</strong> — Check input files for consistent unit conversions and record any discrepancies.</li>
+      <li><strong>Decide how to compare nitrate concentrations across stream reaches</strong> — Investigate sampling coverage and appropriate summary methods.</li>
+      <li><strong>Record the nitrate exclusion threshold</strong> — Identify the threshold and its rationale so the analysis can be reproduced.</li>
+      <li><strong>Plan a discussion of the results for AGU</strong> — Determine which findings are ready to present and which require further investigation.</li>
+    </ul>
+    <p>There isn't one correct way to divide a research project into issues. The important thing is that each issue represents a meaningful piece of work that can be discussed, tracked, and eventually completed.</p>
+  </details>
+
+</div>
+```
+
+::: {.callout-tip title="A scientific question can be an actionable Issue"}
+An issue doesn't have to prescribe a solution.
+
+For example, *"Determine whether repeated measurements should be averaged by station before comparing stream reaches"* is a useful issue even though the answer is not yet known.
+
+The work is to investigate the alternatives, evaluate their scientific implications, and document the decision.
+
+**An actionable issue needs a clear next step, not necessarily a predetermined answer.**
+:::
+
+## Next: Put your plan into GitHub
+
+In Part 3, you'll turn two tasks into real GitHub Issues:
+
+1. One issue describing a clearly defined task.
+2. One issue documenting a scientific question or decision that needs attention.
+
+You can use your own research project or adapt the water-quality examples.
+
+
+<style>
+.pond4-p2 {
+  max-width: 900px;
+  margin: 1rem 0 2rem;
+}
+
+.pond4-draft,
+.pond4-examples {
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: 9px;
+  padding: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.pond4-draft textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.6rem;
+  padding: 0.75rem;
+  border: 1px solid var(--bs-border-color, #aaa);
+  border-radius: 6px;
+  background: var(--bs-body-bg, white);
+  color: var(--bs-body-color, #222);
+  font: inherit;
+  resize: vertical;
+}
+
+.pond4-hint,
+.pond4-progress {
+  color: var(--bs-secondary-color, #666);
+  font-size: 0.9rem;
+}
+
+.pond4-copy-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pond4-copy-row button,
+.pond4-choices button {
+  border: 1px solid var(--bs-border-color, #aaa);
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  background: var(--bs-body-bg, white);
+  color: var(--bs-body-color, #222);
+  font: inherit;
+  cursor: pointer;
+}
+
+.pond4-copy-row button:hover,
+.pond4-choices button:hover {
+  background: var(--bs-tertiary-bg, #f1f3f5);
+}
+
+.pond4-legend {
+  border-left: 3px solid var(--bs-primary, #2780e3);
+  padding: 0.25rem 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.pond4-legend p {
+  margin: 0.35rem 0;
+}
+
+.pond4-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.pond4-card {
+  border: 2px solid var(--bs-border-color, #ddd);
+  border-radius: 9px;
+  padding: 1rem;
+  transition: border-color 0.15s;
+}
+
+.pond4-card h4 {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+
+.pond4-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pond4-choices button {
+  font-size: 0.82rem;
+}
+
+.pond4-card.pond4-correct {
+  border-color: #198754;
+}
+
+.pond4-card.pond4-incorrect {
+  border-color: #dc3545;
+}
+
+.pond4-card.pond4-correct .pond4-selected {
+  background: #dff3e7;
+  border-color: #198754;
+  color: #165a37;
+}
+
+.pond4-card.pond4-incorrect .pond4-selected {
+  background: #fce8e8;
+  border-color: #dc3545;
+  color: #9d2424;
+}
+
+.pond4-feedback {
+  margin: 0.8rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.pond4-examples summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pond4-examples[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .pond4-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-pad4-part2");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const candidates = [
+    {
+      title: "Improve the nitrate analysis.",
+      answer: "broad",
+      explanation: "This describes a goal, but not a manageable piece of work. Which part of the analysis needs improvement? Break it into more specific tasks or investigations."
+    },
+    {
+      title: "Update the methods documentation to explain that QC is applied to individual measurements before averaging accepted replicates.",
+      answer: "task",
+      explanation: "This has a defined next action and a checkable outcome: the documentation accurately describes the revised QC procedure."
+    },
+    {
+      title: "Decide whether comparisons across stream reaches should use individual observations or station-level summaries.",
+      answer: "decision",
+      explanation: "This is a focused scientific decision. The issue can track the evaluation of alternatives and the reasoning behind the chosen approach."
+    },
+    {
+      title: "Make our results publication-ready.",
+      answer: "broad",
+      explanation: "Publication readiness may involve validation, figures, writing, and interpretation. These should be broken into separate tasks with clearer outcomes."
+    },
+    {
+      title: "Audit nitrate concentration units across the input files and document any inconsistent conversions.",
+      answer: "task",
+      explanation: "The next action is clear: check the units and record the findings. The audit is useful even if no inconsistencies are discovered."
+    },
+    {
+      title: "Determine whether sampling dates are sufficiently comparable across reaches before selecting a summary method.",
+      answer: "decision",
+      explanation: "This is a bounded scientific investigation. The outcome can be a documented decision about whether and how the data should be compared."
+    }
+  ];
+
+  const options = [
+    { value: "task", label: "Defined next action" },
+    { value: "decision", label: "Scientific decision" },
+    { value: "broad", label: "Too broad" }
+  ];
+
+  const grid = root.querySelector("#pond4-card-grid");
+  const progress = root.querySelector("#pond4-card-progress");
+
+  candidates.forEach((candidate, index) => {
+    const card = document.createElement("article");
+    card.className = "pond4-card";
+    card.dataset.index = index;
+
+    const heading = document.createElement("h4");
+    heading.textContent = `${index + 1}. ${candidate.title}`;
+    card.appendChild(heading);
+
+    const choices = document.createElement("div");
+    choices.className = "pond4-choices";
+
+    options.forEach(option => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = option.label;
+      button.dataset.choice = option.value;
+      button.setAttribute("aria-pressed", "false");
+      choices.appendChild(button);
+    });
+
+    card.appendChild(choices);
+
+    const feedback = document.createElement("p");
+    feedback.className = "pond4-feedback";
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+    card.appendChild(feedback);
+
+    grid.appendChild(card);
+  });
+
+  grid.addEventListener("click", event => {
+    const button = event.target.closest("button[data-choice]");
+    if (!button) return;
+
+    const card = button.closest(".pond4-card");
+    const candidate = candidates[Number(card.dataset.index)];
+    const correct = button.dataset.choice === candidate.answer;
+
+    card.classList.remove("pond4-correct", "pond4-incorrect");
+    card.classList.add(correct ? "pond4-correct" : "pond4-incorrect");
+    card.dataset.explored = "true";
+
+    card.querySelectorAll("button[data-choice]").forEach(b => {
+      const selected = b === button;
+      b.classList.toggle("pond4-selected", selected);
+      b.setAttribute("aria-pressed", String(selected));
+    });
+
+    const feedback = card.querySelector(".pond4-feedback");
+    feedback.textContent =
+      (correct ? "Good choice! " : "Not quite. ") +
+      candidate.explanation;
+
+    const explored = grid.querySelectorAll(
+      '.pond4-card[data-explored="true"]'
+    ).length;
+
+    progress.textContent =
+      `You've explored ${explored} of ${candidates.length} proposals.`;
+  });
+
+  const draft = root.querySelector("#pond4-task-draft");
+  const copyButton = root.querySelector("#pond4-copy-draft");
+  const copyStatus = root.querySelector("#pond4-copy-status");
+
+  copyButton.addEventListener("click", async () => {
+    if (!draft.value.trim()) {
+      copyStatus.textContent = "Write a task or question first.";
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(draft.value);
+      copyStatus.textContent = "Copied! You can paste this into your notes.";
+    } catch (error) {
+      draft.focus();
+      draft.select();
+      copyStatus.textContent =
+        "Select and copy the text using Ctrl+C or Cmd+C.";
+    }
+  });
+})();
+</script>
