@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-bd5320703489953436e310b7be14b3dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-b01c7af0b656753d08655c0cf574d03c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-bd5320703489953436e310b7be14b3dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -150,14 +150,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../shallows/index.html"> 
 <span class="menu-text">The Shallows</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../lilypads/index.html"> 
-<span class="menu-text">LilyPads</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lilypads" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LilyPads</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lilypads">    
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/index.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../deep-water/index.html"> 
-<span class="menu-text">The Deep End</span></a>
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/data/index.html">
+ <span class="dropdown-text">Data</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/softwareindex.qmd">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/workflow/index.html">
+ <span class="dropdown-text">Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-the-deep-end" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">The Deep End</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-the-deep-end">    
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/index.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/github/index.html">
+ <span class="dropdown-text">GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/containers/index.html">
+ <span class="dropdown-text">Containers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/correlation-workflow/index.html">
+ <span class="dropdown-text">Correlation Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../spring/index.html"> 
 <span class="menu-text">The Spring</span></a>
@@ -178,11 +216,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#from-github-to-your-computer" id="toc-from-github-to-your-computer" class="nav-link active" data-scroll-target="#from-github-to-your-computer">From GitHub to your computer</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link" data-scroll-target="#what-you-will-learn">What you will learn</a></li>
+  <li><a href="#before-you-begin" id="toc-before-you-begin" class="nav-link" data-scroll-target="#before-you-begin">Before you begin</a></li>
+  </ul></li>
+  <li><a href="#from-github-to-your-computer" id="toc-from-github-to-your-computer" class="nav-link" data-scroll-target="#from-github-to-your-computer">From GitHub to your computer</a>
   <ul class="collapse">
   <li><a href="#your-starting-point" id="toc-your-starting-point" class="nav-link" data-scroll-target="#your-starting-point">Your starting point</a></li>
-  <li><a href="#activity-1-bring-your-repository-to-your-computer" id="toc-activity-1-bring-your-repository-to-your-computer" class="nav-link" data-scroll-target="#activity-1-bring-your-repository-to-your-computer">Activity 1: Bring your repository to your computer</a></li>
-  <li><a href="#what-should-git-track" id="toc-what-should-git-track" class="nav-link" data-scroll-target="#what-should-git-track">What should Git track?</a></li>
+  <li><a href="#activity-1-bring-your-repository-to-your-computer" id="toc-activity-1-bring-your-repository-to-your-computer" class="nav-link" data-scroll-target="#activity-1-bring-your-repository-to-your-computer">Activity 1: Bring your repository to your computer</a>
+  <ul class="collapse">
+  <li><a href="#step-1-install-github-desktop" id="toc-step-1-install-github-desktop" class="nav-link" data-scroll-target="#step-1-install-github-desktop">Step 1: Install GitHub Desktop</a></li>
+  <li><a href="#step-2-clone-your-repository" id="toc-step-2-clone-your-repository" class="nav-link" data-scroll-target="#step-2-clone-your-repository">Step 2: Clone your repository</a></li>
+  <li><a href="#step-3-explore-your-local-repository" id="toc-step-3-explore-your-local-repository" class="nav-link" data-scroll-target="#step-3-explore-your-local-repository">Step 3: Explore your local repository</a></li>
+  </ul></li>
+  <li><a href="#what-should-git-track" id="toc-what-should-git-track" class="nav-link" data-scroll-target="#what-should-git-track">What should Git track?</a>
+  <ul class="collapse">
+  <li><a href="#adding-files-to-.gitignore-with-github-desktop" id="toc-adding-files-to-.gitignore-with-github-desktop" class="nav-link" data-scroll-target="#adding-files-to-.gitignore-with-github-desktop">Adding files to .gitignore with GitHub Desktop</a></li>
+  <li><a href="#what-happens-when-you-ignore-a-file" id="toc-what-happens-when-you-ignore-a-file" class="nav-link" data-scroll-target="#what-happens-when-you-ignore-a-file">What happens when you ignore a file?</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#make-and-review-changes" id="toc-make-and-review-changes" class="nav-link" data-scroll-target="#make-and-review-changes">Make and review changes</a>
   <ul class="collapse">
@@ -201,9 +253,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#activity-5-push-your-changes" id="toc-activity-5-push-your-changes" class="nav-link" data-scroll-target="#activity-5-push-your-changes">Activity 5: Push your changes</a></li>
   <li><a href="#verify-your-changes-on-github" id="toc-verify-your-changes-on-github" class="nav-link" data-scroll-target="#verify-your-changes-on-github">Verify your changes on GitHub</a></li>
-  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
-  <li><a href="#putting-it-all-together-1" id="toc-putting-it-all-together-1" class="nav-link" data-scroll-target="#putting-it-all-together-1">Putting it all together</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a>
+  <ul class="collapse">
   <li><a href="#before-you-leave-this-lilypad" id="toc-before-you-leave-this-lilypad" class="nav-link" data-scroll-target="#before-you-leave-this-lilypad">Before you leave this LilyPad</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -235,8 +288,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="from-github-to-your-computer" class="level2">
-<h2 class="anchored" data-anchor-id="from-github-to-your-computer">From GitHub to your computer</h2>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>Creating a GitHub repository is just the beginning. As your research progresses, you’ll update files, refine analyses, and correct mistakes. Keeping track of these changes helps you understand how your project has evolved and makes it easier to share your work with collaborators.</p>
+<p>In this LilyPad, you’ll learn how to use <a href="https://desktop.github.com/"><strong>GitHub Desktop</strong></a> to manage changes to your research project, maintain a meaningful version history, and share updates on GitHub—all without using the command line.</p>
+<section id="what-you-will-learn" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-will-learn">What you will learn</h2>
+<p>By the end of this LilyPad, you will be able to:</p>
+<ul>
+<li>Clone a GitHub repository to your computer using GitHub Desktop.</li>
+<li>Identify files that should not be tracked and use <code>.gitignore</code> to exclude them.</li>
+<li>Make and review changes to your research project.</li>
+<li>Create meaningful commits to document how your project evolves.</li>
+<li>Explore your project’s history to understand what changed and when.</li>
+<li>Push your changes to GitHub and verify that they were shared.</li>
+</ul>
+<p><strong>No command line required!</strong></p>
+</section>
+<section id="before-you-begin" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-begin">Before you begin</h2>
+<p>To complete this LilyPad, you will need:</p>
+<ul>
+<li><strong><a href="https://github.com/signup">A GitHub account.</a></strong> You should already have one from the <a href="../start-a-research-repository/index.qmd">previous LilyPad</a>.</li>
+<li><strong>An existing GitHub repository.</strong> You can continue with the repository you created in <a href="../start-a-research-repository/index.qmd">Start a Research Repository</a>, using one of our example geoscience projects or your own research project.</li>
+<li><strong>GitHub Desktop.</strong> You’ll need to <a href="https://desktop.github.com/">download and install GitHub Desktop</a> on your computer. We’ll walk you through connecting it to your GitHub account.</li>
+<li><strong>A text editor.</strong> You’ll need to edit a file in your repository. You can use <a href="https://code.visualstudio.com/">VS Code</a>, another text editor, or your preferred development environment.</li>
+</ul>
+<p>You don’t need any previous experience with Git or the command line. We’ll guide you through each step using GitHub Desktop.</p>
+</section>
+</section>
+<section id="from-github-to-your-computer" class="level1">
+<h1>From GitHub to your computer</h1>
 <p>In the previous <a href="../../../deep-water/github/start-research-repository/index.html">LilyPad</a>, you created a GitHub repository for your research project. You organized your files, documented your project in a README, and decided what should (and should not) be shared.</p>
 <p>But research projects rarely stay the same. You might collect new observations, correct an error in a dataset, refine an analysis, or improve your documentation.</p>
 <p>How can you keep track of these changes and share them without repeatedly uploading files through your browser?</p>
@@ -255,13 +337,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You won’t need to use the command line. We’ll use GitHub Desktop throughout this LilyPad.</p>
 </div>
 </div>
-<section id="your-starting-point" class="level3">
-<h3 class="anchored" data-anchor-id="your-starting-point">Your starting point</h3>
+<section id="your-starting-point" class="level2">
+<h2 class="anchored" data-anchor-id="your-starting-point">Your starting point</h2>
 <p>You’ll continue working with the repository you created in the <a href="../../../deep-water/github/start-research-repository/index.html">previous LilyPad</a>. You can use the geoscience study package you selected earlier or your own research project.</p>
 <p>By the end of this activity, you’ll have a local working copy of your repository, a record of the changes you’ve made, and an updated version of your project on GitHub.</p>
 </section>
-<section id="activity-1-bring-your-repository-to-your-computer" class="level3">
-<h3 class="anchored" data-anchor-id="activity-1-bring-your-repository-to-your-computer">Activity 1: Bring your repository to your computer</h3>
+<section id="activity-1-bring-your-repository-to-your-computer" class="level2">
+<h2 class="anchored" data-anchor-id="activity-1-bring-your-repository-to-your-computer">Activity 1: Bring your repository to your computer</h2>
 <p>So far, you’ve been working with your repository through the GitHub website. Your files live on GitHub, and you’ve been making changes using your browser.</p>
 <p>But you probably don’t want to edit your research notebooks, datasets, or scripts through a web browser!</p>
 <p>Instead, we’ll create a <strong>local copy</strong> of your repository on your computer. In Git terminology, this is called <strong>cloning</strong>.</p>
@@ -283,8 +365,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These repositories don’t automatically stay synchronized. You’ll learn how to share your local changes with GitHub later in this LilyPad.</p>
 </div>
 </div>
-<section id="step-1-install-github-desktop" class="level4">
-<h4 class="anchored" data-anchor-id="step-1-install-github-desktop">Step 1: Install GitHub Desktop</h4>
+<section id="step-1-install-github-desktop" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-install-github-desktop">Step 1: Install GitHub Desktop</h3>
 <p>If you haven’t already, <a href="https://desktop.github.com/">download and install GitHub Desktop</a>.</p>
 <p>Next, make sure GitHub Desktop is connected to your GitHub account:</p>
 <ol type="1">
@@ -318,8 +400,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="step-2-clone-your-repository" class="level4">
-<h4 class="anchored" data-anchor-id="step-2-clone-your-repository">Step 2: Clone your repository</h4>
+<section id="step-2-clone-your-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-clone-your-repository">Step 2: Clone your repository</h3>
 <ol type="1">
 <li>In GitHub Desktop, select <strong>File → Clone Repository</strong>.</li>
 <li>Select the <strong>GitHub.com</strong> tab.</li>
@@ -329,8 +411,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>GitHub Desktop will create a local copy of your repository.</p>
 </section>
-<section id="step-3-explore-your-local-repository" class="level4">
-<h4 class="anchored" data-anchor-id="step-3-explore-your-local-repository">Step 3: Explore your local repository</h4>
+<section id="step-3-explore-your-local-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-explore-your-local-repository">Step 3: Explore your local repository</h3>
 <p>In GitHub Desktop, select <strong>Repository → Show in Finder</strong> (macOS) or <strong>Show in Explorer</strong> (Windows).</p>
 <p>Open the folder and take a look around.</p>
 <ul>
@@ -355,8 +437,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="what-should-git-track" class="level3">
-<h3 class="anchored" data-anchor-id="what-should-git-track">What should Git track?</h3>
+<section id="what-should-git-track" class="level2">
+<h2 class="anchored" data-anchor-id="what-should-git-track">What should Git track?</h2>
 <p>Not every file on your computer belongs in your GitHub repository.</p>
 <p>Scientific projects often generate temporary files, caches, or application-specific files that aren’t necessary to reproduce your research. Tracking these files can clutter your repository and make it harder to identify meaningful changes.</p>
 <p>Git lets you specify which files and folders to ignore using a file called <strong><code>.gitignore</code></strong>.</p>
@@ -367,8 +449,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>.DS_Store</code> — metadata files created by macOS.</li>
 <li><code>.env</code> — local environment settings that may contain credentials.</li>
 </ul>
-<section id="adding-files-to-.gitignore-with-github-desktop" class="level4">
-<h4 class="anchored" data-anchor-id="adding-files-to-.gitignore-with-github-desktop">Adding files to .gitignore with GitHub Desktop</h4>
+<section id="adding-files-to-.gitignore-with-github-desktop" class="level3">
+<h3 class="anchored" data-anchor-id="adding-files-to-.gitignore-with-github-desktop">Adding files to .gitignore with GitHub Desktop</h3>
 <p>You don’t need to write <code>.gitignore</code> from scratch. GitHub Desktop can help you create or update it.</p>
 <ol type="1">
 <li>Open GitHub Desktop and select your repository.</li>
@@ -383,8 +465,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>You can also ignore an entire folder or all files with a particular extension, but be careful: you might accidentally ignore files that are important to your research.</p>
 </section>
-<section id="what-happens-when-you-ignore-a-file" class="level4">
-<h4 class="anchored" data-anchor-id="what-happens-when-you-ignore-a-file">What happens when you ignore a file?</h4>
+<section id="what-happens-when-you-ignore-a-file" class="level3">
+<h3 class="anchored" data-anchor-id="what-happens-when-you-ignore-a-file">What happens when you ignore a file?</h3>
 <p>GitHub Desktop updates <code>.gitignore</code> with a rule matching your selected file.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -434,13 +516,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="make-and-review-changes" class="level2">
-<h2 class="anchored" data-anchor-id="make-and-review-changes">Make and review changes</h2>
+<section id="make-and-review-changes" class="level1">
+<h1>Make and review changes</h1>
 <p>Research projects evolve. You might update your methods, correct an error, add new observations, or improve your documentation.</p>
 <p>Now that you have a local repository, you can make these changes directly on your computer using your usual tools.</p>
 <p>Git will help you keep track of what changed.</p>
-<section id="activity-2-update-your-readme" class="level3">
-<h3 class="anchored" data-anchor-id="activity-2-update-your-readme">Activity 2: Update your README</h3>
+<section id="activity-2-update-your-readme" class="level2">
+<h2 class="anchored" data-anchor-id="activity-2-update-your-readme">Activity 2: Update your README</h2>
 <p>Let’s start with a small change to your project documentation.</p>
 <ol type="1">
 <li>Open your local repository folder using Finder (macOS) or File Explorer (Windows).</li>
@@ -456,8 +538,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>You have now modified a file in your local repository!</p>
 </section>
-<section id="see-what-git-noticed" class="level3">
-<h3 class="anchored" data-anchor-id="see-what-git-noticed">See what Git noticed</h3>
+<section id="see-what-git-noticed" class="level2">
+<h2 class="anchored" data-anchor-id="see-what-git-noticed">See what Git noticed</h2>
 <p>Return to GitHub Desktop and select the <strong>Changes</strong> tab.</p>
 <p>You should see <code>README.md</code> in the list of changed files. Select it to examine what Git detected.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -494,8 +576,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Did you change a parameter? Correct a calculation? Remove some observations? Or simply update the documentation?</p>
 <p>Git helps answer these questions by recording the history of your project. But to create a useful history, you first need to understand <strong>what you’re saving</strong>.</p>
 </section>
-<section id="activity-3-review-before-you-commit" class="level3">
-<h3 class="anchored" data-anchor-id="activity-3-review-before-you-commit">Activity 3: Review before you commit</h3>
+<section id="activity-3-review-before-you-commit" class="level2">
+<h2 class="anchored" data-anchor-id="activity-3-review-before-you-commit">Activity 3: Review before you commit</h2>
 <p>Return to the <strong>Changes</strong> tab in GitHub Desktop.</p>
 <ol type="1">
 <li>Select your modified <code>README.md</code>.</li>
@@ -505,8 +587,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>This is an opportunity to catch mistakes before recording them in your project’s history.</p>
 </section>
-<section id="which-changes-belong-together" class="level3">
-<h3 class="anchored" data-anchor-id="which-changes-belong-together">Which changes belong together?</h3>
+<section id="which-changes-belong-together" class="level2">
+<h2 class="anchored" data-anchor-id="which-changes-belong-together">Which changes belong together?</h2>
 <p>You may have noticed the checkboxes next to each file in the Changes tab.</p>
 <p>These checkboxes determine which files will be included in your next <strong>commit</strong> (a saved record of changes in Git).</p>
 <p>By default, GitHub Desktop selects all changed files. You can uncheck files that you don’t want to include in a particular commit.</p>
@@ -542,14 +624,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="save-your-projects-history" class="level2">
-<h2 class="anchored" data-anchor-id="save-your-projects-history">Save your project’s history</h2>
+<section id="save-your-projects-history" class="level1">
+<h1>Save your project’s history</h1>
 <p>You’ve made changes to your README and reviewed them in GitHub Desktop. But what happens when you want to remember why you made those changes, or find out what your project looked like several months ago?</p>
 <p>This is where <strong>commits</strong> come in.</p>
 <p>A commit records a set of changes in your project’s Git history. Each commit includes information about what changed, who made the change, and when it happened.</p>
 <p>You also provide a <strong>commit message</strong> explaining the purpose of those changes.</p>
-<section id="activity-4-create-your-first-commit" class="level3">
-<h3 class="anchored" data-anchor-id="activity-4-create-your-first-commit">Activity 4: Create your first commit</h3>
+<section id="activity-4-create-your-first-commit" class="level2">
+<h2 class="anchored" data-anchor-id="activity-4-create-your-first-commit">Activity 4: Create your first commit</h2>
 <p>Let’s record the README changes you made earlier.</p>
 <ol type="1">
 <li>Return to the <strong>Changes</strong> tab in GitHub Desktop.</li>
@@ -603,8 +685,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="explore-your-projects-history" class="level3">
-<h3 class="anchored" data-anchor-id="explore-your-projects-history">Explore your project’s history</h3>
+<section id="explore-your-projects-history" class="level2">
+<h2 class="anchored" data-anchor-id="explore-your-projects-history">Explore your project’s history</h2>
 <p>Now let’s see what Git recorded.</p>
 <ol type="1">
 <li>In GitHub Desktop, select the <strong>History</strong> tab.</li>
@@ -631,8 +713,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="local-history-versus-github" class="level3">
-<h3 class="anchored" data-anchor-id="local-history-versus-github">Local history versus GitHub</h3>
+<section id="local-history-versus-github" class="level2">
+<h2 class="anchored" data-anchor-id="local-history-versus-github">Local history versus GitHub</h2>
 <p>You’ve now recorded your changes in Git, but there’s one important distinction:</p>
 <p><strong>Your new commit exists on your computer, not yet on GitHub.</strong></p>
 <p>If you visit your repository on GitHub in your browser, you won’t see these latest changes.</p>
@@ -659,8 +741,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="share-your-changes-on-github" class="level2">
-<h2 class="anchored" data-anchor-id="share-your-changes-on-github">Share your changes on GitHub</h2>
+<section id="share-your-changes-on-github" class="level1">
+<h1>Share your changes on GitHub</h1>
 <p>You’ve made changes to your research project and recorded them in your local Git history.</p>
 <p>But if you open your repository on the GitHub website, you won’t see those changes yet!</p>
 <p>That’s because <strong>committing and sharing are two different actions</strong>.</p>
@@ -669,8 +751,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Push:</strong> Sends your local commits to the remote repository on GitHub.</li>
 </ul>
 <p>This separation is useful. You can work on your research, experiment, and record changes locally, even without an internet connection. When you’re ready, you can share your commits with GitHub.</p>
-<section id="activity-5-push-your-changes" class="level3">
-<h3 class="anchored" data-anchor-id="activity-5-push-your-changes">Activity 5: Push your changes</h3>
+<section id="activity-5-push-your-changes" class="level2">
+<h2 class="anchored" data-anchor-id="activity-5-push-your-changes">Activity 5: Push your changes</h2>
 <p>Let’s share the commit you created in the previous activity.</p>
 <ol type="1">
 <li>Open GitHub Desktop and select your repository.</li>
@@ -698,8 +780,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="verify-your-changes-on-github" class="level3">
-<h3 class="anchored" data-anchor-id="verify-your-changes-on-github">Verify your changes on GitHub</h3>
+<section id="verify-your-changes-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="verify-your-changes-on-github">Verify your changes on GitHub</h2>
 <p>How do you know your changes actually made it to GitHub?</p>
 <ol type="1">
 <li>In GitHub Desktop, select <strong>Repository → View on GitHub</strong>.</li>
@@ -711,237 +793,234 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You should see the same commit message and changes that you examined in GitHub Desktop.</p>
 <p>Your project now has a shared history that you can access from another computer or share with collaborators who have access to the repository.</p>
 </section>
-<section id="putting-it-all-together" class="level3">
-<h3 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h3>
-</section>
-<section id="putting-it-all-together-1" class="level3">
-<h3 class="anchored" data-anchor-id="putting-it-all-together-1">Putting it all together</h3>
+<section id="putting-it-all-together" class="level2">
+<h2 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h2>
 <p>You’ve now practiced the basic Git workflow. Can you connect each action to what it does?</p>
 <p>Select an action on the left, then its matching description on the right. You’ll get immediate feedback.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="421" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 420;"><span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>gitMatching <span class="op">=</span> {</span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> actions <span class="op">=</span> [</span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"save"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Edit &amp; save"</span><span class="op">,</span></span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Update files on your computer"</span> }<span class="op">,</span></span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"review"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Review"</span><span class="op">,</span></span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Inspect changes before recording them"</span> }<span class="op">,</span></span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"commit"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Commit"</span><span class="op">,</span></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Record changes in your local Git history"</span> }<span class="op">,</span></span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"push"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Push"</span><span class="op">,</span></span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Send your local commits to GitHub"</span> }</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> byId <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">fromEntries</span>(actions<span class="op">.</span><span class="fu">map</span>(a <span class="kw">=&gt;</span> [a<span class="op">.</span><span class="at">id</span><span class="op">,</span> a]))<span class="op">;</span></span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> descriptionOrder <span class="op">=</span> [<span class="st">"push"</span><span class="op">,</span> <span class="st">"save"</span><span class="op">,</span> <span class="st">"commit"</span><span class="op">,</span> <span class="st">"review"</span>]<span class="op">;</span></span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="bu">root</span> <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="pond-match"&gt;</span></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;style&gt;</span></span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match {</span></span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 1px solid #ddd;</span></span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 10px;</span></span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 1.2rem;</span></span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin: 1rem 0;</span></span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-grid {</span></span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="vs">          display: grid;</span></span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a><span class="vs">          grid-template-columns: 1fr 1.4fr;</span></span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="vs">          gap: 1rem;</span></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-column {</span></span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="vs">          display: flex;</span></span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="vs">          flex-direction: column;</span></span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="vs">          gap: 0.6rem;</span></span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-column &gt; strong {</span></span>
-<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin-bottom: 0.3rem;</span></span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option {</span></span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="vs">          width: 100%;</span></span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="vs">          min-height: 58px;</span></span>
-<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 0.7rem;</span></span>
-<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 2px solid #ddd;</span></span>
-<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 8px;</span></span>
-<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #f8f9fa;</span></span>
-<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #222;</span></span>
-<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="vs">          text-align: left;</span></span>
-<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: pointer;</span></span>
-<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="vs">          transition: background 0.15s, border-color 0.15s;</span></span>
-<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option:hover:not(:disabled) {</span></span>
-<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #64748b;</span></span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-selected {</span></span>
-<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #2563eb;</span></span>
-<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #eff6ff;</span></span>
-<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-correct {</span></span>
-<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #15803d;</span></span>
-<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #dcfce7;</span></span>
-<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #14532d;</span></span>
-<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: default;</span></span>
-<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a><span class="vs">          opacity: 1;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="447" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 446;"><span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>gitMatching <span class="op">=</span> {</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> actions <span class="op">=</span> [</span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"save"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Edit &amp; save"</span><span class="op">,</span></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Update files on your computer"</span> }<span class="op">,</span></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"review"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Review"</span><span class="op">,</span></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Inspect changes before recording them"</span> }<span class="op">,</span></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"commit"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Commit"</span><span class="op">,</span></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Record changes in your local Git history"</span> }<span class="op">,</span></span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">id</span><span class="op">:</span> <span class="st">"push"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Push"</span><span class="op">,</span></span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a>      <span class="dt">description</span><span class="op">:</span> <span class="st">"Send your local commits to GitHub"</span> }</span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> byId <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">fromEntries</span>(actions<span class="op">.</span><span class="fu">map</span>(a <span class="kw">=&gt;</span> [a<span class="op">.</span><span class="at">id</span><span class="op">,</span> a]))<span class="op">;</span></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> descriptionOrder <span class="op">=</span> [<span class="st">"push"</span><span class="op">,</span> <span class="st">"save"</span><span class="op">,</span> <span class="st">"commit"</span><span class="op">,</span> <span class="st">"review"</span>]<span class="op">;</span></span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="bu">root</span> <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="pond-match"&gt;</span></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;style&gt;</span></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match {</span></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 1px solid #ddd;</span></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 10px;</span></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 1.2rem;</span></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin: 1rem 0;</span></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-grid {</span></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="vs">          display: grid;</span></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="vs">          grid-template-columns: 1fr 1.4fr;</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="vs">          gap: 1rem;</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-column {</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="vs">          display: flex;</span></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="vs">          flex-direction: column;</span></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="vs">          gap: 0.6rem;</span></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-column &gt; strong {</span></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin-bottom: 0.3rem;</span></span>
 <span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-correct::after {</span></span>
-<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="vs">          content: " ✓";</span></span>
-<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: bold;</span></span>
-<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-wrong {</span></span>
-<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #dc2626;</span></span>
-<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #fee2e2;</span></span>
-<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #991b1b;</span></span>
-<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-wrong::after {</span></span>
-<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="vs">          content: " ✕";</span></span>
-<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: bold;</span></span>
-<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback {</span></span>
-<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin: 1rem 0;</span></span>
-<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="vs">          min-height: 1.5rem;</span></span>
-<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: 500;</span></span>
-<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback[data-result="wrong"] {</span></span>
-<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #b91c1c;</span></span>
-<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback[data-result="correct"] {</span></span>
-<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #15803d;</span></span>
-<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-reset {</span></span>
-<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 0.4rem 1rem;</span></span>
-<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 1px solid #aaa;</span></span>
-<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 6px;</span></span>
-<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: transparent;</span></span>
-<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: inherit;</span></span>
-<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: pointer;</span></span>
-<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a><span class="vs">        @media (max-width: 600px) {</span></span>
-<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="vs">          .pond-match-grid {</span></span>
-<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a><span class="vs">            grid-template-columns: 1fr;</span></span>
-<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a><span class="vs">          }</span></span>
-<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
-<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/style&gt;</span></span>
-<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="pond-match-grid"&gt;</span></span>
-<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="pond-match-column"&gt;</span></span>
-<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;strong&gt;Action&lt;/strong&gt;</span></span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="pond-match-column pond-match-actions"&gt;&lt;/div&gt;</span></span>
-<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
-<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="pond-match-column"&gt;</span></span>
-<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;strong&gt;What it does&lt;/strong&gt;</span></span>
-<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="pond-match-column pond-match-descriptions"&gt;&lt;/div&gt;</span></span>
-<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
-<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
-<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;p class="pond-match-feedback" aria-live="polite"&gt;</span></span>
-<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="vs">        Select an action, then its description.</span></span>
-<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/p&gt;</span></span>
-<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-reset"&gt;</span></span>
-<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a><span class="vs">        Start over</span></span>
-<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
-<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
-<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
-<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> actionButtons <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
-<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> descriptionButtons <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
-<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> matched <span class="op">=</span> <span class="kw">new</span> <span class="bu">Set</span>()<span class="op">;</span></span>
-<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> feedback <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-feedback"</span>)<span class="op">;</span></span>
-<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">message</span>(text<span class="op">,</span> result <span class="op">=</span> <span class="st">""</span>) {</span>
-<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> text<span class="op">;</span></span>
-<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="at">dataset</span><span class="op">.</span><span class="at">result</span> <span class="op">=</span> result<span class="op">;</span></span>
-<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">render</span>() {</span>
-<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> [id<span class="op">,</span> button] <span class="kw">of</span> actionButtons) {</span>
-<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-selected"</span><span class="op">,</span></span>
-<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a>        selected <span class="op">===</span> id <span class="op">&amp;&amp;</span> wrong <span class="op">===</span> <span class="kw">null</span>)<span class="op">;</span></span>
-<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-correct"</span><span class="op">,</span> matched<span class="op">.</span><span class="fu">has</span>(id))<span class="op">;</span></span>
-<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-wrong"</span><span class="op">,</span></span>
-<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> wrong<span class="op">.</span><span class="at">action</span> <span class="op">===</span> id)<span class="op">;</span></span>
-<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> matched<span class="op">.</span><span class="fu">has</span>(id)<span class="op">;</span></span>
-<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">"aria-pressed"</span><span class="op">,</span> selected <span class="op">===</span> id)<span class="op">;</span></span>
-<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> [id<span class="op">,</span> button] <span class="kw">of</span> descriptionButtons) {</span>
-<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-correct"</span><span class="op">,</span> matched<span class="op">.</span><span class="fu">has</span>(id))<span class="op">;</span></span>
-<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-wrong"</span><span class="op">,</span></span>
-<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> wrong<span class="op">.</span><span class="at">description</span> <span class="op">===</span> id)<span class="op">;</span></span>
-<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> matched<span class="op">.</span><span class="fu">has</span>(id)<span class="op">;</span></span>
-<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option {</span></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="vs">          width: 100%;</span></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="vs">          min-height: 58px;</span></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 0.7rem;</span></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 2px solid #ddd;</span></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 8px;</span></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #f8f9fa;</span></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #222;</span></span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="vs">          text-align: left;</span></span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: pointer;</span></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="vs">          transition: background 0.15s, border-color 0.15s;</span></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option:hover:not(:disabled) {</span></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #64748b;</span></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-selected {</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #2563eb;</span></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #eff6ff;</span></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-correct {</span></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #15803d;</span></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #dcfce7;</span></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #14532d;</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: default;</span></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="vs">          opacity: 1;</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-correct::after {</span></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="vs">          content: " ✓";</span></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: bold;</span></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-wrong {</span></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-color: #dc2626;</span></span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: #fee2e2;</span></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #991b1b;</span></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-option.is-wrong::after {</span></span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="vs">          content: " ✕";</span></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: bold;</span></span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback {</span></span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="vs">          margin: 1rem 0;</span></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="vs">          min-height: 1.5rem;</span></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="vs">          font-weight: 500;</span></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback[data-result="wrong"] {</span></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #b91c1c;</span></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-feedback[data-result="correct"] {</span></span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: #15803d;</span></span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a><span class="vs">        .pond-match-reset {</span></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="vs">          padding: 0.4rem 1rem;</span></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="vs">          border: 1px solid #aaa;</span></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="vs">          border-radius: 6px;</span></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a><span class="vs">          background: transparent;</span></span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a><span class="vs">          color: inherit;</span></span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a><span class="vs">          cursor: pointer;</span></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a><span class="vs">        @media (max-width: 600px) {</span></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="vs">          .pond-match-grid {</span></span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a><span class="vs">            grid-template-columns: 1fr;</span></span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a><span class="vs">          }</span></span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="vs">        }</span></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/style&gt;</span></span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="pond-match-grid"&gt;</span></span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="pond-match-column"&gt;</span></span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;strong&gt;Action&lt;/strong&gt;</span></span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="pond-match-column pond-match-actions"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div class="pond-match-column"&gt;</span></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;strong&gt;What it does&lt;/strong&gt;</span></span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;div class="pond-match-column pond-match-descriptions"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/div&gt;</span></span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;p class="pond-match-feedback" aria-live="polite"&gt;</span></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a><span class="vs">        Select an action, then its description.</span></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/p&gt;</span></span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-reset"&gt;</span></span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a><span class="vs">        Start over</span></span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> actionButtons <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> descriptionButtons <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> matched <span class="op">=</span> <span class="kw">new</span> <span class="bu">Set</span>()<span class="op">;</span></span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
 <span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> action <span class="kw">of</span> actions) {</span>
-<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> button <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
-<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-option"&gt;</span></span>
-<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>action<span class="op">.</span><span class="at">label</span><span class="sc">}</span></span>
-<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
-<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> feedback <span class="op">=</span> <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-feedback"</span>)<span class="op">;</span></span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">message</span>(text<span class="op">,</span> result <span class="op">=</span> <span class="st">""</span>) {</span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> text<span class="op">;</span></span>
+<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="at">dataset</span><span class="op">.</span><span class="at">result</span> <span class="op">=</span> result<span class="op">;</span></span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a>    button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a>      selected <span class="op">=</span> action<span class="op">.</span><span class="at">id</span><span class="op">;</span></span>
-<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>      wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a>      <span class="fu">message</span>(<span class="st">"Now select the matching description."</span>)<span class="op">;</span></span>
-<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>      <span class="fu">render</span>()<span class="op">;</span></span>
-<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a>    actionButtons<span class="op">.</span><span class="fu">set</span>(action<span class="op">.</span><span class="at">id</span><span class="op">,</span> button)<span class="op">;</span></span>
-<span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-actions"</span>)<span class="op">.</span><span class="fu">append</span>(button)<span class="op">;</span></span>
-<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">render</span>() {</span>
+<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> [id<span class="op">,</span> button] <span class="kw">of</span> actionButtons) {</span>
+<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-selected"</span><span class="op">,</span></span>
+<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a>        selected <span class="op">===</span> id <span class="op">&amp;&amp;</span> wrong <span class="op">===</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-correct"</span><span class="op">,</span> matched<span class="op">.</span><span class="fu">has</span>(id))<span class="op">;</span></span>
+<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-wrong"</span><span class="op">,</span></span>
+<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> wrong<span class="op">.</span><span class="at">action</span> <span class="op">===</span> id)<span class="op">;</span></span>
+<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> matched<span class="op">.</span><span class="fu">has</span>(id)<span class="op">;</span></span>
+<span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">"aria-pressed"</span><span class="op">,</span> selected <span class="op">===</span> id)<span class="op">;</span></span>
+<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> id <span class="kw">of</span> descriptionOrder) {</span>
-<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> action <span class="op">=</span> byId[id]<span class="op">;</span></span>
-<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> button <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
-<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-option"&gt;</span></span>
-<span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>action<span class="op">.</span><span class="at">description</span><span class="sc">}</span></span>
-<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
-<span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> [id<span class="op">,</span> button] <span class="kw">of</span> descriptionButtons) {</span>
+<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-correct"</span><span class="op">,</span> matched<span class="op">.</span><span class="fu">has</span>(id))<span class="op">;</span></span>
+<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"is-wrong"</span><span class="op">,</span></span>
+<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> wrong<span class="op">.</span><span class="at">description</span> <span class="op">===</span> id)<span class="op">;</span></span>
+<span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a>      button<span class="op">.</span><span class="at">disabled</span> <span class="op">=</span> matched<span class="op">.</span><span class="fu">has</span>(id)<span class="op">;</span></span>
+<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a>    button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (selected <span class="op">===</span> <span class="kw">null</span>) {</span>
-<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"Choose an action on the left first."</span>)<span class="op">;</span></span>
-<span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (selected <span class="op">===</span> id) {</span>
-<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>        matched<span class="op">.</span><span class="fu">add</span>(id)<span class="op">;</span></span>
-<span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a>        selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (matched<span class="op">.</span><span class="at">size</span> <span class="op">===</span> actions<span class="op">.</span><span class="at">length</span>) {</span>
-<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a>          <span class="fu">message</span>(</span>
-<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Great work! Edit &amp; save → Review → Commit → Push"</span><span class="op">,</span></span>
-<span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a>            <span class="st">"correct"</span></span>
-<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a>          )<span class="op">;</span></span>
-<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
-<span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a>          <span class="fu">message</span>(<span class="st">"Correct! Choose another action."</span><span class="op">,</span> <span class="st">"correct"</span>)<span class="op">;</span></span>
-<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">=</span> { <span class="dt">action</span><span class="op">:</span> selected<span class="op">,</span> <span class="dt">description</span><span class="op">:</span> id }<span class="op">;</span></span>
-<span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"Not quite! Try another description."</span><span class="op">,</span> <span class="st">"wrong"</span>)<span class="op">;</span></span>
-<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a>      <span class="fu">render</span>()<span class="op">;</span></span>
-<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a>    descriptionButtons<span class="op">.</span><span class="fu">set</span>(id<span class="op">,</span> button)<span class="op">;</span></span>
-<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-descriptions"</span>)<span class="op">.</span><span class="fu">append</span>(button)<span class="op">;</span></span>
-<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a>  <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-reset"</span>)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>    matched<span class="op">.</span><span class="fu">clear</span>()<span class="op">;</span></span>
-<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a>    selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>    wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Select an action, then its description."</span>)<span class="op">;</span></span>
-<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>()<span class="op">;</span></span>
-<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>()<span class="op">;</span></span>
-<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">root</span><span class="op">;</span></span>
-<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> action <span class="kw">of</span> actions) {</span>
+<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> button <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-option"&gt;</span></span>
+<span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>action<span class="op">.</span><span class="at">label</span><span class="sc">}</span></span>
+<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
+<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>    button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a>      selected <span class="op">=</span> action<span class="op">.</span><span class="at">id</span><span class="op">;</span></span>
+<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a>      wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a>      <span class="fu">message</span>(<span class="st">"Now select the matching description."</span>)<span class="op">;</span></span>
+<span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a>      <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a>    actionButtons<span class="op">.</span><span class="fu">set</span>(action<span class="op">.</span><span class="at">id</span><span class="op">,</span> button)<span class="op">;</span></span>
+<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-actions"</span>)<span class="op">.</span><span class="fu">append</span>(button)<span class="op">;</span></span>
+<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> id <span class="kw">of</span> descriptionOrder) {</span>
+<span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> action <span class="op">=</span> byId[id]<span class="op">;</span></span>
+<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> button <span class="op">=</span> <span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;button type="button" class="pond-match-option"&gt;</span></span>
+<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>action<span class="op">.</span><span class="at">description</span><span class="sc">}</span></span>
+<span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/button&gt;</span></span>
+<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a>    button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (selected <span class="op">===</span> <span class="kw">null</span>) {</span>
+<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"Choose an action on the left first."</span>)<span class="op">;</span></span>
+<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (selected <span class="op">===</span> id) {</span>
+<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a>        matched<span class="op">.</span><span class="fu">add</span>(id)<span class="op">;</span></span>
+<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>        selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (matched<span class="op">.</span><span class="at">size</span> <span class="op">===</span> actions<span class="op">.</span><span class="at">length</span>) {</span>
+<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a>          <span class="fu">message</span>(</span>
+<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Great work! Edit &amp; save → Review → Commit → Push"</span><span class="op">,</span></span>
+<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a>            <span class="st">"correct"</span></span>
+<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a>          )<span class="op">;</span></span>
+<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a>          <span class="fu">message</span>(<span class="st">"Correct! Choose another action."</span><span class="op">,</span> <span class="st">"correct"</span>)<span class="op">;</span></span>
+<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a>        wrong <span class="op">=</span> { <span class="dt">action</span><span class="op">:</span> selected<span class="op">,</span> <span class="dt">description</span><span class="op">:</span> id }<span class="op">;</span></span>
+<span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"Not quite! Try another description."</span><span class="op">,</span> <span class="st">"wrong"</span>)<span class="op">;</span></span>
+<span id="cb1-650"><a href="#cb1-650" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a>      <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-655"><a href="#cb1-655" aria-hidden="true" tabindex="-1"></a>    descriptionButtons<span class="op">.</span><span class="fu">set</span>(id<span class="op">,</span> button)<span class="op">;</span></span>
+<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a>    <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-descriptions"</span>)<span class="op">.</span><span class="fu">append</span>(button)<span class="op">;</span></span>
+<span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>  <span class="bu">root</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".pond-match-reset"</span>)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a>    matched<span class="op">.</span><span class="fu">clear</span>()<span class="op">;</span></span>
+<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a>    selected <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a>    wrong <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Select an action, then its description."</span>)<span class="op">;</span></span>
+<span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">root</span><span class="op">;</span></span>
+<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -963,7 +1042,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Only committed changes are included when you push.</p>
 </div>
 </div>
-</section>
 <section id="before-you-leave-this-lilypad" class="level3">
 <h3 class="anchored" data-anchor-id="before-you-leave-this-lilypad">Before you leave this LilyPad</h3>
 <p>You’ve now completed the basic Git workflow using GitHub Desktop!</p>
@@ -995,6 +1073,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
+</section>
 </section>
 </section>
 

@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-bd5320703489953436e310b7be14b3dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-b01c7af0b656753d08655c0cf574d03c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-bd5320703489953436e310b7be14b3dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -148,14 +148,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../shallows/index.html"> 
 <span class="menu-text">The Shallows</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../lilypads/index.html"> 
-<span class="menu-text">LilyPads</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lilypads" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LilyPads</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lilypads">    
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/index.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../deep-water/index.html"> 
-<span class="menu-text">The Deep End</span></a>
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/data/index.html">
+ <span class="dropdown-text">Data</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/softwareindex.qmd">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/workflow/index.html">
+ <span class="dropdown-text">Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-the-deep-end" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">The Deep End</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-the-deep-end">    
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/index.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/github/index.html">
+ <span class="dropdown-text">GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/containers/index.html">
+ <span class="dropdown-text">Containers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/correlation-workflow/index.html">
+ <span class="dropdown-text">Correlation Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../spring/index.html"> 
 <span class="menu-text">The Spring</span></a>
@@ -177,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link active" data-scroll-target="#what-you-will-learn">What you will learn</a></li>
-  <li><a href="#what-you-will-need" id="toc-what-you-will-need" class="nav-link" data-scroll-target="#what-you-will-need">What you will need</a></li>
+  <li><a href="#before-you-begin" id="toc-before-you-begin" class="nav-link" data-scroll-target="#before-you-begin">Before you begin</a></li>
   <li><a href="#git-and-github-are-not-the-same-thing" id="toc-git-and-github-are-not-the-same-thing" class="nav-link" data-scroll-target="#git-and-github-are-not-the-same-thing">Git and GitHub are not the same thing</a>
   <ul class="collapse">
   <li><a href="#sort-the-cards" id="toc-sort-the-cards" class="nav-link" data-scroll-target="#sort-the-cards">Sort the cards</a></li>
@@ -238,8 +276,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>write a README that helps someone understand the project;</li>
 </ul>
 </section>
-<section id="what-you-will-need" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-will-need">What you will need</h2>
+<section id="before-you-begin" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-begin">Before you begin</h2>
+<p>To complete this LiLyPad, you will need:</p>
 <ul>
 <li><a href="https://github.com/signup">A GitHub account</a></li>
 <li>A web browser. We recommend using the latest version of Chrome, Firefox, or Safari for the best experience.</li>

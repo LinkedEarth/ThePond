@@ -48,9 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-bd5320703489953436e310b7be14b3dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-b01c7af0b656753d08655c0cf574d03c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-bd5320703489953436e310b7be14b3dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,6 +78,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -112,14 +115,52 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../../shallows/index.html"> 
 <span class="menu-text">The Shallows</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../lilypads/index.html"> 
-<span class="menu-text">LilyPads</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lilypads" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LilyPads</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lilypads">    
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/index.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../deep-water/index.html"> 
-<span class="menu-text">The Deep End</span></a>
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/data/index.html">
+ <span class="dropdown-text">Data</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/softwareindex.qmd">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../lilypads/workflow/index.html">
+ <span class="dropdown-text">Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-the-deep-end" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">The Deep End</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-the-deep-end">    
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/index.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/github/index.html">
+ <span class="dropdown-text">GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/containers/index.html">
+ <span class="dropdown-text">Containers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../deep-water/correlation-workflow/index.html">
+ <span class="dropdown-text">Correlation Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../spring/index.html"> 
 <span class="menu-text">The Spring</span></a>
@@ -135,8 +176,66 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link" data-scroll-target="#what-you-will-learn">What you will learn</a></li>
+  <li><a href="#before-you-begin" id="toc-before-you-begin" class="nav-link" data-scroll-target="#before-you-begin">Before you begin</a></li>
+  <li><a href="#meet-your-research-collaborators" id="toc-meet-your-research-collaborators" class="nav-link" data-scroll-target="#meet-your-research-collaborators">Meet your research collaborators</a></li>
+  </ul></li>
+  <li><a href="#why-work-on-a-branch" id="toc-why-work-on-a-branch" class="nav-link" data-scroll-target="#why-work-on-a-branch">1. Why work on a branch?</a>
+  <ul class="collapse">
+  <li><a href="#keeping-shared-work-stable" id="toc-keeping-shared-work-stable" class="nav-link" data-scroll-target="#keeping-shared-work-stable">Keeping shared work stable</a></li>
+  <li><a href="#try-it-create-a-branch" id="toc-try-it-create-a-branch" class="nav-link" data-scroll-target="#try-it-create-a-branch">Try it: Create a branch</a></li>
+  <li><a href="#your-turn-create-a-branch-in-github-desktop" id="toc-your-turn-create-a-branch-in-github-desktop" class="nav-link" data-scroll-target="#your-turn-create-a-branch-in-github-desktop">Your turn: Create a branch in GitHub Desktop</a></li>
+  <li><a href="#check-your-progress" id="toc-check-your-progress" class="nav-link" data-scroll-target="#check-your-progress">Check your progress</a></li>
+  </ul></li>
+  <li><a href="#from-improvement-to-proposal" id="toc-from-improvement-to-proposal" class="nav-link" data-scroll-target="#from-improvement-to-proposal">2. From improvement to proposal</a>
+  <ul class="collapse">
+  <li><a href="#a-small-change-can-make-a-big-difference" id="toc-a-small-change-can-make-a-big-difference" class="nav-link" data-scroll-target="#a-small-change-can-make-a-big-difference">A small change can make a big difference</a></li>
+  <li><a href="#how-does-a-pull-request-work" id="toc-how-does-a-pull-request-work" class="nav-link" data-scroll-target="#how-does-a-pull-request-work">How does a pull request work?</a>
+  <ul class="collapse">
+  <li><a href="#why-is-this-useful-for-research" id="toc-why-is-this-useful-for-research" class="nav-link" data-scroll-target="#why-is-this-useful-for-research">Why is this useful for research?</a></li>
+  </ul></li>
+  <li><a href="#your-turn-make-a-meaningful-improvement" id="toc-your-turn-make-a-meaningful-improvement" class="nav-link" data-scroll-target="#your-turn-make-a-meaningful-improvement">Your turn: Make a meaningful improvement</a></li>
+  <li><a href="#publish-your-branch" id="toc-publish-your-branch" class="nav-link" data-scroll-target="#publish-your-branch">Publish your branch</a></li>
+  <li><a href="#open-your-first-pull-request" id="toc-open-your-first-pull-request" class="nav-link" data-scroll-target="#open-your-first-pull-request">Open your first pull request</a></li>
+  <li><a href="#take-a-look-at-your-pull-request" id="toc-take-a-look-at-your-pull-request" class="nav-link" data-scroll-target="#take-a-look-at-your-pull-request">Take a look at your pull request</a></li>
+  </ul></li>
+  <li><a href="#reviewing-a-scientific-change" id="toc-reviewing-a-scientific-change" class="nav-link" data-scroll-target="#reviewing-a-scientific-change">3. Reviewing a scientific change</a>
+  <ul class="collapse">
+  <li><a href="#how-a-pull-request-review-works" id="toc-how-a-pull-request-review-works" class="nav-link" data-scroll-target="#how-a-pull-request-review-works">How a pull-request review works</a></li>
+  <li><a href="#try-it-review-the-teams-pull-request" id="toc-try-it-review-the-teams-pull-request" class="nav-link" data-scroll-target="#try-it-review-the-teams-pull-request">Try it: Review the team’s pull request</a></li>
+  <li><a href="#why-did-the-notebook-diff-look-strange" id="toc-why-did-the-notebook-diff-look-strange" class="nav-link" data-scroll-target="#why-did-the-notebook-diff-look-strange">Why did the notebook diff look strange?</a></li>
+  <li><a href="#bring-the-reviewers-perspective-to-your-own-pr" id="toc-bring-the-reviewers-perspective-to-your-own-pr" class="nav-link" data-scroll-target="#bring-the-reviewers-perspective-to-your-own-pr">Bring the reviewer’s perspective to your own PR</a></li>
+  </ul></li>
+  <li><a href="#respond-merge-and-synchronize" id="toc-respond-merge-and-synchronize" class="nav-link" data-scroll-target="#respond-merge-and-synchronize">4. Respond, merge, and synchronize</a>
+  <ul class="collapse">
+  <li><a href="#follow-the-conversation-what-happens-after-a-review" id="toc-follow-the-conversation-what-happens-after-a-review" class="nav-link" data-scroll-target="#follow-the-conversation-what-happens-after-a-review">Follow the conversation: What happens after a review?</a></li>
+  <li><a href="#your-turn-update-your-open-pull-request" id="toc-your-turn-update-your-open-pull-request" class="nav-link" data-scroll-target="#your-turn-update-your-open-pull-request">Your turn: Update your open pull request</a></li>
+  <li><a href="#merge-your-improvement" id="toc-merge-your-improvement" class="nav-link" data-scroll-target="#merge-your-improvement">Merge your improvement</a></li>
+  <li><a href="#synchronize-your-local-repository" id="toc-synchronize-your-local-repository" class="nav-link" data-scroll-target="#synchronize-your-local-repository">Synchronize your local repository</a></li>
+  <li><a href="#check-your-progress-1" id="toc-check-your-progress-1" class="nav-link" data-scroll-target="#check-your-progress-1">Check your progress</a></li>
+  </ul></li>
+  <li><a href="#optional-going-further-collaborating-beyond-your-own-repository" id="toc-optional-going-further-collaborating-beyond-your-own-repository" class="nav-link" data-scroll-target="#optional-going-further-collaborating-beyond-your-own-repository">[Optional] Going further: collaborating beyond your own repository</a>
+  <ul class="collapse">
+  <li><a href="#what-if-you-cannot-publish-a-branch-to-the-project" id="toc-what-if-you-cannot-publish-a-branch-to-the-project" class="nav-link" data-scroll-target="#what-if-you-cannot-publish-a-branch-to-the-project">What if you cannot publish a branch to the project?</a>
+  <ul class="collapse">
+  <li><a href="#optional-hands-on-explore-a-fork" id="toc-optional-hands-on-explore-a-fork" class="nav-link" data-scroll-target="#optional-hands-on-explore-a-fork">Optional hands-on: Explore a fork</a></li>
+  </ul></li>
+  <li><a href="#what-if-two-branches-change-the-same-lines" id="toc-what-if-two-branches-change-the-same-lines" class="nav-link" data-scroll-target="#what-if-two-branches-change-the-same-lines">What if two branches change the same lines?</a>
+  <ul class="collapse">
+  <li><a href="#try-it-resolve-the-documentation-conflict" id="toc-try-it-resolve-the-documentation-conflict" class="nav-link" data-scroll-target="#try-it-resolve-the-documentation-conflict">Try it: Resolve the documentation conflict</a></li>
+  <li><a href="#if-this-happens-in-a-real-pull-request" id="toc-if-this-happens-in-a-real-pull-request" class="nav-link" data-scroll-target="#if-this-happens-in-a-real-pull-request">If this happens in a real pull request</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#before-you-leave-the-pond" id="toc-before-you-leave-the-pond" class="nav-link" data-scroll-target="#before-you-leave-the-pond">Before you leave the pond</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -144,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Collaborate on GitHub</h1>
-<p class="subtitle lead">Track changes, collaborate, organize projects, and share research.</p>
+<p class="subtitle lead">Learn to collaborate on research projects using GitHub branches, pull requests, and scientific reviews. Practice proposing, discussing, and merging changes.</p>
 </div>
 
 
@@ -161,8 +260,2076 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>Research is rarely a solitary activity. A colleague may notice that a dataset needs better documentation, question an analysis decision, or suggest a clearer way to present results. But how do we make these improvements without disrupting someone else’s work? And how do we preserve the discussions and decisions that led to a change?</p>
+<p>GitHub provides a way to propose, discuss, and review changes before incorporating them into a shared project. In this LilyPad, you’ll use <strong>branches and pull requests</strong> to improve your own repository while participating in a simulated collaboration on a scientific research project. You’ll discover that contributing to research involves more than writing code: reviewing documentation, questioning scientific assumptions, and providing constructive feedback are equally valuable.</p>
+<section id="what-you-will-learn" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-will-learn">What you will learn</h2>
+<p>By the end of this LilyPad, you will be able to:</p>
+<ul>
+<li><strong>Work on a branch:</strong> Create and manage a branch in GitHub Desktop to propose changes without directly modifying <code>main</code>.</li>
+<li><strong>Propose an improvement:</strong> Make a focused change, commit and publish it, and open a pull request on GitHub.</li>
+<li><strong>Review scientific changes:</strong> Examine changes to documentation and Jupyter notebooks, recognizing which changes may affect scientific interpretation or reproducibility.</li>
+<li><strong>Participate in a review:</strong> Use comments, approvals, and requests for changes to provide constructive feedback.</li>
+<li><strong>Respond to feedback:</strong> Revise your work and update an existing pull request.</li>
+<li><strong>Merge and synchronize:</strong> Incorporate an accepted change into <code>main</code> and update your local repository.</li>
+</ul>
+</section>
+<section id="before-you-begin" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-begin">Before you begin</h2>
+<p>For this LilyPad, you’ll need:</p>
+<ul>
+<li>A <a href="https://github.com/signup">GitHub account</a> and <a href="https://desktop.github.com/">GitHub Desktop</a> installed on your computer.</li>
+<li>The research repository you created in <a href="../start-a-research-repository/index.qmd">Starting a Research Repository on GitHub</a> and cloned to your computer in <a href="../../../deep-water/github/save-share-changes/index.html">Save and Share Changes on GitHub</a>.</li>
+<li>A small improvement you could make to your project, such as clarifying documentation, adding information about your data, or correcting an explanation.</li>
+</ul>
+<p><strong>You don’t need to know Python or find a collaborator to complete this LilyPad.</strong></p>
+<p>You’ll work in two environments:</p>
+<ul>
+<li><strong>Your own repository on GitHub:</strong> You’ll create a branch, make a change, open a pull request, and eventually merge it.</li>
+<li><strong>An interactive research scenario in The Pond:</strong> You’ll take part in a fictional collaboration, reviewing proposed changes and responding to scientific questions through activities that simulate GitHub’s interface.</li>
+</ul>
+</section>
+<section id="meet-your-research-collaborators" class="level2">
+<h2 class="anchored" data-anchor-id="meet-your-research-collaborators">Meet your research collaborators</h2>
+<p>Throughout this LilyPad, we’ll follow a fictional research team investigating whether nitrate concentrations change as a stream flows through a developed area.</p>
+<p>The researchers are working together on a GitHub repository containing their data documentation and an analysis notebook. As they improve their study, they need to propose changes, examine each other’s work, and decide when those changes are ready to become part of the project.</p>
+<p><strong>You’ll take on the role of a collaborator</strong>, helping the team evaluate proposed changes. You’ll examine documentation, inspect notebook changes, and participate in simulated pull-request discussions. No programming expertise is required: your scientific reasoning is what matters.</p>
+<p>At the same time, you’ll practice the corresponding GitHub actions in your own repository.</p>
+<p>Let’s begin by exploring why researchers might want to work on separate branches.</p>
+</section>
+</section>
+<section id="why-work-on-a-branch" class="level1">
+<h1>1. Why work on a branch?</h1>
+<p>Imagine you’re part of a research team investigating how nitrate concentrations change as a stream flows through a developed area.</p>
+<p>Your colleague is working on the analysis notebook, while you’ve noticed that the <code>README.md</code> could better explain how the measurements were collected and checked for quality. You both need to make changes to the same research repository. But what happens if you make changes directly to the version everyone else is using?</p>
+<p>Of course, collaborators aren’t always working on different files. Sometimes, two researchers need to modify the same notebook, dataset description, or analysis script. When their changes overlap, Git may not be able to combine them automatically. This is called a merge conflict, and we’ll return to it later.</p>
+<section id="keeping-shared-work-stable" class="level2">
+<h2 class="anchored" data-anchor-id="keeping-shared-work-stable">Keeping shared work stable</h2>
+<p>When you create a GitHub repository, it typically starts with a branch named <code>main</code>. Think of this as the primary version of your research project.</p>
+<p>A <strong>branch</strong> allows you to work on a proposed change without immediately incorporating it into <code>main</code>. You can experiment, revise your work, and ask others to review it before deciding whether the change should become part of the shared project.</p>
+<p>For example, your team might have:</p>
+<ul>
+<li><code>main</code> — the primary version of the study.</li>
+<li><code>improve-data-documentation</code> — a branch for clarifying the data descriptions.</li>
+<li><code>update-analysis-methods</code> — another branch for improving the analysis notebook.</li>
+</ul>
+<p>All three branches belong to the same repository. Changes made and committed to one branch don’t automatically become part of the others.</p>
+<p>Branches make it easier to work on different improvements independently. Later, a <strong>pull request</strong> will allow you to propose incorporating your branch’s changes into <code>main</code>.</p>
+</section>
+<section id="try-it-create-a-branch" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-create-a-branch">Try it: Create a branch</h2>
+<p>Let’s create a branch for improving the water-quality project’s documentation.</p>
+<p>We’ll first practice in a simulation of GitHub Desktop. Then you’ll repeat the process in your own repository.</p>
+<p><strong>In GitHub Desktop, creating a branch involves four steps:</strong></p>
+<ol type="1">
+<li>Click <strong>Current Branch</strong> at the top of the window to see the available branches.</li>
+<li>Click <strong>New Branch</strong>.</li>
+<li>Enter a descriptive name for your branch, such as <code>improve-data-documentation</code>. Branch names should help collaborators understand what you’re working on.</li>
+<li>Make sure you’re creating the branch from <code>main</code>, then click <strong>Create Branch</strong>.</li>
+</ol>
+<p><strong>Now try it yourself in the simulation below.</strong> You can explore the interface and start over if needed.</p>
+<p>Once you’ve created your branch, look at two things: Which branch is now selected under <strong>Current Branch</strong>? And what happened to the <strong>Fetch origin</strong> button?</p>
+<div id="pond-github-desktop">
+
+  <div class="pd-window">
+
+    <!-- macOS title bar -->
+    <div class="pd-titlebar">
+      <span class="pd-dot pd-red"></span>
+      <span class="pd-dot pd-yellow"></span>
+      <span class="pd-dot pd-green"></span>
+    </div>
+
+    <!-- GitHub Desktop toolbar -->
+    <div class="pd-toolbar">
+
+      <div class="pd-repository">
+        <span class="pd-toolbar-icon">▣</span>
+        <div>
+          <div class="pd-toolbar-label">Current Repository</div>
+          <div class="pd-toolbar-value">stream-water-quality</div>
+        </div>
+        <span class="pd-chevron">▾</span>
+      </div>
+
+      <div class="pd-branch-area">
+        <button type="button" id="pd-current-branch" class="pd-toolbar-button" aria-expanded="false">
+          <span class="pd-toolbar-icon">⑂</span>
+          <span class="pd-toolbar-text">
+            <span class="pd-toolbar-label">Current Branch</span>
+            <strong id="pd-current-name">main</strong>
+          </span>
+          <span class="pd-chevron" id="pd-current-chevron">▾</span>
+        </button>
+
+        <!-- Branch dropdown -->
+        <div id="pd-branch-dropdown" class="pd-dropdown" hidden="">
+
+          <div class="pd-dropdown-tabs">
+            <button type="button" class="pd-tab active" id="pd-tab-branches">
+              Branches
+            </button>
+            <button type="button" class="pd-tab" id="pd-tab-pr">
+              Pull Requests
+            </button>
+          </div>
+
+          <div id="pd-branches-panel">
+            <div class="pd-filter-row">
+              <input id="pd-filter" type="text" placeholder="⌕  Filter" aria-label="Filter branches">
+              <button type="button" id="pd-new-branch" class="pd-outline-button">
+                New Branch
+              </button>
+            </div>
+
+            <div class="pd-section-heading">Default Branch</div>
+            <button type="button" id="pd-main-row" class="pd-branch-row">
+              <span id="pd-main-check">✓</span>
+              <span class="pd-git-icon">⑂</span>
+              <span class="pd-branch-row-name">main</span>
+            </button>
+
+            <div id="pd-created-section" hidden="">
+              <div class="pd-section-heading">Recent Branches</div>
+              <button type="button" id="pd-created-row" class="pd-branch-row">
+                <span id="pd-created-check">✓</span>
+                <span class="pd-git-icon">⑂</span>
+                <span id="pd-created-name" class="pd-branch-row-name"></span>
+              </button>
+            </div>
+
+            <div class="pd-section-heading">Other Branches</div>
+            <div class="pd-branch-row pd-muted-row">
+              <span class="pd-empty-check"></span>
+              <span class="pd-git-icon">⑂</span>
+              <span class="pd-branch-row-name">origin/update-analysis-methods</span>
+            </div>
+          </div>
+
+          <div id="pd-pr-panel" class="pd-empty-panel" hidden="">
+            No pull requests to display.
+            <p>You'll work with pull requests later in this LilyPad.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pd-sync">
+        <span class="pd-toolbar-icon">⟳</span>
+        <div>
+          <div class="pd-toolbar-value" id="pd-sync-label">Fetch origin</div>
+          <div class="pd-toolbar-label" id="pd-sync-detail">
+            Check for updates
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop workspace -->
+    <div class="pd-workspace">
+      <div class="pd-sidebar">
+        <div class="pd-workspace-tabs">
+          <span class="pd-workspace-tab active">Changes <span class="pd-count">0</span></span>
+          <span class="pd-workspace-tab">History</span>
+        </div>
+        <div class="pd-file-filter">☰ &nbsp; Filter</div>
+        <div class="pd-file-count">0 changed files</div>
+      </div>
+
+      <div class="pd-editor">
+        <div class="pd-editor-top">No local changes</div>
+        <div class="pd-editor-body">
+          <div class="pd-large-icon">✓</div>
+          <strong>No local changes</strong>
+          <p>Your working directory is clean.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Branch dialog -->
+    <div id="pd-dialog-backdrop" class="pd-dialog-backdrop" hidden="">
+      <div class="pd-dialog" role="dialog" aria-modal="true" aria-labelledby="pd-dialog-title">
+        <h3 id="pd-dialog-title" class="anchored">Create a Branch</h3>
+        <label for="pd-branch-input">Name</label>
+        <input id="pd-branch-input" type="text" placeholder="improve-data-documentation">
+
+        <div class="pd-dialog-subtitle">Create branch based on...</div>
+        <div class="pd-base-row">
+          <span class="pd-selected-radio">●</span>
+          <span>main</span>
+        </div>
+
+        <div id="pd-input-error" class="pd-input-error" role="alert" hidden=""></div>
+
+        <div class="pd-dialog-actions">
+          <button type="button" id="pd-cancel" class="pd-outline-button">
+            Cancel
+          </button>
+          <button type="button" id="pd-create" class="pd-primary-button">
+            Create Branch
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Educational feedback, outside the GitHub Desktop simulation -->
+  <div id="pd-feedback" class="pd-feedback" role="status" aria-live="polite"></div>
+  <button type="button" id="pd-reset" class="pd-reset">
+    ↻ Reset simulation
+  </button>
+
+</div>
+
+<style>
+#pond-github-desktop {
+  max-width: 950px;
+  margin: 1.5rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+}
+
+#pond-github-desktop [hidden] {
+  display: none !important;
+}
+
+#pond-github-desktop button,
+#pond-github-desktop input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+#pond-github-desktop button {
+  cursor: pointer;
+}
+
+#pond-github-desktop .pd-window {
+  position: relative;
+  background: #16191d;
+  color: #e5e8eb;
+  border: 1px solid #3c434b;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 8px 22px rgba(0,0,0,.16);
+}
+
+#pond-github-desktop .pd-titlebar {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  background: #343a40;
+  border-radius: 9px 9px 0 0;
+  border-bottom: 1px solid #111;
+}
+
+#pond-github-desktop .pd-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+#pond-github-desktop .pd-red { background: #ff5f57; }
+#pond-github-desktop .pd-yellow { background: #febc2e; }
+#pond-github-desktop .pd-green { background: #28c840; }
+
+#pond-github-desktop .pd-toolbar {
+  display: flex;
+  height: 65px;
+  background: #20252a;
+  border-bottom: 1px solid #080a0c;
+}
+
+#pond-github-desktop .pd-repository,
+#pond-github-desktop .pd-sync {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  min-width: 0;
+}
+
+#pond-github-desktop .pd-repository {
+  flex: 1.4;
+  border-right: 1px solid #101216;
+}
+
+#pond-github-desktop .pd-sync {
+  flex: .75;
+}
+
+#pond-github-desktop .pd-toolbar-icon {
+  font-size: 23px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+#pond-github-desktop .pd-toolbar-label {
+  color: #a2aab4;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+#pond-github-desktop .pd-toolbar-value,
+#pond-github-desktop #pd-current-name {
+  color: #f3f5f7;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+#pond-github-desktop .pd-chevron {
+  margin-left: auto;
+  color: #d7dce2;
+}
+
+#pond-github-desktop .pd-branch-area {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+#pond-github-desktop .pd-toolbar-button {
+  width: 100%;
+  height: 100%;
+  background: #292e35;
+  border: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+#pond-github-desktop .pd-toolbar-button:hover {
+  background: #363d46;
+}
+
+#pond-github-desktop .pd-toolbar-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#pond-github-desktop .pd-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: min(490px, 88vw);
+  background: #262b32;
+  border: 1px solid #111;
+  box-shadow: 0 8px 20px rgba(0,0,0,.45);
+  z-index: 20;
+  color: #ecedf0;
+}
+
+#pond-github-desktop .pd-dropdown-tabs {
+  display: flex;
+  border-bottom: 1px solid #101216;
+}
+
+#pond-github-desktop .pd-tab {
+  width: 50%;
+  padding: 12px;
+  background: #252a31;
+  color: #e6e8eb;
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+#pond-github-desktop .pd-tab.active {
+  border-bottom-color: #1684f8;
+  background: #303741;
+}
+
+#pond-github-desktop .pd-filter-row {
+  display: flex;
+  gap: 10px;
+  padding: 13px;
+}
+
+#pond-github-desktop #pd-filter,
+#pond-github-desktop #pd-branch-input {
+  background: #1b1f24;
+  color: #f4f5f6;
+  border: 1px solid #68737f;
+  border-radius: 6px;
+  padding: 8px 10px;
+  min-width: 0;
+}
+
+#pond-github-desktop #pd-filter {
+  flex: 1;
+}
+
+#pond-github-desktop input:focus {
+  outline: 2px solid #1684f8;
+  outline-offset: 0;
+}
+
+#pond-github-desktop .pd-outline-button {
+  background: #343b44;
+  color: #f4f5f6;
+  border: 1px solid #88929f;
+  border-radius: 6px;
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+
+#pond-github-desktop .pd-outline-button:hover {
+  background: #49535e;
+}
+
+#pond-github-desktop .pd-section-heading {
+  font-weight: 650;
+  padding: 13px 15px 7px;
+}
+
+#pond-github-desktop .pd-branch-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #e4e8ec;
+}
+
+#pond-github-desktop button.pd-branch-row:hover {
+  background: #414b56;
+}
+
+#pond-github-desktop .pd-git-icon {
+  font-size: 18px;
+}
+
+#pond-github-desktop .pd-branch-row-name {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+#pond-github-desktop #pd-main-check,
+#pond-github-desktop #pd-created-check,
+#pond-github-desktop .pd-empty-check {
+  width: 13px;
+  display: inline-block;
+}
+
+#pond-github-desktop .pd-muted-row {
+  color: #bbc2cb;
+  cursor: default;
+}
+
+#pond-github-desktop .pd-empty-panel {
+  padding: 25px 15px;
+  text-align: center;
+  color: #c9cfd6;
+}
+
+#pond-github-desktop .pd-empty-panel p {
+  margin: 8px 0 0;
+  color: #9aa4af;
+}
+
+#pond-github-desktop .pd-workspace {
+  display: flex;
+  min-height: 230px;
+}
+
+#pond-github-desktop .pd-sidebar {
+  width: 40%;
+  background: #15181b;
+  border-right: 1px solid #0a0c0e;
+}
+
+#pond-github-desktop .pd-workspace-tabs {
+  display: flex;
+  border-bottom: 1px solid #080a0c;
+}
+
+#pond-github-desktop .pd-workspace-tab {
+  width: 50%;
+  text-align: center;
+  padding: 12px 4px;
+  color: #9299a2;
+}
+
+#pond-github-desktop .pd-workspace-tab.active {
+  border-bottom: 3px solid #156ec5;
+  color: #e5e7ea;
+}
+
+#pond-github-desktop .pd-count {
+  background: #30363c;
+  border-radius: 12px;
+  padding: 2px 6px;
+}
+
+#pond-github-desktop .pd-file-filter {
+  margin: 12px 8px;
+  padding: 8px;
+  border: 1px solid #3e454d;
+  border-radius: 5px;
+  color: #9098a3;
+}
+
+#pond-github-desktop .pd-file-count {
+  padding: 8px 12px;
+  border-bottom: 1px solid #31363b;
+  color: #b7bec6;
+}
+
+#pond-github-desktop .pd-editor {
+  width: 60%;
+  background: #101316;
+}
+
+#pond-github-desktop .pd-editor-top {
+  height: 42px;
+  padding: 12px;
+  background: #191d21;
+  border-bottom: 1px solid #090b0d;
+  color: #b4bdc7;
+}
+
+#pond-github-desktop .pd-editor-body {
+  text-align: center;
+  padding: 35px 15px;
+  color: #e6e9ed;
+}
+
+#pond-github-desktop .pd-editor-body p {
+  color: #929ca7;
+  margin-top: 8px;
+}
+
+#pond-github-desktop .pd-large-icon {
+  font-size: 29px;
+  color: #56b477;
+  margin-bottom: 10px;
+}
+
+#pond-github-desktop .pd-dialog-backdrop {
+  position: absolute;
+  inset: 32px 0 0;
+  z-index: 30;
+  background: rgba(0,0,0,.68);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+#pond-github-desktop .pd-dialog {
+  width: min(420px, 100%);
+  background: #292e35;
+  color: #eff1f3;
+  border: 1px solid #545d67;
+  border-radius: 9px;
+  padding: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+}
+
+#pond-github-desktop .pd-dialog h3 {
+  font-size: 19px;
+  margin: 0 0 18px;
+  color: #f0f2f5;
+}
+
+#pond-github-desktop .pd-dialog label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+#pond-github-desktop #pd-branch-input {
+  width: 100%;
+}
+
+#pond-github-desktop .pd-dialog-subtitle {
+  margin-top: 20px;
+  color: #c2cad3;
+  font-size: 12px;
+}
+
+#pond-github-desktop .pd-base-row {
+  display: flex;
+  gap: 9px;
+  padding: 11px;
+  background: #363d46;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+#pond-github-desktop .pd-selected-radio {
+  color: #258cf8;
+}
+
+#pond-github-desktop .pd-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+#pond-github-desktop .pd-primary-button {
+  background: #238636;
+  color: #fff;
+  border: 1px solid #2c9b43;
+  border-radius: 6px;
+  padding: 7px 12px;
+}
+
+#pond-github-desktop .pd-primary-button:hover {
+  background: #2ea043;
+}
+
+#pond-github-desktop .pd-input-error {
+  margin-top: 10px;
+  color: #ff8585;
+}
+
+#pond-github-desktop .pd-feedback {
+  margin-top: 12px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#pond-github-desktop .pd-feedback:empty {
+  display: none;
+}
+
+#pond-github-desktop .pd-feedback.success {
+  background: #e6f4ea;
+  color: #155724;
+  border: 1px solid #8dc99b;
+}
+
+#pond-github-desktop .pd-feedback.info {
+  background: #e8f1ff;
+  color: #184c85;
+  border: 1px solid #91b8e8;
+}
+
+#pond-github-desktop .pd-reset {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: #0969da;
+}
+
+@media (max-width: 650px) {
+  #pond-github-desktop .pd-toolbar {
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  #pond-github-desktop .pd-repository {
+    flex: 1 1 100%;
+    min-height: 55px;
+  }
+
+  #pond-github-desktop .pd-branch-area {
+    flex: 1 1 50%;
+    min-height: 60px;
+  }
+
+  #pond-github-desktop .pd-sync {
+    flex: 1 1 40%;
+  }
+
+  #pond-github-desktop .pd-dropdown {
+    width: min(430px, 94vw);
+    left: 0;
+  }
+
+  #pond-github-desktop .pd-workspace {
+    min-height: 200px;
+  }
+}
+</style>
+
+<style>
+/* Light theme for GitHub Desktop simulation */
+
+#pond-github-desktop .pd-window {
+  background: #fff;
+  color: #24292f;
+  border-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-titlebar {
+  background: #e9edf1;
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-toolbar,
+#pond-github-desktop .pd-toolbar-button {
+  background: #f6f8fa;
+  color: #24292f;
+  border-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-toolbar-button:hover {
+  background: #eaeef2;
+}
+
+#pond-github-desktop .pd-repository {
+  border-right-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-toolbar-label,
+#pond-github-desktop .pd-chevron {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-toolbar-value,
+#pond-github-desktop #pd-current-name {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-dropdown,
+#pond-github-desktop .pd-dialog {
+  background: #fff;
+  color: #24292f;
+  border-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-dropdown-tabs,
+#pond-github-desktop .pd-workspace-tabs {
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-tab,
+#pond-github-desktop .pd-tab.active {
+  background: #f6f8fa;
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-tab.active {
+  background: #fff;
+}
+
+#pond-github-desktop .pd-outline-button {
+  background: #f6f8fa;
+  color: #24292f;
+  border-color: #8c959f;
+}
+
+#pond-github-desktop .pd-outline-button:hover {
+  background: #eaeef2;
+}
+
+#pond-github-desktop #pd-filter,
+#pond-github-desktop #pd-branch-input {
+  background: #fff;
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-branch-row {
+  color: #24292f;
+}
+
+#pond-github-desktop button.pd-branch-row:hover {
+  background: #eaeef2;
+}
+
+#pond-github-desktop .pd-muted-row {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-sidebar {
+  background: #f6f8fa;
+  border-right-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-workspace-tab {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-workspace-tab.active {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-count {
+  background: #d8dee4;
+}
+
+#pond-github-desktop .pd-file-filter {
+  border-color: #d0d7de;
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-file-count {
+  color: #57606a;
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-editor {
+  background: #fff;
+}
+
+#pond-github-desktop .pd-editor-top {
+  background: #f6f8fa;
+  color: #57606a;
+  border-bottom-color: #d0d7de;
+}
+
+#pond-github-desktop .pd-editor-body {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-editor-body p {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-dialog h3 {
+  color: #24292f;
+}
+
+#pond-github-desktop .pd-dialog-subtitle,
+#pond-github-desktop .pd-empty-panel,
+#pond-github-desktop .pd-empty-panel p {
+  color: #57606a;
+}
+
+#pond-github-desktop .pd-base-row {
+  background: #f6f8fa;
+}
+
+#pond-github-desktop .pd-input-error {
+  color: #cf222e;
+}
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-github-desktop");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const el = id => root.querySelector("#" + id);
+
+  const currentButton = el("pd-current-branch");
+  const dropdown = el("pd-branch-dropdown");
+  const backdrop = el("pd-dialog-backdrop");
+  const input = el("pd-branch-input");
+  const feedback = el("pd-feedback");
+
+  let currentBranch = "main";
+  let createdBranch = null;
+
+  function showFeedback(message, type = "info") {
+    feedback.textContent = message;
+    feedback.className = "pd-feedback " + type;
+  }
+
+  function closeDropdown() {
+    dropdown.hidden = true;
+    currentButton.setAttribute("aria-expanded", "false");
+  }
+
+  function showTab(which) {
+    const branches = which === "branches";
+    el("pd-branches-panel").hidden = !branches;
+    el("pd-pr-panel").hidden = branches;
+    el("pd-tab-branches").classList.toggle("active", branches);
+    el("pd-tab-pr").classList.toggle("active", !branches);
+  }
+
+  function switchBranch(name) {
+    currentBranch = name;
+    el("pd-current-name").textContent = name;
+    el("pd-main-check").textContent = name === "main" ? "✓" : "";
+    el("pd-created-check").textContent =
+      name === createdBranch ? "✓" : "";
+
+    if (name === "main") {
+      el("pd-sync-label").textContent = "Fetch origin";
+      el("pd-sync-detail").textContent = "Check for updates";
+    } else {
+      el("pd-sync-label").textContent = "Publish branch";
+      el("pd-sync-detail").textContent = "Local branch";
+    }
+
+    closeDropdown();
+  }
+
+  currentButton.addEventListener("click", () => {
+    dropdown.hidden = !dropdown.hidden;
+    currentButton.setAttribute(
+      "aria-expanded", String(!dropdown.hidden)
+    );
+    showTab("branches");
+  });
+
+  el("pd-tab-branches").addEventListener("click", () => {
+    showTab("branches");
+  });
+
+  el("pd-tab-pr").addEventListener("click", () => {
+    showTab("pr");
+  });
+
+  el("pd-filter").addEventListener("input", event => {
+    const query = event.target.value.trim().toLowerCase();
+    root.querySelectorAll(".pd-branch-row").forEach(row => {
+      row.hidden = !row.textContent.toLowerCase().includes(query);
+    });
+  });
+
+  el("pd-main-row").addEventListener("click", () => {
+    switchBranch("main");
+    showFeedback(
+      "You are on main. Create a new branch to work on your proposed improvement without committing directly to main."
+    );
+  });
+
+  el("pd-created-row").addEventListener("click", () => {
+    if (createdBranch) {
+      switchBranch(createdBranch);
+      showFeedback("You have switched back to your working branch.", "success");
+    }
+  });
+
+  el("pd-new-branch").addEventListener("click", () => {
+    closeDropdown();
+    el("pd-input-error").hidden = true;
+    backdrop.hidden = false;
+    input.focus();
+  });
+
+  function closeDialog() {
+    backdrop.hidden = true;
+  }
+
+  el("pd-cancel").addEventListener("click", closeDialog);
+
+  el("pd-create").addEventListener("click", () => {
+    const name = input.value.trim();
+    const valid =
+      /^[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(name) &&
+      !name.includes("..") &&
+      !name.includes("//") &&
+      !name.endsWith("/") &&
+      !name.endsWith(".lock") &&
+      name !== "main";
+
+    if (!valid) {
+      el("pd-input-error").textContent =
+        "Enter a valid new branch name, such as improve-data-documentation. Avoid spaces.";
+      el("pd-input-error").hidden = false;
+      input.focus();
+      return;
+    }
+
+    createdBranch = name;
+    el("pd-created-section").hidden = false;
+    el("pd-created-name").textContent = name;
+
+    input.value = "";
+    closeDialog();
+    switchBranch(name);
+
+    showFeedback(
+      "Branch created! You are now working on '" + name +
+      "'. Your main branch is unchanged. Notice that GitHub Desktop now shows 'Publish branch': your new branch exists locally and has not yet been sent to GitHub.",
+      "success"
+    );
+  });
+
+  input.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      el("pd-create").click();
+    }
+  });
+
+  el("pd-reset").addEventListener("click", () => {
+    createdBranch = null;
+    el("pd-created-section").hidden = true;
+    el("pd-filter").value = "";
+    root.querySelectorAll(".pd-branch-row").forEach(row => {
+      row.hidden = false;
+    });
+    input.value = "";
+    el("pd-input-error").hidden = true;
+    closeDialog();
+    switchBranch("main");
+    feedback.textContent = "";
+    feedback.className = "pd-feedback";
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeDialog();
+      closeDropdown();
+    }
+  });
+
+})();
+</script>
+</section>
+<section id="your-turn-create-a-branch-in-github-desktop" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-create-a-branch-in-github-desktop">Your turn: Create a branch in GitHub Desktop</h2>
+<p>Now let’s do this in your own repository.</p>
+<ol type="1">
+<li>Open <strong>GitHub Desktop</strong> and select the repository you created in <a href="../start-a-research-repository/index.qmd">Starting a Research Repository on GitHub</a>.</li>
+<li>Make sure you’re on <code>main</code>, using the <strong>Current Branch</strong> dropdown. If you have uncommitted changes, save or commit them appropriately before proceeding.</li>
+<li>Click <strong>Current Branch → New Branch</strong>.</li>
+<li>Give the branch a descriptive name that reflects an improvement you’d like to make. For example, <code>improve-data-documentation</code>.</li>
+<li>Make sure the branch is based on <code>main</code>, then click <strong>Create Branch</strong>.</li>
+</ol>
+<p>Look at the top of GitHub Desktop. The <strong>Current Branch</strong> field should now display your new branch’s name.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Local versus remote branches
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The branch you just created exists <strong>locally</strong>, on your computer. It won’t appear in your GitHub repository online until you select <strong>Publish branch</strong>.</p>
+<p>You don’t need to publish it yet. We’ll do that after making and committing a change in the next section.</p>
+</div>
+</div>
+</section>
+<section id="check-your-progress" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-progress">Check your progress</h2>
+<p>You should now have:</p>
+<ul>
+<li>A new branch with a descriptive name.</li>
+<li>GitHub Desktop showing that branch as the current branch.</li>
+<li>Your original <code>main</code> branch unchanged.</li>
+</ul>
+<p>You now have a separate place to work on your proposed improvement. Next, we’ll make a change and use a pull request to propose incorporating it into the research project.</p>
+</section>
+</section>
+<section id="from-improvement-to-proposal" class="level1">
+<h1>2. From improvement to proposal</h1>
+<p>You’ve created a branch where you can work independently without immediately changing <code>main</code>. Now it’s time to use it!</p>
+<section id="a-small-change-can-make-a-big-difference" class="level2">
+<h2 class="anchored" data-anchor-id="a-small-change-can-make-a-big-difference">A small change can make a big difference</h2>
+<p>Let’s return to our water-quality research team.</p>
+<p>Your colleague is updating the analysis notebook, while you’re improving the project’s documentation. You’ve noticed that the <code>README.md</code> doesn’t clearly describe where the nitrate measurements came from or how their quality was assessed.</p>
+<p>You could simply edit the README and add your changes directly to <code>main</code>. But what if your colleague has questions about the documentation? Or notices that something important is missing?</p>
+<p>This is where a <strong>pull request</strong> becomes useful.</p>
+<p>A pull request (often abbreviated <strong>PR</strong>) allows you to propose changes from one branch into another. Instead of incorporating changes immediately, you create a space where collaborators can:</p>
+<ul>
+<li>See exactly what changed.</li>
+<li>Understand why the change was proposed.</li>
+<li>Ask questions and suggest improvements.</li>
+<li>Review the changes before they’re incorporated into <code>main</code>.</li>
+</ul>
+<p>Importantly, a pull request is not limited to code. You can propose changes to documentation, analysis notebooks, figures, or any other files tracked in your repository.</p>
+</section>
+<section id="how-does-a-pull-request-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-a-pull-request-work">How does a pull request work?</h2>
+<p>A branch allows you to work on a proposed change without immediately modifying main. But how do you eventually incorporate that change into the shared project?</p>
+<p>That’s where a pull request comes in.</p>
+<p>A pull request (often shortened to PR) allows you to propose changes from one branch to another, usually into main. It gives collaborators an opportunity to examine, discuss, and improve those changes before they’re incorporated into the project.</p>
+<p>Think of it as saying to your collaborators:</p>
+<blockquote class="blockquote">
+<p>“I’ve made some improvements to the project. Here’s what I changed and why. Could you take a look before we incorporate them?”</p>
+</blockquote>
+<p>When you open a pull request, GitHub compares two branches:</p>
+<ul>
+<li><strong>Base branch:</strong> Where you want your changes to go (usually <code>main</code>).</li>
+<li><strong>Compare branch:</strong> The branch containing your proposed changes.</li>
+</ul>
+<p>GitHub then shows the differences between them, allowing collaborators to examine what was added, removed, or modified.</p>
+<p>A pull request provides a space where researchers can:</p>
+<ol type="1">
+<li><strong>Propose:</strong> Describe what changed and why.</li>
+<li><strong>Discuss:</strong> Ask questions, identify problems, and suggest improvements.</li>
+<li><strong>Revise:</strong> Make additional changes in response to feedback.</li>
+<li><strong>Merge:</strong> Incorporate the accepted changes into the target branch.</li>
+</ol>
+<p>Importantly, <strong>opening a pull request does not change <code>main</code></strong>. Your proposed changes remain on your branch until they are merged.</p>
+<section id="why-is-this-useful-for-research" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-this-useful-for-research">Why is this useful for research?</h3>
+<p>Imagine that our water-quality team wants to update how nitrate measurements are handled.</p>
+<p>One researcher proposes changing the analysis, but another notices that the new method might exclude scientifically meaningful observations.</p>
+<p>A pull request allows them to discuss that decision <em>before</em> incorporating the change into the shared analysis. The discussion also provides a record of why the team made its decision.</p>
+<p>This is one of GitHub’s benefits for research: <strong>it helps preserve not only what changed, but also the reasoning behind the change.</strong></p>
+</section>
+</section>
+<section id="your-turn-make-a-meaningful-improvement" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-make-a-meaningful-improvement">Your turn: Make a meaningful improvement</h2>
+<p>Now let’s work with your own research repository.</p>
+<p><strong>1. Choose an improvement</strong></p>
+<p>Think of one small change that would make your project easier for someone else to understand or use.</p>
+<p>For example, you could:</p>
+<ul>
+<li>Clarify where your data came from.</li>
+<li>Add information about the units of measurement or the meaning of a variable.</li>
+<li>Explain an analysis parameter or a scientific decision.</li>
+<li>Improve instructions for reproducing an analysis.</li>
+<li>Clarify a description in a notebook’s Markdown cell.</li>
+</ul>
+<p>Choose something that is genuinely useful for your project. You don’t need to modify Python code.</p>
+<p><strong>2. Make the change</strong></p>
+<ol type="1">
+<li>Open GitHub Desktop and select your research repository.</li>
+<li>Check that <strong>Current Branch</strong> shows the branch you created in Part 1, not <code>main</code>.</li>
+<li>Open the relevant file in your preferred text editor.</li>
+<li>Make your improvement and save the file.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re using one of the supplied study packages, you can work with its <code>README.md</code> or the Markdown cells in its notebook. You don’t need to invent scientific information. Focus on clarifying information already available in the project.</p>
+</div>
+</div>
+<p><strong>3. Review and commit your change</strong></p>
+<p>Return to GitHub Desktop.</p>
+<ol type="1">
+<li>Select the <strong>Changes</strong> tab.</li>
+<li>Click the file you modified to inspect the differences.</li>
+<li>Look at the highlighted lines. Red indicates removed content, while green indicates added content.</li>
+<li>Make sure the changes reflect what you intended and don’t include unrelated modifications.</li>
+<li>Enter a descriptive message in the <strong>Summary</strong> field, such as <code>Clarify data sources in README</code>.</li>
+<li>Click <strong>Commit to [your branch name]</strong>.</li>
+</ol>
+<p>Remember from <a href="../../../deep-water/github/save-share-changes/index.html">Save and Share Changes on GitHub</a>: a commit records a meaningful checkpoint in your project’s history.</p>
+</section>
+<section id="publish-your-branch" class="level2">
+<h2 class="anchored" data-anchor-id="publish-your-branch">Publish your branch</h2>
+<p>So far, your branch and its new commit exist on your computer.</p>
+<p>To make the branch available on GitHub:</p>
+<ol type="1">
+<li>In GitHub Desktop, click <strong>Publish branch</strong> in the top toolbar.</li>
+<li>Wait for the publication to finish.</li>
+<li>Open your repository on GitHub and locate your new branch.</li>
+</ol>
+<p>Your changes are now available on GitHub, but <strong>they have not been incorporated into <code>main</code></strong>.</p>
+<p>This is an important distinction: publishing a branch makes your work available; opening a pull request proposes incorporating it into another branch.</p>
+</section>
+<section id="open-your-first-pull-request" class="level2">
+<h2 class="anchored" data-anchor-id="open-your-first-pull-request">Open your first pull request</h2>
+<p>Let’s turn your improvement into a proposal.</p>
+<ol type="1">
+<li>Return to GitHub Desktop and click <strong>Preview Pull Request</strong>.</li>
+<li>Confirm that the <strong>base branch</strong> is <code>main</code> and your new branch contains the proposed changes.</li>
+<li>Click <strong>Create Pull Request</strong>. GitHub Desktop will open GitHub in your browser.</li>
+<li>Give your pull request a descriptive title.</li>
+<li>Write a short description that explains:
+<ul>
+<li><strong>What changed?</strong> What did you add, remove, or clarify?</li>
+<li><strong>Why?</strong> How does the change improve the research project?</li>
+<li><strong>What should be checked?</strong> Is there something you’d want a collaborator to examine?</li>
+</ul></li>
+<li>Click <strong>Create pull request</strong> on GitHub.</li>
+</ol>
+<p>For example, our fictional water-quality team might write:</p>
+<blockquote class="blockquote">
+<p><strong>Title:</strong> Clarify nitrate data documentation</p>
+<p><strong>What changed:</strong> Expanded the README to describe the data source and the quality-control information.</p>
+<p><strong>Why:</strong> The previous documentation did not provide enough information for another researcher to understand how the dataset was assembled.</p>
+<p><strong>What to check:</strong> Are the descriptions sufficiently clear for someone unfamiliar with the study?</p>
+</blockquote>
+<p>Notice that the description focuses on the research improvement, not just which file was modified.</p>
+</section>
+<section id="take-a-look-at-your-pull-request" class="level2">
+<h2 class="anchored" data-anchor-id="take-a-look-at-your-pull-request">Take a look at your pull request</h2>
+<p>Your pull request should now be marked <strong>Open</strong> on GitHub.</p>
+<p>Explore the interface briefly:</p>
+<ul>
+<li><strong>Conversation</strong> contains the pull request description and any subsequent discussion.</li>
+<li><strong>Commits</strong> shows the commits included in the proposed change.</li>
+<li><strong>Files changed</strong> allows collaborators to inspect the differences between the branches.</li>
+</ul>
+<p>Don’t merge your pull request yet! We’ll return to it after exploring the review process.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Keep your pull request open
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We’ll use this same pull request later in the LilyPad to practice responding to feedback, making another commit, and merging the accepted change.</p>
+<p>You don’t need to find a collaborator or request a real review. In the next section, we’ll practice reviewing a fictional research team’s pull request through an interactive simulation.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="reviewing-a-scientific-change" class="level1">
+<h1>3. Reviewing a scientific change</h1>
+<p>You’ve opened a pull request in your own repository. Before a proposed change becomes part of a shared research project, someone should consider not just whether the files changed as intended, but whether the <strong>scientific workflow still makes sense</strong>.</p>
+<p>Now you’ll act as a reviewer for our fictional stream-water-quality team. You won’t need a collaborator or any Python knowledge to complete the review.</p>
+<section id="how-a-pull-request-review-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-a-pull-request-review-works">How a pull-request review works</h2>
+<p>In a GitHub pull request, <strong>Files changed</strong> shows the differences between the proposed branch and the target branch. A reviewer can select a changed line using the <strong>+</strong> icon, write a comment, and start a review. Comments in a pending review aren’t submitted until the reviewer finishes it.</p>
+<p>GitHub provides three ways to submit a review:</p>
+<ul>
+<li><strong>Comment:</strong> Share feedback without explicitly approving the change or requesting revisions.</li>
+<li><strong>Approve:</strong> Indicate that the proposed changes are ready to merge.</li>
+<li><strong>Request changes:</strong> Ask the author to revise the proposal before merging. Whether this formally blocks merging depends on the repository’s settings.</li>
+</ul>
+<p>A scientific review should consider whether the changes are <strong>justified, clear, and reproducible</strong>. Reviewers can contribute valuable insights by examining the methods and documentation, even if they don’t write code.</p>
+</section>
+<section id="try-it-review-the-teams-pull-request" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-review-the-teams-pull-request">Try it: Review the team’s pull request</h2>
+<p>Our team measures nitrate concentrations at different stations along a stream. Some station–date pairs have <strong>replicate measurements</strong>. Each individual measurement has a quality-control flag:</p>
+<ul>
+<li><code>qc_complete = 1</code>: the measurement has been checked and accepted for analysis.</li>
+<li><code>qc_complete = 0</code>: the quality check is incomplete, so the measurement is <strong>not yet accepted for analysis</strong>. This does <em>not</em> necessarily mean the measurement is erroneous.</li>
+</ul>
+<p>A teammate proposes changing the order in which the analysis handles quality control and averages replicates. Your task is to assess the proposal as a collaborator, rather than simply verifying that the code runs.</p>
+<ol type="1">
+<li>Read the proposed change in <strong>Conversation</strong>.</li>
+<li>Open <strong>Files changed</strong>. Examine <code>README.md</code> and <code>analysis.ipynb</code>. You can switch to a readable notebook preview if the JSON diff is difficult to follow.</li>
+<li>Think about what happens when <strong>some</strong>, or <strong>none</strong>, of the replicates for a station and date are accepted. Is the proposed method—and the documentation—clear enough?</li>
+<li>Click a blue <strong>+</strong> beside a changed line, write a review comment <strong>in your own words</strong>, and select <strong>Start a review</strong>.</li>
+<li>Click <strong>Review changes</strong>, choose <strong>Comment</strong>, <strong>Approve</strong>, or <strong>Request changes</strong>, then click <strong>Submit review</strong>.</li>
+</ol>
+<p>After submitting, you’ll see one possible scientific review to compare with your own. The simulation stays on this page; nothing is posted to GitHub.</p>
+<div id="pond-pr3" class="pond-pr3">
+  <div class="ppr-shell">
+    <div class="ppr-repo"><span aria-hidden="true">▣</span> <strong>stream-team</strong> <span class="ppr-muted">/</span> <strong>stream-water-quality</strong> <span class="ppr-repo-pill">Public</span></div>
+    <div class="ppr-title"><span>Apply quality control before averaging nitrate replicates</span> <span class="ppr-number">#12</span></div>
+    <div class="ppr-byline"><span class="ppr-open">⤴ Open</span> <strong>maya</strong> wants to merge 1 commit into <code>main</code> from <code>qc-before-averaging</code></div>
+    <div class="ppr-tabs" role="tablist" aria-label="Pull request sections">
+      <button type="button" role="tab" class="active" data-tab="conversation" aria-selected="true">Conversation</button>
+      <button type="button" role="tab" data-tab="commits" aria-selected="false">Commits <span>1</span></button>
+      <button type="button" role="tab" data-tab="files" aria-selected="false">Files changed <span>2</span></button>
+    </div>
+
+    <section class="ppr-panel" data-panel="conversation" role="tabpanel">
+      <div class="ppr-thread">
+        <div class="ppr-avatar" aria-hidden="true">M</div>
+        <div class="ppr-comment">
+          <div class="ppr-comment-top"><strong>maya</strong> opened this pull request</div>
+          <div class="ppr-comment-body">
+            <p><strong>What changed?</strong> The analysis previously averaged replicate nitrate measurements by station and date, then kept an averaged result only if every contributing measurement had passed QC. This PR changes the order: select accepted measurements first, then average the remaining replicates.</p>
+            <p><strong>Why?</strong> We don't want one measurement with incomplete QC to cause us to discard an otherwise accepted replicate from the same station and date.</p>
+            <p><strong>What to check:</strong> Does this handling of replicates make scientific sense, and is the updated documentation sufficient to reproduce it?</p>
+          </div>
+        </div>
+      </div>
+      <div id="ppr-conversation-review" class="ppr-review-event" hidden=""></div>
+      <p class="ppr-guidance">Next, open <strong>Files changed</strong> to examine what Maya proposes to merge.</p>
+    </section>
+
+    <section class="ppr-panel" data-panel="commits" role="tabpanel" hidden="">
+      <div class="ppr-commit">◉ <strong>Filter accepted nitrate replicates before averaging</strong><span class="ppr-muted"> — maya</span></div>
+      <p class="ppr-guidance">This PR contains one commit. If the author makes another commit to <code>qc-before-averaging</code> and pushes it, this same pull request updates automatically.</p>
+    </section>
+
+    <section class="ppr-panel" data-panel="files" role="tabpanel" hidden="">
+      <div class="ppr-files-toolbar"><strong>Showing 2 changed files</strong><button type="button" id="ppr-review-button" class="ppr-review-button">Review changes <span id="ppr-pending-count">0</span> ▾</button></div>
+      <div class="ppr-file">
+        <div class="ppr-file-name">▤ README.md <span>Data processing</span></div>
+        <div class="ppr-hunk">@@ How nitrate replicates are processed</div>
+        <div class="ppr-line"><span class="ppr-line-number">16</span><code>For the same station and date, several measurements may be available.</code></div>
+        <div class="ppr-line removed"><span class="ppr-line-number">17</span><code>- Replicate measurements are averaged, then groups with any incomplete QC are discarded.</code></div>
+        <div class="ppr-line added" data-line="17" data-file="README.md"><button type="button" class="ppr-add" aria-label="Comment on README.md line 17">+</button><span class="ppr-line-number">17</span><code>+ Only measurements with qc_complete = 1 are selected before averaging.</code></div>
+        <div class="ppr-line added" data-line="18" data-file="README.md"><button type="button" class="ppr-add" aria-label="Comment on README.md line 18">+</button><span class="ppr-line-number">18</span><code>+ The mean nitrate concentration is calculated from accepted replicates for each station and date.</code></div>
+      </div>
+      <div class="ppr-file">
+        <div class="ppr-file-name">▤ analysis.ipynb <span>Selected changes</span></div>
+        <div class="ppr-view-switch"><button type="button" id="ppr-source-tab" class="active">Source diff (JSON)</button><button type="button" id="ppr-preview-tab">Notebook preview <small>(learning aid)</small></button></div>
+        <div id="ppr-notebook-source">
+          <div class="ppr-hunk">@@ Notebook cell changes (simplified source diff)</div>
+          <div class="ppr-line removed"><span class="ppr-line-number">24</span><code>- "execution_count": 7,</code></div>
+          <div class="ppr-line added"><span class="ppr-line-number">24</span><code>+ "execution_count": 8,</code></div>
+          <div class="ppr-line removed"><span class="ppr-line-number">32</span><code>- "source": ["Average replicates, then exclude groups with incomplete QC."]</code></div>
+          <div class="ppr-line added" data-line="32" data-file="analysis.ipynb"><button type="button" class="ppr-add" aria-label="Comment on notebook line 32">+</button><span class="ppr-line-number">32</span><code>+ "source": ["Select accepted measurements before averaging replicates."]</code></div>
+          <div class="ppr-line removed"><span class="ppr-line-number">48</span><code>- "source": ["grouped = measurements.groupby(['station','date']).agg(nitrate=('nitrate_mg_L','mean'), qc=('qc_complete','min'))", "means = grouped[grouped['qc'] == 1]"]</code></div>
+          <div class="ppr-line added" data-line="48" data-file="analysis.ipynb"><button type="button" class="ppr-add" aria-label="Comment on notebook line 48">+</button><span class="ppr-line-number">48</span><code>+ "source": ["accepted = measurements[measurements['qc_complete'] == 1]", "means = accepted.groupby(['station','date'])['nitrate_mg_L'].mean()"]</code></div>
+        </div>
+        <div id="ppr-notebook-preview" hidden="">
+          <div class="ppr-notebook-cell">
+            <span class="ppr-cell-label">Markdown cell</span>
+            <p><strong>Processing replicate nitrate measurements</strong></p>
+            <p>Replicate measurements at the same station on the same date are combined. We now select accepted measurements (QC = 1) before calculating the mean concentration.</p>
+          </div>
+          <div class="ppr-notebook-cell">
+            <span class="ppr-cell-label">Example observations (mg/L)</span>
+            
+<table class="ppr-sample-table caption-top table">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Station</th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Nitrate</th>
+<th data-quarto-table-cell-role="th">QC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>June 1</td>
+<td>2.0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>June 1</td>
+<td>10.0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>June 1</td>
+<td>4.1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>June 1</td>
+<td>4.3</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+          </div>
+          <div class="ppr-notebook-cell">
+            <span class="ppr-cell-label">Code cell (optional to interpret)</span>
+            <pre>accepted = measurements[measurements["qc_complete"] == 1]
+means = accepted.groupby(["station", "date"])["nitrate_mg_L"].mean()</pre>
+          </div>
+          <p class="ppr-guidance">This rendered notebook view is a <strong>learning aid</strong>, not a replacement for GitHub's source diff. You can review the scientific steps without understanding Python. Return to <strong>Source diff (JSON)</strong> if you'd like to comment on the notebook change.</p>
+        </div>
+      </div>
+      <p class="ppr-guidance">Click a blue <strong>+</strong> beside a changed line to start a review comment. You can comment on the README, the notebook, or both.</p>
+    </section>
+
+    <div id="ppr-finish" class="ppr-finish" hidden="" role="dialog" aria-modal="true" aria-labelledby="ppr-finish-title">
+      <div class="ppr-finish-card">
+        <h3 id="ppr-finish-title" class="anchored">Finish your review</h3>
+        <p class="ppr-muted"><span id="ppr-review-count">0</span> pending comment(s)</p>
+        <label for="ppr-summary">Review summary (optional)</label>
+        <textarea id="ppr-summary" rows="3" placeholder="Summarize your review..."></textarea>
+        <fieldset>
+          <legend>Submit as</legend>
+          <label><input type="radio" name="ppr-outcome" value="comment"> <strong>Comment</strong> — Leave feedback without explicit approval.</label>
+          <label><input type="radio" name="ppr-outcome" value="approve"> <strong>Approve</strong> — This is ready to merge.</label>
+          <label><input type="radio" name="ppr-outcome" value="changes"> <strong>Request changes</strong> — Changes are needed before merging.</label>
+        </fieldset>
+        <div class="ppr-error" id="ppr-finish-error" role="alert"></div>
+        <div class="ppr-actions"><button type="button" class="ppr-secondary" id="ppr-cancel-review">Cancel</button><button type="button" class="ppr-primary" id="ppr-submit-review">Submit review</button></div>
+      </div>
+    </div>
+  </div>
+  <div id="ppr-feedback" class="ppr-feedback" hidden="" aria-live="polite"></div>
+  <button type="button" id="ppr-reset" class="ppr-reset">↻ Start review again</button>
+</div>
+
+<style>
+#pond-pr3 {max-width:960px;margin:1.5rem auto;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2328}
+#pond-pr3 [hidden]{display:none!important}
+#pond-pr3 button,#pond-pr3 textarea{font:inherit}
+#pond-pr3 button{cursor:pointer}
+#pond-pr3 .ppr-shell{background:#fff;border:1px solid #d1d9e0;border-radius:9px;position:relative;overflow:hidden}
+#pond-pr3 .ppr-repo{padding:13px 19px;color:#0969da;border-bottom:1px solid #d1d9e0}
+#pond-pr3 .ppr-repo-pill{color:#59636e;border:1px solid #d1d9e0;border-radius:14px;padding:2px 7px;font-size:11px;margin-left:8px}
+#pond-pr3 .ppr-title{font-size:22px;font-weight:600;padding:17px 19px 5px;line-height:1.25}
+#pond-pr3 .ppr-number,.ppr-muted{color:#59636e;font-weight:400}
+#pond-pr3 .ppr-byline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:4px 19px 17px;color:#59636e}
+#pond-pr3 .ppr-byline code{color:#1f2328;background:#f0f3f6;padding:2px 6px;border-radius:12px}
+#pond-pr3 .ppr-open{color:#fff;background:#1f883d;border-radius:20px;padding:5px 11px;font-weight:600;margin-right:4px}
+#pond-pr3 .ppr-tabs{display:flex;gap:7px;padding:0 15px;border-bottom:1px solid #d1d9e0;overflow:auto}
+#pond-pr3 .ppr-tabs button{background:transparent;border:0;border-bottom:2px solid transparent;color:#59636e;padding:13px 9px;white-space:nowrap}
+#pond-pr3 .ppr-tabs button.active{color:#1f2328;border-bottom-color:#fd8c73;font-weight:600}
+#pond-pr3 .ppr-tabs button span{background:#eaeef2;padding:1px 6px;border-radius:15px;font-size:12px}
+#pond-pr3 .ppr-panel{padding:17px 18px 22px;min-height:170px}
+#pond-pr3 .ppr-thread{display:flex;gap:10px;align-items:flex-start}
+#pond-pr3 .ppr-avatar{background:#9165b5;color:white;display:grid;place-items:center;width:33px;height:33px;border-radius:50%;font-weight:bold;flex-shrink:0}
+#pond-pr3 .ppr-comment{flex:1;min-width:0;border:1px solid #d1d9e0;border-radius:7px;overflow:hidden}
+#pond-pr3 .ppr-comment-top{background:#f6f8fa;border-bottom:1px solid #d1d9e0;padding:10px 12px}
+#pond-pr3 .ppr-comment-body{padding:12px}
+#pond-pr3 .ppr-comment-body p{margin:0 0 10px}
+#pond-pr3 .ppr-comment-body p:last-child{margin-bottom:0}
+#pond-pr3 .ppr-guidance{font-size:13px;color:#59636e;background:#f6f8fa;border-radius:5px;padding:10px 12px;margin:13px 0 0}
+#pond-pr3 .ppr-review-event{margin:16px 0 0 43px;border:1px solid #d1d9e0;padding:11px;border-radius:7px}
+#pond-pr3 .ppr-commit{padding:14px;border:1px solid #d1d9e0;border-radius:6px}
+#pond-pr3 .ppr-files-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+#pond-pr3 .ppr-review-button,#pond-pr3 .ppr-secondary{border:1px solid #d1d9e0;background:#f6f8fa;border-radius:6px;padding:7px 11px;color:#1f2328}
+#pond-pr3 .ppr-review-button:hover,#pond-pr3 .ppr-secondary:hover{background:#eaeef2}
+#pond-pr3 .ppr-review-button span{background:#dbeafe;color:#0969da;border-radius:10px;padding:0 5px}
+#pond-pr3 .ppr-file{border:1px solid #d1d9e0;border-radius:7px;margin-bottom:17px;overflow:hidden}
+#pond-pr3 .ppr-file-name{background:#f6f8fa;border-bottom:1px solid #d1d9e0;font-weight:600;padding:10px 12px}
+#pond-pr3 .ppr-file-name span{font-size:12px;color:#59636e;margin-left:10px;font-weight:normal}
+#pond-pr3 .ppr-hunk{background:#eaf5ff;color:#325a80;font:12px ui-monospace,SFMono-Regular,Consolas,monospace;padding:6px 12px;border-bottom:1px solid #d1d9e0}
+#pond-pr3 .ppr-line{position:relative;display:flex;min-height:29px;align-items:center;border-bottom:1px solid #ffffff88;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+#pond-pr3 .ppr-line.added{background:#dafbe1}
+#pond-pr3 .ppr-line.removed{background:#ffebe9}
+#pond-pr3 .ppr-line-number{width:49px;flex-shrink:0;text-align:right;padding:5px 8px;color:#68727d;border-right:1px solid #d1d9e080}
+#pond-pr3 .ppr-line code{white-space:pre-wrap;overflow-wrap:anywhere;color:inherit;padding:5px 9px;background:transparent;font:inherit}
+#pond-pr3 .ppr-add{border:0;border-radius:4px;background:#0969da;color:white;width:22px;height:22px;flex-shrink:0;font-weight:700;margin:0 3px 0 5px}
+#pond-pr3 .ppr-add:hover{background:#0550ae}
+#pond-pr3 .ppr-view-switch{display:flex;gap:5px;padding:9px;background:#fff;border-bottom:1px solid #d1d9e0;flex-wrap:wrap}
+#pond-pr3 .ppr-view-switch button{padding:5px 10px;border:1px solid #d1d9e0;border-radius:6px;background:#fff;color:#1f2328}
+#pond-pr3 .ppr-view-switch button.active{background:#eaf5ff;border-color:#0969da}
+#pond-pr3 .ppr-notebook-cell{border-bottom:1px solid #d1d9e0;padding:13px 16px}
+#pond-pr3 .ppr-notebook-cell p{margin:8px 0}
+#pond-pr3 .ppr-cell-label{color:#59636e;font-size:12px}
+#pond-pr3 .ppr-notebook-cell pre{background:#f6f8fa;padding:9px;overflow:auto}
+#pond-pr3 #ppr-notebook-preview .ppr-guidance{margin:12px}
+#pond-pr3 .ppr-inline-editor,#pond-pr3 .ppr-pending-comment{padding:12px;background:#fff;border:1px solid #d1d9e0;border-radius:7px;margin:8px 10px 10px 36px;box-shadow:0 2px 8px #00000012}
+#pond-pr3 .ppr-inline-editor label{display:block;font-weight:600;margin-bottom:6px}
+#pond-pr3 .ppr-inline-editor textarea,#pond-pr3 #ppr-summary{width:100%;box-sizing:border-box;border:1px solid #b7c0cb;border-radius:6px;padding:10px;color:#1f2328;background:white;resize:vertical}
+#pond-pr3 .ppr-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+#pond-pr3 .ppr-primary{border:1px solid #1a7f37;border-radius:6px;background:#1f883d;color:#fff;padding:7px 12px}
+#pond-pr3 .ppr-primary:hover{background:#1a7f37}
+#pond-pr3 .ppr-pending-comment strong{color:#59636e;display:block;margin-bottom:5px}
+#pond-pr3 .ppr-pending-comment div{white-space:pre-wrap;overflow-wrap:anywhere}
+#pond-pr3 .ppr-finish{position:absolute;inset:0;background:#1f232873;display:flex;align-items:flex-start;justify-content:center;padding:20px 10px;z-index:3}
+#pond-pr3 .ppr-finish-card{background:#fff;border-radius:8px;box-shadow:0 6px 35px #0004;padding:20px;width:min(460px,100%);box-sizing:border-box}
+#pond-pr3 .ppr-finish-card h3{font-size:18px;color:#1f2328;margin:0 0 7px}
+#pond-pr3 .ppr-finish-card label{display:block;margin:10px 0 6px;color:#1f2328}
+#pond-pr3 .ppr-finish-card fieldset{border:0;padding:0;margin-top:13px}
+#pond-pr3 .ppr-finish-card legend{font-weight:600}
+#pond-pr3 .ppr-finish-card fieldset label{padding:4px 0}
+#pond-pr3 .ppr-error{color:#cf222e;font-size:13px;margin-top:8px}
+#pond-pr3 .ppr-feedback{background:#f6f8fa;border:1px solid #d1d9e0;border-radius:8px;padding:14px 18px;margin-top:14px;color:#1f2328}
+#pond-pr3 .ppr-feedback p{margin:7px 0}
+#pond-pr3 .ppr-feedback blockquote{border-left:3px solid #8c959f;margin:8px 0;padding:6px 12px;background:#fff}
+#pond-pr3 .ppr-reset{border:0;color:#0969da;background:none;padding:9px 2px}
+@media(max-width:570px){#pond-pr3 .ppr-title{font-size:18px}#pond-pr3 .ppr-panel{padding:12px 9px}#pond-pr3 .ppr-thread{gap:5px}#pond-pr3 .ppr-avatar{display:none}#pond-pr3 .ppr-line{font-size:11px}#pond-pr3 .ppr-line-number{width:30px;padding:4px}#pond-pr3 .ppr-inline-editor,#pond-pr3 .ppr-pending-comment{margin-left:6px}#pond-pr3 .ppr-finish{padding:8px}}
+#pond-pr3 .ppr-sample-table {width:100%;max-width:530px;border-collapse:collapse;margin-top:10px;font-size:13px}
+#pond-pr3 .ppr-sample-table th,#pond-pr3 .ppr-sample-table td {padding:7px 11px;border:1px solid #d1d9e0;text-align:left}
+#pond-pr3 .ppr-sample-table th {background:#f6f8fa}
+#pond-pr3 .ppr-sample-table tbody tr:nth-child(even) {background:#f8fafc}
+#pond-pr3 .ppr-file-name {overflow-wrap:anywhere}
+
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-pr3");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "yes";
+  const $ = selector => root.querySelector(selector);
+  const $$ = selector => Array.from(root.querySelectorAll(selector));
+  const pending = [];
+  let selectedRow = null;
+  let inlineEditor = null;
+  let submitted = false;
+
+  function tab(name) {
+    $$(".ppr-tabs button").forEach(b => {
+      const active = b.dataset.tab === name;
+      b.classList.toggle("active", active);
+      b.setAttribute("aria-selected", String(active));
+    });
+    $$(".ppr-panel").forEach(p => p.hidden = p.dataset.panel !== name);
+  }
+  $$(".ppr-tabs button").forEach(b => b.addEventListener("click", () => tab(b.dataset.tab)));
+
+  function makeButton(label, cssClass, onClick) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = cssClass;
+    b.textContent = label;
+    b.addEventListener("click", onClick);
+    return b;
+  }
+  function removeInlineEditor() {
+    if (inlineEditor) inlineEditor.remove();
+    inlineEditor = null;
+    selectedRow = null;
+  }
+  function openComment(row) {
+    if (submitted) return;
+    removeInlineEditor();
+    selectedRow = row;
+    const box = document.createElement("div");
+    box.className = "ppr-inline-editor";
+    const label = document.createElement("label");
+    label.textContent = `Comment on ${row.dataset.file}, line ${row.dataset.line}`;
+    const textArea = document.createElement("textarea");
+    textArea.rows = 3;
+    textArea.placeholder = "Ask a question or explain a concern about this change...";
+    const warning = document.createElement("div");
+    warning.className = "ppr-error";
+    const actions = document.createElement("div");
+    actions.className = "ppr-actions";
+    actions.append(makeButton("Cancel", "ppr-secondary", removeInlineEditor));
+    actions.append(makeButton(pending.length ? "Add review comment" : "Start a review", "ppr-primary", () => {
+      const comment = textArea.value.trim();
+      if (!comment) {warning.textContent = "Write a comment before adding it to your review.";return;}
+      pending.push({file: row.dataset.file, line: row.dataset.line, comment});
+      const saved = document.createElement("div");
+      saved.className = "ppr-pending-comment";
+      const heading = document.createElement("strong");
+      heading.textContent = `Your pending review comment · ${row.dataset.file}:${row.dataset.line}`;
+      const body = document.createElement("div");
+      body.textContent = comment;
+      saved.append(heading, body);
+      row.after(saved);
+      removeInlineEditor();
+      $("#ppr-pending-count").textContent = pending.length;
+      $("#ppr-review-count").textContent = pending.length;
+    }));
+    box.append(label, textArea, warning, actions);
+    row.after(box);
+    inlineEditor = box;
+    textArea.focus();
+  }
+  $$(".ppr-add").forEach(btn => btn.addEventListener("click", () => openComment(btn.closest(".ppr-line"))));
+
+  $("#ppr-source-tab").addEventListener("click", () => {
+    removeInlineEditor();
+    $("#ppr-notebook-source").hidden = false;
+    $("#ppr-notebook-preview").hidden = true;
+    $("#ppr-source-tab").classList.add("active");
+    $("#ppr-preview-tab").classList.remove("active");
+  });
+  $("#ppr-preview-tab").addEventListener("click", () => {
+    removeInlineEditor();
+    $("#ppr-notebook-source").hidden = true;
+    $("#ppr-notebook-preview").hidden = false;
+    $("#ppr-source-tab").classList.remove("active");
+    $("#ppr-preview-tab").classList.add("active");
+  });
+
+  $("#ppr-review-button").addEventListener("click", () => {
+    if (submitted) return;
+    if (!pending.length) {
+      $("#ppr-feedback").hidden = false;
+      $("#ppr-feedback").textContent = "First, click + beside a changed line, write a comment, and select Start a review. This practice activity asks you to include at least one line-specific comment.";
+      return;
+    }
+    removeInlineEditor();
+    $("#ppr-finish-error").textContent = "";
+    $("#ppr-finish").hidden = false;
+  });
+  $("#ppr-cancel-review").addEventListener("click", () => $("#ppr-finish").hidden = true);
+  $("#ppr-submit-review").addEventListener("click", () => {
+    const selected = $("input[name='ppr-outcome']:checked");
+    if (!selected) {$("#ppr-finish-error").textContent = "Choose a review outcome before submitting.";return;}
+    submitted = true;
+    $("#ppr-finish").hidden = true;
+    $("#ppr-review-button").disabled = true;
+    $$(".ppr-pending-comment strong").forEach(e => e.textContent = e.textContent.replace("Your pending review comment", "Your review comment"));
+    $$(".ppr-add").forEach(b => b.disabled = true);
+    const status = {comment:"Commented",approve:"Approved",changes:"Changes requested"}[selected.value];
+    const summary = $("#ppr-summary").value.trim();
+    const event = $("#ppr-conversation-review");
+    event.hidden = false;
+    event.textContent = `You submitted a review: ${status}. ${pending.length} line comment(s).` + (summary ? ` Summary: ${summary}` : "");
+    const feedback = $("#ppr-feedback");
+    feedback.hidden = false;
+    feedback.textContent = "";
+    const title = document.createElement("strong");
+    title.textContent = `Review submitted — ${status}`;
+    const advice = document.createElement("p");
+    advice.textContent = selected.value === "changes"
+      ? "Requesting changes is reasonable if you think the missing details affect the reproducibility of this analysis. The revised order preserves accepted replicates that the old workflow would have discarded, but the treatment of station–date groups with no accepted measurements should be clear."
+      : selected.value === "approve"
+      ? "The proposed order is scientifically defensible. Before approving, however, consider whether the documentation makes clear what happens when all replicates for a station and date have incomplete QC. If that omission could affect interpretation or reproducibility, asking for a revision is reasonable."
+      : "Commenting is useful for questions and suggestions. If the ambiguity about excluded station–date groups affects whether the analysis can be reproduced, you could also request changes before merging.";
+    const example = document.createElement("blockquote");
+    example.textContent = "Filtering accepted observations before calculating a replicate mean seems appropriate. Could the README also say what happens when none of the replicates for a station–date pair has QC = 1? Is that station–date absent from the summarized data, and how is that exclusion documented? Since QC = 0 means incomplete checks rather than confirmed erroneous data, this policy seems important to make explicit.";
+    const note = document.createElement("p");
+    note.textContent = "Think through two cases from the notebook: at station A, the old method averages 2.0 and 10.0 mg/L, then discards that group; the new method retains the accepted 2.0 mg/L measurement. At station B, neither measurement is accepted, so the new average is absent. A changed execution count in the JSON diff is different from these scientifically meaningful changes. Your written comment was not automatically graded; compare its reasoning with the example above.";
+    feedback.append(title, advice, example, note);
+    feedback.scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+
+  $("#ppr-reset").addEventListener("click", () => {
+    pending.length = 0;
+    submitted = false;
+    removeInlineEditor();
+    $$(".ppr-pending-comment").forEach(e => e.remove());
+    $$(".ppr-add").forEach(b => b.disabled = false);
+    $("#ppr-review-button").disabled = false;
+    $("#ppr-pending-count").textContent = "0";
+    $("#ppr-review-count").textContent = "0";
+    $("#ppr-summary").value = "";
+    $$("input[name='ppr-outcome']").forEach(r => r.checked = false);
+    $("#ppr-finish").hidden = true;
+    $("#ppr-finish-error").textContent = "";
+    $("#ppr-feedback").hidden = true;
+    $("#ppr-feedback").textContent = "";
+    $("#ppr-conversation-review").hidden = true;
+    $("#ppr-conversation-review").textContent = "";
+    $("#ppr-source-tab").click();
+    tab("conversation");
+  });
+})();
+</script>
+</section>
+<section id="why-did-the-notebook-diff-look-strange" class="level2">
+<h2 class="anchored" data-anchor-id="why-did-the-notebook-diff-look-strange">Why did the notebook diff look strange?</h2>
+<p>A Jupyter notebook (<code>.ipynb</code>) is stored as <strong>JSON</strong>. It contains Markdown text, code, metadata, execution counts, and sometimes saved outputs. A source diff can therefore look quite different from the notebook you read in Jupyter—even when a change is scientifically straightforward.</p>
+<p>GitHub can display notebooks as readable static pages when browsing a repository, but source diffs may expose JSON details or be harder to review. In this simulation, <strong>Notebook preview</strong> is a teaching aid that lets you examine the scientific narrative and sample observations without deciphering Python or JSON. In a real review, you can ask the author to explain a change, inspect a rendered notebook when available, or open it in Jupyter.</p>
+<p>The important distinction is between <em>incidental file changes</em> (such as a changed execution count) and changes that affect <strong>which observations enter an analysis</strong>. Saved notebook outputs can be scientifically meaningful too; they shouldn’t automatically be dismissed.</p>
+</section>
+<section id="bring-the-reviewers-perspective-to-your-own-pr" class="level2">
+<h2 class="anchored" data-anchor-id="bring-the-reviewers-perspective-to-your-own-pr">Bring the reviewer’s perspective to your own PR</h2>
+<p>Go back to your <strong>own open pull request</strong> and select <strong>Files changed</strong>. Could another researcher understand what you changed and why? Is any information missing that might be important for reproducing the work?</p>
+<p>Keep your pull request open. In Part 4, you’ll update it in response to feedback and then merge it.</p>
+</section>
+</section>
+<section id="respond-merge-and-synchronize" class="level1">
+<h1>4. Respond, merge, and synchronize</h1>
+<p>In Part 3, you examined a proposed change to the water-quality team’s nitrate workflow. The team wanted to <strong>apply quality control to individual measurements before averaging replicates</strong>, so accepted measurements would not be lost just because another replicate had incomplete QC.</p>
+<p>But a reviewer raised a question: <strong>what happens when no measurements at a station and date have passed quality control?</strong> A good pull request gives collaborators a place to resolve that question <em>before</em> the change reaches <code>main</code>.</p>
+<section id="follow-the-conversation-what-happens-after-a-review" class="level2">
+<h2 class="anchored" data-anchor-id="follow-the-conversation-what-happens-after-a-review">Follow the conversation: What happens after a review?</h2>
+<p>In our fictional team, Alex requested clarification. Maya didn’t create a separate pull request: she revised the existing branch, committed the additional documentation, and pushed it to GitHub. The original pull request updated automatically.</p>
+<p>Explore the continuation below:</p>
+<ol type="1">
+<li>Read Alex’s review and Maya’s response in <strong>Conversation</strong>.</li>
+<li>Open <strong>Commits</strong> to find the additional commit.</li>
+<li>Inspect <strong>Files changed</strong> to see how the documentation addresses the concern. The blue margin identifies the second-commit changes <em>in this simulation only</em>.</li>
+<li>When you’re satisfied with the revision, choose <strong>Merge pull request</strong>, then <strong>Confirm merge</strong>. You can also try <strong>Delete branch</strong> afterward.</li>
+</ol>
+<p>This simulation does not alter any real GitHub repository.</p>
+<div id="pond-pr4" class="pond-pr4">
+  <div class="p4-shell">
+    <div class="p4-repo">▣ <strong>stream-team</strong> / <strong>stream-water-quality</strong> <span class="p4-repo-pill">Public</span></div>
+    <div class="p4-title">Apply quality control before averaging nitrate replicates <span class="p4-muted">#12</span></div>
+    <div class="p4-byline"><span id="p4-status" class="p4-status">⤴ Open</span> <strong>maya</strong> wants to merge 2 commits into <code>main</code> from <code>qc-before-averaging</code></div>
+    <div class="p4-tabs" role="tablist" aria-label="Pull request sections">
+      <button type="button" data-p4-tab="conversation" class="active" role="tab" aria-selected="true">Conversation</button>
+      <button type="button" data-p4-tab="commits" role="tab" aria-selected="false">Commits <span>2</span></button>
+      <button type="button" data-p4-tab="files" role="tab" aria-selected="false">Files changed <span>2</span></button>
+    </div>
+    <section class="p4-panel" role="tabpanel" data-p4-panel="conversation">
+      <div class="p4-thread">
+        <div class="p4-avatar p4-alex">A</div>
+        <div class="p4-comment">
+          <div class="p4-comment-top"><strong>alex</strong> requested changes</div>
+          <div class="p4-comment-body">The QC-first approach seems sensible. Could we document what happens when *all* replicates for a station and date have incomplete QC? Is that station–date excluded from the summary?</div>
+        </div>
+      </div>
+      <div class="p4-thread">
+        <div class="p4-avatar p4-maya">M</div>
+        <div class="p4-comment">
+          <div class="p4-comment-top"><strong>maya</strong> replied</div>
+          <div class="p4-comment-body">Good point. I've added an explanation to the README and notebook. The derived summary excludes station–date pairs with no accepted measurements, but the original observations remain in the source dataset. I've pushed the update to this branch.</div>
+        </div>
+      </div>
+      <div class="p4-event">◉ <strong>maya</strong> added a commit: <strong>Document station–date groups with no accepted replicates</strong></div>
+      <div class="p4-event p4-approval">✓ <strong>alex</strong> approved these changes after reviewing the revision.</div>
+      <p class="p4-hint">A reply explains the decision to the reviewer. The additional commit also makes that decision part of the project's documented files.</p>
+    </section>
+    <section class="p4-panel" role="tabpanel" data-p4-panel="commits" hidden="">
+      <div class="p4-event">◉ <strong>Filter accepted nitrate replicates before averaging</strong><span class="p4-muted"> — maya, first commit</span></div>
+      <div class="p4-event">◉ <strong>Document station–date groups with no accepted replicates</strong><span class="p4-muted"> — maya, follow-up commit</span></div>
+      <p class="p4-hint">Both commits belong to <code>qc-before-averaging</code>. Pushing the second commit updated pull request #12 automatically.</p>
+    </section>
+    <section class="p4-panel" role="tabpanel" data-p4-panel="files" hidden="">
+      <p class="p4-file-intro">This view compares the proposed branch with <code>main</code>. The green lines below include the clarification added after the review.</p>
+      <div class="p4-file">
+        <div class="p4-file-header">▤ README.md <span>Data processing</span></div>
+        <div class="p4-hunk">@@ Processing replicate nitrate measurements</div>
+        <div class="p4-line p4-removed"><code>- Average replicates first, then remove groups with incomplete QC.</code></div>
+        <div class="p4-line p4-added"><code>+ Select measurements with qc_complete = 1 before averaging.</code></div>
+        <div class="p4-line p4-added"><code>+ Calculate the mean from the accepted replicates for each station and date.</code></div>
+        <div class="p4-line p4-added p4-new"><code>+ If no measurements pass QC, that station–date pair has no value in the derived summary.</code></div>
+        <div class="p4-line p4-added p4-new"><code>+ Original measurements, including those with incomplete QC, remain in the source dataset.</code></div>
+      </div>
+      <div class="p4-file">
+        <div class="p4-file-header">▤ analysis.ipynb <span>Notebook Markdown cell</span></div>
+        <div class="p4-hunk">@@ Description of the updated workflow (simplified)</div>
+        <div class="p4-line p4-added"><code>+ Filter for accepted measurements before calculating replicate means.</code></div>
+        <div class="p4-line p4-added p4-new"><code>+ Groups with zero accepted measurements are absent from the resulting mean table.</code></div>
+      </div>
+      <p class="p4-hint">The blue edge marks text added in the **second** commit. This highlighting is provided by the simulation to help you follow the story; GitHub's ordinary Files changed view shows the overall difference between the branches.</p>
+    </section>
+    <div id="p4-merge-area" class="p4-merge-area">
+      <div class="p4-merge-note">✓ Review approved · Proposed changes can be merged into <code>main</code>.</div>
+      <button type="button" id="p4-merge" class="p4-primary">Merge pull request</button>
+      <p id="p4-need-view" class="p4-warning" hidden="">Before merging, open <strong>Files changed</strong> and inspect the updated documentation.</p>
+    </div>
+    <div id="p4-confirm-area" class="p4-confirm-area" hidden="">
+      <strong>Confirm the merge</strong>
+      <p>This will incorporate the proposed changes into <code>main</code>.</p>
+      <button type="button" class="p4-secondary" id="p4-cancel">Cancel</button>
+      <button type="button" class="p4-primary" id="p4-confirm">Confirm merge</button>
+    </div>
+    <div id="p4-merged-area" class="p4-merged-area" hidden="">
+      <strong>✓ Pull request successfully merged and closed</strong>
+      <p>The changes are now part of the remote <code>main</code> branch. Your local <code>main</code> would still need to be updated.</p>
+      <button type="button" id="p4-delete" class="p4-secondary">Delete branch</button>
+      <span id="p4-deleted" hidden="">Remote branch deleted.</span>
+    </div>
+  </div>
+  <button type="button" id="p4-reset" class="p4-reset">↻ Reset simulation</button>
+</div>
+<style>
+#pond-pr4{max-width:960px;margin:1.5rem auto;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2328}
+#pond-pr4 [hidden]{display:none!important}
+#pond-pr4 button{font:inherit;cursor:pointer}
+#pond-pr4 .p4-shell{border:1px solid #d1d9e0;border-radius:9px;overflow:hidden;background:#fff}
+#pond-pr4 .p4-repo{border-bottom:1px solid #d1d9e0;padding:12px 17px;color:#0969da}
+#pond-pr4 .p4-repo-pill{font-size:11px;color:#59636e;border:1px solid #d1d9e0;border-radius:12px;padding:2px 7px;margin-left:7px}
+#pond-pr4 .p4-title{font-size:20px;font-weight:650;padding:17px 17px 6px}
+#pond-pr4 .p4-muted{color:#59636e;font-weight:400}
+#pond-pr4 .p4-byline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#59636e;padding:0 17px 16px}
+#pond-pr4 .p4-byline code,#pond-pr4 .p4-merge-note code{background:#f0f3f6;border-radius:12px;color:#24292f;padding:2px 6px}
+#pond-pr4 .p4-status{color:#fff;background:#1f883d;border-radius:20px;padding:5px 11px;font-weight:600;margin-right:4px}
+#pond-pr4 .p4-status.merged{background:#8250df}
+#pond-pr4 .p4-tabs{display:flex;gap:8px;border-bottom:1px solid #d1d9e0;padding:0 14px;overflow:auto}
+#pond-pr4 .p4-tabs button{border:0;border-bottom:2px solid transparent;background:transparent;padding:13px 9px;color:#59636e;white-space:nowrap}
+#pond-pr4 .p4-tabs button.active{color:#1f2328;border-bottom-color:#fd8c73;font-weight:600}
+#pond-pr4 .p4-tabs button span{background:#eaeef2;border-radius:12px;font-size:12px;padding:1px 6px}
+#pond-pr4 .p4-panel{padding:18px;min-height:120px}
+#pond-pr4 .p4-thread{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px}
+#pond-pr4 .p4-avatar{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;color:#fff;font-weight:700;flex-shrink:0}
+#pond-pr4 .p4-alex{background:#216e90}#pond-pr4 .p4-maya{background:#9165b5}
+#pond-pr4 .p4-comment{flex:1;border:1px solid #d1d9e0;border-radius:7px;overflow:hidden;min-width:0}
+#pond-pr4 .p4-comment-top{background:#f6f8fa;border-bottom:1px solid #d1d9e0;padding:9px 11px}
+#pond-pr4 .p4-comment-body{padding:12px}
+#pond-pr4 .p4-event{padding:11px 12px;border:1px solid #d1d9e0;border-radius:6px;margin:9px 0}
+#pond-pr4 .p4-approval{border-left:4px solid #1f883d}
+#pond-pr4 .p4-hint{background:#f6f8fa;border-radius:5px;color:#59636e;padding:10px 12px;margin:12px 0 0;font-size:13px}
+#pond-pr4 .p4-file-intro{margin:0 0 13px;color:#59636e}
+#pond-pr4 .p4-file{border:1px solid #d1d9e0;border-radius:7px;overflow:hidden;margin-bottom:14px}
+#pond-pr4 .p4-file-header{background:#f6f8fa;font-weight:650;padding:10px 12px;border-bottom:1px solid #d1d9e0}
+#pond-pr4 .p4-file-header span{font-weight:400;font-size:12px;color:#59636e;margin-left:9px}
+#pond-pr4 .p4-hunk{background:#eaf5ff;color:#325a80;padding:7px 12px;font:12px ui-monospace,SFMono-Regular,Consolas,monospace}
+#pond-pr4 .p4-line{font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;padding:7px 12px;overflow-wrap:anywhere;border-top:1px solid #ffffff90}
+#pond-pr4 .p4-line code{font:inherit;color:inherit;background:none;white-space:pre-wrap;overflow-wrap:anywhere}
+#pond-pr4 .p4-added{background:#dafbe1}#pond-pr4 .p4-removed{background:#ffebe9}
+#pond-pr4 .p4-new{border-left:4px solid #0969da}
+#pond-pr4 .p4-merge-area,#pond-pr4 .p4-confirm-area,#pond-pr4 .p4-merged-area{border-top:1px solid #d1d9e0;padding:17px;background:#f6f8fa}
+#pond-pr4 .p4-merge-note{padding:0 0 12px;color:#24753a}
+#pond-pr4 .p4-primary{border-radius:6px;color:#fff;background:#1f883d;border:1px solid #1a7f37;padding:8px 13px}
+#pond-pr4 .p4-primary:hover{background:#1a7f37}
+#pond-pr4 .p4-secondary{border-radius:6px;background:#fff;border:1px solid #d1d9e0;padding:8px 13px;color:#1f2328;margin-right:8px}
+#pond-pr4 .p4-warning{color:#9a6700;margin:10px 0 0}
+#pond-pr4 .p4-confirm-area p,#pond-pr4 .p4-merged-area p{margin:8px 0 14px}
+#pond-pr4 .p4-merged-area{background:#dafbe1;color:#1f2328}
+#pond-pr4 #p4-deleted{color:#24753a;font-weight:600}
+#pond-pr4 .p4-reset{background:none;color:#0969da;border:0;padding:10px 0}
+@media(max-width:570px){#pond-pr4 .p4-title{font-size:17px}#pond-pr4 .p4-panel{padding:12px}#pond-pr4 .p4-thread{gap:5px}#pond-pr4 .p4-avatar{display:none}#pond-pr4 .p4-line{font-size:11px}}
+</style>
+<script>
+(() => {
+  const root = document.getElementById("pond-pr4");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+  const $ = id => root.querySelector("#" + id);
+  const $$ = sel => [...root.querySelectorAll(sel)];
+  let reviewedFiles = false;
+  function tab(name){
+    $$('[data-p4-tab]').forEach(b => {
+      const active = b.dataset.p4Tab === name;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected',String(active));
+    });
+    $$('[data-p4-panel]').forEach(p => p.hidden = p.dataset.p4Panel !== name);
+    if (name === 'files') reviewedFiles = true;
+  }
+  $$('[data-p4-tab]').forEach(b => b.addEventListener('click', () => tab(b.dataset.p4Tab)));
+  $('p4-merge').addEventListener('click', () => {
+    if (!reviewedFiles){$('p4-need-view').hidden = false;tab('files');return;}
+    $('p4-need-view').hidden = true;
+    $('p4-merge-area').hidden = true;
+    $('p4-confirm-area').hidden = false;
+  });
+  $('p4-cancel').addEventListener('click', () => {
+    $('p4-confirm-area').hidden = true;
+    $('p4-merge-area').hidden = false;
+  });
+  $('p4-confirm').addEventListener('click', () => {
+    $('p4-confirm-area').hidden = true;
+    $('p4-merged-area').hidden = false;
+    $('p4-status').textContent = '✓ Merged';
+    $('p4-status').classList.add('merged');
+    tab('conversation');
+  });
+  $('p4-delete').addEventListener('click', () => {
+    $('p4-delete').hidden = true;
+    $('p4-deleted').hidden = false;
+  });
+  $('p4-reset').addEventListener('click', () => {
+    reviewedFiles = false;
+    $('p4-status').textContent = '⤴ Open';
+    $('p4-status').classList.remove('merged');
+    $('p4-merge-area').hidden = false;
+    $('p4-confirm-area').hidden = true;
+    $('p4-merged-area').hidden = true;
+    $('p4-need-view').hidden = true;
+    $('p4-delete').hidden = false;
+    $('p4-deleted').hidden = true;
+    tab('conversation');
+  });
+})();
+</script>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What changed in the conversation?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reviewer didn’t need to write Python to identify a scientific gap: the treatment of station–date pairs with <strong>zero accepted replicates</strong> needed to be explicit. Maya clarified that these pairs have no mean in the <em>derived summary</em>, while their original measurements remain available in the source dataset. This is an example of review improving the <strong>interpretability and reproducibility</strong> of a workflow.</p>
+</div>
+</div>
+</section>
+<section id="your-turn-update-your-open-pull-request" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-update-your-open-pull-request">Your turn: Update your open pull request</h2>
+<p>Now return to the <strong>real pull request you created in Part 2</strong>. You don’t need a real reviewer: use the perspective you practiced in Part 3 and identify one additional improvement to your own changes. For example, you might clarify a data source, explain a quality-control decision, or make a documentation instruction easier to follow. Avoid inventing research details you don’t know.</p>
+<ol type="1">
+<li>In <strong>GitHub Desktop</strong>, select your repository and make sure <strong>Current Branch</strong> is the branch used for your open pull request, <strong>not</strong> <code>main</code>.</li>
+<li>Edit the relevant file locally, then save it.</li>
+<li>Return to GitHub Desktop and inspect the new changes in the <strong>Changes</strong> tab.</li>
+<li>Write a focused commit message, such as <code>Clarify treatment of excluded observations</code>, and click <strong>Commit to [your branch name]</strong>.</li>
+<li>Select <strong>Push origin</strong> to send that commit to GitHub. (If Desktop offers <strong>Publish branch</strong> instead, check that you’re on the branch you published in Part 2.)</li>
+<li>Open your <strong>existing pull request</strong> in GitHub. Check <strong>Commits</strong> and <strong>Files changed</strong>. Your new commit should appear in that <em>same</em> pull request—no second PR is necessary.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why not open another pull request?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A pull request follows changes on a particular branch. When you push another commit to that branch, GitHub incorporates it into the open PR. That lets reviewers follow the evolution of a single proposal and the decisions made along the way.</p>
+</div>
+</div>
+</section>
+<section id="merge-your-improvement" class="level2">
+<h2 class="anchored" data-anchor-id="merge-your-improvement">Merge your improvement</h2>
+<p>A collaborator would normally assess the updated proposal and provide approval when appropriate. Because you’re working independently, <strong>your own inspection is not an independent review</strong>, and you cannot approve your own pull request on GitHub. For this exercise, you can merge your own PR if the repository’s settings permit it.</p>
+<ol type="1">
+<li>Open your pull request on the <strong>GitHub website</strong> and confirm its <strong>Files changed</strong> tab shows the intended final edits.</li>
+<li>Return to <strong>Conversation</strong> and find <strong>Merge pull request</strong>. If your repository allows the merge, select it and then <strong>Confirm merge</strong>. If the button is unavailable, read GitHub’s explanation rather than changing project rules simply to finish the activity.</li>
+<li>Once the pull request is merged, GitHub may offer <strong>Delete branch</strong>. You may delete the remote working branch, since the accepted changes are now in <code>main</code>.</li>
+</ol>
+<p>Notice that merging updates <code>main</code> <strong>on GitHub</strong>. Your local copy of <code>main</code> still needs to catch up.</p>
+</section>
+<section id="synchronize-your-local-repository" class="level2">
+<h2 class="anchored" data-anchor-id="synchronize-your-local-repository">Synchronize your local repository</h2>
+<ol type="1">
+<li>Return to <strong>GitHub Desktop</strong>.</li>
+<li>Open <strong>Current Branch</strong> and switch to <strong>main</strong>. Before switching, make sure you don’t have uncommitted local edits that could interfere.</li>
+<li>Click <strong>Fetch origin</strong> to check for changes on GitHub. If Desktop shows <strong>Pull origin</strong>, click it to bring the merged commits into your local <code>main</code>.</li>
+<li>Verify that your edited file now contains the merged improvement, even though you’re on <code>main</code> rather than your working branch.</li>
+<li>Optionally delete the <em>local</em> working branch when you’re sure you no longer need it. Deleting a branch is different from deleting the commits already merged into <code>main</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Keep the roles distinct
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Commit</strong> saves your change locally on the current branch.</li>
+<li><strong>Push origin</strong> sends new local commits to GitHub and updates an open PR based on that branch.</li>
+<li><strong>Merge pull request</strong> incorporates the accepted change into the <em>remote</em> <code>main</code> branch.</li>
+<li><strong>Fetch origin / Pull origin</strong> helps update your <em>local</em> <code>main</code> after the merge.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="check-your-progress-1" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-progress-1">Check your progress</h2>
+<p>By the end of this activity, you should have a <strong>merged pull request</strong> in your GitHub repository, at least two commits documenting the improvement and its revision, and a local <code>main</code> branch that contains the final changes.</p>
+<p>As you look back at your pull request, notice what the process preserved: not just <em>what</em> changed, but <em>why</em> it changed and how a proposed improvement became part of the research project.</p>
+</section>
+</section>
+<section id="optional-going-further-collaborating-beyond-your-own-repository" class="level1">
+<h1>[Optional] Going further: collaborating beyond your own repository</h1>
+<p>You’ve now proposed, reviewed, revised, and merged a change. That workflow works well when you have permission to create branches in the shared repository and Git can combine everyone’s work automatically.</p>
+<p>But research collaborations don’t always work that way. Here are two situations you may encounter. <strong>Both activities are optional</strong>; you do not need to complete them to finish this LilyPad.</p>
+<section id="what-if-you-cannot-publish-a-branch-to-the-project" class="level2">
+<h2 class="anchored" data-anchor-id="what-if-you-cannot-publish-a-branch-to-the-project">What if you cannot publish a branch to the project?</h2>
+<p>Imagine that <strong>Priya</strong>, a researcher outside our water-quality team, notices that the repository could explain its quality-control flags more clearly. She wants to propose an improvement, but she isn’t a member of the team and doesn’t have permission to push branches to <code>stream-team/stream-water-quality</code>.</p>
+<p>She can still contribute to a public repository using a <strong>fork</strong>.</p>
+<p>A <strong>branch</strong> is a separate line of work <em>within</em> a repository. A <strong>fork</strong> is a separate repository under another account, connected to the original project (often called the <strong>upstream</strong> repository).</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["stream-team/stream-water-quality&lt;br/&gt;Original (upstream) repository"]
+    B["priya/stream-water-quality&lt;br/&gt;Priya's fork"]
+    C["improve-qc-documentation&lt;br/&gt;Branch in Priya's fork"]
+    A --&gt;|Fork| B
+    B --&gt;|Create branch and commit| C
+    C --&gt;|Open pull request back to original| A
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Priya can edit and push to a branch <strong>in her fork</strong>, then open a pull request proposing that the original project incorporate those changes. The maintainers of the original repository decide whether to review and merge the contribution. The review process is much like the one you just practiced; the main difference is <strong>where the proposed branch lives</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why not always use a fork?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you already have write access to the research team’s repository, working in a branch there is generally simpler. Forks are especially useful when contributing to projects you don’t maintain, such as open-source research software or public documentation.</p>
+</div>
+</div>
+<section id="optional-hands-on-explore-a-fork" class="level3">
+<h3 class="anchored" data-anchor-id="optional-hands-on-explore-a-fork">Optional hands-on: Explore a fork</h3>
+<p>If you know of a <strong>public research repository you genuinely want to contribute to</strong>, try the following. There’s no need to submit an unsolicited pull request just to practice.</p>
+<ol type="1">
+<li>Open the repository on GitHub and look for its contribution instructions. Notice how the maintainers prefer people to propose changes.</li>
+<li>Click <strong>Fork</strong>, choose <strong>Create a new fork</strong> if prompted, select your account as the owner, and click <strong>Create fork</strong>.</li>
+<li>Look at the heading of your fork. GitHub identifies the original repository from which it was forked.</li>
+<li>If you want to explore locally, clone <strong>your fork</strong> in GitHub Desktop and create a branch there. Changes you publish belong to your fork, not to the upstream project.</li>
+<li>Before opening a real pull request, make sure your change is useful and follows the project’s contribution instructions. In a pull request from a fork, the <strong>base repository</strong> is the original project and the <strong>head/compare branch</strong> comes from your fork.</li>
+</ol>
+<p>If you don’t have an appropriate repository in mind, it’s fine to simply examine the <a href="https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo">GitHub guide to forking</a>. You can return to this workflow when a real opportunity arises.</p>
+</section>
+</section>
+<section id="what-if-two-branches-change-the-same-lines" class="level2">
+<h2 class="anchored" data-anchor-id="what-if-two-branches-change-the-same-lines">What if two branches change the same lines?</h2>
+<p>Earlier, we mentioned that branches let researchers work independently, but they do not prevent every problem when work is combined.</p>
+<p>Imagine a <em>different outcome</em> for our water-quality team’s pull request: before Maya’s change is merged, Alex updates the same sentence of <code>README.md</code> on <code>main</code> to clarify the measurement units. Maya has rewritten that sentence on her branch to explain which measurements are included in an average.</p>
+<p>Both changes are reasonable. But they affect the same part of the file, and Git cannot confidently decide which wording to keep. This is a <strong>merge conflict</strong>.</p>
+<p>Git may show a conflict using markers such as these:</p>
+<pre class="text"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; main
+Measurements are summarized by station and date; nitrate concentrations are in mg/L.
+=======
+Only measurements with QC = 1 are averaged by station and date.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; qc-before-averaging</code></pre>
+<p>The markers divide the two competing versions. They are <strong>not</strong> meant to remain in the finished document. The task is to decide what the final sentence should say.</p>
+<section id="try-it-resolve-the-documentation-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="try-it-resolve-the-documentation-conflict">Try it: Resolve the documentation conflict</h3>
+<p>Choose the wording you would keep in the final <code>README.md</code>. This is a simplified conflict-resolution exercise, not a live GitHub editor.</p>
+<div id="pond-conflict-exercise" class="pond-conflict-exercise">
+  <div class="pc-file-header"><span aria-hidden="true">▤</span><strong>README.md</strong><span class="pc-caption">Proposed resolution</span></div>
+  <div class="pc-options" role="group" aria-label="Choose a conflict resolution">
+    <button type="button" data-choice="main">Keep the wording from <code>main</code></button>
+    <button type="button" data-choice="branch">Keep the wording from <code>qc-before-averaging</code></button>
+    <button type="button" data-choice="combine">Combine the useful information from both</button>
+  </div>
+  <div class="pc-result" hidden="">
+    <div class="pc-result-label">Resulting README sentence</div>
+    <div class="pc-line" id="pc-line"></div>
+    <div class="pc-feedback" id="pc-feedback" role="status" aria-live="polite"></div>
+  </div>
+  <button type="button" class="pc-reset">↻ Try again</button>
+</div>
+<style>
+#pond-conflict-exercise {max-width:820px;margin:1rem 0 1.5rem;border:1px solid #d0d7de;border-radius:8px;overflow:hidden;background:#fff;color:#24292f;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;}
+#pond-conflict-exercise [hidden]{display:none!important;}
+#pond-conflict-exercise button{font:inherit;cursor:pointer;}
+#pond-conflict-exercise .pc-file-header{display:flex;align-items:center;gap:10px;background:#f6f8fa;padding:13px 16px;border-bottom:1px solid #d0d7de;}
+#pond-conflict-exercise .pc-caption{margin-left:auto;color:#57606a;font-size:12px;}
+#pond-conflict-exercise .pc-options{display:grid;gap:9px;padding:16px;}
+#pond-conflict-exercise .pc-options button{background:white;border:1px solid #afb8c1;padding:11px 12px;text-align:left;border-radius:6px;color:#24292f;}
+#pond-conflict-exercise .pc-options button:hover{background:#f6f8fa;}
+#pond-conflict-exercise .pc-options button[aria-pressed="true"].pc-good{border-color:#1a7f37;background:#dafbe1;}
+#pond-conflict-exercise .pc-options button[aria-pressed="true"].pc-bad{border-color:#cf222e;background:#ffebe9;}
+#pond-conflict-exercise .pc-options code{font-size:12px;}
+#pond-conflict-exercise .pc-result{padding:0 16px 12px;}
+#pond-conflict-exercise .pc-result-label{font-size:12px;font-weight:600;color:#57606a;margin-bottom:6px;}
+#pond-conflict-exercise .pc-line{padding:12px;background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;overflow-wrap:anywhere;}
+#pond-conflict-exercise .pc-feedback{margin-top:10px;padding:11px 12px;border-radius:6px;line-height:1.5;}
+#pond-conflict-exercise .pc-feedback.pc-good{background:#dafbe1;color:#116329;}
+#pond-conflict-exercise .pc-feedback.pc-bad{background:#ffebe9;color:#82071e;}
+#pond-conflict-exercise .pc-reset{border:0;background:none;color:#0969da;padding:0 16px 15px;}
+</style>
+<script>
+(() => {
+  const root = document.getElementById('pond-conflict-exercise');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
+  const result = root.querySelector('.pc-result');
+  const line = root.querySelector('#pc-line');
+  const feedback = root.querySelector('#pc-feedback');
+  const options = {
+    main: {
+      sentence: 'Measurements are summarized by station and date; nitrate concentrations are in mg/L.',
+      message: 'This keeps the units, but loses the new explanation of how QC flags affect averaging. What information would a researcher need to reproduce the revised workflow?',
+      correct: false
+    },
+    branch: {
+      sentence: 'Only measurements with QC = 1 are averaged by station and date.',
+      message: 'This preserves the QC decision, but drops the units that Alex added. Could the two improvements coexist?',
+      correct: false
+    },
+    combine: {
+      sentence: 'Only measurements with QC = 1 are averaged by station and date; nitrate concentrations are reported in mg/L.',
+      message: 'Good resolution. You preserved both scientific details rather than silently discarding either contribution. Real conflicts may require discussion or verification before deciding what to keep.',
+      correct: true
+    }
+  };
+  root.querySelectorAll('[data-choice]').forEach(button => {
+    button.setAttribute('aria-pressed', 'false');
+    button.addEventListener('click', () => {
+      const choice = button.dataset.choice;
+      const picked = options[choice];
+      root.querySelectorAll('[data-choice]').forEach(other => {
+        const chosen = other === button;
+        other.setAttribute('aria-pressed', String(chosen));
+        other.classList.remove('pc-good','pc-bad');
+        if (chosen) other.classList.add(picked.correct ? 'pc-good' : 'pc-bad');
+      });
+      line.textContent = picked.sentence;
+      feedback.textContent = picked.message;
+      feedback.className = 'pc-feedback ' + (picked.correct ? 'pc-good' : 'pc-bad');
+      result.hidden = false;
+    });
+  });
+  root.querySelector('.pc-reset').addEventListener('click', () => {
+    root.querySelectorAll('[data-choice]').forEach(button => {
+      button.setAttribute('aria-pressed','false');
+      button.classList.remove('pc-good','pc-bad');
+    });
+    result.hidden = true;
+    feedback.textContent = '';
+    line.textContent = '';
+  });
+})();
+</script>
+</section>
+<section id="if-this-happens-in-a-real-pull-request" class="level3">
+<h3 class="anchored" data-anchor-id="if-this-happens-in-a-real-pull-request">If this happens in a real pull request</h3>
+<p>When GitHub detects a conflict, it may prevent merging the pull request until the conflicting content is resolved. For simple text conflicts, you may be able to click <strong>Resolve conflicts</strong> on GitHub, edit the file, remove the conflict markers, then select <strong>Mark as resolved</strong> and <strong>Commit merge</strong>. More complicated cases may require resolving the conflict locally. <a href="https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github">GitHub’s conflict-resolution guide</a> walks through the process.</p>
+<p><strong>The important lesson:</strong> A merge conflict is not necessarily a mistake. It means Git needs a person to decide how to combine competing changes. In scientific work, that decision may depend on the meaning of the data or methods, not just the text.</p>
+</section>
+</section>
+</section>
+<section id="before-you-leave-the-pond" class="level1">
+<h1>Before you leave the pond</h1>
+<p>You’ve now taken a research improvement from a branch to a pull request, practiced reviewing a scientific decision, updated a proposal, and merged it into the project. You have also seen how the same ideas extend to outside contributors and overlapping edits.</p>
+<p>Consider your next collaborative project: <strong>What is one change you would want another researcher to review before it becomes part of the shared work?</strong> It might be a data-processing choice, a unit conversion, a methods description, or a figure caption. The value of a pull request is not limited to code—it is also the chance to catch errors, discuss decisions, and preserve the reasoning behind research changes.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
