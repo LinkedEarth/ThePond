@@ -91,7 +91,7 @@ Use issues, labels, milestones, and a project board to organize research tasks a
 <div class="deep-water-tags" aria-label="Pad tags"><span>Project Management</span><span>Python</span><span>R</span></div>
 
 ::: {.text-center}
-*Coming soon*
+[Start this Pad](plan-work/index.qmd){.btn .btn-primary}
 :::
 :::
 :::

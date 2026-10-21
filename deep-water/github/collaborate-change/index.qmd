@@ -47,7 +47,7 @@ At the same time, you'll practice the corresponding GitHub actions in your own r
 
 Let's begin by exploring why researchers might want to work on separate branches.
 
-# 1. Why work on a branch?
+# Part 1 - Why work on a branch?
 
 Imagine you're part of a research team investigating how nitrate concentrations change as a stream flows through a developed area.
 
@@ -1076,7 +1076,7 @@ You should now have:
 
 You now have a separate place to work on your proposed improvement. Next, we'll make a change and use a pull request to propose incorporating it into the research project.
 
-# 2. From improvement to proposal
+## Part 2 - From improvement to proposal
 
 You've created a branch where you can work independently without immediately changing `main`. Now it's time to use it!
 
@@ -1239,7 +1239,7 @@ We'll use this same pull request later in the LilyPad to practice responding to 
 You don't need to find a collaborator or request a real review. In the next section, we'll practice reviewing a fictional research team's pull request through an interactive simulation.
 :::
 
-# 3. Reviewing a scientific change
+## Part 3 - Reviewing a scientific change
 
 You've opened a pull request in your own repository. Before a proposed change becomes part of a shared research project, someone should consider not just whether the files changed as intended, but whether the **scientific workflow still makes sense**.
 
@@ -1627,7 +1627,7 @@ Go back to your **own open pull request** and select **Files changed**. Could an
 
 Keep your pull request open. In Part 4, you'll update it in response to feedback and then merge it.
 
-# 4. Respond, merge, and synchronize
+## Part 4 - Respond, merge, and synchronize
 
 In Part 3, you examined a proposed change to the water-quality team's nitrate workflow. The team wanted to **apply quality control to individual measurements before averaging replicates**, so accepted measurements would not be lost just because another replicate had incomplete QC.
 
