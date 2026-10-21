@@ -1664,3 +1664,421 @@ But research projects often involve multiple collaborators, deadlines, competing
 GitHub provides additional tools to help manage that complexity, including **sub-issues, milestones, Projects, and Discussions**.
 
 In the following **Good to Know** section, we'll explore how these tools can support broader research project management, from preparing for an advisor meeting to coordinating work for an AGU presentation.
+
+
+# Good to Know — Managing a Research Project with GitHub
+
+You've learned how to create Issues, document decisions, track tasks, and connect completed work to pull requests.
+
+But what happens when your research involves multiple collaborators, competing priorities, important deadlines, or dozens of tasks that depend on one another?
+
+**GitHub can help you manage an entire research project, not just individual tasks or changes to code.**
+
+::: {.callout-tip title="Recommended reading — no exercise required"}
+The following tools are especially useful for organizing research, coordinating with collaborators, and planning what to do next.
+
+You don't need to try them all now. Instead, explore how they might help with your own research.
+
+These approaches work for scientific workflows, research software development, manuscripts, conference presentations, and many other research activities.
+:::
+
+## 1. Sub-issues — Break large goals into manageable tasks
+
+Imagine your research team is preparing a presentation for the American Geophysical Union (AGU) Fall Meeting.
+
+You have a broad objective:
+
+**Prepare the water-quality study for an AGU presentation.**
+
+That involves several pieces of work:
+
+- Finalize quality-control procedures.
+- Investigate whether sampling dates affect the comparison.
+- Decide which results are scientifically defensible.
+- Prepare figures.
+- Discuss the interpretation with collaborators.
+- Create and review presentation slides.
+
+You could create a separate Issue for each task, but how would you show that they're all contributing to the same objective?
+
+### Parent issues and sub-issues
+
+GitHub allows you to organize related Issues into a hierarchy.
+
+A **parent issue** represents a larger objective, while **sub-issues** represent smaller pieces of work needed to achieve it.
+
+For example:
+
+**Parent issue: Prepare water-quality results for AGU**
+
+- **Sub-issue:** Finalize and document the nitrate QC procedure.
+- **Sub-issue:** Evaluate the effects of sampling-date differences.
+- **Sub-issue:** Select and validate the scientific comparisons.
+- **Sub-issue:** Prepare figures for the presentation.
+- **Sub-issue:** Review interpretations with collaborators.
+- **Sub-issue:** Prepare and review the presentation slides.
+
+Each sub-issue is a real GitHub Issue. It can have its own description, assignee, labels, discussion, and pull requests.
+
+GitHub also displays the sub-issues under their parent and tracks progress as they are completed.
+
+![Example of the sub-issues section of a GitHub Issue, showing linked tasks and progress.](figures/subissues.png){width=85% fig-align="center"}
+
+### Why is this useful for research?
+
+Sub-issues are especially valuable when:
+
+- A larger research goal involves several people.
+- Different tasks need to be completed at different times.
+- Some tasks require code or documentation changes, while others involve scientific discussions or decisions.
+- You want to review progress during a research group meeting.
+- A large task would otherwise generate an unwieldy pull request.
+
+Remember our rule of thumb from Part 3?
+
+**One issue (or sub-issue) = one focused pull request, when the work requires changes to repository files.**
+
+A parent issue may involve several pull requests, each associated with a different sub-issue. Other sub-issues may be completed without changing any files.
+
+### How to create sub-issues
+
+Open an existing GitHub Issue and find the **Create sub-issue** option below its description.
+
+You can create a new issue or add an existing issue as a sub-issue.
+
+GitHub also lets you nest sub-issues, although it's usually best to keep the hierarchy as simple as your project allows.
+
+[Learn more about sub-issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)
+
+::: {.callout-tip title="Useful during research group meetings"}
+Instead of reviewing dozens of unrelated Issues, open the parent issue representing your research objective.
+
+You can quickly see which sub-issues are complete, which remain open, and where the team needs to focus.
+
+If a task becomes too large, consider breaking it into smaller sub-issues rather than allowing its scope to grow indefinitely.
+:::
+
+## 2. Milestones — Organize work around a deadline
+
+Research often revolves around specific deadlines:
+
+- An AGU abstract submission.
+- A conference presentation.
+- A manuscript submission.
+- A grant reporting deadline.
+- A software release.
+- A field campaign.
+
+GitHub **Milestones** help you group Issues and pull requests associated with a shared target.
+
+![Example of a milestone for paper submission](figures/ milestones.png){width=85% fig-align="center"}
+
+For example, you could create a milestone named:
+
+**AGU Presentation — Water-Quality Results**
+
+You could then add the Issues that need to be completed before the presentation.
+
+A milestone can have a description and a due date. GitHub displays its progress based on the Issues and pull requests associated with it.
+
+### How are milestones different from sub-issues?
+
+They organize work in different ways.
+
+- **Sub-issues** describe how a larger task is divided into smaller pieces.
+- **Milestones** group work associated with a shared goal or target, often a deadline.
+
+For example, some of the water-quality analysis tasks may belong to your AGU milestone, while others can wait until you prepare the manuscript.
+
+The same research project might have several milestones:
+
+- AGU abstract submission.
+- AGU presentation.
+- Manuscript submission.
+
+This helps the team distinguish **what must be completed now** from work that can happen later.
+
+### Where to find milestones
+
+In your repository, open **Issues**, then select **Milestones** near the Issues search bar.
+
+You can create a milestone, add a due date, and assign existing Issues to it.
+
+Milestones are associated with an individual repository. For coordinating work across several repositories, GitHub Projects offers more flexibility.
+
+[Learn more about milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests)
+
+## 3. GitHub Projects — See the bigger picture
+
+As a research project grows, it can become difficult to understand how all the work fits together.
+
+You might want to know:
+
+- What are our priorities?
+- Who is responsible for each task?
+- What's currently in progress?
+- Which tasks are blocked?
+- What needs to be finished before AGU?
+- Are we trying to accomplish more than our available time allows?
+
+**GitHub Projects** provides a way to organize Issues and pull requests into a shared view of the work.
+
+Unlike the Issues list in a single repository, a GitHub Project can bring together work from multiple repositories.
+
+For instance, a paleoclimate project might involve separate repositories for data processing, analysis software, and manuscript materials, while using one Project to coordinate the overall effort.
+
+### Different views of the same work
+
+GitHub Projects supports several layouts:
+
+- **Table:** A spreadsheet-like overview of tasks, assignees, status, priorities, and other information.
+- **Board:** A visual representation of work organized into columns, such as Todo, In Progress, and Done.
+- **Roadmap:** A timeline showing how work is planned over time.
+
+![Example GitHub Projects table showing status, assignees, and sub-issue progress.](figures/pyleoclim_board.png){width=100% fig-align="center"}
+
+Projects also supports custom fields, such as **Priority**, so teams can define the information they need to manage their work.
+
+### Example — What should we prioritize for AGU?
+
+Imagine your team has four outstanding tasks:
+
+| Task | Status | Priority | Reason |
+|---|---|---|---|
+| Investigate sampling-date differences | In progress | High | Affects scientific interpretation |
+| Prepare stream-reach comparison figure | Blocked | High | Depends on the comparison method |
+| Improve README reproduction instructions | Todo | Medium | Important for sharing the work |
+| Explore an additional sampling location | Todo | Low | Valuable, but not essential for AGU |
+
+*These statuses and priorities are examples of fields your team could use in a GitHub Project.*
+
+This kind of overview makes it easier to discuss what the team can realistically accomplish.
+
+The priority isn't necessarily determined by how easy or quick a task is. It depends on its importance to the scientific objective, its dependencies, and the available resources.
+
+### Dependencies — When one task must wait for another
+
+Some research tasks can't begin until another task is complete.
+
+For example:
+
+**Prepare the nitrate comparison figure** may depend on **Decide how to handle differences in sampling dates**.
+
+GitHub Issues supports dependencies that identify work as **blocked by** or **blocking** another issue.
+
+This helps distinguish a task that nobody has started from a task that cannot reasonably proceed yet.
+
+You can manage these relationships using the **Relationships** section of an issue.
+
+[Learn about issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
+
+### Which Project view should you use?
+
+There isn't one correct answer.
+
+A table might be most useful when preparing a weekly research meeting. A board can make it easier to see the status of ongoing work. A roadmap can help when coordinating activities across a field season or toward multiple deadlines.
+
+You can create different views of the same Project without duplicating the Issues.
+
+[Explore GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+
+::: {.callout-tip title="Start simple"}
+You don't need dozens of labels, complicated priority systems, or an elaborate Project setup.
+
+For a small research team, a few fields may be enough:
+
+- **Status:** Todo, In Progress, Blocked, Done.
+- **Priority:** High, Medium, Low.
+- **Assignee:** Who is coordinating the task?
+
+You can add more structure when the project needs it.
+:::
+
+## 4. Use GitHub to prepare for meetings with your advisor or collaborators
+
+One particularly useful application of GitHub project management is preparing for research meetings.
+
+Imagine you're a graduate student meeting with your advisor every two weeks.
+
+Rather than trying to remember what you accomplished, what you're waiting on, and what decisions need attention, you could use your GitHub Issues or Project as a shared agenda.
+
+### Before the meeting
+
+Review the work in your Project:
+
+- Which tasks have been completed since the last meeting?
+- Which are still in progress?
+- Are any tasks blocked?
+- What scientific questions require feedback?
+- Are priorities still appropriate?
+
+You might have an Issue titled:
+
+**Discuss interpretation of nitrate differences with advisor**
+
+Its description could contain an agenda:
+
+- [ ] Review sampling-date coverage.
+- [ ] Discuss whether direct comparisons are scientifically justified.
+- [ ] Evaluate alternative approaches.
+- [ ] Agree on next steps for the AGU presentation.
+
+Notice that this Issue doesn't need to be associated with code or a pull request.
+
+### During the meeting
+
+Open the relevant Issues and discuss the outstanding questions.
+
+You can update priorities, identify tasks that need further investigation, and decide who will be responsible for the next steps.
+
+An Issue or Project gives everyone a shared reference point, so the conversation can focus on scientific decisions rather than reconstructing the current state of the work.
+
+### After the meeting
+
+Record important decisions in the relevant Issue comments.
+
+For example:
+
+> We agreed that comparisons should first be restricted to periods with comparable sampling coverage. Before choosing an analysis, we will evaluate how many observations this would exclude.
+
+Update the checklist or create new Issues for any follow-up work.
+
+The meeting Issue can be closed once the meeting has taken place and its decisions and follow-up tasks have been documented.
+
+The scientific investigation may remain open until those follow-up tasks are completed.
+
+::: {.callout-tip title="GitHub can become a research record"}
+Over time, these Issues and comments provide a history of discussions, methodological decisions, and changing priorities.
+
+This can be especially helpful when writing a manuscript, revisiting an analysis months later, or bringing a new student into the project.
+:::
+
+## 5. GitHub Discussions — Explore ideas before defining tasks
+
+Not every conversation begins with a clear task.
+
+You might want to brainstorm potential research directions, gather feedback from a community, or discuss which scientific questions deserve attention.
+
+GitHub provides **Discussions** for these broader conversations.
+
+### When should you use Discussions instead of Issues?
+
+Consider two situations:
+
+**Situation A — A specific investigation**
+
+*Determine whether differences in sampling dates affect the comparison of nitrate concentrations across stream reaches.*
+
+The next step and intended outcome are reasonably clear. This belongs in an **Issue**.
+
+**Situation B — An open-ended scientific conversation**
+
+*Which aspects of our water-quality study would make the most compelling AGU presentation?*
+
+The team may want to exchange ideas, evaluate different directions, and gather feedback before deciding what work to pursue.
+
+This could be a **Discussion**.
+
+Once the team agrees on a direction, it can create one or more Issues to track the resulting tasks.
+
+### Discussions are useful beyond software development
+
+For a scientific community, Discussions might support:
+
+- Brainstorming new research directions.
+- Asking questions about datasets or methods.
+- Collecting feedback on community standards.
+- Exploring proposed features for scientific software.
+- Sharing ideas for workshops or training resources.
+
+GitHub Discussions can be enabled for a repository or organization. You may need to enable the feature before using it.
+
+A small team doesn't necessarily need both Issues and Discussions. Issue comments may be sufficient for focused conversations, while Discussions become particularly valuable when broader participation or brainstorming is important.
+
+[Learn more about GitHub Discussions](https://docs.github.com/en/discussions/guides/best-practices-for-community-conversations-on-github)
+
+## 6. Long-running Issues — Research needs don't always have immediate solutions
+
+Some research tasks can be completed in an afternoon.
+
+Others require additional data, specialized expertise, collaborators, or funding. They may remain open for months or even years.
+
+**An Issue doesn't become unimportant simply because it has been open for a long time.**
+
+This is particularly true for research software, where users may identify limitations that maintainers don't immediately have the resources to address.
+
+### A real example from scientific Python: pandas datetime support
+
+For many years, pandas primarily used nanosecond-resolution datetime values.
+
+This created a problem for scientific applications working with dates outside the relatively narrow range supported by that resolution.
+
+In June 2014, a contributor opened [pandas Issue #7307: Support or default to less detailed datetime64](https://github.com/pandas-dev/pandas/issues/7307).
+
+The issue described the limitation and proposed supporting lower-resolution datetime representations.
+
+Pandas 2.0, released in 2023, introduced support for datetime resolutions including seconds, milliseconds, microseconds, and nanoseconds. The funding was secured through LinkedEarth, and the development was completed by a team of contributors.
+
+[Read the pandas 2.0 release notes](https://pandas.pydata.org/pandas-docs/version/2.0/whatsnew/v2.0.0.html)
+
+This is an excellent example of how a technical need can remain relevant for years before the necessary development takes place.
+
+A well-described Issue provides a starting point for future contributors who may have the scientific motivation, technical expertise, or funding to address it.
+
+### Participating in an open-source research community
+
+If you use an open-source research tool and encounter a limitation, you may find that someone has already opened an Issue about it.
+
+Before opening a new Issue:
+
+1. Search the repository for existing Issues describing the problem.
+2. Read the previous discussion and any contributing guidelines.
+3. If you can add useful scientific context, a reproducible example, or relevant evidence, consider contributing to the discussion.
+4. If you want to work on a solution, coordinate with the maintainers before investing substantial effort.
+
+Your contribution doesn't necessarily need to be code. A clear description of a scientific use case can help developers understand why a change matters.
+
+As you learned in [Pad 3](../collaborate-change/index.qmd), contributing code to a repository where you don't have write access may involve creating a fork and submitting a pull request.
+
+### Should old Issues be closed?
+
+Not automatically.
+
+It's good practice to review open Issues periodically and ask:
+
+- Is the issue still relevant?
+- Does the description still reflect the problem?
+- Is something blocking progress?
+- Would it help to divide the work into sub-issues?
+- Has the issue already been resolved elsewhere?
+- Should its priority change?
+
+An issue may remain open because it represents an important need that the team cannot currently address.
+
+The goal is not to close every old issue. It's to **keep the project's outstanding work understandable, relevant, and available for future contributions**.
+
+## Putting the pieces together
+
+These GitHub features complement one another:
+
+| Feature | What it helps you manage |
+|---|---|
+| **Issues** | Individual tasks, investigations, and decisions |
+| **Sub-issues** | Larger objectives broken into manageable work |
+| **Milestones** | Shared goals and deadlines within a repository |
+| **Projects** | Priorities, responsibilities, progress, and coordination across work |
+| **Discussions** | Open-ended conversations and brainstorming |
+| **Pull requests** | Proposed changes to research or software files |
+
+You don't need to adopt all of them to benefit from GitHub.
+
+For an individual research project, a few well-written Issues may be sufficient. For a larger collaborative effort, Projects, sub-issues, and milestones can make coordination significantly easier.
+
+**The important point is that GitHub can help you organize the research itself, not just the code or files that result from it.**
+
+::: {.callout-tip title="The bigger picture"}
+GitHub can help researchers organize **what they intend to do, explain why they're doing it, discuss choices before making them, identify who's responsible, and maintain a record of what was accomplished**.
+
+Whether you're developing research software, reproducing an analysis, preparing for AGU, or coordinating a team, these practices can make scientific work easier to manage, understand, and revisit.
+:::
+
