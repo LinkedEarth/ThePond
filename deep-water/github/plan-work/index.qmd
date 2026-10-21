@@ -1567,6 +1567,12 @@ Create your pull request.
 
 ## Step 4 — Review and merge your change
 
+Before merging, return to the original Issue and review its checklist.
+
+Check off the tasks you've completed and verified. If something remains unfinished, decide whether the pull request is ready to close the issue or whether additional work is needed.
+
+This helps ensure that closing an issue reflects its completion criteria, not just the fact that a pull request was merged.
+
 Before merging, open the **Files changed** tab in your pull request.
 
 Check that:
