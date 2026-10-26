@@ -10,6 +10,10 @@ format:
 
 The Spring is a place to ask questions, share experiences, and learn from the community.
 
+## Contact us
+
+If you have questions about the content in this course, report any issues, or want to suggest new content, please [open an issue on GitHub](https://github.com/LinkedEarth/ThePond/issues) or contact us via [email](mailto:linkedearth@gmail.com).
+
 ## Recent discussions
 
 <d-topics-list
