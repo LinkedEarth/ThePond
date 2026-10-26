@@ -28,7 +28,7 @@ website:
             href: lilypads/index.qmd
           - href: lilypads/data/index.qmd
             text: Data
-          - href: lilypads/softwareindex.qmd
+          - href: lilypads/software/index.qmd
             text: Software
           - href: lilypads/workflow/index.qmd
             text: Workflow
