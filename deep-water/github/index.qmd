@@ -107,7 +107,7 @@ Add citation information, make a release, and connect it to Zenodo so others can
 <div class="deep-water-tags" aria-label="Pad tags"><span>Data</span><span>Software</span><span>Workflows</span><span>Python</span><span>R</span></div>
 
 ::: {.text-center}
-*Coming soon*
+[Start this Pad](release-cite/index.qmd){.btn .btn-primary}
 :::
 :::
 :::
