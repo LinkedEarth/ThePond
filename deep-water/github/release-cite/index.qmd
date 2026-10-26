@@ -1,0 +1,1373 @@
+---
+title: "Release and Cite your Work"
+subtitle: "Learn how to create a release, add citation information, and connect your repository to Zenodo."
+---
+
+# Overview
+
+You've [created a research repository](../start-research-repository/index.qmd), [tracked changes](../save-share-changes/index.qmd), [collaborated through pull requests](../collaborate-change/index.qmd), and [used Issues to organize your work](../plan-work/index.qmd). But how do you share a version of your research that someone else can reliably find, reuse, and cite?
+
+A GitHub repository is a living project: files change, analyses evolve, and new features or corrections are added. A [**release**](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) identifies a particular version of that work, making it easier for others to understand exactly what was available at a given point in time.
+
+In this Deep End Pad, you'll prepare your repository for its first release. You'll consider reuse permissions, create citation information, choose a version number, write release notes, and explore how GitHub releases can be preserved in a research archive such as [Zenodo](https://zenodo.org/).
+
+You'll also discover why **a GitHub release, an archived version with a DOI, a published dataset, and a research paper are not interchangeable**—even when they are all part of the same research project.
+
+The goal isn't simply to make files available. It's to help other researchers understand what you've shared, what they can do with it, and how to give your work appropriate credit.
+
+## What you will learn
+
+By the end of this Pad, you will be able to:
+
+- **Evaluate release readiness:** Check whether your repository is sufficiently documented and identify scientific, technical, or permission-related issues that need attention.
+- **Understand licensing:** Recognize why a public repository isn't automatically available for reuse and identify licensing questions for code, data, and documentation.
+- **Create citation metadata:** Add a `CITATION.cff` file so GitHub can display instructions for citing your work.
+- **Choose a version:** Understand common versioning approaches, including semantic versioning (`v1.0.0`) and calendar-based versioning (`v2026.10.26`).
+- **Prepare a GitHub release:** Identify a version of your project, write meaningful release notes, and prepare a release using GitHub's interface.
+- **Understand archival and DOIs:** Explain how Zenodo can preserve a release, what a DOI identifies, and why individual versions may have different DOIs.
+- **Make your work easier to cite:** Add clear citation and version information to your README and understand how that information evolves with subsequent releases.
+
+## Before you begin
+
+You'll need:
+
+- **A GitHub account** and a repository you can edit. You can continue with the water-quality project from earlier Pads or use your own research repository.
+- **A README** describing your project and its contents.
+- **A few changes already committed to your repository.** These will help you think about version numbers and release notes.
+- **No Python or command-line experience.** We'll use GitHub's web interface for the activities.
+
+You do not need a Zenodo account to complete the required activities. However, if you want to explore the optional publishing pathway, you'll need a Zenodo account and permission to deposit your repository.
+
+### A note about publishing
+
+This Pad distinguishes between **preparing a release** and **publishing one**.
+
+If you're using the water-quality training project, you'll complete the GitHub activities, including creating `CITATION.cff` and preparing a draft release. You'll explore DOI creation through a simulated example rather than depositing the training repository in Zenodo.
+
+Why? Zenodo is intended to preserve research outputs for long-term discovery and citation. Creating many permanent records of the same training exercise would add little scientific value.
+
+If you're working on your own research project and have the necessary permissions, you can follow the optional publishing pathway to release and archive your work.
+
+**Preparing a release does not mean your research is automatically ready to publish.** Identifying missing information, unresolved scientific concerns, or permissions that need clarification is an important part of the process.
+
+
+# What exactly are you releasing?
+
+Imagine that another research group wants to use your work. They found your GitHub repository, but they have a few questions:
+
+- Which version of the analysis should they use?
+- Where can they find the data?
+- Can they retrieve exactly the same files you used?
+- What should they cite?
+
+These questions may have different answers.
+
+A research project can produce several related outputs, each serving a different purpose.
+
+## One project, several research products
+
+Consider our water-quality project, where we're studying nitrate concentrations at monitoring stations.
+
+| Research product | What does it provide? |
+|---|---|
+| **GitHub repository** | The evolving project, including notebooks, documentation, history, and ongoing work. |
+| **GitHub release** | An identified version of the project, linked to a Git tag, with release notes and downloadable files. |
+| **Archived version** | A preserved copy of a particular version, which may be deposited in a research repository such as Zenodo and assigned a DOI. |
+| **Dataset** | The underlying observations or measurements, which may have their own repository, version, and citation. |
+| **Research paper** | The scientific questions, methods, results, and interpretations, with its own citation. |
+
+These products are connected, but **one does not automatically replace the others**.
+
+For example, citing a paper about nitrate concentrations does not necessarily identify the exact notebook version used to produce its figures. Likewise, citing the notebook does not replace crediting the original data providers.
+
+### How do GitHub releases fit in?
+
+A GitHub release is built around a **tag**, which identifies a particular point in the repository's history.
+
+Think of it this way:
+
+- Your `main` branch continues to evolve as you make changes.
+- A tag identifies a particular state of the files.
+- A GitHub release uses that tag and adds useful information, such as a version name and release notes.
+- A research archive such as Zenodo can preserve a version and provide a DOI for citation.
+
+A GitHub release does not automatically create a DOI. And although GitHub provides downloadable ZIP files for releases, downloading a ZIP is not the same as depositing a version in a research archive.
+
+
+::: {.callout-tip}
+## When should you create a release?
+
+That depends on what you're developing.
+
+For a **scientific workflow**, a release often accompanies a research milestone, such as a paper submission or publication. This helps preserve the exact analysis used to produce the reported results.
+
+For **research software**, releases usually follow meaningful changes to the software, such as new functionality, improvements, or bug fixes. They don't need to wait for a publication.
+
+In both cases, the goal is to identify a version that others can reliably use. We'll explore how to decide when a release is warranted later in this Pad.
+:::
+
+
+::: {.callout-note}
+## What about "Archive this repository" on GitHub?
+
+GitHub also has an **Archive this repository** feature. It makes the repository read-only, generally indicating that development is no longer active.
+
+This is different from preserving a particular release in Zenodo. You can continue developing your GitHub repository while archiving individual versions elsewhere.
+:::
+
+## Activity: Where would you send a colleague?
+
+Several researchers have questions about the water-quality project.
+
+For each request, choose the research product that best addresses their needs. You'll get feedback immediately.
+
+```{=html}
+<div id="pond-release-objects" class="border rounded p-3 my-3">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <strong>Researcher's request</strong>
+    <span id="release-counter" class="text-muted small"></span>
+  </div>
+
+  <p id="release-question" class="fs-5"></p>
+
+  <p class="mb-2"><strong>Where would you direct them?</strong></p>
+
+  <div id="release-choices" class="d-flex flex-wrap gap-2 mb-3">
+    <button type="button" class="btn btn-outline-primary btn-sm" data-choice="paper">Research paper</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" data-choice="repository">Living GitHub repository</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" data-choice="archive">Archived version with DOI</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" data-choice="release">GitHub release</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" data-choice="dataset">Dataset record</button>
+  </div>
+
+  <div id="release-feedback" class="alert alert-secondary" role="status" aria-live="polite">
+    Select an option to see feedback.
+  </div>
+
+  <button id="release-next" type="button" class="btn btn-primary btn-sm">
+    Next request →
+  </button>
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-release-objects");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const scenarios = [
+    {
+      question: "I want to see the latest changes to the nitrate analysis and check whether the quality-control issue is still being worked on.",
+      answer: "repository",
+      explanation: "The living repository shows ongoing changes, Issues, and pull requests. It is the best place to follow current development."
+    },
+    {
+      question: "I need the files and release notes for version v1.0.0 of the workflow on GitHub.",
+      answer: "release",
+      explanation: "A GitHub release identifies a tagged version and provides its release notes and downloadable files."
+    },
+    {
+      question: "I need a preserved version of the workflow that I can retrieve and cite using a DOI.",
+      answer: "archive",
+      explanation: "An archived version deposited in a research repository such as Zenodo can provide a version-specific DOI."
+    },
+    {
+      question: "I want to find the original nitrate measurements and credit the people who collected or published them.",
+      answer: "dataset",
+      explanation: "The original dataset record is the appropriate starting point. The workflow may use the data, but the data providers deserve their own citation."
+    },
+    {
+      question: "I want to understand the scientific conclusions about nitrate concentrations reported by the research team.",
+      answer: "paper",
+      explanation: "The research paper describes the scientific interpretation and reported results. It may also point to the data and workflow."
+    }
+  ];
+
+  const labels = {
+    repository: "Living GitHub repository",
+    release: "GitHub release",
+    archive: "Archived version with DOI",
+    dataset: "Dataset record",
+    paper: "Research paper"
+  };
+
+  const question = root.querySelector("#release-question");
+  const counter = root.querySelector("#release-counter");
+  const feedback = root.querySelector("#release-feedback");
+  const buttons = [...root.querySelectorAll("[data-choice]")];
+  const next = root.querySelector("#release-next");
+  let index = 0;
+
+  function render() {
+    const current = scenarios[index];
+    question.textContent = current.question;
+    counter.textContent = `${index + 1} of ${scenarios.length}`;
+    feedback.textContent = "Select an option to see feedback.";
+    feedback.className = "alert alert-secondary";
+    buttons.forEach(button => {
+      button.className = "btn btn-outline-primary btn-sm";
+      button.setAttribute("aria-pressed", "false");
+    });
+    next.textContent = index === scenarios.length - 1
+      ? "Start again ↺"
+      : "Next request →";
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const choice = button.dataset.choice;
+      const current = scenarios[index];
+      const correct = choice === current.answer;
+
+      buttons.forEach(b => {
+        b.className = "btn btn-outline-primary btn-sm";
+        b.setAttribute("aria-pressed", "false");
+      });
+
+      button.setAttribute("aria-pressed", "true");
+      button.className = correct
+        ? "btn btn-success btn-sm"
+        : "btn btn-danger btn-sm";
+
+      feedback.className = correct
+        ? "alert alert-success"
+        : "alert alert-warning";
+
+      feedback.textContent = correct
+        ? `Good choice! ${current.explanation}`
+        : `Not quite. A better choice is ${labels[current.answer]}. ${current.explanation}`;
+    });
+  });
+
+  next.addEventListener("click", () => {
+    index = (index + 1) % scenarios.length;
+    render();
+  });
+
+  render();
+})();
+</script>
+```
+
+## Explore your own repository
+
+Now let's look at the repository you've been working with.
+
+1. Open your repository on GitHub.
+2. Look at the files and README. What research product does the repository contain—a scientific workflow, software, documentation, or some combination?
+3. Find **Releases** on the repository page (usually in the right sidebar). Open it. Do you already have any releases or tags? It's perfectly fine if you don't.
+4. Return to your README. Does it tell other researchers where the input data came from? Does it reference an associated paper, if one exists?
+5. Think about what another researcher would need to reproduce or reuse your work. Is all that information available?
+
+::: {.callout-tip}
+## If you're using the water-quality project
+
+Your repository contains the materials from the earlier Pads, but that doesn't mean every scientific issue has been resolved.
+
+For example, we previously identified a problem with the order of quality-control filtering and replicate averaging. The notebook itself has not yet been corrected.
+
+Would you want to publish a release that other researchers might treat as a validated analysis?
+
+You don't need to resolve this question yet. In the next part, we'll examine what makes a repository ready for release—and what to do when it isn't.
+:::
+
+The key idea is that **a repository represents an evolving project, while a release identifies a particular state of that project**.
+
+Neither automatically guarantees scientific quality, long-term preservation, or appropriate citation. Those require additional decisions, which we'll explore throughout this Pad.
+
+
+# Is your repository ready for release?
+
+Before creating a release, it's worth examining what another researcher would actually receive.
+
+Imagine downloading a research workflow. The notebook opens, but you cannot find the input data. Or perhaps the data are included, but nobody documented their source, units, or quality-control procedures.
+
+The files may be available, but **availability alone doesn't make a research product reusable or scientifically reliable**.
+
+Preparing a release is an opportunity to identify these problems.
+
+This doesn't mean every Issue must be closed or that the project must be finished. Research and software continue to evolve. What matters is that the version you release has a clear purpose, is sufficiently documented, and does not misrepresent what it can do.
+
+## What should you check?
+
+Before releasing a research workflow or software project, consider six areas.
+
+| Area | Questions to ask |
+|---|---|
+| **Documentation** | Can someone understand what the project does, what the files contain, and where to start? |
+| **Data and provenance** | Are input data identified? Can others find them and understand their sources, units, and processing? |
+| **Reproducibility** | Are instructions, dependencies, and required software versions documented sufficiently for someone to use the work? |
+| **Scientific or technical correctness** | Are there known errors that could affect results or users? Are important limitations documented? |
+| **Sharing permissions** | Are there restricted data, credentials, third-party materials, or other constraints on what can be shared? |
+| **Authorship and responsibility** | Do you know who contributed and who has authority to approve publication? |
+
+We'll address two additional requirements later in this Pad: selecting a license and creating citation metadata. You don't need to have those completed yet.
+
+::: {.callout-important}
+## A known error doesn't disappear when you make a release
+
+Remember the water-quality project from our earlier Pads?
+
+We identified a scientific problem: the notebook averages nitrate replicates before excluding measurements with failed quality checks. We discussed correcting the methodology, but **the notebook itself has not yet been fixed**.
+
+Publishing this workflow as a validated analysis could mislead other researchers.
+
+That doesn't prevent us from preparing the repository for a future release. It means the correction remains an open task, and we should not publish the current notebook as a validated scientific product.
+
+The same principle applies to software: not every open Issue prevents a release, but a bug that compromises important results or functionality may need to be resolved before publishing.
+:::
+
+## Activity: Review your repository
+
+Open your GitHub repository in another browser tab. If you're using the water-quality project, use the repository you've been working with throughout these Pads.
+
+1. On the **Code** tab, inspect the README, notebooks, data files, and documentation. Consider whether someone unfamiliar with the project could understand how the files fit together.
+2. Open **Issues** and review any outstanding scientific or technical problems. Which ones might affect someone using this version?
+3. Return to the repository and review the other areas in the checklist below.
+4. Record your findings. The checklist will give you immediate guidance as you select each status.
+
+This is a review of your actual project, not a test with predetermined correct answers.
+
+```{=html}
+<div id="pond-release-audit" class="border rounded p-3 my-3">
+  <p class="mb-3">
+    <strong>Release-readiness review</strong>
+    <span class="d-block small text-muted">
+      Select a status for each area based on what you find in your repository.
+      "Needs attention" and "Not sure" are useful findings, not failed answers.
+    </span>
+  </p>
+
+  <div id="pond-audit-items"></div>
+
+  <div id="pond-audit-summary"
+       class="alert alert-secondary mt-3"
+       role="status" aria-live="polite"></div>
+
+  <label for="pond-audit-notes" class="form-label">
+    <strong>Notes and evidence</strong>
+  </label>
+  <textarea id="pond-audit-notes" class="form-control mb-3" rows="3"
+    placeholder="What did you find? Include relevant filenames, GitHub Issue numbers, missing documentation, or decisions that need to be made."></textarea>
+
+  <p class="small text-muted mb-2">
+    Your review is formatted as Markdown below. Copy it to keep a record
+    or add relevant findings to a GitHub Issue. Nothing is submitted or
+    saved to GitHub automatically.
+  </p>
+
+  <label for="pond-audit-export" class="form-label">
+    <strong>Your review summary</strong>
+  </label>
+  <textarea id="pond-audit-export" class="form-control mb-2"
+    rows="10" readonly></textarea>
+
+  <button type="button" id="pond-audit-copy"
+    class="btn btn-primary btn-sm">
+    Copy review
+  </button>
+  <span id="pond-audit-copy-status" class="small ms-2"
+    role="status" aria-live="polite"></span>
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-release-audit");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const checks = [
+    {
+      id: "documentation",
+      title: "1. Documentation",
+      guidance: "Inspect your README and file organization. Can someone understand the research question, the contents, and where to begin?"
+    },
+    {
+      id: "data",
+      title: "2. Data and provenance",
+      guidance: "Identify the input data and their sources. Check that someone can find the data and understand important units, metadata, and processing steps."
+    },
+    {
+      id: "reproducibility",
+      title: "3. Reproducibility",
+      guidance: "Look for instructions and dependencies needed to run or reuse the work. Are required packages, software versions, or external resources identified?"
+    },
+    {
+      id: "correctness",
+      title: "4. Scientific or technical correctness",
+      guidance: "Review open Issues and known limitations. Are there unresolved problems that could compromise the results or important functionality?"
+    },
+    {
+      id: "permissions",
+      title: "5. Sharing permissions",
+      guidance: "Consider credentials, restricted data, third-party materials, and institutional permissions. Have you checked what can be distributed?"
+    },
+    {
+      id: "authorship",
+      title: "6. Authorship and responsibility",
+      guidance: "Can you identify the people who should receive credit and who has authority to approve a public release?"
+    }
+  ];
+
+  const labels = {
+    ready: "Checked — sufficient for this version",
+    attention: "Needs attention",
+    unsure: "Not sure — needs verification",
+    na: "Not applicable"
+  };
+
+  const feedback = {
+    ready: "Good. You have identified this area as sufficiently addressed for the planned version.",
+    attention: "Record what needs to change. You can continue preparing a draft, but determine whether this issue blocks publication.",
+    unsure: "Flag this for verification. Uncertainty about correctness, permissions, or approval should not be treated as clearance to publish.",
+    na: "Use this only when the area genuinely does not apply to your project."
+  };
+
+  const items = root.querySelector("#pond-audit-items");
+  const summary = root.querySelector("#pond-audit-summary");
+  const notes = root.querySelector("#pond-audit-notes");
+  const exportBox = root.querySelector("#pond-audit-export");
+  const copy = root.querySelector("#pond-audit-copy");
+  const copyStatus = root.querySelector("#pond-audit-copy-status");
+
+  items.innerHTML = checks.map(item => `
+    <div class="border-bottom py-3">
+      <label for="audit-${item.id}" class="form-label">
+        <strong>${item.title}</strong>
+      </label>
+      <p class="small mb-2">${item.guidance}</p>
+      <div class="row g-2 align-items-center">
+        <div class="col-md-5">
+          <select id="audit-${item.id}"
+                  class="form-select form-select-sm"
+                  aria-label="${item.title} status">
+            <option value="">Not reviewed yet</option>
+            <option value="ready">${labels.ready}</option>
+            <option value="attention">${labels.attention}</option>
+            <option value="unsure">${labels.unsure}</option>
+            <option value="na">${labels.na}</option>
+          </select>
+        </div>
+        <div class="col-md-7">
+          <div id="feedback-${item.id}" class="small"
+               aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  function update() {
+    let reviewed = 0;
+    let attention = 0;
+    let unsure = 0;
+
+    const lines = checks.map(item => {
+      const value = root.querySelector(`#audit-${item.id}`).value;
+      const message = root.querySelector(`#feedback-${item.id}`);
+
+      if (value) reviewed++;
+      if (value === "attention") attention++;
+      if (value === "unsure") unsure++;
+
+      message.textContent = value ? feedback[value] : "";
+      message.className = value === "ready"
+        ? "small text-success"
+        : value === "attention" || value === "unsure"
+          ? "small text-warning"
+          : "small text-muted";
+
+      return `- **${item.title}**: ${labels[value] || "Not reviewed"}`;
+    });
+
+    if (reviewed < checks.length) {
+      summary.className = "alert alert-secondary mt-3";
+      summary.textContent =
+        `${reviewed} of ${checks.length} areas reviewed. Continue examining your repository.`;
+    } else if (attention || unsure) {
+      summary.className = "alert alert-warning mt-3";
+      summary.textContent =
+        `Review complete: ${attention} area(s) need attention and ${unsure} need verification. You can continue preparing a draft, but assess these findings before publication.`;
+    } else {
+      summary.className = "alert alert-success mt-3";
+      summary.textContent =
+        "Review complete: no gaps were flagged in your self-assessment. This is not approval to publish. Licensing, citation metadata, and any required permissions or review still need to be completed.";
+    }
+
+    exportBox.value = [
+      "## Release-readiness review",
+      "",
+      ...lines,
+      "",
+      "### Notes and evidence",
+      notes.value.trim() || "(No notes recorded)",
+      "",
+      "### Next steps",
+      "Resolve or document important gaps before public release.",
+      "Complete licensing and citation metadata in the next sections."
+    ].join("\n");
+  }
+
+  items.addEventListener("change", update);
+  notes.addEventListener("input", update);
+
+  copy.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(exportBox.value);
+      copyStatus.textContent = "Copied!";
+    } catch (err) {
+      exportBox.focus();
+      exportBox.select();
+      copyStatus.textContent =
+        "Select the text above and copy it manually.";
+    }
+  });
+
+  update();
+})();
+</script>
+```
+
+## What should you do with your findings?
+
+A release-readiness review is most useful when it leads to action.
+
+You may have identified missing instructions, data-access questions, scientific errors, or decisions that require input from other team members.
+
+You don't need to resolve everything during this Pad. However, important problems should be documented so they aren't forgotten.
+
+**On GitHub:**
+
+1. If you found an important problem, check whether it already has an Issue.
+2. If it does, add any useful new information or clarification. If it doesn't, create an Issue describing the problem and what would count as resolving it.
+3. If the problem is simply missing or inaccurate documentation that you can safely correct now, you can update the README instead.
+4. Keep unresolved Issues open. Preparing a release is not a reason to close them.
+
+You can paste the relevant findings from your review into an Issue, but you don't need to create a separate Issue for every checklist item.
+
+### For the water-quality project
+
+The unresolved QC problem should be identified as needing attention.
+
+If you already have an Issue describing the correction, leave it open. You may want to clarify that the notebook itself still needs to be updated and that the analysis should not be represented as validated until the correction has been implemented and checked.
+
+You can continue preparing the training repository throughout this Pad, including its citation metadata and draft release.
+
+**You will not publish the training release or mint a DOI for it.**
+
+::: {.callout-caution}
+## What if you discover information that should not have been shared?
+
+If you discover a password, API key, restricted dataset, or other sensitive information in your repository, do not publish a release.
+
+Deleting a file from the current repository does not necessarily remove it from Git history. Exposed credentials should be revoked or rotated, and the repository may require additional remediation.
+
+See [GitHub's guidance on removing sensitive data](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) before proceeding.
+:::
+
+## Ready for the next step?
+
+You should now have a clearer picture of what your repository contains, what still needs attention, and whether you have the information and authority needed to prepare it for sharing.
+
+A repository doesn't need to be perfect before you start preparing a release. But its limitations must be understood, and decisions to publish should be deliberate.
+
+Next, we'll examine an important distinction: **just because someone can see your work doesn't mean they have permission to reuse it.** That's where licensing comes in.
+
+
+# Can others reuse your work?
+
+You've checked whether your repository is ready for release. Now imagine another researcher discovers it and wants to adapt your notebook for a different study.
+
+They can see the files on GitHub. But does that mean they're allowed to modify and redistribute them?
+
+**Not necessarily. A public GitHub repository is not automatically open source.**
+
+Without an explicit license or other permission, copyright law generally restricts what others can do with the work, beyond the permissions granted through GitHub's terms of service.
+
+A **license** explains what others are permitted to do with material you've shared, such as using, modifying, and redistributing it, and under what conditions.
+
+## One repository, different kinds of material
+
+Research repositories often contain more than one type of material.
+
+| Material | What should you consider? |
+|---|---|
+| **Code and notebooks** | Software licenses such as MIT, BSD, Apache, or GPL may be appropriate for code you are authorized to license. |
+| **Data** | Data may come with their own license, access conditions, or restrictions. Original datasets may use licenses or public-domain tools such as CC BY or CC0. |
+| **Documentation and figures** | These may use licenses such as Creative Commons, or be covered by the project's software license when appropriate. |
+| **Third-party material** | You cannot simply assign a new license to material you don't have the rights to license. |
+
+For repositories containing several kinds of material, you may need different licenses or additional notices explaining which permissions apply to which files.
+
+::: {.callout-important}
+## Licensing and citation are not the same thing
+
+- **Licensing** addresses what someone is permitted to do with your work.
+- **Citation** tells someone how to credit the research product they used.
+
+A license may include attribution requirements, but providing a citation does not automatically grant permission to reuse material. Likewise, permission to reuse something does not eliminate the need for appropriate scholarly credit.
+
+We'll create citation metadata in the next part.
+:::
+
+## Activity: Check your repository's reuse permissions
+
+Return to your GitHub repository.
+
+### Step 1: Find out what is already licensed
+
+1. On the **Code** tab, look for a file named `LICENSE`, `LICENSE.md`, or a similar name.
+2. If one exists, open it. What does it permit, and which files does it cover?
+3. Check your README for licensing information about code, data, documentation, or other materials.
+4. Consider whether you have permission to distribute and license everything included in the repository.
+
+For the water-quality project, think about the notebooks, synthetic measurements, figures, and documentation. Even when data are synthetic, you should establish who can authorize their redistribution.
+
+### Step 2: Decide what you can do
+
+You have two possible paths.
+
+**Path A: You have permission to choose a license**
+
+If you own or have authority to license the relevant material and have already selected an appropriate license:
+
+1. On GitHub, select **Add file → Create new file**.
+2. Name the file `LICENSE`.
+3. Select **Choose a license template**.
+4. Review the available licenses and select the one you've decided to use.
+5. Follow GitHub's instructions to review and submit the license.
+6. Commit the change, using a message such as `Add project license`.
+
+If your repository includes materials covered by different licenses, clarify their scope in your README. Don't imply that the new license covers material for which you cannot grant rights.
+
+Return to the repository's main page. For a recognized standard license, GitHub may display the license information in the repository's **About** area.
+
+**Path B: You need more information or authorization**
+
+Perhaps your repository contains data from another institution, was developed with collaborators, or includes material whose licensing terms are unclear.
+
+In that case, **don't choose a license just to finish the exercise**.
+
+Instead, create a GitHub Issue titled:
+
+`Confirm licensing and reuse permissions before release`
+
+In its description, identify:
+
+- Which materials need licensing clarification.
+- Whose permission or advice you need.
+- What needs to be decided before publication.
+
+You can also add a short licensing-status statement to your README, making clear that permissions are still being reviewed.
+
+This is a useful outcome: you've identified an obstacle to reuse and made it visible to the project team.
+
+::: {.callout-tip}
+## Using the water-quality training repository?
+
+You can practice examining GitHub's license templates and record a proposed license, but only add a real license if the exercise materials give you the authority to do so.
+
+If the permissions aren't established, document the proposed licensing decision in a GitHub Issue rather than assigning rights you may not have.
+
+You'll still complete the remaining GitHub activities, including creating `CITATION.cff` and preparing a draft release. You won't publish the training release or deposit it in Zenodo.
+:::
+
+## Want to go further?
+
+Choosing an appropriate license involves more than selecting one from a dropdown. You may need to consider license compatibility, attribution requirements, commercial reuse, derivative works, and institutional policies.
+
+We'll explore these decisions in a dedicated **Licensing Deep End Pad**.
+
+For now, these resources can help you investigate your options:
+
+- [Choose a License](https://choosealicense.com/) — an introduction to common software licenses.
+- [Licensing a repository — GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) — guidance on how licensing works on GitHub.
+- [Licenses for non-software material](https://choosealicense.com/non-software/) — considerations for data, documentation, and other research products.
+
+The important outcome is that you've either **clarified your repository's reuse permissions or identified what still needs to be resolved**.
+
+Next, we'll tackle the other side of sharing research: **how should someone cite your work?**
+
+
+
+# Tell others how to cite your work
+
+Imagine that another researcher has successfully used your nitrate analysis workflow. They now want to acknowledge your work in a publication.
+
+But what should they write in their reference list?
+
+They could link to your GitHub repository, but a URL alone doesn't tell them who created the workflow, what its title is, or which version they used.
+
+**Scientific workflows should be cited as research products in their own right, independently of the papers that describe or use them.** This applies to your own workflows, too!
+
+In fact, many scientific publishers now require formal citations for the data and computational tools supporting published research. For example, the [American Geophysical Union (AGU) guidelines](https://www.agu.org/publications/authors/journals/data-software-for-authors) require authors to cite the data and software or code used in their studies—including code they developed themselves—in the paper's reference list. Authors must also explain where these research products can be accessed in a Data and Software Availability Statement.
+
+So, if you're publishing a paper based on your own analysis notebooks, **you should cite the workflow itself, not just the paper describing the results.** Ideally, that citation will identify the exact version used to produce the published findings.
+
+That's where **`CITATION.cff`** comes in.
+
+A `CITATION.cff` file contains structured information about how your research product should be cited. It uses a format called **Citation File Format (CFF)**, which is readable by both people and software.
+
+When you add this file to the root of your GitHub repository, GitHub can display a **Cite this repository** link and generate citations in APA and BibTeX formats.
+
+This makes it easier for others—and for you when preparing your own publications—to cite your workflow correctly. Later in this Pad, we'll see how to connect this citation information to a specific release and its DOI.
+
+
+## What's in a citation file?
+
+A `CITATION.cff` file can contain:
+
+| Field | Purpose |
+|---|---|
+| `title` | The name of the software, workflow, or research product |
+| `authors` | The people or organizations who should receive citation credit |
+| `message` | A short explanation of how you would like the work cited |
+| `repository-code` | Where the source repository is located |
+| `version` | The version of the research product |
+| `date-released` | When that version was released |
+| `doi` | A persistent identifier for the research product, if available |
+| `orcid` | A persistent identifier for an individual author, if available |
+
+You don't need every field immediately. In particular, **you shouldn't invent a release date, version, or DOI for work that hasn't been released yet**.
+
+### Who should be listed as an author?
+
+Authorship deserves some thought.
+
+GitHub records who contributes commits, but **GitHub contributors and citation authors aren't necessarily identical**. For example, someone who helped design the scientific methodology may deserve authorship even if they never committed a file.
+
+The author list should reflect the project's agreed attribution practices. Author order may matter, especially in scientific research.
+
+You can include ORCID identifiers to help distinguish researchers with similar names. These should be the actual identifiers of the authors.
+
+::: {.callout-tip}
+## ORCID
+
+An [ORCID iD](https://orcid.org/) is a persistent identifier for a researcher. It helps connect publications, datasets, software, and other research contributions to the correct person, even when names change or multiple researchers have similar names.
+
+ORCID identifiers are optional in `CITATION.cff`, but including them when available makes research credit more reliable.
+:::
+
+## Activity: Create your citation file
+
+Let's create a citation file for your repository.
+
+### Step 1: Start with a template
+
+If you're using the water-quality training project, you can start with the example below. The project title and group author are illustrative; they are not claims of actual authorship.
+
+If you're using your own repository, replace them with the correct title and agreed authorship information.
+
+```yaml
+cff-version: 1.2.0
+message: "If you use this workflow, please cite it using these metadata."
+title: "Water-Quality Nitrate Analysis Workflow (training example)"
+authors:
+  - name: "Water-Quality Training Project (example)"
+repository-code: "https://github.com/OWNER/REPOSITORY"
+```
+
+Replace `OWNER/REPOSITORY` with the information from your GitHub repository URL.
+
+For your own research, you will usually want to list individual authors. For example, the `authors` section could instead look like this:
+
+```yaml
+authors:
+  - family-names: "FIRST_AUTHOR_FAMILY_NAME"
+    given-names: "FIRST_AUTHOR_GIVEN_NAME"
+  - family-names: "SECOND_AUTHOR_FAMILY_NAME"
+    given-names: "SECOND_AUTHOR_GIVEN_NAME"
+```
+
+Replace the placeholders with the actual names, in the agreed order.
+
+If an author has an ORCID iD, add an `orcid` field under their name, using the complete `https://orcid.org/...` URL.
+
+::: {.callout-note}
+## A few details about YAML
+
+`CITATION.cff` uses YAML, a plain-text format for structured information.
+
+- Spaces and indentation matter. Use spaces, not tabs.
+- Each field has a name followed by a colon (`:`).
+- The `-` before an author marks an entry in a list.
+- Quotation marks help keep titles and other text containing special characters intact.
+
+You don't need to learn YAML in depth for this exercise. Follow the template carefully and edit the information it contains.
+:::
+
+### Step 2: Add the file to GitHub
+
+1. Open your repository on GitHub and select the **Code** tab.
+2. Select **Add file → Create new file**.
+3. Name the file exactly `CITATION.cff`. It should be in the repository's top-level directory, alongside your README.
+4. GitHub may suggest a citation-file template. You can replace that content with the template above, adapted to your project.
+5. Review the content, particularly the title, authors, and repository URL.
+6. Click **Commit changes...** and use a message such as `Add citation metadata for research workflow`.
+7. Commit the file. If you're working on a branch, merge the change into the repository's default branch using a pull request, as you practiced in Pad 3.
+
+You have now added structured citation information to your research repository.
+
+### Step 3: See what GitHub does with it
+
+Return to the repository's main page on its default branch.
+
+Look for **Cite this repository** in the right sidebar.
+
+1. Select **Cite this repository**.
+2. Look at the citation GitHub generates in APA format.
+3. Examine the BibTeX citation.
+4. Check whether the title and authors match what you intended.
+5. If something is incorrect, edit `CITATION.cff`, commit the correction, and check again.
+
+::: {.callout-tip}
+## Don't see "Cite this repository"?
+
+First check that:
+
+- The filename is exactly `CITATION.cff`.
+- The file is in the repository's root directory.
+- The change is present on the default branch (usually `main`).
+- The YAML structure and indentation are correct.
+
+If GitHub still cannot interpret the file, you can use the [Citation File Format initializer](https://citation-file-format.github.io/cff-initializer-javascript/) to construct a citation file with guided validation, or consult the [CFF schema documentation](https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md).
+
+Seeing GitHub's citation display is a useful functional check, but it isn't a substitute for full schema validation.
+:::
+
+## Two different kinds of version numbers
+
+You probably noticed that our example starts with:
+
+```yaml
+cff-version: 1.2.0
+```
+
+Does that mean your workflow is already at version 1.2.0?
+
+**No!** There are two different version fields.
+
+```yaml
+cff-version: 1.2.0
+version: "1.0.0"
+```
+
+- **`cff-version`** identifies the version of the *Citation File Format specification*. For the format used here, it remains `1.2.0` even when you update citation information.
+- **`version`** identifies the version of *your workflow, software, or dataset*. This changes when you create a new version of your research product.
+
+You should keep the research-product version consistent with the release being described. When you create a new release, review the `version`, `date-released`, and `doi` fields together.
+
+You do **not** need to change either version number every time you correct a typo in `CITATION.cff`.
+
+For now, we haven't added a research-product version to the training example because we haven't created a release. We'll revisit this in the next sections.
+
+## What if your workflow also has a paper?
+
+Many scientific workflows accompany a research paper, and software projects may also have a methods or software publication.
+
+The paper and the workflow are related, but they are different research products.
+
+For example:
+
+- The **paper** describes the research question, scientific results, and interpretation.
+- The **workflow citation** identifies the computational work used to generate or analyze the results.
+- The **data citation** acknowledges the measurements or other source data used in the analysis.
+
+Depending on how someone uses the work, they may need to cite more than one of these. The paper communicates the scientific findings, while the workflow citation credits the computational methods and implementation used to produce them. Researchers should cite the workflow independently of the paper, along with the underlying datasets when appropriate.
+
+`CITATION.cff` also supports a field called `preferred-citation`, which can instruct GitHub to recommend an associated paper instead of the repository itself.
+
+That can be useful in some projects, but it changes what GitHub generates when someone chooses **Cite this repository**.
+
+For this exercise, we'll keep the citation focused on the workflow or software itself. Later, we'll add clear instructions to the README explaining how to cite the repository and any associated research products.
+
+::: {.callout-note}
+## Your citation will evolve with the project
+
+When your project receives its first versioned release, you'll update `CITATION.cff` with the appropriate version and release date.
+
+If you archive that release in Zenodo and obtain a DOI, you can update the citation information again.
+
+Remember that GitHub displays citation information from the default branch. That information may describe the latest release, while someone reproducing an earlier study needs to cite the specific version they used.
+
+An archived, version-specific citation helps with that distinction.
+:::
+
+## What have you accomplished?
+
+Your repository now tells other researchers how to give credit to the people or team responsible for the work.
+
+You have also seen that citation metadata is separate from licensing, GitHub's commit history, and any associated publications.
+
+If you're using the training repository, keep its citation clearly identified as an exercise. Do not add a fictional DOI or claim that the workflow has been scientifically validated.
+
+Next, we'll decide **when a project deserves a new version, how to name that version, and what belongs in useful release notes**.
+
+
+# Choose a version and write release notes
+
+Your repository has changed since you first created it. You've added documentation, tracked Issues, collaborated on changes, and prepared citation information.
+
+But not every commit needs a new release.
+
+A **release** identifies a meaningful version of your project that others can refer to, retrieve, and potentially use.
+
+Two decisions are involved:
+
+1. **When should you create a release?**
+2. **How will you identify that version and describe what has changed?**
+
+## When should you create a release?
+
+The answer depends partly on what you're developing.
+
+| Research workflows | Research software |
+|---|---|
+| Releases often accompany research milestones, such as conference presentation, paper submission or publication. | Releases often follow meaningful development milestones, such as new features, bug fixes, or important improvements. |
+| The goal may be to preserve the exact analysis used to produce published results. | The goal may be to provide users with an identifiable, tested version of the software. |
+| A correction that changes scientific results may warrant a new release. | An important bug fix may warrant an immediate release, even if no new features have been added. |
+
+These aren't rigid rules. You may release a workflow before publication to support peer review, or release software alongside a paper.
+
+**The important question is whether the version represents a meaningful, identifiable state of the research product.**
+
+::: {.callout-tip}
+## What about unresolved Issues?
+
+You don't need to close every Issue before creating a release. Some Issues represent future improvements, feature requests, or long-term research goals.
+
+However, an unresolved issue that compromises the scientific results or essential functionality may prevent a release from being suitable for its intended purpose.
+
+Remember our water-quality project: the notebook still averages replicates before excluding measurements with failed QC. We identified the problem, but we haven't corrected the notebook.
+
+That correction might eventually justify a new version. For now, we must not describe it as completed or publish the current workflow as a validated analysis.
+:::
+
+## How do you number versions?
+
+There isn't one versioning system that works best for every research project. Two common approaches are [**semantic versioning**](https://semver.org) and [**calendar versioning**](https://calver.org).
+
+### Semantic versioning: `v1.2.3`
+
+Semantic versioning, often called *SemVer*, uses three numbers:
+
+::: {.text-center .my-3}
+```{=html}
+<div class="d-flex justify-content-center align-items-start flex-wrap gap-3">
+  <div class="text-center">
+    <div class="fs-2 fw-bold text-primary">1</div>
+    <div class="small fw-semibold">Major</div>
+    <div class="small text-muted">Breaking changes</div>
+  </div>
+  <div class="fs-2 fw-bold">.</div>
+  <div class="text-center">
+    <div class="fs-2 fw-bold text-primary">2</div>
+    <div class="small fw-semibold">Minor</div>
+    <div class="small text-muted">New functionality</div>
+  </div>
+  <div class="fs-2 fw-bold">.</div>
+  <div class="text-center">
+    <div class="fs-2 fw-bold text-primary">3</div>
+    <div class="small fw-semibold">Patch</div>
+    <div class="small text-muted">Compatible bug fixes</div>
+  </div>
+</div>
+```
+:::
+
+In software, the convention is:
+
+- **Major (`1` → `2`):** Changes that break compatibility with the previous public interface, such as removing or substantially changing an API.
+- **Minor (`2` → `3`):** New functionality that remains compatible with the previous interface.
+- **Patch (`3` → `4`):** Bug fixes that preserve compatibility.
+
+For example, if software at `v1.2.3` receives a compatible bug fix, its next version might be `v1.2.4`.
+
+If a new compatible feature is introduced, it might become `v1.3.0`.
+
+And if an API changes in a way that requires users to modify their existing code, it might become `v2.0.0`.
+
+::: {.callout-note}
+## What about workflows?
+
+Workflows don't always have a public API in the same sense as software.
+
+You can adopt a similar numbering convention, but you should explain what major, minor, and patch changes mean for your workflow.
+
+For example, a major change might alter the expected input structure or fundamentally change how the workflow is used.
+
+A correction to a scientific method might appear small in the code but substantially change the results. Don't assume that every scientific correction is automatically a minor patch.
+
+The [Semantic Versioning specification](https://semver.org/) provides the formal rules for software that uses SemVer.
+:::
+
+Version numbers beginning with `0`, such as `0.1.0`, are commonly used during early development. Under SemVer, `1.0.0` marks a defined public interface, not proof that the software or scientific results are error-free.
+
+The `v` is a common prefix for Git tags; the three numbers are the semantic version itself.
+
+### Calendar versioning: `v2026.10.26`
+
+Another approach is **calendar versioning**, or *CalVer*.
+
+Instead of describing compatibility through version numbers, the version includes a date.
+
+For example:
+
+`v2026.10.26`
+
+| Component | Meaning |
+|---|---|
+| `2026` | Year |
+| `10` | Month |
+| `26` | Day |
+
+This approach can be particularly useful for scientific workflows, where releases correspond to research milestones or dated snapshots.
+
+A workflow might have a release associated with a paper submission, followed by another release several months later incorporating additional analyses.
+
+The date identifies when the release was made, but **it doesn't explain what changed or guarantee compatibility**. That's why release notes remain important.
+
+Calendar versioning has several possible formats. For this Pad, we'll use `vYYYY.MM.DD`. If you make multiple releases on one day, you'll need a consistent way to keep their tags unique.
+
+You can learn more at [CalVer.org](https://calver.org/).
+
+::: {.callout-tip}
+## Which should you use?
+
+If you're developing software with a defined API, semantic versioning often communicates compatibility more effectively.
+
+If you're developing a scientific workflow tied to research milestones, calendar versioning may be easier to interpret.
+
+Neither system is mandatory. Choose a convention that makes sense for your project and **use it consistently**.
+
+Don't change an existing project's versioning convention without a good reason.
+:::
+
+## Activity: Investigate what's changed
+
+Before choosing a version, return to your GitHub repository.
+
+1. Open the **Code** tab and look at your commit history. What changes have been made?
+2. Review the **Pull requests** and **Issues** tabs. Which problems were actually resolved, and which remain open?
+3. Look at the README and notebooks. What does the repository currently contain?
+4. If the project already has releases, examine the most recent one to understand what has changed since then.
+
+For a **first release**, you're describing the initial contents and capabilities of the research product, rather than changes since a previous version.
+
+Pay attention to the difference between work that was **discussed**, work that was **committed**, and work that was **validated**. They aren't necessarily the same.
+
+## What makes useful release notes?
+
+Release notes tell users what they're receiving and what they should know before using it.
+
+For a scientific project, useful release notes often include:
+
+- **Summary:** What is this release intended to provide?
+- **Contents or changes:** What is included, added, corrected, or improved?
+- **Reproducibility information:** Where can someone find the data, instructions, or required dependencies?
+- **Known limitations:** What important problems or restrictions remain?
+
+For our training project, release notes might look like this:
+
+```markdown
+# Water-quality workflow — proposed v0.1.0
+
+## Summary
+
+Initial training version of a workflow for analyzing
+nitrate concentrations at monitoring stations.
+
+## Contents
+
+- Nitrate analysis notebook and supporting files
+- Synthetic water-quality data
+- Project documentation and citation metadata
+
+## Reproducibility
+
+Consult the README for the repository structure,
+input data information, and available instructions.
+
+## Known limitations
+
+The notebook has not been updated to correct the
+order of quality-control filtering and replicate
+averaging.
+
+This is a training snapshot, not a validated
+scientific release.
+```
+
+Notice that the release notes describe the existing repository. They don't claim that the QC correction has been implemented simply because it was discussed in a pull request or Issue.
+
+## Activity: Prepare your release notes
+
+Now you'll prepare release notes for your own repository or the water-quality training example.
+
+Choose a versioning convention, identify what your repository currently provides, and describe any important limitations.
+
+Your draft will update as you type. You can copy it and use it when creating your GitHub draft release in the next part.
+
+```{=html}
+<div id="pond-release-builder" class="border rounded p-3 my-3">
+  <h4 class="h5">Release notes builder</h4>
+
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <label for="prb-project" class="form-label">Project</label>
+      <select id="prb-project" class="form-select">
+        <option value="training">Water-quality training example</option>
+        <option value="own">My own research project</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="prb-scheme" class="form-label">Versioning convention</label>
+      <select id="prb-scheme" class="form-select">
+        <option value="semver">Semantic versioning</option>
+        <option value="calver">Calendar versioning</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="prb-version" class="form-label">
+      <strong>Proposed release tag</strong>
+    </label>
+    <input type="text" id="prb-version" class="form-control"
+           value="v0.1.0" spellcheck="false">
+    <div id="prb-version-feedback" class="form-text" aria-live="polite"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="prb-title" class="form-label">Research product title</label>
+    <input type="text" id="prb-title" class="form-control"
+           value="Water-quality nitrate analysis workflow">
+  </div>
+
+  <div class="mb-3">
+    <label for="prb-summary" class="form-label">
+      <strong>What is this release for?</strong>
+    </label>
+    <textarea id="prb-summary" class="form-control" rows="2">Initial training snapshot of the water-quality analysis workflow.</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="prb-changes" class="form-label">
+      <strong>What does this version include?</strong>
+    </label>
+    <textarea id="prb-changes" class="form-control" rows="4">- Nitrate analysis notebook and supporting files
+- Synthetic water-quality data
+- Project documentation and citation metadata</textarea>
+    <div class="form-text">Check that everything listed is actually present in your repository.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="prb-repro" class="form-label">
+      <strong>How can someone use or reproduce the work?</strong>
+    </label>
+    <textarea id="prb-repro" class="form-control" rows="2">Consult the README for the available instructions and data information.</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="prb-limitations" class="form-label">
+      <strong>Known limitations or unresolved problems</strong>
+    </label>
+    <textarea id="prb-limitations" class="form-control" rows="3">The quality-control correction discussed in the earlier Pads has not been implemented in the notebook. This training snapshot is not a validated scientific release.</textarea>
+  </div>
+
+  <div id="prb-status" class="alert alert-secondary" role="status" aria-live="polite"></div>
+
+  <label for="prb-output" class="form-label">
+    <strong>Your draft release notes</strong>
+  </label>
+  <textarea id="prb-output" class="form-control font-monospace"
+            rows="16" readonly></textarea>
+
+  <div class="mt-2 d-flex align-items-center gap-2">
+    <button type="button" id="prb-copy" class="btn btn-primary btn-sm">
+      Copy release notes
+    </button>
+    <span id="prb-copy-feedback" class="small" role="status" aria-live="polite"></span>
+  </div>
+
+  <p class="small text-muted mt-3 mb-0">
+    This tool prepares text locally in your browser. It does not create a tag,
+    publish a release, or send anything to GitHub.
+  </p>
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-release-builder");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const get = id => root.querySelector("#" + id);
+
+  const project = get("prb-project");
+  const scheme = get("prb-scheme");
+  const version = get("prb-version");
+  const title = get("prb-title");
+  const summary = get("prb-summary");
+  const changes = get("prb-changes");
+  const repro = get("prb-repro");
+  const limitations = get("prb-limitations");
+  const status = get("prb-status");
+  const versionFeedback = get("prb-version-feedback");
+  const output = get("prb-output");
+  const copyFeedback = get("prb-copy-feedback");
+
+  const example = {
+    title: title.value,
+    summary: summary.value,
+    changes: changes.value,
+    repro: repro.value,
+    limitations: limitations.value
+  };
+
+  function fill(data) {
+    for (const key of Object.keys(data)) {
+      const field = {title, summary, changes, repro, limitations}[key];
+      field.value = data[key];
+    }
+  }
+
+  function validVersion(value) {
+    if (scheme.value === "semver") {
+      return /^v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(value);
+    }
+
+    const match = /^v?(\d{4})\.(0[1-9]|1[0-2])\.(0[1-9]|[12]\d|3[01])$/.exec(value);
+    if (!match) return false;
+
+    const y = Number(match[1]);
+    const m = Number(match[2]);
+    const d = Number(match[3]);
+    const date = new Date(Date.UTC(y, m - 1, d));
+
+    return date.getUTCFullYear() === y &&
+           date.getUTCMonth() === m - 1 &&
+           date.getUTCDate() === d;
+  }
+
+  function render() {
+    const tag = version.value.trim();
+    const valid = validVersion(tag);
+    const training = project.value === "training";
+
+    versionFeedback.textContent = valid
+      ? "Valid format for the selected convention. Check that the tag is not already used."
+      : scheme.value === "semver"
+        ? "Use three numbers, such as v0.1.0 or v1.2.3."
+        : "Use a valid date in the format vYYYY.MM.DD.";
+
+    versionFeedback.className = valid
+      ? "form-text text-success"
+      : "form-text text-danger";
+
+    version.classList.toggle("is-invalid", !valid);
+    version.classList.toggle("is-valid", valid);
+
+    if (training) {
+      status.className = "alert alert-warning";
+      status.textContent = "Training project: prepare these notes for a draft only. Do not publish this release or deposit it in Zenodo.";
+    } else {
+      status.className = "alert alert-info";
+      status.textContent = valid
+        ? "Your version format is valid. Check the scientific content and permissions before publishing."
+        : "Choose a valid version tag before using these notes.";
+    }
+
+    const valueOr = (field, fallback) =>
+      field.value.trim() || fallback;
+
+    output.value = [
+      "# " + valueOr(title, "[Project title]") +
+        " — " + (tag || "[Version]"),
+      "",
+      ...(training ? ["**TRAINING DRAFT — DO NOT PUBLISH**", ""] : []),
+      "## Summary",
+      "",
+      valueOr(summary, "[Describe the purpose of this release]"),
+      "",
+      "## Contents and changes",
+      "",
+      valueOr(changes, "[List the included or changed components]"),
+      "",
+      "## Reproducibility",
+      "",
+      valueOr(repro, "[Explain where to find usage instructions and dependencies]"),
+      "",
+      "## Known limitations",
+      "",
+      valueOr(limitations, "[Describe limitations, or state that none are currently known]"),
+      ""
+    ].join("\n");
+
+    copyFeedback.textContent = "";
+  }
+
+  project.addEventListener("change", () => {
+    if (project.value === "training") {
+      fill(example);
+    } else {
+      fill({
+        title: "",
+        summary: "",
+        changes: "",
+        repro: "",
+        limitations: ""
+      });
+    }
+    render();
+  });
+
+  scheme.addEventListener("change", () => {
+    version.value = scheme.value === "semver"
+      ? "v0.1.0" : "v2026.10.26";
+    render();
+  });
+
+  [version, title, summary, changes, repro, limitations].forEach(field => {
+    field.addEventListener("input", render);
+  });
+
+  get("prb-copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(output.value);
+      copyFeedback.textContent = "Copied!";
+    } catch (err) {
+      output.focus();
+      output.select();
+      copyFeedback.textContent =
+        "Select the text above and copy it manually.";
+    }
+  });
+
+  render();
+})();
+</script>
+```
+
+## Before you move on
+
+You should now have:
+
+1. A versioning convention appropriate for your project.
+2. A proposed release tag that follows that convention.
+3. Draft release notes describing what your repository currently contains and any important limitations.
+
+You haven't created a release yet. That's our next step.
+
+::: {.callout-note}
+## Keep the version information consistent
+
+When you create a release, the Git tag should identify the version you're describing.
+
+If your project also has a version declared in package metadata, documentation, or `CITATION.cff`, review those values so that users aren't given contradictory version information.
+
+Remember that `cff-version: 1.2.0` identifies the citation-file format, not your project's version. The research-product `version` field should be updated when appropriate for a new release.
+
+We'll revisit the release date and DOI after the release has been prepared.
+:::
+
+Next, we'll use GitHub's **Releases** interface to turn this plan into an actual draft release—without publishing the training repository.
