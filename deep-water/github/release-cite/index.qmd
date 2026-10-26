@@ -1371,3 +1371,848 @@ We'll revisit the release date and DOI after the release has been prepared.
 :::
 
 Next, we'll use GitHub's **Releases** interface to turn this plan into an actual draft release—without publishing the training repository.
+
+
+# Create a GitHub release
+
+You've chosen a version number and written release notes. Now it's time to bring those pieces together on GitHub.
+
+A GitHub release gives your project a recognizable version, a description of what it contains, and a way for other researchers to retrieve the files associated with that version.
+
+In this activity, you'll use GitHub's release interface to prepare a **draft release**.
+
+If you're working with the water-quality training project, you'll stop at the draft. You won't publish it or create a DOI.
+
+## From commits to a release
+
+You've already learned that Git records changes through commits and that branches, such as `main`, allow development to continue.
+
+A release introduces another Git concept: the **tag**.
+
+A tag identifies a particular commit in your repository's history. While `main` can advance as new commits are added, a version tag is intended to continue pointing to the commit selected for that version.
+
+A GitHub release is built around that tag.
+
+| GitHub feature | What does it represent? |
+|---|---|
+| **Commit** | A recorded change or set of changes |
+| **Branch (`main`)** | A line of development that advances as changes are added |
+| **Tag (`v1.0.0`)** | A name identifying a specific commit |
+| **Release** | A published version associated with a tag, including release notes and downloadable files |
+| **Draft release** | A release being prepared but not yet published |
+
+Once a release is published, GitHub automatically offers downloadable source-code archives (ZIP and tar.gz) corresponding to its tag.
+
+::: {.callout-note}
+## A draft release isn't a published snapshot
+
+When you create a draft release using a new tag name, GitHub can save the draft without creating the actual Git tag until you publish.
+
+This means the draft describes a proposed version, but the final snapshot may not yet be fixed.
+
+If `main` changes before publication, the new tag could identify a different state of the project than you originally intended.
+
+For a real publication, verify the intended commit and tag before publishing. An existing tag pointing to the reviewed commit provides a more reliable starting point.
+:::
+
+## Activity: Prepare your first release
+
+You'll use the version number and release notes you prepared in Part 5.
+
+### Step 1: Check your repository
+
+Before opening the release editor:
+
+1. Open your repository on GitHub and select the **Code** tab.
+2. Make sure you're viewing the branch containing the version you want to prepare, usually `main`.
+3. Confirm that the README and `CITATION.cff` files you prepared earlier are present.
+4. Review the most recent commits. Are the changes you intend to include actually in this branch?
+5. Check whether any important unresolved Issues affect how the version should be described.
+
+If you're preparing an actual research release, also check that its citation metadata and any project or package version information are consistent with the version you intend to tag.
+
+You can leave `date-released` and `doi` out of `CITATION.cff` until you have the actual information. For the training repository, you don't need to add a release date or DOI.
+
+::: {.callout-warning}
+## Remember the water-quality QC issue
+
+The notebook still contains the quality-control problem we identified earlier.
+
+You can prepare a draft to practice the release process, but **do not publish this workflow as a validated scientific analysis**.
+
+Your release notes should explicitly acknowledge the unresolved issue.
+:::
+
+### Step 2: Open the release editor
+
+1. From your repository's **Code** tab, find **Releases** in the right sidebar.
+2. Click **Releases**.
+3. Select **Draft a new release**.
+
+You'll see a form for selecting a tag, naming the release, and describing its contents.
+
+### Step 3: Choose a tag
+
+Select **Choose a tag**.
+
+If you already have a tag for the exact commit you intend to release, you can select it.
+
+Otherwise:
+
+1. Enter the version number you chose in Part 5, such as `v0.1.0` or `v2026.10.26`.
+2. Select **Create new tag**.
+3. Under **Target**, select the branch containing the files you intend to release, usually `main`.
+
+For the water-quality training project, use your proposed version number. For example:
+
+`v0.1.0`
+
+We use `0.1.0` here to communicate that the project is still under development. The version number itself does not guarantee scientific readiness.
+
+::: {.callout-tip}
+## Tag names should be unique
+
+Don't reuse a tag that already identifies a different version of your project.
+
+For published releases, tags are intended to remain stable so that users can retrieve the same version in the future.
+
+If a previous release contains an error, the normal approach is to correct the problem and create a new version—not silently replace the old one.
+:::
+
+### Step 4: Name your release
+
+In **Release title**, enter a descriptive name.
+
+For example:
+
+`Water-quality nitrate analysis — training draft v0.1.0`
+
+For your own project, use a title that identifies the research product and version.
+
+Remember that the **tag and release title serve different purposes**:
+
+- The tag is the version identifier associated with a Git commit.
+- The release title is a human-readable description displayed on GitHub.
+
+They can be identical, but they don't have to be.
+
+### Step 5: Add your release notes
+
+In **Describe this release**, paste the Markdown you prepared with the release-notes builder in Part 5.
+
+Review the text before moving on.
+
+Does it accurately describe what is included? Does it distinguish completed changes from planned work? Are known limitations documented?
+
+You may notice a **Generate release notes** button. GitHub can automatically prepare release notes based on pull requests and changes between releases.
+
+This can be helpful, especially for software projects with many contributors. However, automatically generated notes may not explain the scientific significance of a change or the limitations of an analysis.
+
+For this exercise, use your own release notes. You can explore the generated notes for comparison if you wish.
+
+### Step 6: Examine the other release options
+
+You may notice several additional options.
+
+**Attach binaries**
+
+This allows you to upload additional release assets, such as compiled software or other distribution files.
+
+You don't need to upload the notebooks and other tracked files again. GitHub will provide source-code archives for the published release.
+
+**Set as a pre-release**
+
+A pre-release is a *published* release identified as not yet suitable for general use, for example an alpha or beta version of software.
+
+A pre-release is **not the same thing as a draft**. It is still made available to users who have access to the repository.
+
+For our training project, leave this option unchecked. We're saving a draft, not publishing a pre-release.
+
+**Set as latest release**
+
+GitHub can identify which published release should be treated as the latest version. This is useful for projects with multiple releases.
+
+You don't need to change this setting for the training exercise.
+
+### Step 7: Save your draft
+
+At the bottom of the release editor, you'll find the option to **Publish release** or **Save draft**.
+
+**Select `Save draft`. Do not select `Publish release` for the water-quality training repository.**
+
+GitHub will save the release information so you can review or edit it later.
+
+You have now prepared a real GitHub draft release!
+
+## Inspect your draft release
+
+Return to **Releases** in your repository.
+
+Find the draft you just created. GitHub should identify it as a draft.
+
+Open it and check:
+
+- Is the release title correct?
+- Does it show the intended tag name?
+- Are the release notes complete and accurate?
+- Are the scientific limitations documented?
+- Is the release still marked as a **Draft**?
+
+If something needs changing, use the release's edit option to revise it.
+
+::: {.callout-important}
+## Draft vs published release
+
+**Saving a draft** does not:
+
+- Publish the research product as a release.
+- Guarantee that a new Git tag has already been created.
+- Make a published release available.
+- Trigger Zenodo archival or DOI creation.
+
+**Publishing a release is different.**
+
+If your public GitHub repository is already connected to Zenodo and the integration is enabled, publishing a new GitHub release will automatically trigger Zenodo to archive that version and assign it a DOI.
+
+You don't need to manually deposit each subsequent release. Each archived version receives its own version-specific DOI.
+
+**Before clicking Publish release, check whether your repository is connected to Zenodo.** Publishing may create a permanent, publicly accessible research record, not just a GitHub release.
+
+For the water-quality training project, stop at **Save draft**.
+:::
+
+
+## What happens when you publish?
+
+For your own research repository, publication may be appropriate once the release-readiness review is complete and you have the authority to share the work.
+
+When a release is published, GitHub associates it with its tag and makes the release information available to people who can access the repository.
+
+Users can then download the source-code archive associated with that version.
+
+This is useful for reproducibility: rather than telling someone to download whatever happens to be on `main` today, you can point them to a specific released version.
+
+Before publishing a real release, verify that:
+
+1. The tag identifies the exact commit intended for publication.
+2. The README, license information, and citation metadata are correct for that version.
+3. The release notes accurately describe the contents and limitations.
+4. The repository and included materials are authorized for distribution.
+5. Any release-related automation is understood.
+
+For this Pad, publication is optional. If you're using the training repository, **leave the release as a draft**.
+
+::: {.callout-note}
+## What about software package registries?
+
+Publishing a GitHub release does not automatically publish your software to a package registry such as PyPI, CRAN, or conda-forge.
+
+A GitHub release identifies and distributes a version of the repository. A package registry provides a way to distribute and install software through its packaging ecosystem.
+
+These processes can be connected through automation, such as GitHub Actions, but they are distinct.
+
+We'll explore automation in **Pad 6: Automate a Task**, while software packaging and distribution will be covered in the Software LilyPads.
+:::
+
+## What have you accomplished?
+
+You now have:
+
+- A proposed version identifier.
+- Release notes that describe the contents and limitations of that version.
+- A GitHub draft release associated with your proposed tag.
+- An understanding of what still needs to happen before publication.
+
+You've practiced the GitHub release workflow without having to publish an unfinished research product.
+
+Next, we'll explore what happens *after* a release is published: **how a research archive such as Zenodo can preserve it and assign a DOI for persistent identification and citation**.
+
+For the water-quality training project, we'll simulate that process rather than create a permanent archive record.
+
+
+# Archive your release and obtain a DOI
+
+You've prepared a GitHub release. Once it's published, other researchers can retrieve the files associated with that version.
+
+But how do you make the research product easier to discover, preserve, and cite over the long term?
+
+One solution is to deposit it in a research repository such as [Zenodo](https://zenodo.org/).
+
+Zenodo is a general-purpose research repository that supports many kinds of research outputs, including software, workflows, datasets, and documentation. It assigns **Digital Object Identifiers (DOIs)** to deposited research products.
+
+A DOI provides a persistent identifier that can be used in publications, reference lists, and research documentation.
+
+GitHub and Zenodo work well together:
+
+- **GitHub** supports the ongoing development of your research project.
+- **Zenodo** preserves identifiable versions of that work and provides persistent identifiers for citation.
+
+You don't need to choose between them. In fact, Zenodo can connect to GitHub and automatically archive new releases.
+
+::: {.callout-important}
+## Using the water-quality training project?
+
+**Do not publish your draft release or connect the training repository to Zenodo for this exercise.**
+
+Zenodo creates persistent scholarly records. We don't want to fill the archive with multiple copies of the same educational exercise, particularly one containing an unresolved scientific problem.
+
+You'll explore DOI creation through an interactive simulation instead.
+
+If you're working on your own research repository, are authorized to publish it, and have completed the necessary release-readiness checks, you can follow the optional publishing pathway below.
+:::
+
+## Two DOIs for one research project?
+
+When Zenodo archives the first version of a research product, it normally registers **two different DOIs**.
+
+They serve different purposes.
+
+| DOI | What does it identify? | When should you use it? |
+|---|---|---|
+| **Version DOI** | One specific archived version, such as `v1.0.0` | When citing the version used for a scientific analysis or software application |
+| **Concept DOI** (all versions) | The research product as a whole, across its different versions | When referring to the overall project rather than a particular release |
+
+Every subsequent archived version receives a new **Version DOI**, but the **Concept DOI stays the same**.
+
+The Concept DOI currently directs readers to the latest archived version, while individual Version DOIs continue to identify their corresponding versions.
+
+This distinction is crucial for reproducibility.
+
+Imagine that your paper used version `v1.0.0` of a nitrate analysis workflow. A year later, the team releases `v2.0.0`, which implements a different method.
+
+Someone attempting to reproduce your published results needs the original version, not the latest one.
+
+**That's why scientific publications should normally cite the Version DOI corresponding to the workflow or software actually used.**
+
+Read more in [Zenodo's DOI versioning documentation](https://zenodo.org/help/versioning).
+
+
+## Activity: Explore Pyleoclim releases on Zenodo
+
+Let's look at a real research software project: [Pyleoclim](https://github.com/LinkedEarth/Pyleoclim_util), a Python package for analyzing paleoclimate time series.
+
+Pyleoclim is actively developed on GitHub, with new releases introducing features, correcting bugs, and improving documentation. Its releases are also archived in Zenodo.
+
+We'll compare two versions to understand how Zenodo identifies an evolving research product.
+
+### Step 1: Inspect a real archived release
+
+Open the [Pyleoclim v1.3.0 record on Zenodo](https://zenodo.org/records/18625719) in another browser tab.
+
+Explore the record:
+
+1. Find the **version number** and **publication date**.
+2. Look at **What's Changed**. Notice that the release includes new functionality, bug fixes, and documentation improvements.
+3. Find the DOI and the **Get the DOI badge!** option.
+4. Look for the other versions of Pyleoclim.
+
+Notice that Zenodo provides both a description of the release and the archived files. This is a real, published research software product, not just a link to GitHub.
+
+### Step 2: Compare two versions
+
+Use the interactive explorer below to compare the DOIs for two Pyleoclim releases.
+
+```{=html}
+<div id="pond-pyleoclim-dois" class="border rounded p-3 my-3">
+  <h4 class="h5">Pyleoclim: one project, multiple versions</h4>
+
+  <p class="small text-muted">
+    These are real, published Zenodo records. Selecting a version
+    updates its DOI and citation information.
+  </p>
+
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <button type="button" id="pyl-doi-old"
+      class="btn btn-outline-primary btn-sm">
+      v1.2.0 (2025)
+    </button>
+    <button type="button" id="pyl-doi-new"
+      class="btn btn-primary btn-sm">
+      v1.3.0 (2026)
+    </button>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="border rounded p-3 h-100">
+        <strong>Version DOI</strong>
+        <p id="pyl-doi-version"
+          class="font-monospace small text-break mt-2"></p>
+        <p id="pyl-doi-description" class="small"></p>
+        <a id="pyl-doi-record" href="#" target="_blank"
+          rel="noopener noreferrer" class="small">
+          View this version on Zenodo ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="border rounded p-3 h-100">
+        <strong>Concept DOI (all versions)</strong>
+        <p class="font-monospace small text-break mt-2">
+          10.5281/zenodo.1205661
+        </p>
+        <p class="small">
+          Identifies Pyleoclim across its archived versions.
+          This DOI stays the same.
+        </p>
+        <a href="https://doi.org/10.5281/zenodo.1205661"
+          target="_blank" rel="noopener noreferrer" class="small">
+          Explore the project DOI ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="pyl-doi-feedback" class="alert alert-info mt-3"
+    role="status" aria-live="polite"></div>
+
+  <div class="border-top pt-3">
+    <p class="mb-2">
+      <strong>Which version would your citation identify?</strong>
+    </p>
+    <pre class="border rounded p-2 mb-2"><code id="pyl-doi-cff"></code></pre>
+    <p class="small text-muted mb-0">
+      These are example fields for a citation file describing
+      the selected release.
+    </p>
+  </div>
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById("pond-pyleoclim-dois");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const releases = [
+    {
+      version: "1.2.0",
+      date: "January 31, 2025",
+      doi: "10.5281/zenodo.14782981",
+      url: "https://zenodo.org/records/14782981"
+    },
+    {
+      version: "1.3.0",
+      date: "February 12, 2026",
+      doi: "10.5281/zenodo.18625719",
+      url: "https://zenodo.org/records/18625719"
+    }
+  ];
+
+  const buttons = [
+    root.querySelector("#pyl-doi-old"),
+    root.querySelector("#pyl-doi-new")
+  ];
+
+  function render(index) {
+    const release = releases[index];
+
+    buttons.forEach((button, i) => {
+      const selected = i === index;
+      button.className = selected
+        ? "btn btn-primary btn-sm"
+        : "btn btn-outline-primary btn-sm";
+      button.setAttribute("aria-pressed", String(selected));
+    });
+
+    root.querySelector("#pyl-doi-version").textContent =
+      release.doi;
+
+    root.querySelector("#pyl-doi-description").textContent =
+      `Pyleoclim v${release.version}, published ${release.date}.`;
+
+    root.querySelector("#pyl-doi-record").href =
+      release.url;
+
+    root.querySelector("#pyl-doi-feedback").textContent =
+      `If your analysis used Pyleoclim v${release.version}, ` +
+      `cite DOI ${release.doi}. This identifies the specific ` +
+      `archived version. The Concept DOI remains ` +
+      `10.5281/zenodo.1205661 regardless of which version you select.`;
+
+    root.querySelector("#pyl-doi-cff").textContent =
+      `version: "${release.version}"\n` +
+      `doi: "${release.doi}"`;
+  }
+
+  buttons[0].addEventListener("click", () => render(0));
+  buttons[1].addEventListener("click", () => render(1));
+
+  render(1);
+})();
+</script>
+```
+
+### Step 3: See how the DOI badge differs
+
+For a project-level README, we can use Pyleoclim's **Concept DOI** to direct readers to the project across all versions.
+
+For example, its badge Markdown would be:
+
+```markdown
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1205661.svg)](https://doi.org/10.5281/zenodo.1205661)
+```
+
+This uses the same project DOI regardless of whether you're looking at `v1.2.0`, `v1.3.0`, or a future release.
+
+However, if your paper used Pyleoclim `v1.2.0`, you should cite the DOI for that exact version:
+
+`https://doi.org/10.5281/zenodo.14782981`
+
+**Remember: the project-level badge helps readers discover the software, while the version-specific citation helps them reproduce the research.**
+
+Don't copy Pyleoclim's DOI into your own repository. When you archive your own project, use the DOIs that Zenodo assigns to it.
+
+Notice what changes when you switch versions:
+
+- The **Version DOI** changes.
+- The **Concept DOI** remains identical.
+- Earlier versions continue to have their own persistent identifiers.
+
+This leads to a useful convention:
+
+**Use the Version DOI for citations of a specific release, and the Concept DOI for a project-level badge in your README.**
+
+## Optional: Connect your own repository to Zenodo
+
+Follow these steps only if you have a real research project ready for public release.
+
+If you're using the water-quality training example, skip to the next section.
+
+### Step 1: Connect Zenodo to GitHub
+
+1. Visit [Zenodo](https://zenodo.org/) and sign in or create an account.
+2. Connect your GitHub account if it isn't already connected.
+3. Open your Zenodo profile menu and select **GitHub**.
+4. Select **Sync now** to refresh the list of repositories.
+5. Find the repository you want to archive.
+6. Enable the repository using its toggle.
+
+Zenodo should now be connected to your repository.
+
+The repository must be public for Zenodo's GitHub integration. If the repository belongs to a GitHub organization, the organization may need to authorize the integration.
+
+::: {.callout-warning}
+## Connect before publishing
+
+Once the integration is enabled, Zenodo automatically processes newly published GitHub releases.
+
+**Check that your repository is connected before publishing the release you want archived.**
+
+Don't assume that enabling the integration afterward will automatically import older releases.
+
+Also remember that publishing a release may now trigger an archival action outside GitHub.
+:::
+
+### Step 2: Publish your GitHub release
+
+Return to the draft you prepared in Part 6.
+
+Before publishing, verify the intended tag, files, release notes, permissions, and scientific readiness.
+
+When everything is ready, select **Publish release**.
+
+Zenodo will receive the release information and begin processing the archive.
+
+You don't need to manually upload the GitHub source files to Zenodo when this integration is working.
+
+### Step 3: Inspect the Zenodo record
+
+Return to Zenodo and open the **GitHub** section of your account.
+
+Find the repository and its newly processed release, then open the associated Zenodo record.
+
+Examine:
+
+- The title and description of the research product.
+- The listed authors and their ORCID identifiers, when provided.
+- The release version and publication information.
+- The files that were archived.
+- The licensing and reuse information.
+- The assigned DOI identifiers.
+
+Check that the record accurately represents the project.
+
+Zenodo can use metadata from `CITATION.cff` when archiving GitHub releases. If your repository also contains `.zenodo.json`, Zenodo gives that file precedence, so make sure the metadata in these files isn't contradictory.
+
+For detailed instructions, consult [Zenodo's official GitHub integration guide](https://help.zenodo.org/docs/github/).
+
+::: {.callout-note}
+## What exactly has Zenodo preserved?
+
+Zenodo preserves the archived release files, not necessarily every external resource required to reproduce the work.
+
+For example, if your notebook downloads data from a separate repository or relies on packages installed elsewhere, Zenodo doesn't automatically preserve those resources as part of the workflow.
+
+Your README and associated documentation should still explain how to obtain the data, configure the computational environment, and reproduce the analysis.
+:::
+
+## Add a DOI badge to your README
+
+Once a research product has been archived, make its persistent identifier visible in GitHub.
+
+A **DOI badge** is a small image that links readers to the archived record.
+
+For a project that will have multiple releases, we recommend using the **Concept DOI** in the badge.
+
+That way, you don't need to change the project-level badge every time you publish a new version.
+
+### For a real archived project
+
+1. Open the project's record in Zenodo.
+2. Find the DOI information and identify the **Concept DOI** (all versions), rather than the DOI for only the current version.
+3. Copy the Markdown for a badge pointing to the Concept DOI. You can also adapt the example below.
+4. Open your README on GitHub and select **Edit this file** (the pencil icon).
+5. Add the badge near the top, immediately after the project title.
+6. Commit the change.
+
+The Markdown will look similar to this:
+
+```markdown
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.CONCEPT_ID.svg)](https://doi.org/10.5281/zenodo.CONCEPT_ID)
+```
+
+Replace `CONCEPT_ID` with the actual numeric identifier from your project's **Concept DOI**. The example above is a placeholder and won't work until it contains a real DOI.
+
+If Zenodo provides badge Markdown directly, check its destination before copying it. We want a badge for **all versions**, not only one release.
+
+::: {.callout-tip}
+## Why use the Concept DOI for the badge?
+
+Your README usually introduces the project as a whole.
+
+A Concept DOI points readers toward the overall archived project, including its evolving set of versions.
+
+But when you cite the exact software or workflow used in a scientific analysis, you should use the **Version DOI** instead.
+
+The badge helps people discover the project; a version-specific citation helps them reproduce the research.
+:::
+
+## Update your `CITATION.cff`
+
+Remember the citation file you created in Part 4?
+
+Now that Zenodo has archived your release, you can add its DOI and update the relevant version information.
+
+For a real published release, your `CITATION.cff` might include fields like these:
+
+```yaml
+cff-version: 1.2.0
+message: "If you use this workflow, please cite the version used."
+title: "My Research Workflow"
+authors:
+  - family-names: "Example"
+    given-names: "Researcher"
+repository-code: "https://github.com/OWNER/REPOSITORY"
+version: "1.0.0"
+date-released: 2026-10-26
+doi: "10.5281/zenodo.VERSION_ID"
+```
+
+Replace the example names, repository URL, release date, version, and DOI with your project's actual information.
+
+In particular:
+
+- `version` refers to your research product, not the CFF format.
+- `date-released` is the actual release date.
+- `doi` should contain the **Version DOI** for the release you're describing.
+- `cff-version` remains `1.2.0` for the CFF specification used in this example.
+
+If you use a tag such as `v1.0.0`, the CFF version can be `1.0.0`. The important thing is that they unambiguously describe the same release.
+
+### Make the update on GitHub
+
+1. Open `CITATION.cff` on your repository's default branch.
+2. Select **Edit this file**.
+3. Add or correct the version, release date, and Version DOI.
+4. Commit the change using a message such as `Update citation metadata with Zenodo DOI`.
+5. Return to the main repository page and select **Cite this repository**.
+6. Check that GitHub generates the expected citation, including the correct DOI.
+
+::: {.callout-note}
+## Why update `CITATION.cff` after the release?
+
+For the first release, the DOI generally becomes available **after** Zenodo processes the published GitHub release.
+
+You can then add the DOI to `CITATION.cff` and the badge to your README.
+
+These changes update the living GitHub repository. They **do not retroactively change the archived files** in the previous release.
+
+That's expected: archived versions should remain stable.
+
+For future releases, review the version information and citation metadata before tagging, and update the DOI once Zenodo has archived the new version.
+
+GitHub reads `CITATION.cff` from your default branch to display **Cite this repository**, so keep it aligned with the release you intend people to cite.
+:::
+
+## Activity: Practice updating citation information
+
+If you're using the water-quality training project, don't add a fictional DOI to your real README or `CITATION.cff`.
+
+Instead, use the simulation above and imagine the project has received two archived releases.
+
+Consider where you would put each identifier:
+
+- The DOI identifying the overall project belongs in the README badge.
+- The DOI for the specific version being cited belongs in `CITATION.cff`.
+- The research paper should cite the Version DOI corresponding to the workflow used to generate its results.
+
+If you're using your own archived research product, apply these updates directly to GitHub and verify the rendered badge and citation.
+
+## What happens with the next release?
+
+Your repository will continue to evolve, and new research milestones or software improvements may justify additional releases.
+
+When preparing a new version:
+
+1. Decide what changes justify the release.
+2. Update the research-product version and other metadata before tagging.
+3. Create and publish a new GitHub release when the project is ready.
+4. Let Zenodo archive the new release and assign its Version DOI.
+5. Update `CITATION.cff` with the new Version DOI and release information.
+6. Keep the same Concept DOI badge in the README.
+
+The Concept DOI continues to identify the project across releases. Each Version DOI continues to identify its specific archived version.
+
+This means you can develop your software or workflow over time **without losing the ability to cite and reproduce earlier versions**.
+
+## What have you accomplished?
+
+You now understand how a GitHub release can become an archived, citable research product.
+
+You can distinguish the two kinds of Zenodo DOI and explain why they serve different purposes.
+
+For real published research products, you also know how to connect those identifiers back to the repository using a README badge and `CITATION.cff`.
+
+For the water-quality training project, you've practiced the workflow without creating an unnecessary permanent record.
+
+Next, we'll bring these ideas together and review how to maintain clear citation and release information as your research project continues to evolve.
+
+
+# Keep your releases and citations up to date
+
+Congratulations! You've worked through the process of turning an evolving research repository into a versioned, reusable, and citable research product.
+
+But research doesn't stop after the first release.
+
+You might discover an error in your analysis, add new functionality, improve documentation, or publish another paper using an updated workflow.
+
+**A release identifies a particular state of your project. It doesn't mean the project is finished.**
+
+## The next release
+
+Remember the quality-control problem in our water-quality workflow?
+
+We identified that the notebook averages nitrate measurements before removing observations that failed quality checks. The correction is still outstanding.
+
+Suppose the team eventually fixes the notebook, validates the updated results, and documents the change.
+
+That could justify a new release, especially if the correction affects the scientific conclusions.
+
+For research software, an important bug fix or new functionality might similarly justify a release without waiting for another paper.
+
+The process you've learned can be repeated whenever there's a meaningful reason to publish a new version.
+
+## What changes with each release?
+
+Some information stays the same across versions, while other information needs to be updated.
+
+| Component | What happens with a new release? |
+|---|---|
+| **Git tag** | Create a new tag identifying the new version. |
+| **Release notes** | Describe what's new, corrected, changed, and still unresolved. |
+| **`CITATION.cff`** | Review the authors, version, date, and version-specific DOI. |
+| **README** | Update instructions, limitations, and citation information as needed. |
+| **Zenodo Version DOI** | A new DOI is assigned to each newly archived version. |
+| **Zenodo Concept DOI** | Stays the same across all versions. The project-level README badge can remain unchanged. |
+| **Older releases** | Remain identifiable and citable. Don't silently replace them with newer versions. |
+
+### The order matters
+
+For a repository connected to Zenodo, the typical sequence is:
+
+1. **Before the release:** Complete and validate the changes. Update the project version and citation metadata. Make sure the new release's metadata does not incorrectly point to the previous version's DOI.
+2. **Publish the release:** Create the new tag and GitHub release once the project is ready. If Zenodo integration is enabled, it can automatically archive the release.
+3. **After archival:** Obtain the new Version DOI from Zenodo and update `CITATION.cff` and the README's citation instructions.
+4. **Check the result:** Confirm that GitHub's **Cite this repository** displays the intended citation and that the README links are correct.
+
+Remember that `CITATION.cff` on the default branch normally describes the version you currently recommend citing. Earlier publications should continue citing the specific versions they used.
+
+::: {.callout-note}
+## Don't confuse a new commit with a new release
+
+You don't need to change the research-product version in `CITATION.cff` after every commit.
+
+During development, you may make dozens of commits before creating another release.
+
+When preparing a new version, however, check that the version metadata matches the research product being released.
+
+And remember: `cff-version: 1.2.0` describes the citation-file format. It isn't your software or workflow version.
+:::
+
+## Activity: Your release maintenance plan
+
+Return to your GitHub repository one last time.
+
+### Step 1: Review what you've prepared
+
+Check the following items against your actual repository.
+
+- [ ] My README explains what the project contains and how to get started.
+- [ ] I've reviewed the project's reuse permissions and added a license where appropriate, or documented what still needs approval.
+- [ ] My `CITATION.cff` identifies the research product and its agreed authors.
+- [ ] I can find **Cite this repository** on GitHub and check the generated citation.
+- [ ] I've selected a versioning convention appropriate for my project.
+- [ ] I've prepared release notes describing the actual contents and known limitations.
+- [ ] I've saved a GitHub draft release, without publishing anything that isn't ready.
+- [ ] I understand the distinction between a Version DOI and a Concept DOI.
+
+If you've published and archived your own research product, also verify that your DOI badge, citation metadata, and Zenodo record point to the intended research product and versions.
+
+You don't need a real DOI to complete this checklist.
+
+### Step 2: Identify what would justify the next release
+
+Open your repository's **Issues** tab.
+
+Find an unresolved scientific or technical Issue and consider:
+
+- Would resolving this Issue warrant a new release, or could it wait for a larger research milestone?
+- What would need to be tested or validated before that release?
+- Would the change affect existing users or previously published scientific results?
+
+For the water-quality example, revisit the outstanding QC correction.
+
+Once that correction has actually been implemented and validated, a new version could document the methodological change and any impact on the results.
+
+You can record release-related tasks in the existing Issue if useful. **Don't close the Issue until the underlying work is genuinely resolved.**
+
+This connects the planning practices from Pad 4 with the release process you've learned here.
+
+## You've completed this Deep End Pad!
+
+You now know how to move from an evolving GitHub repository toward a clearly identified, reusable, and citable research product.
+
+You've practiced preparing a release, documenting reuse permissions, creating citation metadata, choosing a version, and writing release notes. You've also explored how Zenodo can archive research products and provide persistent identifiers.
+
+Most importantly, you've learned that:
+
+- **Releasing** identifies a version of your research product.
+- **Archiving** preserves that version for future access.
+- **Licensing** clarifies permissions for reuse.
+- **Citing** gives credit and identifies the specific research product used.
+
+These are complementary practices, not interchangeable ones.
+
+Whether you're developing a scientific workflow for a publication or software used by a wider research community, GitHub can help you make your work easier to share, maintain, reuse, and recognize.
+
+::: {.callout-tip}
+## Coming next: Automate a Task
+
+You've now experienced many parts of a GitHub research workflow manually.
+
+But what if GitHub could perform some of those steps for you?
+
+In our next Deep End Pad, we'll introduce **GitHub Actions** and explore how automation can support research activities such as checking files, testing software, building documentation, and preparing releases.
+:::
