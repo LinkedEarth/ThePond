@@ -2214,5 +2214,5 @@ You've now experienced many parts of a GitHub research workflow manually.
 
 But what if GitHub could perform some of those steps for you?
 
-In our next Deep End Pad, we'll introduce **GitHub Actions** and explore how automation can support research activities such as checking files, testing software, building documentation, and preparing releases.
+In our next [Deep End Pad](../automate/index.qmd), we'll introduce **GitHub Actions** and explore how automation can support research activities such as checking files, testing software, building documentation, and preparing releases.
 :::
