@@ -270,15 +270,13 @@ workflowCloud = {
 
 ## 2. What is a scientific workflow?
 
-::: {.callout-note appearance="simple"}
+In this short video, we explore what makes up a scientific analysis workflow and what information needs to be captured to make that workflow reproducible.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+{{< video https://youtu.be/az-Hn_1TGg0
+   title="What is a scientific workflow?"
+   aspect-ratio="16x9"
+>}}
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
-:::
-
----
 
 Now that you have a sense of what a scientific workflow is, let's think about how workflows are different than software, even though both of them are often referred to as "code". In short, **Software is a tool. A workflow is the process in which tools are used.**
 
