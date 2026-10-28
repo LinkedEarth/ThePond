@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Learn what GitHub Actions are and how to use them.">
+<meta name="description" content="Learn how to use GitHub Actions to automate routine checks in your research repository. Create a workflow, inspect its results, and troubleshoot failures to help keep your research projects reliable and reproducible.">
 
 <title>Automating with GitHub Actions – The Pond</title>
 <style>
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -49,9 +84,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fac0502cdb2728f420719e54d4e58268.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-44039a74ea4fbc7a800c5b1190f297d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-1a74a8afa1bd1557565554d6a087aaea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-e42b3618dd673c0445b80c9514cca4fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-1a74a8afa1bd1557565554d6a087aaea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -179,7 +214,78 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link" data-scroll-target="#what-you-will-learn">What you will learn</a></li>
+  <li><a href="#before-you-begin" id="toc-before-you-begin" class="nav-link" data-scroll-target="#before-you-begin">Before you begin</a></li>
+  </ul></li>
+  <li><a href="#why-automate" id="toc-why-automate" class="nav-link" data-scroll-target="#why-automate">Why automate?</a>
+  <ul class="collapse">
+  <li><a href="#what-makes-a-task-worth-automating" id="toc-what-makes-a-task-worth-automating" class="nav-link" data-scroll-target="#what-makes-a-task-worth-automating">What makes a task worth automating?</a></li>
+  <li><a href="#think-about-your-own-repository" id="toc-think-about-your-own-repository" class="nav-link" data-scroll-target="#think-about-your-own-repository">Think about your own repository</a></li>
+  <li><a href="#from-a-manual-check-to-github-actions" id="toc-from-a-manual-check-to-github-actions" class="nav-link" data-scroll-target="#from-a-manual-check-to-github-actions">From a manual check to GitHub Actions</a></li>
+  </ul></li>
+  <li><a href="#read-a-workflow-before-running-it" id="toc-read-a-workflow-before-running-it" class="nav-link" data-scroll-target="#read-a-workflow-before-running-it">Read a workflow before running it</a>
+  <ul class="collapse">
+  <li><a href="#what-does-a-workflow-look-like" id="toc-what-does-a-workflow-look-like" class="nav-link" data-scroll-target="#what-does-a-workflow-look-like">What does a workflow look like?</a>
+  <ul class="collapse">
+  <li><a href="#name-what-is-this-workflow-called" id="toc-name-what-is-this-workflow-called" class="nav-link" data-scroll-target="#name-what-is-this-workflow-called">1. Name: What is this workflow called?</a></li>
+  <li><a href="#trigger-when-should-it-run" id="toc-trigger-when-should-it-run" class="nav-link" data-scroll-target="#trigger-when-should-it-run">2. Trigger: When should it run?</a></li>
+  <li><a href="#permissions-what-can-the-workflow-access" id="toc-permissions-what-can-the-workflow-access" class="nav-link" data-scroll-target="#permissions-what-can-the-workflow-access">3. Permissions: What can the workflow access?</a></li>
+  <li><a href="#jobs-and-runners-where-does-the-work-happen" id="toc-jobs-and-runners-where-does-the-work-happen" class="nav-link" data-scroll-target="#jobs-and-runners-where-does-the-work-happen">4. Jobs and runners: Where does the work happen?</a></li>
+  <li><a href="#steps-what-should-github-do" id="toc-steps-what-should-github-do" class="nav-link" data-scroll-target="#steps-what-should-github-do">5. Steps: What should GitHub do?</a></li>
+  </ul></li>
+  <li><a href="#a-few-things-to-know-about-yaml" id="toc-a-few-things-to-know-about-yaml" class="nav-link" data-scroll-target="#a-few-things-to-know-about-yaml">A few things to know about YAML</a></li>
+  <li><a href="#where-do-workflows-live" id="toc-where-do-workflows-live" class="nav-link" data-scroll-target="#where-do-workflows-live">Where do workflows live?</a></li>
+  </ul></li>
+  <li><a href="#create-your-first-automation" id="toc-create-your-first-automation" class="nav-link" data-scroll-target="#create-your-first-automation">Create your first automation</a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-the-workflow-file" id="toc-step-1-create-the-workflow-file" class="nav-link" data-scroll-target="#step-1-create-the-workflow-file">Step 1: Create the workflow file</a></li>
+  <li><a href="#step-2-propose-the-workflow-as-a-change" id="toc-step-2-propose-the-workflow-as-a-change" class="nav-link" data-scroll-target="#step-2-propose-the-workflow-as-a-change">Step 2: Propose the workflow as a change</a></li>
+  <li><a href="#step-3-let-github-do-the-work" id="toc-step-3-let-github-do-the-work" class="nav-link" data-scroll-target="#step-3-let-github-do-the-work">Step 3: Let GitHub do the work</a></li>
+  </ul></li>
+  <li><a href="#inspect-your-workflow-results" id="toc-inspect-your-workflow-results" class="nav-link" data-scroll-target="#inspect-your-workflow-results">Inspect your workflow results</a>
+  <ul class="collapse">
+  <li><a href="#step-1-check-your-pull-request" id="toc-step-1-check-your-pull-request" class="nav-link" data-scroll-target="#step-1-check-your-pull-request">Step 1: Check your pull request</a></li>
+  <li><a href="#step-2-explore-the-actions-tab" id="toc-step-2-explore-the-actions-tab" class="nav-link" data-scroll-target="#step-2-explore-the-actions-tab">Step 2: Explore the Actions tab</a></li>
+  <li><a href="#step-3-look-inside-the-job" id="toc-step-3-look-inside-the-job" class="nav-link" data-scroll-target="#step-3-look-inside-the-job">Step 3: Look inside the job</a></li>
+  <li><a href="#why-inspect-successful-runs" id="toc-why-inspect-successful-runs" class="nav-link" data-scroll-target="#why-inspect-successful-runs">Why inspect successful runs?</a></li>
+  </ul></li>
+  <li><a href="#what-happens-when-a-check-fails" id="toc-what-happens-when-a-check-fails" class="nav-link" data-scroll-target="#what-happens-when-a-check-fails">What happens when a check fails?</a>
+  <ul class="collapse">
+  <li><a href="#step-1-introduce-a-broken-link" id="toc-step-1-introduce-a-broken-link" class="nav-link" data-scroll-target="#step-1-introduce-a-broken-link">Step 1: Introduce a broken link</a></li>
+  <li><a href="#step-2-watch-the-automation-run-again" id="toc-step-2-watch-the-automation-run-again" class="nav-link" data-scroll-target="#step-2-watch-the-automation-run-again">Step 2: Watch the automation run again</a></li>
+  <li><a href="#step-3-investigate-the-failure" id="toc-step-3-investigate-the-failure" class="nav-link" data-scroll-target="#step-3-investigate-the-failure">Step 3: Investigate the failure</a></li>
+  <li><a href="#step-4-interpret-the-result" id="toc-step-4-interpret-the-result" class="nav-link" data-scroll-target="#step-4-interpret-the-result">Step 4: Interpret the result</a></li>
+  <li><a href="#why-is-this-useful-for-research" id="toc-why-is-this-useful-for-research" class="nav-link" data-scroll-target="#why-is-this-useful-for-research">Why is this useful for research?</a></li>
+  </ul></li>
+  <li><a href="#fix-the-problem" id="toc-fix-the-problem" class="nav-link" data-scroll-target="#fix-the-problem">Fix the problem</a>
+  <ul class="collapse">
+  <li><a href="#step-1-correct-the-broken-link" id="toc-step-1-correct-the-broken-link" class="nav-link" data-scroll-target="#step-1-correct-the-broken-link">Step 1: Correct the broken link</a></li>
+  <li><a href="#step-2-check-the-results-again" id="toc-step-2-check-the-results-again" class="nav-link" data-scroll-target="#step-2-check-the-results-again">Step 2: Check the results again</a></li>
+  <li><a href="#step-3-compare-the-workflow-runs" id="toc-step-3-compare-the-workflow-runs" class="nav-link" data-scroll-target="#step-3-compare-the-workflow-runs">Step 3: Compare the workflow runs</a></li>
+  <li><a href="#step-4-complete-your-pull-request" id="toc-step-4-complete-your-pull-request" class="nav-link" data-scroll-target="#step-4-complete-your-pull-request">Step 4: Complete your pull request</a></li>
+  <li><a href="#what-have-you-accomplished" id="toc-what-have-you-accomplished" class="nav-link" data-scroll-target="#what-have-you-accomplished">What have you accomplished?</a></li>
+  </ul></li>
+  <li><a href="#choose-when-automation-should-run" id="toc-choose-when-automation-should-run" class="nav-link" data-scroll-target="#choose-when-automation-should-run">Choose when automation should run</a>
+  <ul class="collapse">
+  <li><a href="#one-workflow-multiple-triggers" id="toc-one-workflow-multiple-triggers" class="nav-link" data-scroll-target="#one-workflow-multiple-triggers">One workflow, multiple triggers</a></li>
+  <li><a href="#should-we-automate-everything-all-the-time" id="toc-should-we-automate-everything-all-the-time" class="nav-link" data-scroll-target="#should-we-automate-everything-all-the-time">Should we automate everything, all the time?</a></li>
+  <li><a href="#try-it-add-another-trigger-optional" id="toc-try-it-add-another-trigger-optional" class="nav-link" data-scroll-target="#try-it-add-another-trigger-optional">Try it: Add another trigger (optional)</a></li>
+  </ul></li>
+  <li><a href="#want-to-go-further" id="toc-want-to-go-further" class="nav-link" data-scroll-target="#want-to-go-further">Want to go further?</a>
+  <ul class="collapse">
+  <li><a href="#explore-real-research-workflows" id="toc-explore-real-research-workflows" class="nav-link" data-scroll-target="#explore-real-research-workflows">Explore real research workflows</a>
+  <ul class="collapse">
+  <li><a href="#run-software-tests" id="toc-run-software-tests" class="nav-link" data-scroll-target="#run-software-tests">Run software tests</a></li>
+  <li><a href="#execute-jupyter-notebooks" id="toc-execute-jupyter-notebooks" class="nav-link" data-scroll-target="#execute-jupyter-notebooks">Execute Jupyter notebooks</a></li>
+  <li><a href="#validate-scientific-data" id="toc-validate-scientific-data" class="nav-link" data-scroll-target="#validate-scientific-data">Validate scientific data</a></li>
+  <li><a href="#process-new-observations-on-a-schedule" id="toc-process-new-observations-on-a-schedule" class="nav-link" data-scroll-target="#process-new-observations-on-a-schedule">Process new observations on a schedule</a></li>
+  <li><a href="#publish-software-releases" id="toc-publish-software-releases" class="nav-link" data-scroll-target="#publish-software-releases">Publish software releases</a></li>
+  </ul></li>
+  <li><a href="#adapt-a-workflow-to-your-own-research" id="toc-adapt-a-workflow-to-your-own-research" class="nav-link" data-scroll-target="#adapt-a-workflow-to-your-own-research">Adapt a workflow to your own research</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -193,7 +299,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Learn what GitHub Actions are and how to use them.
+    Learn how to use GitHub Actions to automate routine checks in your research repository. Create a workflow, inspect its results, and troubleshoot failures to help keep your research projects reliable and reproducible.
   </div>
 </div>
 
@@ -212,8 +318,801 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
+<p>Research projects involve many tasks that need to be repeated: checking documentation, validating files, running tests, or making sure that changes have not introduced new problems. Performing these checks manually takes time, and it is easy to forget a step.</p>
+<p><strong>GitHub Actions</strong> allows you to automate these tasks. For example, every time someone proposes a change to your repository, GitHub can automatically check that the links in your documentation still work.</p>
+<p>In this Pad, you will create your first automated workflow, see how GitHub runs it, and learn what happens when a check fails. You will also explore how automation can help maintain the reliability and reproducibility of research projects.</p>
+<section id="what-you-will-learn" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-will-learn">What you will learn</h2>
+<p>By the end of this Pad, you will be able to:</p>
+<ul>
+<li>Identify research tasks that could benefit from automation.</li>
+<li>Understand the basic structure of a GitHub Actions workflow, including triggers, jobs, and steps.</li>
+<li>Recognize how YAML files define automated workflows.</li>
+<li>Create a workflow that automatically checks links in your repository.</li>
+<li>Find and interpret workflow results and logs in GitHub.</li>
+<li>Investigate a failed check, correct the problem, and run the workflow again.</li>
+<li>Recognize the benefits and limitations of automated checks in scientific research.</li>
+</ul>
+</section>
+<section id="before-you-begin" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-begin">Before you begin</h2>
+<p>To complete this Pad, you will need:</p>
+<ul>
+<li><strong>A GitHub account</strong> and access to a repository where you can make changes.</li>
+<li><strong>A research repository</strong>, preferably one containing a <code>README.md</code> or other Markdown documentation. You can use your own repository or the example project provided in this lesson.</li>
+<li><strong>Basic familiarity with GitHub</strong>, including commits, branches, and pull requests, as covered in the previous Pads.</li>
+</ul>
+<p>You will work directly in GitHub’s web interface. <strong>No programming experience, command line, or additional software is required.</strong></p>
+<p>If you have been following the previous Pads, you can continue working with the same research repository.</p>
+</section>
+</section>
+<section id="why-automate" class="level1">
+<h1>Why automate?</h1>
+<p>Imagine you are working on a research project with several collaborators. Your repository contains data, analysis notebooks, figures, and documentation. Over time, files get reorganized, notebooks are updated, and new results are added.</p>
+<p>One day, a collaborator moves a figure into a different folder but forgets to update the link in the <code>README.md</code>. The link no longer works.</p>
+<p>You might catch this by opening the README and clicking every link after each change. But would you remember to do that every time? And what if your repository contains dozens of links?</p>
+<p><strong>What if GitHub could check those links automatically whenever someone proposes a change?</strong></p>
+<p>That’s the idea behind automation: let a computer perform routine, repeatable tasks so researchers can spend more time on work that requires their expertise.</p>
+<section id="what-makes-a-task-worth-automating" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-task-worth-automating">What makes a task worth automating?</h2>
+<p>Good candidates for automation generally have three characteristics:</p>
+<ul>
+<li><strong>Repeatable:</strong> The task needs to be performed regularly, such as whenever files change.</li>
+<li><strong>Well-defined:</strong> There are clear instructions for completing the task.</li>
+<li><strong>Verifiable:</strong> There is a way to determine whether the task succeeded or failed.</li>
+</ul>
+<p>For example, GitHub can automatically check whether links point to existing files, whether required files are present, or whether software tests pass.</p>
+<p>But not everything should be automated. Consider the water-quality project from the earlier Pads. A computer can check whether a dataset contains missing values or whether a notebook runs without errors. However, deciding whether the quality-control procedure is scientifically appropriate requires domain knowledge and judgment.</p>
+<p><strong>An automated check can tell you whether something meets a defined requirement. It cannot guarantee that your research is scientifically correct.</strong></p>
+</section>
+<section id="think-about-your-own-repository" class="level2">
+<h2 class="anchored" data-anchor-id="think-about-your-own-repository">Think about your own repository</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it: Find a task worth automating">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it: Find a task worth automating
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open your research repository on GitHub and look at your <code>README.md</code> or other project documentation.</p>
+<ol type="1">
+<li>Find two or three links to files, figures, notebooks, or other documentation. Click them to see whether they work.</li>
+<li>Imagine making changes to the repository over several months. Would you want to repeat this check after every change?</li>
+<li>Think of one other task in your research project that you perform repeatedly. Could a computer do it following a consistent set of instructions?</li>
+</ol>
+<p>You don’t need to implement anything yet. Just identify a task that could benefit from automation.</p>
+</div>
+</div>
+</section>
+<section id="from-a-manual-check-to-github-actions" class="level2">
+<h2 class="anchored" data-anchor-id="from-a-manual-check-to-github-actions">From a manual check to GitHub Actions</h2>
+<p>GitHub provides a feature called <strong>GitHub Actions</strong> that lets you automate tasks in your repository.</p>
+<p>Instead of remembering to check your documentation manually, you can tell GitHub:</p>
+<blockquote class="blockquote">
+<p>Whenever someone opens or updates a pull request, check whether the links in the repository documentation work.</p>
+</blockquote>
+<p>GitHub will perform that check and report whether it passed or failed. If a problem is detected, you can investigate and correct it before merging the change.</p>
+<p>In the next section, we’ll look at how these instructions are written in a <strong>workflow file</strong>, and how GitHub knows when and what to run.</p>
+</section>
+</section>
+<section id="read-a-workflow-before-running-it" class="level1">
+<h1>Read a workflow before running it</h1>
+<p>In the previous section, we identified a task worth automating: checking whether links in your research documentation still work.</p>
+<p>But how do we tell GitHub what to check, and when?</p>
+<p>GitHub Actions uses <strong>workflows</strong>: sets of instructions that tell GitHub when to run a task and what steps to perform.</p>
+<p>These instructions are stored in files written in <strong>YAML</strong> (YAML Ain’t Markup Language), a human-readable format commonly used for configuration files.</p>
+<p>You don’t need to know how to program to understand a simple YAML file. Let’s explore one together.</p>
+<section id="what-does-a-workflow-look-like" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-a-workflow-look-like">What does a workflow look like?</h2>
+<p>Here is a workflow that checks links in a repository’s <code>README.md</code> whenever someone opens or updates a pull request.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Check documentation links</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> read</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">check-links</span><span class="kw">:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Get repository files</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v6</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check local links</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> lycheeverse/lychee-action@v2</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">args</span><span class="kw">:</span><span class="at"> --offline --no-progress README.md</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>At first glance, this might look complicated, but the workflow is essentially a short recipe. In fact, it is closely related to scientific workflows you may have used in your research. It has a name, a trigger, and a series of steps to perform.</p>
+<p>Let’s break it down.</p>
+<section id="name-what-is-this-workflow-called" class="level3">
+<h3 class="anchored" data-anchor-id="name-what-is-this-workflow-called">1. Name: What is this workflow called?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Check documentation links</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This gives your workflow a recognizable name. You’ll see it in GitHub’s <strong>Actions</strong> tab, where you can inspect automated tasks and their results.</p>
+</section>
+<section id="trigger-when-should-it-run" class="level3">
+<h3 class="anchored" data-anchor-id="trigger-when-should-it-run">2. Trigger: When should it run?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>on</code> keyword defines the <strong>event</strong> that starts the workflow, also called a <em>trigger</em>.</p>
+<p>Here, the workflow runs when a pull request is opened, reopened, or updated with new commits.</p>
+<p>Other triggers are possible, including pushing changes to a branch, publishing a release, running on a schedule, or starting a workflow manually.</p>
+<p>These triggers allow you to automate tasks at the right time. For instance, consider the following scenarios:</p>
+<ul>
+<li><strong>Check links:</strong> Run whenever a pull request is opened or updated, so you can catch broken links before merging.<br>
+</li>
+<li><strong>Run tests:</strong> Run whenever a pull request is opened or updated, so you can catch errors before merging.<br>
+</li>
+<li><strong>Update a website:</strong> Run whenever changes are pushed to the main branch, so the website is always up to date.<br>
+</li>
+<li><strong>Publish a new software version to PyPI:</strong> Run whenever a release is published, so the new version is automatically registered.<br>
+</li>
+<li><strong>Check whether a research workflow still works:</strong> Run on a schedule to verify that an analysis can still execute successfully, even when no one is actively working on the repository.<br>
+</li>
+<li><strong>Check whether a new version of a dataset is available:</strong> Run on a schedule, so you can automatically download and process new data when a new version is detected.</li>
+</ul>
+</section>
+<section id="permissions-what-can-the-workflow-access" class="level3">
+<h3 class="anchored" data-anchor-id="permissions-what-can-the-workflow-access">3. Permissions: What can the workflow access?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> read</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This gives the workflow read-only access to repository contents through GitHub’s automatically provided token.</p>
+<p>Our link checker needs to read files, but it does not need permission to modify the repository.</p>
+<p><strong>Good practice:</strong> Give automated workflows only the permissions they need.</p>
+</section>
+<section id="jobs-and-runners-where-does-the-work-happen" class="level3">
+<h3 class="anchored" data-anchor-id="jobs-and-runners-where-does-the-work-happen">4. Jobs and runners: Where does the work happen?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">check-links</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A workflow contains one or more <strong>jobs</strong>. Each job performs a specific set of tasks.</p>
+<p>Our workflow contains one job named <code>check-links</code>.</p>
+<p>The <code>runs-on</code> instruction tells GitHub what computing environment to use. Here, GitHub provides a virtual machine running Ubuntu (a Linux operating system).</p>
+<p>You don’t need to install Ubuntu on your computer. GitHub runs the job on a separate machine.</p>
+</section>
+<section id="steps-what-should-github-do" class="level3">
+<h3 class="anchored" data-anchor-id="steps-what-should-github-do">5. Steps: What should GitHub do?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Get repository files</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v6</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check local links</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> lycheeverse/lychee-action@v2</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">args</span><span class="kw">:</span><span class="at"> --offline --no-progress README.md</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each job contains one or more <strong>steps</strong>, executed in order.</p>
+<p>Our workflow has two:</p>
+<ol type="1">
+<li><strong>Get repository files:</strong> The <code>checkout</code> action makes the repository files available on the runner.</li>
+<li><strong>Check local links:</strong> The <code>lychee</code> action looks for broken links in <code>README.md</code>.</li>
+</ol>
+<p>Notice the <code>uses</code> keyword. It tells GitHub to run an existing, reusable piece of software called an <strong>action</strong>, rather than requiring you to write all the instructions yourself.</p>
+<p>The <code>@v6</code> and <code>@v2</code> specify versions of those actions.</p>
+<p>The <code>with</code> keyword provides additional options to an action. In our example, <code>--offline</code> tells the link checker to examine local file links without checking external websites. <code>--no-progress</code> suppresses the progress bar, and <code>README.md</code> identifies the file to check.</p>
+<p>If a local link points to a missing file, the check fails and GitHub reports the problem.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="A workflow is not the same as an action">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A workflow is not the same as an action
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>GitHub Actions</strong> is the automation feature. A <strong>workflow</strong> defines an automated process, a <strong>job</strong> groups steps, and an <strong>action</strong> is reusable software that performs a particular task.</p>
+<p>Actions can be created by GitHub or by other developers. Because they execute code, you should review their documentation and source before using them in your repository.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="a-few-things-to-know-about-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="a-few-things-to-know-about-yaml">A few things to know about YAML</h2>
+<p>You may have noticed a few formatting conventions in the example:</p>
+<ul>
+<li><strong>Indentation matters.</strong> Spaces tell YAML which instructions belong together.</li>
+<li><strong>Colons (<code>:</code>)</strong> separate a setting from its value.</li>
+<li><strong>Dashes (<code>-</code>)</strong> identify items in a list, such as individual steps.</li>
+<li><strong>Comments (<code>#</code>)</strong> can be used to explain what a line does without affecting the workflow.</li>
+</ul>
+<p>You don’t need to memorize YAML syntax. The important thing is to recognize how the instructions are organized.</p>
+</section>
+<section id="where-do-workflows-live" class="level2">
+<h2 class="anchored" data-anchor-id="where-do-workflows-live">Where do workflows live?</h2>
+<p>GitHub looks for workflow files in a specific directory within your repository:</p>
+<pre class="text"><code>.github/
+└── workflows/
+    └── check-links.yml</code></pre>
+<p>A repository can contain multiple workflow files, each automating a different task.</p>
+<p>For example, one might check documentation links, while another runs software tests or validates data files.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Before moving on">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before moving on
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Look back at the YAML example. Can you identify:</p>
+<ul>
+<li>What event starts the workflow?</li>
+<li>How many jobs does it contain?</li>
+<li>How many steps will GitHub execute?</li>
+<li>Which file will be checked?</li>
+</ul>
+<p>You should be able to answer these questions by reading the YAML, without running anything.</p>
+<p>In the next section, you’ll add this workflow to your own repository and see GitHub Actions in action.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="create-your-first-automation" class="level1">
+<h1>Create your first automation</h1>
+<p>Now that you understand the structure of a GitHub Actions workflow, let’s add one to your research repository!</p>
+<p>We’ll use the workflow from the previous section to automatically check links in your <code>README.md</code> whenever a pull request is opened or updated.</p>
+<p>You can follow along using your own repository or the example research project.</p>
+<section id="step-1-create-the-workflow-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-the-workflow-file">Step 1: Create the workflow file</h2>
+<ol type="1">
+<li><p>Open your repository on GitHub and navigate to the <strong>Code</strong> tab.</p></li>
+<li><p>Above the file list, click <strong>Add file → Create new file</strong>.</p></li>
+<li><p>In the filename field, enter:</p>
+<p><code>.github/workflows/check-links.yml</code></p>
+<p>GitHub will automatically create the <code>.github</code> and <code>workflows</code> directories if they don’t already exist.</p></li>
+<li><p>Copy the following YAML into the file editor:</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Check documentation links</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> read</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">check-links</span><span class="kw">:</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Get repository files</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v6</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check local links</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> lycheeverse/lychee-action@v2</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">args</span><span class="kw">:</span><span class="at"> --offline --no-progress README.md</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">failIfEmpty</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is the same workflow we explored earlier, with one additional option: <code>failIfEmpty: false</code>. It prevents the check from failing simply because your README contains no local links to check. Of course, to make the automation useful, your README should contain links to other files in the repository!</p>
+<p>Take a moment to review the file before committing it. Can you recognize the trigger, job, and two steps?</p>
+</section>
+<section id="step-2-propose-the-workflow-as-a-change" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-propose-the-workflow-as-a-change">Step 2: Propose the workflow as a change</h2>
+<p>Remember how we used branches and pull requests in the earlier Pads? We’ll use the same approach here.</p>
+<ol type="1">
+<li>Click <strong>Commit changes…</strong>.</li>
+<li>Enter a commit message, such as <code>Add automated documentation link check</code>.</li>
+<li>Select <strong>Create a new branch for this commit and start a pull request</strong>.</li>
+<li>Name the branch <code>add-link-check</code>.</li>
+<li>Click <strong>Propose changes</strong>.</li>
+</ol>
+<p>GitHub will take you to the page for creating a pull request.</p>
+<p>Give your pull request a descriptive title, such as <code>Add automated link checking</code>, and briefly explain what the workflow does.</p>
+<p>Click <strong>Create pull request</strong>.</p>
+</section>
+<section id="step-3-let-github-do-the-work" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-let-github-do-the-work">Step 3: Let GitHub do the work</h2>
+<p>You’ve just created a pull request containing a GitHub Actions workflow.</p>
+<p>Remember the trigger we defined?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Opening the pull request tells GitHub to run the workflow. GitHub can now retrieve the repository files, check the local links in your README, and report the result.</p>
+<p><strong>You did not need to install anything or run a command yourself!</strong></p>
+<div class="callout callout-style-default callout-note callout-titled" title="If the workflow doesn't run immediately">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>If the workflow doesn’t run immediately
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GitHub Actions must be enabled for your repository. Some organizations restrict which actions can run, and pull requests from forks may require approval before workflows execute. If needed, check your repository’s <strong>Settings → Actions → General</strong>, or ask a repository maintainer.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Before moving on">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before moving on
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Keep your pull request open. <strong>Don’t merge it yet.</strong></p>
+<p>In the next section, we’ll explore where GitHub displays the results, what the different statuses mean, and how to inspect the individual steps that were executed.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="inspect-your-workflow-results" class="level1">
+<h1>Inspect your workflow results</h1>
+<p>You’ve created your first GitHub Actions workflow and opened a pull request. But did the automation actually run? And how do you know whether it worked?</p>
+<p>GitHub records the results of every workflow run, including which steps were executed, how long they took, and whether they succeeded or failed.</p>
+<p>Let’s find out what happened to yours!</p>
+<section id="step-1-check-your-pull-request" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-check-your-pull-request">Step 1: Check your pull request</h2>
+<ol type="1">
+<li>Return to the pull request you created in the previous section.</li>
+<li>Scroll down to the section showing the automated checks.</li>
+<li>Look for the job named <code>check-links</code>.</li>
+</ol>
+<p>You may see one of several statuses:</p>
+<ul>
+<li><i class="bi bi-hourglass-split"></i> <strong>Pending or in progress:</strong> GitHub is waiting to start or is still running the check.</li>
+<li><i class="bi bi-check-circle-fill text-success"></i> <strong>Success:</strong> The check completed without detecting a problem.</li>
+<li><i class="bi bi-x-circle-fill text-danger"></i> <strong>Failure:</strong> Something went wrong, and the check needs attention.</li>
+</ul>
+<p>If the check succeeded, congratulations! Your first automation has run.</p>
+<p>If it failed, don’t worry. We’ll learn how to investigate failures shortly.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="What does a green checkmark mean?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What does a green checkmark mean?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A successful check means that the specific conditions tested by the workflow were satisfied.</p>
+<p>In our case, it means the link checker did not detect broken local links in the README. It does <strong>not</strong> mean that every file, analysis, or scientific result in the repository is correct.</p>
+<p><strong>Automation is only as comprehensive as the checks we define</strong>. This becomes especially important in scientific research, where a green checkmark does not guarantee that the science is correct.</p>
+</div>
+</div>
+</section>
+<section id="step-2-explore-the-actions-tab" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-explore-the-actions-tab">Step 2: Explore the Actions tab</h2>
+<p>The pull request gives you a quick summary, but GitHub provides more detailed information about what happened.</p>
+<ol type="1">
+<li>Navigate to the <strong>Actions</strong> tab at the top of your repository.</li>
+<li>In the left sidebar, find <strong>Check documentation links</strong>. This is the name we gave our workflow in the YAML file.</li>
+<li>Click it to see the workflow’s execution history.</li>
+<li>Select the run associated with your pull request.</li>
+</ol>
+<p>You should see a summary of the workflow run, including its status and the jobs it executed.</p>
+<p>Remember that our workflow contains only one job, called <code>check-links</code>.</p>
+</section>
+<section id="step-3-look-inside-the-job" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-look-inside-the-job">Step 3: Look inside the job</h2>
+<ol type="1">
+<li>Click the <code>check-links</code> job, either in the visualization graph or under <strong>Jobs</strong>.</li>
+<li>You will see a list of steps executed by GitHub.</li>
+<li>Expand <strong>Get repository files</strong> to see what happened when GitHub retrieved your repository.</li>
+<li>Expand <strong>Check local links</strong> to inspect the output from the link checker.</li>
+</ol>
+<p>These detailed records are called <strong>logs</strong>.</p>
+<p>Logs are particularly useful when something goes wrong. Rather than guessing why an automated task failed, you can examine what GitHub actually did and what messages the tools produced.</p>
+<p>You may also notice additional steps, such as <strong>Set up job</strong> and <strong>Complete job</strong>. GitHub adds these to prepare and clean up the computing environment.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it: Follow the execution">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it: Follow the execution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compare what you see in the Actions tab with the YAML file you created.</p>
+<ul>
+<li>Can you find the job defined under <code>jobs:</code>?</li>
+<li>Can you identify the two steps defined under <code>steps:</code>?</li>
+<li>What does the link checker report about your README?</li>
+</ul>
+<p>You’ve now followed the automation from its instructions in YAML to its execution on GitHub.</p>
+</div>
+</div>
+</section>
+<section id="why-inspect-successful-runs" class="level2">
+<h2 class="anchored" data-anchor-id="why-inspect-successful-runs">Why inspect successful runs?</h2>
+<p>Even when a workflow passes, its logs can tell you useful things about how it operates.</p>
+<p>For example, you might discover that a check is examining fewer files than you expected or that a step is being skipped.</p>
+<p>A successful run is a good starting point, but understanding <strong>what was actually checked</strong> is just as important.</p>
+<p>In the next section, we’ll intentionally introduce a broken link, watch the automation detect it, and use the logs to figure out what needs to be fixed.</p>
+</section>
+</section>
+<section id="what-happens-when-a-check-fails" class="level1">
+<h1>What happens when a check fails?</h1>
+<p>So far, you’ve created an automated link checker and explored its results. If everything went well, GitHub reported that your check passed.</p>
+<p>But automation is particularly useful when something goes wrong.</p>
+<p>Let’s introduce a problem into your repository and see whether GitHub catches it!</p>
+<section id="step-1-introduce-a-broken-link" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-introduce-a-broken-link">Step 1: Introduce a broken link</h2>
+<p>Imagine you’re documenting the water-quality analysis from our earlier Pads. You want to link to some quality-control notes, but you accidentally reference a file that doesn’t exist.</p>
+<p>Let’s reproduce that mistake.</p>
+<ol type="1">
+<li>Navigate to the <strong>Code</strong> tab of your repository.</li>
+<li>Make sure you’re working on the <code>add-link-check</code> branch, not <code>main</code>.</li>
+<li>Open your <code>README.md</code> file.</li>
+<li>Click the pencil icon (<strong>Edit this file</strong>).</li>
+<li>Add the following line somewhere in your README:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quality-control notes</span><span class="co">](missing-qc-notes.md)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is a Markdown link pointing to a file called <code>missing-qc-notes.md</code> in the same directory as your README.</p>
+<p><strong>Don’t create that file!</strong> We want the link to be broken.</p>
+<ol start="6" type="1">
+<li>Click <strong>Commit changes…</strong>.</li>
+<li>Enter a commit message such as <code>Add link to quality-control notes</code>.</li>
+<li>Commit the change directly to your <code>add-link-check</code> branch.</li>
+</ol>
+<p>Because your pull request is still open, GitHub automatically adds the new commit to it.</p>
+</section>
+<section id="step-2-watch-the-automation-run-again" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-watch-the-automation-run-again">Step 2: Watch the automation run again</h2>
+<p>Return to your pull request.</p>
+<p>Remember that we configured the workflow to run whenever a pull request is opened or updated.</p>
+<p>By pushing a new commit to the pull request’s branch, you have triggered another run.</p>
+<ol type="1">
+<li>Find the automated checks near the bottom of your pull request.</li>
+<li>Locate <code>check-links</code>.</li>
+<li>Examine its status.</li>
+</ol>
+<p>This time, you should see a <strong>failed check</strong>, indicated by a red X.</p>
+<p>GitHub has detected that something is wrong with the documentation.</p>
+<p>But what exactly failed?</p>
+</section>
+<section id="step-3-investigate-the-failure" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-investigate-the-failure">Step 3: Investigate the failure</h2>
+<p>Rather than guessing, let’s look at the evidence.</p>
+<ol type="1">
+<li>Navigate to the <strong>Actions</strong> tab.</li>
+<li>Select <strong>Check documentation links</strong>.</li>
+<li>Open the most recent workflow run associated with your pull request.</li>
+<li>Click the <code>check-links</code> job.</li>
+<li>Expand <strong>Check local links</strong> to examine the logs.</li>
+</ol>
+<p>Look for a message mentioning <code>missing-qc-notes.md</code>.</p>
+<p>The link checker should report that the referenced file could not be found.</p>
+<p>Notice that the workflow itself was able to start and execute. The failure occurred because one of its checks detected a problem.</p>
+<p>This distinction is important: <strong>a failed automated check does not necessarily mean that the automation is broken. It may mean the automation is doing exactly what it was designed to do!</strong></p>
+<div class="callout callout-style-default callout-note callout-titled" title="An error doesn't always mean a failed test">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>An error doesn’t always mean a failed test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes, we deliberately write tests that expect software to produce an error.</p>
+<p>For example, a scientific function might be designed to raise an error when a required variable is missing from a dataset. A test can intentionally provide a dataset without that variable to verify that the function responds appropriately.</p>
+<p><strong>If the expected error occurs, the test passes!</strong> If the function silently accepts the invalid data, the test fails.</p>
+<p>This is different from a workflow failing because an unexpected problem occurred.</p>
+<p>The important distinction is between <strong>the behavior we expect</strong> and <strong>the behavior we observe</strong>. Automated tests check whether the two match.</p>
+</div>
+</div>
+</section>
+<section id="step-4-interpret-the-result" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-interpret-the-result">Step 4: Interpret the result</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Investigate before fixing">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Investigate before fixing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before changing anything, use the logs to answer these questions:</p>
+<ol type="1">
+<li>Which step failed?</li>
+<li>Which file contains the broken link?</li>
+<li>Which file is the link trying to reach?</li>
+<li>What would you need to change to make the check pass?</li>
+</ol>
+<p>Think about what you would do if this failure appeared in a collaborator’s pull request rather than one you created yourself.</p>
+</div>
+</div>
+</section>
+<section id="why-is-this-useful-for-research" class="level2">
+<h2 class="anchored" data-anchor-id="why-is-this-useful-for-research">Why is this useful for research?</h2>
+<p>Imagine a larger research project with several contributors. Someone reorganizes the notebooks, moves a figure, or renames a data file.</p>
+<p>Without automated checks, broken references might remain unnoticed until someone tries to reproduce the analysis or reuse the repository months later.</p>
+<p>With GitHub Actions, problems can be detected as soon as a change is proposed, giving researchers an opportunity to correct them before they become part of the main project.</p>
+<p>Of course, a failed check doesn’t always mean the proposed change is wrong. Sometimes the check itself needs to be updated. That’s why <strong>automated feedback should support human review, not replace it.</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Don't merge the pull request yet!">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Don’t merge the pull request yet!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Leave the broken link in place for now, and keep your pull request open.</p>
+<p>In the next section, we’ll correct the problem and see whether GitHub automatically recognizes that the issue has been resolved.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="fix-the-problem" class="level1">
+<h1>Fix the problem</h1>
+<p>Your automated check has detected a broken link, and you’ve used the logs to identify the problem. Now it’s time to fix it!</p>
+<p>Remember that GitHub Actions doesn’t automatically correct the problem. It provides feedback so you can decide what needs to change.</p>
+<section id="step-1-correct-the-broken-link" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-correct-the-broken-link">Step 1: Correct the broken link</h2>
+<p>In the previous section, we deliberately added this link to the README:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quality-control notes</span><span class="co">](missing-qc-notes.md)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>But the file <code>missing-qc-notes.md</code> doesn’t exist.</p>
+<p>There are several ways to resolve this:</p>
+<ul>
+<li><strong>Correct the link:</strong> If the intended document already exists under a different name or location, update the link to point to it.</li>
+<li><strong>Create the missing file:</strong> If the documentation is genuinely needed, create it and make sure it contains the appropriate information.</li>
+<li><strong>Remove the link:</strong> If the document isn’t needed, remove the reference rather than leaving a broken link.</li>
+</ul>
+<p>For this exercise, the simplest solution is to remove the example link we deliberately introduced.</p>
+<ol type="1">
+<li>Return to the <strong>Code</strong> tab of your repository.</li>
+<li>Make sure you’re still on the <code>add-link-check</code> branch.</li>
+<li>Open <code>README.md</code> and click <strong>Edit this file</strong>.</li>
+<li>Remove the broken link.</li>
+<li>Click <strong>Commit changes…</strong> and use a message such as <code>Fix broken documentation link</code>.</li>
+<li>Commit directly to the <code>add-link-check</code> branch.</li>
+</ol>
+<p>Your existing pull request will automatically include this new commit.</p>
+</section>
+<section id="step-2-check-the-results-again" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-check-the-results-again">Step 2: Check the results again</h2>
+<p>Return to your pull request.</p>
+<p>Because you added another commit, GitHub will trigger the link-checking workflow again.</p>
+<ol type="1">
+<li>Find the automated checks at the bottom of the pull request.</li>
+<li>Look for the <code>check-links</code> job.</li>
+<li>Once the run completes, check its status.</li>
+</ol>
+<p>If everything worked as expected, the check should now <strong>pass</strong>!</p>
+<p>You didn’t need to manually start the workflow. GitHub automatically checked the updated README because of the trigger you configured.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="What if the check still fails?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What if the check still fails?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t assume that your correction was unsuccessful. Return to the <strong>Actions</strong> tab, open the latest run, and inspect the logs.</p>
+<p>The link checker may have identified another broken link, or the workflow itself may have encountered a different problem.</p>
+<p>The important habit is to <strong>use the information in the logs to understand the failure</strong>, rather than changing things at random until the check passes.</p>
+</div>
+</div>
+</section>
+<section id="step-3-compare-the-workflow-runs" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-compare-the-workflow-runs">Step 3: Compare the workflow runs</h2>
+<p>Navigate to the <strong>Actions</strong> tab and open the history for <strong>Check documentation links</strong>.</p>
+<p>You should now have a record of several runs:</p>
+<ol type="1">
+<li><strong>Initial run:</strong> The documentation check passed, assuming there were no pre-existing broken links.</li>
+<li><strong>Second run:</strong> The check failed because of the missing file.</li>
+<li><strong>Third run:</strong> The check passed after you corrected the problem.</li>
+</ol>
+<p>Each run records the state of the repository when the automation was executed.</p>
+<p>This history is valuable in collaborative research. It helps contributors understand when a problem appeared, what changed, and whether the correction resolved it.</p>
+</section>
+<section id="step-4-complete-your-pull-request" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-complete-your-pull-request">Step 4: Complete your pull request</h2>
+<p>Now that your automated check passes, you can complete the pull request, assuming the proposed changes are ready and any required reviews have been completed.</p>
+<ol type="1">
+<li>Return to your pull request.</li>
+<li>Review the changes under <strong>Files changed</strong>.</li>
+<li>Confirm that the workflow file is correct and the deliberately broken link has been removed.</li>
+<li>If you have permission and the changes are ready, click <strong>Merge pull request</strong> and confirm the merge.</li>
+</ol>
+<p>Your repository now contains its first GitHub Actions workflow!</p>
+<p>The next time someone opens or updates a pull request, GitHub will automatically check the local links in the README.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="A passing check is not the same as approval">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>A passing check is not the same as approval
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Just because an automated check passes doesn’t mean a change should automatically be merged.</p>
+<p>For instance, a notebook may run without errors while using an inappropriate statistical method, or a dataset may pass format validation while containing scientifically questionable values.</p>
+<p><strong>Automation catches problems we know how to check for. Scientific review still requires human judgment.</strong></p>
+</div>
+</div>
+</section>
+<section id="what-have-you-accomplished" class="level2">
+<h2 class="anchored" data-anchor-id="what-have-you-accomplished">What have you accomplished?</h2>
+<p>You’ve now followed the complete cycle of an automated check:</p>
+<ol type="1">
+<li>Defined a task in a YAML workflow file.</li>
+<li>Triggered the workflow through a pull request.</li>
+<li>Inspected the results in GitHub Actions.</li>
+<li>Introduced and diagnosed a failure.</li>
+<li>Corrected the problem and verified that the check passed.</li>
+</ol>
+<p>More importantly, you now have an automated check that can continue helping maintain your repository after you’ve completed this Pad.</p>
+<p>In the next section, we’ll consider when automations should run and how different triggers can support different research tasks.</p>
+</section>
+</section>
+<section id="choose-when-automation-should-run" class="level1">
+<h1>Choose when automation should run</h1>
+<p>You’ve now seen how GitHub Actions can catch a problem, report it, and verify that a correction works.</p>
+<p>So far, our workflow has run whenever a pull request is opened or updated. But is that always the best time to run an automated task?</p>
+<p><strong>Choosing the right trigger is part of designing a useful automation.</strong></p>
+<section id="one-workflow-multiple-triggers" class="level2">
+<h2 class="anchored" data-anchor-id="one-workflow-multiple-triggers">One workflow, multiple triggers</h2>
+<p>Remember the <code>on</code> section of our YAML file?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This tells GitHub to run the link checker whenever someone opens or updates a pull request.</p>
+<p>But suppose you also want to check links after changes are merged into <code>main</code>, or whenever you decide to run the check yourself.</p>
+<p>You can combine multiple triggers:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>With this configuration, our workflow will run when:</p>
+<ul>
+<li><strong>A pull request is opened or updated:</strong> Catch broken links before merging.</li>
+<li><strong>Changes are pushed to <code>main</code>:</strong> Verify that the documentation still works after changes are merged.</li>
+<li><strong>Someone starts the workflow manually:</strong> Check the documentation whenever needed, even if nothing has changed.</li>
+</ul>
+<p>Notice that we didn’t need to change the job or its steps. We only changed <strong>when</strong> GitHub executes them.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="What is workflow_dispatch?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What is workflow_dispatch?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>workflow_dispatch</code> event enables a <strong>Run workflow</strong> button in the Actions tab.</p>
+<p>Once the updated workflow file is present on the default branch, someone with write access to the repository can select the workflow, click <strong>Run workflow</strong>, choose a branch, and start it manually.</p>
+<p>This is useful when you want to check something on demand rather than waiting for a particular repository event.</p>
+</div>
+</div>
+</section>
+<section id="should-we-automate-everything-all-the-time" class="level2">
+<h2 class="anchored" data-anchor-id="should-we-automate-everything-all-the-time">Should we automate everything, all the time?</h2>
+<p>Not necessarily!</p>
+<p>Running a short documentation check on every pull request is generally inexpensive. But some scientific tasks are more demanding.</p>
+<p>For example, a research workflow might take several hours to process a large dataset. Running it after every small documentation change could waste computing resources without providing useful information.</p>
+<p>Before configuring an automation, consider:</p>
+<ul>
+<li><strong>When is the result needed?</strong> Before merging, after a release, or periodically?</li>
+<li><strong>How expensive is the task?</strong> Does it take seconds, minutes, or hours?</li>
+<li><strong>How often does the relevant information change?</strong> Does it depend on repository changes or external datasets?</li>
+</ul>
+<p>GitHub Actions also allows more specific conditions, such as running only when particular files or folders change.</p>
+<p>The goal isn’t to automate as many tasks as possible. It’s to <strong>automate useful tasks at the right time</strong>.</p>
+</section>
+<section id="try-it-add-another-trigger-optional" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-add-another-trigger-optional">Try it: Add another trigger (optional)</h2>
+<p>Want to experiment with your new workflow?</p>
+<ol type="1">
+<li>Open <code>.github/workflows/check-links.yml</code> in your repository.</li>
+<li>Create a branch and edit the <code>on</code> section to include <code>workflow_dispatch</code>, as shown above.</li>
+<li>Commit your change, open a pull request, and merge it after checking the results.</li>
+<li>Navigate to the <strong>Actions</strong> tab and select <strong>Check documentation links</strong>.</li>
+<li>Click <strong>Run workflow</strong>, select your default branch, and start the check.</li>
+<li>Inspect the results, just as you did in the previous sections.</li>
+</ol>
+<p>You’ve now run the same automated check in two different ways: in response to a repository event and on demand.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Think about your research">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Think about your research
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the task you identified at the beginning of this Pad. When would you want it to run?</p>
+<p>Maybe every time someone proposes a change, once a week, or only when you explicitly request it.</p>
+<p>The answer depends on what you’re checking and how the results will help your research.</p>
+</div>
+</div>
+<p>In the final section, we’ll explore other applications of GitHub Actions and look at real research repositories whose automation workflows you can adapt for your own projects.</p>
+</section>
+</section>
+<section id="want-to-go-further" class="level1">
+<h1>Want to go further?</h1>
+<p>You’ve created your first GitHub Actions workflow! But checking documentation links is only one of the many tasks that can be automated.</p>
+<p>GitHub Actions can also run software tests, execute research notebooks, validate datasets, process new observations, and publish software releases.</p>
+<p>You don’t need to create these automations from scratch. Many open-source research projects already use GitHub Actions, and their workflow files can provide useful starting points for your own projects.</p>
+<section id="explore-real-research-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="explore-real-research-workflows">Explore real research workflows</h2>
+<p>We’ve started a collection of repositories that demonstrate different applications of GitHub Actions.</p>
+<section id="run-software-tests" class="level3">
+<h3 class="anchored" data-anchor-id="run-software-tests">Run software tests</h3>
+<p><strong><a href="https://github.com/LinkedEarth/Pyleoclim_util/tree/master/.github/workflows">Pyleoclim</a></strong> — A Python package for analyzing paleoclimate time series.</p>
+<p>Pyleoclim uses automated testing to help identify problems when changes are made to its code.</p>
+<p><strong>What to explore:</strong> How the workflow sets up Python, installs dependencies, and runs tests.</p>
+</section>
+<section id="execute-jupyter-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="execute-jupyter-notebooks">Execute Jupyter notebooks</h3>
+<p><strong><a href="https://github.com/LinkedEarth/PyleoTutorials/tree/main/.github/workflows">PyleoTutorials</a></strong> — A collection of Jupyter notebooks demonstrating scientific analyses with Pyleoclim.</p>
+<p>Notebook execution can be automated to check that tutorials continue to run successfully as software and dependencies evolve.</p>
+<p><strong>What to explore:</strong> How the computing environment is prepared and how notebooks are executed.</p>
+</section>
+<section id="validate-scientific-data" class="level3">
+<h3 class="anchored" data-anchor-id="validate-scientific-data">Validate scientific data</h3>
+<p><strong><a href="https://github.com/BrunaLab/HeliconiaSurveys/tree/master/.github/workflows">Heliconia Demography Project</a></strong> — A research repository containing ecological survey data and data-cleaning and validation workflows.</p>
+<p>Automated validation helps identify problematic observations and inconsistencies before datasets are reused or archived.</p>
+<p><strong>What to explore:</strong> How GitHub Actions connects to scripts that check scientific data.</p>
+<p>For more examples using R, explore the <a href="https://github.com/cct-datascience/github-actions-for-research">GitHub Actions for Research collection</a>, which includes data validation, automated reports, and other research workflows.</p>
+</section>
+<section id="process-new-observations-on-a-schedule" class="level3">
+<h3 class="anchored" data-anchor-id="process-new-observations-on-a-schedule">Process new observations on a schedule</h3>
+<p><strong><a href="https://github.com/orcasound/orca-action-workflow/blob/main/.github/workflows/ooi_processing.yml">Orcasound</a></strong> — A project working with underwater acoustic observations, including data from the Ocean Observatories Initiative.</p>
+<p>Its scheduled workflow retrieves hydrophone observations, processes the recordings, and generates spectrograms.</p>
+<p><strong>What to explore:</strong> How <code>schedule</code> triggers periodic processing and how the workflow retrieves data and saves its outputs.</p>
+</section>
+<section id="publish-software-releases" class="level3">
+<h3 class="anchored" data-anchor-id="publish-software-releases">Publish software releases</h3>
+<p><strong><a href="https://github.com/LinkedEarth/Pyleoclim_util">Pyleoclim</a></strong> — Pyleoclim also provides an example of managing software versions and distributing releases through PyPI.</p>
+<p>Publishing workflows can automate the steps needed to build and distribute a new software version.</p>
+<p><strong>What to explore:</strong> How release-related automation connects to software packaging and publication.</p>
+<p>For a specific example of a workflow triggered by publishing a GitHub release, examine <a href="https://github.com/openreview/openreview-py/blob/master/.github/workflows/publish-pypi.yml">OpenReview’s PyPI publishing workflow</a>.</p>
+</section>
+</section>
+<section id="adapt-a-workflow-to-your-own-research" class="level2">
+<h2 class="anchored" data-anchor-id="adapt-a-workflow-to-your-own-research">Adapt a workflow to your own research</h2>
+<p>When you find an automation that could be useful for your project, open its YAML file in <code>.github/workflows/</code>.</p>
+<p>Try identifying:</p>
+<ol type="1">
+<li><strong>The trigger:</strong> When does it run?</li>
+<li><strong>The jobs and steps:</strong> What tasks does it perform?</li>
+<li><strong>The dependencies:</strong> Does it require particular software, files, credentials, or computing environments?</li>
+<li><strong>The outputs:</strong> How does the workflow report results or save generated files?</li>
+</ol>
+<p>You can use these examples as starting points, but don’t copy them into your repository without understanding what they do. Workflows often contain instructions specific to their original projects, and some require additional permissions or credentials.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Build your own collection">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Build your own collection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As you encounter useful GitHub Actions workflows in other research repositories, bookmark them! Over time, you’ll develop a collection of reusable examples for testing, data validation, documentation, and other tasks relevant to your research.</p>
+</div>
+</div>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
+<p>So far, we’ve used GitHub Actions to run tasks on computing environments provided by GitHub.</p>
+<p>But what happens when your research requires particular software versions, libraries, or system dependencies?</p>
+<p>In the <strong>Containers Deep End</strong>, we’ll explore how containers can provide consistent computing environments and how they can work with automation to support reproducible research.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

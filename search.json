@@ -536,14 +536,231 @@
     "href": "deep-water/github/index.html",
     "title": "GitHub",
     "section": "",
-    "text": "Start with the first pad if you are new to GitHub. The later pads build on the same research repository, so you can practice each skill on a project of your own.\nEach GitHub Pad takes approximately 45–60 minutes to complete. You will get the most from these activities by applying them to one of your own research repositories. If you do not yet have a suitable repository—or would prefer to practice first—an example research project is provided.\n\n  \n    Focus\n    \n      All focuses\n      Data\n      Software\n      Workflows\n      Project Management\n    \n  \n  \n    Language\n    \n      All languages\n      Python\n      R\n    \n  \n  Clear filters\n\n\n\n\n\n\n\n1. Start a Research Repository\nLearn what Git and GitHub each do, then create a repository with a README and an appropriate license.\n\nDataSoftwareWorkflowsPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n2. Save and Share Changes\nMake a change to your project, record it in a commit, and share it on GitHub. Practice with GitHub Desktop if you prefer a visual interface.\n\nDataSoftwareWorkflowsPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n3. Collaborate on a Change\nDescribe a task in an issue, work on a branch, and propose your change through a pull request.\n\nDataSoftwareWorkflowsProject ManagementPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n4. Plan Work with GitHub\nUse issues, labels, milestones, and a project board to organize research tasks and track progress.\n\nProject ManagementPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n5. Release and Cite Your Work\nAdd citation information, make a release, and connect it to Zenodo so others can cite a specific version.\n\nDataSoftwareWorkflowsPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n6. Automate a Task\nCreate a small GitHub Actions workflow that runs a useful check or task when your project changes.\n\nSoftwareWorkflowsPythonR\n\n\nComing soon\n\n\n\n\n\n\nNo pads match those filters. Try changing or clearing a filter.\n\nThese pads are being developed from the LeapFROGS GitHub module.\n← Back to The Deep End"
+    "text": "Start with the first pad if you are new to GitHub. The later pads build on the same research repository, so you can practice each skill on a project of your own.\nEach GitHub Pad takes approximately 45–60 minutes to complete. You will get the most from these activities by applying them to one of your own research repositories. If you do not yet have a suitable repository—or would prefer to practice first—an example research project is provided.\n\n  \n    Focus\n    \n      All focuses\n      Data\n      Software\n      Workflows\n      Project Management\n    \n  \n  \n    Language\n    \n      All languages\n      Python\n      R\n    \n  \n  Clear filters\n\n\n\n\n\n\n\n1. Start a Research Repository\nLearn what Git and GitHub each do, then create a repository with a README and an appropriate license.\n\nDataSoftwareWorkflowsPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n2. Save and Share Changes\nMake a change to your project, record it in a commit, and share it on GitHub. Practice with GitHub Desktop if you prefer a visual interface.\n\nDataSoftwareWorkflowsPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n3. Collaborate on a Change\nDescribe a task in an issue, work on a branch, and propose your change through a pull request.\n\nDataSoftwareWorkflowsProject ManagementPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n4. Plan Work with GitHub\nUse issues, labels, milestones, and a project board to organize research tasks and track progress.\n\nProject ManagementPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n5. Release and Cite Your Work\nAdd citation information, make a release, and connect it to Zenodo so others can cite a specific version.\n\nDataSoftwareWorkflowsPythonR\n\n\nStart this Pad\n\n\n\n\n\n\n\n6. Automate a Task\nCreate a small GitHub Actions workflow that runs a useful check or task when your project changes.\n\nSoftwareWorkflowsPythonR\n\n\nStart this Pad\n\n\n\n\n\n\nNo pads match those filters. Try changing or clearing a filter.\n\nThese pads are being developed from the LeapFROGS GitHub module.\n← Back to The Deep End"
   },
   {
     "objectID": "deep-water/github/automate/index.html",
     "href": "deep-water/github/automate/index.html",
     "title": "Automating with GitHub Actions",
     "section": "",
-    "text": "Overview"
+    "text": "Research projects involve many tasks that need to be repeated: checking documentation, validating files, running tests, or making sure that changes have not introduced new problems. Performing these checks manually takes time, and it is easy to forget a step.\nGitHub Actions allows you to automate these tasks. For example, every time someone proposes a change to your repository, GitHub can automatically check that the links in your documentation still work.\nIn this Pad, you will create your first automated workflow, see how GitHub runs it, and learn what happens when a check fails. You will also explore how automation can help maintain the reliability and reproducibility of research projects.\n\n\nBy the end of this Pad, you will be able to:\n\nIdentify research tasks that could benefit from automation.\nUnderstand the basic structure of a GitHub Actions workflow, including triggers, jobs, and steps.\nRecognize how YAML files define automated workflows.\nCreate a workflow that automatically checks links in your repository.\nFind and interpret workflow results and logs in GitHub.\nInvestigate a failed check, correct the problem, and run the workflow again.\nRecognize the benefits and limitations of automated checks in scientific research.\n\n\n\n\nTo complete this Pad, you will need:\n\nA GitHub account and access to a repository where you can make changes.\nA research repository, preferably one containing a README.md or other Markdown documentation. You can use your own repository or the example project provided in this lesson.\nBasic familiarity with GitHub, including commits, branches, and pull requests, as covered in the previous Pads.\n\nYou will work directly in GitHub’s web interface. No programming experience, command line, or additional software is required.\nIf you have been following the previous Pads, you can continue working with the same research repository."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#what-you-will-learn",
+    "href": "deep-water/github/automate/index.html#what-you-will-learn",
+    "title": "Automating with GitHub Actions",
+    "section": "",
+    "text": "By the end of this Pad, you will be able to:\n\nIdentify research tasks that could benefit from automation.\nUnderstand the basic structure of a GitHub Actions workflow, including triggers, jobs, and steps.\nRecognize how YAML files define automated workflows.\nCreate a workflow that automatically checks links in your repository.\nFind and interpret workflow results and logs in GitHub.\nInvestigate a failed check, correct the problem, and run the workflow again.\nRecognize the benefits and limitations of automated checks in scientific research."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#before-you-begin",
+    "href": "deep-water/github/automate/index.html#before-you-begin",
+    "title": "Automating with GitHub Actions",
+    "section": "",
+    "text": "To complete this Pad, you will need:\n\nA GitHub account and access to a repository where you can make changes.\nA research repository, preferably one containing a README.md or other Markdown documentation. You can use your own repository or the example project provided in this lesson.\nBasic familiarity with GitHub, including commits, branches, and pull requests, as covered in the previous Pads.\n\nYou will work directly in GitHub’s web interface. No programming experience, command line, or additional software is required.\nIf you have been following the previous Pads, you can continue working with the same research repository."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#what-makes-a-task-worth-automating",
+    "href": "deep-water/github/automate/index.html#what-makes-a-task-worth-automating",
+    "title": "Automating with GitHub Actions",
+    "section": "What makes a task worth automating?",
+    "text": "What makes a task worth automating?\nGood candidates for automation generally have three characteristics:\n\nRepeatable: The task needs to be performed regularly, such as whenever files change.\nWell-defined: There are clear instructions for completing the task.\nVerifiable: There is a way to determine whether the task succeeded or failed.\n\nFor example, GitHub can automatically check whether links point to existing files, whether required files are present, or whether software tests pass.\nBut not everything should be automated. Consider the water-quality project from the earlier Pads. A computer can check whether a dataset contains missing values or whether a notebook runs without errors. However, deciding whether the quality-control procedure is scientifically appropriate requires domain knowledge and judgment.\nAn automated check can tell you whether something meets a defined requirement. It cannot guarantee that your research is scientifically correct."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#think-about-your-own-repository",
+    "href": "deep-water/github/automate/index.html#think-about-your-own-repository",
+    "title": "Automating with GitHub Actions",
+    "section": "Think about your own repository",
+    "text": "Think about your own repository\n\n\n\n\n\n\nTipTry it: Find a task worth automating\n\n\n\nOpen your research repository on GitHub and look at your README.md or other project documentation.\n\nFind two or three links to files, figures, notebooks, or other documentation. Click them to see whether they work.\nImagine making changes to the repository over several months. Would you want to repeat this check after every change?\nThink of one other task in your research project that you perform repeatedly. Could a computer do it following a consistent set of instructions?\n\nYou don’t need to implement anything yet. Just identify a task that could benefit from automation."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#from-a-manual-check-to-github-actions",
+    "href": "deep-water/github/automate/index.html#from-a-manual-check-to-github-actions",
+    "title": "Automating with GitHub Actions",
+    "section": "From a manual check to GitHub Actions",
+    "text": "From a manual check to GitHub Actions\nGitHub provides a feature called GitHub Actions that lets you automate tasks in your repository.\nInstead of remembering to check your documentation manually, you can tell GitHub:\n\nWhenever someone opens or updates a pull request, check whether the links in the repository documentation work.\n\nGitHub will perform that check and report whether it passed or failed. If a problem is detected, you can investigate and correct it before merging the change.\nIn the next section, we’ll look at how these instructions are written in a workflow file, and how GitHub knows when and what to run."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#what-does-a-workflow-look-like",
+    "href": "deep-water/github/automate/index.html#what-does-a-workflow-look-like",
+    "title": "Automating with GitHub Actions",
+    "section": "What does a workflow look like?",
+    "text": "What does a workflow look like?\nHere is a workflow that checks links in a repository’s README.md whenever someone opens or updates a pull request.\nname: Check documentation links\n\non:\n  pull_request:\n\npermissions:\n  contents: read\n\njobs:\n  check-links:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Get repository files\n        uses: actions/checkout@v6\n\n      - name: Check local links\n        uses: lycheeverse/lychee-action@v2\n        with:\n          args: --offline --no-progress README.md\nAt first glance, this might look complicated, but the workflow is essentially a short recipe. In fact, it is closely related to scientific workflows you may have used in your research. It has a name, a trigger, and a series of steps to perform.\nLet’s break it down.\n\n1. Name: What is this workflow called?\nname: Check documentation links\nThis gives your workflow a recognizable name. You’ll see it in GitHub’s Actions tab, where you can inspect automated tasks and their results.\n\n\n2. Trigger: When should it run?\non:\n  pull_request:\nThe on keyword defines the event that starts the workflow, also called a trigger.\nHere, the workflow runs when a pull request is opened, reopened, or updated with new commits.\nOther triggers are possible, including pushing changes to a branch, publishing a release, running on a schedule, or starting a workflow manually.\nThese triggers allow you to automate tasks at the right time. For instance, consider the following scenarios:\n\nCheck links: Run whenever a pull request is opened or updated, so you can catch broken links before merging.\n\nRun tests: Run whenever a pull request is opened or updated, so you can catch errors before merging.\n\nUpdate a website: Run whenever changes are pushed to the main branch, so the website is always up to date.\n\nPublish a new software version to PyPI: Run whenever a release is published, so the new version is automatically registered.\n\nCheck whether a research workflow still works: Run on a schedule to verify that an analysis can still execute successfully, even when no one is actively working on the repository.\n\nCheck whether a new version of a dataset is available: Run on a schedule, so you can automatically download and process new data when a new version is detected.\n\n\n\n3. Permissions: What can the workflow access?\npermissions:\n  contents: read\nThis gives the workflow read-only access to repository contents through GitHub’s automatically provided token.\nOur link checker needs to read files, but it does not need permission to modify the repository.\nGood practice: Give automated workflows only the permissions they need.\n\n\n4. Jobs and runners: Where does the work happen?\njobs:\n  check-links:\n    runs-on: ubuntu-latest\nA workflow contains one or more jobs. Each job performs a specific set of tasks.\nOur workflow contains one job named check-links.\nThe runs-on instruction tells GitHub what computing environment to use. Here, GitHub provides a virtual machine running Ubuntu (a Linux operating system).\nYou don’t need to install Ubuntu on your computer. GitHub runs the job on a separate machine.\n\n\n5. Steps: What should GitHub do?\nsteps:\n  - name: Get repository files\n    uses: actions/checkout@v6\n\n  - name: Check local links\n    uses: lycheeverse/lychee-action@v2\n    with:\n      args: --offline --no-progress README.md\nEach job contains one or more steps, executed in order.\nOur workflow has two:\n\nGet repository files: The checkout action makes the repository files available on the runner.\nCheck local links: The lychee action looks for broken links in README.md.\n\nNotice the uses keyword. It tells GitHub to run an existing, reusable piece of software called an action, rather than requiring you to write all the instructions yourself.\nThe @v6 and @v2 specify versions of those actions.\nThe with keyword provides additional options to an action. In our example, --offline tells the link checker to examine local file links without checking external websites. --no-progress suppresses the progress bar, and README.md identifies the file to check.\nIf a local link points to a missing file, the check fails and GitHub reports the problem.\n\n\n\n\n\n\nNoteA workflow is not the same as an action\n\n\n\nGitHub Actions is the automation feature. A workflow defines an automated process, a job groups steps, and an action is reusable software that performs a particular task.\nActions can be created by GitHub or by other developers. Because they execute code, you should review their documentation and source before using them in your repository."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#a-few-things-to-know-about-yaml",
+    "href": "deep-water/github/automate/index.html#a-few-things-to-know-about-yaml",
+    "title": "Automating with GitHub Actions",
+    "section": "A few things to know about YAML",
+    "text": "A few things to know about YAML\nYou may have noticed a few formatting conventions in the example:\n\nIndentation matters. Spaces tell YAML which instructions belong together.\nColons (:) separate a setting from its value.\nDashes (-) identify items in a list, such as individual steps.\nComments (#) can be used to explain what a line does without affecting the workflow.\n\nYou don’t need to memorize YAML syntax. The important thing is to recognize how the instructions are organized."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#where-do-workflows-live",
+    "href": "deep-water/github/automate/index.html#where-do-workflows-live",
+    "title": "Automating with GitHub Actions",
+    "section": "Where do workflows live?",
+    "text": "Where do workflows live?\nGitHub looks for workflow files in a specific directory within your repository:\n.github/\n└── workflows/\n    └── check-links.yml\nA repository can contain multiple workflow files, each automating a different task.\nFor example, one might check documentation links, while another runs software tests or validates data files.\n\n\n\n\n\n\nTipBefore moving on\n\n\n\nLook back at the YAML example. Can you identify:\n\nWhat event starts the workflow?\nHow many jobs does it contain?\nHow many steps will GitHub execute?\nWhich file will be checked?\n\nYou should be able to answer these questions by reading the YAML, without running anything.\nIn the next section, you’ll add this workflow to your own repository and see GitHub Actions in action."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-1-create-the-workflow-file",
+    "href": "deep-water/github/automate/index.html#step-1-create-the-workflow-file",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 1: Create the workflow file",
+    "text": "Step 1: Create the workflow file\n\nOpen your repository on GitHub and navigate to the Code tab.\nAbove the file list, click Add file → Create new file.\nIn the filename field, enter:\n.github/workflows/check-links.yml\nGitHub will automatically create the .github and workflows directories if they don’t already exist.\nCopy the following YAML into the file editor:\n\nname: Check documentation links\n\non:\n  pull_request:\n\npermissions:\n  contents: read\n\njobs:\n  check-links:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Get repository files\n        uses: actions/checkout@v6\n\n      - name: Check local links\n        uses: lycheeverse/lychee-action@v2\n        with:\n          args: --offline --no-progress README.md\n          failIfEmpty: false\nThis is the same workflow we explored earlier, with one additional option: failIfEmpty: false. It prevents the check from failing simply because your README contains no local links to check. Of course, to make the automation useful, your README should contain links to other files in the repository!\nTake a moment to review the file before committing it. Can you recognize the trigger, job, and two steps?"
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-2-propose-the-workflow-as-a-change",
+    "href": "deep-water/github/automate/index.html#step-2-propose-the-workflow-as-a-change",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 2: Propose the workflow as a change",
+    "text": "Step 2: Propose the workflow as a change\nRemember how we used branches and pull requests in the earlier Pads? We’ll use the same approach here.\n\nClick Commit changes….\nEnter a commit message, such as Add automated documentation link check.\nSelect Create a new branch for this commit and start a pull request.\nName the branch add-link-check.\nClick Propose changes.\n\nGitHub will take you to the page for creating a pull request.\nGive your pull request a descriptive title, such as Add automated link checking, and briefly explain what the workflow does.\nClick Create pull request."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-3-let-github-do-the-work",
+    "href": "deep-water/github/automate/index.html#step-3-let-github-do-the-work",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 3: Let GitHub do the work",
+    "text": "Step 3: Let GitHub do the work\nYou’ve just created a pull request containing a GitHub Actions workflow.\nRemember the trigger we defined?\non:\n  pull_request:\nOpening the pull request tells GitHub to run the workflow. GitHub can now retrieve the repository files, check the local links in your README, and report the result.\nYou did not need to install anything or run a command yourself!\n\n\n\n\n\n\nNoteIf the workflow doesn’t run immediately\n\n\n\nGitHub Actions must be enabled for your repository. Some organizations restrict which actions can run, and pull requests from forks may require approval before workflows execute. If needed, check your repository’s Settings → Actions → General, or ask a repository maintainer.\n\n\n\n\n\n\n\n\nTipBefore moving on\n\n\n\nKeep your pull request open. Don’t merge it yet.\nIn the next section, we’ll explore where GitHub displays the results, what the different statuses mean, and how to inspect the individual steps that were executed."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-1-check-your-pull-request",
+    "href": "deep-water/github/automate/index.html#step-1-check-your-pull-request",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 1: Check your pull request",
+    "text": "Step 1: Check your pull request\n\nReturn to the pull request you created in the previous section.\nScroll down to the section showing the automated checks.\nLook for the job named check-links.\n\nYou may see one of several statuses:\n\n Pending or in progress: GitHub is waiting to start or is still running the check.\n Success: The check completed without detecting a problem.\n Failure: Something went wrong, and the check needs attention.\n\nIf the check succeeded, congratulations! Your first automation has run.\nIf it failed, don’t worry. We’ll learn how to investigate failures shortly.\n\n\n\n\n\n\nNoteWhat does a green checkmark mean?\n\n\n\nA successful check means that the specific conditions tested by the workflow were satisfied.\nIn our case, it means the link checker did not detect broken local links in the README. It does not mean that every file, analysis, or scientific result in the repository is correct.\nAutomation is only as comprehensive as the checks we define. This becomes especially important in scientific research, where a green checkmark does not guarantee that the science is correct."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-2-explore-the-actions-tab",
+    "href": "deep-water/github/automate/index.html#step-2-explore-the-actions-tab",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 2: Explore the Actions tab",
+    "text": "Step 2: Explore the Actions tab\nThe pull request gives you a quick summary, but GitHub provides more detailed information about what happened.\n\nNavigate to the Actions tab at the top of your repository.\nIn the left sidebar, find Check documentation links. This is the name we gave our workflow in the YAML file.\nClick it to see the workflow’s execution history.\nSelect the run associated with your pull request.\n\nYou should see a summary of the workflow run, including its status and the jobs it executed.\nRemember that our workflow contains only one job, called check-links."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-3-look-inside-the-job",
+    "href": "deep-water/github/automate/index.html#step-3-look-inside-the-job",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 3: Look inside the job",
+    "text": "Step 3: Look inside the job\n\nClick the check-links job, either in the visualization graph or under Jobs.\nYou will see a list of steps executed by GitHub.\nExpand Get repository files to see what happened when GitHub retrieved your repository.\nExpand Check local links to inspect the output from the link checker.\n\nThese detailed records are called logs.\nLogs are particularly useful when something goes wrong. Rather than guessing why an automated task failed, you can examine what GitHub actually did and what messages the tools produced.\nYou may also notice additional steps, such as Set up job and Complete job. GitHub adds these to prepare and clean up the computing environment.\n\n\n\n\n\n\nTipTry it: Follow the execution\n\n\n\nCompare what you see in the Actions tab with the YAML file you created.\n\nCan you find the job defined under jobs:?\nCan you identify the two steps defined under steps:?\nWhat does the link checker report about your README?\n\nYou’ve now followed the automation from its instructions in YAML to its execution on GitHub."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#why-inspect-successful-runs",
+    "href": "deep-water/github/automate/index.html#why-inspect-successful-runs",
+    "title": "Automating with GitHub Actions",
+    "section": "Why inspect successful runs?",
+    "text": "Why inspect successful runs?\nEven when a workflow passes, its logs can tell you useful things about how it operates.\nFor example, you might discover that a check is examining fewer files than you expected or that a step is being skipped.\nA successful run is a good starting point, but understanding what was actually checked is just as important.\nIn the next section, we’ll intentionally introduce a broken link, watch the automation detect it, and use the logs to figure out what needs to be fixed."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-1-introduce-a-broken-link",
+    "href": "deep-water/github/automate/index.html#step-1-introduce-a-broken-link",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 1: Introduce a broken link",
+    "text": "Step 1: Introduce a broken link\nImagine you’re documenting the water-quality analysis from our earlier Pads. You want to link to some quality-control notes, but you accidentally reference a file that doesn’t exist.\nLet’s reproduce that mistake.\n\nNavigate to the Code tab of your repository.\nMake sure you’re working on the add-link-check branch, not main.\nOpen your README.md file.\nClick the pencil icon (Edit this file).\nAdd the following line somewhere in your README:\n\n[Quality-control notes](missing-qc-notes.md)\nThis is a Markdown link pointing to a file called missing-qc-notes.md in the same directory as your README.\nDon’t create that file! We want the link to be broken.\n\nClick Commit changes….\nEnter a commit message such as Add link to quality-control notes.\nCommit the change directly to your add-link-check branch.\n\nBecause your pull request is still open, GitHub automatically adds the new commit to it."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-2-watch-the-automation-run-again",
+    "href": "deep-water/github/automate/index.html#step-2-watch-the-automation-run-again",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 2: Watch the automation run again",
+    "text": "Step 2: Watch the automation run again\nReturn to your pull request.\nRemember that we configured the workflow to run whenever a pull request is opened or updated.\nBy pushing a new commit to the pull request’s branch, you have triggered another run.\n\nFind the automated checks near the bottom of your pull request.\nLocate check-links.\nExamine its status.\n\nThis time, you should see a failed check, indicated by a red X.\nGitHub has detected that something is wrong with the documentation.\nBut what exactly failed?"
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-3-investigate-the-failure",
+    "href": "deep-water/github/automate/index.html#step-3-investigate-the-failure",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 3: Investigate the failure",
+    "text": "Step 3: Investigate the failure\nRather than guessing, let’s look at the evidence.\n\nNavigate to the Actions tab.\nSelect Check documentation links.\nOpen the most recent workflow run associated with your pull request.\nClick the check-links job.\nExpand Check local links to examine the logs.\n\nLook for a message mentioning missing-qc-notes.md.\nThe link checker should report that the referenced file could not be found.\nNotice that the workflow itself was able to start and execute. The failure occurred because one of its checks detected a problem.\nThis distinction is important: a failed automated check does not necessarily mean that the automation is broken. It may mean the automation is doing exactly what it was designed to do!\n\n\n\n\n\n\nNoteAn error doesn’t always mean a failed test\n\n\n\nSometimes, we deliberately write tests that expect software to produce an error.\nFor example, a scientific function might be designed to raise an error when a required variable is missing from a dataset. A test can intentionally provide a dataset without that variable to verify that the function responds appropriately.\nIf the expected error occurs, the test passes! If the function silently accepts the invalid data, the test fails.\nThis is different from a workflow failing because an unexpected problem occurred.\nThe important distinction is between the behavior we expect and the behavior we observe. Automated tests check whether the two match."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-4-interpret-the-result",
+    "href": "deep-water/github/automate/index.html#step-4-interpret-the-result",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 4: Interpret the result",
+    "text": "Step 4: Interpret the result\n\n\n\n\n\n\nTipInvestigate before fixing\n\n\n\nBefore changing anything, use the logs to answer these questions:\n\nWhich step failed?\nWhich file contains the broken link?\nWhich file is the link trying to reach?\nWhat would you need to change to make the check pass?\n\nThink about what you would do if this failure appeared in a collaborator’s pull request rather than one you created yourself."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#why-is-this-useful-for-research",
+    "href": "deep-water/github/automate/index.html#why-is-this-useful-for-research",
+    "title": "Automating with GitHub Actions",
+    "section": "Why is this useful for research?",
+    "text": "Why is this useful for research?\nImagine a larger research project with several contributors. Someone reorganizes the notebooks, moves a figure, or renames a data file.\nWithout automated checks, broken references might remain unnoticed until someone tries to reproduce the analysis or reuse the repository months later.\nWith GitHub Actions, problems can be detected as soon as a change is proposed, giving researchers an opportunity to correct them before they become part of the main project.\nOf course, a failed check doesn’t always mean the proposed change is wrong. Sometimes the check itself needs to be updated. That’s why automated feedback should support human review, not replace it.\n\n\n\n\n\n\nWarningDon’t merge the pull request yet!\n\n\n\nLeave the broken link in place for now, and keep your pull request open.\nIn the next section, we’ll correct the problem and see whether GitHub automatically recognizes that the issue has been resolved."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-1-correct-the-broken-link",
+    "href": "deep-water/github/automate/index.html#step-1-correct-the-broken-link",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 1: Correct the broken link",
+    "text": "Step 1: Correct the broken link\nIn the previous section, we deliberately added this link to the README:\n[Quality-control notes](missing-qc-notes.md)\nBut the file missing-qc-notes.md doesn’t exist.\nThere are several ways to resolve this:\n\nCorrect the link: If the intended document already exists under a different name or location, update the link to point to it.\nCreate the missing file: If the documentation is genuinely needed, create it and make sure it contains the appropriate information.\nRemove the link: If the document isn’t needed, remove the reference rather than leaving a broken link.\n\nFor this exercise, the simplest solution is to remove the example link we deliberately introduced.\n\nReturn to the Code tab of your repository.\nMake sure you’re still on the add-link-check branch.\nOpen README.md and click Edit this file.\nRemove the broken link.\nClick Commit changes… and use a message such as Fix broken documentation link.\nCommit directly to the add-link-check branch.\n\nYour existing pull request will automatically include this new commit."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-2-check-the-results-again",
+    "href": "deep-water/github/automate/index.html#step-2-check-the-results-again",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 2: Check the results again",
+    "text": "Step 2: Check the results again\nReturn to your pull request.\nBecause you added another commit, GitHub will trigger the link-checking workflow again.\n\nFind the automated checks at the bottom of the pull request.\nLook for the check-links job.\nOnce the run completes, check its status.\n\nIf everything worked as expected, the check should now pass!\nYou didn’t need to manually start the workflow. GitHub automatically checked the updated README because of the trigger you configured.\n\n\n\n\n\n\nTipWhat if the check still fails?\n\n\n\nDon’t assume that your correction was unsuccessful. Return to the Actions tab, open the latest run, and inspect the logs.\nThe link checker may have identified another broken link, or the workflow itself may have encountered a different problem.\nThe important habit is to use the information in the logs to understand the failure, rather than changing things at random until the check passes."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-3-compare-the-workflow-runs",
+    "href": "deep-water/github/automate/index.html#step-3-compare-the-workflow-runs",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 3: Compare the workflow runs",
+    "text": "Step 3: Compare the workflow runs\nNavigate to the Actions tab and open the history for Check documentation links.\nYou should now have a record of several runs:\n\nInitial run: The documentation check passed, assuming there were no pre-existing broken links.\nSecond run: The check failed because of the missing file.\nThird run: The check passed after you corrected the problem.\n\nEach run records the state of the repository when the automation was executed.\nThis history is valuable in collaborative research. It helps contributors understand when a problem appeared, what changed, and whether the correction resolved it."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#step-4-complete-your-pull-request",
+    "href": "deep-water/github/automate/index.html#step-4-complete-your-pull-request",
+    "title": "Automating with GitHub Actions",
+    "section": "Step 4: Complete your pull request",
+    "text": "Step 4: Complete your pull request\nNow that your automated check passes, you can complete the pull request, assuming the proposed changes are ready and any required reviews have been completed.\n\nReturn to your pull request.\nReview the changes under Files changed.\nConfirm that the workflow file is correct and the deliberately broken link has been removed.\nIf you have permission and the changes are ready, click Merge pull request and confirm the merge.\n\nYour repository now contains its first GitHub Actions workflow!\nThe next time someone opens or updates a pull request, GitHub will automatically check the local links in the README.\n\n\n\n\n\n\nImportantA passing check is not the same as approval\n\n\n\nJust because an automated check passes doesn’t mean a change should automatically be merged.\nFor instance, a notebook may run without errors while using an inappropriate statistical method, or a dataset may pass format validation while containing scientifically questionable values.\nAutomation catches problems we know how to check for. Scientific review still requires human judgment."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#what-have-you-accomplished",
+    "href": "deep-water/github/automate/index.html#what-have-you-accomplished",
+    "title": "Automating with GitHub Actions",
+    "section": "What have you accomplished?",
+    "text": "What have you accomplished?\nYou’ve now followed the complete cycle of an automated check:\n\nDefined a task in a YAML workflow file.\nTriggered the workflow through a pull request.\nInspected the results in GitHub Actions.\nIntroduced and diagnosed a failure.\nCorrected the problem and verified that the check passed.\n\nMore importantly, you now have an automated check that can continue helping maintain your repository after you’ve completed this Pad.\nIn the next section, we’ll consider when automations should run and how different triggers can support different research tasks."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#one-workflow-multiple-triggers",
+    "href": "deep-water/github/automate/index.html#one-workflow-multiple-triggers",
+    "title": "Automating with GitHub Actions",
+    "section": "One workflow, multiple triggers",
+    "text": "One workflow, multiple triggers\nRemember the on section of our YAML file?\non:\n  pull_request:\nThis tells GitHub to run the link checker whenever someone opens or updates a pull request.\nBut suppose you also want to check links after changes are merged into main, or whenever you decide to run the check yourself.\nYou can combine multiple triggers:\non:\n  pull_request:\n  push:\n    branches:\n      - main\n  workflow_dispatch:\nWith this configuration, our workflow will run when:\n\nA pull request is opened or updated: Catch broken links before merging.\nChanges are pushed to main: Verify that the documentation still works after changes are merged.\nSomeone starts the workflow manually: Check the documentation whenever needed, even if nothing has changed.\n\nNotice that we didn’t need to change the job or its steps. We only changed when GitHub executes them.\n\n\n\n\n\n\nNoteWhat is workflow_dispatch?\n\n\n\nThe workflow_dispatch event enables a Run workflow button in the Actions tab.\nOnce the updated workflow file is present on the default branch, someone with write access to the repository can select the workflow, click Run workflow, choose a branch, and start it manually.\nThis is useful when you want to check something on demand rather than waiting for a particular repository event."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#should-we-automate-everything-all-the-time",
+    "href": "deep-water/github/automate/index.html#should-we-automate-everything-all-the-time",
+    "title": "Automating with GitHub Actions",
+    "section": "Should we automate everything, all the time?",
+    "text": "Should we automate everything, all the time?\nNot necessarily!\nRunning a short documentation check on every pull request is generally inexpensive. But some scientific tasks are more demanding.\nFor example, a research workflow might take several hours to process a large dataset. Running it after every small documentation change could waste computing resources without providing useful information.\nBefore configuring an automation, consider:\n\nWhen is the result needed? Before merging, after a release, or periodically?\nHow expensive is the task? Does it take seconds, minutes, or hours?\nHow often does the relevant information change? Does it depend on repository changes or external datasets?\n\nGitHub Actions also allows more specific conditions, such as running only when particular files or folders change.\nThe goal isn’t to automate as many tasks as possible. It’s to automate useful tasks at the right time."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#try-it-add-another-trigger-optional",
+    "href": "deep-water/github/automate/index.html#try-it-add-another-trigger-optional",
+    "title": "Automating with GitHub Actions",
+    "section": "Try it: Add another trigger (optional)",
+    "text": "Try it: Add another trigger (optional)\nWant to experiment with your new workflow?\n\nOpen .github/workflows/check-links.yml in your repository.\nCreate a branch and edit the on section to include workflow_dispatch, as shown above.\nCommit your change, open a pull request, and merge it after checking the results.\nNavigate to the Actions tab and select Check documentation links.\nClick Run workflow, select your default branch, and start the check.\nInspect the results, just as you did in the previous sections.\n\nYou’ve now run the same automated check in two different ways: in response to a repository event and on demand.\n\n\n\n\n\n\nTipThink about your research\n\n\n\nConsider the task you identified at the beginning of this Pad. When would you want it to run?\nMaybe every time someone proposes a change, once a week, or only when you explicitly request it.\nThe answer depends on what you’re checking and how the results will help your research.\n\n\nIn the final section, we’ll explore other applications of GitHub Actions and look at real research repositories whose automation workflows you can adapt for your own projects."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#explore-real-research-workflows",
+    "href": "deep-water/github/automate/index.html#explore-real-research-workflows",
+    "title": "Automating with GitHub Actions",
+    "section": "Explore real research workflows",
+    "text": "Explore real research workflows\nWe’ve started a collection of repositories that demonstrate different applications of GitHub Actions.\n\nRun software tests\nPyleoclim — A Python package for analyzing paleoclimate time series.\nPyleoclim uses automated testing to help identify problems when changes are made to its code.\nWhat to explore: How the workflow sets up Python, installs dependencies, and runs tests.\n\n\nExecute Jupyter notebooks\nPyleoTutorials — A collection of Jupyter notebooks demonstrating scientific analyses with Pyleoclim.\nNotebook execution can be automated to check that tutorials continue to run successfully as software and dependencies evolve.\nWhat to explore: How the computing environment is prepared and how notebooks are executed.\n\n\nValidate scientific data\nHeliconia Demography Project — A research repository containing ecological survey data and data-cleaning and validation workflows.\nAutomated validation helps identify problematic observations and inconsistencies before datasets are reused or archived.\nWhat to explore: How GitHub Actions connects to scripts that check scientific data.\nFor more examples using R, explore the GitHub Actions for Research collection, which includes data validation, automated reports, and other research workflows.\n\n\nProcess new observations on a schedule\nOrcasound — A project working with underwater acoustic observations, including data from the Ocean Observatories Initiative.\nIts scheduled workflow retrieves hydrophone observations, processes the recordings, and generates spectrograms.\nWhat to explore: How schedule triggers periodic processing and how the workflow retrieves data and saves its outputs.\n\n\nPublish software releases\nPyleoclim — Pyleoclim also provides an example of managing software versions and distributing releases through PyPI.\nPublishing workflows can automate the steps needed to build and distribute a new software version.\nWhat to explore: How release-related automation connects to software packaging and publication.\nFor a specific example of a workflow triggered by publishing a GitHub release, examine OpenReview’s PyPI publishing workflow."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#adapt-a-workflow-to-your-own-research",
+    "href": "deep-water/github/automate/index.html#adapt-a-workflow-to-your-own-research",
+    "title": "Automating with GitHub Actions",
+    "section": "Adapt a workflow to your own research",
+    "text": "Adapt a workflow to your own research\nWhen you find an automation that could be useful for your project, open its YAML file in .github/workflows/.\nTry identifying:\n\nThe trigger: When does it run?\nThe jobs and steps: What tasks does it perform?\nThe dependencies: Does it require particular software, files, credentials, or computing environments?\nThe outputs: How does the workflow report results or save generated files?\n\nYou can use these examples as starting points, but don’t copy them into your repository without understanding what they do. Workflows often contain instructions specific to their original projects, and some require additional permissions or credentials.\n\n\n\n\n\n\nTipBuild your own collection\n\n\n\nAs you encounter useful GitHub Actions workflows in other research repositories, bookmark them! Over time, you’ll develop a collection of reusable examples for testing, data validation, documentation, and other tasks relevant to your research."
+  },
+  {
+    "objectID": "deep-water/github/automate/index.html#whats-next",
+    "href": "deep-water/github/automate/index.html#whats-next",
+    "title": "Automating with GitHub Actions",
+    "section": "What’s next?",
+    "text": "What’s next?\nSo far, we’ve used GitHub Actions to run tasks on computing environments provided by GitHub.\nBut what happens when your research requires particular software versions, libraries, or system dependencies?\nIn the Containers Deep End, we’ll explore how containers can provide consistent computing environments and how they can work with automation to support reproducible research."
   },
   {
     "objectID": "deep-water/containers/index.html",
