@@ -1,7 +1,269 @@
 ---
 title: "Automating with GitHub Actions"
-description: "Learn what GitHub Actions are and how to use them."
+description: "Learn how to use GitHub Actions to automate routine checks in your research repository. Create a workflow, inspect its results, and troubleshoot failures to help keep your research projects reliable and reproducible."
 toc: true
 ---
 
 # Overview
+
+Research projects involve many tasks that need to be repeated: checking documentation, validating files, running tests, or making sure that changes have not introduced new problems. Performing these checks manually takes time, and it is easy to forget a step.
+
+**GitHub Actions** allows you to automate these tasks. For example, every time someone proposes a change to your repository, GitHub can automatically check that the links in your documentation still work.
+
+In this Pad, you will create your first automated workflow, see how GitHub runs it, and learn what happens when a check fails. You will also explore how automation can help maintain the reliability and reproducibility of research projects.
+
+## What you will learn
+
+By the end of this Pad, you will be able to:
+
+- Identify research tasks that could benefit from automation.
+- Understand the basic structure of a GitHub Actions workflow, including triggers, jobs, and steps.
+- Recognize how YAML files define automated workflows.
+- Create a workflow that automatically checks links in your repository.
+- Find and interpret workflow results and logs in GitHub.
+- Investigate a failed check, correct the problem, and run the workflow again.
+- Recognize the benefits and limitations of automated checks in scientific research.
+
+## Before you begin
+
+To complete this Pad, you will need:
+
+- **A GitHub account** and access to a repository where you can make changes.
+- **A research repository**, preferably one containing a `README.md` or other Markdown documentation. You can use your own repository or the example project provided in this lesson.
+- **Basic familiarity with GitHub**, including commits, branches, and pull requests, as covered in the previous Pads.
+
+You will work directly in GitHub's web interface. **No programming experience, command line, or additional software is required.**
+
+If you have been following the previous Pads, you can continue working with the same research repository.
+
+
+# Why automate?
+
+Imagine you are working on a research project with several collaborators. Your repository contains data, analysis notebooks, figures, and documentation. Over time, files get reorganized, notebooks are updated, and new results are added.
+
+One day, a collaborator moves a figure into a different folder but forgets to update the link in the `README.md`. The link no longer works.
+
+You might catch this by opening the README and clicking every link after each change. But would you remember to do that every time? And what if your repository contains dozens of links?
+
+**What if GitHub could check those links automatically whenever someone proposes a change?**
+
+That's the idea behind automation: let a computer perform routine, repeatable tasks so researchers can spend more time on work that requires their expertise.
+
+## What makes a task worth automating?
+
+Good candidates for automation generally have three characteristics:
+
+- **Repeatable:** The task needs to be performed regularly, such as whenever files change.
+- **Well-defined:** There are clear instructions for completing the task.
+- **Verifiable:** There is a way to determine whether the task succeeded or failed.
+
+For example, GitHub can automatically check whether links point to existing files, whether required files are present, or whether software tests pass.
+
+But not everything should be automated. Consider the water-quality project from the earlier Pads. A computer can check whether a dataset contains missing values or whether a notebook runs without errors. However, deciding whether the quality-control procedure is scientifically appropriate requires domain knowledge and judgment.
+
+**An automated check can tell you whether something meets a defined requirement. It cannot guarantee that your research is scientifically correct.**
+
+## Think about your own repository
+
+::: {.callout-tip title="Try it: Find a task worth automating"}
+
+Open your research repository on GitHub and look at your `README.md` or other project documentation.
+
+1. Find two or three links to files, figures, notebooks, or other documentation. Click them to see whether they work.
+2. Imagine making changes to the repository over several months. Would you want to repeat this check after every change?
+3. Think of one other task in your research project that you perform repeatedly. Could a computer do it following a consistent set of instructions?
+
+You don't need to implement anything yet. Just identify a task that could benefit from automation.
+
+:::
+
+## From a manual check to GitHub Actions
+
+GitHub provides a feature called **GitHub Actions** that lets you automate tasks in your repository.
+
+Instead of remembering to check your documentation manually, you can tell GitHub:
+
+> Whenever someone opens or updates a pull request, check whether the links in the repository documentation work.
+
+GitHub will perform that check and report whether it passed or failed. If a problem is detected, you can investigate and correct it before merging the change.
+
+In the next section, we'll look at how these instructions are written in a **workflow file**, and how GitHub knows when and what to run.
+
+
+# Read a workflow before running it
+
+In the previous section, we identified a task worth automating: checking whether links in your research documentation still work.
+
+But how do we tell GitHub what to check, and when?
+
+GitHub Actions uses **workflows**: sets of instructions that tell GitHub when to run a task and what steps to perform.
+
+These instructions are stored in files written in **YAML** (YAML Ain't Markup Language), a human-readable format commonly used for configuration files.
+
+You don't need to know how to program to understand a simple YAML file. Let's explore one together.
+
+## What does a workflow look like?
+
+Here is a workflow that checks links in a repository's `README.md` whenever someone opens or updates a pull request.
+
+```yaml
+name: Check documentation links
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository files
+        uses: actions/checkout@v6
+
+      - name: Check local links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress README.md
+```
+
+At first glance, this might look complicated, but the workflow is essentially a short recipe. In fact, it is closely related to scientific workflows you may have used in your research. It has a name, a trigger, and a series of steps to perform.
+
+Let's break it down.
+
+### 1. Name: What is this workflow called?
+
+```yaml
+name: Check documentation links
+```
+
+This gives your workflow a recognizable name. You'll see it in GitHub's **Actions** tab, where you can inspect automated tasks and their results.
+
+### 2. Trigger: When should it run?
+
+```yaml
+on:
+  pull_request:
+```
+
+The `on` keyword defines the **event** that starts the workflow, also called a *trigger*.
+
+Here, the workflow runs when a pull request is opened, reopened, or updated with new commits.
+
+Other triggers are possible, including pushing changes to a branch, publishing a release, running on a schedule, or starting a workflow manually.
+
+These triggers allow you to automate tasks at the right time. For instance, consider the following scenarios:
+
+- **Check links:** Run whenever a pull request is opened or updated, so you can catch broken links before merging.  
+- **Run tests:** Run whenever a pull request is opened or updated, so you can catch errors before merging.  
+- **Update a website:** Run whenever changes are pushed to the main branch, so the website is always up to date.  
+- **Publish a new software version to PyPI:** Run whenever a release is published, so the new version is automatically registered.  
+- **Check whether a research workflow still works:** Run on a schedule to verify that an analysis can still execute successfully, even when no one is actively working on the repository.  
+- **Check whether a new version of a dataset is available:** Run on a schedule, so you can automatically download and process new data when a new version is detected.  
+
+### 3. Permissions: What can the workflow access?
+
+```yaml
+permissions:
+  contents: read
+```
+
+This gives the workflow read-only access to repository contents through GitHub's automatically provided token.
+
+Our link checker needs to read files, but it does not need permission to modify the repository.
+
+**Good practice:** Give automated workflows only the permissions they need.
+
+### 4. Jobs and runners: Where does the work happen?
+
+```yaml
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+```
+
+A workflow contains one or more **jobs**. Each job performs a specific set of tasks.
+
+Our workflow contains one job named `check-links`.
+
+The `runs-on` instruction tells GitHub what computing environment to use. Here, GitHub provides a virtual machine running Ubuntu (a Linux operating system).
+
+You don't need to install Ubuntu on your computer. GitHub runs the job on a separate machine.
+
+### 5. Steps: What should GitHub do?
+
+```yaml
+steps:
+  - name: Get repository files
+    uses: actions/checkout@v6
+
+  - name: Check local links
+    uses: lycheeverse/lychee-action@v2
+    with:
+      args: --offline --no-progress README.md
+```
+
+Each job contains one or more **steps**, executed in order.
+
+Our workflow has two:
+
+1. **Get repository files:** The `checkout` action makes the repository files available on the runner.
+2. **Check local links:** The `lychee` action looks for broken links in `README.md`.
+
+Notice the `uses` keyword. It tells GitHub to run an existing, reusable piece of software called an **action**, rather than requiring you to write all the instructions yourself.
+
+The `@v6` and `@v2` specify versions of those actions.
+
+The `with` keyword provides additional options to an action. In our example, `--offline` tells the link checker to examine local file links without checking external websites. `--no-progress` suppresses the progress bar, and `README.md` identifies the file to check.
+
+If a local link points to a missing file, the check fails and GitHub reports the problem.
+
+::: {.callout-note title="A workflow is not the same as an action"}
+
+**GitHub Actions** is the automation feature. A **workflow** defines an automated process, a **job** groups steps, and an **action** is reusable software that performs a particular task.
+
+Actions can be created by GitHub or by other developers. Because they execute code, you should review their documentation and source before using them in your repository.
+
+:::
+
+## A few things to know about YAML
+
+You may have noticed a few formatting conventions in the example:
+
+- **Indentation matters.** Spaces tell YAML which instructions belong together.
+- **Colons (`:`)** separate a setting from its value.
+- **Dashes (`-`)** identify items in a list, such as individual steps.
+- **Comments (`#`)** can be used to explain what a line does without affecting the workflow.
+
+You don't need to memorize YAML syntax. The important thing is to recognize how the instructions are organized.
+
+## Where do workflows live?
+
+GitHub looks for workflow files in a specific directory within your repository:
+
+```text
+.github/
+└── workflows/
+    └── check-links.yml
+```
+
+A repository can contain multiple workflow files, each automating a different task.
+
+For example, one might check documentation links, while another runs software tests or validates data files.
+
+::: {.callout-tip title="Before moving on"}
+
+Look back at the YAML example. Can you identify:
+
+- What event starts the workflow?
+- How many jobs does it contain?
+- How many steps will GitHub execute?
+- Which file will be checked?
+
+You should be able to answer these questions by reading the YAML, without running anything.
+
+In the next section, you'll add this workflow to your own repository and see GitHub Actions in action.
+
+:::
