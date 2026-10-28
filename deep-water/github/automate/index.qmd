@@ -762,3 +762,86 @@ The answer depends on what you're checking and how the results will help your re
 
 In the final section, we'll explore other applications of GitHub Actions and look at real research repositories whose automation workflows you can adapt for your own projects.
 
+
+# Want to go further?
+
+You've created your first GitHub Actions workflow! But checking documentation links is only one of the many tasks that can be automated.
+
+GitHub Actions can also run software tests, execute research notebooks, validate datasets, process new observations, and publish software releases.
+
+You don't need to create these automations from scratch. Many open-source research projects already use GitHub Actions, and their workflow files can provide useful starting points for your own projects.
+
+## Explore real research workflows
+
+We've started a collection of repositories that demonstrate different applications of GitHub Actions.
+
+### Run software tests
+
+**[Pyleoclim](https://github.com/LinkedEarth/Pyleoclim_util/tree/master/.github/workflows)** — A Python package for analyzing paleoclimate time series.
+
+Pyleoclim uses automated testing to help identify problems when changes are made to its code.
+
+**What to explore:** How the workflow sets up Python, installs dependencies, and runs tests.
+
+### Execute Jupyter notebooks
+
+**[PyleoTutorials](https://github.com/LinkedEarth/PyleoTutorials/tree/main/.github/workflows)** — A collection of Jupyter notebooks demonstrating scientific analyses with Pyleoclim.
+
+Notebook execution can be automated to check that tutorials continue to run successfully as software and dependencies evolve.
+
+**What to explore:** How the computing environment is prepared and how notebooks are executed.
+
+### Validate scientific data
+
+**[Heliconia Demography Project](https://github.com/BrunaLab/HeliconiaSurveys/tree/master/.github/workflows)** — A research repository containing ecological survey data and data-cleaning and validation workflows.
+
+Automated validation helps identify problematic observations and inconsistencies before datasets are reused or archived.
+
+**What to explore:** How GitHub Actions connects to scripts that check scientific data.
+
+For more examples using R, explore the [GitHub Actions for Research collection](https://github.com/cct-datascience/github-actions-for-research), which includes data validation, automated reports, and other research workflows.
+
+### Process new observations on a schedule
+
+**[Orcasound](https://github.com/orcasound/orca-action-workflow/blob/main/.github/workflows/ooi_processing.yml)** — A project working with underwater acoustic observations, including data from the Ocean Observatories Initiative.
+
+Its scheduled workflow retrieves hydrophone observations, processes the recordings, and generates spectrograms.
+
+**What to explore:** How `schedule` triggers periodic processing and how the workflow retrieves data and saves its outputs.
+
+### Publish software releases
+
+**[Pyleoclim](https://github.com/LinkedEarth/Pyleoclim_util)** — Pyleoclim also provides an example of managing software versions and distributing releases through PyPI.
+
+Publishing workflows can automate the steps needed to build and distribute a new software version.
+
+**What to explore:** How release-related automation connects to software packaging and publication.
+
+For a specific example of a workflow triggered by publishing a GitHub release, examine [OpenReview's PyPI publishing workflow](https://github.com/openreview/openreview-py/blob/master/.github/workflows/publish-pypi.yml).
+
+## Adapt a workflow to your own research
+
+When you find an automation that could be useful for your project, open its YAML file in `.github/workflows/`.
+
+Try identifying:
+
+1. **The trigger:** When does it run?
+2. **The jobs and steps:** What tasks does it perform?
+3. **The dependencies:** Does it require particular software, files, credentials, or computing environments?
+4. **The outputs:** How does the workflow report results or save generated files?
+
+You can use these examples as starting points, but don't copy them into your repository without understanding what they do. Workflows often contain instructions specific to their original projects, and some require additional permissions or credentials.
+
+::: {.callout-tip title="Build your own collection"}
+
+As you encounter useful GitHub Actions workflows in other research repositories, bookmark them! Over time, you'll develop a collection of reusable examples for testing, data validation, documentation, and other tasks relevant to your research.
+
+:::
+
+## What's next?
+
+So far, we've used GitHub Actions to run tasks on computing environments provided by GitHub.
+
+But what happens when your research requires particular software versions, libraries, or system dependencies?
+
+In the **Containers Deep End**, we'll explore how containers can provide consistent computing environments and how they can work with automation to support reproducible research.
