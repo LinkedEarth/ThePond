@@ -267,3 +267,498 @@ You should be able to answer these questions by reading the YAML, without runnin
 In the next section, you'll add this workflow to your own repository and see GitHub Actions in action.
 
 :::
+
+
+# Create your first automation
+
+Now that you understand the structure of a GitHub Actions workflow, let's add one to your research repository!
+
+We'll use the workflow from the previous section to automatically check links in your `README.md` whenever a pull request is opened or updated.
+
+You can follow along using your own repository or the example research project.
+
+## Step 1: Create the workflow file
+
+1. Open your repository on GitHub and navigate to the **Code** tab.
+2. Above the file list, click **Add file → Create new file**.
+3. In the filename field, enter:
+
+   `.github/workflows/check-links.yml`
+
+   GitHub will automatically create the `.github` and `workflows` directories if they don't already exist.
+
+4. Copy the following YAML into the file editor:
+
+```yaml
+name: Check documentation links
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository files
+        uses: actions/checkout@v6
+
+      - name: Check local links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress README.md
+          failIfEmpty: false
+```
+
+This is the same workflow we explored earlier, with one additional option: `failIfEmpty: false`. It prevents the check from failing simply because your README contains no local links to check. Of course, to make the automation useful, your README should contain links to other files in the repository!
+
+Take a moment to review the file before committing it. Can you recognize the trigger, job, and two steps?
+
+## Step 2: Propose the workflow as a change
+
+Remember how we used branches and pull requests in the earlier Pads? We'll use the same approach here.
+
+1. Click **Commit changes...**.
+2. Enter a commit message, such as `Add automated documentation link check`.
+3. Select **Create a new branch for this commit and start a pull request**.
+4. Name the branch `add-link-check`.
+5. Click **Propose changes**.
+
+GitHub will take you to the page for creating a pull request.
+
+Give your pull request a descriptive title, such as `Add automated link checking`, and briefly explain what the workflow does.
+
+Click **Create pull request**.
+
+## Step 3: Let GitHub do the work
+
+You've just created a pull request containing a GitHub Actions workflow.
+
+Remember the trigger we defined?
+
+```yaml
+on:
+  pull_request:
+```
+
+Opening the pull request tells GitHub to run the workflow. GitHub can now retrieve the repository files, check the local links in your README, and report the result.
+
+**You did not need to install anything or run a command yourself!**
+
+::: {.callout-note title="If the workflow doesn't run immediately"}
+GitHub Actions must be enabled for your repository. Some organizations restrict which actions can run, and pull requests from forks may require approval before workflows execute. If needed, check your repository's **Settings → Actions → General**, or ask a repository maintainer.
+:::
+
+::: {.callout-tip title="Before moving on"}
+Keep your pull request open. **Don't merge it yet.**
+
+In the next section, we'll explore where GitHub displays the results, what the different statuses mean, and how to inspect the individual steps that were executed.
+:::
+
+
+# Inspect your workflow results
+
+You've created your first GitHub Actions workflow and opened a pull request. But did the automation actually run? And how do you know whether it worked?
+
+GitHub records the results of every workflow run, including which steps were executed, how long they took, and whether they succeeded or failed.
+
+Let's find out what happened to yours!
+
+## Step 1: Check your pull request
+
+1. Return to the pull request you created in the previous section.
+2. Scroll down to the section showing the automated checks.
+3. Look for the job named `check-links`.
+
+You may see one of several statuses:
+
+- <i class="bi bi-hourglass-split"></i> **Pending or in progress:** GitHub is waiting to start or is still running the check.
+- <i class="bi bi-check-circle-fill text-success"></i> **Success:** The check completed without detecting a problem.
+- <i class="bi bi-x-circle-fill text-danger"></i> **Failure:** Something went wrong, and the check needs attention.
+
+If the check succeeded, congratulations! Your first automation has run.
+
+If it failed, don't worry. We'll learn how to investigate failures shortly.
+
+::: {.callout-note title="What does a green checkmark mean?"}
+
+A successful check means that the specific conditions tested by the workflow were satisfied.
+
+In our case, it means the link checker did not detect broken local links in the README. It does **not** mean that every file, analysis, or scientific result in the repository is correct.
+
+**Automation is only as comprehensive as the checks we define**. This becomes especially important in scientific research, where a green checkmark does not guarantee that the science is correct.
+
+:::
+
+## Step 2: Explore the Actions tab
+
+The pull request gives you a quick summary, but GitHub provides more detailed information about what happened.
+
+1. Navigate to the **Actions** tab at the top of your repository.
+2. In the left sidebar, find **Check documentation links**. This is the name we gave our workflow in the YAML file.
+3. Click it to see the workflow's execution history.
+4. Select the run associated with your pull request.
+
+You should see a summary of the workflow run, including its status and the jobs it executed.
+
+Remember that our workflow contains only one job, called `check-links`.
+
+## Step 3: Look inside the job
+
+1. Click the `check-links` job, either in the visualization graph or under **Jobs**.
+2. You will see a list of steps executed by GitHub.
+3. Expand **Get repository files** to see what happened when GitHub retrieved your repository.
+4. Expand **Check local links** to inspect the output from the link checker.
+
+These detailed records are called **logs**.
+
+Logs are particularly useful when something goes wrong. Rather than guessing why an automated task failed, you can examine what GitHub actually did and what messages the tools produced.
+
+You may also notice additional steps, such as **Set up job** and **Complete job**. GitHub adds these to prepare and clean up the computing environment.
+
+::: {.callout-tip title="Try it: Follow the execution"}
+
+Compare what you see in the Actions tab with the YAML file you created.
+
+- Can you find the job defined under `jobs:`?
+- Can you identify the two steps defined under `steps:`?
+- What does the link checker report about your README?
+
+You've now followed the automation from its instructions in YAML to its execution on GitHub.
+
+:::
+
+## Why inspect successful runs?
+
+Even when a workflow passes, its logs can tell you useful things about how it operates.
+
+For example, you might discover that a check is examining fewer files than you expected or that a step is being skipped.
+
+A successful run is a good starting point, but understanding **what was actually checked** is just as important.
+
+In the next section, we'll intentionally introduce a broken link, watch the automation detect it, and use the logs to figure out what needs to be fixed.
+
+# What happens when a check fails?
+
+So far, you've created an automated link checker and explored its results. If everything went well, GitHub reported that your check passed.
+
+But automation is particularly useful when something goes wrong.
+
+Let's introduce a problem into your repository and see whether GitHub catches it!
+
+## Step 1: Introduce a broken link
+
+Imagine you're documenting the water-quality analysis from our earlier Pads. You want to link to some quality-control notes, but you accidentally reference a file that doesn't exist.
+
+Let's reproduce that mistake.
+
+1. Navigate to the **Code** tab of your repository.
+2. Make sure you're working on the `add-link-check` branch, not `main`.
+3. Open your `README.md` file.
+4. Click the pencil icon (**Edit this file**).
+5. Add the following line somewhere in your README:
+
+```markdown
+[Quality-control notes](missing-qc-notes.md)
+```
+
+This is a Markdown link pointing to a file called `missing-qc-notes.md` in the same directory as your README.
+
+**Don't create that file!** We want the link to be broken.
+
+6. Click **Commit changes...**.
+7. Enter a commit message such as `Add link to quality-control notes`.
+8. Commit the change directly to your `add-link-check` branch.
+
+Because your pull request is still open, GitHub automatically adds the new commit to it.
+
+## Step 2: Watch the automation run again
+
+Return to your pull request.
+
+Remember that we configured the workflow to run whenever a pull request is opened or updated.
+
+By pushing a new commit to the pull request's branch, you have triggered another run.
+
+1. Find the automated checks near the bottom of your pull request.
+2. Locate `check-links`.
+3. Examine its status.
+
+This time, you should see a **failed check**, indicated by a red X.
+
+GitHub has detected that something is wrong with the documentation.
+
+But what exactly failed?
+
+## Step 3: Investigate the failure
+
+Rather than guessing, let's look at the evidence.
+
+1. Navigate to the **Actions** tab.
+2. Select **Check documentation links**.
+3. Open the most recent workflow run associated with your pull request.
+4. Click the `check-links` job.
+5. Expand **Check local links** to examine the logs.
+
+Look for a message mentioning `missing-qc-notes.md`.
+
+The link checker should report that the referenced file could not be found.
+
+Notice that the workflow itself was able to start and execute. The failure occurred because one of its checks detected a problem.
+
+This distinction is important: **a failed automated check does not necessarily mean that the automation is broken. It may mean the automation is doing exactly what it was designed to do!**
+
+
+::: {.callout-note title="An error doesn't always mean a failed test"}
+
+Sometimes, we deliberately write tests that expect software to produce an error.
+
+For example, a scientific function might be designed to raise an error when a required variable is missing from a dataset. A test can intentionally provide a dataset without that variable to verify that the function responds appropriately.
+
+**If the expected error occurs, the test passes!** If the function silently accepts the invalid data, the test fails.
+
+This is different from a workflow failing because an unexpected problem occurred.
+
+The important distinction is between **the behavior we expect** and **the behavior we observe**. Automated tests check whether the two match.
+:::
+
+
+## Step 4: Interpret the result
+
+::: {.callout-tip title="Investigate before fixing"}
+
+Before changing anything, use the logs to answer these questions:
+
+1. Which step failed?
+2. Which file contains the broken link?
+3. Which file is the link trying to reach?
+4. What would you need to change to make the check pass?
+
+Think about what you would do if this failure appeared in a collaborator's pull request rather than one you created yourself.
+
+:::
+
+## Why is this useful for research?
+
+Imagine a larger research project with several contributors. Someone reorganizes the notebooks, moves a figure, or renames a data file.
+
+Without automated checks, broken references might remain unnoticed until someone tries to reproduce the analysis or reuse the repository months later.
+
+With GitHub Actions, problems can be detected as soon as a change is proposed, giving researchers an opportunity to correct them before they become part of the main project.
+
+Of course, a failed check doesn't always mean the proposed change is wrong. Sometimes the check itself needs to be updated. That's why **automated feedback should support human review, not replace it.**
+
+::: {.callout-warning title="Don't merge the pull request yet!"}
+
+Leave the broken link in place for now, and keep your pull request open.
+
+In the next section, we'll correct the problem and see whether GitHub automatically recognizes that the issue has been resolved.
+
+:::
+
+
+# Fix the problem
+
+Your automated check has detected a broken link, and you've used the logs to identify the problem. Now it's time to fix it!
+
+Remember that GitHub Actions doesn't automatically correct the problem. It provides feedback so you can decide what needs to change.
+
+## Step 1: Correct the broken link
+
+In the previous section, we deliberately added this link to the README:
+
+```markdown
+[Quality-control notes](missing-qc-notes.md)
+```
+
+But the file `missing-qc-notes.md` doesn't exist.
+
+There are several ways to resolve this:
+
+- **Correct the link:** If the intended document already exists under a different name or location, update the link to point to it.
+- **Create the missing file:** If the documentation is genuinely needed, create it and make sure it contains the appropriate information.
+- **Remove the link:** If the document isn't needed, remove the reference rather than leaving a broken link.
+
+For this exercise, the simplest solution is to remove the example link we deliberately introduced.
+
+1. Return to the **Code** tab of your repository.
+2. Make sure you're still on the `add-link-check` branch.
+3. Open `README.md` and click **Edit this file**.
+4. Remove the broken link.
+5. Click **Commit changes...** and use a message such as `Fix broken documentation link`.
+6. Commit directly to the `add-link-check` branch.
+
+Your existing pull request will automatically include this new commit.
+
+## Step 2: Check the results again
+
+Return to your pull request.
+
+Because you added another commit, GitHub will trigger the link-checking workflow again.
+
+1. Find the automated checks at the bottom of the pull request.
+2. Look for the `check-links` job.
+3. Once the run completes, check its status.
+
+If everything worked as expected, the check should now **pass**!
+
+You didn't need to manually start the workflow. GitHub automatically checked the updated README because of the trigger you configured.
+
+::: {.callout-tip title="What if the check still fails?"}
+
+Don't assume that your correction was unsuccessful. Return to the **Actions** tab, open the latest run, and inspect the logs.
+
+The link checker may have identified another broken link, or the workflow itself may have encountered a different problem.
+
+The important habit is to **use the information in the logs to understand the failure**, rather than changing things at random until the check passes.
+
+:::
+
+## Step 3: Compare the workflow runs
+
+Navigate to the **Actions** tab and open the history for **Check documentation links**.
+
+You should now have a record of several runs:
+
+1. **Initial run:** The documentation check passed, assuming there were no pre-existing broken links.
+2. **Second run:** The check failed because of the missing file.
+3. **Third run:** The check passed after you corrected the problem.
+
+Each run records the state of the repository when the automation was executed.
+
+This history is valuable in collaborative research. It helps contributors understand when a problem appeared, what changed, and whether the correction resolved it.
+
+## Step 4: Complete your pull request
+
+Now that your automated check passes, you can complete the pull request, assuming the proposed changes are ready and any required reviews have been completed.
+
+1. Return to your pull request.
+2. Review the changes under **Files changed**.
+3. Confirm that the workflow file is correct and the deliberately broken link has been removed.
+4. If you have permission and the changes are ready, click **Merge pull request** and confirm the merge.
+
+Your repository now contains its first GitHub Actions workflow!
+
+The next time someone opens or updates a pull request, GitHub will automatically check the local links in the README.
+
+::: {.callout-important title="A passing check is not the same as approval"}
+
+Just because an automated check passes doesn't mean a change should automatically be merged.
+
+For instance, a notebook may run without errors while using an inappropriate statistical method, or a dataset may pass format validation while containing scientifically questionable values.
+
+**Automation catches problems we know how to check for. Scientific review still requires human judgment.**
+
+:::
+
+## What have you accomplished?
+
+You've now followed the complete cycle of an automated check:
+
+1. Defined a task in a YAML workflow file.
+2. Triggered the workflow through a pull request.
+3. Inspected the results in GitHub Actions.
+4. Introduced and diagnosed a failure.
+5. Corrected the problem and verified that the check passed.
+
+More importantly, you now have an automated check that can continue helping maintain your repository after you've completed this Pad.
+
+In the next section, we'll consider when automations should run and how different triggers can support different research tasks.
+
+
+# Choose when automation should run
+
+You've now seen how GitHub Actions can catch a problem, report it, and verify that a correction works.
+
+So far, our workflow has run whenever a pull request is opened or updated. But is that always the best time to run an automated task?
+
+**Choosing the right trigger is part of designing a useful automation.**
+
+## One workflow, multiple triggers
+
+Remember the `on` section of our YAML file?
+
+```yaml
+on:
+  pull_request:
+```
+
+This tells GitHub to run the link checker whenever someone opens or updates a pull request.
+
+But suppose you also want to check links after changes are merged into `main`, or whenever you decide to run the check yourself.
+
+You can combine multiple triggers:
+
+```yaml
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+```
+
+With this configuration, our workflow will run when:
+
+- **A pull request is opened or updated:** Catch broken links before merging.
+- **Changes are pushed to `main`:** Verify that the documentation still works after changes are merged.
+- **Someone starts the workflow manually:** Check the documentation whenever needed, even if nothing has changed.
+
+Notice that we didn't need to change the job or its steps. We only changed **when** GitHub executes them.
+
+::: {.callout-note title="What is workflow_dispatch?"}
+
+The `workflow_dispatch` event enables a **Run workflow** button in the Actions tab.
+
+Once the updated workflow file is present on the default branch, someone with write access to the repository can select the workflow, click **Run workflow**, choose a branch, and start it manually.
+
+This is useful when you want to check something on demand rather than waiting for a particular repository event.
+
+:::
+
+## Should we automate everything, all the time?
+
+Not necessarily!
+
+Running a short documentation check on every pull request is generally inexpensive. But some scientific tasks are more demanding.
+
+For example, a research workflow might take several hours to process a large dataset. Running it after every small documentation change could waste computing resources without providing useful information.
+
+Before configuring an automation, consider:
+
+- **When is the result needed?** Before merging, after a release, or periodically?
+- **How expensive is the task?** Does it take seconds, minutes, or hours?
+- **How often does the relevant information change?** Does it depend on repository changes or external datasets?
+
+GitHub Actions also allows more specific conditions, such as running only when particular files or folders change.
+
+The goal isn't to automate as many tasks as possible. It's to **automate useful tasks at the right time**.
+
+## Try it: Add another trigger (optional)
+
+Want to experiment with your new workflow?
+
+1. Open `.github/workflows/check-links.yml` in your repository.
+2. Create a branch and edit the `on` section to include `workflow_dispatch`, as shown above.
+3. Commit your change, open a pull request, and merge it after checking the results.
+4. Navigate to the **Actions** tab and select **Check documentation links**.
+5. Click **Run workflow**, select your default branch, and start the check.
+6. Inspect the results, just as you did in the previous sections.
+
+You've now run the same automated check in two different ways: in response to a repository event and on demand.
+
+::: {.callout-tip title="Think about your research"}
+
+Consider the task you identified at the beginning of this Pad. When would you want it to run?
+
+Maybe every time someone proposes a change, once a week, or only when you explicitly request it.
+
+The answer depends on what you're checking and how the results will help your research.
+
+:::
+
+In the final section, we'll explore other applications of GitHub Actions and look at real research repositories whose automation workflows you can adapt for your own projects.
+
