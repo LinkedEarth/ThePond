@@ -1,0 +1,352 @@
+---
+title: "What is Open Science?"
+subtitle: The practices that make research visible, reusable, and verifiable
+---
+
+::: {.callout-note appearance="simple"}
+This page draws heavily on material from the [Center for Open Science (COS)](https://www.cos.io/), a partner of The Pond. We thank COS for making these resources openly available.
+:::
+
+## A working definition
+
+The Center for Open Science describes its mission as increasing the **openness, integrity, and reproducibility** of research. Open science means making the whole research process—questions, plans, data, code, methods, results, and reviews—**transparent and accessible**, so that others can see how a finding was produced, check it, and build on it.
+
+A broader definition comes from the [UNESCO Recommendation on Open Science (2021)](https://www.unesco.org/en/open-science/about), adopted by 193 countries. It describes open science as making scientific knowledge openly available, accessible, and reusable for everyone, and opening up the processes of creating, evaluating, and communicating that knowledge to society beyond the traditional scientific community.
+
+Open science is not a single practice. It is a set of practices, and you can adopt them one at a time.
+
+## The building blocks
+
+Open science is not one practice but many. Below are twelve of them.
+
+### Step 1: What do you already know?
+
+Choose **three** practices you are familiar with. For each one, write your own definition and an example, then click **Reveal answer** to compare yours with ours.
+
+```{=html}
+<div class="os-activity" data-mode="familiar" data-max="3">
+  <div class="os-cloud" role="group" aria-label="Practices you are familiar with"></div>
+  <p class="os-status" aria-live="polite"></p>
+  <div class="os-cards"></div>
+</div>
+```
+
+### Step 2: Explore something new
+
+Now choose **two or three** practices you don't know well. Try writing what you think they mean, or skip straight to **Reveal answer**.
+
+```{=html}
+<div class="os-activity" data-mode="new" data-max="3">
+  <div class="os-cloud" role="group" aria-label="Practices that are new to you"></div>
+  <p class="os-status" aria-live="polite"></p>
+  <div class="os-cards"></div>
+</div>
+```
+
+Your answers are saved only in this browser; nothing is sent anywhere.
+
+<!-- Reference answers. The activity above builds its word clouds and cards from these divs.
+     data-group (outputs, process, or system) sets the word color and legend in the word cloud. -->
+
+::: {#os-practice-bank}
+
+::: {.os-practice data-id="open-access" data-name="Open access" data-group="outputs"}
+**Definition.** Anyone can read research results, with no paywall.
+
+**Examples.**
+
+- **Physics & beyond:** [arXiv](https://arxiv.org/) has made preprints free to read since 1991.
+- **Geoscience:** [EarthArXiv](https://eartharxiv.org/) does the same for Earth sciences.
+:::
+
+::: {.os-practice data-id="open-data" data-name="Open data" data-group="outputs"}
+**Definition.** Data are shared publicly, promptly, and with enough documentation for others to reuse them.
+
+**Examples.**
+
+- **Genomics:** the Human Genome Project's [Bermuda Principles](https://en.wikipedia.org/wiki/Bermuda_Principles) (1996) required DNA sequences to be released within 24 hours.
+- **Oceanography:** the [Argo](https://argo.ucsd.edu/) network of ~4,000 robotic floats publishes ocean temperature and salinity data openly, within a day of collection ([Wong et al. (2020)](https://doi.org/10.3389/fmars.2020.00700)).
+:::
+
+::: {.os-practice data-id="fair-data" data-name="FAIR data" data-group="outputs"}
+**Definition.** Data are **F**indable, **A**ccessible, **I**nteroperable, and **R**eusable—by people *and* machines. FAIR is about usability, not only availability ([Wilkinson et al. (2016)](https://doi.org/10.1038/sdata.2016.18)).
+
+**Examples.**
+
+- **Biology:** the [Protein Data Bank](https://www.rcsb.org/) has shared standardized protein structures since 1971 ([Berman et al. (2000)](https://doi.org/10.1093/nar/28.1.235)); this archive made it possible to train AlphaFold ([Jumper et al. (2021)](https://doi.org/10.1038/s41586-021-03819-2)).
+- **Climate:** [CMIP6](https://wcrp-cmip.org/cmip6/) climate model output follows common metadata conventions, so one script can compare dozens of models ([Eyring et al. (2016)](https://doi.org/10.5194/gmd-9-1937-2016)).
+:::
+
+::: {.os-practice data-id="open-source" data-name="Open source software" data-group="outputs"}
+**Definition.** The code behind the results is public, licensed, and reusable.
+
+**Examples.**
+
+- **Astrophysics:** LIGO's first detection of gravitational waves ([Abbott et al. (2016)](https://doi.org/10.1103/PhysRevLett.116.061102)) came with open data and code at the [Gravitational Wave Open Science Center](https://gwosc.org/), so anyone can reproduce the signal.
+- **Seismology:** [ObsPy](https://docs.obspy.org/) is a community Python toolbox for processing seismic data ([Beyreuther et al. (2010)](https://doi.org/10.1785/gssrl.81.3.530)).
+:::
+
+::: {.os-practice data-id="open-workflows" data-name="Open methods & workflows" data-group="outputs"}
+**Definition.** The full path from raw data to figures—scripts, notebooks, computing environments—is shared so it can be rerun.
+
+**Examples.**
+
+- **Public health:** [Nextstrain](https://nextstrain.org/) tracked SARS-CoV-2 evolution in real time with open, rerunnable workflows ([Hadfield et al. (2018)](https://doi.org/10.1093/bioinformatics/bty407)).
+- **Geoscience:** [Pangeo](https://pangeo.io/) is a community building open, cloud-ready workflows for big Earth data.
+:::
+
+::: {.os-practice data-id="preregistration" data-name="Preregistration & Registered Reports" data-group="process"}
+**Definition.** Hypotheses and analysis plans are recorded *before* results are known, which keeps planned (confirmatory) and unplanned (exploratory) analyses distinct. See [COS: Preregistration](https://www.cos.io/initiatives/prereg) and [Registered Reports](https://www.cos.io/initiatives/registered-reports).
+
+**Example.**
+
+- **Medicine:** after large NHLBI-funded clinical trials had to declare their outcomes in advance on ClinicalTrials.gov (from 2000), the share reporting a benefit fell from 57% to 8% ([Kaplan & Irvin (2015)](https://doi.org/10.1371/journal.pone.0132382)).
+:::
+
+::: {.os-practice data-id="reproducibility" data-name="Reproducibility & replication" data-group="process"}
+**Definition.** Others can obtain the same results from the same data and code (*reproducibility*), or confirm a finding with new data (*replication*).
+
+**Example.**
+
+- **Psychology:** the COS-led Reproducibility Project repeated 100 published studies; 97% of the originals reported significant results, but only 36% of the replications did ([Open Science Collaboration (2015)](https://doi.org/10.1126/science.aac4716)).
+:::
+
+::: {.os-practice data-id="open-peer-review" data-name="Open peer review" data-group="process"}
+**Definition.** Reviews, and the authors' responses, are published alongside the paper.
+
+**Examples.**
+
+- **Life sciences:** [eLife](https://elifesciences.org/) publishes its reviewers' assessments with every paper.
+- **Geoscience:** [Copernicus/EGU journals](https://publications.copernicus.org/services/public_peer_review.html) post submissions for public discussion, and keep the reviews and replies online.
+:::
+
+::: {.os-practice data-id="open-infrastructure" data-name="Open infrastructure" data-group="system"}
+**Definition.** Shared, community-governed tools to store, identify, and link research outputs.
+
+**Examples.**
+
+- **General:** the COS [Open Science Framework (OSF)](https://osf.io/), [Zenodo](https://zenodo.org/) (free DOIs for data and code), and [ORCID](https://orcid.org/) (a persistent ID for every researcher).
+- **Earth science:** [NASA Earthdata](https://www.earthdata.nasa.gov/) provides open access to decades of satellite observations.
+:::
+
+::: {.os-practice data-id="oer" data-name="Open educational resources" data-group="outputs"}
+**Definition.** Teaching materials that are free to use, adapt, and share.
+
+**Examples.**
+
+- **Computing:** [The Carpentries](https://carpentries.org/) teach coding and data skills with openly licensed lessons.
+- **Geoscience:** [Project Pythia](https://projectpythia.org/) offers open tutorials for geoscience computing. The Pond itself is an open educational resource.
+:::
+
+::: {.os-practice data-id="citizen-science" data-name="Citizen science" data-group="system"}
+**Definition.** People outside academia take part in the research itself.
+
+**Examples.**
+
+- **Biochemistry:** players of the online game Foldit solved the structure of a retroviral protein that had stumped scientists for over a decade ([Khatib et al. (2011)](https://doi.org/10.1038/nsmb.2119)).
+- **Climate:** [Old Weather](https://www.oldweather.org/) volunteers transcribe historical ship logbooks, recovering weather observations from the 19th and 20th centuries.
+:::
+
+::: {.os-practice data-id="policies" data-name="Policies & incentives" data-group="system"}
+**Definition.** Journals, funders, and institutions set standards that reward openness.
+
+**Examples.**
+
+- **General:** the COS [TOP Guidelines](https://www.cos.io/initiatives/top-guidelines) give journals a menu of transparency standards ([Nosek et al. (2015)](https://doi.org/10.1126/science.aab2374)); after *Psychological Science* adopted COS [Open Science Badges](https://www.cos.io/initiatives/badges), articles reporting open data rose from under 3% to 39% ([Kidwell et al. (2016)](https://doi.org/10.1371/journal.pbio.1002456)).
+- **Earth science:** major publishers and repositories committed to FAIR data in Earth, space, and environmental science ([Stall et al. (2019)](https://doi.org/10.1038/d41586-019-01720-7)).
+:::
+
+:::
+
+## How the culture changes
+
+Individual researchers are not the only ones who decide how open science is. COS describes [a strategy for culture change](https://www.cos.io/blog/strategy-for-culture-change) in five layers, each one building on the layer before:
+
+1. **Possible** — infrastructure exists (e.g., a repository where you can deposit data).
+2. **Easy** — tools make the practice simple (e.g., one-click DOIs).
+3. **Normative** — communities see it as the expected thing to do (e.g., badges make it visible).
+4. **Rewarding** — incentives recognize it (e.g., hiring and funding credit shared data).
+5. **Required** — policies mandate it (e.g., funder data-sharing requirements).
+
+## What open science is *not*
+
+| Misconception | In practice | Example |
+|---|---|---|
+| "Everything must be public." | Openness is balanced against privacy, safety, and the rights of communities: *as open as possible, as closed as necessary*. | The [CARE Principles](https://www.gida-global.org/) for Indigenous Data Governance complement FAIR by centering people and purpose ([Carroll et al. (2020)](https://doi.org/10.5334/dsj-2020-043)). |
+| "If I share, others will take credit for my work." | Licenses and persistent identifiers make credit *easier* to trace. | A dataset with a [Zenodo](https://zenodo.org/) DOI and a CC-BY license can be cited, and the citations counted. |
+| "It's all or nothing." | Every step counts, even sharing a single script. | Start with what is *possible* and *easy* for you today. |
+
+## Where to go next
+
+- **LilyPads** offer hands-on practice with open [data](../lilypads/data/index.qmd), [software](../lilypads/software/index.qmd), and [workflows](../lilypads/workflow/index.qmd).
+- **The Deep End** goes further, with [GitHub](../deep-water/github/index.qmd) and [containers](../deep-water/containers/index.qmd).
+- The [Center for Open Science](https://www.cos.io/) has more resources, including the [Open Science Framework](https://osf.io/).
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const bank = document.getElementById("os-practice-bank");
+  const practices = [...bank.querySelectorAll(".os-practice")].map(div => ({
+    id: div.dataset.id,
+    name: div.dataset.name,
+    group: div.dataset.group,
+    answer: div.innerHTML
+  }));
+  bank.hidden = true;
+
+  // Learner answers stay in this browser only
+  const storageKey = "pond-what-is-open-science";
+  let saved = { familiar: [], new: [], answers: {} };
+  try {
+    saved = Object.assign(saved, JSON.parse(localStorage.getItem(storageKey)) || {});
+  } catch (e) {}
+  function save() {
+    try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch (e) {}
+  }
+
+  const activities = [...document.querySelectorAll(".os-activity")];
+  const groups = {
+    outputs: "What is shared: research outputs",
+    process: "How research is done and checked",
+    system: "Who takes part, and what supports it"
+  };
+
+  function buildCard(practice, mode) {
+    const answer = saved.answers[practice.id] || { definition: "", example: "" };
+    const card = document.createElement("article");
+    card.className = "os-card";
+    card.dataset.id = practice.id;
+    card.innerHTML = `
+      <div class="os-card-inner">
+        <section class="os-face os-front">
+          <h4></h4>
+          <p class="os-tag"></p>
+          <label>Your definition <textarea rows="3" name="definition"></textarea></label>
+          <label>Your example <textarea rows="3" name="example"></textarea></label>
+          <div class="os-face-footer">
+            <span class="os-hint"></span>
+            <button type="button" class="btn btn-primary btn-sm os-reveal">Reveal answer</button>
+          </div>
+        </section>
+        <section class="os-face os-back" inert>
+          <h4></h4>
+          <div class="os-mine" hidden>
+            <p class="os-mine-label">Your answer</p>
+            <p class="os-mine-definition"></p>
+            <p class="os-mine-example"></p>
+          </div>
+          <div class="os-answer"></div>
+          <div class="os-face-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm os-flip-back">Back to my answer</button>
+          </div>
+        </section>
+      </div>`;
+    card.querySelectorAll("h4").forEach(h => { h.textContent = practice.name; });
+    card.querySelector(".os-tag").textContent = groups[practice.group];
+    card.classList.add(`os-group-${practice.group}`);
+    card.querySelector(".os-answer").innerHTML = practice.answer;
+
+    const front = card.querySelector(".os-front");
+    const back = card.querySelector(".os-back");
+    const definition = card.querySelector("textarea[name=definition]");
+    const example = card.querySelector("textarea[name=example]");
+    const reveal = card.querySelector(".os-reveal");
+    const hint = card.querySelector(".os-hint");
+    definition.value = answer.definition;
+    example.value = answer.example;
+
+    // Familiar practices: write both fields before revealing. New ones can skip.
+    function updateReveal() {
+      saved.answers[practice.id] = { definition: definition.value, example: example.value };
+      save();
+      if (mode === "familiar") {
+        const ready = definition.value.trim() && example.value.trim();
+        reveal.disabled = !ready;
+        hint.textContent = ready ? "" : "Write both to reveal";
+      }
+    }
+    definition.addEventListener("input", updateReveal);
+    example.addEventListener("input", updateReveal);
+    updateReveal();
+
+    function flip(toBack) {
+      if (toBack) {
+        const mine = card.querySelector(".os-mine");
+        card.querySelector(".os-mine-definition").textContent = definition.value.trim();
+        card.querySelector(".os-mine-example").textContent = example.value.trim();
+        mine.hidden = !(definition.value.trim() || example.value.trim());
+      }
+      card.classList.toggle("is-flipped", toBack);
+      front.inert = toBack;
+      back.inert = !toBack;
+      (toBack ? card.querySelector(".os-flip-back") : reveal).focus({ preventScroll: true });
+    }
+    reveal.addEventListener("click", () => flip(true));
+    card.querySelector(".os-flip-back").addEventListener("click", () => flip(false));
+    return card;
+  }
+
+  function render() {
+    for (const activity of activities) {
+      const mode = activity.dataset.mode;
+      const max = Number(activity.dataset.max);
+      const other = mode === "familiar" ? "new" : "familiar";
+      const chosen = saved[mode];
+
+      activity.querySelectorAll(".os-word").forEach(word => {
+        const id = word.dataset.id;
+        const selected = chosen.includes(id);
+        word.setAttribute("aria-pressed", selected);
+        word.disabled = saved[other].includes(id) || (!selected && chosen.length >= max);
+      });
+
+      const left = max - chosen.length;
+      activity.querySelector(".os-status").textContent = left > 0
+        ? `${chosen.length} of ${max} chosen. Choose ${left} more.`
+        : `${max} of ${max} chosen. Click a highlighted word again to change your choice.`;
+
+      // Keep existing cards (and their flipped state); add or remove as needed
+      const cards = activity.querySelector(".os-cards");
+      cards.querySelectorAll(".os-card").forEach(card => {
+        if (!chosen.includes(card.dataset.id)) card.remove();
+      });
+      for (const id of chosen) {
+        if (!cards.querySelector(`[data-id="${id}"]`)) {
+          cards.append(buildCard(practices.find(p => p.id === id), mode));
+        }
+      }
+    }
+  }
+
+  for (const activity of activities) {
+    const mode = activity.dataset.mode;
+    const cloud = activity.querySelector(".os-cloud");
+    const legend = document.createElement("ul");
+    legend.className = "os-legend";
+    for (const [group, label] of Object.entries(groups)) {
+      const item = document.createElement("li");
+      item.className = `os-group-${group}`;
+      item.textContent = label;
+      legend.append(item);
+    }
+    cloud.before(legend);
+    for (const practice of practices) {
+      const word = document.createElement("button");
+      word.type = "button";
+      word.className = `os-word os-group-${practice.group}`;
+      word.dataset.id = practice.id;
+      word.textContent = practice.name;
+      word.addEventListener("click", () => {
+        const chosen = saved[mode];
+        const i = chosen.indexOf(practice.id);
+        if (i >= 0) chosen.splice(i, 1); else chosen.push(practice.id);
+        save();
+        render();
+      });
+      cloud.append(word);
+    }
+  }
+  saved.familiar = saved.familiar.filter(id => practices.some(p => p.id === id));
+  saved.new = saved.new.filter(id => practices.some(p => p.id === id) && !saved.familiar.includes(id));
+  render();
+});
+</script>

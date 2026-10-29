@@ -2,6 +2,8 @@
 title: "The Shallows"
 ---
 
+- [What is Open Science?](what-is-open-science.qmd)
+
 ::: {.callout-note appearance="simple"}
 ## Coming soon
 
