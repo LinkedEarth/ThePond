@@ -7,6 +7,8 @@ project:
     # Backend notebooks for the correlation exercises; not pages
     - "!lilypads/workflow/methods-actionable/correlation/workflow.ipynb"
     - "!deep-water/correlation-workflow/correlation/workflow.ipynb"
+    # Instructions for Claude Code; not a page
+    - "!CLAUDE.md"
   resources: 
     - "deep-water/github/start-research-repository/studies/*.zip"
 
