@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>What is Open Science? – The Pond</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/FROGSlogo.jpg" rel="icon" type="image/jpeg">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-441865af4f764db149bff5662dcd3a22.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b44e2e907ed1ca7f3452cf07424a0561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-441865af4f764db149bff5662dcd3a22.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo light-content">
+    <img src="../images/FROGSlogo.jpg" alt="FROGS" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">The Pond</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../shallows/index.html"> 
+<span class="menu-text">The Shallows</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lilypads" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LilyPads</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lilypads">    
+        <li>
+    <a class="dropdown-item" href="../lilypads/index.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lilypads/data/index.html">
+ <span class="dropdown-text">Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lilypads/software/index.html">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lilypads/workflow/index.html">
+ <span class="dropdown-text">Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-the-deep-end" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">The Deep End</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-the-deep-end">    
+        <li>
+    <a class="dropdown-item" href="../deep-water/index.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../deep-water/github/index.html">
+ <span class="dropdown-text">GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../deep-water/containers/index.html">
+ <span class="dropdown-text">Containers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../deep-water/correlation-workflow/index.html">
+ <span class="dropdown-text">Correlation Workflow</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../spring/index.html"> 
+<span class="menu-text">The Spring</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-working-definition" id="toc-a-working-definition" class="nav-link active" data-scroll-target="#a-working-definition">A working definition</a></li>
+  <li><a href="#the-building-blocks" id="toc-the-building-blocks" class="nav-link" data-scroll-target="#the-building-blocks">The building blocks</a>
+  <ul class="collapse">
+  <li><a href="#step-1-what-do-you-already-know" id="toc-step-1-what-do-you-already-know" class="nav-link" data-scroll-target="#step-1-what-do-you-already-know">Step 1: What do you already know?</a></li>
+  <li><a href="#step-2-explore-something-new" id="toc-step-2-explore-something-new" class="nav-link" data-scroll-target="#step-2-explore-something-new">Step 2: Explore something new</a></li>
+  </ul></li>
+  <li><a href="#culture-changes" id="toc-culture-changes" class="nav-link" data-scroll-target="#culture-changes">Culture changes</a></li>
+  <li><a href="#what-open-science-is-not" id="toc-what-open-science-is-not" class="nav-link" data-scroll-target="#what-open-science-is-not">What open science is not</a></li>
+  <li><a href="#where-to-go-next" id="toc-where-to-go-next" class="nav-link" data-scroll-target="#where-to-go-next">Where to go next</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">What is Open Science?</h1>
+<p class="subtitle lead">The practices that make research visible, reusable, and verifiable</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="a-working-definition" class="level2">
+<h2 class="anchored" data-anchor-id="a-working-definition">A working definition</h2>
+<p>The <a href="https://www.cos.io/">Center for Open Science (COS)</a> describes open science as increasing the <strong>openness, integrity, and reproducibility</strong> of research. Open science (OS) means making the whole research process—questions, plans, data, code, methods, results, and reviews—transparent and accessible, so that others can see how a finding was produced, check it, and build on it.</p>
+<p>A broader definition comes from the <a href="https://www.unesco.org/en/open-science/about">UNESCO Recommendation on Open Science (2021)</a>, adopted by 193 countries. It describes OS as <em>making scientific knowledge openly available, accessible, and reusable for everyone, and opening up the processes of creating, evaluating, and communicating that knowledge to society beyond the traditional scientific community</em>.</p>
+<p>Open science, thus, is not a single thing. It is a set of practices, and you can adopt them one at a time.</p>
+</section>
+<section id="the-building-blocks" class="level2">
+<h2 class="anchored" data-anchor-id="the-building-blocks">The building blocks</h2>
+<p>Below are twelve practices, some of which you may already know.</p>
+<section id="step-1-what-do-you-already-know" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-what-do-you-already-know">Step 1: What do you already know?</h3>
+<p>Choose <strong>three</strong> practices you are familiar with. For each one, write your own definition and an example, then click <strong>Reveal answer</strong> to compare yours with ours.</p>
+<div class="os-activity" data-mode="familiar" data-max="3">
+  <div class="os-cloud" role="group" aria-label="Practices you are familiar with"></div>
+  <p class="os-status" aria-live="polite"></p>
+  <div class="os-cards"></div>
+</div>
+</section>
+<section id="step-2-explore-something-new" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-explore-something-new">Step 2: Explore something new</h3>
+<p>Now choose <strong>two or three</strong> practices you don’t know well. Try writing what you think they mean, or skip straight to <strong>Reveal answer</strong>.</p>
+<div class="os-activity" data-mode="new" data-max="3">
+  <div class="os-cloud" role="group" aria-label="Practices that are new to you"></div>
+  <p class="os-status" aria-live="polite"></p>
+  <div class="os-cards"></div>
+</div>
+<p>Your answers are saved only in this browser; nothing is sent anywhere.</p>
+<!-- Reference answers. The activity above builds its word clouds and cards from these divs.
+     data-group (outputs, process, or system) sets the word color and legend in the word cloud. -->
+<div id="os-practice-bank">
+<div class="os-practice" data-id="open-access" data-name="Open access" data-group="outputs">
+<p><strong>Definition.</strong> Anyone can read research results, with no paywall.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Physics &amp; beyond:</strong> <a href="https://arxiv.org/">arXiv</a> has made preprints free to read since 1991.</li>
+<li><strong>Geoscience:</strong> <a href="https://eartharxiv.org/">EarthArXiv</a> does the same for Earth sciences.</li>
+</ul>
+</div>
+<div class="os-practice" data-id="open-data" data-name="Open data" data-group="outputs">
+<p><strong>Definition.</strong> Data are shared publicly, promptly, and with enough documentation for others to reuse them.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Genomics:</strong> the Human Genome Project’s <a href="https://en.wikipedia.org/wiki/Bermuda_Principles">Bermuda Principles</a> (1996) required DNA sequences to be released within 24 hours.</li>
+<li><strong>Oceanography:</strong> the <a href="https://argo.ucsd.edu/">Argo</a> network of ~4,000 robotic floats publishes ocean temperature and salinity data openly, within a day of collection (<a href="https://doi.org/10.3389/fmars.2020.00700">Wong et al.&nbsp;(2020)</a>).</li>
+</ul>
+</div>
+<div class="os-practice" data-id="fair-data" data-name="FAIR data" data-group="outputs">
+<p><strong>Definition.</strong> Data are <strong>F</strong>indable, <strong>A</strong>ccessible, <strong>I</strong>nteroperable, and <strong>R</strong>eusable—by people <em>and</em> machines. FAIR is about usability, not only availability (<a href="https://doi.org/10.1038/sdata.2016.18">Wilkinson et al.&nbsp;(2016)</a>).</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Biology:</strong> the <a href="https://www.rcsb.org/">Protein Data Bank</a> has shared standardized protein structures since 1971 (<a href="https://doi.org/10.1093/nar/28.1.235">Berman et al.&nbsp;(2000)</a>); this archive made it possible to train AlphaFold (<a href="https://doi.org/10.1038/s41586-021-03819-2">Jumper et al.&nbsp;(2021)</a>).</li>
+<li><strong>Climate:</strong> <a href="https://wcrp-cmip.org/cmip6/">CMIP6</a> climate model output follows common metadata conventions, so one script can compare dozens of models (<a href="https://doi.org/10.5194/gmd-9-1937-2016">Eyring et al.&nbsp;(2016)</a>).</li>
+</ul>
+</div>
+<div class="os-practice" data-id="open-source" data-name="Open source software" data-group="outputs">
+<p><strong>Definition.</strong> The code behind the results is public, licensed, and reusable.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Astrophysics:</strong> LIGO’s first detection of gravitational waves (<a href="https://doi.org/10.1103/PhysRevLett.116.061102">Abbott et al.&nbsp;(2016)</a>) came with open data and code at the <a href="https://gwosc.org/">Gravitational Wave Open Science Center</a>, so anyone can reproduce the signal.</li>
+<li><strong>Seismology:</strong> <a href="https://docs.obspy.org/">ObsPy</a> is a community Python toolbox for processing seismic data (<a href="https://doi.org/10.1785/gssrl.81.3.530">Beyreuther et al.&nbsp;(2010)</a>).</li>
+</ul>
+</div>
+<div class="os-practice" data-id="open-workflows" data-name="Open methods &amp; workflows" data-group="outputs">
+<p><strong>Definition.</strong> The full path from raw data to figures—scripts, notebooks, computing environments—is shared so it can be rerun.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Public health:</strong> <a href="https://nextstrain.org/">Nextstrain</a> tracked SARS-CoV-2 evolution in real time with open, rerunnable workflows (<a href="https://doi.org/10.1093/bioinformatics/bty407">Hadfield et al.&nbsp;(2018)</a>).</li>
+<li><strong>Geoscience:</strong> <a href="https://pangeo.io/">Pangeo</a> is a community building open, cloud-ready workflows for big Earth data.</li>
+</ul>
+</div>
+<div class="os-practice" data-id="preregistration" data-name="Preregistration &amp; Registered Reports" data-group="process">
+<p><strong>Definition.</strong> Hypotheses and analysis plans are recorded before results are known, which keeps planned (confirmatory) and unplanned (exploratory) analyses distinct. See <a href="https://www.cos.io/initiatives/prereg">COS: Preregistration</a> and <a href="https://www.cos.io/initiatives/registered-reports">Registered Reports</a>.</p>
+<p><strong>Example.</strong></p>
+<ul>
+<li><strong>Medicine:</strong> after large NHLBI-funded clinical trials had to declare their outcomes in advance on ClinicalTrials.gov (from 2000), the share reporting a benefit fell from 57% to 8% (<a href="https://doi.org/10.1371/journal.pone.0132382">Kaplan &amp; Irvin (2015)</a>).</li>
+</ul>
+</div>
+<div class="os-practice" data-id="reproducibility" data-name="Reproducibility &amp; replication" data-group="process">
+<p><strong>Definition.</strong> Others can obtain the same results from the same data and code (<em>reproducibility</em>), or confirm a finding with new data (<em>replication</em>).</p>
+<p><strong>Example.</strong></p>
+<ul>
+<li><strong>Psychology:</strong> the COS-led Reproducibility Project repeated 100 published studies; 97% of the originals reported significant results, but only 36% of the replications did (<a href="https://doi.org/10.1126/science.aac4716">Open Science Collaboration (2015)</a>).</li>
+</ul>
+</div>
+<div class="os-practice" data-id="open-peer-review" data-name="Open peer review" data-group="process">
+<p><strong>Definition.</strong> Reviews, and the authors’ responses, are published alongside the paper.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Life sciences:</strong> <a href="https://elifesciences.org/">eLife</a> publishes its reviewers’ assessments with every paper.</li>
+<li><strong>Geoscience:</strong> <a href="https://publications.copernicus.org/services/public_peer_review.html">Copernicus/EGU journals</a> post submissions for public discussion, and keep the reviews and replies online.</li>
+</ul>
+</div>
+<div class="os-practice" data-id="open-infrastructure" data-name="Open infrastructure" data-group="system">
+<p><strong>Definition.</strong> Shared, community-governed tools to store, identify, and link research outputs.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>General:</strong> the COS <a href="https://osf.io/">Open Science Framework (OSF)</a>, <a href="https://zenodo.org/">Zenodo</a> (free DOIs for data and code), and <a href="https://orcid.org/">ORCID</a> (a persistent ID for every researcher).</li>
+<li><strong>Earth science:</strong> <a href="https://www.earthdata.nasa.gov/">NASA Earthdata</a> provides open access to decades of satellite observations.</li>
+</ul>
+</div>
+<div class="os-practice" data-id="oer" data-name="Open educational resources" data-group="outputs">
+<p><strong>Definition.</strong> Teaching materials that are free to use, adapt, and share.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Computing:</strong> <a href="https://carpentries.org/">The Carpentries</a> teach coding and data skills with openly licensed lessons.</li>
+<li><strong>Geoscience:</strong> <a href="https://projectpythia.org/">Project Pythia</a> offers open tutorials for geoscience computing. The Pond itself is an open educational resource.</li>
+</ul>
+</div>
+<div class="os-practice" data-id="citizen-science" data-name="Citizen science" data-group="system">
+<p><strong>Definition.</strong> People outside academia take part in the research itself.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>Biochemistry:</strong> players of the online game Foldit solved the structure of a retroviral protein that had stumped scientists for over a decade (<a href="https://doi.org/10.1038/nsmb.2119">Khatib et al.&nbsp;(2011)</a>).</li>
+<li><strong>Climate:</strong> <a href="https://www.oldweather.org/">Old Weather</a> volunteers transcribe historical ship logbooks, recovering weather observations from the 19th and 20th centuries.</li>
+</ul>
+</div>
+<div class="os-practice" data-id="policies" data-name="Policies &amp; incentives" data-group="system">
+<p><strong>Definition.</strong> Journals, funders, and institutions set standards that reward openness.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><strong>General:</strong> the COS <a href="https://www.cos.io/initiatives/top-guidelines">TOP Guidelines</a> give journals a menu of transparency standards (<a href="https://doi.org/10.1126/science.aab2374">Nosek et al.&nbsp;(2015)</a>); after <em>Psychological Science</em> adopted COS <a href="https://www.cos.io/initiatives/badges">Open Science Badges</a>, articles reporting open data rose from under 3% to 39% (<a href="https://doi.org/10.1371/journal.pbio.1002456">Kidwell et al.&nbsp;(2016)</a>).</li>
+<li><strong>Earth science:</strong> major publishers and repositories committed to FAIR data in Earth, space, and environmental science (<a href="https://doi.org/10.1038/d41586-019-01720-7">Stall et al.&nbsp;(2019)</a>).</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="culture-changes" class="level2">
+<h2 class="anchored" data-anchor-id="culture-changes">Culture changes</h2>
+<p>Hopefully, the section above convinced you that there are a few actionable ways in which you can incorporate OS in your own research life. One oft-cited obstacle is that no researcher can single-handedly enact a cultural shift. Single-handedly, no. But together, yes. COS describes <a href="https://www.cos.io/blog/strategy-for-culture-change">a strategy for culture change</a> in five layers, each one building on the preceding layer:</p>
+<ol type="1">
+<li><strong>Possible</strong> — infrastructure exists (e.g., a repository where you can deposit data).</li>
+<li><strong>Easy</strong> — tools make the practice simple (e.g., one-click DOIs).</li>
+<li><strong>Normative</strong> — communities see it as the expected thing to do (e.g., badges make it visible).</li>
+<li><strong>Rewarding</strong> — incentives recognize it (e.g., hiring and funding credit shared data).</li>
+<li><strong>Required</strong> — policies mandate it (e.g., funder data-sharing requirements).</li>
+</ol>
+<p>Please take a moment to reflect on how these qualifiers apply to the practices that are already part of your research life, and those you want/need to develop.</p>
+</section>
+<section id="what-open-science-is-not" class="level2">
+<h2 class="anchored" data-anchor-id="what-open-science-is-not">What open science is not</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Misconception</th>
+<th>In practice</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Everything must be public.”</td>
+<td>Openness is balanced against privacy, safety, and the rights of communities: <em>as open as possible, as closed as necessary</em>.</td>
+<td>The <a href="https://www.gida-global.org/">CARE Principles</a> for Indigenous Data Governance complement FAIR by centering people and purpose (<a href="https://doi.org/10.5334/dsj-2020-043">Carroll et al.&nbsp;(2020)</a>).</td>
+</tr>
+<tr class="even">
+<td>“If I share, others will take credit for my work.”</td>
+<td>Licenses and persistent identifiers make credit <em>easier</em> to trace.</td>
+<td>A dataset with a <a href="https://zenodo.org/">Zenodo</a> DOI and a CC-BY license can be cited, and the citations counted.</td>
+</tr>
+<tr class="odd">
+<td>“It’s all or nothing.”</td>
+<td>Every step counts, even sharing a single script.</td>
+<td>Start with what is possible/easy for you today.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="where-to-go-next" class="level2">
+<h2 class="anchored" data-anchor-id="where-to-go-next">Where to go next</h2>
+<ul>
+<li><strong>LilyPads</strong> offer hands-on practice with open <a href="../lilypads/data/index.html">data</a>, <a href="../lilypads/software/index.html">software</a>, and <a href="../lilypads/workflow/index.html">workflows</a>.</li>
+<li><strong>The Deep End</strong> goes further, with <a href="../deep-water/github/index.html">GitHub</a> and <a href="../deep-water/containers/index.html">containers</a>.</li>
+<li>The <a href="https://www.cos.io/">Center for Open Science</a> has more resources, including the <a href="https://osf.io/">Open Science Framework</a>.</li>
+</ul>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const bank = document.getElementById("os-practice-bank");
+  const practices = [...bank.querySelectorAll(".os-practice")].map(div => ({
+    id: div.dataset.id,
+    name: div.dataset.name,
+    group: div.dataset.group,
+    answer: div.innerHTML
+  }));
+  bank.hidden = true;
+
+  // Learner answers stay in this browser only
+  const storageKey = "pond-what-is-open-science";
+  let saved = { familiar: [], new: [], answers: {} };
+  try {
+    saved = Object.assign(saved, JSON.parse(localStorage.getItem(storageKey)) || {});
+  } catch (e) {}
+  function save() {
+    try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch (e) {}
+  }
+
+  const activities = [...document.querySelectorAll(".os-activity")];
+  const groups = {
+    outputs: "What is shared: research outputs",
+    process: "How research is done and checked",
+    system: "Who takes part, and what supports it"
+  };
+
+  function buildCard(practice, mode) {
+    const answer = saved.answers[practice.id] || { definition: "", example: "" };
+    const card = document.createElement("article");
+    card.className = "os-card";
+    card.dataset.id = practice.id;
+    card.innerHTML = `
+      <div class="os-card-inner">
+        <section class="os-face os-front">
+          <h4></h4>
+          <p class="os-tag"></p>
+          <label>Your definition <textarea rows="3" name="definition"></textarea></label>
+          <label>Your example <textarea rows="3" name="example"></textarea></label>
+          <div class="os-face-footer">
+            <span class="os-hint"></span>
+            <button type="button" class="btn btn-primary btn-sm os-reveal">Reveal answer</button>
+          </div>
+        </section>
+        <section class="os-face os-back" inert>
+          <h4></h4>
+          <div class="os-mine" hidden>
+            <p class="os-mine-label">Your answer</p>
+            <p class="os-mine-definition"></p>
+            <p class="os-mine-example"></p>
+          </div>
+          <div class="os-answer"></div>
+          <div class="os-face-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm os-flip-back">Back to my answer</button>
+          </div>
+        </section>
+      </div>`;
+    card.querySelectorAll("h4").forEach(h => { h.textContent = practice.name; });
+    card.querySelector(".os-tag").textContent = groups[practice.group];
+    card.classList.add(`os-group-${practice.group}`);
+    card.querySelector(".os-answer").innerHTML = practice.answer;
+
+    const front = card.querySelector(".os-front");
+    const back = card.querySelector(".os-back");
+    const definition = card.querySelector("textarea[name=definition]");
+    const example = card.querySelector("textarea[name=example]");
+    const reveal = card.querySelector(".os-reveal");
+    const hint = card.querySelector(".os-hint");
+    definition.value = answer.definition;
+    example.value = answer.example;
+
+    // Familiar practices: write both fields before revealing. New ones can skip.
+    function updateReveal() {
+      saved.answers[practice.id] = { definition: definition.value, example: example.value };
+      save();
+      if (mode === "familiar") {
+        const ready = definition.value.trim() && example.value.trim();
+        reveal.disabled = !ready;
+        hint.textContent = ready ? "" : "Write both to reveal";
+      }
+    }
+    definition.addEventListener("input", updateReveal);
+    example.addEventListener("input", updateReveal);
+    updateReveal();
+
+    function flip(toBack) {
+      if (toBack) {
+        const mine = card.querySelector(".os-mine");
+        card.querySelector(".os-mine-definition").textContent = definition.value.trim();
+        card.querySelector(".os-mine-example").textContent = example.value.trim();
+        mine.hidden = !(definition.value.trim() || example.value.trim());
+      }
+      card.classList.toggle("is-flipped", toBack);
+      front.inert = toBack;
+      back.inert = !toBack;
+      (toBack ? card.querySelector(".os-flip-back") : reveal).focus({ preventScroll: true });
+    }
+    reveal.addEventListener("click", () => flip(true));
+    card.querySelector(".os-flip-back").addEventListener("click", () => flip(false));
+    return card;
+  }
+
+  function render() {
+    for (const activity of activities) {
+      const mode = activity.dataset.mode;
+      const max = Number(activity.dataset.max);
+      const other = mode === "familiar" ? "new" : "familiar";
+      const chosen = saved[mode];
+
+      activity.querySelectorAll(".os-word").forEach(word => {
+        const id = word.dataset.id;
+        const selected = chosen.includes(id);
+        word.setAttribute("aria-pressed", selected);
+        word.disabled = saved[other].includes(id) || (!selected && chosen.length >= max);
+      });
+
+      const left = max - chosen.length;
+      activity.querySelector(".os-status").textContent = left > 0
+        ? `${chosen.length} of ${max} chosen. Choose ${left} more.`
+        : `${max} of ${max} chosen. Click a highlighted word again to change your choice.`;
+
+      // Keep existing cards (and their flipped state); add or remove as needed
+      const cards = activity.querySelector(".os-cards");
+      cards.querySelectorAll(".os-card").forEach(card => {
+        if (!chosen.includes(card.dataset.id)) card.remove();
+      });
+      for (const id of chosen) {
+        if (!cards.querySelector(`[data-id="${id}"]`)) {
+          cards.append(buildCard(practices.find(p => p.id === id), mode));
+        }
+      }
+    }
+  }
+
+  for (const activity of activities) {
+    const mode = activity.dataset.mode;
+    const cloud = activity.querySelector(".os-cloud");
+    const legend = document.createElement("ul");
+    legend.className = "os-legend";
+    for (const [group, label] of Object.entries(groups)) {
+      const item = document.createElement("li");
+      item.className = `os-group-${group}`;
+      item.textContent = label;
+      legend.append(item);
+    }
+    cloud.before(legend);
+    for (const practice of practices) {
+      const word = document.createElement("button");
+      word.type = "button";
+      word.className = `os-word os-group-${practice.group}`;
+      word.dataset.id = practice.id;
+      word.textContent = practice.name;
+      word.addEventListener("click", () => {
+        const chosen = saved[mode];
+        const i = chosen.indexOf(practice.id);
+        if (i >= 0) chosen.splice(i, 1); else chosen.push(practice.id);
+        save();
+        render();
+      });
+      cloud.append(word);
+    }
+  }
+  saved.familiar = saved.familiar.filter(id => practices.some(p => p.id === id));
+  saved.new = saved.new.filter(id => practices.some(p => p.id === id) && !saved.familiar.includes(id));
+  render();
+});
+</script>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/LinkedEarth\.github\.io\/ThePond\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>The Pond is part of <a href="https://linked.earth/FROGS/">FROGS</a>, a <a href="https://linked.earth/">LinkedEarth</a> project.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
