@@ -3,21 +3,17 @@ title: "What is Open Science?"
 subtitle: The practices that make research visible, reusable, and verifiable
 ---
 
-::: {.callout-note appearance="simple"}
-This page draws heavily on material from the [Center for Open Science (COS)](https://www.cos.io/), a partner of The Pond. We thank COS for making these resources openly available.
-:::
-
 ## A working definition
 
-The Center for Open Science describes its mission as increasing the **openness, integrity, and reproducibility** of research. Open science means making the whole research process—questions, plans, data, code, methods, results, and reviews—**transparent and accessible**, so that others can see how a finding was produced, check it, and build on it.
+The [Center for Open Science (COS)](https://www.cos.io/) describes open science as increasing the **openness, integrity, and reproducibility** of research. Open science (OS) means making the whole research process—questions, plans, data, code, methods, results, and reviews—transparent and accessible, so that others can see how a finding was produced, check it, and build on it.
 
-A broader definition comes from the [UNESCO Recommendation on Open Science (2021)](https://www.unesco.org/en/open-science/about), adopted by 193 countries. It describes open science as making scientific knowledge openly available, accessible, and reusable for everyone, and opening up the processes of creating, evaluating, and communicating that knowledge to society beyond the traditional scientific community.
+A broader definition comes from the [UNESCO Recommendation on Open Science (2021)](https://www.unesco.org/en/open-science/about), adopted by 193 countries. It describes OS as _making scientific knowledge openly available, accessible, and reusable for everyone, and opening up the processes of creating, evaluating, and communicating that knowledge to society beyond the traditional scientific community_.
 
-Open science is not a single practice. It is a set of practices, and you can adopt them one at a time.
+Open science, thus, is not a single thing. It is a set of practices, and you can adopt them one at a time.
 
 ## The building blocks
 
-Open science is not one practice but many. Below are twelve of them.
+Below are twelve practices, some of which you may already know. 
 
 ### Step 1: What do you already know?
 
@@ -96,7 +92,7 @@ Your answers are saved only in this browser; nothing is sent anywhere.
 :::
 
 ::: {.os-practice data-id="preregistration" data-name="Preregistration & Registered Reports" data-group="process"}
-**Definition.** Hypotheses and analysis plans are recorded *before* results are known, which keeps planned (confirmatory) and unplanned (exploratory) analyses distinct. See [COS: Preregistration](https://www.cos.io/initiatives/prereg) and [Registered Reports](https://www.cos.io/initiatives/registered-reports).
+**Definition.** Hypotheses and analysis plans are recorded before results are known, which keeps planned (confirmatory) and unplanned (exploratory) analyses distinct. See [COS: Preregistration](https://www.cos.io/initiatives/prereg) and [Registered Reports](https://www.cos.io/initiatives/registered-reports).
 
 **Example.**
 
@@ -158,9 +154,10 @@ Your answers are saved only in this browser; nothing is sent anywhere.
 
 :::
 
-## How the culture changes
-
-Individual researchers are not the only ones who decide how open science is. COS describes [a strategy for culture change](https://www.cos.io/blog/strategy-for-culture-change) in five layers, each one building on the layer before:
+## Culture changes
+Hopefully, the section above convinced you that there are a few actionable ways in which you can incorporate OS in your own research life. 
+One oft-cited obstacle is that no researcher can single-handedly enact a cultural shift. Single-handedly, no. But together, yes. 
+COS describes [a strategy for culture change](https://www.cos.io/blog/strategy-for-culture-change) in five layers, each one building on the preceding layer:
 
 1. **Possible** — infrastructure exists (e.g., a repository where you can deposit data).
 2. **Easy** — tools make the practice simple (e.g., one-click DOIs).
@@ -168,13 +165,15 @@ Individual researchers are not the only ones who decide how open science is. COS
 4. **Rewarding** — incentives recognize it (e.g., hiring and funding credit shared data).
 5. **Required** — policies mandate it (e.g., funder data-sharing requirements).
 
-## What open science is *not*
+Please take a moment to reflect on how these qualifiers apply to the practices that are already part of your research life, and those you want/need to develop. 
+
+## What open science is not
 
 | Misconception | In practice | Example |
 |---|---|---|
 | "Everything must be public." | Openness is balanced against privacy, safety, and the rights of communities: *as open as possible, as closed as necessary*. | The [CARE Principles](https://www.gida-global.org/) for Indigenous Data Governance complement FAIR by centering people and purpose ([Carroll et al. (2020)](https://doi.org/10.5334/dsj-2020-043)). |
 | "If I share, others will take credit for my work." | Licenses and persistent identifiers make credit *easier* to trace. | A dataset with a [Zenodo](https://zenodo.org/) DOI and a CC-BY license can be cited, and the citations counted. |
-| "It's all or nothing." | Every step counts, even sharing a single script. | Start with what is *possible* and *easy* for you today. |
+| "It's all or nothing." | Every step counts, even sharing a single script. | Start with what is possible/easy for you today. |
 
 ## Where to go next
 
