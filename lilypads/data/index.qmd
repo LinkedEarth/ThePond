@@ -3,11 +3,80 @@ title: "Data"
 subtitle: Documenting, cleaning, publishing, and preserving data
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+These LilyPads build on one another. **Start with LilyPad 1 and work through them in order.**
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+::: {.grid}
 
-![](../../images/frog_soon.gif){fig-align="center" width="250px"}
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 1. Different Types of Data
+
+Data can be structured in very different ways. The structure of the data affects how it is interpreted, documented, and reused.
+
+[Start LilyPad →](data-type/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 2. Metadata for Reuse
+
+Having the data file is not enough to use it correctly. Metadata are needed to interpret variables, units, missing values, QC fields, provenance, and reuse conditions.
+
+[Start LilyPad →](metadata/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 3. Data Quality and Provenance
+
+Data quality is not simply “good” or “bad”; it depends on the scientific question. Provenance records how data were created and transformed, allowing users to assess whether they are appropriate for a particular use. 
+
+[Start LilyPad →](data-quality/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 4. From Sketch to Notebook
+
+Connect the steps in a workflow sketch to the code, data, and outputs in a computational notebook.
+
+[Start LilyPad →](sketches-vs-notebooks/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 5. Why Containers Matter
+
+See how changing the computational environment can change scientific results—even when the workflow stays the same.
+
+[Start LilyPad →](containers/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### 6. Citing Workflows
+
+Explore how computational workflows can be documented, shared, and cited as research products.
+
+[Start LilyPad →](citing-workflows/index.qmd)
+:::
+:::
+:::
+
 :::
