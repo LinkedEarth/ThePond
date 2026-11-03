@@ -1,12 +1,56 @@
 ---
-title: "Citing Workflows"
+title: "Which Workflow Did You Use?"
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+Scientific workflows are research products in their own right. Just like datasets, software, and scientific papers, **workflows should be cited** so that researchers receive credit for their work and others can reproduce their results.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+But citing a workflow isn't always as straightforward as citing a paper.
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
+What if you used someone else's workflow but modified a few steps? What if your own workflow changed between presenting a poster, submitting a manuscript, and publishing the final paper? Which version should you cite?
+
+In this LilyPad, you'll explore two common situations:
+
+1. **Citing someone else's workflow:** How do you acknowledge the original researchers while identifying the workflow you actually used?
+2. **Citing your own workflow:** How do you reference a workflow that evolves throughout the publication process?
+
+By the end, you'll know how to reference workflows in a scientific manuscript and why choosing the right version matters.
+
+---
+
+## 1. What exactly are you citing?
+
+Imagine reading a paper that introduces a new method for reconstructing past climate. You want to apply the same method to your own data.
+
+The paper explains the scientific approach, and the authors have also shared the workflow they used to produce their results.
+
+Are these the same thing?
+
+Not quite! As we saw in earlier LilyPads, a **workflow** describes the sequence of data, actions, decisions, parameters, and tools used to answer a scientific question. A scientific paper may describe the method, but it doesn't necessarily provide every detail needed to reproduce the analysis.
+
+Citing the paper gives credit for the scientific ideas. Citing the workflow identifies the implementation used to produce the results.
+
+### One workflow, multiple versions
+
+Workflows can also change over time. Researchers might correct an error, add a processing step, or improve their documentation.
+
+To help readers identify what they're referring to, archived workflows can have two kinds of Digital Object Identifiers (DOIs):
+
+- **Concept DOI:** Identifies the workflow as a whole, across its different versions. Think of it as pointing to the evolving project.
+- **Version DOI:** Identifies a particular release of the workflow. This allows someone else to find the version used for a specific analysis.
+
+When referencing the workflow that produced your scientific results, you should generally **cite the specific version you used**.
+
+You don't need to know how to create these DOIs yet. What matters here is understanding which one to use in a scientific paper.
+
+::: {.callout-tip}
+## Two questions to remember
+
+When citing a workflow, ask yourself:
+
+1. **Whose work am I building upon?** — Give credit to the original researchers.
+2. **Which workflow produced my results?** — Identify the specific implementation and version.
 :::
+
+---
+
+## 2. Citing someone else's workflow
