@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Citing Workflows – The Pond</title>
+<title>Which Workflow Did You Use? – The Pond</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -79,6 +114,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -174,15 +211,46 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-exactly-are-you-citing" id="toc-what-exactly-are-you-citing" class="nav-link active" data-scroll-target="#what-exactly-are-you-citing">1. What exactly are you citing?</a>
+  <ul class="collapse">
+  <li><a href="#one-workflow-multiple-versions" id="toc-one-workflow-multiple-versions" class="nav-link" data-scroll-target="#one-workflow-multiple-versions">One workflow, multiple versions</a></li>
+  </ul></li>
+  <li><a href="#citing-someone-elses-workflow" id="toc-citing-someone-elses-workflow" class="nav-link" data-scroll-target="#citing-someone-elses-workflow">2. Citing someone else’s workflow</a>
+  <ul class="collapse">
+  <li><a href="#the-scenario-mapping-a-flood" id="toc-the-scenario-mapping-a-flood" class="nav-link" data-scroll-target="#the-scenario-mapping-a-flood">The scenario: Mapping a flood</a></li>
+  <li><a href="#activity-choose-the-right-citation" id="toc-activity-choose-the-right-citation" class="nav-link" data-scroll-target="#activity-choose-the-right-citation">Activity: Choose the right citation</a></li>
+  <li><a href="#what-would-the-citations-look-like-in-your-paper" id="toc-what-would-the-citations-look-like-in-your-paper" class="nav-link" data-scroll-target="#what-would-the-citations-look-like-in-your-paper">What would the citations look like in your paper?</a></li>
+  <li><a href="#does-that-mean-you-should-always-use-a-version-doi" id="toc-does-that-mean-you-should-always-use-a-version-doi" class="nav-link" data-scroll-target="#does-that-mean-you-should-always-use-a-version-doi">Does that mean you should always use a version DOI?</a></li>
+  <li><a href="#what-would-a-concept-doi-citation-look-like" id="toc-what-would-a-concept-doi-citation-look-like" class="nav-link" data-scroll-target="#what-would-a-concept-doi-citation-look-like">What would a concept DOI citation look like?</a></li>
+  <li><a href="#what-if-you-modified-the-workflow" id="toc-what-if-you-modified-the-workflow" class="nav-link" data-scroll-target="#what-if-you-modified-the-workflow">What if you modified the workflow?</a></li>
+  </ul></li>
+  <li><a href="#citing-your-own-evolving-workflow" id="toc-citing-your-own-evolving-workflow" class="nav-link" data-scroll-target="#citing-your-own-evolving-workflow">3. Citing your own evolving workflow</a>
+  <ul class="collapse">
+  <li><a href="#the-scenario-from-conference-poster-to-published-paper" id="toc-the-scenario-from-conference-poster-to-published-paper" class="nav-link" data-scroll-target="#the-scenario-from-conference-poster-to-published-paper">The scenario: From conference poster to published paper</a></li>
+  <li><a href="#activity-making-your-workflow-available-during-peer-review" id="toc-activity-making-your-workflow-available-during-peer-review" class="nav-link" data-scroll-target="#activity-making-your-workflow-available-during-peer-review">Activity: Making your workflow available during peer review</a></li>
+  <li><a href="#what-does-an-embargo-mean" id="toc-what-does-an-embargo-mean" class="nav-link" data-scroll-target="#what-does-an-embargo-mean">What does an embargo mean?</a></li>
+  <li><a href="#activity-the-paper-has-been-accepted" id="toc-activity-the-paper-has-been-accepted" class="nav-link" data-scroll-target="#activity-the-paper-has-been-accepted">Activity: The paper has been accepted!</a></li>
+  <li><a href="#what-would-the-final-citation-look-like" id="toc-what-would-the-final-citation-look-like" class="nav-link" data-scroll-target="#what-would-the-final-citation-look-like">What would the final citation look like?</a></li>
+  <li><a href="#why-not-simply-remove-the-embargo-on-version-1" id="toc-why-not-simply-remove-the-embargo-on-version-1" class="nav-link" data-scroll-target="#why-not-simply-remove-the-embargo-on-version-1">Why not simply remove the embargo on version 1?</a></li>
+  </ul></li>
+  <li><a href="#before-you-submit-your-paper" id="toc-before-you-submit-your-paper" class="nav-link" data-scroll-target="#before-you-submit-your-paper">4. Before you submit your paper…</a>
+  <ul class="collapse">
+  <li><a href="#want-to-go-further" id="toc-want-to-go-further" class="nav-link" data-scroll-target="#want-to-go-further">Want to go further?</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Citing Workflows</h1>
+<h1 class="title">Which Workflow Did You Use?</h1>
 </div>
 
 
@@ -199,29 +267,420 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note callout-titled">
+<p>Scientific workflows are research products in their own right. Just like datasets, software, and scientific papers, <strong>workflows should be cited</strong> so that researchers receive credit for their work and others can reproduce their results.</p>
+<p>But citing a workflow isn’t always as straightforward as citing a paper.</p>
+<p>What if you used someone else’s workflow but modified a few steps? What if your own workflow changed between presenting a poster, submitting a manuscript, and publishing the final paper? Which version should you cite?</p>
+<p>In this LilyPad, you’ll explore two common situations:</p>
+<ol type="1">
+<li><strong>Citing someone else’s workflow:</strong> How do you acknowledge the original researchers while identifying the workflow you actually used?</li>
+<li><strong>Citing your own workflow:</strong> How do you reference a workflow that evolves throughout the publication process?</li>
+</ol>
+<p>By the end, you’ll know how to reference workflows in a scientific manuscript and why choosing the right version matters.</p>
+<hr>
+<section id="what-exactly-are-you-citing" class="level2">
+<h2 class="anchored" data-anchor-id="what-exactly-are-you-citing">1. What exactly are you citing?</h2>
+<p>Imagine reading a paper that introduces a new method for reconstructing past climate. You want to apply the same method to your own data.</p>
+<p>The paper explains the scientific approach, and the authors have also shared the workflow they used to produce their results.</p>
+<p>Are these the same thing?</p>
+<p>Not quite! As we saw in earlier LilyPads, a <strong>workflow</strong> describes the sequence of data, actions, decisions, parameters, and tools used to answer a scientific question. A scientific paper may describe the method, but it doesn’t necessarily provide every detail needed to reproduce the analysis.</p>
+<p>Citing the paper gives credit for the scientific ideas. Citing the workflow identifies the implementation used to produce the results.</p>
+<section id="one-workflow-multiple-versions" class="level3">
+<h3 class="anchored" data-anchor-id="one-workflow-multiple-versions">One workflow, multiple versions</h3>
+<p>Workflows can also change over time. Researchers might correct an error, add a processing step, or improve their documentation.</p>
+<p>To help readers identify what they’re referring to, archived workflows can have two kinds of Digital Object Identifiers (DOIs):</p>
+<ul>
+<li><strong>Concept DOI:</strong> Identifies the workflow as a whole, across its different versions. Think of it as pointing to the evolving project.</li>
+<li><strong>Version DOI:</strong> Identifies a particular release of the workflow. This allows someone else to find the version used for a specific analysis.</li>
+</ul>
+<p>When referencing the workflow that produced your scientific results, you should generally <strong>cite the specific version you used</strong>.</p>
+<p>You don’t need to know how to create these DOIs yet. What matters here is understanding which one to use in a scientific paper.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Coming soon
+<span class="screen-reader-only">Tip</span>Two questions to remember
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>A frog will be here shortly.</strong><br>
-This part of The Pond is still being prepared. Check back soon for new learning materials.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../../images/frog_soon.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" width="250"></p>
-</figure>
+<p>When citing a workflow, ask yourself:</p>
+<ol type="1">
+<li><strong>Whose work am I building upon?</strong> — Give credit to the original researchers.</li>
+<li><strong>Which workflow produced my results?</strong> — Identify the specific implementation and version.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="citing-someone-elses-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="citing-someone-elses-workflow">2. Citing someone else’s workflow</h2>
+<section id="the-scenario-mapping-a-flood" class="level3">
+<h3 class="anchored" data-anchor-id="the-scenario-mapping-a-flood">The scenario: Mapping a flood</h3>
+<p>You’re studying a recent flood and want to determine which areas were underwater using satellite imagery.</p>
+<p>You find a paper by Garcia et al.&nbsp;(2026) describing a method for identifying flooded areas from satellite images. The authors also published their analysis workflow, which includes the steps for preparing the images, identifying flooded pixels, and generating a map.</p>
+<p>Since publishing their paper, the authors have improved the workflow and released several versions.</p>
+<p>You decide to use <strong>version 1.2</strong> of their workflow to analyze your own study area.</p>
+<p>Now you’re writing the Methods section of your paper.</p>
+<p><strong>How should you acknowledge the work of Garcia et al.&nbsp;and help other researchers reproduce your analysis?</strong></p>
+</section>
+<section id="activity-choose-the-right-citation" class="level3">
+<h3 class="anchored" data-anchor-id="activity-choose-the-right-citation">Activity: Choose the right citation</h3>
+<p>You have finished your flood analysis using version 1.2 of Garcia et al.’s workflow.</p>
+<p><strong>Which of the following statements would you use in your Methods section?</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="80" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 79;"><span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>viewof floodCitation <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span> <span class="bu">Map</span>([</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>      <span class="st">"A. We followed the flood-mapping method of Garcia et al. (2026a)."</span><span class="op">,</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>      <span class="st">"paper"</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>      <span class="st">"B. We followed the flood-mapping method of Garcia et al. (2026a), using their published workflow (Garcia et al., 2026b), cited with its concept DOI."</span><span class="op">,</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>      <span class="st">"concept"</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>      <span class="st">"C. We followed the flood-mapping method of Garcia et al. (2026a), using version 1.2 of their published workflow (Garcia et al., 2026b), cited with its version DOI."</span><span class="op">,</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>      <span class="st">"version"</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Select your answer:"</span>}</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="102" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 101;"><span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>floodCitation <span class="op">==</span> <span class="kw">null</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">md</span><span class="vs">`*Select an answer to see feedback.*`</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> floodCitation <span class="op">===</span> <span class="st">"paper"</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> <span class="fu">md</span><span class="vs">`**Not quite!** You have acknowledged the researchers who developed the method, but you haven't identified the workflow you used. Someone trying to reproduce your analysis may not know which implementation to follow.`</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> floodCitation <span class="op">===</span> <span class="st">"concept"</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>      <span class="op">?</span> <span class="fu">md</span><span class="vs">`**Almost!** You have acknowledged the workflow, but the concept DOI points to the workflow as a whole, including its different versions. Which version did you actually use?`</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>      <span class="op">:</span> <span class="fu">md</span><span class="vs">`**Correct!** This statement acknowledges the original scientific method **and** identifies the specific workflow version used in your analysis. Another researcher can retrieve that version to help reproduce your results.`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</section>
+<section id="what-would-the-citations-look-like-in-your-paper" class="level3">
+<h3 class="anchored" data-anchor-id="what-would-the-citations-look-like-in-your-paper">What would the citations look like in your paper?</h3>
+<p>Let’s see how this would appear in a scientific manuscript.</p>
+<p><strong>In the Methods section:</strong></p>
+<blockquote class="blockquote">
+<p>We followed the flood-mapping method of Garcia et al.&nbsp;(2026a), using version 1.2 of their published workflow (Garcia et al., 2026b).</p>
+</blockquote>
+<p><strong>In the reference list:</strong></p>
+<p><strong>Scientific paper</strong></p>
+<p>Garcia, A., Chen, M., &amp; Okafor, N. (2026a). Identifying flooded areas using satellite imagery. <em>Journal of Earth Observation</em>, 18(2), 101–118. [Paper DOI]</p>
+<p><strong>Workflow</strong></p>
+<p>Garcia, A., Chen, M., &amp; Okafor, N. (2026b). <em>Satellite-based flood-mapping workflow</em> (Version 1.2) [Computational workflow]. Zenodo. [Version DOI]</p>
+<p>Notice that there are <strong>two separate references</strong>:</p>
+<ul>
+<li>The scientific paper credits the researchers who developed and described the method.</li>
+<li>The workflow citation identifies the particular implementation used to generate your results.</li>
+</ul>
+<p>The workflow has its own title, version, and DOI. It is a research product worth citing independently of the paper.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>About these references
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These are fictional examples. The exact citation format depends on the journal and the information provided by the workflow’s archive. In practice, many archives, including Zenodo, provide a suggested citation that you can use in your reference list.</p>
+<p>The letters <em>a</em> and <em>b</em> distinguish works by the same authors published in the same year. How they are assigned depends on the journal’s citation style.</p>
+</div>
+</div>
+</section>
+<section id="does-that-mean-you-should-always-use-a-version-doi" class="level3">
+<h3 class="anchored" data-anchor-id="does-that-mean-you-should-always-use-a-version-doi">Does that mean you should always use a version DOI?</h3>
+<p>Not necessarily!</p>
+<p>Imagine you’re writing an introduction about the availability of open workflows for flood mapping. You want to point readers to Garcia et al.’s workflow as a general resource, rather than to the specific version used for an analysis.</p>
+<p><strong>Which DOI would be more appropriate?</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="155" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 154;"><span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>viewof floodDOI <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span> <span class="bu">Map</span>([</span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Concept DOI"</span><span class="op">,</span> <span class="st">"concept"</span>]<span class="op">,</span></span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Version DOI"</span><span class="op">,</span> <span class="st">"version"</span>]</span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Select your answer:"</span>}</span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="167" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 166;"><span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>floodDOI <span class="op">==</span> <span class="kw">null</span></span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">md</span><span class="vs">`*Select an answer to see feedback.*`</span></span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> floodDOI <span class="op">===</span> <span class="st">"concept"</span></span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> <span class="fu">md</span><span class="vs">`**Correct!** When referring to the workflow as an evolving research product, the concept DOI is appropriate. It identifies the workflow across its versions.`</span></span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> <span class="fu">md</span><span class="vs">`**Not quite!** A version DOI points to a specific release. Here, you are referring to the workflow as a whole, rather than the particular version used to produce scientific results.`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</section>
+<section id="what-would-a-concept-doi-citation-look-like" class="level3">
+<h3 class="anchored" data-anchor-id="what-would-a-concept-doi-citation-look-like">What would a concept DOI citation look like?</h3>
+<p>If you’re discussing the workflow as a general resource rather than a particular analysis, the reference might look like:</p>
+<p>Garcia, A., Chen, M., &amp; Okafor, N. (2026b). <em>Satellite-based flood-mapping workflow</em> [Computational workflow]. Zenodo. [Concept DOI]</p>
+<p>Notice that we no longer identify a specific version. Instead, the DOI points to the workflow as an evolving research product.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Remember
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Cite the scientific paper</strong> to acknowledge the ideas and methods developed by the researchers.</li>
+<li><strong>Cite the specific workflow version</strong> to identify the implementation used to generate your results.</li>
+<li><strong>Use the concept DOI</strong> when referring to the workflow as an evolving research product.</li>
+</ul>
+<p>And remember: the most recent version isn’t necessarily the one you used!</p>
+</div>
+</div>
+</section>
+<section id="what-if-you-modified-the-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="what-if-you-modified-the-workflow">What if you modified the workflow?</h3>
+<p>You may have used Garcia et al.’s workflow as a starting point but adapted some steps to fit your own research.</p>
+<p>You should still acknowledge the original work, explain what you changed, and provide enough information for others to understand and reproduce your adapted workflow.</p>
+<hr>
+</section>
+</section>
+<section id="citing-your-own-evolving-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="citing-your-own-evolving-workflow">3. Citing your own evolving workflow</h2>
+<p>So far, we’ve looked at how to cite someone else’s workflow. But what happens when you’re the one developing it?</p>
+<p>Scientific workflows rarely stay the same throughout a research project. You might change your analysis after discussing preliminary results with colleagues, receiving feedback at a conference, or responding to peer reviewers.</p>
+<p>Let’s follow a graduate student studying the spatial distribution of earthquake aftershocks as they prepare their first scientific publication.</p>
+<section id="the-scenario-from-conference-poster-to-published-paper" class="level3">
+<h3 class="anchored" data-anchor-id="the-scenario-from-conference-poster-to-published-paper">The scenario: From conference poster to published paper</h3>
+<p>The student develops a workflow to analyze an earthquake catalog, identify aftershocks, and map their spatial distribution.</p>
+<p>Over the course of their research, the workflow goes through three stages:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Version 0: The AGU poster
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The student presents preliminary results at the American Geophysical Union (AGU) Fall Meeting. Visitors suggest adding quality checks to the earthquake catalog.</p>
+<p><strong>Workflow version:</strong> v0 — Prototype</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Version 1: Manuscript submission
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The student incorporates the AGU feedback, updates their analysis, and submits their manuscript. The journal requires the code underlying the results to be available for peer review, but the GitHub repository is still private.</p>
+<p><strong>Workflow version:</strong> v1 — Submitted manuscript</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Version 2: Accepted manuscript
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Reviewers request significant changes to the analysis. The student updates the workflow and figures, then submits a revised manuscript that is accepted.</p>
+<p><strong>Workflow version:</strong> v2 — Final analysis</p>
+</div>
+</div>
+</section>
+<section id="activity-making-your-workflow-available-during-peer-review" class="level3">
+<h3 class="anchored" data-anchor-id="activity-making-your-workflow-available-during-peer-review">Activity: Making your workflow available during peer review</h3>
+<p>The journal requires access to the code used to generate the submitted results, but the student’s GitHub repository is still private.</p>
+<p><strong>What should the student do?</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="247" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 246;"><span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a>viewof submissionChoice <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span> <span class="bu">Map</span>([</span>
+<span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"A. Cite the private GitHub repository. Reviewers can follow the link to access the workflow."</span><span class="op">,</span> <span class="st">"private"</span>]<span class="op">,</span></span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"B. Archive version 1 in Zenodo with an embargo, cite its DOI, and provide reviewers with a private access link."</span><span class="op">,</span> <span class="st">"embargo"</span>]<span class="op">,</span></span>
+<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"C. Cite the workflow's future concept DOI. The workflow will become available when the paper is published."</span><span class="op">,</span> <span class="st">"future"</span>]</span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
+<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Select your answer:"</span>}</span>
+<span id="cb5-254"><a href="#cb5-254" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="260" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 259;"><span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a>submissionChoice <span class="op">==</span> <span class="kw">null</span></span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">md</span><span class="vs">`*Select an answer to see feedback.*`</span></span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> submissionChoice <span class="op">===</span> <span class="st">"private"</span></span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> <span class="fu">md</span><span class="vs">`**Not quite!** A private GitHub repository is only accessible to people granted permission. Reviewers cannot automatically access it just because the manuscript contains a link.`</span></span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> submissionChoice <span class="op">===</span> <span class="st">"embargo"</span></span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a>      <span class="op">?</span> <span class="fu">md</span><span class="vs">`**Correct!** The student can archive the submitted version without making it public. The DOI identifies the archived version, while a separate private link gives reviewers access to the files.`</span></span>
+<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a>      <span class="op">:</span> <span class="fu">md</span><span class="vs">`**Not quite!** A future DOI does not provide access to the workflow used in the submitted manuscript. Reviewers need the actual analysis they are evaluating.`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</section>
+<section id="what-does-an-embargo-mean" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-an-embargo-mean">What does an embargo mean?</h3>
+<p>An <strong>embargo</strong> allows a repository such as Zenodo to make the DOI and descriptive metadata public while restricting access to the archived files until a chosen date. A separate private sharing link can give reviewers access to those files.</p>
+<p>The DOI identifies the archived workflow; the private link provides access to restricted files. To archive v1, the student could upload a source archive from a release of their private GitHub repository to Zenodo manually.</p>
+</section>
+<section id="activity-the-paper-has-been-accepted" class="level3">
+<h3 class="anchored" data-anchor-id="activity-the-paper-has-been-accepted">Activity: The paper has been accepted!</h3>
+<p>After review, the final results were generated with <strong>v2</strong>, but the reference list still points to the embargoed Zenodo deposit of <strong>v1</strong>.</p>
+<p><strong>What should the student do?</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="284" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 283;"><span id="cb7-284"><a href="#cb7-284" aria-hidden="true" tabindex="-1"></a>viewof finalCitationChoice <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb7-285"><a href="#cb7-285" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span> <span class="bu">Map</span>([</span>
+<span id="cb7-286"><a href="#cb7-286" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"A. Keep citing v1. It already has a DOI, and that was the version submitted for review."</span><span class="op">,</span> <span class="st">"old"</span>]<span class="op">,</span></span>
+<span id="cb7-287"><a href="#cb7-287" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"B. Replace the citation with a link to the public GitHub repository."</span><span class="op">,</span> <span class="st">"github"</span>]<span class="op">,</span></span>
+<span id="cb7-288"><a href="#cb7-288" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"C. Archive the final workflow through GitHub and Zenodo, and update the manuscript to cite the v2 DOI."</span><span class="op">,</span> <span class="st">"final"</span>]</span>
+<span id="cb7-289"><a href="#cb7-289" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
+<span id="cb7-290"><a href="#cb7-290" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Select your answer:"</span>}</span>
+<span id="cb7-291"><a href="#cb7-291" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="297" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 296;"><span id="cb8-297"><a href="#cb8-297" aria-hidden="true" tabindex="-1"></a>finalCitationChoice <span class="op">==</span> <span class="kw">null</span></span>
+<span id="cb8-298"><a href="#cb8-298" aria-hidden="true" tabindex="-1"></a>  <span class="op">?</span> <span class="fu">md</span><span class="vs">`*Select an answer to see feedback.*`</span></span>
+<span id="cb8-299"><a href="#cb8-299" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span> finalCitationChoice <span class="op">===</span> <span class="st">"old"</span></span>
+<span id="cb8-300"><a href="#cb8-300" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> <span class="fu">md</span><span class="vs">`**Not quite!** Version 1 no longer represents the analysis used for the published results. Preserve the preliminary archive, but reference the version supporting the final results.`</span></span>
+<span id="cb8-301"><a href="#cb8-301" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> finalCitationChoice <span class="op">===</span> <span class="st">"github"</span></span>
+<span id="cb8-302"><a href="#cb8-302" aria-hidden="true" tabindex="-1"></a>      <span class="op">?</span> <span class="fu">md</span><span class="vs">`**Almost!** Making the GitHub repository public is important, but a link to an evolving repository is not a permanently archived version.`</span></span>
+<span id="cb8-303"><a href="#cb8-303" aria-hidden="true" tabindex="-1"></a>      <span class="op">:</span> <span class="fu">md</span><span class="vs">`**Correct!** Make the prepared GitHub repository public, enable its Zenodo integration, archive the final release, and cite the v2 version DOI in the manuscript.`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-8" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</section>
+<section id="what-would-the-final-citation-look-like" class="level3">
+<h3 class="anchored" data-anchor-id="what-would-the-final-citation-look-like">What would the final citation look like?</h3>
+<p><strong>In the Methods section:</strong></p>
+<blockquote class="blockquote">
+<p>We analyzed the spatial distribution of earthquake aftershocks using version 2.0 of our analysis workflow (Lee et al., 2027).</p>
+</blockquote>
+<p><strong>In the reference list:</strong></p>
+<p>Lee, R., Patel, S., &amp; Morgan, T. (2027). <em>Earthquake aftershock analysis workflow</em> (Version 2.0) [Computational workflow]. Zenodo. [Version DOI]</p>
+<p>This is a fictional example; exact reference formatting depends on the journal.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Update the workflow citation before publication
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The final manuscript should cite the archived version that generated the published results. Prepare the public GitHub and Zenodo release at acceptance, and check the citation again at proofs. Preserve the original v1 record: it documents the analysis submitted for review.</p>
+</div>
+</div>
+</section>
+<section id="why-not-simply-remove-the-embargo-on-version-1" class="level3">
+<h3 class="anchored" data-anchor-id="why-not-simply-remove-the-embargo-on-version-1">Why not simply remove the embargo on version 1?</h3>
+<p><strong>Archiving a workflow and maintaining a workflow serve different purposes.</strong> A Zenodo deposit preserves a particular snapshot; GitHub supports ongoing development and reuse.</p>
+<ul>
+<li><strong>Tracking changes:</strong> GitHub records development history and decisions between milestones.</li>
+<li><strong>Continuing development:</strong> Explanations or documentation can improve after publication without changing the analysis behind the paper.</li>
+<li><strong>Supporting reuse:</strong> Other researchers can raise issues, ask questions, and suggest improvements.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Remember
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cite <strong>the version that produced the published results</strong>, even if the workflow continues evolving afterward. To learn how to prepare releases and connect GitHub to Zenodo, see the GitHub Deep End lesson <a href="../../../deep-water/github/release-cite/index.html"><em>Release and Cite Your Work</em></a>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="before-you-submit-your-paper" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-submit-your-paper">4. Before you submit your paper…</h2>
+<p>Whether you’re using someone else’s workflow or publishing your own, citing workflows is about more than providing a link. It’s about <strong>giving credit and making your research reproducible</strong>.</p>
+<p>Before submitting your next manuscript, ask yourself:</p>
+<ul>
+<li><strong>Am I giving credit?</strong> Have I cited the original scientific method and the workflow I used?</li>
+<li><strong>Am I citing the right version?</strong> Does the citation identify the workflow that actually produced my results?</li>
+<li><strong>Can someone access it?</strong> Is the workflow archived and accessible to readers (or reviewers, during peer review)?</li>
+<li><strong>Have I checked the final citation?</strong> If the workflow changed during peer review, does my published paper reference the updated version?</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>One last thing to remember
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>A workflow citation is a snapshot of your research, not the end of the workflow’s life.</strong></p>
+<p>Your workflow may continue to evolve as you improve its documentation, fix problems, or adapt it to new research questions. The version cited in your paper should remain identifiable so others can reproduce the results you published.</p>
+</div>
+</div>
+<section id="want-to-go-further" class="level3">
+<h3 class="anchored" data-anchor-id="want-to-go-further">Want to go further?</h3>
+<p>We’ve focused on <strong>what to cite and why</strong>. But how do you actually make your workflow citable?</p>
+<p>In the GitHub Deep End, you’ll learn how to prepare a release, connect GitHub to Zenodo, obtain a DOI, and make your workflow available for others to reuse.</p>
+<p>Continue to <a href="../../../deep-water/github/release-cite/index.html">Release and Cite Your Work</a> when you’re ready to put these ideas into practice.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ilxudmlld29mIGZsb29kQ2l0YXRpb24gPSBJbnB1dHMucmFkaW8oXG4gIG5ldyBNYXAoW1xuICAgIFtcbiAgICAgIFwiQS4gV2UgZm9sbG93ZWQgdGhlIGZsb29kLW1hcHBpbmcgbWV0aG9kIG9mIEdhcmNpYSBldCBhbC4gKDIwMjZhKS5cIixcbiAgICAgIFwicGFwZXJcIlxuICAgIF0sXG4gICAgW1xuICAgICAgXCJCLiBXZSBmb2xsb3dlZCB0aGUgZmxvb2QtbWFwcGluZyBtZXRob2Qgb2YgR2FyY2lhIGV0IGFsLiAoMjAyNmEpLCB1c2luZyB0aGVpciBwdWJsaXNoZWQgd29ya2Zsb3cgKEdhcmNpYSBldCBhbC4sIDIwMjZiKSwgY2l0ZWQgd2l0aCBpdHMgY29uY2VwdCBET0kuXCIsXG4gICAgICBcImNvbmNlcHRcIlxuICAgIF0sXG4gICAgW1xuICAgICAgXCJDLiBXZSBmb2xsb3dlZCB0aGUgZmxvb2QtbWFwcGluZyBtZXRob2Qgb2YgR2FyY2lhIGV0IGFsLiAoMjAyNmEpLCB1c2luZyB2ZXJzaW9uIDEuMiBvZiB0aGVpciBwdWJsaXNoZWQgd29ya2Zsb3cgKEdhcmNpYSBldCBhbC4sIDIwMjZiKSwgY2l0ZWQgd2l0aCBpdHMgdmVyc2lvbiBET0kuXCIsXG4gICAgICBcInZlcnNpb25cIlxuICAgIF1cbiAgXSksXG4gIHtsYWJlbDogXCJTZWxlY3QgeW91ciBhbnN3ZXI6XCJ9XG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmZsb29kQ2l0YXRpb24gPT0gbnVsbFxuICA/IG1kYCpTZWxlY3QgYW4gYW5zd2VyIHRvIHNlZSBmZWVkYmFjay4qYFxuICA6IGZsb29kQ2l0YXRpb24gPT09IFwicGFwZXJcIlxuICAgID8gbWRgKipOb3QgcXVpdGUhKiogWW91IGhhdmUgYWNrbm93bGVkZ2VkIHRoZSByZXNlYXJjaGVycyB3aG8gZGV2ZWxvcGVkIHRoZSBtZXRob2QsIGJ1dCB5b3UgaGF2ZW4ndCBpZGVudGlmaWVkIHRoZSB3b3JrZmxvdyB5b3UgdXNlZC4gU29tZW9uZSB0cnlpbmcgdG8gcmVwcm9kdWNlIHlvdXIgYW5hbHlzaXMgbWF5IG5vdCBrbm93IHdoaWNoIGltcGxlbWVudGF0aW9uIHRvIGZvbGxvdy5gXG4gICAgOiBmbG9vZENpdGF0aW9uID09PSBcImNvbmNlcHRcIlxuICAgICAgPyBtZGAqKkFsbW9zdCEqKiBZb3UgaGF2ZSBhY2tub3dsZWRnZWQgdGhlIHdvcmtmbG93LCBidXQgdGhlIGNvbmNlcHQgRE9JIHBvaW50cyB0byB0aGUgd29ya2Zsb3cgYXMgYSB3aG9sZSwgaW5jbHVkaW5nIGl0cyBkaWZmZXJlbnQgdmVyc2lvbnMuIFdoaWNoIHZlcnNpb24gZGlkIHlvdSBhY3R1YWxseSB1c2U/YFxuICAgICAgOiBtZGAqKkNvcnJlY3QhKiogVGhpcyBzdGF0ZW1lbnQgYWNrbm93bGVkZ2VzIHRoZSBvcmlnaW5hbCBzY2llbnRpZmljIG1ldGhvZCAqKmFuZCoqIGlkZW50aWZpZXMgdGhlIHNwZWNpZmljIHdvcmtmbG93IHZlcnNpb24gdXNlZCBpbiB5b3VyIGFuYWx5c2lzLiBBbm90aGVyIHJlc2VhcmNoZXIgY2FuIHJldHJpZXZlIHRoYXQgdmVyc2lvbiB0byBoZWxwIHJlcHJvZHVjZSB5b3VyIHJlc3VsdHMuYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgZmxvb2RET0kgPSBJbnB1dHMucmFkaW8oXG4gIG5ldyBNYXAoW1xuICAgIFtcIkNvbmNlcHQgRE9JXCIsIFwiY29uY2VwdFwiXSxcbiAgICBbXCJWZXJzaW9uIERPSVwiLCBcInZlcnNpb25cIl1cbiAgXSksXG4gIHtsYWJlbDogXCJTZWxlY3QgeW91ciBhbnN3ZXI6XCJ9XG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmZsb29kRE9JID09IG51bGxcbiAgPyBtZGAqU2VsZWN0IGFuIGFuc3dlciB0byBzZWUgZmVlZGJhY2suKmBcbiAgOiBmbG9vZERPSSA9PT0gXCJjb25jZXB0XCJcbiAgICA/IG1kYCoqQ29ycmVjdCEqKiBXaGVuIHJlZmVycmluZyB0byB0aGUgd29ya2Zsb3cgYXMgYW4gZXZvbHZpbmcgcmVzZWFyY2ggcHJvZHVjdCwgdGhlIGNvbmNlcHQgRE9JIGlzIGFwcHJvcHJpYXRlLiBJdCBpZGVudGlmaWVzIHRoZSB3b3JrZmxvdyBhY3Jvc3MgaXRzIHZlcnNpb25zLmBcbiAgICA6IG1kYCoqTm90IHF1aXRlISoqIEEgdmVyc2lvbiBET0kgcG9pbnRzIHRvIGEgc3BlY2lmaWMgcmVsZWFzZS4gSGVyZSwgeW91IGFyZSByZWZlcnJpbmcgdG8gdGhlIHdvcmtmbG93IGFzIGEgd2hvbGUsIHJhdGhlciB0aGFuIHRoZSBwYXJ0aWN1bGFyIHZlcnNpb24gdXNlZCB0byBwcm9kdWNlIHNjaWVudGlmaWMgcmVzdWx0cy5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbnZpZXdvZiBzdWJtaXNzaW9uQ2hvaWNlID0gSW5wdXRzLnJhZGlvKFxuICBuZXcgTWFwKFtcbiAgICBbXCJBLiBDaXRlIHRoZSBwcml2YXRlIEdpdEh1YiByZXBvc2l0b3J5LiBSZXZpZXdlcnMgY2FuIGZvbGxvdyB0aGUgbGluayB0byBhY2Nlc3MgdGhlIHdvcmtmbG93LlwiLCBcInByaXZhdGVcIl0sXG4gICAgW1wiQi4gQXJjaGl2ZSB2ZXJzaW9uIDEgaW4gWmVub2RvIHdpdGggYW4gZW1iYXJnbywgY2l0ZSBpdHMgRE9JLCBhbmQgcHJvdmlkZSByZXZpZXdlcnMgd2l0aCBhIHByaXZhdGUgYWNjZXNzIGxpbmsuXCIsIFwiZW1iYXJnb1wiXSxcbiAgICBbXCJDLiBDaXRlIHRoZSB3b3JrZmxvdydzIGZ1dHVyZSBjb25jZXB0IERPSS4gVGhlIHdvcmtmbG93IHdpbGwgYmVjb21lIGF2YWlsYWJsZSB3aGVuIHRoZSBwYXBlciBpcyBwdWJsaXNoZWQuXCIsIFwiZnV0dXJlXCJdXG4gIF0pLFxuICB7bGFiZWw6IFwiU2VsZWN0IHlvdXIgYW5zd2VyOlwifVxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG5zdWJtaXNzaW9uQ2hvaWNlID09IG51bGxcbiAgPyBtZGAqU2VsZWN0IGFuIGFuc3dlciB0byBzZWUgZmVlZGJhY2suKmBcbiAgOiBzdWJtaXNzaW9uQ2hvaWNlID09PSBcInByaXZhdGVcIlxuICAgID8gbWRgKipOb3QgcXVpdGUhKiogQSBwcml2YXRlIEdpdEh1YiByZXBvc2l0b3J5IGlzIG9ubHkgYWNjZXNzaWJsZSB0byBwZW9wbGUgZ3JhbnRlZCBwZXJtaXNzaW9uLiBSZXZpZXdlcnMgY2Fubm90IGF1dG9tYXRpY2FsbHkgYWNjZXNzIGl0IGp1c3QgYmVjYXVzZSB0aGUgbWFudXNjcmlwdCBjb250YWlucyBhIGxpbmsuYFxuICAgIDogc3VibWlzc2lvbkNob2ljZSA9PT0gXCJlbWJhcmdvXCJcbiAgICAgID8gbWRgKipDb3JyZWN0ISoqIFRoZSBzdHVkZW50IGNhbiBhcmNoaXZlIHRoZSBzdWJtaXR0ZWQgdmVyc2lvbiB3aXRob3V0IG1ha2luZyBpdCBwdWJsaWMuIFRoZSBET0kgaWRlbnRpZmllcyB0aGUgYXJjaGl2ZWQgdmVyc2lvbiwgd2hpbGUgYSBzZXBhcmF0ZSBwcml2YXRlIGxpbmsgZ2l2ZXMgcmV2aWV3ZXJzIGFjY2VzcyB0byB0aGUgZmlsZXMuYFxuICAgICAgOiBtZGAqKk5vdCBxdWl0ZSEqKiBBIGZ1dHVyZSBET0kgZG9lcyBub3QgcHJvdmlkZSBhY2Nlc3MgdG8gdGhlIHdvcmtmbG93IHVzZWQgaW4gdGhlIHN1Ym1pdHRlZCBtYW51c2NyaXB0LiBSZXZpZXdlcnMgbmVlZCB0aGUgYWN0dWFsIGFuYWx5c2lzIHRoZXkgYXJlIGV2YWx1YXRpbmcuYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgZmluYWxDaXRhdGlvbkNob2ljZSA9IElucHV0cy5yYWRpbyhcbiAgbmV3IE1hcChbXG4gICAgW1wiQS4gS2VlcCBjaXRpbmcgdjEuIEl0IGFscmVhZHkgaGFzIGEgRE9JLCBhbmQgdGhhdCB3YXMgdGhlIHZlcnNpb24gc3VibWl0dGVkIGZvciByZXZpZXcuXCIsIFwib2xkXCJdLFxuICAgIFtcIkIuIFJlcGxhY2UgdGhlIGNpdGF0aW9uIHdpdGggYSBsaW5rIHRvIHRoZSBwdWJsaWMgR2l0SHViIHJlcG9zaXRvcnkuXCIsIFwiZ2l0aHViXCJdLFxuICAgIFtcIkMuIEFyY2hpdmUgdGhlIGZpbmFsIHdvcmtmbG93IHRocm91Z2ggR2l0SHViIGFuZCBaZW5vZG8sIGFuZCB1cGRhdGUgdGhlIG1hbnVzY3JpcHQgdG8gY2l0ZSB0aGUgdjIgRE9JLlwiLCBcImZpbmFsXCJdXG4gIF0pLFxuICB7bGFiZWw6IFwiU2VsZWN0IHlvdXIgYW5zd2VyOlwifVxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC04IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG5maW5hbENpdGF0aW9uQ2hvaWNlID09IG51bGxcbiAgPyBtZGAqU2VsZWN0IGFuIGFuc3dlciB0byBzZWUgZmVlZGJhY2suKmBcbiAgOiBmaW5hbENpdGF0aW9uQ2hvaWNlID09PSBcIm9sZFwiXG4gICAgPyBtZGAqKk5vdCBxdWl0ZSEqKiBWZXJzaW9uIDEgbm8gbG9uZ2VyIHJlcHJlc2VudHMgdGhlIGFuYWx5c2lzIHVzZWQgZm9yIHRoZSBwdWJsaXNoZWQgcmVzdWx0cy4gUHJlc2VydmUgdGhlIHByZWxpbWluYXJ5IGFyY2hpdmUsIGJ1dCByZWZlcmVuY2UgdGhlIHZlcnNpb24gc3VwcG9ydGluZyB0aGUgZmluYWwgcmVzdWx0cy5gXG4gICAgOiBmaW5hbENpdGF0aW9uQ2hvaWNlID09PSBcImdpdGh1YlwiXG4gICAgICA/IG1kYCoqQWxtb3N0ISoqIE1ha2luZyB0aGUgR2l0SHViIHJlcG9zaXRvcnkgcHVibGljIGlzIGltcG9ydGFudCwgYnV0IGEgbGluayB0byBhbiBldm9sdmluZyByZXBvc2l0b3J5IGlzIG5vdCBhIHBlcm1hbmVudGx5IGFyY2hpdmVkIHZlcnNpb24uYFxuICAgICAgOiBtZGAqKkNvcnJlY3QhKiogTWFrZSB0aGUgcHJlcGFyZWQgR2l0SHViIHJlcG9zaXRvcnkgcHVibGljLCBlbmFibGUgaXRzIFplbm9kbyBpbnRlZ3JhdGlvbiwgYXJjaGl2ZSB0aGUgZmluYWwgcmVsZWFzZSwgYW5kIGNpdGUgdGhlIHYyIHZlcnNpb24gRE9JIGluIHRoZSBtYW51c2NyaXB0LmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZmxvb2RDaXRhdGlvbicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmbG9vZERPSScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzdWJtaXNzaW9uQ2hvaWNlJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ZpbmFsQ2l0YXRpb25DaG9pY2UnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../lilypads/workflow/citing-workflows";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
