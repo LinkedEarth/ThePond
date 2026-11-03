@@ -1,0 +1,156 @@
+---
+title: "Why Open Science?"
+subtitle: Evidence and stories to make the case, and answers to common worries
+---
+
+## Why it matters
+
+Science works because claims can be checked. When the data, code, and methods behind a result are open, mistakes are caught sooner, others can build on the work instead of redoing it, and the public has good reason to trust what scientists say. This is the heart of the [Center for Open Science's mission](https://www.cos.io/about/mission): research that is open, has integrity, and is reproducible.
+
+Open science is good for you, too. Shared work is easier to find, cite, and credit, and it opens doors to new collaborations ([McKiernan et al. (2016)](https://doi.org/10.7554/eLife.16800)).
+
+If you are reading this, you are probably convinced already. This page gives you a few numbers and stories to help you make the case to others, and answers to the worries early-career researchers raise most often ([Allen & Mehler (2019)](https://doi.org/10.1371/journal.pbio.3000246)).
+
+## Guess the number
+
+Move each slider to your best guess, then click **Reveal**.
+
+<!-- Each div becomes a slider. data-answer is the true value; the body is shown after Reveal. -->
+
+::: {.why-guess data-question="Accounting for age and discipline, how many more citations do open-access articles receive than average?" data-answer="18" data-max="100" data-prefix="+" data-unit="%"}
+Open-access articles receive **18% more citations** than average ([Piwowar et al. (2018)](https://doi.org/10.7717/peerj.4375)).
+:::
+
+::: {.why-guess data-question="How many more citations do articles that link their data in a repository receive?" data-answer="25" data-max="100" data-prefix="up to +" data-unit="%"}
+Articles whose data availability statement links to a repository receive **up to 25% more citations** ([Colavizza et al. (2020)](https://doi.org/10.1371/journal.pone.0230416)).
+:::
+
+::: {.why-guess data-question="The Center for Open Science repeated 50 experiments from high-impact cancer biology papers. How much smaller was the median effect in the replications than in the originals?" data-answer="85" data-max="100" data-unit="% smaller"}
+The median effect in the replications was **85% smaller** than in the original experiments ([Errington et al. (2021)](https://doi.org/10.7554/eLife.71601)). Results that are open can be checked, and checking is how science corrects itself.
+:::
+
+## "But what about my career?"
+
+Flip at least two of these cards.
+
+<!-- Each div becomes a flip card. data-worry is the front; the body is the back. -->
+
+::: {.why-worry data-worry="“I'll get scooped if I share early.”"}
+Preprints and preregistrations are public, date-stamped records, so they show the idea was yours first. With a [Registered Report](https://www.cos.io/initiatives/registered-reports), a journal accepts your study *before* you collect the data.
+
+**Try:** post your next manuscript as a preprint, e.g. on [OSF Preprints](https://osf.io/preprints/) or a preprint server for your field.
+:::
+
+::: {.why-worry data-worry="“It takes too much time.”"}
+Some practices take time up front, but they pay it back: when a reviewer asks for a new analysis, or when you return to a project a year later, organized and shared code saves you hours. You don't have to do everything at once.
+
+**Try:** share the code behind one figure in your next paper.
+:::
+
+::: {.why-worry data-worry="“Null results will hurt my career.”"}
+Registered Reports are accepted for the question and the methods, so they are published whatever the result. Only 44% of Registered Reports in psychology report positive results, versus 96% of standard papers, which suggests the standard literature hides many null results ([Scheel et al. (2021)](https://doi.org/10.1177/25152459211007467)).
+
+**Try:** check whether a journal in your field offers Registered Reports.
+:::
+
+::: {.why-worry data-worry="“No one will cite my data or code.”"}
+Data and code deposited with a digital object identifier (DOI) can be cited just like a paper, and papers that link their data are cited more (see above). Journals such as the [Journal of Open Source Software](https://joss.theoj.org/) publish papers about research software.
+
+**Try:** add a [`CITATION.cff`](https://citation-file-format.github.io/) file to your [GitHub](../deep-water/github/index.qmd) repository so others know how to cite it.
+:::
+
+## Problems open science is solving
+
+- **Psychology's replication crisis.** When 100 psychology studies were repeated, only about a third of the results held up ([Open Science Collaboration (2015)](https://doi.org/10.1126/science.aac4716)). The field responded with preregistration and Registered Reports (see [What is Open Science?](what-is-open-science.qmd)).
+- **A pandemic.** The genome of the virus that causes COVID-19 was shared publicly in January 2020 ([Wu et al. (2020)](https://doi.org/10.1038/s41586-020-2008-3)), and vaccine developers began designing candidates within days.
+- **Forests.** When the U.S. Geological Survey made the Landsat satellite archive free in 2008, use of the data soared ([Wulder et al. (2012)](https://doi.org/10.1016/j.rse.2012.01.010)). Free data made the first high-resolution global maps of forest loss possible ([Hansen et al. (2013)](https://doi.org/10.1126/science.1244693)).
+
+## Careers built in the open
+
+- **Thomas Herndon**, a PhD student in economics, was assigned to replicate a famous paper on public debt. The authors shared their spreadsheet, and he found errors that changed its conclusions ([Herndon et al. (2013)](https://doi.org/10.1093/cje/bet075)). The finding made international news.
+- **Fernando Pérez** started IPython as a side project in 2001, while a graduate student. It grew into [Project Jupyter](https://jupyter.org/), which won the 2017 Software System Award from the Association for Computing Machinery.
+- **Ed Hawkins**, a climate scientist, released his ["warming stripes"](https://showyourstripes.info/) graphic in 2018 for anyone to use. It became one of the most recognized images of climate change, and in 2020 he was appointed a Member of the Order of the British Empire (a British honour) for services to climate science and science communication.
+
+## Where to go next
+
+- Revisit the practices in [What is Open Science?](what-is-open-science.qmd).
+- Practice them in the LilyPads: [data](../lilypads/data/index.qmd), [software](../lilypads/software/index.qmd), and [workflows](../lilypads/workflow/index.qmd).
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Guess the number: build a slider from each .why-guess div
+  document.querySelectorAll(".why-guess").forEach((div, i) => {
+    const answer = Number(div.dataset.answer);
+    const prefix = div.dataset.prefix || "";
+    const unit = div.dataset.unit || "";
+    const explanation = div.innerHTML;
+    div.innerHTML = `
+      <p class="why-question"></p>
+      <div class="why-slider">
+        <input type="range" min="0" max="${div.dataset.max}" step="1" value="${Math.round(div.dataset.max / 2)}">
+        <output></output>
+        <button type="button" class="btn btn-primary btn-sm">Reveal</button>
+      </div>
+      <div class="why-reveal" hidden></div>`;
+    const input = div.querySelector("input");
+    const output = div.querySelector("output");
+    const reveal = div.querySelector("button");
+    const result = div.querySelector(".why-reveal");
+    div.querySelector(".why-question").textContent = div.dataset.question;
+    input.id = `why-guess-${i}`;
+    input.setAttribute("aria-label", div.dataset.question);
+    const show = () => { output.textContent = `${input.value}${unit}`; };
+    input.addEventListener("input", show);
+    show();
+    reveal.addEventListener("click", () => {
+      const off = Math.abs(Number(input.value) - answer);
+      const verdict = off <= 5 ? "Spot on!" : `You were ${off} points off.`;
+      result.innerHTML = `<p class="why-verdict"><strong>${prefix}${answer}${unit}.</strong> ${verdict}</p>${explanation}`;
+      result.hidden = false;
+      input.disabled = true;
+      reveal.disabled = true;
+    });
+  });
+
+  // Career worries: build a flip card from each .why-worry div
+  const worries = [...document.querySelectorAll(".why-worry")];
+  if (!worries.length) return;
+  const grid = document.createElement("div");
+  grid.className = "os-cards";
+  worries[0].before(grid);
+  for (const div of worries) {
+    const card = document.createElement("article");
+    card.className = "os-card why-card";
+    card.innerHTML = `
+      <div class="os-card-inner">
+        <section class="os-face os-front">
+          <p class="why-worry-text"></p>
+          <div class="os-face-footer">
+            <button type="button" class="btn btn-primary btn-sm os-reveal">Reveal answer</button>
+          </div>
+        </section>
+        <section class="os-face os-back" inert>
+          <p class="why-worry-text why-worry-small"></p>
+          <div class="os-answer"></div>
+          <div class="os-face-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm os-flip-back">Back</button>
+          </div>
+        </section>
+      </div>`;
+    card.querySelectorAll(".why-worry-text").forEach(p => { p.textContent = div.dataset.worry; });
+    card.querySelector(".os-answer").innerHTML = div.innerHTML;
+    const front = card.querySelector(".os-front");
+    const back = card.querySelector(".os-back");
+    function flip(toBack) {
+      card.classList.toggle("is-flipped", toBack);
+      front.inert = toBack;
+      back.inert = !toBack;
+      card.querySelector(toBack ? ".os-flip-back" : ".os-reveal").focus({ preventScroll: true });
+    }
+    card.querySelector(".os-reveal").addEventListener("click", () => flip(true));
+    card.querySelector(".os-flip-back").addEventListener("click", () => flip(false));
+    grid.append(card);
+    div.remove();
+  }
+});
+</script>
