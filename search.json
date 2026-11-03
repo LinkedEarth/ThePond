@@ -168,9 +168,30 @@
     "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials.\n\n\n\n\n\n\n\nWhile the frog is arriving, we urge you to visit the materials available on the LeapFROGS platform. Python users should use this site, while R users should use this version."
   },
   {
+    "objectID": "lilypads/data/sharing-data/index.html",
+    "href": "lilypads/data/sharing-data/index.html",
+    "title": "Preparing data for sharing and reuse",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
     "objectID": "lilypads/data/index.html",
     "href": "lilypads/data/index.html",
     "title": "Data",
+    "section": "",
+    "text": "These LilyPads build on one another. Start with LilyPad 1 and work through them in order.\n\n\n\n\n1. Different Types of Data\nData can be structured in very different ways. The structure of the data affects how it is interpreted, documented, and reused.\nStart LilyPad →\n\n\n\n\n\n\n2. Metadata for Reuse\nHaving the data file is not enough to use it correctly. Metadata are needed to interpret variables, units, missing values, QC fields, provenance, and reuse conditions.\nStart LilyPad →\n\n\n\n\n\n\n3. Data Quality and Provenance\nData quality is not simply “good” or “bad”; it depends on the scientific question. Provenance records how data were created and transformed, allowing users to assess whether they are appropriate for a particular use.\nStart LilyPad →\n\n\n\n\n\n\n4. Databases, Repositories, Identifiers, and Versions\nDatabases and repositories serve different purposes. Repositories support preservation, discovery, access, and citation, while databases often support querying and ongoing data access. Persistent identifiers and versioning help ensure that researchers can find and refer to the specific data product that was actually used.\nStart LilyPad →\n\n\n\n\n\n\n5. Preparing Data for Sharing and Reuse\nPublishing a file is not the same as making data reusable. A reusable dataset needs sufficient documentation, metadata, provenance, appropriate licensing, clear organization, and information about how the data were processed.\nStart LilyPad →\n\n\n\n\n\n\n6. Citing Data in Manuscripts\nExplore how datasets can be documented, shared, and cited as research products.\nStart LilyPad →"
+  },
+  {
+    "objectID": "lilypads/data/data-type/index.html",
+    "href": "lilypads/data/data-type/index.html",
+    "title": "Different Types of Data",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
+    "objectID": "lilypads/data/citing-data/index.html",
+    "href": "lilypads/data/citing-data/index.html",
+    "title": "Citing Datasets",
     "section": "",
     "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
   },
@@ -1391,6 +1412,27 @@
     "title": "The Pond",
     "section": "Where should I start?",
     "text": "Where should I start?\nNew to open science? Begin in The Shallows.\nLooking for practical skills? Jump straight to the LilyPads.\nAlready comfortable with the basics? Dive into The Deep End."
+  },
+  {
+    "objectID": "lilypads/data/data-quality/index.html",
+    "href": "lilypads/data/data-quality/index.html",
+    "title": "Data Quality and Provenance",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
+    "objectID": "lilypads/data/db-repo-pid/index.html",
+    "href": "lilypads/data/db-repo-pid/index.html",
+    "title": "Databases, repositories, identifiers, and versions",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
+  },
+  {
+    "objectID": "lilypads/data/metadata/index.html",
+    "href": "lilypads/data/metadata/index.html",
+    "title": "Metadata For Reuse",
+    "section": "",
+    "text": "NoteComing soon\n\n\n\nA frog will be here shortly.\nThis part of The Pond is still being prepared. Check back soon for new learning materials."
   },
   {
     "objectID": "lilypads/index.html",
