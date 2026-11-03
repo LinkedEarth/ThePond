@@ -46,11 +46,11 @@ Data quality is not simply “good” or “bad”; it depends on the scientific
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card}
 ::: {.card-body}
-### 4. From Sketch to Notebook
+### 4. Databases, Repositories, Identifiers, and Versions
 
-Connect the steps in a workflow sketch to the code, data, and outputs in a computational notebook.
+Databases and repositories serve different purposes. Repositories support preservation, discovery, access, and citation, while databases often support querying and ongoing data access. Persistent identifiers and versioning help ensure that researchers can find and refer to the specific data product that was actually used.
 
-[Start LilyPad →](sketches-vs-notebooks/index.qmd)
+[Start LilyPad →](db-repo-pid/index.qmd)
 :::
 :::
 :::
@@ -58,11 +58,11 @@ Connect the steps in a workflow sketch to the code, data, and outputs in a compu
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card}
 ::: {.card-body}
-### 5. Why Containers Matter
+### 5. Preparing Data for Sharing and Reuse
 
-See how changing the computational environment can change scientific results—even when the workflow stays the same.
+Publishing a file is not the same as making data reusable. A reusable dataset needs sufficient documentation, metadata, provenance, appropriate licensing, clear organization, and information about how the data were processed. 
 
-[Start LilyPad →](containers/index.qmd)
+[Start LilyPad →](sharing-data/index.qmd)
 :::
 :::
 :::
@@ -70,11 +70,11 @@ See how changing the computational environment can change scientific results—e
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card}
 ::: {.card-body}
-### 6. Citing Workflows
+### 6. Citing Data in Manuscripts
 
-Explore how computational workflows can be documented, shared, and cited as research products.
+Explore how datasets can be documented, shared, and cited as research products.
 
-[Start LilyPad →](citing-workflows/index.qmd)
+[Start LilyPad →](citing-data/index.qmd)
 :::
 :::
 :::
