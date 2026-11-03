@@ -53,4 +53,315 @@ When citing a workflow, ask yourself:
 
 ---
 
+
 ## 2. Citing someone else's workflow
+
+### The scenario: Mapping a flood
+
+You're studying a recent flood and want to determine which areas were underwater using satellite imagery.
+
+You find a paper by Garcia et al. (2026) describing a method for identifying flooded areas from satellite images. The authors also published their analysis workflow, which includes the steps for preparing the images, identifying flooded pixels, and generating a map.
+
+Since publishing their paper, the authors have improved the workflow and released several versions.
+
+You decide to use **version 1.2** of their workflow to analyze your own study area.
+
+Now you're writing the Methods section of your paper.
+
+**How should you acknowledge the work of Garcia et al. and help other researchers reproduce your analysis?**
+
+### Activity: Choose the right citation
+
+You have finished your flood analysis using version 1.2 of Garcia et al.'s workflow.
+
+**Which of the following statements would you use in your Methods section?**
+
+```{ojs}
+//| echo: false
+
+viewof floodCitation = Inputs.radio(
+  new Map([
+    [
+      "A. We followed the flood-mapping method of Garcia et al. (2026a).",
+      "paper"
+    ],
+    [
+      "B. We followed the flood-mapping method of Garcia et al. (2026a), using their published workflow (Garcia et al., 2026b), cited with its concept DOI.",
+      "concept"
+    ],
+    [
+      "C. We followed the flood-mapping method of Garcia et al. (2026a), using version 1.2 of their published workflow (Garcia et al., 2026b), cited with its version DOI.",
+      "version"
+    ]
+  ]),
+  {label: "Select your answer:"}
+)
+```
+
+```{ojs}
+//| echo: false
+
+floodCitation == null
+  ? md`*Select an answer to see feedback.*`
+  : floodCitation === "paper"
+    ? md`**Not quite!** You have acknowledged the researchers who developed the method, but you haven't identified the workflow you used. Someone trying to reproduce your analysis may not know which implementation to follow.`
+    : floodCitation === "concept"
+      ? md`**Almost!** You have acknowledged the workflow, but the concept DOI points to the workflow as a whole, including its different versions. Which version did you actually use?`
+      : md`**Correct!** This statement acknowledges the original scientific method **and** identifies the specific workflow version used in your analysis. Another researcher can retrieve that version to help reproduce your results.`
+```
+
+### What would the citations look like in your paper?
+
+Let's see how this would appear in a scientific manuscript.
+
+**In the Methods section:**
+
+> We followed the flood-mapping method of Garcia et al. (2026a), using version 1.2 of their published workflow (Garcia et al., 2026b).
+
+**In the reference list:**
+
+**Scientific paper**
+
+Garcia, A., Chen, M., & Okafor, N. (2026a). Identifying flooded areas using satellite imagery. *Journal of Earth Observation*, 18(2), 101–118. [Paper DOI]
+
+**Workflow**
+
+Garcia, A., Chen, M., & Okafor, N. (2026b). *Satellite-based flood-mapping workflow* (Version 1.2) [Computational workflow]. Zenodo. [Version DOI]
+
+Notice that there are **two separate references**:
+
+- The scientific paper credits the researchers who developed and described the method.
+- The workflow citation identifies the particular implementation used to generate your results.
+
+The workflow has its own title, version, and DOI. It is a research product worth citing independently of the paper.
+
+::: {.callout-note}
+## About these references
+
+These are fictional examples. The exact citation format depends on the journal and the information provided by the workflow's archive. In practice, many archives, including Zenodo, provide a suggested citation that you can use in your reference list.
+
+The letters *a* and *b* distinguish works by the same authors published in the same year. How they are assigned depends on the journal's citation style.
+:::
+
+### Does that mean you should always use a version DOI?
+
+Not necessarily!
+
+Imagine you're writing an introduction about the availability of open workflows for flood mapping. You want to point readers to Garcia et al.'s workflow as a general resource, rather than to the specific version used for an analysis.
+
+**Which DOI would be more appropriate?**
+
+```{ojs}
+//| echo: false
+
+viewof floodDOI = Inputs.radio(
+  new Map([
+    ["Concept DOI", "concept"],
+    ["Version DOI", "version"]
+  ]),
+  {label: "Select your answer:"}
+)
+```
+
+```{ojs}
+//| echo: false
+
+floodDOI == null
+  ? md`*Select an answer to see feedback.*`
+  : floodDOI === "concept"
+    ? md`**Correct!** When referring to the workflow as an evolving research product, the concept DOI is appropriate. It identifies the workflow across its versions.`
+    : md`**Not quite!** A version DOI points to a specific release. Here, you are referring to the workflow as a whole, rather than the particular version used to produce scientific results.`
+```
+
+### What would a concept DOI citation look like?
+
+If you're discussing the workflow as a general resource rather than a particular analysis, the reference might look like:
+
+Garcia, A., Chen, M., & Okafor, N. (2026b). *Satellite-based flood-mapping workflow* [Computational workflow]. Zenodo. [Concept DOI]
+
+Notice that we no longer identify a specific version. Instead, the DOI points to the workflow as an evolving research product.
+
+::: {.callout-tip}
+## Remember
+
+- **Cite the scientific paper** to acknowledge the ideas and methods developed by the researchers.
+- **Cite the specific workflow version** to identify the implementation used to generate your results.
+- **Use the concept DOI** when referring to the workflow as an evolving research product.
+
+And remember: the most recent version isn't necessarily the one you used!
+:::
+
+### What if you modified the workflow?
+
+You may have used Garcia et al.'s workflow as a starting point but adapted some steps to fit your own research.
+
+You should still acknowledge the original work, explain what you changed, and provide enough information for others to understand and reproduce your adapted workflow.
+
+---
+
+## 3. Citing your own evolving workflow
+
+So far, we've looked at how to cite someone else's workflow. But what happens when you're the one developing it?
+
+Scientific workflows rarely stay the same throughout a research project. You might change your analysis after discussing preliminary results with colleagues, receiving feedback at a conference, or responding to peer reviewers.
+
+Let's follow a graduate student studying the spatial distribution of earthquake aftershocks as they prepare their first scientific publication.
+
+### The scenario: From conference poster to published paper
+
+The student develops a workflow to analyze an earthquake catalog, identify aftershocks, and map their spatial distribution.
+
+Over the course of their research, the workflow goes through three stages:
+
+::: {.callout-note}
+### Version 0: The AGU poster
+
+The student presents preliminary results at the American Geophysical Union (AGU) Fall Meeting. Visitors suggest adding quality checks to the earthquake catalog.
+
+**Workflow version:** v0 — Prototype
+:::
+
+::: {.callout-note}
+### Version 1: Manuscript submission
+
+The student incorporates the AGU feedback, updates their analysis, and submits their manuscript. The journal requires the code underlying the results to be available for peer review, but the GitHub repository is still private.
+
+**Workflow version:** v1 — Submitted manuscript
+:::
+
+::: {.callout-note}
+### Version 2: Accepted manuscript
+
+Reviewers request significant changes to the analysis. The student updates the workflow and figures, then submits a revised manuscript that is accepted.
+
+**Workflow version:** v2 — Final analysis
+:::
+
+### Activity: Making your workflow available during peer review
+
+The journal requires access to the code used to generate the submitted results, but the student's GitHub repository is still private.
+
+**What should the student do?**
+
+```{ojs}
+//| echo: false
+
+viewof submissionChoice = Inputs.radio(
+  new Map([
+    ["A. Cite the private GitHub repository. Reviewers can follow the link to access the workflow.", "private"],
+    ["B. Archive version 1 in Zenodo with an embargo, cite its DOI, and provide reviewers with a private access link.", "embargo"],
+    ["C. Cite the workflow's future concept DOI. The workflow will become available when the paper is published.", "future"]
+  ]),
+  {label: "Select your answer:"}
+)
+```
+
+```{ojs}
+//| echo: false
+
+submissionChoice == null
+  ? md`*Select an answer to see feedback.*`
+  : submissionChoice === "private"
+    ? md`**Not quite!** A private GitHub repository is only accessible to people granted permission. Reviewers cannot automatically access it just because the manuscript contains a link.`
+    : submissionChoice === "embargo"
+      ? md`**Correct!** The student can archive the submitted version without making it public. The DOI identifies the archived version, while a separate private link gives reviewers access to the files.`
+      : md`**Not quite!** A future DOI does not provide access to the workflow used in the submitted manuscript. Reviewers need the actual analysis they are evaluating.`
+```
+
+### What does an embargo mean?
+
+An **embargo** allows a repository such as Zenodo to make the DOI and descriptive metadata public while restricting access to the archived files until a chosen date. A separate private sharing link can give reviewers access to those files.
+
+The DOI identifies the archived workflow; the private link provides access to restricted files. To archive v1, the student could upload a source archive from a release of their private GitHub repository to Zenodo manually.
+
+### Activity: The paper has been accepted!
+
+After review, the final results were generated with **v2**, but the reference list still points to the embargoed Zenodo deposit of **v1**.
+
+**What should the student do?**
+
+```{ojs}
+//| echo: false
+
+viewof finalCitationChoice = Inputs.radio(
+  new Map([
+    ["A. Keep citing v1. It already has a DOI, and that was the version submitted for review.", "old"],
+    ["B. Replace the citation with a link to the public GitHub repository.", "github"],
+    ["C. Archive the final workflow through GitHub and Zenodo, and update the manuscript to cite the v2 DOI.", "final"]
+  ]),
+  {label: "Select your answer:"}
+)
+```
+
+```{ojs}
+//| echo: false
+
+finalCitationChoice == null
+  ? md`*Select an answer to see feedback.*`
+  : finalCitationChoice === "old"
+    ? md`**Not quite!** Version 1 no longer represents the analysis used for the published results. Preserve the preliminary archive, but reference the version supporting the final results.`
+    : finalCitationChoice === "github"
+      ? md`**Almost!** Making the GitHub repository public is important, but a link to an evolving repository is not a permanently archived version.`
+      : md`**Correct!** Make the prepared GitHub repository public, enable its Zenodo integration, archive the final release, and cite the v2 version DOI in the manuscript.`
+```
+
+### What would the final citation look like?
+
+**In the Methods section:**
+
+> We analyzed the spatial distribution of earthquake aftershocks using version 2.0 of our analysis workflow (Lee et al., 2027).
+
+**In the reference list:**
+
+Lee, R., Patel, S., & Morgan, T. (2027). *Earthquake aftershock analysis workflow* (Version 2.0) [Computational workflow]. Zenodo. [Version DOI]
+
+This is a fictional example; exact reference formatting depends on the journal.
+
+::: {.callout-important}
+## Update the workflow citation before publication
+
+The final manuscript should cite the archived version that generated the published results. Prepare the public GitHub and Zenodo release at acceptance, and check the citation again at proofs. Preserve the original v1 record: it documents the analysis submitted for review.
+:::
+
+### Why not simply remove the embargo on version 1?
+
+**Archiving a workflow and maintaining a workflow serve different purposes.** A Zenodo deposit preserves a particular snapshot; GitHub supports ongoing development and reuse.
+
+- **Tracking changes:** GitHub records development history and decisions between milestones.
+- **Continuing development:** Explanations or documentation can improve after publication without changing the analysis behind the paper.
+- **Supporting reuse:** Other researchers can raise issues, ask questions, and suggest improvements.
+
+::: {.callout-tip}
+## Remember
+
+Cite **the version that produced the published results**, even if the workflow continues evolving afterward. To learn how to prepare releases and connect GitHub to Zenodo, see the GitHub Deep End lesson [*Release and Cite Your Work*](../../../deep-water/github/release-cite/index.qmd).
+:::
+
+
+## 4. Before you submit your paper...
+
+Whether you're using someone else's workflow or publishing your own, citing workflows is about more than providing a link. It's about **giving credit and making your research reproducible**.
+
+Before submitting your next manuscript, ask yourself:
+
+- **Am I giving credit?** Have I cited the original scientific method and the workflow I used?
+- **Am I citing the right version?** Does the citation identify the workflow that actually produced my results?
+- **Can someone access it?** Is the workflow archived and accessible to readers (or reviewers, during peer review)?
+- **Have I checked the final citation?** If the workflow changed during peer review, does my published paper reference the updated version?
+
+::: {.callout-tip}
+## One last thing to remember
+
+**A workflow citation is a snapshot of your research, not the end of the workflow's life.**
+
+Your workflow may continue to evolve as you improve its documentation, fix problems, or adapt it to new research questions. The version cited in your paper should remain identifiable so others can reproduce the results you published.
+:::
+
+### Want to go further?
+
+We've focused on **what to cite and why**. But how do you actually make your workflow citable?
+
+In the GitHub Deep End, you'll learn how to prepare a release, connect GitHub to Zenodo, obtain a DOI, and make your workflow available for others to reuse.
+
+Continue to [Release and Cite Your Work](../../../deep-water/github/release-cite/index.qmd) when you're ready to put these ideas into practice.
+
