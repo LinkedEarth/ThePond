@@ -9,5 +9,7 @@ subtitle: Writing, Testing, Documenting, Licensing, and Publishing research soft
 **A frog will be here shortly.**  
 This part of The Pond is still being prepared. Check back soon for new learning materials.
 
-![](../images/frog_soon.gif){fig-align="center" width="250px"}
+![](../../images/frog_soon.gif){fig-align="center" width="250px"}
 :::
+
+While the frog is arriving, we urge you to visit the materials available on the LeapFROGS platform. Python users should use [this site](https://linked.earth/LeapFROGS/), while R users should use [this version](https://linked.earth/RLeapFROGS/).
