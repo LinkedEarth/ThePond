@@ -1213,3 +1213,373 @@ observations?
 In the next activity, we'll explore why **data structure matters**,
 even when humans or AI can interpret information that isn't
 already organized into a table.
+
+## 3. Same information, different structure
+
+Imagine that you are collaborating with a hydrologist who has been monitoring water quality at two sites along a stream.
+
+They share their field notes with you. Your task is to identify observations that could be used to compare turbidity between the two sites.
+
+### Part 1. Working with field notes
+
+Read the observations below and try to answer the questions that follow.
+
+```{=html}
+<style>
+.pond-structure {
+  max-width: 1050px;
+  margin: 1.5rem auto;
+}
+
+.pond-structure-notes {
+  background: var(--bs-tertiary-bg, #f7f7f7);
+  color: var(--bs-body-color, #222);
+  border-left: 4px solid var(--bs-primary, #286cc4);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  line-height: 1.75;
+}
+
+.pond-structure-notes p {
+  margin-bottom: 0.85rem;
+}
+
+.pond-structure-credit {
+  font-size: 0.8rem;
+  color: var(--bs-secondary-color, #666);
+  margin-top: 0.6rem;
+}
+
+.pond-structure-response {
+  width: 100%;
+  min-height: 110px;
+  padding: 0.75rem;
+  border: 1px solid var(--bs-border-color, #ccc);
+  border-radius: 8px;
+  background: var(--bs-body-bg, white);
+  color: var(--bs-body-color, #222);
+}
+
+.pond-structure-reveal {
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+}
+
+.pond-structure-reveal summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pond-structure-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.pond-structure-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 160px;
+}
+
+.pond-structure-controls select {
+  padding: 0.5rem;
+  border: 1px solid var(--bs-border-color, #ccc);
+  border-radius: 6px;
+  background: var(--bs-body-bg, white);
+  color: var(--bs-body-color, #222);
+}
+
+.pond-structure-table-wrap {
+  overflow-x: auto;
+}
+
+.pond-structure-code {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--bs-tertiary-bg, #f7f7f7);
+  overflow-x: auto;
+}
+</style>
+
+<div class="pond-structure">
+
+  <div class="pond-structure-notes">
+    <p><strong>Field notes — Pine Creek monitoring campaign</strong></p>
+
+    <p><strong>June 12:</strong> Site A, turbidity 18 NTU.
+    QC passed. Water relatively clear.</p>
+
+    <p>Site B: First turbidity reading was 42 NTU, but
+    the probe was fluctuating. Repeated measurement:
+    30 NTU. No final QC decision recorded.</p>
+
+    <p><strong>June 13:</strong> Site A measured at 21 NTU,
+    QC passed. Site B: 38 NTU, but reading flagged
+    as unreliable and should not be used.</p>
+
+    <p><strong>June 14:</strong> Unable to measure turbidity
+    at Site A because the instrument battery died.
+    Site B measured at 29 NTU, QC passed.</p>
+  </div>
+
+  <p class="pond-structure-credit">
+    Fictional field observations created for The Pond (2026).
+    No real measurements.
+  </p>
+
+</div>
+```
+
+**Your turn!**
+
+Using only the field notes, try answering these questions:
+
+1. What is the highest turbidity measurement that explicitly passed quality control?
+2. Which observations should not be used without further investigation?
+3. Are there any missing observations?
+4. What value would you record for Site B on June 12? Is that decision straightforward?
+
+```{=html}
+<div class="pond-structure">
+  <label for="pond-notes-response">
+    <strong>My observations</strong>
+  </label>
+  <textarea
+    id="pond-notes-response"
+    class="pond-structure-response"
+    rows="5"
+    placeholder="Write your answers or observations here..."></textarea>
+</div>
+```
+
+### Part 2. Organizing the information
+
+Now imagine that you need to perform the same analysis using observations collected over several years.
+
+Reading every field note would quickly become impractical. One approach is to extract the relevant information and organize it into a table.
+
+Reveal the table below to see one possible interpretation of the field notes.
+
+```{=html}
+<div class="pond-structure">
+
+<details class="pond-structure-reveal" id="pond-structured-data">
+  <summary>Reveal the structured dataset</summary>
+
+  <p>
+    The table below organizes the observations using
+    consistent fields. Each row corresponds to a
+    site and date.
+  </p>
+
+  <div class="pond-structure-controls">
+
+    <label>
+      <strong>Date</strong>
+      <select id="pond-date-filter">
+        <option value="all">All dates</option>
+        <option value="2026-06-12">June 12</option>
+        <option value="2026-06-13">June 13</option>
+        <option value="2026-06-14">June 14</option>
+      </select>
+    </label>
+
+    <label>
+      <strong>QC / status</strong>
+      <select id="pond-qc-filter">
+        <option value="all">All observations</option>
+        <option value="pass">Passed QC</option>
+        <option value="review">Needs review</option>
+        <option value="exclude">Excluded</option>
+        <option value="missing">Not measured</option>
+      </select>
+    </label>
+
+  </div>
+
+  <div class="pond-structure-table-wrap">
+    <table class="table table-striped table-sm"
+           id="pond-observation-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Site</th>
+          <th>Turbidity (NTU)</th>
+          <th>QC / status</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr data-date="2026-06-12" data-qc="pass">
+          <td>2026-06-12</td>
+          <td>A</td>
+          <td>18</td>
+          <td>Pass</td>
+          <td>Water relatively clear</td>
+        </tr>
+
+        <tr data-date="2026-06-12" data-qc="review">
+          <td>2026-06-12</td>
+          <td>B</td>
+          <td>30</td>
+          <td>Needs review</td>
+          <td>First reading 42 NTU; probe fluctuating.
+              Retest 30 NTU selected provisionally.</td>
+        </tr>
+
+        <tr data-date="2026-06-13" data-qc="pass">
+          <td>2026-06-13</td>
+          <td>A</td>
+          <td>21</td>
+          <td>Pass</td>
+          <td>—</td>
+        </tr>
+
+        <tr data-date="2026-06-13" data-qc="exclude">
+          <td>2026-06-13</td>
+          <td>B</td>
+          <td>38</td>
+          <td>Excluded</td>
+          <td>Reading flagged as unreliable</td>
+        </tr>
+
+        <tr data-date="2026-06-14" data-qc="missing">
+          <td>2026-06-14</td>
+          <td>A</td>
+          <td>—</td>
+          <td>Not measured</td>
+          <td>Instrument battery failure</td>
+        </tr>
+
+        <tr data-date="2026-06-14" data-qc="pass">
+          <td>2026-06-14</td>
+          <td>B</td>
+          <td>29</td>
+          <td>Pass</td>
+          <td>—</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <p id="pond-filter-count" aria-live="polite">
+    Showing 6 of 6 observations.
+  </p>
+
+  <p>
+    <strong>Try it!</strong> Filter the table to show
+    only observations that passed QC. Which site
+    has the highest remaining turbidity value?
+    Then select June 12. What happens to Site B
+    when you filter by QC?
+  </p>
+
+  <p>
+    <strong>Look closely:</strong> The June 12 measurement
+    at Site B illustrates a decision made during
+    structuring. We provisionally selected the second
+    reading (30 NTU) but retained the original value
+    and flagged the observation for review.
+    Another researcher might represent both readings
+    separately instead.
+  </p>
+
+</details>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const table = document.getElementById("pond-observation-table");
+  const dateFilter = document.getElementById("pond-date-filter");
+  const qcFilter = document.getElementById("pond-qc-filter");
+  const count = document.getElementById("pond-filter-count");
+
+  if (!table || !dateFilter || !qcFilter || !count) return;
+
+  const rows = [...table.querySelectorAll("tbody tr")];
+
+  function filterObservations() {
+    let visible = 0;
+
+    rows.forEach(row => {
+      const dateMatch =
+        dateFilter.value === "all" ||
+        row.dataset.date === dateFilter.value;
+
+      const qcMatch =
+        qcFilter.value === "all" ||
+        row.dataset.qc === qcFilter.value;
+
+      const show = dateMatch && qcMatch;
+
+      row.hidden = !show;
+      row.style.display = show ? "" : "none";
+
+      if (show) visible++;
+    });
+
+    count.textContent =
+      `Showing ${visible} of ${rows.length} observations.`;
+  }
+
+  dateFilter.addEventListener("change", filterObservations);
+  qcFilter.addEventListener("change", filterObservations);
+
+});
+</script>
+```
+
+### Part 3. Why does structure matter?
+
+The field notes and the table describe the same monitoring campaign, but they organize the information differently.
+
+In the field notes, the information is expressed through written descriptions. In the table, each observation follows a consistent structure: date, site, measurement, QC/status, and additional notes.
+
+This makes it easier to filter observations, compare sites, identify missing measurements, and apply the same analysis to many records.
+
+There is also an intermediate possibility: **semi-structured data**.
+
+For example, a researcher might record information using labeled fields, without organizing every observation into the same table:
+
+```text
+date: 2026-06-12
+site: B
+turbidity: 30 NTU
+qc: needs review
+note: first reading 42 NTU; probe fluctuating
+```
+
+This is more organized than free-form notes because individual pieces of information are labeled. But across many such records, the available fields, names, and organization might still vary.
+
+We can therefore distinguish three broad ways of organizing information:
+
+- **Unstructured:** Information is not organized according to a consistent predefined data model, as with free-form notes, photographs, or recordings.
+- **Semi-structured:** Information has some recognizable organization, such as labeled fields, but may not follow a uniform schema.
+- **Structured:** Information follows a defined organization, such as a table with consistent fields, making it easier to compare, filter, and validate records systematically.
+
+These are useful descriptions, not rigid boundaries.
+
+### But what about AI?
+
+Modern AI tools can read field notes, interpret images, and extract information from many sources that aren't already organized into tables.
+
+So why bother structuring scientific data?
+
+Consider what happened when we converted the field notes into a table. We had to decide which measurement to retain for Site B on June 12, how to represent an uncertain QC decision, and what to do when no measurement was collected.
+
+An AI tool could help make those decisions, but it would still need to interpret the original observations. Those interpretations might be incomplete or incorrect.
+
+**Structure makes information and assumptions explicit**, so that they can be reviewed, checked, and applied consistently.
+
+### Key takeaway
+
+Data structure is not only about making information readable by computers. It is about making scientific information explicit enough to support reliable interpretation, comparison, validation, and reuse.
