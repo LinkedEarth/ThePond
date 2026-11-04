@@ -894,3 +894,322 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </article>
 ```
+
+```{=html}
+<article class="pond-dtype-card" id="dtype-geology">
+  <div class="pond-dtype-inner">
+
+    <!-- FRONT -->
+    <section class="pond-dtype-face pond-dtype-front">
+      <h3>Dataset E — Rocks across a landscape</h3>
+
+      <div class="pond-dtype-layout">
+
+        <figure class="pond-dtype-media">
+          <p>
+            A geologist collects rock samples at several locations
+            and measures their quartz content.
+          </p>
+
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Sample</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Quartz (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>S01</td><td>34.10</td><td>-118.20</td><td>55</td></tr>
+              <tr><td>S02</td><td>34.12</td><td>-118.24</td><td>62</td></tr>
+              <tr><td>S03</td><td>34.15</td><td>-118.21</td><td>48</td></tr>
+              <tr><td>S04</td><td>34.18</td><td>-118.26</td><td>71</td></tr>
+              <tr><td>S05</td><td>34.20</td><td>-118.23</td><td>59</td></tr>
+            </tbody>
+          </table>
+
+          <figcaption class="pond-dtype-credit">
+            Synthetic geological measurements created for
+            The Pond (2026). No real samples or measurements.
+          </figcaption>
+        </figure>
+
+        <div>
+          <p>
+            The researcher wants to investigate whether
+            the mineral composition of rocks varies
+            across the study region.
+          </p>
+
+          <p><strong>How would you describe this dataset?</strong></p>
+          <p>Select all the terms you think apply.</p>
+
+          <div class="pond-dtype-cloud"
+               role="group"
+               aria-label="Describe the geological dataset">
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Tabular</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Time series</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Spatial</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Multidimensional</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Text</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Image</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Video</button>
+          </div>
+
+          <div class="pond-dtype-actions">
+            <button type="button"
+                    class="btn btn-primary pond-dtype-reveal">
+              Reveal answer
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACK -->
+    <section class="pond-dtype-face pond-dtype-back" inert>
+      <h3>Dataset E — What did you find?</h3>
+
+      <p><strong>Our suggested descriptions:</strong></p>
+
+      <div class="pond-dtype-answers">
+        <span class="pond-dtype-answer-tag">Tabular</span>
+        <span class="pond-dtype-answer-tag">Spatial</span>
+      </div>
+
+      <div class="pond-dtype-explanation">
+        <p>
+          <strong>Tabular:</strong> The measurements are organized
+          into rows and columns. Each row represents a rock sample,
+          and the columns describe its location and composition.
+          We can easily compare quartz content between samples,
+          sort measurements, or filter samples based on their properties.
+        </p>
+
+        <p>
+          <strong>Spatial:</strong> Each sample has a latitude
+          and longitude. These coordinates tell us where
+          the samples were collected, allowing us to map
+          their locations, calculate distances, or investigate
+          geographic patterns in mineral composition.
+        </p>
+
+        <p>
+          <strong>What about time series?</strong>
+          Although the samples have identifiers and locations,
+          there is no time dimension here. We cannot investigate
+          how quartz content changes through time using
+          these observations alone.
+        </p>
+
+        <p>
+          <strong>Do spatial data have to be maps?</strong>
+          Not at all! A map is one way to visualize spatial
+          information, but geographic coordinates stored in
+          a table are also spatial data.
+        </p>
+
+        <p>
+          <strong>The important idea:</strong> Data do not need
+          to look like a map to contain spatial information.
+          The same dataset can be represented as a table,
+          plotted on a map, or analyzed to identify
+          relationships between location and measured properties.
+        </p>
+      </div>
+
+      <p class="pond-dtype-my-choice">
+        Your choices: <span class="pond-dtype-selected"></span>
+      </p>
+
+      <button type="button"
+              class="btn btn-outline-secondary pond-dtype-return">
+        Back to my choices
+      </button>
+    </section>
+
+  </div>
+</article>
+```
+
+```{=html}
+<article class="pond-dtype-card" id="dtype-flood-video">
+  <div class="pond-dtype-inner">
+
+    <!-- FRONT -->
+    <section class="pond-dtype-face pond-dtype-front">
+      <h3>Dataset F — Watching a flood unfold</h3>
+
+      <div class="pond-dtype-layout">
+
+        <figure class="pond-dtype-media">
+
+          <video controls preload="metadata" playsinline
+                 style="width:100%;border-radius:8px;"
+                 aria-label="USGS video of a post-wildfire flood and debris flow in Orange County, California.">
+            <source src="flood.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+
+          <figcaption class="pond-dtype-credit">
+            Real scientific observations: U.S. Geological Survey.
+            Post-wildfire flooding and debris flow recorded
+            July 19, 2015, Orange County, California.
+            Public domain.
+            <a href="https://www.usgs.gov/media/videos/post-wildfire-flood-and-debris-flow-2014-silverado-fire"
+               target="_blank" rel="noopener">
+              Original video and credits
+            </a>.
+          </figcaption>
+        </figure>
+
+        <div>
+          <p>
+            Following a wildfire, USGS scientists installed
+            an automated camera to observe flooding and
+            debris flows during rainfall events.
+          </p>
+
+          <p>
+            Watch part of the video. Notice how conditions
+            change as water and sediment move through
+            the channel.
+          </p>
+
+          <p>
+            Imagine you're a hydrologist studying this event.
+            What information could you extract from
+            these observations?
+          </p>
+
+          <p><strong>How would you describe this dataset?</strong></p>
+          <p>Select all the terms you think apply.</p>
+
+          <div class="pond-dtype-cloud"
+               role="group"
+               aria-label="Describe the flood video dataset">
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Tabular</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Time series</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Spatial</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Multidimensional</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Text</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Image</button>
+            <button type="button" class="pond-dtype-tag" aria-pressed="false">Video</button>
+          </div>
+
+          <div class="pond-dtype-actions">
+            <button type="button"
+                    class="btn btn-primary pond-dtype-reveal">
+              Reveal answer
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACK -->
+    <section class="pond-dtype-face pond-dtype-back" inert>
+      <h3>Dataset F — What did you find?</h3>
+
+      <p><strong>Our suggested descriptions:</strong></p>
+
+      <div class="pond-dtype-answers">
+        <span class="pond-dtype-answer-tag">Video</span>
+        <span class="pond-dtype-answer-tag">Image</span>
+        <span class="pond-dtype-answer-tag">Time series</span>
+        <span class="pond-dtype-answer-tag">Spatial</span>
+        <span class="pond-dtype-answer-tag">Multidimensional</span>
+      </div>
+
+      <div class="pond-dtype-explanation">
+        <p>
+          <strong>Video:</strong> The observations are recorded
+          as moving footage, capturing how the flood develops.
+          Researchers can review the sequence, pause at
+          particular moments, and investigate changes.
+        </p>
+
+        <p>
+          <strong>Image:</strong> A video consists of a sequence
+          of individual images (frames). Each frame contains
+          visual information about the conditions at that moment.
+        </p>
+
+        <p>
+          <strong>Time series:</strong> The frames form a sequence
+          through time. Researchers could extract repeated
+          measurements, such as the position of the water's
+          edge or an estimate of water level, to construct
+          a numerical time series. The video itself is not
+          already a table of water-level measurements.
+        </p>
+
+        <p>
+          <strong>Spatial:</strong> The footage captures relationships
+          between the stream channel, water, sediment, and
+          surrounding landscape. It contains spatial information,
+          although converting image positions into real-world
+          distances would require additional information
+          about the camera and scene.
+        </p>
+
+        <p>
+          <strong>Multidimensional:</strong> The video can also
+          be represented as an array with dimensions for
+          image height, image width, and time, potentially
+          including color channels. This representation
+          is commonly used in computer vision.
+        </p>
+
+        <p>
+          <strong>Could this become tabular data?</strong>
+          Yes! A researcher might review the footage and
+          record observations such as the time of flood
+          arrival, water level estimates, or the movement
+          of debris. Those measurements could be organized
+          into a table.
+        </p>
+
+        <p>
+          <strong>The important idea:</strong> Scientific data
+          don't always begin as numerical measurements.
+          Images and videos can contain valuable scientific
+          observations. Extracting quantitative information
+          from them, whether manually or using AI, requires
+          interpretation and sometimes additional information
+          or assumptions.
+        </p>
+      </div>
+
+      <p class="pond-dtype-my-choice">
+        Your choices: <span class="pond-dtype-selected"></span>
+      </p>
+
+      <button type="button"
+              class="btn btn-outline-secondary pond-dtype-return">
+        Back to my choices
+      </button>
+    </section>
+
+  </div>
+</article>
+```
+
+### Different forms, different possibilities
+
+You've now explored several types of scientific data. Some were
+organized into tables, others into grids, images, written notes,
+or video. Many fit more than one description.
+
+But there's another question worth exploring: **Does the way
+information is organized affect what we can do with it?**
+
+For example, we could watch a video and identify when a flood
+arrived, or read a field notebook and extract temperature
+measurements. But what if we wanted to compare thousands of
+observations?
+
+In the next activity, we'll explore why **data structure matters**,
+even when humans or AI can interpret information that isn't
+already organized into a table.
