@@ -5,11 +5,11 @@ subtitle: Evidence and stories to make the case, and answers to common worries
 
 ## Why it matters
 
-Science works because claims can be checked. When the data, code, and methods behind a result are open, mistakes are caught sooner, others can build on the work instead of redoing it, and the public has good reason to trust what scientists say. This is the heart of the [Center for Open Science's mission](https://www.cos.io/about/mission): research that is open, has integrity, and is reproducible.
+Science works because claims can be checked independently. When the data, code, and methods behind a result are open, mistakes are caught sooner, others can build on the work instead of wasting time re-inventing the wheel, and the public has good reason to trust what scientists say. This is the heart of the [Center for Open Science's mission](https://www.cos.io/about/mission): research that is open, has integrity, and is reproducible.
 
 Open science is good for you, too. Shared work is easier to find, cite, and credit, and it opens doors to new collaborations ([McKiernan et al. (2016)](https://doi.org/10.7554/eLife.16800)).
 
-If you are reading this, you are probably convinced already. This page gives you a few numbers and stories to help you make the case to others, and answers to the worries early-career researchers raise most often ([Allen & Mehler (2019)](https://doi.org/10.1371/journal.pbio.3000246)).
+If you are reading this, you probably need little convincing. This page gives you a few numbers and stories to help you make the case to others, and answers to the worries early-career researchers raise most often ([Allen & Mehler (2019)](https://doi.org/10.1371/journal.pbio.3000246)).
 
 ## Guess the number
 
@@ -62,14 +62,14 @@ Data and code deposited with a digital object identifier (DOI) can be cited just
 ## Problems open science is solving
 
 - **Psychology's replication crisis.** When 100 psychology studies were repeated, only about a third of the results held up ([Open Science Collaboration (2015)](https://doi.org/10.1126/science.aac4716)). The field responded with preregistration and Registered Reports (see [What is Open Science?](what-is-open-science.qmd)).
-- **A pandemic.** The genome of the virus that causes COVID-19 was shared publicly in January 2020 ([Wu et al. (2020)](https://doi.org/10.1038/s41586-020-2008-3)), and vaccine developers began designing candidates within days.
+- **A pandemic.** The genome of the virus that causes COVID-19 was shared publicly in January 2020 ([Wu et al. (2020)](https://doi.org/10.1038/s41586-020-2008-3)), and some vaccine developers were able to begin designing candidates within days.
 - **Forests.** When the U.S. Geological Survey made the Landsat satellite archive free in 2008, use of the data soared ([Wulder et al. (2012)](https://doi.org/10.1016/j.rse.2012.01.010)). Free data made the first high-resolution global maps of forest loss possible ([Hansen et al. (2013)](https://doi.org/10.1126/science.1244693)).
 
 ## Careers built in the open
 
 - **Thomas Herndon**, a PhD student in economics, was assigned to replicate a famous paper on public debt. The authors shared their spreadsheet, and he found errors that changed its conclusions ([Herndon et al. (2013)](https://doi.org/10.1093/cje/bet075)). The finding made international news.
-- **Fernando Pérez** started IPython as a side project in 2001, while a graduate student. It grew into [Project Jupyter](https://jupyter.org/), which won the 2017 Software System Award from the Association for Computing Machinery.
-- **Ed Hawkins**, a climate scientist, released his ["warming stripes"](https://showyourstripes.info/) graphic in 2018 for anyone to use. It became one of the most recognized images of climate change, and in 2020 he was appointed a Member of the Order of the British Empire (a British honour) for services to climate science and science communication.
+- **Fernando Pérez** started IPython as a side project in 2001, while a graduate student. It grew into [Project Jupyter](https://jupyter.org/), which won the 2017 Software System Award from the Association for Computing Machinery. Jupyter has become a cornerstone of modern research and education in data science, which underlies many computationally based scientific fields. 
+- **Ed Hawkins**, a climate scientist, released his ["warming stripes"](https://showyourstripes.info/) graphic in 2018 for anyone to use. He has also long shared his code and insights on his [blog](https://www.climate-lab-book.ac.uk) and [substack](https://climatelabbook.substack.com). The stripes have become one of the most recognizable emblems of climate change, and in 2020 Dr Hawkins was appointed a Member of the Order of the British Empire (a British honor) for services to climate science and science communication.
 
 ## Where to go next
 

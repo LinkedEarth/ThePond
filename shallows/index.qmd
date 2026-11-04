@@ -2,14 +2,36 @@
 title: "The Shallows"
 ---
 
-- [What is Open Science?](what-is-open-science.qmd)
-- [Why Open Science?](why-open-science.qmd)
+The Shallows are where to start if you are new to open science. Learn what it is, and why it matters.
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+::: {.grid}
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### What is Open Science?
 
-![](../images/frog_soon.gif){fig-align="center" width="250px"}
+Explore **twelve open science practices**, from open data to citizen science. Define the ones you know, then discover the ones you don't.
+
+::: {.text-center}
+[Explore the practices](what-is-open-science.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+### Why Open Science?
+
+Find **evidence and stories** to make the case for open science, and answers to the worries early-career researchers raise most often.
+
+::: {.text-center}
+[See why it matters](why-open-science.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
 :::
