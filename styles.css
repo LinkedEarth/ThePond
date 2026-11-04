@@ -452,3 +452,57 @@ d-topics-list iframe {
 @media (prefers-reduced-motion: reduce) {
   .os-card-inner { transition: none; }
 }
+
+/* Why Open Science? guess-the-number sliders; worry cards reuse the flip cards above */
+
+:where(.os-card) { --os-color: #147E78; }
+
+.why-guess {
+  margin-bottom: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+}
+
+.why-question {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.why-slider {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.why-slider input[type="range"] {
+  flex: 1 1 200px;
+  accent-color: #147E78;
+}
+
+.why-slider output {
+  min-width: 6.5rem;
+  font-weight: 600;
+  color: #147E78;
+}
+
+.why-reveal {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid #B1CA2C;
+  background: #f4f9f8;
+}
+
+.why-reveal p:last-child { margin-bottom: 0; }
+
+.why-verdict { margin-bottom: 0.3rem; }
+
+.why-worry-text {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #125D4B;
+}
+
+.why-worry-small { font-size: 1rem; }
