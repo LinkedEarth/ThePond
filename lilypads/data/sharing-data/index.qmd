@@ -3,11 +3,354 @@ title: "Preparing data for sharing and reuse"
 
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+Sharing a dataset is an important step toward open science, but **making data available does not necessarily make them reusable**. In this LilyPad, you will explore how different researchers interpret the same dataset, discover what happens when important information is not documented, and consider how much documentation is enough for meaningful reuse. You will also learn how **community conventions** can help make data understandable beyond the original research team, while recognizing the time and effort required to prepare data for sharing.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+# 1. Who can reuse this dataset?
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
-:::
+Imagine that your research group has been studying water quality in a river. The team collected water samples at different locations to investigate **whether nitrate concentrations differ upstream and downstream of a developed section of the river**.
+
+The measurements are stored in a CSV file named `stream_nitrate_2025.csv`.
+
+| date | site | NO3_mgL | qc |
+|:--|:--|--:|--:|
+| 2025-05-14 | S01 | 0.42 | 1 |
+| 2025-05-14 | S03 | 1.18 | 1 |
+| 2025-06-12 | S01 | 0.47 | 1 |
+| 2025-06-12 | S03 | 1.31 | 2 |
+
+*This is a fictional dataset created for this activity. Only four illustrative rows are shown.*
+
+At first glance, the file looks straightforward. You can read it, and several column names seem familiar. **But look a little closer:**
+
+- What do `S01` and `S03` represent?
+- What do you think `NO3` means?
+- What do the values in `qc` tell you?
+
+**You might feel certain about your answers. But would that be enough to conduct the analysis?** For example, if you want to compare upstream and downstream sites, can you locate them from the site codes alone?
+
+Let's see how three researchers make sense of the same file, each bringing a different kind of background knowledge.
+
+```{=html}
+<style>
+/* Activity 1 only: safe to paste into a larger Quarto page. */
+#pond-d5-a1 {
+  --d5-ink: var(--bs-body-color, #243246);
+  --d5-muted: var(--bs-secondary-color, #566575);
+  --d5-border: var(--bs-border-color, #d5dce3);
+  --d5-bg: var(--bs-body-bg, #fff);
+  --d5-soft: var(--bs-tertiary-bg, #f2f6f7);
+  --d5-accent: var(--bs-primary, #246c85);
+  color: var(--d5-ink);
+  margin: 1.2rem 0;
+}
+#pond-d5-a1 [hidden] { display: none !important; }
+#pond-d5-a1 .d5-progress { color: var(--d5-muted); font-size: .94rem; margin: 0 0 .9rem; }
+#pond-d5-a1 .d5-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+#pond-d5-a1 .d5-card { perspective: 1100px; min-width: 0; }
+#pond-d5-a1 .d5-card-inner {
+  position: relative;
+  display: grid;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .6s ease;
+}
+#pond-d5-a1 .d5-card.is-flipped .d5-card-inner { transform: rotateY(180deg); }
+#pond-d5-a1 .d5-face {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  padding: 1rem;
+  min-height: 32rem;
+  border: 1px solid var(--d5-border);
+  border-radius: .8rem;
+  background: var(--d5-bg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+#pond-d5-a1 .d5-back { transform: rotateY(180deg); }
+#pond-d5-a1 .d5-card:not(.is-flipped) .d5-back,
+#pond-d5-a1 .d5-card.is-flipped .d5-front { pointer-events: none; }
+#pond-d5-a1 .d5-image {
+  margin: -1rem -1rem .1rem;
+  line-height: 0;
+}
+#pond-d5-a1 .d5-image img { width: 100%; aspect-ratio: 2.25 / 1; object-fit: cover; display: block; }
+#pond-d5-a1 .d5-image figcaption {
+  padding: .42rem 1rem;
+  color: var(--d5-muted);
+  font-size: .72rem;
+  line-height: 1.35;
+}
+#pond-d5-a1 .d5-role {
+  color: var(--d5-muted);
+  font-size: .77rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+#pond-d5-a1 .d5-face h3 { font-size: 1.23rem; line-height: 1.3; margin: 0; }
+#pond-d5-a1 .d5-face h4 { font-size: .96rem; margin: .25rem 0 .1rem; }
+#pond-d5-a1 .d5-face p { margin: 0; font-size: .92rem; line-height: 1.52; }
+#pond-d5-a1 .d5-face ul { margin: 0; padding-left: 1.25rem; font-size: .88rem; line-height: 1.5; }
+#pond-d5-a1 .d5-face li + li { margin-top: .3rem; }
+#pond-d5-a1 .d5-spacer { flex: 1; }
+#pond-d5-a1 .d5-button,
+#pond-d5-a1 .d5-conv-btn {
+  font: inherit;
+  border-radius: .5rem;
+  border: 1px solid var(--d5-accent);
+  color: var(--d5-accent);
+  background: var(--d5-bg);
+  padding: .65rem .75rem;
+  font-size: .9rem;
+  font-weight: 650;
+  text-align: center;
+  cursor: pointer;
+}
+#pond-d5-a1 .d5-button:hover,
+#pond-d5-a1 .d5-conv-btn:hover { background: var(--d5-soft); }
+#pond-d5-a1 .d5-button-primary { background: var(--d5-accent); color: #fff; }
+#pond-d5-a1 .d5-button-primary:hover { filter: brightness(.93); background: var(--d5-accent); }
+#pond-d5-a1 .d5-back .d5-observation {
+  margin-top: .35rem;
+  padding: .7rem .8rem;
+  background: var(--d5-soft);
+  border-radius: .45rem;
+  font-size: .88rem;
+}
+#pond-d5-a1 .d5-synthesis {
+  margin-top: 1.1rem;
+  padding: 1.15rem;
+  border: 1px solid var(--d5-border);
+  border-radius: .8rem;
+  background: var(--d5-soft);
+}
+#pond-d5-a1 .d5-synthesis h3 { font-size: 1.15rem; margin: 0 0 .6rem; }
+#pond-d5-a1 .d5-synthesis p { margin: .4rem 0 .75rem; }
+#pond-d5-a1 .d5-conv-box {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--d5-bg);
+  border: 1px solid var(--d5-border);
+  border-radius: .65rem;
+}
+#pond-d5-a1 .d5-conv-buttons { display: flex; flex-wrap: wrap; gap: .5rem; margin: .65rem 0; }
+#pond-d5-a1 .d5-conv-btn[aria-pressed="true"] { background: var(--d5-accent); color: #fff; }
+#pond-d5-a1 .d5-conv-panel { border-top: 1px solid var(--d5-border); padding-top: .6rem; }
+#pond-d5-a1 .d5-conv-panel p { margin: .25rem 0; }
+#pond-d5-a1 .d5-final { border-left: 3px solid var(--d5-accent); padding-left: .8rem; }
+#pond-d5-a1 button:focus-visible { outline: 3px solid var(--d5-accent); outline-offset: 3px; }
+@media (max-width: 980px) {
+  #pond-d5-a1 .d5-grid { grid-template-columns: 1fr; }
+  #pond-d5-a1 .d5-face { min-height: 25rem; }
+  #pond-d5-a1 .d5-image img { max-height: 14rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #pond-d5-a1 .d5-card-inner { transition: none; }
+}
+</style>
+
+<section id="pond-d5-a1" aria-label="Explore how three researchers might reuse the same water-quality dataset">
+  <p id="pond-d5-a1-progress" class="d5-progress" aria-live="polite">0 of 3 researcher perspectives explored</p>
+  <div class="d5-grid">
+    <article class="d5-card" data-person="alex">
+      <div class="d5-card-inner">
+        <div class="d5-face d5-front">
+          <figure class="d5-image">
+            <img src="alex.png" alt="Illustration of a fictional woman researcher beside a river" loading="lazy">
+            <figcaption>AI-generated fictional researcher</figcaption>
+          </figure>
+          <span class="d5-role">In your lab</span>
+          <h3>Meet Alex</h3>
+          <p>Alex participated in the field campaign and is now using the <strong>same water samples</strong> to measure other chemical properties. Alex knows the study sites and remembers how the samples were collected.</p>
+          <p><strong>How much of the file can Alex interpret without asking anyone?</strong></p>
+          <div class="d5-spacer"></div>
+          <button type="button" class="d5-button d5-button-primary d5-reveal">Explore Alex’s perspective</button>
+        </div>
+        <div class="d5-face d5-back" inert>
+          <span class="d5-role">Alex · Same lab</span>
+          <h3>What does Alex bring?</h3>
+          <h4>Probably already knows</h4>
+          <ul>
+            <li>Where the sampling sites are and which are upstream or downstream.</li>
+            <li>How the samples were collected and labeled in the field.</li>
+            <li>The broader goal of the study.</li>
+          </ul>
+          <h4>May still need</h4>
+          <ul>
+            <li>What the colleague who made <code>NO3_mgL</code> meant by that label.</li>
+            <li>How that colleague assigned the <code>qc</code> values.</li>
+            <li>Whether the measurements were corrected or processed.</li>
+          </ul>
+          <p class="d5-observation"><strong>Notice:</strong> Shared fieldwork does not guarantee shared notation. A colleague may have used their own conventions instead of the lab’s.</p>
+          <div class="d5-spacer"></div>
+          <button type="button" class="d5-button d5-return">Back to Alex</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="d5-card" data-person="sam">
+      <div class="d5-card-inner">
+        <div class="d5-face d5-front">
+          <figure class="d5-image">
+            <img src="sam.png" alt="Illustration of a fictional man hydrologist beside a river" loading="lazy">
+            <figcaption>AI-generated fictional researcher</figcaption>
+          </figure>
+          <span class="d5-role">Your field · Another lab</span>
+          <h3>Meet Sam</h3>
+          <p>Sam is a hydrologist at another university. Sam regularly works with river chemistry data and wants to compare nitrate concentrations across different watersheds.</p>
+          <p><strong>What can disciplinary experience explain, and what is specific to this study?</strong></p>
+          <div class="d5-spacer"></div>
+          <button type="button" class="d5-button d5-button-primary d5-reveal">Explore Sam’s perspective</button>
+        </div>
+        <div class="d5-face d5-back" inert>
+          <span class="d5-role">Sam · Same field, different lab</span>
+          <h3>What does Sam bring?</h3>
+          <h4>Probably already knows</h4>
+          <ul>
+            <li>Why nitrate measurements are relevant to river water quality.</li>
+            <li>Common sampling practices and scientific terminology.</li>
+            <li>How to use defined units and quality flags.</li>
+          </ul>
+          <h4>Still needs</h4>
+          <ul>
+            <li>Coordinates and descriptions for <code>S01</code> and <code>S03</code>.</li>
+            <li>The exact meaning of <code>NO3_mgL</code> and the <code>qc</code> codes.</li>
+            <li>Enough study context to know which measurements to compare.</li>
+          </ul>
+          <p class="d5-observation"><strong>Notice:</strong> Disciplinary knowledge can help, but it cannot decode conventions unique to another lab or researcher.</p>
+          <div class="d5-spacer"></div>
+          <button type="button" class="d5-button d5-return">Back to Sam</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="d5-card" data-person="taylor">
+      <div class="d5-card-inner">
+        <div class="d5-face d5-front">
+          <figure class="d5-image">
+            <img src="taylor.png" alt="Illustration of a fictional woman researcher with a map on her computer" loading="lazy">
+            <figcaption>AI-generated fictional researcher</figcaption>
+          </figure>
+          <span class="d5-role">Another field</span>
+          <h3>Meet Taylor</h3>
+          <p>Taylor studies land-use change and wants to explore whether urban development is associated with differences in river water quality. Taylor uses spatial and tabular data but has limited experience with water chemistry.</p>
+          <p><strong>What additional scientific context would Taylor need?</strong></p>
+          <div class="d5-spacer"></div>
+          <button type="button" class="d5-button d5-button-primary d5-reveal">Explore Taylor’s perspective</button>
+        </div>
+        <div class="d5-face d5-back" inert>
+          <span class="d5-role">Taylor · Another field</span>
+          <h3>What does Taylor bring?</h3>
+          <h4>Probably already knows</h4>
+          <ul>
+            <li>How to work with a CSV table and dates.</li>
+            <li>How to combine observations with geographic information.</li>
+            <li>How to compare measurements across sites and time.</li>
+          </ul>
+          <h4>Still needs</h4>
+          <ul>
+            <li>Site coordinates and their relationship to developed areas.</li>
+            <li>What nitrate measures and how to interpret its values.</li>
+            <li>The meaning of quality flags and important study limitations.</li>
+          </ul>
+          <p class="d5-observation"><strong>Notice:</strong> Reuse across fields may need additional explanations. A dataset does not, however, need to teach every reader an entire discipline.</p>
+          <div class="d5-spacer"></div>
+          <button type="button" class="d5-button d5-return">Back to Taylor</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div id="pond-d5-a1-synthesis" class="d5-synthesis" hidden>
+    <h3>What changed?</h3>
+    <p>The <strong>file stayed exactly the same</strong>. What changed was the knowledge each person could bring to interpreting it. Some knowledge is written down; some is shared informally or assumed. This unrecorded understanding is called <strong>tacit knowledge</strong>.</p>
+    <p>Alex knows the sites from fieldwork, but might not know another colleague’s private QC shorthand. Sam knows water chemistry, but not this lab’s site codes. Taylor knows spatial analysis, but may need more context to interpret the measurements.</p>
+
+    <div class="d5-conv-box">
+      <h3>Whose conventions are we using?</h3>
+      <p>A <strong>convention</strong> is an agreed or habitual way to name, describe, or organize information. Explore how far different conventions might be understood.</p>
+      <div class="d5-conv-buttons" role="group" aria-label="Explore levels of conventions">
+        <button type="button" class="d5-conv-btn" data-convention="individual" aria-pressed="true">Individual</button>
+        <button type="button" class="d5-conv-btn" data-convention="lab" aria-pressed="false">Lab</button>
+        <button type="button" class="d5-conv-btn" data-convention="field" aria-pressed="false">Field</button>
+        <button type="button" class="d5-conv-btn" data-convention="broad" aria-pressed="false">Widely shared</button>
+      </div>
+      <div class="d5-conv-panel" data-panel="individual">
+        <p><strong>Individual:</strong> A researcher may invent a QC code or file-naming rule that makes perfect sense to them. Without an explanation, even their lab colleagues may be unsure what it means.</p>
+      </div>
+      <div class="d5-conv-panel" data-panel="lab" hidden>
+        <p><strong>Lab:</strong> Everyone in the group may know that <code>S01</code> is an upstream site. An outside researcher still needs a site table or map to make sense of it.</p>
+      </div>
+      <div class="d5-conv-panel" data-panel="field" hidden>
+        <p><strong>Field:</strong> A water-quality community may use shared terminology, recommended units, and standard ways to describe measurements and quality flags. These practices make exchange easier, but the dataset must still identify which conventions it follows.</p>
+      </div>
+      <div class="d5-conv-panel" data-panel="broad" hidden>
+        <p><strong>Widely shared:</strong> Formats such as CSV and recognizable dates such as <code>2025-05-14</code> help many researchers and tools read a file. They do not, on their own, explain the scientific meaning of its columns.</p>
+      </div>
+    </div>
+
+    <p class="d5-final"><strong>Key takeaway:</strong> The farther someone is from the original research context, the more of that context may need to be explicit. Conventions help when the people exchanging data share them; documenting or using broader community conventions makes reuse less dependent on inside knowledge. The goal is <strong>enough context for intended reuse</strong>, not an explanation of everything to everyone.</p>
+    <p>In earlier Data LilyPads, you explored data structure and metadata. Both can help make information explicit instead of leaving it only in someone’s memory.</p>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('pond-d5-a1');
+  if (!root || root.dataset.initialized === 'true') return;
+  root.dataset.initialized = 'true';
+
+  const explored = new Set();
+  const progress = root.querySelector('#pond-d5-a1-progress');
+  const synthesis = root.querySelector('#pond-d5-a1-synthesis');
+
+  root.querySelectorAll('.d5-card').forEach(card => {
+    const front = card.querySelector('.d5-front');
+    const back = card.querySelector('.d5-back');
+    const reveal = card.querySelector('.d5-reveal');
+    const returnButton = card.querySelector('.d5-return');
+
+    reveal.addEventListener('click', () => {
+      front.inert = true;
+      back.inert = false;
+      card.classList.add('is-flipped');
+      explored.add(card.dataset.person);
+      progress.textContent = `${explored.size} of 3 researcher perspectives explored`;
+      if (explored.size === 3) synthesis.hidden = false;
+      returnButton.focus({ preventScroll: true });
+    });
+
+    returnButton.addEventListener('click', () => {
+      back.inert = true;
+      front.inert = false;
+      card.classList.remove('is-flipped');
+      reveal.focus({ preventScroll: true });
+    });
+  });
+
+  root.querySelectorAll('.d5-conv-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const selected = button.dataset.convention;
+      root.querySelectorAll('.d5-conv-btn').forEach(b => {
+        b.setAttribute('aria-pressed', String(b === button));
+      });
+      root.querySelectorAll('.d5-conv-panel').forEach(panel => {
+        panel.hidden = panel.dataset.panel !== selected;
+      });
+    });
+  });
+})();
+</script>
+```
+
+---
+
+**Up next:** Alex knows the sampling sites because Alex participated in the field campaign. But what happens if Alex inherits data that another lab member prepared using personal shorthand—and that person has now left the lab?
