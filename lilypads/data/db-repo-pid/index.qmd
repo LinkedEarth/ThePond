@@ -317,3 +317,1521 @@ Explore the five possible destinations below. For each one, make an initial deci
 })();
 </script>
 ```
+
+# 2. Can someone reproduce my analysis five years later?
+
+You are studying nitrate concentrations in a river. Your measurements come from a **live water-quality database**: researchers add new observations regularly and sometimes correct older records. You query the database for observations collected **between 2015 and 2025** and use the results in a manuscript submitted in **2026**.
+
+You documented the database name, your access date, and the exact query. **Will that be enough for another researcher to retrieve the same values in 2031?**
+
+Try the small simulation below. The database and observations are **fictional**; the changes illustrate what can happen in a real, continuously updated database.
+
+```{=html}
+<style>
+  /* Scoped to Activity 2 so it can coexist with Activity 1. */
+  #pond-d4-retrace {
+    --pond-a2-border: var(--bs-border-color, #d8dee4);
+    --pond-a2-panel: var(--bs-body-bg, #fff);
+    --pond-a2-soft: var(--bs-tertiary-bg, #f4f6f8);
+    --pond-a2-muted: var(--bs-secondary-color, #596579);
+    --pond-a2-ink: var(--bs-body-color, #253044);
+    --pond-a2-accent: var(--bs-primary, #326c91);
+    color: var(--pond-a2-ink);
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  #pond-d4-retrace [hidden] {
+    display: none !important;
+  }
+
+  #pond-d4-retrace .pond-a2-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  #pond-d4-retrace .pond-a2-mobile-hint {
+    display: none;
+  }
+
+  #pond-d4-retrace .pond-a2-panel {
+    border: 1px solid var(--pond-a2-border);
+    border-radius: 0.9rem;
+    padding: 1.15rem;
+    background: var(--pond-a2-panel);
+    margin-bottom: 1rem;
+  }
+
+  #pond-d4-retrace .pond-a2-panel h3 {
+    font-size: 1.12rem;
+    line-height: 1.35;
+    margin: 0 0 0.55rem;
+  }
+
+  #pond-d4-retrace .pond-a2-panel p {
+    margin-top: 0;
+  }
+
+  #pond-d4-retrace .pond-a2-small {
+    color: var(--pond-a2-muted);
+    font-size: 0.91rem;
+    margin-bottom: 0.75rem;
+  }
+
+  #pond-d4-retrace .pond-a2-query {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.85rem 0 1rem;
+  }
+
+  #pond-d4-retrace .pond-a2-query span {
+    background: var(--pond-a2-soft);
+    border: 1px solid var(--pond-a2-border);
+    border-radius: 999px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.84rem;
+  }
+
+  #pond-d4-retrace .pond-a2-table-wrap {
+    overflow-x: auto;
+    margin: 0.7rem 0 1rem;
+  }
+
+  #pond-d4-retrace table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.93rem;
+  }
+
+  #pond-d4-retrace th,
+  #pond-d4-retrace td {
+    border-bottom: 1px solid var(--pond-a2-border);
+    padding: 0.63rem 0.55rem;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  #pond-d4-retrace thead th {
+    background: var(--pond-a2-soft);
+    font-weight: 650;
+  }
+
+  #pond-d4-retrace .pond-a2-changed {
+    font-weight: 750;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  #pond-d4-retrace .pond-a2-button {
+    display: inline-block;
+    border: 1px solid var(--pond-a2-accent);
+    border-radius: 0.5rem;
+    background: var(--pond-a2-accent);
+    color: white;
+    cursor: pointer;
+    font-weight: 650;
+    padding: 0.6rem 0.95rem;
+    text-align: center;
+  }
+
+  #pond-d4-retrace .pond-a2-button:disabled {
+    opacity: 0.52;
+    cursor: not-allowed;
+  }
+
+  #pond-d4-retrace .pond-a2-button-secondary {
+    color: var(--pond-a2-accent);
+    background: transparent;
+  }
+
+  #pond-d4-retrace .pond-a2-reveal {
+    background: var(--pond-a2-soft);
+    border-radius: 0.6rem;
+    padding: 0.95rem 1rem;
+    margin-top: 0.95rem;
+  }
+
+  #pond-d4-retrace .pond-a2-reveal p:last-child {
+    margin-bottom: 0;
+  }
+
+  #pond-d4-retrace .pond-a2-record {
+    background: var(--pond-a2-soft);
+    border: 1px solid var(--pond-a2-border);
+    border-radius: 0.6rem;
+    padding: 0.85rem 1rem;
+    margin: 0.75rem 0 1rem;
+  }
+
+  #pond-d4-retrace .pond-a2-record ul {
+    margin: 0.45rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  #pond-d4-retrace .pond-a2-record li + li {
+    margin-top: 0.25rem;
+  }
+
+  /* Step 2: exploratory flip cards */
+  #pond-d4-retrace .pond-a2-grid {
+    display: grid;
+    grid-template-columns:
+      repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr));
+    gap: 0.9rem;
+    margin: 1rem 0;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-card {
+    perspective: 1200px;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-inner {
+    display: grid;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 600ms ease;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-card.is-flipped
+  .pond-a2-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  #pond-d4-retrace .pond-a2-flip-face {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1rem;
+    min-height: 19rem;
+    border: 1px solid var(--pond-a2-border);
+    border-radius: 0.75rem;
+    background: var(--pond-a2-panel);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-back {
+    transform: rotateY(180deg);
+  }
+
+  #pond-d4-retrace .pond-a2-flip-card:not(.is-flipped)
+  .pond-a2-flip-back,
+  #pond-d4-retrace .pond-a2-flip-card.is-flipped
+  .pond-a2-flip-front {
+    pointer-events: none;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-face h4 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-face p {
+    margin: 0;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-kicker {
+    color: var(--pond-a2-muted);
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-spacer {
+    flex: 1;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-note {
+    color: var(--pond-a2-muted);
+    font-size: 0.88rem;
+  }
+
+  #pond-d4-retrace .pond-a2-flip-progress {
+    color: var(--pond-a2-muted);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  #pond-d4-retrace .pond-a2-summary {
+    border-left: 3px solid var(--pond-a2-accent);
+    padding: 0.85rem 1rem;
+    margin-top: 1rem;
+    background: var(--pond-a2-soft);
+    border-radius: 0.35rem;
+  }
+
+  #pond-d4-retrace .pond-a2-summary p:last-child {
+    margin-bottom: 0;
+  }
+
+  #pond-d4-retrace button:focus-visible {
+    outline: 3px solid var(--pond-a2-accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #pond-d4-retrace .pond-a2-flip-inner {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 580px) {
+    #pond-d4-retrace .pond-a2-panel {
+      padding: 0.85rem;
+    }
+
+    #pond-d4-retrace th,
+    #pond-d4-retrace td {
+      padding: 0.55rem 0.4rem;
+    }
+
+    #pond-d4-retrace .pond-a2-button {
+      width: 100%;
+    }
+
+    #pond-d4-retrace .pond-a2-mobile-hint:not([hidden]) {
+      display: block;
+    }
+  }
+</style>
+
+<section id="pond-d4-retrace"
+         aria-label="Reproducing an analysis from a changing database">
+
+  <!-- STEP 1: RE-RUN THE QUERY -->
+  <div class="pond-a2-panel">
+
+    <h3>Step 1 — Re-run your original query</h3>
+
+    <p class="pond-a2-small">
+      In January 2026, you downloaded the records needed for your
+      paper. Below are four example rows from that extract,
+      not the entire dataset.
+    </p>
+
+    <div class="pond-a2-query" aria-label="Query settings">
+      <span>Variable: nitrate (mg N/L)</span>
+      <span>Stations: UP-01, MID-02, DW-03</span>
+      <span>Dates: 2015–2025</span>
+    </div>
+
+    <div class="pond-a2-table-wrap">
+      <table>
+        <caption class="pond-a2-sr-only">
+          Example nitrate observations from the 2026 analysis
+          extract compared with the same query in 2031
+        </caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Observation date</th>
+            <th scope="col">Station</th>
+            <th scope="col">Used in 2026</th>
+            <th scope="col" class="pond-a2-later" hidden>
+              Live result in 2031
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>2019-06-18</td>
+            <td>UP-01</td>
+            <td>0.42</td>
+            <td class="pond-a2-later" hidden>0.42</td>
+          </tr>
+
+          <tr>
+            <td>2022-08-03</td>
+            <td>MID-02</td>
+            <td>1.18</td>
+            <td class="pond-a2-later pond-a2-changed" hidden>
+              1.04
+              <span class="pond-a2-sr-only">changed</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>2024-03-11</td>
+            <td>DW-03</td>
+            <td>0.73</td>
+            <td class="pond-a2-later" hidden>0.73</td>
+          </tr>
+
+          <tr>
+            <td>2025-10-21</td>
+            <td>DW-03</td>
+            <td>0.89</td>
+            <td class="pond-a2-later pond-a2-changed" hidden>
+              0.93
+              <span class="pond-a2-sr-only">changed</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pond-a2-small pond-a2-mobile-hint"
+       id="pond-a2-mobile-hint" hidden>
+      Scroll the table sideways to compare the 2026 and 2031 values.
+    </p>
+
+    <button type="button" class="pond-a2-button" id="pond-a2-run">
+      Re-run this query in 2031
+    </button>
+
+    <div class="pond-a2-reveal"
+         id="pond-a2-drift"
+         hidden
+         aria-live="polite"
+         tabindex="-1">
+
+      <p>
+        <strong>Same query, different data.</strong>
+        Two of these four example readings changed because the
+        database maintainers corrected historical observations.
+        The 2015–2025 date filter excluded new observations collected
+        after 2025, but it could not undo corrections to older records.
+      </p>
+
+      <p>
+        Knowing that you accessed the database in January 2026
+        tells others <em>when</em> you retrieved the data.
+        It does not necessarily let them recover the database
+        as it existed then.
+      </p>
+    </div>
+  </div>
+
+  <!-- STEP 2: EXPLORE COMPLEMENTARY PRACTICES -->
+  <div class="pond-a2-panel" id="pond-a2-recovery" hidden>
+
+    <h3>Step 2 — What does each practice contribute?</h3>
+
+    <p>
+      You are preparing your manuscript in 2026.
+      You have <strong>already documented</strong> the source
+      of your observations and how you selected them:
+    </p>
+
+    <div class="pond-a2-record"
+         aria-label="Documentation already retained">
+
+      <strong>Included with your manuscript</strong>
+
+      <ul>
+        <li>Database name and access date (January 2026)</li>
+        <li>
+          Exact query and selection criteria: stations,
+          variable, date range, and any filters
+        </li>
+      </ul>
+    </div>
+
+    <p>
+      The original values have changed in the live database.
+      Explore these three practices to find out how they help
+      someone reproduce your analysis in 2031.
+      <strong>
+        These are complementary practices, not competing answers.
+      </strong>
+    </p>
+
+    <p class="pond-a2-flip-progress"
+       id="pond-a2-progress"
+       aria-live="polite">
+      0 of 3 practices explored
+    </p>
+
+    <div class="pond-a2-grid"
+         aria-label="Explore ways to document and preserve your data">
+
+      <!-- CARD 1: DOCUMENT THE QUERY -->
+      <article class="pond-a2-flip-card" data-practice="query">
+        <div class="pond-a2-flip-inner">
+
+          <div class="pond-a2-flip-face pond-a2-flip-front">
+
+            <div class="pond-a2-flip-kicker">
+              Practice 1 · Already done
+            </div>
+
+            <h4>Document the query</h4>
+
+            <p>
+              Keep the database name, access date,
+              and exact selection criteria.
+            </p>
+
+            <p class="pond-a2-flip-note">
+              What can future researchers learn from this record?
+            </p>
+
+            <div class="pond-a2-flip-spacer"></div>
+
+            <button type="button"
+                    class="pond-a2-button pond-a2-flip-open">
+              Reveal what it contributes
+            </button>
+          </div>
+
+          <div class="pond-a2-flip-face pond-a2-flip-back" inert>
+
+            <div class="pond-a2-flip-kicker">
+              What it contributes
+            </div>
+
+            <h4>Documents how the data were selected</h4>
+
+            <p>
+              Future researchers know where the observations
+              came from and how you chose them.
+              This information should <strong>always</strong>
+              be recorded.
+            </p>
+
+            <p>
+              However, the same query against a changing database
+              may return different values. Documentation alone
+              does not preserve the original data.
+            </p>
+
+            <div class="pond-a2-flip-spacer"></div>
+
+            <button type="button"
+                    class="pond-a2-button pond-a2-button-secondary pond-a2-flip-close">
+              Back to card
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: ARCHIVE THE ANALYSIS DATASET -->
+      <article class="pond-a2-flip-card" data-practice="extract">
+        <div class="pond-a2-flip-inner">
+
+          <div class="pond-a2-flip-face pond-a2-flip-front">
+
+            <div class="pond-a2-flip-kicker">
+              Practice 2
+            </div>
+
+            <h4>Archive the analysis dataset</h4>
+
+            <p>
+              Deposit a fixed copy of the observations used
+              in your paper in an appropriate repository.
+            </p>
+
+            <p class="pond-a2-flip-note">
+              What would this make retrievable?
+            </p>
+
+            <div class="pond-a2-flip-spacer"></div>
+
+            <button type="button"
+                    class="pond-a2-button pond-a2-flip-open">
+              Reveal what it contributes
+            </button>
+          </div>
+
+          <div class="pond-a2-flip-face pond-a2-flip-back" inert>
+
+            <div class="pond-a2-flip-kicker">
+              What it contributes
+            </div>
+
+            <h4>Preserves the values actually used</h4>
+
+            <p>
+              A fixed, archived extract lets someone retrieve
+              the original observations even after the live
+              database has changed.
+            </p>
+
+            <p>
+              Paired with your documented query, it preserves
+              both <strong>what you used</strong> and
+              <strong>how you obtained it</strong>.
+              This can satisfy the preservation requirement
+              without a separate archived database release.
+            </p>
+
+            <div class="pond-a2-flip-spacer"></div>
+
+            <button type="button"
+                    class="pond-a2-button pond-a2-button-secondary pond-a2-flip-close">
+              Back to card
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: ARCHIVED DATABASE RELEASE -->
+      <article class="pond-a2-flip-card" data-practice="release">
+        <div class="pond-a2-flip-inner">
+
+          <div class="pond-a2-flip-face pond-a2-flip-front">
+
+            <div class="pond-a2-flip-kicker">
+              Practice 3 · If available
+            </div>
+
+            <h4>Identify an archived database release</h4>
+
+            <p>
+              Refer to a preserved 2026 release of the source
+              database, if one exists.
+            </p>
+
+            <p class="pond-a2-flip-note">
+              Could this recover your original observations?
+            </p>
+
+            <div class="pond-a2-flip-spacer"></div>
+
+            <button type="button"
+                    class="pond-a2-button pond-a2-flip-open">
+              Reveal what it contributes
+            </button>
+          </div>
+
+          <div class="pond-a2-flip-face pond-a2-flip-back" inert>
+
+            <div class="pond-a2-flip-kicker">
+              What it contributes
+            </div>
+
+            <h4>Preserves a fixed state of the database</h4>
+
+            <p>
+              If the 2026 release is genuinely archived,
+              immutable, and retrievable, a future researcher
+              can apply your documented query to that release
+              to recover the original observations.
+            </p>
+
+            <p>
+              The database then serves an
+              <strong>archival function</strong> too.
+              A live homepage or access date alone would
+              not provide this guarantee.
+            </p>
+
+            <div class="pond-a2-flip-spacer"></div>
+
+            <button type="button"
+                    class="pond-a2-button pond-a2-button-secondary pond-a2-flip-close">
+              Back to card
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- SYNTHESIS: APPEARS AFTER ALL THREE CARDS -->
+    <div class="pond-a2-summary"
+         id="pond-a2-summary"
+         hidden
+         aria-live="polite">
+
+      <p>
+        <strong>What is the minimum?</strong>
+        Always document the database, access date, and exact
+        query or selection criteria. You also need a reliable
+        way to retrieve the values used in the paper:
+        <strong>either</strong> an archived analysis dataset
+        <strong>or</strong> a preserved, identifiable database
+        release from which those values can be recovered.
+      </p>
+
+      <p>
+        Both archival routes can be useful, but you do not
+        necessarily need both. The important thing is that
+        the original data remain identifiable and
+        retrievable—not merely available through today's
+        live database.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('pond-d4-retrace');
+
+  if (!root || root.dataset.initialized === 'true') return;
+  root.dataset.initialized = 'true';
+
+  const runButton = root.querySelector('#pond-a2-run');
+  const drift = root.querySelector('#pond-a2-drift');
+  const recovery = root.querySelector('#pond-a2-recovery');
+
+  // Step 1: Re-run the original query
+  runButton.addEventListener('click', () => {
+
+    root.querySelectorAll('.pond-a2-later').forEach(cell => {
+      cell.hidden = false;
+    });
+
+    drift.hidden = false;
+    root.querySelector('#pond-a2-mobile-hint').hidden = false;
+    recovery.hidden = false;
+
+    runButton.disabled = true;
+    runButton.textContent = '2031 results shown';
+
+    drift.focus({ preventScroll: true });
+  });
+
+  // Step 2: Explore the flip cards
+  // No right/wrong answers or scoring
+
+  const progress = root.querySelector('#pond-a2-progress');
+  const summary = root.querySelector('#pond-a2-summary');
+
+  const explored = new Set();
+  const cards = root.querySelectorAll('.pond-a2-flip-card');
+
+  cards.forEach(card => {
+
+    const front = card.querySelector('.pond-a2-flip-front');
+    const back = card.querySelector('.pond-a2-flip-back');
+
+    const reveal = card.querySelector('.pond-a2-flip-open');
+    const returnButton = card.querySelector('.pond-a2-flip-close');
+
+    reveal.addEventListener('click', () => {
+
+      front.inert = true;
+      back.inert = false;
+
+      card.classList.add('is-flipped');
+
+      explored.add(card.dataset.practice);
+
+      progress.textContent =
+        `${explored.size} of ${cards.length} practices explored`;
+
+      summary.hidden = explored.size !== cards.length;
+
+      returnButton.focus({ preventScroll: true });
+    });
+
+    returnButton.addEventListener('click', () => {
+
+      back.inert = true;
+      front.inert = false;
+
+      card.classList.remove('is-flipped');
+
+      reveal.focus({ preventScroll: true });
+    });
+  });
+})();
+</script>
+```
+
+**What matters here?** A live database may be the best place to explore current observations. **Always document the exact query and selection criteria**, as well as the source and access date. But to reproduce a published result, another researcher also needs a way to retrieve the **state of the data actually used**: an archived analysis extract or an identifiable, preserved database release.
+
+In the next activity, we'll look more closely at how datasets change between **releases** and why identifying the specific version matters.
+
+# 3. Which dataset did I actually use?
+
+A research team has published a **coastal temperature dataset** in an archival repository. The dataset is useful, but it is not static: the team corrects a station location and later discovers that some temperatures must be recalibrated.
+
+You are preparing a manuscript in **2026** using this dataset. It already has more than one release, and further corrections may follow. **How will someone reading your manuscript in 2031 retrieve the exact data you analyzed?**
+
+Explore the release history and then investigate different ways to identify a data product. **The project, releases, and measurements below are fictional.**
+
+```{=html}
+<style>
+  /* Styles are scoped to this activity to coexist with Activities 1 and 2. */
+  #pond-d4-versions {
+    --pond-a3-border: var(--bs-border-color, #d8dee4);
+    --pond-a3-bg: var(--bs-body-bg, #fff);
+    --pond-a3-soft: var(--bs-tertiary-bg, #f4f6f8);
+    --pond-a3-ink: var(--bs-body-color, #253044);
+    --pond-a3-muted: var(--bs-secondary-color, #596579);
+    --pond-a3-accent: var(--bs-primary, #326c91);
+    color: var(--pond-a3-ink);
+    margin: 1.25rem 0 1.5rem;
+  }
+  #pond-d4-versions [hidden] { display: none !important; }
+  #pond-d4-versions .pond-a3-panel {
+    background: var(--pond-a3-bg);
+    border: 1px solid var(--pond-a3-border);
+    border-radius: 0.9rem;
+    padding: 1.15rem;
+    margin-bottom: 1rem;
+  }
+  #pond-d4-versions h3 {
+    font-size: 1.13rem;
+    line-height: 1.3;
+    margin: 0 0 0.6rem;
+  }
+  #pond-d4-versions h4 { font-size: 1rem; margin: 0 0 0.4rem; }
+  #pond-d4-versions .pond-a3-small {
+    color: var(--pond-a3-muted);
+    font-size: 0.92rem;
+    margin: 0 0 0.85rem;
+  }
+  #pond-d4-versions .pond-a3-release-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin: 1rem 0;
+  }
+  #pond-d4-versions .pond-a3-release {
+    border: 1px solid var(--pond-a3-border);
+    background: var(--pond-a3-bg);
+    color: inherit;
+    border-radius: 0.65rem;
+    cursor: pointer;
+    padding: 0.75rem 0.65rem;
+    text-align: left;
+    min-height: 5.1rem;
+  }
+  #pond-d4-versions .pond-a3-release[aria-pressed="true"] {
+    border: 2px solid var(--pond-a3-accent);
+    background: var(--pond-a3-soft);
+    padding: calc(0.75rem - 1px) calc(0.65rem - 1px);
+  }
+  #pond-d4-versions .pond-a3-release strong { display: block; }
+  #pond-d4-versions .pond-a3-release span {
+    display: block;
+    color: var(--pond-a3-muted);
+    font-size: 0.84rem;
+    margin-top: 0.2rem;
+  }
+  #pond-d4-versions .pond-a3-record {
+    background: var(--pond-a3-soft);
+    border-radius: 0.6rem;
+    padding: 0.95rem;
+  }
+  #pond-d4-versions .pond-a3-record p { margin: 0 0 0.75rem; }
+  #pond-d4-versions .pond-a3-record p:last-child { margin-bottom: 0; }
+  #pond-d4-versions .pond-a3-record small { color: var(--pond-a3-muted); }
+  #pond-d4-versions .pond-a3-table-wrap { overflow-x: auto; }
+  #pond-d4-versions table { border-collapse: collapse; width: 100%; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+  #pond-d4-versions th, #pond-d4-versions td {
+    padding: 0.55rem 0.45rem;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--pond-a3-border);
+  }
+  #pond-d4-versions th { font-weight: 650; }
+  #pond-d4-versions td.pond-a3-changed {
+    font-weight: 750;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  #pond-d4-versions .pond-a3-note {
+    border-left: 3px solid var(--pond-a3-accent);
+    padding: 0.65rem 0.85rem;
+    margin: 0.9rem 0 0;
+    background: var(--pond-a3-soft);
+    border-radius: 0.3rem;
+  }
+  #pond-d4-versions .pond-a3-note p { margin: 0; }
+  /* Step 2: flip cards, adapted from Activities 1 and 2. */
+  #pond-d4-versions .pond-a3-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr));
+    gap: 0.9rem;
+    margin: 1rem 0;
+  }
+  #pond-d4-versions .pond-a3-flip-card { perspective: 1200px; }
+  #pond-d4-versions .pond-a3-flip-inner {
+    display: grid;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 600ms ease;
+  }
+  #pond-d4-versions .pond-a3-flip-card.is-flipped .pond-a3-flip-inner {
+    transform: rotateY(180deg);
+  }
+  #pond-d4-versions .pond-a3-flip-face {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 1rem;
+    min-height: 20rem;
+    border: 1px solid var(--pond-a3-border);
+    border-radius: 0.75rem;
+    background: var(--pond-a3-bg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  #pond-d4-versions .pond-a3-flip-back { transform: rotateY(180deg); }
+  #pond-d4-versions .pond-a3-flip-card:not(.is-flipped) .pond-a3-flip-back,
+  #pond-d4-versions .pond-a3-flip-card.is-flipped .pond-a3-flip-front {
+    pointer-events: none;
+  }
+  #pond-d4-versions .pond-a3-flip-face h4 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  #pond-d4-versions .pond-a3-flip-face p { margin: 0; }
+  #pond-d4-versions .pond-a3-flip-kicker {
+    color: var(--pond-a3-muted);
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  #pond-d4-versions .pond-a3-flip-spacer { flex: 1; }
+  #pond-d4-versions .pond-a3-flip-hint {
+    color: var(--pond-a3-muted);
+    font-size: 0.88rem;
+  }
+  #pond-d4-versions .pond-a3-flip-progress {
+    color: var(--pond-a3-muted);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  #pond-d4-versions .pond-a3-button {
+    background: var(--pond-a3-accent);
+    border: 1px solid var(--pond-a3-accent);
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.62rem 0.95rem;
+    font-weight: 650;
+    cursor: pointer;
+  }
+  #pond-d4-versions .pond-a3-button:disabled { opacity: 0.5; cursor: not-allowed; }
+  #pond-d4-versions .pond-a3-button-secondary {
+    color: var(--pond-a3-accent);
+    background: transparent;
+  }
+  #pond-d4-versions .pond-a3-synthesis {
+    background: var(--pond-a3-soft);
+    border-left: 3px solid var(--pond-a3-accent);
+    padding: 0.85rem 1rem;
+    margin-top: 1rem;
+    border-radius: 0.35rem;
+  }
+  #pond-d4-versions .pond-a3-synthesis p:last-child { margin-bottom: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    #pond-d4-versions .pond-a3-flip-inner { transition: none; }
+  }
+  #pond-d4-versions button:focus-visible { outline: 3px solid var(--pond-a3-accent); outline-offset: 3px; }
+  @media (max-width: 560px) {
+    #pond-d4-versions .pond-a3-panel { padding: 0.85rem; }
+    #pond-d4-versions .pond-a3-release-list { grid-template-columns: 1fr; }
+    #pond-d4-versions .pond-a3-release { min-height: unset; }
+    #pond-d4-versions .pond-a3-button { width: 100%; }
+  }
+</style>
+
+<section id="pond-d4-versions" aria-label="Exploring versions and persistent identifiers for a coastal temperature dataset">
+  <div class="pond-a3-panel">
+    <h3>Step 1 — Follow the release history</h3>
+    <p class="pond-a3-small">Select each release to inspect two example stations and learn why the data changed. Underlining marks values changed since the preceding release.</p>
+
+    <div class="pond-a3-release-list" role="group" aria-label="Archived dataset releases">
+      <button type="button" class="pond-a3-release" data-version="v1" aria-pressed="true">
+        <strong>Version 1.0</strong><span>2025 · Initial release</span>
+      </button>
+      <button type="button" class="pond-a3-release" data-version="v11" aria-pressed="false">
+        <strong>Version 1.1</strong><span>2026 · Location correction</span>
+      </button>
+      <button type="button" class="pond-a3-release" data-version="v2" aria-pressed="false">
+        <strong>Version 2.0</strong><span>2027 · Recalibration</span>
+      </button>
+    </div>
+
+    <div class="pond-a3-record" aria-live="polite" aria-atomic="true">
+      <h4 id="pond-a3-release-title">Version 1.0 · Initial release</h4>
+      <p id="pond-a3-release-detail">The research team publishes its first archived dataset. The measurements and station locations below are used as originally reported.</p>
+      <div class="pond-a3-table-wrap">
+        <table>
+          <caption style="text-align:left;caption-side:top;color:inherit">Illustrative station records (not the complete dataset)</caption>
+          <thead>
+            <tr><th scope="col">Station</th><th scope="col">Latitude (°N)</th><th scope="col">Longitude (°)</th><th scope="col">Temperature (°C)</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">CT-01</th><td id="pond-a3-lat1">44.10</td><td>−124.10</td><td id="pond-a3-temp1">12.4</td></tr>
+            <tr><th scope="row">CT-02</th><td id="pond-a3-lat2">44.60</td><td>−124.30</td><td id="pond-a3-temp2">11.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pond-a3-small" id="pond-a3-change-note">This is the baseline release. There are no earlier archived changes to compare.</p>
+    </div>
+    <div class="pond-a3-note" id="pond-a3-archive-note" hidden>
+      <p><strong>Keep the history.</strong> Releasing corrected data should not silently erase the version that earlier researchers actually used. An archival record and a short explanation of the changes help people understand differences between results.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2: EXPLORE WHAT DIFFERENT REFERENCES PROVIDE -->
+  <div class="pond-a3-panel" id="pond-a3-identifiers">
+    <h3>Step 2 — How can someone retrieve the right release?</h3>
+
+    <p>
+      You are preparing your manuscript in 2026. Your dataset has been
+      updated, and more corrections may be released after publication.
+      <strong>What could you provide so a reader in 2031 can retrieve
+      the exact measurements you used?</strong>
+    </p>
+
+    <p class="pond-a3-small">
+      Explore each reference by turning over its card. Before revealing,
+      consider whether it identifies a particular archived release or
+      helps people find the dataset more generally. There is no score:
+      these references can complement each other.
+    </p>
+
+    <p class="pond-a3-flip-progress" id="pond-a3-progress" aria-live="polite">
+      0 of 5 references explored
+    </p>
+
+    <div class="pond-a3-card-grid" aria-label="Ways to reference a dataset">
+
+      <!-- CARD 1: FILENAME -->
+      <article class="pond-a3-flip-card" data-reference="filename">
+        <div class="pond-a3-flip-inner">
+          <div class="pond-a3-flip-face pond-a3-flip-front">
+            <div class="pond-a3-flip-kicker">Reference 1</div>
+            <h4>Filename</h4>
+            <p><code>coastal_temperature_final.csv</code></p>
+            <p class="pond-a3-flip-hint">Does the name tell someone which data were used?</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-flip-open">
+              Reveal what it contributes
+            </button>
+          </div>
+          <div class="pond-a3-flip-face pond-a3-flip-back" inert>
+            <div class="pond-a3-flip-kicker">What it contributes</div>
+            <h4>Names a file, not a release</h4>
+            <p>A filename can help identify a file within an archive, but the same
+              name might appear in multiple releases. “Final” does not mean
+              permanent.</p>
+            <p>Pair the filename with a <strong>preserved, identifiable release</strong>
+              so readers can retrieve the right copy.</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-button-secondary pond-a3-flip-close">Back to card</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: LAB URL -->
+      <article class="pond-a3-flip-card" data-reference="lab">
+        <div class="pond-a3-flip-inner">
+          <div class="pond-a3-flip-face pond-a3-flip-front">
+            <div class="pond-a3-flip-kicker">Reference 2</div>
+            <h4>Lab website URL</h4>
+            <p>A link to the research group's data page.</p>
+            <p class="pond-a3-flip-hint">Will the link still lead to your release later?</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-flip-open">Reveal what it contributes</button>
+          </div>
+          <div class="pond-a3-flip-face pond-a3-flip-back" inert>
+            <div class="pond-a3-flip-kicker">What it contributes</div>
+            <h4>Helps people find the project</h4>
+            <p>A lab page can explain the research and link to archived releases.
+              But its address or contents may change, and it may only offer
+              the newest file.</p>
+            <p>Use it for context or discovery, <strong>not as the only way</strong>
+              to locate the preserved release.</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-button-secondary pond-a3-flip-close">Back to card</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: REPOSITORY LANDING PAGE -->
+      <article class="pond-a3-flip-card" data-reference="landing">
+        <div class="pond-a3-flip-inner">
+          <div class="pond-a3-flip-face pond-a3-flip-front">
+            <div class="pond-a3-flip-kicker">Reference 3</div>
+            <h4>Repository landing page</h4>
+            <p>A page in the archive listing the dataset and its releases.</p>
+            <p class="pond-a3-flip-hint">Does it lead to the dataset or to your exact release?</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-flip-open">Reveal what it contributes</button>
+          </div>
+          <div class="pond-a3-flip-face pond-a3-flip-back" inert>
+            <div class="pond-a3-flip-kicker">What it contributes</div>
+            <h4>Connects readers to archived records</h4>
+            <p>A general dataset page may list several releases or emphasize
+              the newest one, so readers may still have to find your version.</p>
+            <p>A <strong>stable page for a specific archived release</strong>,
+              with a permanent record identifier, can identify exactly what
+              you used—even without a DOI for each version.</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-button-secondary pond-a3-flip-close">Back to card</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4: DATASET-LEVEL DOI -->
+      <article class="pond-a3-flip-card" data-reference="concept">
+        <div class="pond-a3-flip-inner">
+          <div class="pond-a3-flip-face pond-a3-flip-front">
+            <div class="pond-a3-flip-kicker">Reference 4</div>
+            <h4>Dataset-level persistent identifier</h4>
+            <p>For example, a <em>concept DOI</em> representing the dataset across releases.</p>
+            <p class="pond-a3-flip-hint">What happens when a newer version is published?</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-flip-open">Reveal what it contributes</button>
+          </div>
+          <div class="pond-a3-flip-face pond-a3-flip-back" inert>
+            <div class="pond-a3-flip-kicker">What it contributes</div>
+            <h4>Identifies the evolving dataset</h4>
+            <p>A persistent identifier can continue to direct readers to a
+              managed record even if its website address changes.</p>
+            <p>A concept DOI represents <strong>all releases</strong>, not
+              necessarily the one analyzed. Readers may still need an
+              explicit version or release-specific record.</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-button-secondary pond-a3-flip-close">Back to card</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5: VERSION-SPECIFIC DOI -->
+      <article class="pond-a3-flip-card" data-reference="version">
+        <div class="pond-a3-flip-inner">
+          <div class="pond-a3-flip-face pond-a3-flip-front">
+            <div class="pond-a3-flip-kicker">Reference 5</div>
+            <h4>Version-specific persistent identifier</h4>
+            <p>For example, a DOI assigned to one particular archived release.</p>
+            <p class="pond-a3-flip-hint">How would this help a future reader?</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-flip-open">Reveal what it contributes</button>
+          </div>
+          <div class="pond-a3-flip-face pond-a3-flip-back" inert>
+            <div class="pond-a3-flip-kicker">What it contributes</div>
+            <h4>Points to one identifiable release</h4>
+            <p>A version-specific DOI can direct readers to the archived
+              record for exactly the release you used, even if the
+              repository's web address changes.</p>
+            <p>It is a strong option <strong>when available</strong>, but
+              not the only one. An unambiguous, permanent repository record
+              plus an explicit version can also work.</p>
+            <div class="pond-a3-flip-spacer"></div>
+            <button type="button" class="pond-a3-button pond-a3-button-secondary pond-a3-flip-close">Back to card</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pond-a3-synthesis" id="pond-a3-synthesis" hidden aria-live="polite">
+      <p><strong>What is the minimum?</strong> Someone must be able to
+        <strong>unambiguously identify and retrieve the exact archived release</strong>
+        used in your analysis. A specific version DOI is a convenient way to
+        do this, but a stable archival record identifier together with the
+        version can also meet this goal.</p>
+      <p>Other references still have roles: a filename identifies files within
+        the release; a lab page helps discovery; and a dataset-level DOI
+        links the releases together. The identifier by itself does not
+        preserve the data—the repository does that.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('pond-d4-versions');
+  if (!root || root.dataset.initialized === 'true') return;
+  root.dataset.initialized = 'true';
+
+  const releases = {
+    v1: {
+      title: 'Version 1.0 · Initial release',
+      detail: 'The research team publishes its first archived dataset. The measurements and station locations below are used as originally reported.',
+      lat1: '44.10', lat2: '44.60', temp1: '12.4', temp2: '11.8',
+      changed: [],
+      note: 'This is the baseline release. There are no earlier archived changes to compare.'
+    },
+    v11: {
+      title: 'Version 1.1 · Corrected station coordinates',
+      detail: 'A location error is found for station CT-02. The team corrects its latitude, documents the change, and preserves the original version 1.0. The temperature readings have not changed.',
+      lat1: '44.10', lat2: '44.68', temp1: '12.4', temp2: '11.8',
+      changed: ['lat2'],
+      note: 'Changed since 1.0: CT-02 latitude, from 44.60°N to 44.68°N. This might change which region a spatial analysis assigns to that station.'
+    },
+    v2: {
+      title: 'Version 2.0 · Recalibrated temperatures',
+      detail: 'The team discovers an instrument calibration issue and recalculates the temperature estimates. The corrected station coordinates from version 1.1 are retained. Earlier releases remain archived.',
+      lat1: '44.10', lat2: '44.68', temp1: '12.1', temp2: '11.5',
+      changed: ['temp1', 'temp2'],
+      note: 'Changed since 1.1: CT-01 temperature, from 12.4°C to 12.1°C, and CT-02 temperature, from 11.8°C to 11.5°C. A reanalysis might produce a different scientific result.'
+    }
+  };
+
+  const visited = new Set(['v1']);
+  const cells = {
+    lat1: root.querySelector('#pond-a3-lat1'),
+    lat2: root.querySelector('#pond-a3-lat2'),
+    temp1: root.querySelector('#pond-a3-temp1'),
+    temp2: root.querySelector('#pond-a3-temp2')
+  };
+
+  root.querySelectorAll('.pond-a3-release').forEach(button => {
+    button.addEventListener('click', () => {
+      const version = button.dataset.version;
+      const data = releases[version];
+      visited.add(version);
+      root.querySelectorAll('.pond-a3-release').forEach(b => {
+        b.setAttribute('aria-pressed', String(b === button));
+      });
+      root.querySelector('#pond-a3-release-title').textContent = data.title;
+      root.querySelector('#pond-a3-release-detail').textContent = data.detail;
+      root.querySelector('#pond-a3-change-note').textContent = data.note;
+      Object.entries(cells).forEach(([key, cell]) => {
+        cell.textContent = data[key];
+        cell.classList.toggle('pond-a3-changed', data.changed.includes(key));
+      });
+      root.querySelector('#pond-a3-archive-note').hidden = visited.size < 3;
+    });
+  });
+
+  // Step 2: explore the references. No scoring or single correct choice.
+  const progress = root.querySelector('#pond-a3-progress');
+  const synthesis = root.querySelector('#pond-a3-synthesis');
+  const explored = new Set();
+  const cards = root.querySelectorAll('.pond-a3-flip-card');
+
+  cards.forEach(card => {
+    const front = card.querySelector('.pond-a3-flip-front');
+    const back = card.querySelector('.pond-a3-flip-back');
+    const open = card.querySelector('.pond-a3-flip-open');
+    const close = card.querySelector('.pond-a3-flip-close');
+
+    open.addEventListener('click', () => {
+      front.inert = true;
+      back.inert = false;
+      card.classList.add('is-flipped');
+      explored.add(card.dataset.reference);
+      progress.textContent =
+        `${explored.size} of ${cards.length} references explored`;
+      synthesis.hidden = explored.size !== cards.length;
+      close.focus({ preventScroll: true });
+    });
+
+    close.addEventListener('click', () => {
+      back.inert = true;
+      front.inert = false;
+      card.classList.remove('is-flipped');
+      open.focus({ preventScroll: true });
+    });
+  });
+})();
+</script>
+```
+
+**What matters here?** A dataset can change, and those changes may affect scientific conclusions. For reproducibility, preserve the release history and identify the **exact archived version used in the analysis**. A persistent identifier helps others find that research object in the future, but only if the record and data behind it remain preserved. We'll return to how to **cite data in a manuscript** in the last [LilyPad](../citing-data/index.qmd).
+
+# 4. One dataset, two homes
+
+Let's return to the **coral geochemistry dataset** from Activity 1. Imagine the team has now archived the published dataset with **NOAA Paleoclimatology** and also made its LiPD records available through **LiPDGraph**.
+
+The *same scientific study* can be available through both services, but the services are not interchangeable. **Which home would help with each task?** Think about it, then flip the cards to explore what each service contributes. There are no scored answers.
+
+*This is a fictional publication scenario using two real scientific services; it does not imply that an actual dataset has been deposited or automatically synchronized between them.*
+
+```{=html}
+<style>
+  /* Activity 4 only: independent of the styles and scripts in Activities 1–3. */
+  #pond-d4-twohomes {
+    --pond-a4-border: var(--bs-border-color, #d8dee4);
+    --pond-a4-bg: var(--bs-body-bg, #fff);
+    --pond-a4-soft: var(--bs-tertiary-bg, #f4f6f8);
+    --pond-a4-ink: var(--bs-body-color, #253044);
+    --pond-a4-muted: var(--bs-secondary-color, #596579);
+    --pond-a4-accent: var(--bs-primary, #326c91);
+    color: var(--pond-a4-ink);
+    margin: 1.2rem 0 1.5rem;
+  }
+  #pond-d4-twohomes [hidden] { display: none !important; }
+  #pond-d4-twohomes .pond-a4-homes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0 0 1.15rem;
+  }
+  #pond-d4-twohomes .pond-a4-home {
+    border: 1px solid var(--pond-a4-border);
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    background: var(--pond-a4-soft);
+  }
+  #pond-d4-twohomes .pond-a4-home strong { display: block; margin-bottom: 0.25rem; }
+  #pond-d4-twohomes .pond-a4-home p { margin: 0; font-size: 0.9rem; }
+  #pond-d4-twohomes .pond-a4-home-tag {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--pond-a4-muted);
+    margin-bottom: 0.35rem;
+  }
+  #pond-d4-twohomes .pond-a4-progress {
+    margin: 0.5rem 0 0.75rem;
+    color: var(--pond-a4-muted);
+    font-size: 0.92rem;
+  }
+  #pond-d4-twohomes .pond-a4-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+  #pond-d4-twohomes .pond-a4-card { perspective: 1200px; }
+  #pond-d4-twohomes .pond-a4-inner {
+    display: grid;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 600ms ease;
+  }
+  #pond-d4-twohomes .pond-a4-card.is-flipped .pond-a4-inner {
+    transform: rotateY(180deg);
+  }
+  #pond-d4-twohomes .pond-a4-face {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    min-height: 21rem;
+    border: 1px solid var(--pond-a4-border);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    background: var(--pond-a4-bg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  #pond-d4-twohomes .pond-a4-back { transform: rotateY(180deg); }
+  #pond-d4-twohomes .pond-a4-card:not(.is-flipped) .pond-a4-back,
+  #pond-d4-twohomes .pond-a4-card.is-flipped .pond-a4-front { pointer-events: none; }
+  #pond-d4-twohomes .pond-a4-kicker {
+    color: var(--pond-a4-muted);
+    font-size: 0.77rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  #pond-d4-twohomes .pond-a4-face h3 { font-size: 1.08rem; line-height: 1.3; margin: 0; }
+  #pond-d4-twohomes .pond-a4-face p { margin: 0; }
+  #pond-d4-twohomes .pond-a4-face .pond-a4-support {
+    font-size: 0.91rem;
+    border-left: 2px solid var(--pond-a4-border);
+    padding-left: 0.65rem;
+  }
+  #pond-d4-twohomes .pond-a4-face .pond-a4-support strong { display: block; }
+  #pond-d4-twohomes .pond-a4-spacer { flex: 1; }
+  #pond-d4-twohomes .pond-a4-button {
+    padding: 0.6rem 0.9rem;
+    background: var(--pond-a4-accent);
+    border: 1px solid var(--pond-a4-accent);
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight: 650;
+    cursor: pointer;
+  }
+  #pond-d4-twohomes .pond-a4-button-secondary {
+    color: var(--pond-a4-accent);
+    background: transparent;
+  }
+  #pond-d4-twohomes button:focus-visible {
+    outline: 3px solid var(--pond-a4-accent);
+    outline-offset: 3px;
+  }
+  #pond-d4-twohomes .pond-a4-synthesis {
+    margin-top: 1.1rem;
+    background: var(--pond-a4-soft);
+    border-left: 3px solid var(--pond-a4-accent);
+    border-radius: 0.3rem;
+    padding: 0.95rem 1.05rem;
+  }
+  #pond-d4-twohomes .pond-a4-synthesis p:last-child { margin-bottom: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    #pond-d4-twohomes .pond-a4-inner { transition: none; }
+  }
+  @media (max-width: 680px) {
+    #pond-d4-twohomes .pond-a4-homes,
+    #pond-d4-twohomes .pond-a4-grid { grid-template-columns: 1fr; }
+    #pond-d4-twohomes .pond-a4-face { min-height: 18.5rem; }
+    #pond-d4-twohomes .pond-a4-button { width: 100%; }
+  }
+</style>
+
+<section id="pond-d4-twohomes" aria-label="One dataset, two complementary data homes">
+
+  <div class="pond-a4-homes" aria-label="The two services in this scenario">
+    <div class="pond-a4-home">
+      <span class="pond-a4-home-tag">Archival home</span>
+      <strong>NOAA Paleoclimatology</strong>
+      <p>Preserves contributed paleoclimate datasets, with archival records, discovery tools, and DOIs.</p>
+    </div>
+    <div class="pond-a4-home">
+      <span class="pond-a4-home-tag">Additional access and query service</span>
+      <strong>LiPDGraph</strong>
+      <p>Supports structured queries across LiPD datasets, including sites, variables, and measurements.</p>
+    </div>
+  </div>
+
+  <p class="pond-a4-progress" id="pond-a4-progress" aria-live="polite">0 of 4 situations explored</p>
+
+  <div class="pond-a4-grid">
+
+    <!-- Situation 1: both services offer discovery, in different ways -->
+    <article class="pond-a4-card" data-situation="discover">
+      <div class="pond-a4-inner">
+        <div class="pond-a4-face pond-a4-front">
+          <span class="pond-a4-kicker">During research · Situation 1</span>
+          <h3>Find other coral records near your study site</h3>
+          <p>You want to discover comparable datasets in a particular ocean region.</p>
+          <p>Which service could help you find them?</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-open">Reveal the possibilities</button>
+        </div>
+        <div class="pond-a4-face pond-a4-back" inert>
+          <span class="pond-a4-kicker">Both can help with discovery</span>
+          <h3>Two ways to find related data</h3>
+          <p class="pond-a4-support"><strong>NOAA:</strong> Search its archive by location, data type, and other study information.</p>
+          <p class="pond-a4-support"><strong>LiPDGraph:</strong> Query the LiPD records it contains using site coordinates and other structured attributes.</p>
+          <p><strong>Notice:</strong> A repository can support discovery, too.</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-button-secondary pond-a4-close">Back to situation</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Situation 2: structured cross-record query -->
+    <article class="pond-a4-card" data-situation="query">
+      <div class="pond-a4-inner">
+        <div class="pond-a4-face pond-a4-front">
+          <span class="pond-a4-kicker">During research · Situation 2</span>
+          <h3>Compare measurements across many studies</h3>
+          <p>You want a structured selection of coral records based on sites, variables, and measurement properties.</p>
+          <p>Where would querying be particularly useful?</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-open">Reveal the possibilities</button>
+        </div>
+        <div class="pond-a4-face pond-a4-back" inert>
+          <span class="pond-a4-kicker">LiPDGraph is particularly useful</span>
+          <h3>Query across structured records</h3>
+          <p class="pond-a4-support"><strong>LiPDGraph:</strong> Allows cross-dataset queries of available LiPD records, including metadata and values.</p>
+          <p class="pond-a4-support"><strong>NOAA:</strong> Offers ways to find and download archived studies, which you can also analyze.</p>
+          <p><strong>Notice:</strong> The best way to *work with* data need not be the place that *archives* it.</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-button-secondary pond-a4-close">Back to situation</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Situation 3: identifiers, archival records, source -->
+    <article class="pond-a4-card" data-situation="identify">
+      <div class="pond-a4-inner">
+        <div class="pond-a4-face pond-a4-front">
+          <span class="pond-a4-kicker">At publication · Situation 3</span>
+          <h3>Give readers a stable way to find the published data</h3>
+          <p>Your manuscript needs to point readers to the data product, not just to a search interface.</p>
+          <p>Where should that reference lead?</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-open">Reveal the possibilities</button>
+        </div>
+        <div class="pond-a4-face pond-a4-back" inert>
+          <span class="pond-a4-kicker">The archival record is essential</span>
+          <h3>Point to the preserved product</h3>
+          <p class="pond-a4-support"><strong>NOAA:</strong> Its archival record and DOI provide a stable route to the published study and its contributed files.</p>
+          <p class="pond-a4-support"><strong>LiPDGraph:</strong> A link can help readers explore or query the records, but does not replace the archival reference.</p>
+          <p><strong>Notice:</strong> Make the specific release identifiable if the data can change.</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-button-secondary pond-a4-close">Back to situation</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Situation 4: preserve and retrieve historical state -->
+    <article class="pond-a4-card" data-situation="retrieve">
+      <div class="pond-a4-inner">
+        <div class="pond-a4-face pond-a4-front">
+          <span class="pond-a4-kicker">Five years later · Situation 4</span>
+          <h3>Retrieve the exact data used in the paper</h3>
+          <p>The database's available records may have changed since the manuscript was published.</p>
+          <p>What allows a new researcher to recover the original data?</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-open">Reveal the possibilities</button>
+        </div>
+        <div class="pond-a4-face pond-a4-back" inert>
+          <span class="pond-a4-kicker">Preservation makes this possible</span>
+          <h3>Return to the archived state</h3>
+          <p class="pond-a4-support"><strong>NOAA:</strong> Retrieve the identifiable archived data product used for the paper, provided that specific release was preserved.</p>
+          <p class="pond-a4-support"><strong>LiPDGraph:</strong> Useful for querying, including potentially a frozen graph version, but it is not the long-term archival substitute.</p>
+          <p><strong>Notice:</strong> Document how you selected the data, and preserve the specific data state you used.</p>
+          <div class="pond-a4-spacer"></div>
+          <button type="button" class="pond-a4-button pond-a4-button-secondary pond-a4-close">Back to situation</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="pond-a4-synthesis" id="pond-a4-synthesis" hidden aria-live="polite">
+    <p><strong>One dataset, two homes.</strong> NOAA Paleoclimatology is the dataset's <strong>archival home</strong>. LiPDGraph offers another way to discover, query, and work with records. Their functions overlap, especially for discovery and access, but long-term preservation must be provided by a service with appropriate archival commitments.</p>
+    <p><strong>Minimum requirement:</strong> The data product used in a publication must be preserved in an appropriate repository and remain unambiguously identifiable and retrievable. Other services can make the same data more useful without replacing that archive.</p>
+  </div>
+
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('pond-d4-twohomes');
+  if (!root || root.dataset.initialized === 'true') return;
+  root.dataset.initialized = 'true';
+
+  const explored = new Set();
+  const cards = root.querySelectorAll('.pond-a4-card');
+  const progress = root.querySelector('#pond-a4-progress');
+  const synthesis = root.querySelector('#pond-a4-synthesis');
+
+  cards.forEach(card => {
+    const front = card.querySelector('.pond-a4-front');
+    const back = card.querySelector('.pond-a4-back');
+    const reveal = card.querySelector('.pond-a4-open');
+    const close = card.querySelector('.pond-a4-close');
+
+    reveal.addEventListener('click', () => {
+      front.inert = true;
+      back.inert = false;
+      card.classList.add('is-flipped');
+      explored.add(card.dataset.situation);
+      progress.textContent = `${explored.size} of ${cards.length} situations explored`;
+      synthesis.hidden = explored.size !== cards.length;
+      close.focus({ preventScroll: true });
+    });
+
+    close.addEventListener('click', () => {
+      back.inert = true;
+      front.inert = false;
+      card.classList.remove('is-flipped');
+      reveal.focus({ preventScroll: true });
+    });
+  });
+})();
+</script>
+```
+
+**Key takeaway:** Publishing data means more than uploading a file. Preserve the published data product in an appropriate repository, give others a reliable way to identify the specific version, and use complementary services—such as databases—to make it easier to discover and work with the data. **A database can also serve as the archival home if it genuinely provides those preservation guarantees.**
+
+In [the next LilyPad](../sharing-data/index.qmd), we'll focus on preparing data for sharing and reuse; in [the last LilyPad](../citing-data/index.qmd), we'll practice citing datasets in manuscripts. For a look at the real services behind this example, explore [NOAA's guidance for contributing paleoclimate data](https://www.ncei.noaa.gov/products/paleoclimatology/contributing-data) and [the LiPDGraph querying tutorial](https://linked.earth/pylipdTutorials/notebooks/L2_b_using_graphdb.html).
+
