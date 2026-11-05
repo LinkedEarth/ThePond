@@ -354,3 +354,348 @@ Let's see how three researchers make sense of the same file, each bringing a dif
 ---
 
 **Up next:** Alex knows the sampling sites because Alex participated in the field campaign. But what happens if Alex inherits data that another lab member prepared using personal shorthand—and that person has now left the lab?
+
+
+
+# 2. The person who created the dataset has left
+
+Remember Alex, who participated in the 2025 river sampling campaign? Alex now wants to compare nitrate measurements upstream and downstream of the developed section of the river.
+
+Morgan, a former lab member, analyzed the nitrate samples and prepared the results. Morgan has since left the lab. Alex knows the sites and remembers the fieldwork, but **did not process the nitrate measurements or define Morgan's quality-control codes**.
+
+Morgan left a project folder behind. It looks fairly organized, and the files can be opened. But **can Alex understand the measurements well enough to use them without contacting Morgan?**
+
+**Your investigation:** Open the files below and look for clues. Then, for each question, decide how confident you are that you can answer it **from the files alone**. Flip the card to compare your assessment with the evidence. This is not a scored quiz: being *not confident* may be the scientifically sound conclusion.
+
+```{=html}
+<style>
+/* Activity 2 only. Can be pasted after Activity 1 without changing its styles. */
+#pond-d5-a2 {
+  --a2-ink: var(--bs-body-color, #243246);
+  --a2-muted: var(--bs-secondary-color, #596579);
+  --a2-border: var(--bs-border-color, #d5dce3);
+  --a2-bg: var(--bs-body-bg, #fff);
+  --a2-soft: var(--bs-tertiary-bg, #f3f6f8);
+  --a2-accent: var(--bs-primary, #246c85);
+  --a2-good: #16795f;
+  color: var(--a2-ink);
+  margin: 1rem 0 1.5rem;
+}
+#pond-d5-a2 [hidden] { display: none !important; }
+#pond-d5-a2 button { font: inherit; }
+#pond-d5-a2 button:focus-visible { outline: 3px solid var(--a2-accent); outline-offset: 2px; }
+#pond-d5-a2 .a2-browser {
+  display: grid;
+  grid-template-columns: minmax(13rem, 35%) minmax(0, 1fr);
+  min-height: 26rem;
+  border: 1px solid var(--a2-border);
+  border-radius: .8rem;
+  overflow: hidden;
+}
+#pond-d5-a2 .a2-tree {
+  padding: 1rem .7rem;
+  border-right: 1px solid var(--a2-border);
+  background: var(--a2-soft);
+}
+#pond-d5-a2 .a2-tree h3, #pond-d5-a2 .a2-view h3 {
+  margin: 0 0 .6rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+#pond-d5-a2 .a2-tree-note { color: var(--a2-muted); font-size: .81rem; margin: 0 0 .7rem; }
+#pond-d5-a2 .a2-folder-label {
+  display: flex; gap: .4rem; align-items: center;
+  margin: .7rem .35rem .2rem;
+  font-size: .8rem; font-weight: 700; color: var(--a2-muted);
+}
+#pond-d5-a2 .a2-files { display: grid; gap: .15rem; }
+#pond-d5-a2 .a2-file {
+  display: flex; gap: .5rem; align-items: center;
+  width: 100%; padding: .53rem .45rem;
+  text-align: left; color: var(--a2-ink); font-size: .82rem;
+  background: transparent; border: 1px solid transparent;
+  border-radius: .45rem; cursor: pointer; overflow-wrap: anywhere;
+}
+#pond-d5-a2 .a2-file:hover { background: var(--a2-bg); }
+#pond-d5-a2 .a2-file[aria-pressed="true"] {
+  font-weight: 700; color: var(--a2-accent);
+  background: var(--a2-bg); border-color: var(--a2-border);
+}
+#pond-d5-a2 .a2-file .a2-file-icon { flex: 0 0 1.1rem; }
+#pond-d5-a2 .a2-file .a2-seen { margin-left: auto; color: var(--a2-good); }
+#pond-d5-a2 .a2-view { min-width: 0; padding: 1rem 1.1rem; }
+#pond-d5-a2 .a2-view-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: .4rem 1rem; flex-wrap: wrap;
+  border-bottom: 1px solid var(--a2-border); padding-bottom: .7rem;
+}
+#pond-d5-a2 .a2-view-head h3 { margin: 0; overflow-wrap: anywhere; }
+#pond-d5-a2 .a2-file-kind, #pond-d5-a2 .a2-caption { font-size: .78rem; color: var(--a2-muted); }
+#pond-d5-a2 .a2-preview { font-size: .89rem; line-height: 1.5; margin-top: .9rem; }
+#pond-d5-a2 .a2-preview p { margin: 0 0 .85rem; }
+#pond-d5-a2 .a2-preview ul { padding-left: 1.3rem; margin: .3rem 0 .8rem; }
+#pond-d5-a2 .a2-preview li + li { margin-top: .24rem; }
+#pond-d5-a2 .a2-preview pre {
+  white-space: pre-wrap; background: var(--a2-soft);
+  border: 1px solid var(--a2-border); padding: .85rem;
+  border-radius: .4rem; font-size: .81rem;
+}
+#pond-d5-a2 .a2-table-wrap { overflow-x: auto; }
+#pond-d5-a2 .a2-preview table { width: 100%; font-size: .8rem; border-collapse: collapse; margin: .2rem 0 .75rem; }
+#pond-d5-a2 .a2-preview th, #pond-d5-a2 .a2-preview td {
+  padding: .32rem .45rem; text-align: left;
+  border: 1px solid var(--a2-border); white-space: nowrap;
+}
+#pond-d5-a2 .a2-preview th { background: var(--a2-soft); }
+#pond-d5-a2 .a2-transition { margin: 1.2rem 0 .7rem; }
+#pond-d5-a2 .a2-transition h3 { margin: 0 0 .4rem; font-size: 1.16rem; }
+#pond-d5-a2 .a2-transition p { margin: 0; }
+#pond-d5-a2 .a2-progress { color: var(--a2-muted); font-size: .86rem; margin: 0 0 .85rem; }
+#pond-d5-a2 .a2-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .95rem;
+}
+#pond-d5-a2 .a2-card { perspective: 1300px; min-width: 0; }
+#pond-d5-a2 .a2-inner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 550ms ease;
+  height: 100%;
+}
+#pond-d5-a2 .a2-card.is-flipped .a2-inner { transform: rotateY(180deg); }
+#pond-d5-a2 .a2-face {
+  grid-area: 1 / 1;
+  display: flex; flex-direction: column; gap: .7rem;
+  min-height: 20.5rem; padding: 1.05rem;
+  border: 1px solid var(--a2-border);
+  border-radius: .75rem; background: var(--a2-bg);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+#pond-d5-a2 .a2-back { transform: rotateY(180deg); }
+#pond-d5-a2 .a2-card:not(.is-flipped) .a2-back,
+#pond-d5-a2 .a2-card.is-flipped .a2-front { pointer-events: none; }
+#pond-d5-a2 .a2-kicker { color: var(--a2-muted); font-size: .72rem; font-weight: 800; letter-spacing: .055em; text-transform: uppercase; }
+#pond-d5-a2 .a2-face h4 { font-size: 1.05rem; line-height: 1.35; margin: 0; }
+#pond-d5-a2 .a2-face p { margin: 0; font-size: .87rem; line-height: 1.5; }
+#pond-d5-a2 .a2-spacer { flex: 1; }
+#pond-d5-a2 .a2-choices { display: grid; gap: .4rem; }
+#pond-d5-a2 .a2-choice {
+  color: var(--a2-ink); background: var(--a2-soft);
+  text-align: left; font-size: .84rem;
+  border: 1px solid var(--a2-border);
+  border-radius: .45rem; padding: .54rem .7rem; cursor: pointer;
+}
+#pond-d5-a2 .a2-choice[aria-pressed="true"] {
+  border-color: var(--a2-accent);
+  box-shadow: inset 3px 0 0 var(--a2-accent);
+  font-weight: 700;
+}
+#pond-d5-a2 .a2-action {
+  border: 1px solid var(--a2-accent); border-radius: .45rem;
+  color: #fff; background: var(--a2-accent);
+  padding: .65rem .8rem; font-size: .85rem; font-weight: 700;
+  cursor: pointer; text-align: center;
+}
+#pond-d5-a2 .a2-action:disabled { opacity: .45; cursor: not-allowed; }
+#pond-d5-a2 .a2-action.alt { color: var(--a2-accent); background: transparent; }
+#pond-d5-a2 .a2-status { color: var(--a2-muted); font-size: .8rem !important; }
+#pond-d5-a2 .a2-finding-status { font-size: .74rem; font-weight: 800; color: var(--a2-accent); }
+#pond-d5-a2 .a2-summary {
+  margin-top: 1.25rem; padding: 1.1rem;
+  border-radius: .65rem; border: 1px solid var(--a2-border);
+  background: var(--a2-soft);
+}
+#pond-d5-a2 .a2-summary h3 { font-size: 1.14rem; margin: 0 0 .65rem; }
+#pond-d5-a2 .a2-summary p { margin: 0 0 .8rem; }
+#pond-d5-a2 .a2-summary p:last-child { margin-bottom: 0; }
+@media (max-width: 760px) {
+  #pond-d5-a2 .a2-card-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  #pond-d5-a2 .a2-browser { grid-template-columns: minmax(0, 1fr); }
+  #pond-d5-a2 .a2-tree { border-right: 0; border-bottom: 1px solid var(--a2-border); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #pond-d5-a2 .a2-inner { transition: none; }
+}
+</style>
+
+<section id="pond-d5-a2" aria-label="Investigate a former researcher's nitrate dataset">
+  <div class="a2-browser">
+    <nav class="a2-tree" aria-label="Files in Morgan's project folder">
+      <h3>📁 River_Nitrate_2025</h3>
+      <p class="a2-tree-note">Click the files to gather evidence.</p>
+      <div class="a2-files">
+        <button class="a2-file" type="button" data-file="readme" aria-pressed="false"><span class="a2-file-icon">📄</span>README.txt<span class="a2-seen" hidden aria-label="Viewed">✓</span></button>
+        <button class="a2-file" type="button" data-file="first" aria-pressed="false"><span class="a2-file-icon">📊</span>final_data.xlsx<span class="a2-seen" hidden aria-label="Viewed">✓</span></button>
+        <button class="a2-file" type="button" data-file="second" aria-pressed="false"><span class="a2-file-icon">📊</span>final_data_v2.xlsx<span class="a2-seen" hidden aria-label="Viewed">✓</span></button>
+        <button class="a2-file" type="button" data-file="cleaned" aria-pressed="false"><span class="a2-file-icon">📊</span>cleaned_final.xlsx<span class="a2-seen" hidden aria-label="Viewed">✓</span></button>
+      </div>
+      <div class="a2-folder-label">📁 exports/</div>
+      <div class="a2-files"><button class="a2-file" type="button" data-file="export" aria-pressed="false"><span class="a2-file-icon">📄</span>stream_nitrate_2025.csv<span class="a2-seen" hidden aria-label="Viewed">✓</span></button></div>
+      <div class="a2-folder-label">📁 raw/</div>
+      <div class="a2-files"><button class="a2-file" type="button" data-file="raw" aria-pressed="false"><span class="a2-file-icon">📄</span>instrument_export.csv<span class="a2-seen" hidden aria-label="Viewed">✓</span></button></div>
+      <div class="a2-folder-label">📁 notes/</div>
+      <div class="a2-files">
+        <button class="a2-file" type="button" data-file="sites" aria-pressed="false"><span class="a2-file-icon">📄</span>sites.csv<span class="a2-seen" hidden aria-label="Viewed">✓</span></button>
+        <button class="a2-file" type="button" data-file="notes" aria-pressed="false"><span class="a2-file-icon">📝</span>Morgan_notes.txt<span class="a2-seen" hidden aria-label="Viewed">✓</span></button>
+      </div>
+    </nav>
+    <div class="a2-view" aria-live="polite">
+      <div class="a2-view-head"><h3 id="pond-a2-file-title">Select a file</h3><span class="a2-file-kind" id="pond-a2-file-kind">Project folder</span></div>
+      <div class="a2-preview" id="pond-a2-preview">
+        <p>You're in Alex's position. Morgan's files are here, but Morgan is unavailable to answer questions.</p>
+        <p><strong>Look for evidence:</strong> Which version is intended for reuse? Can you identify the sites, measurements, quality-control codes, and reuse conditions?</p>
+        <p>Start anywhere. File names are clues, not necessarily proof of what a file contains.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="a2-transition">
+    <h3>How confident are you in what you found?</h3>
+    <p>For each question, think of an answer based on the files you inspected. Choose your <strong>confidence that the available documentation supports your answer</strong>, then flip the card to see what can actually be established. You can return to the folder and revise your confidence.</p>
+  </div>
+  <p class="a2-progress" id="pond-a2-progress" aria-live="polite">0 of 6 questions explored</p>
+  <div class="a2-card-grid" id="pond-a2-cards"></div>
+
+  <div class="a2-summary" id="pond-a2-summary" hidden>
+    <h3>What would make this a stronger handoff?</h3>
+    <p>The folder isn't useless. It already contains an informative README, a site lookup, and an identifiable revised data table. But Alex still cannot establish some important facts without guessing.</p>
+    <p>A short data dictionary defining the measurement and its units, a clear QC key, explanations of revisions and exclusions, and an explicit reuse statement would address the biggest gaps. Better filenames and a clear distinction between raw, processed, and presentation-only files would also help.</p>
+    <p><strong>Why conventions matter:</strong> Morgan's personal QC shorthand worked for Morgan, but not necessarily for Alex. Lab or field conventions can help people share a common understanding—provided the dataset identifies which conventions it follows and explains departures from them.</p>
+    <p><strong>Key takeaway:</strong> Being able to open a dataset does not mean you can use it confidently. A reusable dataset should not depend on “ask the person who made it.”</p>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('pond-d5-a2');
+  if (!root || root.dataset.initialized === 'true') return;
+  root.dataset.initialized = 'true';
+
+  // All names, data, file descriptions and geographic coordinates are fictional.
+  const table = (headers, rows) => `<div class="a2-table-wrap"><table><thead><tr>${headers.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(v => `<td>${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  const cols = ['date', 'site', 'NO3_mgL', 'qc'];
+  const full = [
+    ['2025-05-14', 'S01', '0.42', '1'],
+    ['2025-05-14', 'S03', '1.18', '1'],
+    ['2025-06-12', 'S01', '0.47', '1'],
+    ['2025-06-12', 'S03', '1.31', '2']
+  ];
+  const files = {
+    readme: {title:'README.txt', kind:'Plain text · Updated July 2025', html:`
+      <p><strong>River nitrate sampling — 2025</strong></p>
+      <p>Water samples from sites S01 and S03; nitrate measurements prepared by Morgan.</p>
+      <ul>
+        <li><code>final_data.xlsx</code>: initial compiled table.</li>
+        <li><code>final_data_v2.xlsx</code>: revised master table (use this rather than the first version).</li>
+        <li><code>cleaned_final.xlsx</code>: subset prepared for an internal lab presentation.</li>
+        <li><code>exports/stream_nitrate_2025.csv</code>: CSV export of the revised master (the file shown in Activity 1).</li>
+        <li><code>notes/sites.csv</code>: site lookup.</li>
+      </ul><p><em>Units: mg/L. For QC and corrections, see Morgan's notes.</em></p>
+      <p class="a2-caption">The README is useful, but not every referenced detail is fully explained.</p>`},
+    first: {title:'final_data.xlsx', kind:'Spreadsheet · Initial compiled table', html:
+      `<p>Worksheet: <strong>measurements</strong>. Compare the June S01 row with the later file.</p>` + table(cols, [full[0], full[1], ['2025-06-12','S01','0.74','1'], full[3]]) + `<p class="a2-caption">“Final” is in the filename, but the README identifies this as an older table.</p>`},
+    second: {title:'final_data_v2.xlsx', kind:'Spreadsheet · Revised master', html:
+      `<p>Worksheet: <strong>measurements</strong>. This table includes all four measurements, including the flagged observation.</p>` + table(cols, full) + `<p class="a2-caption">The README recommends this version, but why one value changed and how to interpret the QC flags remain unclear.</p>`},
+    cleaned: {title:'cleaned_final.xlsx', kind:'Spreadsheet · Lab presentation subset', html:
+      `<p>Worksheet: <strong>measurements</strong>. This table has three rows instead of four.</p>` + table(cols, full.slice(0,3)) + `<p class="a2-caption">The <code>qc = 2</code> row is absent. Is that a general exclusion rule, or a choice specific to the presentation?</p>`},
+    export: {title:'exports/stream_nitrate_2025.csv', kind:'CSV · Revised master export', html:
+      `<p>This is the excerpt from Activity 1. Its rows match the revised master table.</p>` + table(cols, full) + `<p class="a2-caption">A CSV can be easy to open but still depend on other files for meaning.</p>`},
+    raw: {title:'raw/instrument_export.csv', kind:'CSV · Original instrument output', html:
+      `<p>The instrument generated different columns from those in the processed spreadsheets.</p>` + table(['run_date','sample_id','instrument_run','signal'], [['2025-05-14','S01','R-0514-A','0.681'],['2025-05-14','S03','R-0514-A','1.772'],['2025-06-12','S01','R-0612-B','0.739'],['2025-06-12','S03','R-0612-B','1.961']]) + `<p class="a2-caption">The raw data are present, but the folder does not explain how instrument signals relate to the reported nitrate values. You do not need to reconstruct those calculations here.</p>`},
+    sites: {title:'notes/sites.csv', kind:'CSV · Site lookup', html:
+      `<p>The site codes are linked to coordinates and river positions.</p>` + table(['site','latitude','longitude','position'], [['S01','34.212','-118.441','Upstream'],['S03','34.187','-118.409','Downstream']]) + `<p class="a2-caption">These are invented teaching coordinates, not real monitoring sites.</p>`},
+    notes: {title:'notes/Morgan_notes.txt', kind:'Plain text · Personal notes', html:
+      `<pre>June 12: S01 value corrected in v2.\nS03 had an issue on the second run — gave it QC 2.\nQC numbers are my own shorthand (not the lab key).\nNeed to check my notebook before deciding what to do.\nCleaned file is the subset I used for the group talk.</pre><p class="a2-caption">The notes reveal Morgan's personal conventions, but the QC definitions and reasons behind all decisions aren't documented. The notebook isn't in this folder.</p>`}
+  };
+  const fileTitle = root.querySelector('#pond-a2-file-title');
+  const fileKind = root.querySelector('#pond-a2-file-kind');
+  const filePreview = root.querySelector('#pond-a2-preview');
+  root.querySelectorAll('.a2-file').forEach(btn => btn.addEventListener('click', () => {
+    const data = files[btn.dataset.file];
+    fileTitle.textContent = data.title;
+    fileKind.textContent = data.kind;
+    filePreview.innerHTML = data.html;
+    root.querySelectorAll('.a2-file').forEach(other => other.setAttribute('aria-pressed', String(other === btn)));
+    btn.querySelector('.a2-seen').hidden = false;
+  }));
+
+  // Front: learner self-assesses evidence and confidence. Back: evidence, not a score.
+  const questions = [
+    {id:'master', title:'Can you identify the updated master table?', hint:'There are three spreadsheets with “final” in their names. Which one is meant for further analysis?', status:'Established from the files', feedback:'The README identifies <code>final_data_v2.xlsx</code> as the revised master. The original spreadsheet contains a different June S01 value, while <code>cleaned_final.xlsx</code> was a presentation-specific subset. The file names alone would not have told you this reliably.'},
+    {id:'sites', title:'Can you locate the sampling sites?', hint:'Do the site codes S01 and S03 tell you where the samples were collected?', status:'Established from the files', feedback:'The <code>sites.csv</code> file provides geographic coordinates and the upstream/downstream positions. Alex might remember where the sites are, but an outside researcher can now check instead of relying on that memory.'},
+    {id:'qc', title:'Can you interpret the QC codes?', hint:'Can you say whether <code>qc = 2</code> should be excluded from a new analysis?', status:'Not established', feedback:'Morgan’s notes say that June S03 needed checking and that the QC numbers are personal shorthand—not the lab’s usual codes. The full definitions and rules for including or excluding values are missing. You cannot safely infer a QC scheme from the numbers alone.'},
+    {id:'no3', title:'Can you define the nitrate measurement precisely?', hint:'Would another researcher interpret <code>NO3_mgL</code> in exactly the same way?', status:'Not established', feedback:'The column suggests a nitrate measurement in mg/L, but the reporting basis and analytical method are not defined. Water-quality measurements may follow different reporting conventions. A researcher should not have to guess which one was used.'},
+    {id:'changes', title:'Can you explain what changed between versions?', hint:'You can compare the spreadsheets and inspect the raw export. Can you justify the edits and omissions?', status:'Partly established', feedback:'You can see that the June S01 value was revised and that <code>cleaned_final.xlsx</code> omits the flagged S03 row. The <code>raw/</code> folder identifies original instrument output. But the reason for the correction, the full processing context, and the rule behind the exclusion are not sufficiently documented.'},
+    {id:'sharing', title:'Can you establish whether the files may be redistributed?', hint:'Is there anything in the package that explicitly says how another researcher may share or reuse it?', status:'Not established', feedback:'The package contains no clear license or reuse statement. That does not by itself settle every legal or institutional question, but Alex cannot establish redistribution conditions from these files alone. Access and permission are different things.'}
+  ];
+  const confidenceLabels = {confident:'Confident', somewhat:'Somewhat confident', not:'Not confident'};
+  const explored = new Set();
+  const cardsNode = root.querySelector('#pond-a2-cards');
+  const progressNode = root.querySelector('#pond-a2-progress');
+  const summaryNode = root.querySelector('#pond-a2-summary');
+  questions.forEach((q, index) => {
+    const card = document.createElement('article');
+    card.className = 'a2-card';
+    card.innerHTML = `
+      <div class="a2-inner">
+        <div class="a2-face a2-front">
+          <span class="a2-kicker">Question ${index + 1} of ${questions.length}</span>
+          <h4>${q.title}</h4>
+          <p>${q.hint}</p>
+          <div class="a2-spacer"></div>
+          <p><strong>How confident are you that you can answer this from the folder?</strong></p>
+          <div class="a2-choices" role="group" aria-label="Confidence for question ${index + 1}">
+            <button class="a2-choice" type="button" data-confidence="confident" aria-pressed="false">Confident</button>
+            <button class="a2-choice" type="button" data-confidence="somewhat" aria-pressed="false">Somewhat confident</button>
+            <button class="a2-choice" type="button" data-confidence="not" aria-pressed="false">Not confident</button>
+          </div>
+          <button type="button" class="a2-action a2-reveal" disabled>Reveal the evidence</button>
+        </div>
+        <div class="a2-face a2-back" inert>
+          <span class="a2-kicker">Evidence from the folder</span>
+          <h4>${q.title}</h4>
+          <span class="a2-finding-status">${q.status}</span>
+          <p>${q.feedback}</p>
+          <div class="a2-spacer"></div>
+          <p class="a2-status">Your confidence: <strong class="a2-my-confidence"></strong></p>
+          <button type="button" class="a2-action alt a2-return">Revisit my assessment</button>
+        </div>
+      </div>`;
+    cardsNode.appendChild(card);
+    const front = card.querySelector('.a2-front');
+    const back = card.querySelector('.a2-back');
+    const revealBtn = card.querySelector('.a2-reveal');
+    const returnBtn = card.querySelector('.a2-return');
+    let confidence = null;
+    card.querySelectorAll('.a2-choice').forEach(button => button.addEventListener('click', () => {
+      confidence = button.dataset.confidence;
+      card.querySelectorAll('.a2-choice').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      revealBtn.disabled = false;
+    }));
+    revealBtn.addEventListener('click', () => {
+      if (!confidence) return;
+      card.querySelector('.a2-my-confidence').textContent = confidenceLabels[confidence];
+      front.inert = true;
+      back.inert = false;
+      card.classList.add('is-flipped');
+      explored.add(q.id);
+      progressNode.textContent = `${explored.size} of ${questions.length} questions explored`;
+      summaryNode.hidden = explored.size !== questions.length;
+      returnBtn.focus({preventScroll:true});
+    });
+    returnBtn.addEventListener('click', () => {
+      back.inert = true;
+      front.inert = false;
+      card.classList.remove('is-flipped');
+      revealBtn.focus({preventScroll:true});
+    });
+  });
+})();
+</script>
+```
+
+**Coming next:** Morgan's folder tells us what happens when important context is undocumented. In Activity 3, we'll compare three levels of documentation for this same study and ask: **how much is enough?**
+
