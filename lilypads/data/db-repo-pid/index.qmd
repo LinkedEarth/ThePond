@@ -3,11 +3,317 @@ title: "Databases, repositories, identifiers, and versions"
 
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+# 1. Where should my data live?
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+You are preparing a manuscript about past ocean temperatures using coral geochemistry. To put your new measurements in context, you have queried existing paleoclimate records through [**LiPDGraph**](https://linkedearth.graphdb.mint.isi.edu).
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
-:::
+Your new dataset is in [**LiPD (Linked Paleo Data)**](https://lipd.net/) format. It contains geochemical measurements, age information, site locations, and the information needed to interpret those measurements. You are ready to share the dataset associated with your paper.
+
+**Where should you preserve the published dataset so that other researchers can find and retrieve it years from now?**
+
+Explore the five possible destinations below. For each one, make an initial decision about whether it should be your **primary long-term archive**, then reveal what it actually offers. This is a decision-making exercise, not a scored quiz.
+
+```{=html}
+<style>
+  /* Scoped to this Data LilyPad activity, to avoid styling other LilyPads. */
+  #pond-d4-publish {
+    --pond-d4-border: var(--bs-border-color, #d8dee4);
+    --pond-d4-panel: var(--bs-body-bg, #fff);
+    --pond-d4-muted: var(--bs-secondary-color, #596579);
+    --pond-d4-ink: var(--bs-body-color, #253044);
+    --pond-d4-accent: var(--bs-primary, #326c91);
+    color: var(--pond-d4-ink);
+    margin: 1.25rem 0;
+  }
+  #pond-d4-publish .pond-d4-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    gap: 1rem;
+  }
+  #pond-d4-publish .pond-d4-card { perspective: 1200px; }
+  #pond-d4-publish .pond-d4-inner {
+    display: grid;
+    transform-style: preserve-3d;
+    transition: transform 600ms ease;
+    height: 100%;
+  }
+  #pond-d4-publish .pond-d4-card.is-flipped .pond-d4-inner {
+    transform: rotateY(180deg);
+  }
+  #pond-d4-publish .pond-d4-face {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.72rem;
+    min-height: 24rem;
+    padding: 1.15rem;
+    border: 1px solid var(--pond-d4-border);
+    border-radius: 0.85rem;
+    background: var(--pond-d4-panel);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  #pond-d4-publish .pond-d4-back { transform: rotateY(180deg); }
+  #pond-d4-publish .pond-d4-card:not(.is-flipped) .pond-d4-back,
+  #pond-d4-publish .pond-d4-card.is-flipped .pond-d4-front {
+    pointer-events: none;
+  }
+  #pond-d4-publish .pond-d4-kicker {
+    color: var(--pond-d4-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  #pond-d4-publish .pond-d4-face h3 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  #pond-d4-publish .pond-d4-face p { margin: 0; }
+  #pond-d4-publish .pond-d4-intro {
+    font-size: 0.94rem;
+    color: var(--pond-d4-muted);
+  }
+  #pond-d4-publish fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+  #pond-d4-publish legend {
+    font-size: 0.91rem;
+    font-weight: 650;
+    margin-bottom: 0.6rem;
+  }
+  #pond-d4-publish .pond-d4-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  #pond-d4-publish .pond-d4-choice {
+    border: 1px solid var(--pond-d4-border);
+    background: transparent;
+    color: inherit;
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  #pond-d4-publish .pond-d4-choice[aria-pressed="true"] {
+    background: var(--pond-d4-accent);
+    color: #fff;
+    border-color: var(--pond-d4-accent);
+  }
+  #pond-d4-publish .pond-d4-status {
+    color: var(--pond-d4-muted);
+    font-size: 0.83rem;
+    min-height: 1.25em;
+  }
+  #pond-d4-publish .pond-d4-button {
+    border: 1px solid var(--pond-d4-accent);
+    color: #fff;
+    background: var(--pond-d4-accent);
+    border-radius: 0.5rem;
+    padding: 0.58rem 0.8rem;
+    font-weight: 650;
+    cursor: pointer;
+    text-align: center;
+  }
+  #pond-d4-publish .pond-d4-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  #pond-d4-publish .pond-d4-button-secondary {
+    background: transparent;
+    color: var(--pond-d4-accent);
+  }
+  #pond-d4-publish .pond-d4-spacer { flex: 1; }
+  #pond-d4-publish .pond-d4-verdict {
+    font-weight: 700;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--pond-d4-border);
+  }
+  #pond-d4-publish .pond-d4-my-answer {
+    font-size: 0.85rem;
+    color: var(--pond-d4-muted);
+  }
+  #pond-d4-publish .pond-d4-link {
+    font-size: 0.87rem;
+    overflow-wrap: anywhere;
+  }
+  #pond-d4-publish .pond-d4-progress {
+    color: var(--pond-d4-muted);
+    font-size: 0.9rem;
+    margin: 0 0 0.8rem;
+  }
+  #pond-d4-publish .pond-d4-summary {
+    margin-top: 1.1rem;
+    padding: 1rem;
+    border-left: 3px solid var(--pond-d4-accent);
+    background: var(--bs-tertiary-bg, rgba(130, 130, 130, 0.08));
+    border-radius: 0.35rem;
+  }
+  #pond-d4-publish .pond-d4-summary p { margin: 0; }
+  #pond-d4-publish button:focus-visible,
+  #pond-d4-publish a:focus-visible {
+    outline: 3px solid var(--pond-d4-accent);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #pond-d4-publish .pond-d4-inner { transition: none; }
+  }
+</style>
+
+<section id="pond-d4-publish" aria-label="Choosing where to archive a coral dataset">
+  <p class="pond-d4-progress" id="pond-d4-progress" aria-live="polite">0 of 5 destinations explored</p>
+  <div id="pond-d4-cards" class="pond-d4-grid"></div>
+  <div class="pond-d4-summary" id="pond-d4-summary" hidden>
+    <p><strong>What did you notice?</strong> An appropriate archival repository might be disciplinary (like NOAA Paleoclimatology) or general-purpose (like Zenodo). A resource such as LiPDGraph provides valuable ways to discover and query data, but is not itself the long-term archive. The same dataset can therefore have an <strong>archival home</strong> and a separate <strong>discovery/query home</strong>.</p>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('pond-d4-publish');
+  if (!root || root.dataset.initialized === 'true') return;
+  root.dataset.initialized = 'true';
+
+  // These are real destinations; the coral dataset in the scenario is hypothetical.
+  const destinations = [
+    {
+      id: 'noaa',
+      name: 'NOAA Paleoclimatology',
+      preview: 'Maintained by NOAA, this specialized repository provides long-term archival, discovery, and access to paleoclimate datasets contributed by researchers around the world.',
+      verdict: 'Strong archival choice for this dataset',
+      explanation: 'NOAA’s World Data Service for Paleoclimatology is a domain repository: its scope, contribution process, and discovery tools are designed for paleoclimate research.',
+      nuance: 'NOAA accepts LiPD files in addition to its NOAA contribution template. The same service also provides searchable access to archived data—so archival and database functions can overlap.',
+      url: 'https://www.ncei.noaa.gov/access/paleo-search/',
+      linkLabel: 'Explore NOAA Paleoclimatology'
+    },
+    {
+      id: 'zenodo',
+      name: 'Zenodo',
+      preview: 'A general-purpose research repository that accepts data and other research outputs across disciplines.',
+      verdict: 'A legitimate general-purpose archive',
+      explanation: 'Zenodo preserves deposited research outputs and provides persistent identifiers. It could be a suitable archival home when an appropriate domain repository is unavailable or unsuitable.',
+      nuance: 'For this coral dataset, NOAA may offer more relevant disciplinary discovery and curation. General-purpose does not mean inferior; repository choice depends on the data and the research community.',
+      url: 'https://zenodo.org/',
+      linkLabel: 'Explore Zenodo'
+    },
+    {
+      id: 'lipdgraph',
+      name: 'LiPDGraph',
+      preview: 'A knowledge graph used to search and query paleoclimate records represented in LiPD.',
+      verdict: 'Valuable database, not the archival home',
+      explanation: 'LiPDGraph makes it possible to work with records across studies—for example, finding coral records that meet particular scientific criteria. That makes it useful for discovery and analysis.',
+      nuance: 'But it is not designed to be the long-term archival repository for the dataset. Preserve the published dataset at an appropriate archive such as NOAA, even if it is also represented in LiPDGraph.',
+      url: 'https://linked.earth/FreqFun/a-query-lipd-graph/',
+      linkLabel: 'See an example LiPDGraph query'
+    },
+    {
+      id: 'github',
+      name: 'GitHub',
+      preview: 'A platform for collaborating on files, documenting work, and tracking changes over time.',
+      verdict: 'Useful alongside an archive, not by itself',
+      explanation: 'GitHub can be helpful while developing a dataset or sharing the processing workflow. Its version-control features are valuable, but a GitHub repository alone is not a dedicated long-term data archive.',
+      nuance: 'GitHub can be connected to Zenodo to archive a release. That is an example of using a working platform and an archival repository together.',
+      url: 'https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content',
+      linkLabel: 'How GitHub links to an archive'
+    },
+    {
+      id: 'labsite',
+      name: 'Your lab website',
+      preview: 'A project page where your research team can publish descriptions, figures, and downloadable files.',
+      verdict: 'Useful project page, not enough on its own',
+      explanation: 'A lab website can make the dataset visible to collaborators and readers, but the site may change or disappear as a project ends or people move institutions.',
+      nuance: 'Link the page to an archival record at NOAA or another suitable repository. Researchers can then find the dataset through your site without depending on it as the only copy.',
+      url: '',
+      linkLabel: ''
+    }
+  ];
+
+  const cards = root.querySelector('#pond-d4-cards');
+  const progress = root.querySelector('#pond-d4-progress');
+  const summary = root.querySelector('#pond-d4-summary');
+  const explored = new Set();
+  const labels = { yes: 'Yes', no: 'No', unsure: 'Not sure' };
+
+  for (const [index, destination] of destinations.entries()) {
+    const article = document.createElement('article');
+    article.className = 'pond-d4-card';
+    article.innerHTML = `
+      <div class="pond-d4-inner">
+        <div class="pond-d4-face pond-d4-front">
+          <div class="pond-d4-kicker">Destination ${index + 1} of ${destinations.length}</div>
+          <h3>${destination.name}</h3>
+          <p class="pond-d4-intro">${destination.preview}</p>
+          <div class="pond-d4-spacer"></div>
+          <fieldset>
+            <legend>Would you use this as the main long-term archive?</legend>
+            <div class="pond-d4-choices" role="group" aria-label="Archive decision for ${destination.name}">
+              <button type="button" class="pond-d4-choice" data-choice="yes" aria-pressed="false">Yes</button>
+              <button type="button" class="pond-d4-choice" data-choice="no" aria-pressed="false">No</button>
+              <button type="button" class="pond-d4-choice" data-choice="unsure" aria-pressed="false">Not sure</button>
+            </div>
+          </fieldset>
+          <p class="pond-d4-status" aria-live="polite">Choose an option to reveal.</p>
+          <button type="button" class="pond-d4-button pond-d4-reveal" disabled>Reveal what it provides</button>
+        </div>
+        <div class="pond-d4-face pond-d4-back" inert>
+          <div class="pond-d4-kicker">What this destination offers</div>
+          <h3>${destination.name}</h3>
+          <p class="pond-d4-my-answer">Your initial thought: <strong class="pond-d4-answer"></strong></p>
+          <p class="pond-d4-verdict">${destination.verdict}</p>
+          <p>${destination.explanation}</p>
+          <p>${destination.nuance}</p>
+          ${destination.url ? `<a class="pond-d4-link" href="${destination.url}" target="_blank" rel="noopener noreferrer">${destination.linkLabel}</a>` : ''}
+          <div class="pond-d4-spacer"></div>
+          <button type="button" class="pond-d4-button pond-d4-button-secondary pond-d4-back-button">Back to my choice</button>
+        </div>
+      </div>`;
+
+    const front = article.querySelector('.pond-d4-front');
+    const back = article.querySelector('.pond-d4-back');
+    const reveal = article.querySelector('.pond-d4-reveal');
+    const returnButton = article.querySelector('.pond-d4-back-button');
+    const status = article.querySelector('.pond-d4-status');
+    const answer = article.querySelector('.pond-d4-answer');
+    let choice = null;
+
+    article.querySelectorAll('[data-choice]').forEach(button => {
+      button.addEventListener('click', () => {
+        choice = button.dataset.choice;
+        article.querySelectorAll('[data-choice]').forEach(other => {
+          other.setAttribute('aria-pressed', String(other === button));
+        });
+        status.textContent = 'Your choice is saved. Reveal to compare it with the platform’s role.';
+        reveal.disabled = false;
+      });
+    });
+
+    reveal.addEventListener('click', () => {
+      if (choice === null) return;
+      answer.textContent = labels[choice];
+      front.inert = true;
+      back.inert = false;
+      article.classList.add('is-flipped');
+      explored.add(destination.id);
+      progress.textContent = `${explored.size} of ${destinations.length} destinations explored`;
+      summary.hidden = explored.size !== destinations.length;
+      returnButton.focus({ preventScroll: true });
+    });
+
+    returnButton.addEventListener('click', () => {
+      back.inert = true;
+      front.inert = false;
+      article.classList.remove('is-flipped');
+      reveal.focus({ preventScroll: true });
+    });
+
+    cards.appendChild(article);
+  }
+})();
+</script>
+```
