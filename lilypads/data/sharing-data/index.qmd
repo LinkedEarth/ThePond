@@ -1682,7 +1682,8 @@ The goal is not to reward the longest documentation. It is to decide what provid
     '#pond-d5-a3 #d5-a3-survey'
   );
   if (!section) return;
-
+  // Google Apps Script endpoint for anonymous rankings
+  const SURVEY_URL = 'https://script.google.com/macros/s/AKfycbzw2SUUH86uL-FToWSOD9Kqm60DcUss0GH5Jxlselmmfj0sqUhlqBid2_PV1wBDfUqHwg/exec';
   // Replace only the survey after Activity 3 initializes.
   const reasons = [
     ['time', 'It takes too much time'],
@@ -1761,6 +1762,17 @@ The goal is not to reward the longest documentation. It is to decide what provid
         and rank distributions.
       </p>
     </div>
+<p>
+If you would like to see the community rankings without submitting your own, you can click the button below.
+</p>
+<p>
+    <button type="button"
+        id="rank-view-first"
+        class="rank-action"
+        style="margin-bottom: 1rem;">
+  See community rankings
+</button>
+</p>
   `;
 
   const available = section.querySelector('#rank-available');
@@ -1853,71 +1865,242 @@ The goal is not to reward the longest documentation. It is to decide what provid
 
   update();
 
-  submit.onclick = () => {
-    if (!ranking.length || locked) return;
+  
 
-    locked = true;
-    update();
+submit.onclick = async () => {
+  if (!ranking.length || locked) return;
 
-    const colors = [
-      '#246b80',
-      '#518fa3',
-      '#86b6be',
-      '#b9d7d9'
-    ];
+  locked = true;
+  update();
 
-    const legend = section.querySelector('.rank-legend');
+  status.textContent = 'Sending your ranking...';
 
-    ['#1', '#2', '#3', '#4 or later'].forEach((label, i) => {
-      const el = document.createElement('span');
-      const sw = document.createElement('span');
-      sw.className = 'rank-swatch';
-      sw.style.background = colors[i];
-      el.append(sw, document.createTextNode(label));
-      legend.appendChild(el);
+  const payload = new URLSearchParams();
+  payload.set('ranking', ranking.join(','));
+  payload.set(
+    'other_text',
+    ranking.includes('other')
+      ? section.querySelector('#rank-other-input').value.slice(0, 200)
+      : ''
+  );
+
+  try {
+    await fetch(SURVEY_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: payload
     });
 
-    const chart = section.querySelector('#rank-chart');
+    status.textContent = 'Loading community results...';
 
-    reasons
-      .map(([id, name]) => ({
-        id,
-        name,
-        position: ranking.indexOf(id)
-      }))
-      .sort((a, b) => {
-        if (a.position < 0) return 1;
-        if (b.position < 0) return -1;
-        return a.position - b.position;
-      })
-      .forEach(x => {
-        const row = document.createElement('div');
-        row.className = 'rank-row';
+    // Retrieve cumulative results from Google Sheets
+    const callback = 'pondD5LatestRankingCounts';
+    const script = document.createElement('script');
 
-        const label = document.createElement('span');
-        label.textContent = x.name;
+    window[callback] = data => {
+      script.remove();
+      delete window[callback];
 
-        const track = document.createElement('div');
-        track.className = 'rank-track';
+      const panel = section.querySelector('#rank-results');
+      const chart = section.querySelector('#rank-chart');
+      const legend = section.querySelector('.rank-legend');
 
-        if (x.position >= 0) {
-          const fill = document.createElement('div');
-          fill.className = 'rank-fill';
-          fill.style.width = '100%';
-          fill.style.background =
-            colors[Math.min(x.position, 3)];
-          track.appendChild(fill);
-        }
+      panel.hidden = false;
+      panel.querySelector('h4').textContent =
+        'Community rankings';
 
-        const value = document.createElement('span');
-        value.textContent = x.position >= 0 ? '1' : '0';
+      panel.querySelector('p small').textContent =
+        `Results from ${data.responses} submitted rankings. ` +
+        'Bar length shows how often each barrier was selected. ' +
+        'Colors show its position in the ranking.';
 
-        row.append(label, track, value);
-        chart.appendChild(row);
-      });
+      const colors = [
+        '#246b80', '#518fa3', '#86b6be', '#b9d7d9'
+      ];
 
-    section.querySelector('#rank-results').hidden = false;
-  };
+      legend.innerHTML = [
+        '#1', '#2', '#3', '#4 or later'
+      ].map((label, i) => `
+        <span>
+          <span class="rank-swatch"
+                style="background:${colors[i]}"></span>
+          ${label}
+        </span>
+      `).join('');
+
+      const rows = reasons.map(([id, name]) => {
+        const c = data.counts[id] || {};
+        return {
+          name,
+          total: Number(c.total) || 0,
+          ranks: [
+            Number(c.first) || 0,
+            Number(c.second) || 0,
+            Number(c.third) || 0,
+            Number(c.later) || 0
+          ]
+        };
+      }).sort((a, b) => b.total - a.total);
+
+      const maximum = Math.max(
+        1, ...rows.map(r => r.total)
+      );
+
+      chart.innerHTML = rows.map(r => {
+        const segments = r.ranks.map((n, i) => `
+          <span style="
+            width:${r.total ? 100 * n / r.total : 0}%;
+            background:${colors[i]};
+          "></span>
+        `).join('');
+
+        return `
+          <div class="rank-row">
+            <span>${r.name}</span>
+            <div class="rank-track">
+              <div class="rank-fill"
+                   style="width:${100 * r.total / maximum}%">
+                ${segments}
+              </div>
+            </div>
+            <span>${r.total}</span>
+          </div>
+        `;
+      }).join('');
+
+      status.textContent =
+        'Community results loaded. Your latest submission may take a moment to appear.';
+    };
+
+    script.onerror = () => {
+      script.remove();
+      delete window[callback];
+      status.textContent =
+        'Could not load community results. Check the connection.';
+    };
+
+    script.src = SURVEY_URL +
+      (SURVEY_URL.includes('?') ? '&' : '?') +
+      'callback=' + callback + '&t=' + Date.now();
+
+    document.head.appendChild(script);
+
+  } catch (error) {
+    status.textContent =
+      'Could not send the ranking. Check Google Sheets before retrying.';
+  }
+};
+
+
+  // View community results without submitting a ranking
+  const viewButton = section.querySelector('#rank-view-first');
+
+  viewButton.addEventListener('click', () => {
+    const panel = section.querySelector('#rank-results');
+
+    // Allow learners to hide the results again.
+    if (!panel.hidden) {
+      panel.hidden = true;
+      viewButton.textContent = 'See community rankings';
+      return;
+    }
+
+    viewButton.disabled = true;
+    viewButton.textContent = 'Loading community rankings...';
+
+    const callback = 'pondD5PreviewRankingCounts';
+    const script = document.createElement('script');
+
+    const cleanup = () => {
+      script.remove();
+      delete window[callback];
+      viewButton.disabled = false;
+    };
+
+    window[callback] = data => {
+      cleanup();
+
+      const chart = section.querySelector('#rank-chart');
+      const legend = section.querySelector('.rank-legend');
+
+      panel.hidden = false;
+      panel.querySelector('h4').textContent = 'Community rankings';
+      panel.querySelector('p small').textContent =
+        `Results from ${data.responses} submitted rankings. ` +
+        'Bar length shows selection frequency; colors show rank.';
+
+      const colors = [
+        '#246b80', '#518fa3', '#86b6be', '#b9d7d9'
+      ];
+
+      legend.innerHTML = [
+        '#1', '#2', '#3', '#4 or later'
+      ].map((label, i) => `
+        <span>
+          <span class="rank-swatch"
+                style="background:${colors[i]}"></span>
+          ${label}
+        </span>
+      `).join('');
+
+      const rows = reasons.map(([id, name]) => {
+        const c = data.counts[id] || {};
+
+        return {
+          name,
+          total: Number(c.total) || 0,
+          ranks: [
+            Number(c.first) || 0,
+            Number(c.second) || 0,
+            Number(c.third) || 0,
+            Number(c.later) || 0
+          ]
+        };
+      }).sort((a, b) => b.total - a.total);
+
+      const maximum = Math.max(
+        1, ...rows.map(r => r.total)
+      );
+
+      chart.innerHTML = rows.map(r => {
+        const segments = r.ranks.map((n, i) => `
+          <span style="
+            width:${r.total ? 100 * n / r.total : 0}%;
+            background:${colors[i]};
+          "></span>
+        `).join('');
+
+        return `
+          <div class="rank-row">
+            <span>${r.name}</span>
+            <div class="rank-track">
+              <div class="rank-fill"
+                   style="width:${100 * r.total / maximum}%">
+                ${segments}
+              </div>
+            </div>
+            <span>${r.total}</span>
+          </div>
+        `;
+      }).join('');
+
+      viewButton.textContent = 'Hide community rankings';
+    };
+
+    script.onerror = () => {
+      cleanup();
+      viewButton.textContent = 'See community rankings';
+      status.textContent = 'Could not load community rankings.';
+    };
+
+    script.src = SURVEY_URL +
+      (SURVEY_URL.includes('?') ? '&' : '?') +
+      'callback=' + callback + '&t=' + Date.now();
+
+    document.head.appendChild(script);
+  });
+
+
 })();
 </script>
 ```
