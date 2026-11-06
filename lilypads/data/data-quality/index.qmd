@@ -82,7 +82,7 @@ Now suppose that the exact same spreadsheet had come from your most senior emplo
 <details class="pond-dq-reveal">
 <summary>Why it matters</summary>
 
-The employee's experience is not the relevant variable here; **metadata** are. An experienced person may years of precedent to justify how they do things, but also more unstated assumptions. If you are not operating with the same assumptions, their spreadsheet may lead you astray. We will come back to trust and reputation in Activity 5.
+The employee's experience is not the relevant variable here; **metadata** are. An experienced person may have years of precedent to justify how they do things, but also more unstated assumptions. If you are not operating with the same assumptions, their spreadsheet may lead you astray. We will come back to trust and reputation in Activity 5.
 
 </details>
 
@@ -181,6 +181,182 @@ Who collected each sample, when, and how it was stored and handled before analys
 
 Evidence supporting data quality may exist outside the numerical dataset itself. More metadata tends to be a good thing, but it often involves a tradeoff because it takes time and effort to maintain complete metadata records, so scientists often land on a compromise between what is ideal and what simply "clears the bar" (which is context-dependent, and might evolve over time). 
 
+## 2. What does this number actually mean?
+
+In Activity 1, JEFFERSON ELEM. was reported at 420 ppm of lead in soil, just above the 400 ppm threshold. Before the city closes a playground, it's worth asking what that number really tells us.
+
+### 2.1 Precise, accurate, or both?
+
+To check their instruments, four testing companies each measured the same **reference soil** five times. A reference soil is a sample whose lead content has been certified by a standards laboratory, here at exactly 400 ppm.
+
+**Your turn!** For each analyzer, decide whether its readings are **precise** and whether they are **accurate**.
+
+```{=html}
+<div id="pond-dq-analyzers" class="pond-dq pond-dq-cards"></div>
+```
+
+<!-- Readings of a reference soil certified at 400 ppm. data-precise and data-accurate (yes/no) are the answers;
+     the text inside is revealed once the learner has answered both questions. -->
+
+::: {#pond-dq-analyzer-bank}
+::: {.pond-dq-analyzer data-name="Analyzer A" data-readings="360,445,392,418,385" data-precise="no" data-accurate="yes"}
+**Accurate on average, but not precise.** The readings average exactly 400, but any single one can be off by 40 ppm or more.
+:::
+
+::: {.pond-dq-analyzer data-name="Analyzer B" data-readings="380,500,470,395,455" data-precise="no" data-accurate="no"}
+**Neither.** The readings are scattered *and* their average (440 ppm) is too high.
+:::
+
+::: {.pond-dq-analyzer data-name="Analyzer C" data-readings="398,401,399,402,400" data-precise="yes" data-accurate="yes"}
+**Precise and accurate.** The readings agree with each other *and* with the certified value.
+:::
+
+::: {.pond-dq-analyzer data-name="Analyzer D" data-readings="431,433,430,432,434" data-precise="yes" data-accurate="no"}
+**Precise, but not accurate.** The readings agree closely, but all of them are about 32 ppm too high. This is a **bias**, like the known biases mentioned at the start. Because it is consistent, it can be measured and corrected.
+:::
+:::
+
+These four analyzers illustrate three ideas that are easy to confuse:
+
+- **Precision:** how finely or consistently something can be measured. Precise readings agree with each other.
+- **Accuracy:** how close a measurement is to the true value. Accurate readings agree with the truth.
+- **Uncertainty:** the range of plausible values, and the sources of doubt, associated with a measurement or its interpretation.
+
+Analyzer D shows why the difference matters: precision alone can't tell you whether a measurement is right.
+
+### 2.2 How many digits?
+
+The testing company's spreadsheet reports the average for JEFFERSON ELEM. as:
+
+::: {.pond-dq-notes}
+**420.250000 ppm**
+:::
+
+The analyzer's nominal precision is **± 20 ppm** per reading.
+
+**Your turn!** How would you report this value to the city council?
+
+```{=html}
+<div class="pond-dq-whatif" role="group" aria-label="How would you report this value?">
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Too many digits. The last six digits were produced by the spreadsheet, not by the analyzer.">420.250000 ppm</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Still too many. With ± 20 ppm, even the ones digit is uncertain; the hundredths are meaningless.">420.25 ppm</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Better: no digits beyond what the analyzer supports. But nothing tells the reader how uncertain the value is.">420 ppm</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Best: the digits match the precision, and the uncertainty is stated.">420 ± 20 ppm</button>
+</div>
+<p class="pond-dq-take" aria-live="polite" hidden></p>
+```
+
+<details class="pond-dq-reveal">
+<summary>Why it matters</summary>
+
+Six decimal places don't add information; they add **false precision**. A council member reading "420.250000 ppm" could reasonably assume the lead content is known to a millionth of a ppm, and that it is certainly above 400. Neither is true.
+
+The number of digits reported should reflect the precision of the measurement, not the number of digits produced by software or a spreadsheet.
+
+</details>
+
+### 2.3 How precise is the average?
+
+The 420 ppm for JEFFERSON ELEM. is the average of four replicate readings:
+
+::: {.pond-dq-notes}
+| Reading | 1 | 2 | 3 | 4 | **Mean** | **Standard deviation** |
+|---|---:|---:|---:|---:|---:|---:|
+| Lead (ppm) | 392 | 447 | 403 | 439 | **420** | **27** |
+:::
+
+The readings themselves vary, so the average is uncertain too. If the readings are **independent** (each one a separate, fresh measurement), the uncertainty of the mean is the **standard error of the mean**:
+
+$$\text{SEM} = \frac{\text{standard deviation}}{\sqrt{\text{number of readings}}}$$
+
+For JEFFERSON ELEM., that is 27 / √4 = **13.5 ppm**.
+
+A common rule of thumb is that the true value most likely lies within **2 SEM** of the mean (about 95% of the time).
+
+**Your turn!** Is 420 − 2 × 13.5 above the 400 ppm threshold? In other words, can we be confident that JEFFERSON ELEM.'s soil is above the threshold?
+
+```{=html}
+<div class="pond-dq-whatif" role="group" aria-label="Can we be confident that JEFFERSON ELEM. is above 400 ppm?">
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Not quite: 420 − 2 × 13.5 = 393 ppm, which is below 400. The plausible range, 393 to 447 ppm, straddles the threshold.">Yes</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Right: 420 − 2 × 13.5 = 393 ppm, which is below 400. The plausible range, 393 to 447 ppm, straddles the threshold, so four readings aren't enough to decide.">No</button>
+</div>
+<p class="pond-dq-take" aria-live="polite" hidden></p>
+```
+
+**How many readings would it take?** Move the slider to see how the uncertainty shrinks as you add readings (assuming the mean and standard deviation stay the same).
+
+```{=html}
+<div class="pond-dq pond-dq-sem">
+  <label for="pond-dq-n"><strong>Number of readings: <output id="pond-dq-n-out">4</output></strong></label>
+  <input id="pond-dq-n" type="range" min="1" max="20" value="4" class="form-range">
+  <svg id="pond-dq-sem-plot" viewBox="0 0 600 90" role="img" aria-labelledby="pond-dq-sem-text"></svg>
+  <p id="pond-dq-sem-text" class="pond-dq-status" aria-live="polite"></p>
+</div>
+```
+
+<details class="pond-dq-reveal">
+<summary>Two important caveats</summary>
+
+**Independence.** The SEM formula assumes each reading is a fresh, independent measurement. Four readings taken without moving the analyzer, or from the same handful of soil, are not independent: they will agree more closely than separate samples would, and the SEM will make you overconfident.
+
+**Bias.** More readings shrink the *random* scatter, but not a bias. Averaging a thousand readings from Analyzer D would give 432 ppm with a tiny SEM: very precise, and still wrong. Only calibration against a reference soil reveals that.
+
+And with WASHINGTON ELEM.'s single reading, you can't compute a standard deviation at all, so there is no way to tell how uncertain it is. That is one reason why procedures require replicates.
+
+(Statisticians would note that with only a few readings, the plausible range is even wider than 2 SEM. We keep things simple here.)
+
+</details>
+
+### 2.4 More than the instrument
+
+The analyzer's ± 20 ppm is only one source of uncertainty. Uncertainty can arise at every stage between the soil in the playground and the number in the spreadsheet.
+
+**Your turn!** Which of these could affect the 420 ppm reported for JEFFERSON ELEM.? Select all that apply, then reveal our take.
+
+```{=html}
+<div id="pond-dq-sources" class="pond-dq"></div>
+```
+
+<!-- Sources of uncertainty. data-name is the label on the button; the text inside is revealed. -->
+
+::: {#pond-dq-sources-bank}
+::: {.pond-dq-source data-name="Instrument precision"}
+Each reading is only good to ± 20 ppm.
+:::
+
+::: {.pond-dq-source data-name="Calibration"}
+If the correction for the analyzer's known bias is off, every reading shifts together, and the replicates won't reveal it.
+:::
+
+::: {.pond-dq-source data-name="Replicate variability"}
+The readings vary by 27 ppm, more than the analyzer's ± 20 ppm. The soil itself is uneven.
+:::
+
+::: {.pond-dq-source data-name="Sample preparation"}
+Wet or unsieved soil reads differently from dry, sieved soil.
+:::
+
+::: {.pond-dq-source data-name="Processing choices"}
+Which readings were kept, how the bias was corrected, and how the average was taken all change the final number.
+:::
+
+::: {.pond-dq-source data-name="Units and reporting"}
+A value in % read as ppm (remember ROOSEVELT HIGH?) is off by a factor of 10,000.
+:::
+
+::: {.pond-dq-source data-name="Spatial sampling"}
+Four readings from one spot may not represent a whole playground. More on this in Activity 3.
+:::
+
+::: {.pond-dq-source data-name="Temporal sampling"}
+Lead in soil can change after renovation work, new mulch, or heavy rain. More on this in Activity 3 too.
+:::
+:::
+
+### Key takeaway
+
+A reported number is only as meaningful as what we know about its precision, accuracy, and uncertainty. Report only the digits the measurement supports, state the uncertainty, and remember that the instrument is rarely the only source of doubt.
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Learner answers stay in this browser only
@@ -268,6 +444,148 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     cards.hidden = false;
     revealBtn.hidden = true;
+  });
+  // ---------- Activity 2 ----------
+
+  // 2.1 Precise / accurate cards with a strip plot of readings
+  const analyzerBank = document.getElementById("pond-dq-analyzer-bank");
+  const analyzerBox = document.getElementById("pond-dq-analyzers");
+  saved.analyzers = saved.analyzers || {};
+  const lo = 340, hi = 520, x = v => 20 + (v - lo) / (hi - lo) * 260;
+  analyzerBank.querySelectorAll(".pond-dq-analyzer").forEach(div => {
+    const name = div.dataset.name;
+    const readings = div.dataset.readings.split(",").map(Number);
+    const card = document.createElement("div");
+    card.className = "pond-dq-card";
+    const dots = readings.map(v =>
+      `<circle cx="${x(v)}" cy="30" r="6" class="pond-dq-dot"></circle>`).join("");
+    card.innerHTML = `
+      <h4></h4>
+      <svg viewBox="0 0 300 62" role="img" aria-label="${name} readings: ${readings.join(", ")} ppm">
+        <line x1="20" x2="280" y1="30" y2="30" class="pond-dq-axis"></line>
+        <line x1="${x(400)}" x2="${x(400)}" y1="10" y2="46" class="pond-dq-target"></line>
+        ${dots}
+        <text x="${x(400)}" y="58" text-anchor="middle" class="pond-dq-label">400 (certified)</text>
+        <text x="20" y="58" class="pond-dq-label">${lo}</text>
+        <text x="280" y="58" text-anchor="end" class="pond-dq-label">${hi} ppm</text>
+      </svg>
+      <p class="pond-dq-readings"></p>
+      <div class="pond-dq-q"><span>Precise?</span><div class="pond-dq-choices" role="group" data-key="precise"></div></div>
+      <div class="pond-dq-q"><span>Accurate?</span><div class="pond-dq-choices" role="group" data-key="accurate"></div></div>
+      <div class="pond-dq-take" aria-live="polite" hidden></div>`;
+    card.querySelector("h4").textContent = name;
+    card.querySelector(".pond-dq-readings").textContent = `Readings: ${readings.join(", ")} ppm`;
+    const take = card.querySelector(".pond-dq-take");
+    const mine = saved.analyzers[name] = saved.analyzers[name] || {};
+
+    function update() {
+      if (!mine.precise || !mine.accurate) return;
+      const right = mine.precise === div.dataset.precise && mine.accurate === div.dataset.accurate;
+      take.innerHTML = `<p>${right ? "✓ You got it." : "Not quite."}</p>` + div.innerHTML;
+      take.hidden = false;
+    }
+
+    card.querySelectorAll(".pond-dq-choices").forEach(group => {
+      const key = group.dataset.key;
+      group.setAttribute("aria-label", `${name}: ${key}?`);
+      ["yes", "no"].forEach(value => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pond-dq-tag";
+        btn.textContent = value === "yes" ? "Yes" : "No";
+        btn.setAttribute("aria-pressed", String(mine[key] === value));
+        btn.addEventListener("click", () => {
+          mine[key] = value;
+          save();
+          group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+          update();
+        });
+        group.append(btn);
+      });
+    });
+    update();
+    analyzerBox.append(card);
+  });
+  analyzerBank.hidden = true;
+
+  // 2.3 Slider: mean ± 2 SEM against the 400 ppm threshold
+  const nSlider = document.getElementById("pond-dq-n");
+  const nOut = document.getElementById("pond-dq-n-out");
+  const semPlot = document.getElementById("pond-dq-sem-plot");
+  const semText = document.getElementById("pond-dq-sem-text");
+  const mean = 420, sd = 27, px = v => 30 + (v - 340) / (500 - 340) * 540;
+  function drawSem() {
+    const n = Number(nSlider.value);
+    nOut.textContent = n;
+    if (n < 2) {
+      semPlot.innerHTML = `<text x="300" y="45" text-anchor="middle" class="pond-dq-label">One reading: no standard deviation, so no way to estimate the uncertainty.</text>`;
+      semText.textContent = "With a single reading, the uncertainty of the mean can't be estimated.";
+      return;
+    }
+    const half = 2 * sd / Math.sqrt(n);
+    const a = mean - half, b = mean + half;
+    const above = a > 400;
+    semPlot.innerHTML = `
+      <line x1="30" x2="570" y1="40" y2="40" class="pond-dq-axis"></line>
+      <line x1="${px(400)}" x2="${px(400)}" y1="12" y2="62" class="pond-dq-target"></line>
+      <text x="${px(400)}" y="80" text-anchor="middle" class="pond-dq-label">400 ppm threshold</text>
+      <rect x="${px(a)}" y="32" width="${px(b) - px(a)}" height="16" rx="8" class="pond-dq-range ${above ? "is-above" : ""}"></rect>
+      <circle cx="${px(mean)}" cy="40" r="6" class="pond-dq-dot"></circle>
+      <text x="30" y="80" class="pond-dq-label">340</text>
+      <text x="570" y="80" text-anchor="end" class="pond-dq-label">500 ppm</text>`;
+    semText.textContent = `${n} readings: 420 ± ${half.toFixed(0)} ppm (${a.toFixed(0)} to ${b.toFixed(0)} ppm). ` +
+      (above ? "The whole range is above 400 ppm." : "The range still includes values below 400 ppm.");
+  }
+  nSlider.addEventListener("input", drawSem);
+  drawSem();
+
+  // 2.4 Pick the sources of uncertainty, then reveal
+  saved.sources = Array.isArray(saved.sources) ? saved.sources : [];
+  const sourceBank = document.getElementById("pond-dq-sources-bank");
+  const sourceBox = document.getElementById("pond-dq-sources");
+  const sources = [...sourceBank.querySelectorAll(".pond-dq-source")].map(div => ({
+    name: div.dataset.name, html: div.innerHTML
+  }));
+  sourceBank.hidden = true;
+  sourceBox.innerHTML = `
+    <div class="pond-dq-choices" role="group" aria-label="Sources of uncertainty"></div>
+    <button type="button" class="btn btn-primary">Reveal our take</button>
+    <div class="pond-dq-take" hidden></div>
+    <div class="pond-dq-cards" hidden></div>`;
+  const sourceChoices = sourceBox.querySelector(".pond-dq-choices");
+  const sourceCards = sourceBox.querySelector(".pond-dq-cards");
+  const sourceTake = sourceBox.querySelector(".pond-dq-take");
+  sources.forEach(s => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pond-dq-tag";
+    btn.textContent = s.name;
+    btn.setAttribute("aria-pressed", String(saved.sources.includes(s.name)));
+    btn.addEventListener("click", () => {
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", String(on));
+      saved.sources = on ? [...saved.sources, s.name] : saved.sources.filter(p => p !== s.name);
+      save();
+    });
+    sourceChoices.append(btn);
+  });
+  sourceBox.querySelector(".btn-primary").addEventListener("click", e => {
+    const n = saved.sources.length;
+    sourceTake.innerHTML = `<p><strong>All ${sources.length} of them.</strong> You selected ${n}. ` +
+      `Uncertainty is not just instrument error: it can enter at every stage between the soil and the spreadsheet.</p>`;
+    sourceCards.innerHTML = "";
+    sources.forEach(s => {
+      const card = document.createElement("div");
+      card.className = "pond-dq-card";
+      card.classList.toggle("is-picked", saved.sources.includes(s.name));
+      card.innerHTML = `<h4></h4><div class="pond-dq-card-text"></div>`;
+      card.querySelector("h4").textContent = s.name;
+      card.querySelector(".pond-dq-card-text").innerHTML = s.html;
+      sourceCards.append(card);
+    });
+    sourceTake.hidden = false;
+    sourceCards.hidden = false;
+    e.target.hidden = true;
   });
 });
 </script>
