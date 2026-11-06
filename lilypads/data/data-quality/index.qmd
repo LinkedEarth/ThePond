@@ -25,6 +25,8 @@ The recommended thresholds also vary by medium:
 
 ## 1. Where did this value come from?
 
+[<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-dq-time}
+
 ### 1.1 A spreadsheet from a new employee
 
 One day, a new employee of yours hands you a spreadsheet that looks like this:
@@ -182,6 +184,8 @@ Who collected each sample, when, and how it was stored and handled before analys
 Evidence supporting data quality may exist outside the numerical dataset itself. More metadata tends to be a good thing, but it often involves a tradeoff because it takes time and effort to maintain complete metadata records, so scientists often land on a compromise between what is ideal and what simply "clears the bar" (which is context-dependent, and might evolve over time). 
 
 ## 2. What does this number actually mean?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-dq-time}
 
 In Activity 1, JEFFERSON ELEM. was reported at 420 ppm of lead in soil, just above the 400 ppm threshold. Before the city closes a playground, it's worth asking what that number really tells us.
 
@@ -356,6 +360,113 @@ Lead in soil can change after renovation work, new mulch, or heavy rain. More on
 ### Key takeaway
 
 A reported number is only as meaningful as what we know about its precision, accuracy, and uncertainty. Report only the digits the measurement supports, state the uncertainty, and remember that the instrument is rarely the only source of doubt.
+
+## 3. Are the data adequate to the purpose?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 10 minutes]{.pond-dq-time}
+
+Following Activity 2, the lab took ten readings from the JEFFERSON ELEM. sample instead of four. It now reports **420 ± 17 ppm**: precise enough to say, with confidence, that this soil is above 400 ppm.
+
+That soil came from **one spot**, about 2 meters from the school building's wall, collected on 3 March 2025.
+
+### 3.1 One measurement, four questions
+
+**Your turn!** Is this one measurement enough to answer each of these questions?
+
+```{=html}
+<div id="pond-dq-claims" class="pond-dq"></div>
+```
+
+<!-- Questions of increasing scope. data-answer (enough, partly, not) is our answer;
+     the first paragraph is the question, the rest is revealed after the learner answers. -->
+
+::: {#pond-dq-claims-bank}
+::: {.pond-dq-claim data-answer="enough"}
+What was the lead content of the soil at that spot, on that day?
+
+**Enough.** This is exactly what was measured.
+:::
+
+::: {.pond-dq-claim data-answer="not"}
+What is the lead content across JEFFERSON ELEM.'s playground?
+
+**Not enough.** Lead in soil can vary a lot over a few meters: it tends to be highest next to old painted walls and busy streets. One spot can't tell you about the rest of the playground. This is a question of **spatial representativeness**.
+:::
+
+::: {.pond-dq-claim data-answer="not"}
+Will the playground still be above 400 ppm next school year?
+
+**Not enough.** Rain, new mulch, landscaping, or dust from renovation work can all change the lead at the surface. A measurement from March describes March. This is a question of **temporal representativeness**.
+:::
+
+::: {.pond-dq-claim data-answer="not"}
+Do schools across the district meet the lead standard?
+
+**Not enough.** One sample from one school can't describe dozens of schools. The question is at a much larger scale than the measurement (a **scale mismatch**), and answering it would take many more samples (a higher **sampling density**).
+:::
+:::
+
+The measurement never changed. What changed was the **claim** that could be made from it:
+
+- **Spatial representativeness:** how well a measurement at one place stands for a larger area.
+- **Temporal representativeness:** how well a measurement at one time stands for a longer period.
+- **Sampling density:** how many samples are taken, over how much space or time.
+- **Scale mismatch:** when the question is about a much larger (or smaller) area or period than the measurements cover.
+
+### 3.2 Where would you sample?
+
+The city can afford **four more samples** at JEFFERSON ELEM. The map below shows the playground, divided into a grid of 60 squares. It lies between the school building and a busy road; both can be sources of lead (old paint on the building, and decades of traffic exhaust from the era of leaded gasoline). The ★ marks the spot that was already sampled.
+
+**Your turn!** Choose four squares to sample, then reveal the lead map to see how well your samples represent the playground.
+
+```{=html}
+<div id="pond-dq-playground" class="pond-dq"></div>
+```
+
+<!-- Lead in the playground soil (ppm), one value per grid square. Row 1 runs along the school building;
+     column 1 runs along the street. The sandbox is the block of low values in rows 4–5, columns 6–8. -->
+
+::: {#pond-dq-playground-data}
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 880 | 720 | 650 | 600 | 560 | 610 | 700 | 820 | 760 | 690 |
+| 2 | 430 | 380 | 330 | 300 | 280 | 300 | 350 | 420 | 390 | 360 |
+| 3 | 340 | 210 | 180 | 160 | 150 | 140 | 170 | 190 | 180 | 170 |
+| 4 | 320 | 180 | 150 | 130 | 120 | 25 | 20 | 30 | 150 | 140 |
+| 5 | 310 | 170 | 140 | 120 | 110 | 20 | 15 | 25 | 130 | 120 |
+| 6 | 300 | 160 | 130 | 110 | 100 | 100 | 110 | 120 | 110 | 100 |
+:::
+
+[Fictional values created for The Pond (2026).]{.pond-dq-credit}
+
+**Your turn!** So, is JEFFERSON ELEM.'s playground above the 400 ppm threshold?
+
+```{=html}
+<div class="pond-dq">
+  <label for="pond-dq-playground-response"><strong>My observations</strong></label>
+  <textarea id="pond-dq-playground-response" class="pond-dq-response" rows="3"
+    placeholder="Write your answer here..."></textarea>
+</div>
+```
+
+<details class="pond-dq-reveal">
+<summary>Compare with our answer</summary>
+
+**It depends on the question.**
+
+- **On average, no.** Averaged over the whole playground, the soil contains about 270 ppm of lead, well below 400 ppm.
+- **Along the building, yes.** Every square next to the wall is above 400 ppm, probably because of old lead paint. If children play there, that is the number that matters.
+- **Along the road, elevated but below the threshold.** The squares next to the road (300–340 ppm) are about twice the playground's typical level, from decades of leaded-gasoline exhaust.
+
+The original sample was precise and accurate, but it came from a hotspot, so it overstated the playground as a whole. Four squares chosen at random could just as easily miss the hotspot entirely, and understate the risk.
+
+Good sampling follows the question. To estimate the **average**, spread samples evenly. To find **hotspots**, also sample where lead is likely to collect: next to old buildings, along streets, and where soil is bare.
+
+</details>
+
+### Key takeaway
+
+A measurement can be analytically precise and still be poorly representative of what we want to know. Before using a value, ask what you are trying to get from it: does it cover the place, the time, and the scale of your question? Conversely, when reporting a value, be clear about what questions the data can address. 
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -587,5 +698,176 @@ document.addEventListener("DOMContentLoaded", () => {
     sourceCards.hidden = false;
     e.target.hidden = true;
   });
+  // ---------- Activity 3 ----------
+
+  // 3.1 One measurement, four questions
+  saved.claims = saved.claims || {};
+  const claimLabels = { enough: "Enough", partly: "Partly", not: "Not enough" };
+  const claimBank = document.getElementById("pond-dq-claims-bank");
+  const claimBox = document.getElementById("pond-dq-claims");
+  const claimList = document.createElement("ol");
+  claimList.className = "pond-dq-claim-list";
+  claimBank.querySelectorAll(".pond-dq-claim").forEach((div, n) => {
+    const [question, ...why] = div.children;
+    const li = document.createElement("li");
+    li.className = "pond-dq-claim-item";
+    li.innerHTML = `<div class="pond-dq-claim-q"></div>
+      <div class="pond-dq-choices" role="group"></div>
+      <div class="pond-dq-take" aria-live="polite" hidden></div>`;
+    li.querySelector(".pond-dq-claim-q").append(question.cloneNode(true));
+    const group = li.querySelector(".pond-dq-choices");
+    group.setAttribute("aria-label", `Question ${n + 1}: is one measurement enough?`);
+    const take = li.querySelector(".pond-dq-take");
+    function show() {
+      take.innerHTML = "";
+      why.forEach(p => take.append(p.cloneNode(true)));
+      take.hidden = false;
+    }
+    Object.entries(claimLabels).forEach(([value, label]) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pond-dq-tag";
+      btn.textContent = label;
+      btn.setAttribute("aria-pressed", String(saved.claims[n] === value));
+      btn.addEventListener("click", () => {
+        saved.claims[n] = value;
+        save();
+        group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+        show();
+      });
+      group.append(btn);
+    });
+    if (saved.claims[n]) show();
+    claimList.append(li);
+  });
+  claimBox.append(claimList);
+  claimBank.hidden = true;
+
+  // 3.2 Where would you sample? Values come from the table in the page.
+  const gridData = document.getElementById("pond-dq-playground-data");
+  const rows = [...gridData.querySelectorAll("tbody tr")].map(tr =>
+    [...tr.querySelectorAll("td")].slice(1).map(td => Number(td.textContent.trim())));
+  gridData.hidden = true;
+  const nRows = rows.length, nCols = rows[0].length, maxPicks = 4;
+  const original = "2-8";                       // the spot sampled in Activities 1–2
+  const sandbox = new Set(["4-6", "4-7", "4-8", "5-6", "5-7", "5-8"]);
+  const all = rows.flat();
+  const trueMean = all.reduce((a, b) => a + b, 0) / all.length;
+  // Sequential bins (one hue, light to dark); the last bin is at or above the threshold
+  const bins = [
+    { max: 100, color: "#cde2fb", label: "under 100" },
+    { max: 200, color: "#86b6ef", label: "100–199" },
+    { max: 400, color: "#3987e5", label: "200–399" },
+    { max: Infinity, color: "#104281", label: "400 or more" }
+  ];
+  const binOf = v => bins.find(b => v < b.max);
+  saved.gridPicks = Array.isArray(saved.gridPicks) ? saved.gridPicks : [];
+  let revealed = false;
+
+  const pg = document.getElementById("pond-dq-playground");
+  pg.innerHTML = `
+    <div class="pond-dq-site">
+      <div class="pond-dq-building" aria-hidden="true">School building (1950s, old lead paint)</div>
+      <div class="pond-dq-road" aria-hidden="true"><span>Road</span></div>
+      <div class="pond-dq-grid" role="group" aria-label="Playground grid. The school building is along the top edge (row 1); the road is along the left edge (column 1)."></div>
+    </div>
+    <ul class="pond-dq-legend pond-dq-sitekey">
+      <li><span class="pond-dq-swatch pond-dq-key-building"></span>School building</li>
+      <li><span class="pond-dq-swatch pond-dq-key-road"></span>Road</li>
+      <li><span class="pond-dq-swatch pond-dq-key-grass"></span>Playground (grass)</li>
+      <li><span class="pond-dq-swatch pond-dq-key-sand"></span>Sandbox</li>
+      <li><span class="pond-dq-key-sym">★</span>Already sampled</li>
+      <li><span class="pond-dq-key-sym">●</span>Your samples</li>
+    </ul>
+    <ul class="pond-dq-legend pond-dq-leadkey" hidden></ul>
+    <p class="pond-dq-status" aria-live="polite"></p>
+    <div class="pond-dq-actions">
+      <button type="button" class="btn btn-primary pond-dq-reveal-map" disabled>Reveal the lead map</button>
+      <button type="button" class="btn btn-outline-secondary pond-dq-reset">Start over</button>
+    </div>
+    <div class="pond-dq-take" aria-live="polite" hidden></div>`;
+  const grid = pg.querySelector(".pond-dq-grid");
+  const pgStatus = pg.querySelector(".pond-dq-status");
+  const revealMap = pg.querySelector(".pond-dq-reveal-map");
+  const pgTake = pg.querySelector(".pond-dq-take");
+  const legend = pg.querySelector(".pond-dq-leadkey");
+  grid.style.gridTemplateColumns = `repeat(${nCols}, 1fr)`;
+  legend.setAttribute("aria-label", "Lead in soil");
+  legend.innerHTML = `<li class="pond-dq-legend-title">Lead in soil:</li>` + bins.map(b =>
+    `<li><span class="pond-dq-swatch" style="background:${b.color}"></span>${b.label} ppm</li>`).join("");
+
+  function drawGrid() {
+    grid.innerHTML = "";
+    rows.forEach((row, r) => row.forEach((v, c) => {
+      const key = `${r + 1}-${c + 1}`;
+      const cell = document.createElement("button");
+      cell.type = "button";
+      cell.className = "pond-dq-cell";
+      cell.dataset.key = key;
+      const picked = saved.gridPicks.includes(key);
+      const isOriginal = key === original;
+      if (sandbox.has(key)) cell.classList.add("is-sandbox");
+      if (picked) cell.classList.add("is-picked");
+      let label = `Row ${r + 1}, column ${c + 1}`;
+      if (sandbox.has(key)) label += ", sandbox";
+      if (isOriginal) label += ", already sampled";
+      if (revealed) {
+        const bin = binOf(v);
+        cell.style.background = bin.color;
+        cell.classList.toggle("is-dark", bins.indexOf(bin) >= 2);
+        cell.textContent = isOriginal ? `★ ${v}` : v;
+        label += `: ${v} ppm`;
+        cell.title = `${v} ppm`;
+      } else {
+        cell.textContent = isOriginal ? "★" : (picked ? "●" : "");
+        cell.setAttribute("aria-pressed", String(picked));
+      }
+      if (isOriginal) cell.classList.add("is-original");
+      cell.setAttribute("aria-label", label);
+      cell.disabled = revealed || isOriginal;
+      cell.addEventListener("click", () => {
+        if (picked) saved.gridPicks = saved.gridPicks.filter(k => k !== key);
+        else if (saved.gridPicks.length < maxPicks) saved.gridPicks = [...saved.gridPicks, key];
+        save();
+        drawGrid();
+        grid.querySelector(`[data-key="${key}"]`).focus();
+      });
+      grid.append(cell);
+    }));
+    const n = saved.gridPicks.length;
+    revealMap.disabled = n < maxPicks || revealed;
+    if (!revealed) pgStatus.textContent = n < maxPicks
+      ? `${n} of ${maxPicks} squares chosen.` : "Four squares chosen. Reveal the map when you're ready.";
+  }
+
+  revealMap.addEventListener("click", () => {
+    revealed = true;
+    drawGrid();
+    revealMap.hidden = true;
+    legend.hidden = false;
+    const values = saved.gridPicks.map(k => { const [r, c] = k.split("-").map(Number); return rows[r - 1][c - 1]; });
+    const yours = values.reduce((a, b) => a + b, 0) / values.length;
+    const above = all.filter(v => v >= 400).length;
+    pgStatus.textContent = "";
+    pgTake.innerHTML = `
+      <p><strong>Your four samples:</strong> ${values.join(", ")} ppm, averaging <strong>${Math.round(yours)} ppm</strong>.</p>
+      <p><strong>The original sample (★):</strong> 420 ppm.</p>
+      <p><strong>The whole playground:</strong> averages <strong>${Math.round(trueMean)} ppm</strong>;
+      ${above} of ${all.length} squares are at or above 400 ppm.</p>`;
+    pgTake.hidden = false;
+    pgTake.setAttribute("tabindex", "-1");
+    pgTake.focus();
+  });
+
+  pg.querySelector(".pond-dq-reset").addEventListener("click", () => {
+    revealed = false;
+    saved.gridPicks = [];
+    save();
+    legend.hidden = true;
+    pgTake.hidden = true;
+    revealMap.hidden = false;
+    drawGrid();
+  });
+  drawGrid();
 });
 </script>
