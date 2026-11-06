@@ -1567,3 +1567,358 @@ The goal is not to reward the longest documentation. It is to decide what provid
 ```
 
 
+```{=html}
+<style>
+#pond-d5-a3 .rank-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+#pond-d5-a3 .rank-panel {
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: .6rem;
+  padding: .85rem;
+}
+#pond-d5-a3 .rank-panel h4 {
+  margin: 0 0 .4rem;
+  font-size: 1rem;
+}
+#pond-d5-a3 .rank-list {
+  display: grid;
+  gap: .4rem;
+}
+#pond-d5-a3 .rank-add,
+#pond-d5-a3 .rank-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem;
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: .4rem;
+  background: var(--bs-tertiary-bg, #f5f5f5);
+  color: var(--bs-body-color, #222);
+  font-size: .85rem;
+}
+#pond-d5-a3 .rank-add {
+  cursor: pointer;
+  text-align: left;
+}
+#pond-d5-a3 .rank-item span:nth-child(2) {
+  flex: 1;
+}
+#pond-d5-a3 .rank-number {
+  font-weight: 700;
+  min-width: 1.6rem;
+}
+#pond-d5-a3 .rank-item button {
+  padding: .2rem .4rem;
+  background: var(--bs-body-bg, #fff);
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: .3rem;
+  cursor: pointer;
+}
+#pond-d5-a3 .rank-item button:disabled {
+  opacity: .3;
+}
+#pond-d5-a3 .rank-action {
+  background: var(--bs-primary, #276e88);
+  color: white;
+  padding: .65rem 1rem;
+  border: 0;
+  border-radius: .4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+#pond-d5-a3 .rank-action:disabled {
+  opacity: .4;
+}
+#pond-d5-a3 .rank-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 42%) 1fr 1.5rem;
+  align-items: center;
+  gap: .45rem;
+  margin: .4rem 0;
+  font-size: .8rem;
+}
+#pond-d5-a3 .rank-track {
+  height: .8rem;
+  background: var(--bs-tertiary-bg, #f5f5f5);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+#pond-d5-a3 .rank-fill {
+  display: flex;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+#pond-d5-a3 .rank-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: .8rem;
+  margin: .65rem 0;
+}
+#pond-d5-a3 .rank-legend span {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+#pond-d5-a3 .rank-swatch {
+  width: .8rem;
+  height: .7rem;
+}
+@media (max-width: 750px) {
+  #pond-d5-a3 .rank-columns {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+(() => {
+  const section = document.querySelector(
+    '#pond-d5-a3 #d5-a3-survey'
+  );
+  if (!section) return;
+
+  // Replace only the survey after Activity 3 initializes.
+  const reasons = [
+    ['time', 'It takes too much time'],
+    ['incentives', 'There is little professional reward'],
+    ['future', 'Future users’ needs are hard to predict'],
+    ['late', 'Documentation starts too late in the project'],
+    ['training', 'Researchers lack metadata training'],
+    ['tools', 'Existing tools make the work cumbersome'],
+    ['unknown', 'Relevant community conventions are unfamiliar'],
+    ['missing', 'Suitable community conventions do not exist'],
+    ['assume', 'Teams assume others share their context'],
+    ['deadlines', 'Documentation competes with publication deadlines'],
+    ['afterthought', 'Data sharing is treated as an afterthought'],
+    ['other', 'Other reason']
+  ];
+
+  const names = Object.fromEntries(reasons);
+  const ranking = [];
+
+  section.innerHTML = `
+    <h3>Why isn't dream documentation routine?</h3>
+    <p>
+      Many barriers may apply.
+      <strong>Select the ones that matter to you, in order
+      of importance.</strong> Rank as many as you like, and
+      stop when you've captured your priorities.
+    </p>
+
+    <div class="rank-columns">
+      <div class="rank-panel">
+        <h4>Possible barriers</h4>
+        <div id="rank-available" class="rank-list"></div>
+      </div>
+
+      <div class="rank-panel">
+        <h4>Your ranking</h4>
+        <p><small>
+          #1 is your biggest barrier. Use ↑, ↓, or ×
+          to change the order.
+        </small></p>
+        <div id="rank-selected" class="rank-list"
+             aria-live="polite"></div>
+        <div id="rank-other" hidden>
+          <label for="rank-other-input">
+            Other barrier (optional)
+          </label>
+          <input id="rank-other-input" type="text"
+                 maxlength="200"
+                 style="max-width:100%;width:100%">
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="rank-action"
+            id="rank-submit" disabled>
+      Compare responses
+    </button>
+    <span id="rank-status" aria-live="polite">
+      Rank at least one barrier.
+    </span>
+
+    <div id="rank-results" hidden>
+      <h4>Your ranking</h4>
+      <p><small>
+        This is a local preview of your choices, not
+        cumulative learner responses. No data were
+        submitted or stored.
+      </small></p>
+      <div class="rank-legend"></div>
+      <div id="rank-chart"></div>
+      <p>
+        <strong>How does your ranking reflect the tradeoffs
+        of documenting reusable data?</strong>
+        Once we connect the survey to Google Sheets,
+        this chart can show community response counts
+        and rank distributions.
+      </p>
+    </div>
+  `;
+
+  const available = section.querySelector('#rank-available');
+  const selected = section.querySelector('#rank-selected');
+  const submit = section.querySelector('#rank-submit');
+  const status = section.querySelector('#rank-status');
+  let locked = false;
+
+  function update() {
+    available.replaceChildren();
+    selected.replaceChildren();
+
+    reasons
+      .filter(([id]) => !ranking.includes(id))
+      .forEach(([id, label]) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'rank-add';
+        b.textContent = '+ ' + label;
+        b.disabled = locked;
+        b.onclick = () => {
+          ranking.push(id);
+          update();
+        };
+        available.appendChild(b);
+      });
+
+    if (!ranking.length) {
+      selected.textContent = 'No barriers ranked yet.';
+    }
+
+    ranking.forEach((id, i) => {
+      const row = document.createElement('div');
+      row.className = 'rank-item';
+
+      const num = document.createElement('span');
+      num.className = 'rank-number';
+      num.textContent = (i + 1) + '.';
+
+      const name = document.createElement('span');
+      name.textContent = names[id];
+      row.append(num, name);
+
+      const actions = [
+        ['↑', i > 0, () => {
+          [ranking[i - 1], ranking[i]] =
+            [ranking[i], ranking[i - 1]];
+        }],
+        ['↓', i < ranking.length - 1, () => {
+          [ranking[i + 1], ranking[i]] =
+            [ranking[i], ranking[i + 1]];
+        }],
+        ['×', true, () => ranking.splice(i, 1)]
+      ];
+
+      actions.forEach(([text, enabled, act]) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = text;
+        b.disabled = locked || !enabled;
+
+        b.setAttribute(
+          'aria-label',
+          text === '×'
+            ? 'Remove ' + names[id]
+            : (text === '↑' ? 'Move up ' : 'Move down ') +
+              names[id]
+        );
+
+        b.onclick = () => {
+          act();
+          update();
+        };
+        row.appendChild(b);
+      });
+
+      selected.appendChild(row);
+    });
+
+    section.querySelector('#rank-other').hidden =
+      !ranking.includes('other');
+
+    submit.disabled = locked || ranking.length === 0;
+
+    status.textContent = locked
+      ? 'Practice preview only. No submission was sent.'
+      : ranking.length +
+        ' barrier(s) ranked. Add more if you like.';
+  }
+
+  update();
+
+  submit.onclick = () => {
+    if (!ranking.length || locked) return;
+
+    locked = true;
+    update();
+
+    const colors = [
+      '#246b80',
+      '#518fa3',
+      '#86b6be',
+      '#b9d7d9'
+    ];
+
+    const legend = section.querySelector('.rank-legend');
+
+    ['#1', '#2', '#3', '#4 or later'].forEach((label, i) => {
+      const el = document.createElement('span');
+      const sw = document.createElement('span');
+      sw.className = 'rank-swatch';
+      sw.style.background = colors[i];
+      el.append(sw, document.createTextNode(label));
+      legend.appendChild(el);
+    });
+
+    const chart = section.querySelector('#rank-chart');
+
+    reasons
+      .map(([id, name]) => ({
+        id,
+        name,
+        position: ranking.indexOf(id)
+      }))
+      .sort((a, b) => {
+        if (a.position < 0) return 1;
+        if (b.position < 0) return -1;
+        return a.position - b.position;
+      })
+      .forEach(x => {
+        const row = document.createElement('div');
+        row.className = 'rank-row';
+
+        const label = document.createElement('span');
+        label.textContent = x.name;
+
+        const track = document.createElement('div');
+        track.className = 'rank-track';
+
+        if (x.position >= 0) {
+          const fill = document.createElement('div');
+          fill.className = 'rank-fill';
+          fill.style.width = '100%';
+          fill.style.background =
+            colors[Math.min(x.position, 3)];
+          track.appendChild(fill);
+        }
+
+        const value = document.createElement('span');
+        value.textContent = x.position >= 0 ? '1' : '0';
+
+        row.append(label, track, value);
+        chart.appendChild(row);
+      });
+
+    section.querySelector('#rank-results').hidden = false;
+  };
+})();
+</script>
+```
+
