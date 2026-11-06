@@ -1,13 +1,23 @@
+
 ---
 title: "Citing Datasets"
-
+description: "Learn how to cite datasets in scientific manuscripts, give credit to data creators, and identify the specific data used in your research."
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+Datasets are research products in their own right. Just like scientific papers, software, and workflows, they deserve proper attribution. Citing data gives credit to the researchers who collected, processed, and shared them, while helping others find the information behind scientific results.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+But citing data isn't always as straightforward as citing a paper.
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
-:::
+What if a dataset has an associated scientific publication or a data paper? Should you cite the paper, the dataset, or both? What if the dataset has been updated since you downloaded it? And how should you reference data that you collected yourself?
+
+In this LilyPad, you'll explore two common situations:
+
+1. **Citing someone else's data:** How do you acknowledge the original researchers, distinguish between related publications and the dataset itself, and identify the data you actually used?
+2. **Citing your own data:** How do you make your dataset citable and reference it as your manuscript moves from submission to publication?
+
+By the end, you'll know how to incorporate data citations into a scientific manuscript, including its reference list and Data Availability Statement, and why citing the right dataset matters.
+
+
+## 1. What exactly are you citing?
+
+
