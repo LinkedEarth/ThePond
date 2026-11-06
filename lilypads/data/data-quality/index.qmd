@@ -3,11 +3,271 @@ title: "Data Quality and Provenance"
 
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+Imagine that you are a city official charged with determining whether schools in your district meet lead (Pb) exposure standards. Sampling in the district is done by various testing companies, using various instruments, each with a given nominal precision. State and city procedures mandate that each measurement be replicated at least once (preferably more). The instruments have known biases that can be corrected for.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+Lead concentrations can be reported in several units:
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
+| Unit name | Abbreviation | Equivalent to 400 ppm (EPA play area limit) |
+| :--- | :--- | :--- |
+| **Parts per million** | ppm | 400 ppm |
+| **Milligrams per kilogram** | mg/kg | 400 mg/kg |
+| **Micrograms per gram** | µg/g | 400 µg/g |
+| **Parts per billion** | ppb | 400,000 ppb |
+| **Percent by weight** | % | 0.04% |
+
+The recommended thresholds also vary by medium:
+
+| Medium | Specific target type | EPA threshold value |
+| :--- | :--- | :--- |
+| **Paint / Dust** | Liquid/surface paint limit | 90 ppm (0.009%) |
+| **Soil** | Bare soil, child play areas | 400 ppm |
+| **Tap water** | Public utility action level | 10 ppb (0.010 mg/L) |
+
+## 1. Where did this value come from?
+
+### 1.1 A spreadsheet from a new employee
+
+One day, a new employee of yours hands you a spreadsheet that looks like this:
+
+::: {.pond-dq-notes}
+| Sample ID | Location | Value | Safe? |
+| :--- | :--- | ---: | :---: |
+| PB-001 | FAIRVIEW ELEM. | 12 | Yes |
+| PB-002 | LINCOLN MIDDLE | 150 | Yes |
+| PB-003 | ROOSEVELT HIGH | 0.03 | Yes |
+| PB-004 | JEFFERSON ELEM. | 420 | No |
+| PB-005 | WASHINGTON ELEM. | 8 | Yes |
 :::
+
+[Fictional schools and values created for The Pond (2026).]{.pond-dq-credit}
+
+**Your turn!**
+
+Four of the five schools are marked safe. Before you report that to the city council:
+
+1. How do you think the **Safe?** column was decided?
+2. What would you need to know to check it yourself?
+
+```{=html}
+<div class="pond-dq">
+  <label for="pond-dq-new-employee"><strong>My observations</strong></label>
+  <textarea id="pond-dq-new-employee" class="pond-dq-response" rows="4"
+    placeholder="Write your answers here..."></textarea>
+</div>
+```
+
+<details class="pond-dq-reveal">
+<summary>Compare with our answer</summary>
+
+Each value must be an average of replicates, but the spreadsheet doesn't say **of how many samples**, **in what units**, or **with what precision**. Nor does it say what was sampled, so you can't tell which threshold applies.
+
+A **Safe?** column is not a reproducible determination: without the information behind it, you can't check it.
+
+</details>
+
+### 1.2 The same spreadsheet, from a senior employee
+
+Now suppose that the exact same spreadsheet had come from your most senior employee, who has done this work for twenty years.
+
+**Your turn!** Would you trust it more?
+
+```{=html}
+<div class="pond-dq-whatif" role="group" aria-label="Would you trust it more?">
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="It's natural to give an experienced colleague more credit. But look again: the table is identical, so it contains no more evidence than before.">Yes, more</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Right: the table is identical, so it contains no more evidence than before.">No, the same</button>
+</div>
+<p class="pond-dq-take" aria-live="polite" hidden></p>
+```
+
+<details class="pond-dq-reveal">
+<summary>Why it matters</summary>
+
+The employee's experience is not the relevant variable here; **metadata** are. An experienced person may years of precedent to justify how they do things, but also more unstated assumptions. If you are not operating with the same assumptions, their spreadsheet may lead you astray. We will come back to trust and reputation in Activity 5.
+
+</details>
+
+### 1.3 A better dataset
+
+Here is the same survey, with the information that was missing:
+
+::: {.pond-dq-notes .pond-dq-wide}
+| Sample ID | Location | Medium | # replicates | Instrument | Value | Units | Precision | Threshold | Safe? |
+| :--- | :--- | :--- | ---: | :--- | ---: | :--- | :--- | :--- | :---: |
+| PB-001 | FAIRVIEW ELEM. | Tap water | 3 | Lab spectrometer | 12 | ppb | ± 1 | 10 ppb | No |
+| PB-002 | LINCOLN MIDDLE | Soil | 2 | Handheld analyzer B | 150 | ppm | ± 15 | 400 ppm | Yes |
+| PB-003 | ROOSEVELT HIGH | Paint | 2 | Handheld analyzer A | 0.03 | % | ± 0.005 | 0.009% | No |
+| PB-004 | JEFFERSON ELEM. | Soil | 4 | Handheld analyzer B | 420 | ppm | ± 20 | 400 ppm | No |
+| PB-005 | WASHINGTON ELEM. | Tap water | 1 | Lab spectrometer | 8 | ppb | ± 1 | 10 ppb | Yes |
+:::
+
+Two schools have changed from "Yes" to "No." The new employee had applied the soil threshold, 400, to every row, whatever the medium and units.
+
+**Your turn!**
+
+1. Which stage of the data has actually been archived?
+2. Can the processed value be traced back to the original observations?
+3. What transformations occurred?
+4. Are those transformations documented?
+5. Could another researcher reproduce the processed value?
+
+```{=html}
+<div class="pond-dq">
+  <label for="pond-dq-better-dataset"><strong>My observations</strong></label>
+  <textarea id="pond-dq-better-dataset" class="pond-dq-response" rows="5"
+    placeholder="Write your answers here..."></textarea>
+</div>
+```
+
+<details class="pond-dq-reveal">
+<summary>Compare with our answer</summary>
+
+1. **The average.** Each value summarizes several replicate measurements.
+2. **No.** The individual replicates have not been archived, and they should be.
+3. **Averaging, then comparison with a threshold.** (The bias corrections mentioned at the start may have been applied too; the table doesn't say.)
+4. **Not explicitly.** They can be inferred from the metadata: the reported medium tells us which units and threshold were likely used. It would be better to make this explicit.
+5. **Not without the actual workflow:** which replicates went into each average, which corrections were applied, and how. See [What is a Workflow?](../../workflow/what-is-a-workflow/index.qmd)
+
+Did you spot that WASHINGTON ELEM. has only **one** replicate? The procedures require at least two measurements, so that "Yes" should not stand until the school is resampled.
+
+</details>
+
+### 1.4 How could we do better?
+
+Even the better table can't answer every question. Some of the evidence you need lives **outside** the numerical dataset.
+
+**Your turn!** Which of these would you ask the testing companies for? Select as many as you like, then reveal what each one would tell you.
+
+```{=html}
+<div id="pond-dq-evidence" class="pond-dq"></div>
+```
+
+<!-- Ancillary evidence. data-name is the label on the button; the text inside is revealed. -->
+
+::: {#pond-dq-evidence-bank}
+::: {.pond-dq-evidence data-name="Calibration records"}
+Show how each instrument's readings were converted and corrected for its known bias, and when it was last checked.
+:::
+
+::: {.pond-dq-evidence data-name="Instrument logs"}
+Record errors, maintenance, and failed readings: was the analyzer working properly on the day PB-004 was measured?
+:::
+
+::: {.pond-dq-evidence data-name="Field notes"}
+Describe the conditions: was the tap at FAIRVIEW ELEM. flushed before sampling? Was the soil at JEFFERSON ELEM. wet?
+:::
+
+::: {.pond-dq-evidence data-name="Replicate measurements"}
+Let you see how much the replicates disagree, and recompute each average yourself.
+:::
+
+::: {.pond-dq-evidence data-name="Standards / reference materials"}
+Samples with a certified lead content, measured alongside the real ones, show whether the instrument read accurately that day.
+:::
+
+::: {.pond-dq-evidence data-name="Processing code"}
+Documents exactly how replicates were averaged, corrections applied, and thresholds chosen, so anyone can rerun or check it.
+:::
+
+::: {.pond-dq-evidence data-name="Photographs or images"}
+Show where each sample was taken: a play area, or a flower bed by the parking lot?
+:::
+
+::: {.pond-dq-evidence data-name="Sample metadata"}
+Who collected each sample, when, and how it was stored and handled before analysis.
+:::
+:::
+
+### Key takeaway
+
+Evidence supporting data quality may exist outside the numerical dataset itself. More metadata tends to be a good thing, but it often involves a tradeoff because it takes time and effort to maintain complete metadata records, so scientists often land on a compromise between what is ideal and what simply "clears the bar" (which is context-dependent, and might evolve over time). 
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Learner answers stay in this browser only
+  const storageKey = "pond-data-quality";
+  let saved = { notes: {}, picks: [] };
+  try {
+    saved = Object.assign(saved, JSON.parse(localStorage.getItem(storageKey)) || {});
+  } catch (e) {}
+  if (!Array.isArray(saved.picks)) saved.picks = [];
+  function save() {
+    try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch (e) {}
+  }
+
+  // Free-text answers
+  document.querySelectorAll(".pond-dq-response").forEach(box => {
+    box.value = saved.notes[box.id] || "";
+    box.addEventListener("input", () => { saved.notes[box.id] = box.value; save(); });
+  });
+
+  // Single-choice buttons that show a short verdict
+  document.querySelectorAll(".pond-dq-whatif").forEach(group => {
+    const out = group.nextElementSibling;
+    group.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+        out.textContent = btn.dataset.verdict;
+        out.hidden = false;
+      });
+    });
+  });
+
+  // Part 4: pick the evidence you would request, then reveal what each tells you
+  const bank = document.getElementById("pond-dq-evidence-bank");
+  const box = document.getElementById("pond-dq-evidence");
+  const items = [...bank.querySelectorAll(".pond-dq-evidence")].map(div => ({
+    name: div.dataset.name, html: div.innerHTML
+  }));
+  bank.hidden = true;
+
+  box.innerHTML = `
+    <div class="pond-dq-choices" role="group" aria-label="Evidence to request"></div>
+    <p class="pond-dq-status" aria-live="polite"></p>
+    <button type="button" class="btn btn-primary">Reveal what each one tells you</button>
+    <div class="pond-dq-cards" hidden></div>`;
+  const choices = box.querySelector(".pond-dq-choices");
+  const status = box.querySelector(".pond-dq-status");
+  const cards = box.querySelector(".pond-dq-cards");
+  const revealBtn = box.querySelector(".btn-primary");
+
+  function updateStatus() {
+    const n = saved.picks.length;
+    status.textContent = n ? `${n} of ${items.length} selected.` : "Nothing selected yet.";
+  }
+
+  items.forEach(item => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pond-dq-tag";
+    btn.textContent = item.name;
+    btn.setAttribute("aria-pressed", String(saved.picks.includes(item.name)));
+    btn.addEventListener("click", () => {
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", String(on));
+      saved.picks = on ? [...saved.picks, item.name] : saved.picks.filter(p => p !== item.name);
+      save();
+      updateStatus();
+      const card = cards.querySelector(`[data-name="${CSS.escape(item.name)}"]`);
+      if (card) card.classList.toggle("is-picked", on);
+    });
+    choices.append(btn);
+  });
+  updateStatus();
+
+  revealBtn.addEventListener("click", () => {
+    cards.innerHTML = "";
+    items.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "pond-dq-card";
+      card.dataset.name = item.name;
+      card.classList.toggle("is-picked", saved.picks.includes(item.name));
+      card.innerHTML = `<h4></h4><div class="pond-dq-card-text"></div>`;
+      card.querySelector("h4").textContent = item.name;
+      card.querySelector(".pond-dq-card-text").innerHTML = item.html;
+      cards.append(card);
+    });
+    cards.hidden = false;
+    revealBtn.hidden = true;
+  });
+});
+</script>
