@@ -699,3 +699,871 @@ Morgan left a project folder behind. It looks fairly organized, and the files ca
 
 **Coming next:** Morgan's folder tells us what happens when important context is undocumented. In Activity 3, we'll compare three levels of documentation for this same study and ask: **how much is enough?**
 
+
+# 3. How much documentation is enough?
+
+You found several gaps in Morgan's folder. Suppose **Sam**, the hydrologist from Activity 1, wants to use these same nitrate measurements to **compare upstream and downstream sites** and share the resulting dataset with collaborators.
+
+How much additional documentation would Sam actually need? Below are **three documentation packages for exactly the same measurements**. Only the information supplied alongside the dataset changes.
+
+**Compare all three packages.** Open a few files in each to see what information is available. Then choose **which package you would prefer to inherit for Sam's project** before revealing the tradeoffs.
+
+The goal is not to reward the longest documentation. It is to decide what provides enough context for the intended task without unnecessary effort.
+
+```{=html}
+<style>
+#pond-d5-a3 {
+  --d5-ink: var(--bs-body-color, #243246);
+  --d5-muted: var(--bs-secondary-color, #596579);
+  --d5-border: var(--bs-border-color, #d5dce3);
+  --d5-panel: var(--bs-body-bg, #fff);
+  --d5-soft: var(--bs-tertiary-bg, #f3f6f8);
+  --d5-accent: var(--bs-primary, #28718a);
+  --d5-ok: #13765c;
+  color: var(--d5-ink);
+  margin: 1.2rem 0 1.5rem;
+}
+#pond-d5-a3 [hidden] { display: none !important; }
+#pond-d5-a3 button { font: inherit; }
+#pond-d5-a3 button:focus-visible,
+#pond-d5-a3 input:focus-visible {
+  outline: 3px solid var(--d5-accent);
+  outline-offset: 2px;
+}
+#pond-d5-a3 .d5-note {
+  font-size: .86rem;
+  color: var(--d5-muted);
+  margin: .5rem 0;
+}
+#pond-d5-a3 .d5-primary {
+  border: 1px solid var(--d5-accent);
+  border-radius: .45rem;
+  background: var(--d5-accent);
+  color: #fff;
+  cursor: pointer;
+  font-size: .86rem;
+  font-weight: 700;
+  padding: .65rem .95rem;
+}
+#pond-d5-a3 .d5-primary:disabled {
+  opacity: .48;
+  cursor: not-allowed;
+}
+
+/* Package comparison */
+#pond-d5-a3 .d5-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .85rem;
+  margin: .85rem 0 1rem;
+}
+#pond-d5-a3 .d5-compare-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: .9rem;
+  border: 1px solid var(--d5-border);
+  border-radius: .7rem;
+  background: var(--d5-panel);
+}
+#pond-d5-a3 .d5-compare-card.is-selected {
+  outline: 2px solid var(--d5-accent);
+}
+#pond-d5-a3 .d5-compare-card h3 {
+  font-size: 1.04rem;
+  margin: .1rem 0 .4rem;
+  line-height: 1.25;
+}
+#pond-d5-a3 .d5-tag {
+  font-size: .76rem;
+  font-weight: 750;
+  color: var(--d5-accent);
+}
+#pond-d5-a3 .d5-compare-card p {
+  font-size: .83rem;
+  line-height: 1.45;
+  margin: .35rem 0 .6rem;
+}
+#pond-d5-a3 .d5-compare-files {
+  display: grid;
+  gap: .3rem;
+  margin: .35rem 0 .9rem;
+}
+#pond-d5-a3 .d5-compare-file {
+  width: 100%;
+  padding: .44rem .5rem;
+  border: 1px solid var(--d5-border);
+  border-radius: .35rem;
+  background: var(--d5-soft);
+  color: var(--d5-ink);
+  font-size: .76rem;
+  text-align: left;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+#pond-d5-a3 .d5-compare-file[aria-pressed="true"] {
+  border-color: var(--d5-accent);
+  background: var(--d5-panel);
+  box-shadow: inset 3px 0 0 var(--d5-accent);
+}
+#pond-d5-a3 .d5-pick {
+  margin-top: auto;
+  border: 1px solid var(--d5-accent);
+  border-radius: .45rem;
+  padding: .62rem .5rem;
+  color: var(--d5-accent);
+  background: var(--d5-panel);
+  font-size: .82rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+#pond-d5-a3 .d5-pick[aria-pressed="true"] {
+  color: #fff;
+  background: var(--d5-accent);
+}
+
+/* File inspector */
+#pond-d5-a3 .d5-inspector {
+  padding: .9rem 1rem;
+  border: 1px solid var(--d5-border);
+  border-radius: .65rem;
+  margin: .9rem 0;
+  background: var(--d5-soft);
+}
+#pond-d5-a3 .d5-inspector h4 {
+  font-size: .98rem;
+  margin: 0 0 .4rem;
+}
+#pond-d5-a3 .d5-inspector p,
+#pond-d5-a3 .d5-inspector li {
+  font-size: .86rem;
+  line-height: 1.5;
+}
+#pond-d5-a3 .d5-inspector ul {
+  padding-left: 1.25rem;
+}
+#pond-d5-a3 .d5-inspector code {
+  overflow-wrap: anywhere;
+}
+
+/* Decision and feedback */
+#pond-d5-a3 .d5-single-decision {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .65rem;
+  margin: 1rem 0;
+}
+#pond-d5-a3 .d5-single-decision p {
+  flex: 1 1 15rem;
+  font-size: .88rem;
+  margin: 0;
+}
+#pond-d5-a3 .d5-comparison-feedback {
+  border: 1px solid var(--d5-border);
+  border-radius: .7rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+#pond-d5-a3 .d5-comparison-feedback h3 {
+  font-size: 1.15rem;
+  margin: 0 0 .6rem;
+}
+#pond-d5-a3 .d5-result-row {
+  padding: .75rem 0;
+  border-top: 1px solid var(--d5-border);
+}
+#pond-d5-a3 .d5-result-row h4 {
+  font-size: .98rem;
+  margin: 0 0 .35rem;
+}
+#pond-d5-a3 .d5-result-row p {
+  font-size: .87rem;
+  margin: .3rem 0;
+}
+#pond-d5-a3 .d5-result-label {
+  font-size: .77rem;
+  color: var(--d5-accent);
+  font-weight: 750;
+}
+
+/* Bridge to community conventions */
+#pond-d5-a3 .d5-bridge {
+  margin: 1.15rem 0 1.5rem;
+  border-left: 3px solid var(--d5-ok);
+  padding: .8rem 1rem;
+  background: var(--d5-soft);
+  border-radius: .35rem;
+}
+#pond-d5-a3 .d5-bridge p {
+  margin: 0 0 .5rem;
+}
+
+/* Barrier survey */
+#pond-d5-a3 .d5-survey {
+  border: 1px solid var(--d5-border);
+  border-radius: .75rem;
+  padding: 1rem;
+}
+#pond-d5-a3 .d5-survey h3 {
+  margin: 0 0 .45rem;
+  font-size: 1.15rem;
+}
+#pond-d5-a3 .d5-barriers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .5rem .75rem;
+  margin: .9rem 0;
+}
+#pond-d5-a3 .d5-barrier {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  padding: .6rem .7rem;
+  border: 1px solid var(--d5-border);
+  border-radius: .5rem;
+  cursor: pointer;
+  font-size: .84rem;
+  line-height: 1.4;
+}
+#pond-d5-a3 .d5-barrier:has(input:checked) {
+  border-color: var(--d5-accent);
+  background: var(--d5-soft);
+}
+#pond-d5-a3 .d5-barrier input {
+  margin-top: .15rem;
+  accent-color: var(--d5-accent);
+}
+#pond-d5-a3 .d5-other {
+  margin: .6rem 0;
+}
+#pond-d5-a3 .d5-other label {
+  display: block;
+  font-size: .84rem;
+  margin: 0 0 .3rem;
+}
+#pond-d5-a3 .d5-other input {
+  max-width: 100%;
+  width: 28rem;
+  border-radius: .4rem;
+  border: 1px solid var(--d5-border);
+  padding: .55rem .65rem;
+  background: var(--d5-panel);
+  color: var(--d5-ink);
+}
+#pond-d5-a3 .d5-survey-controls {
+  display: flex;
+  gap: .7rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: .8rem 0 .2rem;
+}
+#pond-d5-a3 .d5-count-note {
+  font-size: .84rem;
+  color: var(--d5-muted);
+}
+
+/* Results chart */
+#pond-d5-a3 .d5-results {
+  margin-top: 1.1rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--d5-border);
+}
+#pond-d5-a3 .d5-results h4 {
+  margin: 0 0 .35rem;
+  font-size: 1rem;
+}
+#pond-d5-a3 .d5-chart-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 39%) minmax(0, 1fr) 2rem;
+  align-items: center;
+  gap: .45rem .65rem;
+  margin: .45rem 0;
+}
+#pond-d5-a3 .d5-chart-label {
+  font-size: .78rem;
+  line-height: 1.25;
+}
+#pond-d5-a3 .d5-track {
+  height: .72rem;
+  border-radius: 2rem;
+  background: var(--d5-soft);
+  border: 1px solid var(--d5-border);
+  overflow: hidden;
+}
+#pond-d5-a3 .d5-fill {
+  height: 100%;
+  background: var(--d5-accent);
+  border-radius: 2rem;
+  min-width: 0;
+}
+#pond-d5-a3 .d5-value {
+  font-size: .77rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+#pond-d5-a3 .d5-end {
+  margin-top: 1.2rem;
+}
+#pond-d5-a3 .d5-end h3 {
+  font-size: 1.1rem;
+  margin: 0 0 .4rem;
+}
+#pond-d5-a3 .d5-end p {
+  margin: .4rem 0;
+}
+
+@media (max-width: 850px) {
+  #pond-d5-a3 .d5-compare-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  #pond-d5-a3 .d5-barriers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #pond-d5-a3 .d5-chart-row {
+    grid-template-columns: minmax(7rem, 42%) minmax(0, 1fr) 1.5rem;
+    gap: .4rem;
+  }
+}
+</style>
+
+<section id="pond-d5-a3" aria-label="Documentation comparison and barriers survey">
+
+  <p class="d5-note">
+    <strong>Reminder:</strong> All three packages describe the same fictional 2025 river-nitrate data. Each level adds documentation; none changes the underlying measurements. Package C includes everything in B.
+  </p>
+
+  <div class="d5-compare-grid" id="d5-a3-compare"
+       aria-label="Three documentation packages"></div>
+
+  <div class="d5-inspector" id="d5-a3-inspector" aria-live="polite">
+    <h4>Explore the documentation</h4>
+    <p>Select a file from any package above to inspect its contents. The data values are identical across packages.</p>
+  </div>
+
+  <div class="d5-single-decision">
+    <p id="d5-a3-choice-status" aria-live="polite">
+      <strong>Your choice:</strong> Select the package you would prefer for Sam's study.
+    </p>
+    <button type="button" class="d5-primary" id="d5-a3-reveal"
+            disabled aria-expanded="false" aria-controls="d5-a3-feedback">
+      Reveal the tradeoffs
+    </button>
+  </div>
+
+  <div class="d5-comparison-feedback" id="d5-a3-feedback" hidden>
+    <h3>What does each package make possible?</h3>
+    <p id="d5-a3-choice-reflection"></p>
+    <div id="d5-a3-results-rows"></div>
+    <p>
+      <strong>For Sam's task, B is the practical middle ground.</strong>
+      A leaves consequential gaps; C adds substantial value for other potential uses, but much of it goes beyond what Sam needs for this comparison. More documentation is not automatically better if the cost of producing it outweighs its likely reuse value.
+    </p>
+  </div>
+
+  <div class="d5-bridge" id="d5-a3-bridge" hidden>
+    <p>
+      <strong>What is the practical middle ground?</strong>
+      For Sam's comparison, the second package is enough: it identifies the nitrate measurement, sites, QC rules, revisions, and reuse conditions using shared conventions.
+      The third package adds considerable detail that may be more than this particular analysis requires, though it could enable other kinds of reuse.
+    </p>
+    <p>
+      Existing field conventions can reduce the work of deciding what to record.
+      For water-quality data, the US EPA's
+      <a href="https://www.epa.gov/waterdata/water-quality-exchange-web-template-files" target="_blank" rel="noopener">Water Quality eXchange (WQX) templates</a>
+      illustrate commonly captured information such as the measured characteristic, units, sample fraction, analytical method, and location.
+      Our fictional package borrows these ideas; it is not presented as a WQX-ready submission.
+    </p>
+  </div>
+
+  <div class="d5-survey" id="d5-a3-survey" hidden>
+    <h3>Why isn't dream documentation routine?</h3>
+    <p>
+      If richer documentation helps, why don't researchers always produce it?
+      <strong>Choose your three biggest barriers.</strong>
+      There is no correct answer.
+    </p>
+
+    <div class="d5-barriers" id="d5-a3-barriers"></div>
+
+    <div class="d5-other" id="d5-a3-other" hidden>
+      <label for="d5-a3-other-input">
+        Other reason (optional; no names or identifying details)
+      </label>
+      <input id="d5-a3-other-input" type="text" maxlength="200"
+             placeholder="A barrier not listed above">
+    </div>
+
+    <div class="d5-survey-controls">
+      <button type="button" id="d5-a3-submit" class="d5-primary" disabled>
+        Compare responses
+      </button>
+      <span class="d5-count-note" id="d5-a3-selection-count"
+            aria-live="polite">
+        Choose exactly 3 reasons (0/3 selected).
+      </span>
+    </div>
+
+    <div class="d5-results" id="d5-a3-results" hidden>
+      <h4>Barriers selected by learners</h4>
+      <p class="d5-note" id="d5-a3-results-note"></p>
+      <div id="d5-a3-chart" role="img"
+           aria-label="Ranked bar chart of selected barriers"></div>
+      <p class="d5-note">
+        Each respondent chooses three reasons, so the counts across bars add up to three times the number of responses. Optional write-in text is not shown publicly.
+      </p>
+      <p>
+        <strong>How do your choices compare?</strong>
+        Would a simple field convention address any of the most common barriers, or would a change in tools, training, incentives, or research planning be needed?
+      </p>
+    </div>
+  </div>
+
+  <div class="d5-end" id="d5-a3-end" hidden>
+    <h3>Key takeaway</h3>
+    <p>
+      Making data reusable means documenting enough of their scientific context that the intended users can understand and work with them correctly.
+      <strong>Community conventions provide a practical starting point</strong>, without requiring every project to create the most exhaustive metadata package imaginable.
+    </p>
+    <p>
+      This builds on the earlier LilyPads on <strong>data structure, metadata, and provenance</strong>. The next <a href="../citing-data/index.html">LilyPad</a> explores how to <strong>cite data in a manuscript</strong>.
+    </p>
+  </div>
+
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('pond-d5-a3');
+  if (!root || root.dataset.initialized === 'true') return;
+  root.dataset.initialized = 'true';
+
+  // CONFIGURATION:
+  // Paste your deployed Google Apps Script web-app /exec URL here.
+  // When empty, the survey operates as a local practice preview.
+  const SURVEY_URL = '';
+
+  // All documents and measurements below are fictional teaching examples.
+  const levels = [
+    {
+      title: 'A · The original handoff',
+      subtitle: 'Enough for someone who already knows Morgan’s practices?',
+      description: 'The original spreadsheets, a short README, site coordinates, and personal notes. This is essentially the folder you explored in Activity 2.',
+      files: [
+        [
+          'README.txt',
+          '<p>River nitrate study, May–June 2025. Use <code>final_data_v2.xlsx</code>. <code>NO3_mgL</code> is in mg/L. Sites are S01 and S03. See the site list for coordinates.</p>'
+        ],
+        [
+          'sites.csv',
+          '<p><code>S01</code> = upstream, 34.212, −118.441; <code>S03</code> = downstream, 34.187, −118.409. Coordinates are fictional teaching examples.</p>'
+        ],
+        [
+          'Morgan_notes.txt',
+          '<p>“June 12: corrected S01 in v2. S03 second run had an issue; marked QC 2. QC numbers are my shorthand, not the lab key. Check notebook.”</p>'
+        ],
+        [
+          'Other files',
+          '<p>The revised master, a presentation-only subset, and a raw instrument export are included. <strong>No QC key, precise nitrate reporting definition, complete correction rationale, or reuse license</strong> is provided.</p>'
+        ]
+      ],
+      result: 'For Sam’s task: not yet sufficient',
+      explanation: 'Sam can find the site coordinates and revised master, but still cannot tell precisely what the nitrate numbers mean, whether the flagged result is usable, or what the sharing terms are. Guessing these details could change the comparison. This package can work for Morgan, but its usefulness depends on context that has not been written down.',
+      reflection: 'The missing information is not a longer narrative of the whole project; it is a small number of consequential definitions and decisions.'
+    },
+    {
+      title: 'B · Field-aligned documentation',
+      subtitle: 'A practical baseline for another hydrologist',
+      description: 'The same data files now come with a short, explicit documentation package using widely understood terminology and conventions.',
+      files: [
+        [
+          'README.md',
+          '<p><strong>Purpose:</strong> compare nitrate concentrations at an upstream and downstream site (May–June 2025). <strong>Data product:</strong> revised master <code>stream_nitrate_2025.csv</code>. <strong>Method:</strong> filtered stream-water samples measured by laboratory ion chromatography. Dates use YYYY-MM-DD and coordinates are WGS84 latitude/longitude.</p>'
+        ],
+        [
+          'sites.csv',
+          '<p>Site S01: 34.212, −118.441 (upstream); site S03: 34.187, −118.409 (downstream). The coordinates are fictional teaching values. This lookup was kept from the original package and is now explicitly referenced by the README.</p>'
+        ],
+        [
+          'data_dictionary.csv',
+          '<ul><li><code>site</code>: ID linked to <code>sites.csv</code></li><li><code>NO3_mgL</code>: dissolved nitrate expressed as nitrate ion (NO₃⁻), <strong>mg NO₃⁻/L</strong>, determined from filtered stream-water samples by the laboratory method described in the README</li><li><code>qc</code>: quality flag defined in <code>QC_key.txt</code></li><li>Sampling dates and coordinates follow documented date and geospatial conventions.</li></ul>'
+        ],
+        [
+          'QC_key.txt',
+          '<p><code>1</code> = accepted measurement; <code>2</code> = flagged: second instrument run did not meet the documented repeatability criterion. <strong>For the planned upstream/downstream comparison, use QC 1 only.</strong> Retain flagged values in the master with their flags; do not silently delete them.</p>'
+        ],
+        [
+          'revisions-and-rights.md',
+          '<p>June S01 changed from <code>0.74</code> to <code>0.47</code> mg NO₃⁻/L after a transcription error was checked against the lab record. The presentation subset omitted QC 2 for that particular use; the master retains it. <strong>License:</strong> CC BY 4.0, approved by the fictional data creators, with attribution required.</p>'
+        ]
+      ],
+      result: 'For Sam’s task: sufficient',
+      explanation: 'Sam now has the site locations, unambiguous measurement description, quality-control definitions, relevant correction notes, and sharing terms. For this specific upstream/downstream comparison, Sam can select appropriate observations and explain the choice without relying on Morgan’s memory.',
+      reflection: 'This package is not necessarily enough for every future purpose. It is enough for the use we defined, and the conventions make it easier to understand and extend.'
+    },
+    {
+      title: 'C · Dream documentation',
+      subtitle: 'More detail for additional, possibly unforeseen questions',
+      description: 'The field-aligned package remains intact. Extra scientific context is added for users interested in methods, uncertainty, or different kinds of analysis.',
+      files: [
+        [
+          'all-of-B/',
+          '<p>Everything supplied in Package B is retained, including the documented study question, precise data dictionary, sites, QC key, revision notes, and license.</p>'
+        ],
+        [
+          'methods-and-calibration/',
+          '<p>Full instrument calibration records, analytical-method protocol, laboratory batch information, detection limits, and documentation of how measurement uncertainty was estimated.</p>'
+        ],
+        [
+          'field-and-site-context/',
+          '<p>Sampling logs, weather conditions, additional watershed maps, land-use context, descriptions of site selection, and links to supporting field notes.</p>'
+        ],
+        [
+          'provenance-and-links/',
+          '<p>Detailed processing decision log, links between measurements and laboratory records, structured field terminology, and references to supporting standards and related datasets.</p>'
+        ]
+      ],
+      result: 'More than Sam needs for this task',
+      explanation: 'This package could support deeper investigation of uncertainty, methods, or watershed context. Those additions may be valuable for some users, but they are not automatically needed for Sam’s straightforward upstream/downstream comparison.',
+      reflection: 'The question is not “How can we record the most metadata?” but “Which additional documentation is worth the effort for likely or high-value reuse?”'
+    }
+  ];
+
+  const compareNode = root.querySelector('#d5-a3-compare');
+  const inspectorNode = root.querySelector('#d5-a3-inspector');
+  const selectionStatus = root.querySelector('#d5-a3-choice-status');
+  const revealButton = root.querySelector('#d5-a3-reveal');
+  const feedbackNode = root.querySelector('#d5-a3-feedback');
+  const reflectionNode = root.querySelector('#d5-a3-choice-reflection');
+  const resultsRows = root.querySelector('#d5-a3-results-rows');
+
+  let preferred = null;
+
+  // Render all three documentation packages.
+  levels.forEach((lvl, i) => {
+    const letter = String.fromCharCode(65 + i);
+    const card = document.createElement('article');
+    card.className = 'd5-compare-card';
+
+    card.innerHTML = `
+      <div class="d5-tag">PACKAGE ${letter}</div>
+      <h3>${lvl.title.slice(4)}</h3>
+      <p><strong>${lvl.subtitle}</strong></p>
+      <p>${lvl.description}</p>
+      <div class="d5-compare-files"
+           aria-label="Files in package ${letter}"></div>
+      <button type="button" class="d5-pick" aria-pressed="false">
+        I prefer package ${letter}
+      </button>
+    `;
+
+    const fileList = card.querySelector('.d5-compare-files');
+
+    lvl.files.forEach(([name, content]) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'd5-compare-file';
+      button.textContent = '📄 ' + name;
+      button.setAttribute('aria-pressed', 'false');
+
+      button.addEventListener('click', () => {
+        compareNode.querySelectorAll('.d5-compare-file').forEach(b => {
+          b.setAttribute('aria-pressed', 'false');
+        });
+
+        button.setAttribute('aria-pressed', 'true');
+
+        inspectorNode.innerHTML = `
+          <h4>Package ${letter} · ${name}</h4>
+          ${content}
+        `;
+      });
+
+      fileList.appendChild(button);
+    });
+
+    card.querySelector('.d5-pick').addEventListener('click', () => {
+      preferred = i;
+
+      compareNode.querySelectorAll('.d5-compare-card').forEach((other, n) => {
+        const isSelected = n === i;
+        other.classList.toggle('is-selected', isSelected);
+        other.querySelector('.d5-pick')
+          .setAttribute('aria-pressed', String(isSelected));
+      });
+
+      selectionStatus.innerHTML = `
+        <strong>Your choice:</strong>
+        Package ${letter} — ${lvl.title.slice(4)}.
+      `;
+
+      revealButton.disabled = false;
+
+      if (!feedbackNode.hidden) showFeedback();
+    });
+
+    compareNode.appendChild(card);
+  });
+
+  // Reveal the implications for all three packages.
+  function showFeedback() {
+    if (preferred === null) return;
+
+    const chosen = String.fromCharCode(65 + preferred);
+
+    reflectionNode.textContent =
+      `You chose package ${chosen}. Here is what each package offers for Sam's specific study. A preference for more detail can be reasonable; the key is whether it is worth the additional work.`;
+
+    resultsRows.innerHTML = levels.map((lvl, i) => {
+      const letter = String.fromCharCode(65 + i);
+
+      return `
+        <div class="d5-result-row">
+          <h4>Package ${letter} · ${lvl.title.slice(4)}</h4>
+          <div class="d5-result-label">${lvl.result}</div>
+          <p>${lvl.explanation}</p>
+          <p><em>${lvl.reflection}</em></p>
+        </div>
+      `;
+    }).join('');
+
+    feedbackNode.hidden = false;
+    revealButton.setAttribute('aria-expanded', 'true');
+    revealButton.textContent = 'Tradeoffs revealed';
+
+    root.querySelector('#d5-a3-bridge').hidden = false;
+    root.querySelector('#d5-a3-survey').hidden = false;
+    root.querySelector('#d5-a3-end').hidden = false;
+  }
+
+  revealButton.addEventListener('click', showFeedback);
+
+  // --------------------------------------------------
+  // Barriers survey
+  // --------------------------------------------------
+
+  const reasons = [
+    ['time', 'It takes too much time'],
+    ['incentives', 'There is little professional reward'],
+    ['future', 'Future users’ needs are hard to predict'],
+    ['late', 'Documentation starts too late in the project'],
+    ['training', 'Researchers lack metadata training'],
+    ['tools', 'Existing tools make the work cumbersome'],
+    ['unknown', 'Relevant community conventions are unfamiliar'],
+    ['missing', 'Suitable community conventions do not exist'],
+    ['assume', 'Teams assume others share their context'],
+    ['deadlines', 'Documentation competes with publication deadlines'],
+    ['afterthought', 'Data sharing is treated as an afterthought'],
+    ['other', 'Other reason']
+  ];
+
+  const barrierNode = root.querySelector('#d5-a3-barriers');
+  const otherNode = root.querySelector('#d5-a3-other');
+  const selectionNode = root.querySelector('#d5-a3-selection-count');
+  const submitNode = root.querySelector('#d5-a3-submit');
+  const resultNode = root.querySelector('#d5-a3-results');
+  const noteNode = root.querySelector('#d5-a3-results-note');
+  const chartNode = root.querySelector('#d5-a3-chart');
+
+  const selected = new Set();
+  let submitted = false;
+
+  function updateSelection() {
+    otherNode.hidden = !selected.has('other');
+
+    barrierNode.querySelectorAll('input').forEach(input => {
+      input.disabled = submitted ||
+        (selected.size >= 3 && !selected.has(input.value));
+    });
+
+    submitNode.disabled = selected.size !== 3 || submitted;
+
+    selectionNode.textContent = submitted
+      ? (SURVEY_URL
+          ? 'Your submission was attempted; delivery cannot be independently confirmed here.'
+          : 'Your three choices are locked for this local preview.')
+      : `Choose exactly 3 reasons (${selected.size}/3 selected).`;
+  }
+
+  reasons.forEach(([id, label]) => {
+    const element = document.createElement('label');
+    element.className = 'd5-barrier';
+
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.value = id;
+
+    input.addEventListener('change', () => {
+      if (input.checked) {
+        selected.add(id);
+      } else {
+        selected.delete(id);
+      }
+      updateSelection();
+    });
+
+    element.appendChild(input);
+
+    const caption = document.createElement('span');
+    caption.textContent = label;
+    element.appendChild(caption);
+
+    barrierNode.appendChild(element);
+  });
+
+  updateSelection();
+
+  // --------------------------------------------------
+  // Ranked bar chart
+  // --------------------------------------------------
+
+  function renderChart(counts, n, practice) {
+    chartNode.innerHTML = '';
+
+    const sorted = reasons.map(([id, label]) => ({
+      id,
+      label,
+      value: Number(counts[id] || 0)
+    })).sort((a, b) =>
+      b.value - a.value || a.label.localeCompare(b.label)
+    );
+
+    const max = Math.max(1, ...sorted.map(x => x.value));
+
+    sorted.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'd5-chart-row';
+
+      const label = document.createElement('span');
+      label.className = 'd5-chart-label';
+      label.textContent = item.label;
+
+      const track = document.createElement('div');
+      track.className = 'd5-track';
+
+      const fill = document.createElement('div');
+      fill.className = 'd5-fill';
+      fill.style.width = `${100 * item.value / max}%`;
+
+      track.appendChild(fill);
+
+      const value = document.createElement('span');
+      value.className = 'd5-value';
+      value.textContent = String(item.value);
+
+      row.append(label, track, value);
+      chartNode.appendChild(row);
+    });
+
+    chartNode.setAttribute(
+      'aria-label',
+      `${practice ? 'Local preview' : 'Cumulative results'}: ${n} responses; ` +
+      sorted.map(x => x.label + ' ' + x.value).join(', ')
+    );
+  }
+
+  function localPreview() {
+    const counts = Object.fromEntries(
+      reasons.map(([id]) => [id, selected.has(id) ? 1 : 0])
+    );
+
+    noteNode.textContent =
+      'Practice preview: this shows only your three selections. No data were sent or stored. Connect the survey endpoint to display cumulative learner responses.';
+
+    renderChart(counts, 1, true);
+  }
+
+  // Optional shared-results retrieval through Google Apps Script.
+  function getCounts() {
+    const callback = 'pondD5A3SurveyResults';
+    const script = document.createElement('script');
+
+    const cleanup = () => {
+      script.remove();
+      try { delete window[callback]; } catch (_) {}
+    };
+
+    window[callback] = data => {
+      cleanup();
+
+      if (!data || !data.counts || typeof data.responses !== 'number') {
+        noteNode.textContent =
+          'Shared results could not be read. Please try again later.';
+        return;
+      }
+
+      noteNode.textContent =
+        `Cumulative anonymous selections from ${data.responses} learner responses.`;
+
+      renderChart(data.counts, data.responses, false);
+    };
+
+    script.onerror = () => {
+      cleanup();
+      noteNode.textContent =
+        'Shared results could not be loaded. No example results are being substituted.';
+    };
+
+    script.src = SURVEY_URL +
+      (SURVEY_URL.includes('?') ? '&' : '?') +
+      'action=results&callback=' + callback;
+
+    document.head.appendChild(script);
+  }
+
+  // --------------------------------------------------
+  // Submit survey selections or show local preview
+  // --------------------------------------------------
+
+  submitNode.addEventListener('click', async () => {
+    if (submitted || selected.size !== 3) return;
+
+    submitted = true;
+    updateSelection();
+    resultNode.hidden = false;
+
+    if (!SURVEY_URL) {
+      localPreview();
+      return;
+    }
+
+    noteNode.textContent =
+      'Sending anonymous selections and retrieving cumulative responses…';
+
+    try {
+      const payload = new URLSearchParams();
+
+      payload.set('action', 'vote');
+      payload.set('selected', [...selected].join(','));
+
+      payload.set(
+        'other_text',
+        selected.has('other')
+          ? root.querySelector('#d5-a3-other-input').value.slice(0, 200)
+          : ''
+      );
+
+      await fetch(SURVEY_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: payload
+      });
+
+      noteNode.textContent =
+        'Submission request sent. Loading the shared counts. Individual delivery cannot be confirmed in this browser.';
+
+      getCounts();
+
+    } catch (_) {
+      noteNode.textContent =
+        'Unable to send your response. No submission has been confirmed.';
+    }
+  });
+
+})();
+</script>
+```
+
+
