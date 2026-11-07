@@ -607,7 +607,8 @@ Now that you understand what the MADISON ELEM. data mean, a new question arises:
 
 ```{=html}
 <div class="pond-md">
-  <button type="button" class="btn btn-primary" id="pond-md-download">Download my reflection</button>
+  <p>Keep a record of your answers, side by side with ours, the metadata you uncovered, and the key takeaways.</p>
+  <button type="button" class="btn btn-primary" id="pond-md-download">Download response summary</button>
 </div>
 ```
 
@@ -633,7 +634,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Single-choice buttons that show a short verdict
-  document.querySelectorAll(".pond-md-whatif").forEach((group, g) => {
+  const whatifs = [...document.querySelectorAll(".pond-md-whatif")];
+  whatifs.forEach((group, g) => {
     const out = group.nextElementSibling;
     const buttons = [...group.querySelectorAll("button")];
     function choose(i) {
@@ -732,23 +734,23 @@ document.addEventListener("DOMContentLoaded", () => {
       meta.hidden = true;
     }
     bank.prepend(box);
-    needs.push({ id, reveal });
+    needs.push({ id, reveal, bank, options, picks, yes, no, meta });
   });
 
   // 1.2 What does the learner's depth answer imply?
+  function depthMessage(v) {
+    const near = (a, b) => Math.abs(a - b) <= 0.03 * b;
+    if (Number.isNaN(v)) return "Enter a number above first.";
+    if (near(v, 0.1524)) return "✓ Right: 6 inches × 0.0254 m per inch = 0.15 m.";
+    if (near(v, 0.06)) return "You assumed centimeters (6 cm = 0.06 m). In inches, M-02 is 0.15 m deep: about 2.5 times deeper.";
+    if (near(v, 0.006)) return "You assumed millimeters (6 mm = 0.006 m). In inches, M-02 is 0.15 m deep: 25 times deeper.";
+    if (near(v, 1.83)) return "You assumed feet (6 ft = 1.83 m). In inches, M-02 is 0.15 m deep.";
+    if (near(v, 6)) return "You assumed meters. In inches, M-02 is 0.15 m deep: 40 times shallower.";
+    return "Not quite. 6 inches × 0.0254 m per inch = 0.15 m.";
+  }
   const depthOut = document.getElementById("pond-md-depth-out");
   document.getElementById("pond-md-depth-btn").addEventListener("click", () => {
-    const v = parseFloat(document.getElementById("pond-md-depth").value);
-    const near = (a, b) => Math.abs(a - b) <= 0.03 * b;
-    let msg;
-    if (Number.isNaN(v)) msg = "Enter a number above first.";
-    else if (near(v, 0.1524)) msg = "✓ Right: 6 inches × 0.0254 m per inch = 0.15 m.";
-    else if (near(v, 0.06)) msg = "You assumed centimeters (6 cm = 0.06 m). In inches, M-02 is 0.15 m deep: about 2.5 times deeper.";
-    else if (near(v, 0.006)) msg = "You assumed millimeters (6 mm = 0.006 m). In inches, M-02 is 0.15 m deep: 25 times deeper.";
-    else if (near(v, 1.83)) msg = "You assumed feet (6 ft = 1.83 m). In inches, M-02 is 0.15 m deep.";
-    else if (near(v, 6)) msg = "You assumed meters. In inches, M-02 is 0.15 m deep: 40 times shallower.";
-    else msg = "Not quite. 6 inches × 0.0254 m per inch = 0.15 m.";
-    depthOut.textContent = msg;
+    depthOut.textContent = depthMessage(parseFloat(document.getElementById("pond-md-depth").value));
     depthOut.hidden = false;
   });
 
@@ -837,30 +839,151 @@ document.addEventListener("DOMContentLoaded", () => {
   // Restore activities revealed on an earlier visit (after the hooks exist)
   needs.forEach(n => { if (saved.revealed.includes(n.id)) n.reveal(); });
 
-  // Download all written answers as a Markdown file
+  // ---------- Response summary ----------
+  // Built from the page itself, so it follows any edits to the text.
+
+  // Convert page HTML to Markdown (only the elements this page uses)
+  function inlineMd(node) {
+    let s = "";
+    node.childNodes.forEach(n => {
+      if (n.nodeType === Node.TEXT_NODE) { s += n.textContent.replace(/\s+/g, " "); return; }
+      if (n.nodeType !== Node.ELEMENT_NODE || n.classList.contains("anchorjs-link")) return;
+      const inner = inlineMd(n);
+      switch (n.tagName) {
+        case "STRONG": case "B": s += `**${inner.trim()}**`; break;
+        case "EM": case "I": s += `*${inner.trim()}*`; break;
+        case "CODE": s += "`" + n.textContent + "`"; break;
+        case "A": s += `[${inner.trim()}](${n.href})`; break;
+        case "BR": s += "  \n"; break;
+        default: s += inner;
+      }
+    });
+    return s;
+  }
+  function blockMd(node) {
+    const blocks = [];
+    [...node.children].forEach(el => {
+      switch (el.tagName) {
+        case "P": blocks.push(inlineMd(el).trim()); break;
+        case "UL": case "OL":
+          blocks.push([...el.children].map(li => "- " + inlineMd(li).trim()).join("\n")); break;
+        case "TABLE": {
+          const rows = [...el.querySelectorAll("tr")].map(tr =>
+            "| " + [...tr.cells].map(c => inlineMd(c).trim().replace(/\|/g, "\\|")).join(" | ") + " |");
+          if (rows.length) rows.splice(1, 0, "|" + " --- |".repeat(el.rows[0].cells.length));
+          blocks.push(rows.join("\n")); break;
+        }
+        case "PRE": blocks.push("```\n" + el.textContent.trim() + "\n```"); break;
+        case "BLOCKQUOTE": blocks.push(blockMd(el).split("\n").map(l => "> " + l).join("\n")); break;
+        case "SUMMARY": case "BUTTON": break;
+        default: if (el.children.length) blocks.push(blockMd(el));
+      }
+    });
+    return blocks.filter(Boolean).join("\n\n");
+  }
+
+  const limitText = v => v > 400 ? "**above** the 400 ppm limit" : "below the 400 ppm limit";
+  const labelFor = id => {
+    const label = document.querySelector(`label[for="${id}"]`);
+    return label ? label.textContent.trim() : "My answer";
+  };
+
+  function needMd(n) {
+    const lines = [];
+    n.options.forEach(opt => {
+      const picked = n.picks.includes(opt.name);
+      if (picked && opt.needed) lines.push(`- ✓ ${opt.name}`);
+      else if (picked) lines.push(`- ✗ ${opt.name} (${n.no.toLowerCase()})`);
+      else if (opt.needed) lines.push(`- ○ ${opt.name} (missed)`);
+    });
+    let s = "**My choices** (✓ = matches our answer, ✗ = doesn't, ○ = missed):\n\n" + lines.join("\n");
+    if (n.meta) s += "\n\n" + blockMd(n.meta);
+    else s += "\n\n" + n.options.filter(o => o.needed).map(o => {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = o.html;
+      return `**Our take: ${o.name}.** ${blockMd(tmp)}`;
+    }).join("\n\n");
+    return s;
+  }
+
+  function buildSummary() {
+    const root = document.getElementById("quarto-document-content") || document.querySelector("main") || document.body;
+    const out = [
+      "# Metadata for Reuse: my response summary",
+      "",
+      `*From [The Pond](${location.href.split("#")[0]}), downloaded on ${new Date().toLocaleDateString()}.*`,
+      "",
+      "> A data file is not necessarily usable just because it opens."
+    ];
+    const csv = root.querySelector("pre");
+    if (csv) out.push("", "## The file I was given", "", "```", csv.textContent.trim(), "```");
+
+    let pending = null;                     // a heading is written only if something follows it
+    const emit = text => {
+      if (pending) { out.push("", pending); pending = null; }
+      out.push("", text);
+    };
+    const selector = "h2, h3, h4, .pond-md-whatif, .pond-md-need, #pond-md-depth, #pond-md-drop, #pond-md-surface, textarea.pond-md-save";
+    root.querySelectorAll(selector).forEach(el => {
+      if (el.closest(".card, .pond-md-cards")) return;
+      const title = el.matches("h2, h3, h4") ? el.textContent.trim() : "";
+      if (title === "Key takeaway") {
+        // The takeaway is the paragraph or quote right after the heading
+        const next = el.nextElementSibling;
+        const wrap = document.createElement("div");
+        if (next) wrap.append(next.cloneNode(true));
+        const body = blockMd(wrap).replace(/^>\s*/gm, "").trim();
+        emit(`> **Key takeaway:** ${body}`);
+      } else if (el.tagName === "H2") {
+        pending = null;
+        out.push("", `## ${title}`);
+      } else if (el.tagName === "H3") {
+        pending = `### ${title}`;
+        if (title.startsWith("So,")) {
+          const table = el.closest("section").querySelector("table");
+          if (table) { const wrap = document.createElement("div"); wrap.append(table.cloneNode(true)); emit(blockMd(wrap)); }
+        }
+      } else if (el.tagName === "H4") {
+        return;
+      } else if (el.matches(".pond-md-whatif")) {
+        const i = saved.whatif[whatifs.indexOf(el)];
+        const btn = el.querySelectorAll("button")[i];
+        emit(`**${el.getAttribute("aria-label")}**  \n` +
+          (btn ? `My answer: *${btn.textContent.trim()}*. ${btn.dataset.verdict}` : "*Not answered.*"));
+      } else if (el.matches(".pond-md-need")) {
+        const n = needs.find(x => x.bank === el);
+        if (n) emit(needMd(n));
+      } else if (el.id === "pond-md-depth") {
+        const v = parseFloat(el.value);
+        emit(Number.isNaN(v) ? "**My depth for M-02:** *not answered.* It's 6 inches, or 0.15 m."
+          : `**My depth for M-02:** ${v} m. ${depthMessage(v)}`);
+      } else if (el.id === "pond-md-drop") {
+        const kept = dropRows.filter(tr => !saved.dropped.includes(tr.cells[0].textContent.trim()));
+        const right = average(dropRows.filter(tr => tr.cells[0].textContent.trim() !== "M-03"));
+        const mine = kept.length ? `${average(kept)} ppm, ${limitText(average(kept))}` : "no rows left";
+        emit(`**Rows I dropped:** ${saved.dropped.length ? [...saved.dropped].sort().join(", ") : "none"}.  \n` +
+          `Raw average: ${average(dropRows)} ppm. My cleaned average: ${mine}. ` +
+          `Correctly cleaned (M-03 only): ${right} ppm, ${limitText(right)}.`);
+      } else if (el.id === "pond-md-surface") {
+        const mine = [...saved.surface].sort().join(", ") || "none";
+        emit(`**Surface samples I thought were above 400 ppm:** ${mine}. In dry soil, it's M-01 and M-06.`);
+      } else if (el.matches("textarea")) {
+        const text = el.value.trim();
+        const body = !text ? "*No response entered.*"
+          : el.classList.contains("pond-md-code") ? "```\n" + text + "\n```" : text;
+        emit(`**${labelFor(el.id)}**\n\n${body}`);
+      }
+    });
+    out.push("", "---", "",
+      "Next: are the data good enough for your purpose? See [Data Quality and Provenance](" +
+      new URL("../data-quality/index.html", location.href).href + ").", "");
+    return out.join("\n");
+  }
+
   document.getElementById("pond-md-download").addEventListener("click", () => {
-    const val = id => (document.getElementById(id).value || "").trim() || "_No response entered._";
-    const content = [
-      "# Metadata for Reuse — My Reflection",
-      "",
-      "## Depth of sample M-02 (meters)",
-      "",
-      val("pond-md-depth"),
-      "",
-      "## What information did I need?",
-      "",
-      val("pond-md-reflect"),
-      "",
-      "## My structured metadata",
-      "",
-      "```",
-      val("pond-md-structure"),
-      "```",
-      ""
-    ].join("\n");
     const a = document.createElement("a");
-    a.href = "data:text/markdown;charset=utf-8," + encodeURIComponent(content);
-    a.download = "metadata-reflection.md";
+    a.href = "data:text/markdown;charset=utf-8," + encodeURIComponent(buildSummary());
+    a.download = "metadata-response-summary.md";
     document.body.append(a);
     a.click();
     a.remove();
