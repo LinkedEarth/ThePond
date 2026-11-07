@@ -524,6 +524,7 @@ d-topics-list iframe {
 .pond-md-notes p:last-child,
 .pond-md-notes table,
 .pond-md-notes pre { margin-bottom: 0; }
+.pond-md-notes table:not(:last-child) { margin-bottom: 1rem; }
 
 .pond-md-meta-panel { margin-top: 1rem; }
 
