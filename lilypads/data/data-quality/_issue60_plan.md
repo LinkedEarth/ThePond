@@ -67,4 +67,6 @@ Key idea: Evidence supporting data quality may exist outside the numerical datas
 
 ## Activity 2:   What does this number actually mean?
 
+Look at https://github.com/LinkedEarth/ThePond/issues/60, but instead of temperature, keep using the lead measurement example, with similar considerations of precision, accuracy, and uncertainty (standard error of the mean, assuming independence) 
+
 
