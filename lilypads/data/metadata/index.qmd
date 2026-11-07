@@ -1,13 +1,836 @@
 ---
-title: "Metadata For Reuse"
+title: "Metadata for Reuse"
 
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+A data file is not necessarily usable just because it opens. **Metadata** (information about the data) provide the context needed to interpret, evaluate, reuse, and share the data correctly. In this LilyPad, you'll discover which metadata you need by trying to use a dataset without them.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+## 1. Can you actually use this dataset?
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
+[<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-md-time}
+
+Imagine that you work for a city office that checks whether schools meet lead (Pb) exposure standards. A testing company has just sampled the soil in the playground at MADISON ELEM., and a colleague forwards you their file:
+
+> Here's the soil data from Madison. Can you tell me whether the playground is above the 400 ppm limit for children's play areas?
+
+(ppm means *parts per million*: 400 ppm is 400 milligrams of lead per kilogram of soil.)
+
+This is the file, `madison_soil.csv`, exactly as you received it:
+
+::: {.pond-md-notes}
+```
+id,loc,d,Pb,m,f
+M-01,road,1,610,12,1
+M-02,road,6,240,15,1
+M-03,road,15,99,18,0
+M-04,sandbox,1,99,10,1
+M-05,sandbox,6,70,14,1
+M-06,wall,1,360,20,1
+M-07,wall,6,480,22,0
+```
 :::
+
+[Fictional school, company and values, created for The Pond (2026).]{.pond-md-credit}
+
+It opens without any trouble. Let's see whether you can use it.
+
+### 1.1 Where did this file come from?
+
+Before you start, think about the file itself. **What would you want to know about where it came from?** Select as many as you like, then reveal our answer.
+
+<!--
+"What would you need?" activities. Each option becomes a button; data-needed="true" marks
+the options that are needed. The .pond-md-meta div is the metadata revealed at the end.
+Without JavaScript, everything is shown as text.
+-->
+
+::: {#pond-md-need-source .pond-md-need}
+::: {.pond-md-option data-name="Who collected the samples" data-needed="true"}
+A company you know, a student project, or an unknown source? Knowing who did the work lets you find out how they work, and whom to ask.
+:::
+
+::: {.pond-md-option data-name="Which school, where, and when" data-needed="true"}
+Is this really MADISON ELEM., and this year's sampling? The file names no school and no date.
+:::
+
+::: {.pond-md-option data-name="Where the file was obtained" data-needed="true"}
+From the company itself, or from somewhere else? An original from the source is easier to check than a copy of a copy.
+:::
+
+::: {.pond-md-option data-name="Whether anyone changed it" data-needed="true"}
+Was anything removed, renamed, or recalculated before it reached you?
+:::
+
+::: {.pond-md-option data-name="The file's size"}
+Not needed: the file's size tells you nothing about where the data came from.
+:::
+
+::: {.pond-md-option data-name="The software used to open it"}
+Not needed: any spreadsheet or text editor opens a CSV (comma-separated values) file the same way.
+:::
+
+::: {.pond-md-meta}
+**What your colleague tells you:** The samples were collected at MADISON ELEM. on October 14, 2026, by the field crew of Northgate Soil Testing, a company that the city has a contract with. Your colleague downloaded the file from the company's client portal and didn't change it.
+:::
+:::
+
+This information about where data came from, and what happened to them along the way, is called **provenance**. It doesn't make the data trustworthy on its own, but it gives you what you need to *evaluate* the data. You'll look at provenance in more depth in [Data Quality and Provenance](../data-quality/index.qmd).
+
+### 1.2 How deep is each sample?
+
+Lead tends to build up near the surface, which is also the soil that children touch. So depth matters.
+
+**Your turn!** Which column do you think contains the depth?
+
+```{=html}
+<div class="pond-md-whatif" role="group" aria-label="Which column contains the depth?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="A reasonable guess: d might stand for depth. But m might stand for meters…">d</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Possible: m might stand for meters. But d might stand for depth…">m</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Fair enough: from the file alone, you can't be sure.">I can't tell</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden></p>
+```
+
+Now **assume that `d` is the depth.** How deep is sample M-02, in meters?
+
+```{=html}
+<div class="pond-md">
+  <label for="pond-md-depth"><strong>Depth of M-02, in meters</strong></label>
+  <div class="pond-md-row">
+    <input id="pond-md-depth" class="form-control pond-md-save" type="number" step="any" placeholder="e.g. 0.5">
+  </div>
+</div>
+```
+
+You can type a number, but can you be sure it's right? **What would you need to know?**
+
+::: {#pond-md-need-depth .pond-md-need}
+::: {.pond-md-option data-name="Which column is the depth" data-needed="true"}
+The column names (`d`, `m`) are too short to be sure.
+:::
+
+::: {.pond-md-option data-name="The units of depth" data-needed="true"}
+Is 6 a depth in millimeters, centimeters, inches, or feet? Each gives a very different sample.
+:::
+
+::: {.pond-md-option data-name="Where depth is measured from" data-needed="true"}
+From the ground surface, or from the top of a layer of mulch or sand? To the top, middle, or bottom of the sample?
+:::
+
+::: {.pond-md-option data-name="The instrument's brand"}
+Not needed here: the brand of the lead analyzer says nothing about how depth was recorded.
+:::
+
+::: {.pond-md-option data-name="The time of sampling"}
+Not needed here: the time of day doesn't change how deep a sample was.
+:::
+
+::: {.pond-md-meta}
+**From the company's documentation:** `d` is the depth below the ground surface to the middle of the sample, **in inches**.
+:::
+:::
+
+::: {#pond-md-depth-check .pond-md data-after="pond-md-need-depth"}
+```{=html}
+<button type="button" class="btn btn-primary" id="pond-md-depth-btn">Check my answer</button>
+<p class="pond-md-take" id="pond-md-depth-out" aria-live="polite" hidden></p>
+```
+:::
+
+### 1.3 Remove the missing values
+
+Before you average anything, you need to remove the missing values: samples for which there is no lead measurement.
+
+**Your turn!** Drop the rows that you think have no lead measurement, and watch the average change.
+
+::: {#pond-md-drop .pond-md-notes .pond-md-wide}
+| id | loc | d | Pb | m | f |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| M-01 | road | 1 | 610 | 12 | 1 |
+| M-02 | road | 6 | 240 | 15 | 1 |
+| M-03 | road | 15 | 99 | 18 | 0 |
+| M-04 | sandbox | 1 | 99 | 10 | 1 |
+| M-05 | sandbox | 6 | 70 | 14 | 1 |
+| M-06 | wall | 1 | 360 | 20 | 1 |
+| M-07 | wall | 6 | 480 | 22 | 0 |
+:::
+
+Did you drop any? Nothing in the file says that a value is missing. **What would you need to know?**
+
+::: {#pond-md-need-missing .pond-md-need}
+::: {.pond-md-option data-name="How missing values are recorded" data-needed="true"}
+Some files leave a blank, others use a special code such as `-999` or `99`.
+:::
+
+::: {.pond-md-option data-name="Why a value is missing" data-needed="true"}
+Not analyzed? Sample lost? Below what the instrument can detect? Each calls for a different decision.
+:::
+
+::: {.pond-md-option data-name="The highest value lead can reach"}
+Not needed: lead in soil can range from a few ppm to many thousands. No value in this file is impossible.
+:::
+
+::: {.pond-md-option data-name="How many samples there should be"}
+Helpful, but not enough: every row here has a number, so counting rows won't reveal a missing value.
+:::
+
+::: {.pond-md-meta}
+**From the company's documentation:** a lead value of **99** means that the sample was *not analyzed*. That's **M-03** only: lead at **M-04** was measured, and really is 99 ppm.
+:::
+:::
+
+Lead at 99 ppm is a perfectly ordinary value, so `99` was a poor choice of code. Nothing in the numbers can tell the two rows apart: only the metadata can.
+
+#### What should `99` have been?
+
+**Your turn!** Pick the best way to record "no value here," then reveal our take on each option.
+
+::: {#pond-md-need-code .pond-md-need data-yes="Recommended" data-no="Problematic" data-button="Reveal our take"}
+::: {.pond-md-option data-name="0"}
+The worst choice: 0 is a real and reassuring value ("no lead at all"). A sample that was never analyzed would look like the cleanest soil in the playground.
+:::
+
+::: {.pond-md-option data-name="-999"}
+Impossible for a concentration, so a person would spot it. But software doesn't know that: unless told otherwise, it averages −999 in with the real values.
+:::
+
+::: {.pond-md-option data-name="An empty cell"}
+Ambiguous: was the value not measured, forgotten, or deleted by accident? Software also disagrees: some tools skip empty cells, others treat them as 0.
+:::
+
+::: {.pond-md-option data-name="NA"}
+Short for "not available." It's widely used, but it's just text: whether it's read as "missing" depends on the software.
+:::
+
+::: {.pond-md-option data-name="NaN" data-needed="true"}
+"Not a number," a special value defined by the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754) for how computers do arithmetic. Nearly all numerical software recognizes it, and it can never be mistaken for a measurement. Arithmetic with NaN gives NaN (1 + NaN = NaN), so a missing value can't sneak into a calculation as a number: tools either skip it or tell you it's there.
+:::
+:::
+
+::: {.pond-md data-after="pond-md-need-code"}
+<details class="pond-md-reveal">
+<summary>NaN isn't perfect either</summary>
+
+- **In a CSV file, `NaN` is just three letters.** Python's pandas and R read it as a number; a spreadsheet may show it as text.
+- **NaN is not equal to anything, including itself.** A test such as `x == NaN` is always false, so software provides dedicated checks (`isnan`, `is.nan`).
+- **It doesn't say *why* the value is missing.** Not analyzed, sample lost, failed quality control, withheld for privacy: each might call for a different decision. Record the reason in a separate column, and say what it means in the metadata.
+
+Also, not every gap is missing data. A lab may report `<10`: lead is **below the detection limit** of 10 ppm, the lowest level its instrument can measure reliably. That's information (the value is less than 10 ppm), and replacing it with NaN would throw it away.
+
+</details>
+:::
+
+### 1.4 Keep only the data that passed quality control
+
+Testing companies check their measurements before releasing them. This is called **quality control** (QC). The column `f` looks like a QC flag.
+
+**Your turn!** To keep only the measurements that passed QC, which rows would you keep?
+
+```{=html}
+<div class="pond-md-whatif" role="group" aria-label="Which rows passed quality control?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Many datasets do use 0 for &quot;no problem&quot;… but many others use 1 for &quot;passed.&quot;">Rows where f = 0</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Many datasets do use 1 for &quot;passed&quot;… but many others use 0 for &quot;no problem.&quot;">Rows where f = 1</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: the numbers 0 and 1 mean nothing until someone says what they stand for.">I can't tell</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden></p>
+```
+
+**What would you need to know?**
+
+::: {#pond-md-need-qc .pond-md-need}
+::: {.pond-md-option data-name="What each flag value means" data-needed="true"}
+Does 1 mean "passed" or "problem"? Conventions differ between companies and fields.
+:::
+
+::: {.pond-md-option data-name="Which variable the flag applies to" data-needed="true"}
+Does `f` describe the lead value, the moisture, the depth, or the whole row?
+:::
+
+::: {.pond-md-option data-name="Why a measurement failed"}
+Useful to know, but not needed to filter the table: the decision has already been made.
+:::
+
+::: {.pond-md-option data-name="The average of the f column"}
+Not needed: the average of a set of codes means nothing.
+:::
+
+::: {.pond-md-meta}
+**From the company's documentation:** `f` is the QC flag **for lead only**: **1 = passed**, 0 = failed. Depth and moisture are not flagged.
+
+So you keep M-01, M-02, M-04, M-05 and M-06. M-07's 480 ppm, the highest value at the wall, failed QC. M-03 failed too: it was never analyzed.
+:::
+:::
+
+Metadata can be specific to a single variable: here the flag tells you about lead, not about the rest of the row. In [Different Types of Data](../data-type/index.qmd), you met a similar QC/status column; there, its meaning was written out in words.
+
+### 1.5 Dry soil, or wet soil?
+
+The 400 ppm limit applies to lead per kilogram of **dry** soil.
+
+**Your turn!** Which of the surface samples (`d` = 1) are above the 400 ppm limit?
+
+```{=html}
+<div class="pond-md-choices" id="pond-md-surface" role="group" aria-label="Surface samples above 400 ppm">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-01">M-01 (road, 610)</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-04">M-04 (sandbox, 99)</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-06">M-06 (wall, 360)</button>
+</div>
+```
+
+This one requires knowledge specific to soil science. **What would you need to know?**
+
+::: {#pond-md-need-dry .pond-md-need}
+::: {.pond-md-option data-name="Whether Pb is per dry or wet soil" data-needed="true"}
+Labs can report lead per kilogram of soil *as received* (water included) or per kilogram of *dried* soil. Wet soil is partly water, so the same soil gives a lower number when measured wet.
+:::
+
+::: {.pond-md-option data-name="What m means" data-needed="true"}
+If `m` is the water content, you can use it to convert from wet to dry soil. But as a percentage of what?
+:::
+
+::: {.pond-md-option data-name="The weather on the day"}
+Rain may explain *why* the soil was wet, but you need the measured water content, not the weather.
+:::
+
+::: {.pond-md-option data-name="The technician's name"}
+Not needed: it doesn't change what the numbers mean.
+:::
+
+::: {.pond-md-meta}
+**From the company's documentation:** lead (`Pb`) is measured in ppm on soil **as received**, without drying. `m` is the water content, as a **percentage of the wet sample's mass**.
+
+So lead per kilogram of dry soil is `Pb / (1 − m/100)`:
+
+| id | loc | Pb, as received | m | Pb, dry soil |
+| :--- | :--- | ---: | ---: | ---: |
+| M-01 | road | 610 | 12 | **693** |
+| M-04 | sandbox | 99 | 10 | 110 |
+| M-06 | wall | 360 | 20 | **450** |
+
+M-01 *and* M-06 are above 400 ppm.
+:::
+:::
+
+::: {#pond-md-surface-out .pond-md data-after="pond-md-need-dry"}
+:::
+
+This is the kind of metadata that a generic checklist ("include units") would never catch: the units were ppm all along. Each discipline has its own definitions that change what a number means. In [Data Quality and Provenance](../data-quality/index.qmd), you'll see how preparing a sample (drying, sieving) affects the measurement itself.
+
+### 1.6 Can you share it?
+
+You now have a clean dataset. Your office wants to post it in a public data repository, and to include it in a report to parents.
+
+**Your turn!** Are you allowed to?
+
+```{=html}
+<div class="pond-md-whatif" role="group" aria-label="Are you allowed to share the data?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="The city paid for the sampling, so it seems fair… but paying for a service doesn't always mean owning the data.">Yes</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="That's the cautious answer, but nothing in the file says you can't, either.">No</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: nothing in the file says.">I can't tell</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden></p>
+```
+
+**What would you need to know?**
+
+::: {#pond-md-need-share .pond-md-need}
+::: {.pond-md-option data-name="The license" data-needed="true"}
+A **license** states what others may do with the data: copy, modify, redistribute, and under what conditions.
+:::
+
+::: {.pond-md-option data-name="Any terms of use or restrictions" data-needed="true"}
+A contract, a privacy rule, or a data use agreement can restrict sharing, whatever the license.
+:::
+
+::: {.pond-md-option data-name="How to credit the creators" data-needed="true"}
+Many licenses allow reuse *on condition* that you credit the source.
+:::
+
+::: {.pond-md-option data-name="Whether you can download the file"}
+Not needed: you already have it. Having access to data is not the same as having permission to share them.
+:::
+
+::: {.pond-md-option data-name="Whether your colleague says it's fine"}
+Not enough: an informal "go ahead" is easily forgotten or misremembered, and may not be your colleague's to give.
+:::
+
+::: {.pond-md-meta}
+**The file says nothing**, so you can't assume you're allowed. Your office asks Northgate Soil Testing, which adds a statement to the dataset's documentation:
+
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Anyone may share and adapt the data, provided they credit Northgate Soil Testing and the city.
+:::
+:::
+
+Permission should be written into the metadata, not left to an email or a hallway conversation, so that it travels with the data. You'll put this into practice in [Preparing Data for Sharing](../sharing-data/index.qmd).
+
+### So, is the playground above 400 ppm?
+
+<details class="pond-md-reveal">
+<summary>Compare the file as received with what the metadata told you</summary>
+
+| | From the file alone | With the metadata |
+| :--- | :--- | :--- |
+| Depth of M-02 | 6 *somethings* | 6 inches, or 0.15 m |
+| Missing values | None visible, or both 99s | M-03 only |
+| Rows that passed QC | Your guess | M-01, M-02, M-04, M-05, M-06 |
+| Surface samples above 400 ppm | M-01 (610) | M-01 (693) and M-06 (450), in dry soil |
+| Can you share the data? | Unknown | Yes, with credit (CC BY 4.0) |
+
+With the metadata, two of the three surface spots are above the limit. Without them, you would have reported one. Whether three spots are enough to judge the whole playground is a question about data *quality*, which you'll explore in [Data Quality and Provenance](../data-quality/index.qmd).
+
+</details>
+
+### Key takeaway
+
+At every step, the file opened fine and the numbers looked ordinary. What stopped you was missing *context*: where the data came from, what each column means, how missing values and QC are coded, what a measurement is relative to, and what you are allowed to do with the data.
+
+## 2. What metadata did you actually need?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes]{.pond-md-time}
+
+**Your turn!** Think back over the exercise. What information did you need in order to trust, interpret, clean, use, and share the data?
+
+```{=html}
+<div class="pond-md">
+  <label for="pond-md-reflect"><strong>The information I needed</strong></label>
+  <textarea id="pond-md-reflect" class="pond-md-response pond-md-save" rows="5"
+    placeholder="List what you needed, and for which step..."></textarea>
+</div>
+```
+
+<details class="pond-md-reveal">
+<summary>Compare with our answer</summary>
+
+Metadata are often grouped into two broad kinds:
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+#### Scientific metadata
+
+Help you understand and evaluate the science:
+
+- variable names and definitions (`d`, `m`)
+- units (inches, ppm)
+- missing-value conventions (`99`)
+- QC definitions (`f`: 1 = passed, lead only)
+- domain-specific definitions (as received vs. dry soil)
+- methods and calibration
+- where and when the samples were taken
+- uncertainty
+- **provenance**: who collected the data, and what happened to them
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.card-body}
+#### Administrative metadata
+
+Help you identify, manage, access, and reuse the dataset:
+
+- creator and contributors (Northgate Soil Testing)
+- institution (the city)
+- identifier (a name or number that points to this dataset)
+- contact information
+- license (CC BY 4.0)
+- access restrictions
+- reuse and redistribution conditions
+- **provenance**: where the file was obtained, and who is responsible for it
+:::
+:::
+:::
+:::
+
+These categories are not rigid. Provenance appears in both: it helps you interpret the science, *and* it tells you who is responsible for the data.
+
+</details>
+
+### Key takeaway
+
+> Metadata serve different purposes. Some help researchers understand and evaluate the science, while others help identify, manage, access, and reuse the dataset.
+
+## 3. From unstructured to structured metadata
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes]{.pond-md-time}
+
+### 3.1 Organize the metadata
+
+Suppose that, instead of answering questions one at a time, Northgate Soil Testing had sent all of its metadata in an email:
+
+::: {.pond-md-notes}
+Soil samples were collected at the MADISON ELEM. playground on October 14, 2026, by our field crew. Depth (d) is the depth below the ground surface to the middle of each sample, in inches. Lead (Pb) is in ppm, measured on the soil as received, without drying; m is the water content, as a percentage of the wet sample's mass. A lead value of 99 means the sample was not analyzed. The flag f applies to lead only: 1 means the measurement passed quality control, 0 that it failed. The data may be reused under a CC BY 4.0 license.
+:::
+
+Everything is there, but finding one piece of information means reading the whole paragraph, and a computer can't easily check it.
+
+**Your turn!** Organize this information into a structured form: a table, a list of labeled fields, or anything else you like. There is no single correct structure.
+
+```{=html}
+<div class="pond-md">
+  <label for="pond-md-structure"><strong>My structured metadata</strong></label>
+  <textarea id="pond-md-structure" class="pond-md-response pond-md-code pond-md-save" rows="10"
+    placeholder="For example:&#10;depth: ..."></textarea>
+</div>
+```
+
+### 3.2 Same information, different structures
+
+Here is how three other people organized the same paragraph:
+
+::: {.grid}
+::: {.g-col-12 .g-col-lg-4}
+::: {.card}
+::: {.card-body}
+#### Person A
+
+| variable | units | missing |
+| :--- | :--- | :--- |
+| d | inches | — |
+| Pb | ppm (wet) | 99 |
+| m | % | — |
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-lg-4}
+::: {.card}
+::: {.card-body}
+#### Person B
+
+```
+depth_unit: in
+lead_units: ppm
+lead_basis: as received
+lead_missing: 99
+qc_good: 1
+```
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-lg-4}
+::: {.card}
+::: {.card-body}
+#### Person C
+
+```
+d:
+  unit: inch
+Pb:
+  units: mg/kg
+  dry: no
+  missingValue: 99
+  qcFlag: f (1 = pass)
+```
+:::
+:::
+:::
+:::
+
+**Your turn!** All three are structured. Could a computer combine them automatically?
+
+```{=html}
+<div class="pond-md-whatif" role="group" aria-label="Could a computer combine them automatically?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Look again: depth_unit, unit and units are three names for the same idea, and in, inch and inches are three spellings of the same unit. A computer can't know they match unless someone tells it.">Yes</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right. depth_unit, unit and units are three names for the same idea; in, inch and inches are three spellings of one unit; ppm and mg/kg are the same unit under two names; and Person A packed two facts into one value, &quot;ppm (wet)&quot;. Structure alone isn't enough.">No</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden></p>
+```
+
+### 3.3 Conventions
+
+Structured metadata are easier to find, read, and check than a paragraph. But structure alone doesn't make them **interoperable**, meaning that metadata from different people and programs can work together. For that, a community needs to agree on:
+
+- **field names**: always `units`, never `unit` or `depth_unit`
+- **required and optional fields**: e.g. every dataset must have a license
+- **definitions**: what exactly each field means
+- **allowed values and vocabularies**: e.g. an agreed list of unit spellings, or of terms for "lead in soil"
+- **standard representations**: e.g. how to write a date, or a missing value
+
+Such agreements are called **conventions** (or *standards*). Here is Person C's metadata, rewritten in the style of one such convention:
+
+```
+Pb:
+  long_name: lead in soil, as received
+  units: mg kg-1
+  ancillary_variables: f
+f:
+  flag_values: 0, 1
+  flag_meanings: failed passed
+```
+
+The field names (`long_name`, `units`, `flag_values`, `flag_meanings`) aren't anyone's personal choice: they come from the convention, so any software that follows it knows how to read them.
+
+You don't need to learn any particular convention for this LilyPad. If you're curious, here are a few examples:
+
+- [CF Conventions](https://cfconventions.org/): for climate and environmental data in netCDF files (the example above is in their style).
+- [DataCite Metadata Schema](https://schema.datacite.org/): administrative metadata for citing datasets in any field.
+- [PaST Thesaurus](https://www.ncei.noaa.gov/products/paleoclimatology/paleoenvironmental-standard-terms-thesaurus): a controlled vocabulary for describing paleoclimate measurements.
+
+### Key takeaway
+
+> Structured metadata are useful, but structure alone does not guarantee interoperability. Communities also need agreement about field names, definitions, allowed values, and vocabularies.
+
+---
+
+Now that you understand what the MADISON ELEM. data mean, a new question arises: **are they good enough for your purpose?** That's the subject of the next LilyPad, [Data Quality and Provenance](../data-quality/index.qmd).
+
+```{=html}
+<div class="pond-md">
+  <button type="button" class="btn btn-primary" id="pond-md-download">Download my reflection</button>
+</div>
+```
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Learner answers stay in this browser only
+  const storageKey = "pond-metadata";
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(storageKey)) || {};
+  } catch (e) {}
+  ["revealed", "dropped", "surface"].forEach(k => { if (!Array.isArray(saved[k])) saved[k] = []; });
+  ["notes", "picks", "whatif"].forEach(k => { if (typeof saved[k] !== "object" || !saved[k]) saved[k] = {}; });
+  function save() {
+    try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch (e) {}
+  }
+
+  // Free-text and number answers
+  document.querySelectorAll(".pond-md-save").forEach(box => {
+    box.value = saved.notes[box.id] || "";
+    box.addEventListener("input", () => { saved.notes[box.id] = box.value; save(); });
+  });
+
+  // Single-choice buttons that show a short verdict
+  document.querySelectorAll(".pond-md-whatif").forEach((group, g) => {
+    const out = group.nextElementSibling;
+    const buttons = [...group.querySelectorAll("button")];
+    function choose(i) {
+      buttons.forEach((b, j) => b.setAttribute("aria-pressed", String(i === j)));
+      out.textContent = buttons[i].dataset.verdict;
+      out.hidden = false;
+    }
+    buttons.forEach((btn, i) => btn.addEventListener("click", () => {
+      saved.whatif[g] = i;
+      save();
+      choose(i);
+    }));
+    if (buttons[saved.whatif[g]]) choose(saved.whatif[g]);
+  });
+
+  // Elements shown only after a given "What would you need?" activity is revealed
+  const hooks = {};
+  document.querySelectorAll("[data-after]").forEach(el => { el.hidden = true; });
+  function showAfter(id) {
+    document.querySelectorAll(`[data-after="${id}"]`).forEach(el => { el.hidden = false; });
+    if (hooks[id]) hooks[id]();
+  }
+
+  // "What would you need?": pick options, then reveal what each one is for, and the metadata
+  const needs = [];
+  document.querySelectorAll(".pond-md-need").forEach(bank => {
+    const id = bank.id;
+    const yes = bank.dataset.yes || "Needed";
+    const no = bank.dataset.no || "Not needed";
+    const options = [...bank.querySelectorAll(":scope > .pond-md-option")].map(div => ({
+      name: div.dataset.name, needed: div.dataset.needed === "true", html: div.innerHTML
+    }));
+    const meta = bank.querySelector(":scope > .pond-md-meta");
+    const picks = saved.picks[id] = Array.isArray(saved.picks[id]) ? saved.picks[id] : [];
+
+    const box = document.createElement("div");
+    box.className = "pond-md";
+    box.innerHTML = `
+      <div class="pond-md-choices" role="group" aria-label="Options to choose from"></div>
+      <p class="pond-md-status" aria-live="polite"></p>
+      <button type="button" class="btn btn-primary"></button>
+      <div class="pond-md-cards" hidden></div>`;
+    const choices = box.querySelector(".pond-md-choices");
+    const status = box.querySelector(".pond-md-status");
+    const revealBtn = box.querySelector(".btn-primary");
+    const cards = box.querySelector(".pond-md-cards");
+    revealBtn.textContent = bank.dataset.button || "Reveal our answer";
+
+    function updateStatus() {
+      status.textContent = picks.length ? `${picks.length} of ${options.length} selected.` : "Nothing selected yet.";
+    }
+
+    options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pond-md-tag";
+      btn.textContent = opt.name;
+      btn.setAttribute("aria-pressed", String(picks.includes(opt.name)));
+      btn.addEventListener("click", () => {
+        const on = btn.getAttribute("aria-pressed") !== "true";
+        btn.setAttribute("aria-pressed", String(on));
+        if (on) picks.push(opt.name); else picks.splice(picks.indexOf(opt.name), 1);
+        save();
+        updateStatus();
+        const card = cards.querySelector(`[data-name="${CSS.escape(opt.name)}"]`);
+        if (card) card.classList.toggle("is-picked", on);
+      });
+      choices.append(btn);
+    });
+    updateStatus();
+
+    function reveal() {
+      cards.innerHTML = "";
+      options.forEach(opt => {
+        const card = document.createElement("div");
+        card.className = "pond-md-card" + (opt.needed ? " is-needed" : "");
+        card.dataset.name = opt.name;
+        card.classList.toggle("is-picked", picks.includes(opt.name));
+        card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-md-card-text"></div>`;
+        card.querySelector("h4").textContent = opt.name;
+        card.querySelector(".pond-md-badge").textContent = opt.needed ? yes : no;
+        card.querySelector(".pond-md-card-text").innerHTML = opt.html;
+        cards.append(card);
+      });
+      cards.hidden = false;
+      revealBtn.hidden = true;
+      if (meta) meta.hidden = false;
+      if (!saved.revealed.includes(id)) { saved.revealed.push(id); save(); }
+      showAfter(id);
+    }
+    revealBtn.addEventListener("click", reveal);
+
+    bank.querySelectorAll(":scope > .pond-md-option").forEach(div => div.remove());
+    if (meta) {
+      meta.classList.add("pond-md-notes", "pond-md-meta-panel");
+      meta.hidden = true;
+    }
+    bank.prepend(box);
+    needs.push({ id, reveal });
+  });
+
+  // 1.2 What does the learner's depth answer imply?
+  const depthOut = document.getElementById("pond-md-depth-out");
+  document.getElementById("pond-md-depth-btn").addEventListener("click", () => {
+    const v = parseFloat(document.getElementById("pond-md-depth").value);
+    const near = (a, b) => Math.abs(a - b) <= 0.03 * b;
+    let msg;
+    if (Number.isNaN(v)) msg = "Enter a number above first.";
+    else if (near(v, 0.1524)) msg = "✓ Right: 6 inches × 0.0254 m per inch = 0.15 m.";
+    else if (near(v, 0.06)) msg = "You assumed centimeters (6 cm = 0.06 m). In inches, M-02 is 0.15 m deep: about 2.5 times deeper.";
+    else if (near(v, 0.006)) msg = "You assumed millimeters (6 mm = 0.006 m). In inches, M-02 is 0.15 m deep: 25 times deeper.";
+    else if (near(v, 1.83)) msg = "You assumed feet (6 ft = 1.83 m). In inches, M-02 is 0.15 m deep.";
+    else if (near(v, 6)) msg = "You assumed meters. In inches, M-02 is 0.15 m deep: 40 times shallower.";
+    else msg = "Not quite. 6 inches × 0.0254 m per inch = 0.15 m.";
+    depthOut.textContent = msg;
+    depthOut.hidden = false;
+  });
+
+  // 1.3 Drop rows and watch the average lead change
+  const dropBox = document.getElementById("pond-md-drop");
+  const dropTable = dropBox.querySelector("table");
+  const headers = [...dropTable.querySelectorAll("thead th")].map(th => th.textContent.trim());
+  const pbCol = headers.indexOf("Pb");
+  dropTable.querySelector("thead tr").insertAdjacentHTML("beforeend", "<th>Keep?</th>");
+  const dropRows = [...dropTable.querySelectorAll("tbody tr")];
+  const dropStatus = document.createElement("p");
+  dropStatus.className = "pond-md-status";
+  dropStatus.setAttribute("aria-live", "polite");
+  dropBox.after(dropStatus);
+  const average = rows => Math.round(rows.reduce((a, tr) => a + Number(tr.cells[pbCol].textContent), 0) / rows.length);
+  function updateAverage() {
+    const kept = dropRows.filter(tr => !saved.dropped.includes(tr.cells[0].textContent.trim()));
+    dropStatus.textContent = kept.length
+      ? `Average lead of the ${kept.length} rows you kept: ${average(kept)} ppm.`
+      : "You dropped every row.";
+  }
+  dropRows.forEach(tr => {
+    const id = tr.cells[0].textContent.trim();
+    const td = document.createElement("td");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pond-md-tag pond-md-small";
+    td.append(btn);
+    tr.append(td);
+    function draw() {
+      const dropped = saved.dropped.includes(id);
+      tr.classList.toggle("is-dropped", dropped);
+      btn.textContent = dropped ? "Dropped" : "Kept";
+      btn.setAttribute("aria-pressed", String(dropped));
+      btn.setAttribute("aria-label", `Drop ${id}`);
+    }
+    btn.addEventListener("click", () => {
+      saved.dropped = saved.dropped.includes(id) ? saved.dropped.filter(x => x !== id) : [...saved.dropped, id];
+      save();
+      draw();
+      updateAverage();
+      if (saved.revealed.includes("pond-md-need-missing")) hooks["pond-md-need-missing"]();
+    });
+    draw();
+  });
+  updateAverage();
+  hooks["pond-md-need-missing"] = () => {
+    updateAverage();
+    const d = new Set(saved.dropped);
+    const right = average(dropRows.filter(tr => tr.cells[0].textContent.trim() !== "M-03"));
+    let verdict;
+    if (d.size === 1 && d.has("M-03")) verdict = "✓ You dropped exactly M-03.";
+    else if (d.has("M-04")) verdict = "You dropped M-04, a real measurement of 99 ppm.";
+    else if (!d.has("M-03")) verdict = "You kept M-03, which was never analyzed.";
+    else verdict = "You dropped more than M-03.";
+    dropStatus.textContent += ` ${verdict} With only M-03 dropped, the average is ${right} ppm.`;
+  };
+
+  // 1.5 Surface samples above 400 ppm
+  document.querySelectorAll("#pond-md-surface button").forEach(btn => {
+    btn.setAttribute("aria-pressed", String(saved.surface.includes(btn.dataset.id)));
+    btn.addEventListener("click", () => {
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", String(on));
+      saved.surface = on ? [...saved.surface, btn.dataset.id] : saved.surface.filter(x => x !== btn.dataset.id);
+      save();
+      if (saved.revealed.includes("pond-md-need-dry")) hooks["pond-md-need-dry"]();
+    });
+  });
+  hooks["pond-md-need-dry"] = () => {
+    const out = document.getElementById("pond-md-surface-out");
+    const mine = [...saved.surface].sort().join(", ");
+    out.innerHTML = `<p class="pond-md-take"></p>`;
+    out.firstChild.textContent = mine === "M-01, M-06"
+      ? "✓ You picked M-01 and M-06. Did you know about the water content, or was it a lucky guess?"
+      : `You picked: ${mine || "none"}. In dry soil, M-01 and M-06 are above 400 ppm.`;
+  };
+
+  // Restore activities revealed on an earlier visit (after the hooks exist)
+  needs.forEach(n => { if (saved.revealed.includes(n.id)) n.reveal(); });
+
+  // Download all written answers as a Markdown file
+  document.getElementById("pond-md-download").addEventListener("click", () => {
+    const val = id => (document.getElementById(id).value || "").trim() || "_No response entered._";
+    const content = [
+      "# Metadata for Reuse — My Reflection",
+      "",
+      "## Depth of sample M-02 (meters)",
+      "",
+      val("pond-md-depth"),
+      "",
+      "## What information did I need?",
+      "",
+      val("pond-md-reflect"),
+      "",
+      "## My structured metadata",
+      "",
+      "```",
+      val("pond-md-structure"),
+      "```",
+      ""
+    ].join("\n");
+    const a = document.createElement("a");
+    a.href = "data:text/markdown;charset=utf-8," + encodeURIComponent(content);
+    a.download = "metadata-reflection.md";
+    document.body.append(a);
+    a.click();
+    a.remove();
+  });
+});
+</script>
+```

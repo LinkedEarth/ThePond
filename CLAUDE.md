@@ -12,6 +12,7 @@ Learners should *do* something on every page, not only read. Prefer active forma
 - **Break up long content.** If a table or list would run longer than a screen, turn it into cards, flip cards, tabs, or reveal-on-click elements.
 - **Keep reference content editable as Markdown.** Put the answers in Quarto divs in the `.qmd` so authors can edit text and links without touching JavaScript, and let the script build the interactive parts from them. Without JavaScript, the content should still be readable.
 - **Stay a static site.** Use plain inline `<script>` blocks and shared styles in `styles.css`, like the existing pages. Keep learner answers in the browser only (`localStorage`, wrapped in `try/catch`); nothing is sent anywhere.
+- **Reuse existing components; keep the site consistent.** Data LilyPads reuse the interactions of Pad 1 (`lilypads/data/data-type/index.qmd`): text boxes, choose-then-reveal flip cards, reveal panels and the downloadable reflection. Elsewhere, start from the closest existing pattern before inventing a new one.
 - **Accessible by default.** Use real buttons and form labels, keep everything keyboard-operable, and respect `prefers-reduced-motion`.
 
 Existing examples: `shallows/what-is-open-science.qmd` (word cloud + flip cards), `lilypads/workflow/sketching-workflows/index.qmd` (sketch, then show the answer), `deep-water/github/index.qmd` (filterable cards).
