@@ -80,6 +80,22 @@ Revisit a famous **solar cycle–climate correlation** and see how its strength 
 :::
 :::
 
+::: {.g-col-12 .g-col-md-6 .deep-water-card data-focus="data software" data-language="python r"}
+::: {.card}
+::: {.card-body}
+### Licensing
+
+Learn what **licenses** allow others to do with your data and code, and how to **choose one** for your own research outputs. No coding required.
+
+<div class="deep-water-tags" aria-label="Licensing tags"><span>Data</span><span>Software</span></div>
+
+::: {.text-center}
+[Explore Licensing](licensing/index.qmd){.btn .btn-primary}
+:::
+:::
+:::
+:::
+
 :::
 
 <p id="deep-empty" hidden>No topics match those filters. Try changing or clearing a filter.</p>
