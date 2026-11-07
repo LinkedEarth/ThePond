@@ -191,7 +191,7 @@ In Activity 1, JEFFERSON ELEM. was reported at 420 ppm of lead in soil, just abo
 
 ### 2.1 Precise, accurate, or both?
 
-To check their instruments, four testing companies each measured the same **reference soil** five times. A reference soil is a sample whose lead content has been certified by a standards laboratory, here at exactly 400 ppm.
+To check their instruments, four testing companies each measured the same **reference soil** five times. A reference soil is a sample whose lead content has been certified by a standards laboratory, here at 400 ppm.
 
 **Your turn!** For each analyzer, decide whether its readings are **precise** and whether they are **accurate**.
 
@@ -468,6 +468,164 @@ Good sampling follows the question. To estimate the **average**, spread samples 
 
 A measurement can be analytically precise and still be poorly representative of what we want to know. Before using a value, ask what you are trying to get from it: does it cover the place, the time, and the scale of your question? Conversely, when reporting a value, be clear about what questions the data can address. 
 
+## 4. How would you report this value?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-dq-time}
+
+So far, you have been reading values that someone else reported. This time, you write the report.
+
+The testing company has just sampled the playground soil at a new school, ADAMS ELEM. It used **Analyzer D**, the precise but biased analyzer from Activity 2. On the reference soil, Analyzer D reads 432 ppm instead of 400 ppm, so the company subtracts 32 ppm from every reading. The reference soil's certificate states its lead content as **400 ± 10 ppm**: even the standard has an uncertainty.
+
+### 4.1 From five readings to one number
+
+Here are the company's five replicate readings, before and after the bias correction:
+
+::: {.pond-dq-notes}
+| Reading | 1 | 2 | 3 | 4 | 5 | **Mean** | **Standard deviation** |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Raw (ppm) | 458 | 471 | 446 | 467 | 453 | **459** | **10** |
+| Corrected, −32 (ppm) | 426 | 439 | 414 | 435 | 421 | **427** | **10** |
+
+Sample collected on 10 March 2025, 1 m from the fence along Oak Street. Soil dried and sieved before analysis.
+:::
+
+**Your turn!** Write the line you would send to the city council. Keep your draft: you'll come back to it in 4.4.
+
+```{=html}
+<div class="pond-dq">
+  <label for="pond-dq-report-draft"><strong>My draft report</strong></label>
+  <textarea id="pond-dq-report-draft" class="pond-dq-response" rows="3"
+    placeholder="Lead in playground soil, ADAMS ELEM.: ..."></textarea>
+</div>
+```
+
+### 4.2 What does the ± mean?
+
+Three colleagues summarized the same five readings in three different ways:
+
+::: {.pond-dq-notes}
+**427 ± 10 ppm** &nbsp;&nbsp;·&nbsp;&nbsp; **427 ± 5 ppm** &nbsp;&nbsp;·&nbsp;&nbsp; **427 ± 14 ppm**
+:::
+
+**Your turn!** Which one is correct?
+
+```{=html}
+<div class="pond-dq-whatif" role="group" aria-label="Which report is correct?">
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Correct, if the ± is the standard deviation: how much single readings scatter. But it doesn't say how well the average is known.">427 ± 10 ppm</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Correct, if the ± is the standard error of the mean (Activity 2): how well the average of these five readings is known. But it leaves out the uncertainty of the bias correction.">427 ± 5 ppm</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Correct, if the ± is an approximate 95% range that includes both the scatter between readings and the uncertainty of the bias correction.">427 ± 14 ppm</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Yes! All three are correct, but they mean different things. A ± is useless unless the report says what it is.">All of them</button>
+</div>
+<p class="pond-dq-take" aria-live="polite" hidden></p>
+```
+
+<details class="pond-dq-reveal">
+<summary>Where does ± 14 come from?</summary>
+
+Two independent sources of uncertainty contribute to the average:
+
+- the scatter between the readings (the standard error of the mean, about 5 ppm);
+- the bias correction, which is only as good as the reference soil's certificate (about 5 ppm).
+
+Independent uncertainties don't simply add up: some of the time they partly cancel. Combined, they amount to about 7 ppm, and twice that gives an approximate 95% range of **± 14 ppm**. You don't need to do this calculation yourself; the point is that the reported ± should say which sources it includes.
+
+</details>
+
+### 4.3 What goes in the report?
+
+Some uncertainties can be put into the ± number. Others can't be, but the reader still needs to know about them.
+
+**Your turn!** For each of these, decide whether it belongs in the ± number, or should be stated in words.
+
+```{=html}
+<div id="pond-dq-parts" class="pond-dq"></div>
+```
+
+<!-- Parts of the ADAMS ELEM. report. data-answer (number, words) is our answer;
+     the first paragraph is the item, the rest is revealed after the learner answers. -->
+
+::: {#pond-dq-parts-bank}
+::: {.pond-dq-claim data-answer="number"}
+The five readings differ from each other.
+
+**In the ± number.** The scatter gives the standard error of the mean, about 5 ppm.
+:::
+
+::: {.pond-dq-claim data-answer="number"}
+The bias correction (−32 ppm) is itself uncertain.
+
+**In the ± number.** The reference soil is only certified to ± 10 ppm, so the correction could be off by a few ppm. Unlike the scatter, this error shifts all five readings together, so taking more readings can't shrink it.
+:::
+
+::: {.pond-dq-claim data-answer="number"}
+Each reading is only good to ± 20 ppm (the analyzer's nominal precision).
+
+**Already in the ± number.** The analyzer's imprecision is one reason the five readings scatter. Adding it again would count it twice.
+:::
+
+::: {.pond-dq-claim data-answer="words"}
+The sample came from one spot, by the fence along Oak Street.
+
+**In words.** No ± can tell how well one spot represents the whole playground (Activity 3). Say where the sample was taken, and that it is a single spot.
+:::
+
+::: {.pond-dq-claim data-answer="words"}
+The sample was collected in March.
+
+**In words.** The date tells the reader what period the value describes.
+:::
+
+::: {.pond-dq-claim data-answer="words"}
+The soil was dried and sieved before analysis.
+
+**In words.** This method choice affects the value. Stating it lets others compare it with labs that prepare soil differently.
+:::
+:::
+
+**Your turn!** The council wants to know whether children are safe in ADAMS ELEM.'s playground. Which of these uncertainties matters most for *that* question?
+
+```{=html}
+<div class="pond-dq-whatif" role="group" aria-label="Which uncertainty matters most for the council's question?">
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Small here: about ± 5 ppm. It would matter mostly if the value sat right at the threshold.">Scatter between readings</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="The correction itself mattered a lot: without it, the value would be 459 ppm instead of 427. But its remaining uncertainty is only a few ppm.">Bias correction</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="Most likely. In Activity 3, lead varied from 15 to 880 ppm within a single playground. That dwarfs a ± of 14 ppm.">Sampling a single spot</button>
+  <button type="button" class="pond-dq-tag" aria-pressed="false" data-verdict="It could matter if something changed since March (renovation work, new mulch), but lead in soil usually changes slowly.">Collection date</button>
+</div>
+<p class="pond-dq-take" aria-live="polite" hidden></p>
+```
+
+The answer depends on the question. If the company wanted to know whether Analyzer D is working properly, the calibration would matter most, and the sampling location not at all.
+
+### 4.4 Revise your report
+
+**Your turn!** Look back at your draft from 4.1. What would you add or change? Write your revised report below.
+
+```{=html}
+<div class="pond-dq">
+  <label for="pond-dq-report-final"><strong>My revised report</strong></label>
+  <textarea id="pond-dq-report-final" class="pond-dq-response" rows="4"
+    placeholder="Write your revised report here..."></textarea>
+</div>
+```
+
+<details class="pond-dq-reveal">
+<summary>Compare with our report</summary>
+
+**Lead in playground soil, ADAMS ELEM.: 427 ± 14 ppm**
+
+- Mean of 5 replicate readings with Analyzer D, corrected for the analyzer's known bias (−32 ppm, measured on a reference soil certified at 400 ± 10 ppm).
+- The ± is an approximate 95% range. It includes the scatter between readings and the uncertainty of the bias correction.
+- One sample, collected on 10 March 2025, 1 m from the fence along Oak Street. Soil dried and sieved before analysis.
+- Not included in the ±: how well this one spot represents the rest of the playground.
+
+This report doesn't settle whether the playground is safe. But it tells the council what is known, how well, and what isn't known yet. Your report doesn't need to match ours word for word; what matters is that a reader could tell what the ± means and what the value represents.
+
+</details>
+
+### Key takeaway
+
+An uncertainty is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can't be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question the data are used for.
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Learner answers stay in this browser only
@@ -700,48 +858,54 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // ---------- Activity 3 ----------
 
-  // 3.1 One measurement, four questions
-  saved.claims = saved.claims || {};
-  const claimLabels = { enough: "Enough", partly: "Partly", not: "Not enough" };
-  const claimBank = document.getElementById("pond-dq-claims-bank");
-  const claimBox = document.getElementById("pond-dq-claims");
-  const claimList = document.createElement("ol");
-  claimList.className = "pond-dq-claim-list";
-  claimBank.querySelectorAll(".pond-dq-claim").forEach((div, n) => {
-    const [question, ...why] = div.children;
-    const li = document.createElement("li");
-    li.className = "pond-dq-claim-item";
-    li.innerHTML = `<div class="pond-dq-claim-q"></div>
-      <div class="pond-dq-choices" role="group"></div>
-      <div class="pond-dq-take" aria-live="polite" hidden></div>`;
-    li.querySelector(".pond-dq-claim-q").append(question.cloneNode(true));
-    const group = li.querySelector(".pond-dq-choices");
-    group.setAttribute("aria-label", `Question ${n + 1}: is one measurement enough?`);
-    const take = li.querySelector(".pond-dq-take");
-    function show() {
-      take.innerHTML = "";
-      why.forEach(p => take.append(p.cloneNode(true)));
-      take.hidden = false;
-    }
-    Object.entries(claimLabels).forEach(([value, label]) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "pond-dq-tag";
-      btn.textContent = label;
-      btn.setAttribute("aria-pressed", String(saved.claims[n] === value));
-      btn.addEventListener("click", () => {
-        saved.claims[n] = value;
-        save();
-        group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
-        show();
+  // Sorting questions: each item in a bank gets a row of choice buttons, and the
+  // explanation (everything after the first paragraph) is revealed once answered.
+  function buildSorter(bankId, boxId, labels, savedKey, ariaQuestion) {
+    const answers = saved[savedKey] = saved[savedKey] || {};
+    const bank = document.getElementById(bankId);
+    const list = document.createElement("ol");
+    list.className = "pond-dq-claim-list";
+    bank.querySelectorAll(".pond-dq-claim").forEach((div, n) => {
+      const [question, ...why] = div.children;
+      const li = document.createElement("li");
+      li.className = "pond-dq-claim-item";
+      li.innerHTML = `<div class="pond-dq-claim-q"></div>
+        <div class="pond-dq-choices" role="group"></div>
+        <div class="pond-dq-take" aria-live="polite" hidden></div>`;
+      li.querySelector(".pond-dq-claim-q").append(question.cloneNode(true));
+      const group = li.querySelector(".pond-dq-choices");
+      group.setAttribute("aria-label", `Item ${n + 1}: ${ariaQuestion}`);
+      const take = li.querySelector(".pond-dq-take");
+      function show() {
+        take.innerHTML = "";
+        why.forEach(p => take.append(p.cloneNode(true)));
+        take.hidden = false;
+      }
+      Object.entries(labels).forEach(([value, label]) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pond-dq-tag";
+        btn.textContent = label;
+        btn.setAttribute("aria-pressed", String(answers[n] === value));
+        btn.addEventListener("click", () => {
+          answers[n] = value;
+          save();
+          group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+          show();
+        });
+        group.append(btn);
       });
-      group.append(btn);
+      if (answers[n]) show();
+      list.append(li);
     });
-    if (saved.claims[n]) show();
-    claimList.append(li);
-  });
-  claimBox.append(claimList);
-  claimBank.hidden = true;
+    document.getElementById(boxId).append(list);
+    bank.hidden = true;
+  }
+
+  // 3.1 One measurement, four questions
+  buildSorter("pond-dq-claims-bank", "pond-dq-claims",
+    { enough: "Enough", partly: "Partly", not: "Not enough" },
+    "claims", "is one measurement enough?");
 
   // 3.2 Where would you sample? Values come from the table in the page.
   const gridData = document.getElementById("pond-dq-playground-data");
@@ -869,5 +1033,12 @@ document.addEventListener("DOMContentLoaded", () => {
     drawGrid();
   });
   drawGrid();
+
+  // ---------- Activity 4 ----------
+
+  // 4.3 In the ± number, or in words?
+  buildSorter("pond-dq-parts-bank", "pond-dq-parts",
+    { number: "In the ± number", words: "Stated in words" },
+    "parts", "in the ± number, or in words?");
 });
 </script>
