@@ -384,7 +384,7 @@ Requiring open licenses is common for publicly funded data. In the United States
 :::
 :::
 
-Permission should be written into the metadata, not left to an email or a hallway conversation, so that it travels with the data. You'll put this into practice in [Preparing Data for Sharing](../sharing-data/index.qmd).
+Permission should be written into the metadata, not left to an email or a hallway conversation, so that it travels with the data. You'll put this into practice in [Preparing Data for Sharing](../sharing-data/index.qmd). To learn how licenses work, and how to choose one for your own data, dive into [Licensing](../../../deep-water/licensing/index.qmd) in the Deep End.
 
 #### Key takeaway
 
