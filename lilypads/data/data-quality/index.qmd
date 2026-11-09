@@ -3,11 +3,1308 @@ title: "Data Quality and Provenance"
 
 ---
 
-::: {.callout-note appearance="simple"}
-## Coming soon
+Imagine that you are a city official charged with determining whether schools in your district meet lead (Pb) exposure standards. Sampling in the district is done by various testing companies, using various instruments, each with a given nominal precision. State and city procedures mandate that each measurement be replicated at least once (preferably more). The instruments have known biases that can be corrected for.
 
-**A frog will be here shortly.**  
-This part of The Pond is still being prepared. Check back soon for new learning materials.
+You met this office in [Metadata for Reuse](../metadata/index.qmd), where the question was whether you had enough information to *use* a dataset. Here, the question is whether, given that information, the data are good enough for a particular purpose.
 
-![](../../../images/frog_soon.gif){fig-align="center" width="250px"}
+Lead concentrations can be reported in several units:
+
+::: {.pond-pad-wide}
+| Unit name | Abbreviation | Equivalent to 400 ppm (EPA play area limit) |
+| :--- | :--- | :--- |
+| **Parts per million** | ppm | 400 ppm |
+| **Milligrams per kilogram** | mg/kg | 400 mg/kg |
+| **Micrograms per gram** | µg/g | 400 µg/g |
+| **Parts per billion** | ppb | 400,000 ppb |
+| **Percent by weight** | % | 0.04% |
 :::
+
+The recommended thresholds also vary by medium:
+
+::: {.pond-pad-wide}
+| Medium | Specific target type | EPA threshold value |
+| :--- | :--- | :--- |
+| **Paint / Dust** | Liquid/surface paint limit | 90 ppm (0.009%) |
+| **Soil** | Bare soil, child play areas | 400 ppm |
+| **Tap water** | Public utility action level | 10 ppb (0.010 mg/L) |
+:::
+
+## 1. Where did this value come from?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-pad-time}
+
+### 1.1 A spreadsheet from a new employee
+
+One day, a new employee of yours hands you a spreadsheet that looks like this:
+
+::: {.pond-pad-notes}
+| Sample ID | Location | Value | Safe? |
+| :--- | :--- | ---: | :---: |
+| PB-001 | FAIRVIEW ELEM. | 12 | Yes |
+| PB-002 | LINCOLN MIDDLE | 150 | Yes |
+| PB-003 | ROOSEVELT HIGH | 0.03 | Yes |
+| PB-004 | JEFFERSON ELEM. | 420 | No |
+| PB-005 | WASHINGTON ELEM. | 8 | Yes |
+:::
+
+[Fictional schools and values created for The Pond (2026).]{.pond-pad-credit}
+
+**Your turn!**
+
+Four of the five schools are marked safe. Before you report that to the city council:
+
+1. How do you think the **Safe?** column was decided?
+2. What would you need to know to check it yourself?
+
+```{=html}
+<div class="pond-pad">
+  <label for="pond-dq-new-employee"><strong>My observations</strong></label>
+  <textarea id="pond-dq-new-employee" class="pond-pad-response" rows="4"
+    placeholder="Write your answers here..."></textarea>
+</div>
+```
+
+<details class="pond-pad-reveal">
+<summary>Compare with our answer</summary>
+
+Each value must be an average of replicates, but the spreadsheet doesn't say **of how many samples**, **in what units**, or **with what precision**. Nor does it say what was sampled, so you can't tell which threshold applies.
+
+A **Safe?** column is not a reproducible determination: without the information behind it, you can't check it.
+
+</details>
+
+#### Key takeaway 1.1
+
+A derived value, such as a "Safe?" verdict, is only as trustworthy as the information needed to recompute it. As you saw in [Metadata for Reuse](../metadata/index.qmd), a number without its units, replicates and precision can't be checked.
+
+### 1.2 The same spreadsheet, from a senior employee
+
+Now suppose that the exact same spreadsheet had come from your most senior employee, who has done this work for twenty years.
+
+**Your turn!** Would you trust it more?
+
+```{=html}
+<div class="pond-pad-whatif" role="group" aria-label="Would you trust it more?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="It's natural to give an experienced colleague more credit. But look again: the table is identical, so it contains no more evidence than before.">Yes, more</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: the table is identical, so it contains no more evidence than before.">No, the same</button>
+</div>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
+```
+
+<details class="pond-pad-reveal">
+<summary>Why it matters</summary>
+
+The employee's experience is not the relevant variable here; **metadata** are. An experienced person may have years of precedent to justify how they do things, but also more unstated assumptions. If you are not operating with the same assumptions, their spreadsheet may lead you astray. We will come back to trust and reputation in Activity 5.
+
+</details>
+
+#### Key takeaway 1.2
+
+Judge data by the evidence that comes with them, not by who handed them to you. Experience is no substitute for documentation.
+
+### 1.3 A better dataset
+
+Here is the same survey, with the information that was missing:
+
+::: {.pond-pad-notes .pond-pad-wide}
+| Sample ID | Location | Medium | # replicates | Instrument | Value | Units | Precision | Threshold | Safe? |
+| :--- | :--- | :--- | ---: | :--- | ---: | :--- | :--- | :--- | :---: |
+| PB-001 | FAIRVIEW ELEM. | Tap water | 3 | Lab spectrometer | 12 | ppb | ± 1 | 10 ppb | No |
+| PB-002 | LINCOLN MIDDLE | Soil | 2 | Handheld analyzer B | 150 | ppm | ± 15 | 400 ppm | Yes |
+| PB-003 | ROOSEVELT HIGH | Paint | 2 | Handheld analyzer A | 0.03 | % | ± 0.005 | 0.009% | No |
+| PB-004 | JEFFERSON ELEM. | Soil | 4 | Handheld analyzer B | 420 | ppm | ± 20 | 400 ppm | No |
+| PB-005 | WASHINGTON ELEM. | Tap water | 1 | Lab spectrometer | 8 | ppb | ± 1 | 10 ppb | Yes |
+:::
+
+Two schools have changed from "Yes" to "No." The new employee had applied the soil threshold, 400, to every row, whatever the medium and units.
+
+**Your turn!**
+
+1. Which stage of the data has actually been archived?
+2. Can the processed value be traced back to the original observations?
+3. What transformations occurred?
+4. Are those transformations documented?
+5. Could another researcher reproduce the processed value?
+
+```{=html}
+<div class="pond-pad">
+  <label for="pond-dq-better-dataset"><strong>My observations</strong></label>
+  <textarea id="pond-dq-better-dataset" class="pond-pad-response" rows="5"
+    placeholder="Write your answers here..."></textarea>
+</div>
+```
+
+<details class="pond-pad-reveal">
+<summary>Compare with our answer</summary>
+
+1. **The average.** Each value summarizes several replicate measurements.
+2. **No.** The individual replicates have not been archived, and they should be.
+3. **Averaging, then comparison with a threshold.** (The bias corrections mentioned at the start may have been applied too; the table doesn't say.)
+4. **Not explicitly.** They can be inferred from the metadata: the reported medium tells us which units and threshold were likely used. It would be better to make this explicit.
+5. **Not without the actual workflow:** which replicates went into each average, which corrections were applied, and how. See [What is a Workflow?](../../workflow/what-is-a-workflow/index.qmd)
+
+Did you spot that WASHINGTON ELEM. has only **one** replicate? The procedures require at least two measurements, so that "Yes" should not stand until the school is resampled.
+
+</details>
+
+#### Key takeaway 1.3
+
+Provenance is the history of how a value became what it is: raw readings, corrections, averaging, comparisons. Processing isn't a problem in itself; undocumented processing is. Archive the raw data and record each step, so that others can reproduce the final value.
+
+### 1.4 How could we do better?
+
+Even the better table can't answer every question. Some of the evidence you need lives **outside** the numerical dataset.
+
+**Your turn!** Which of these would you ask the testing companies for? Select as many as you like, then reveal what each one would tell you.
+
+```{=html}
+<div id="pond-dq-evidence" class="pond-pad"></div>
+```
+
+<!-- Ancillary evidence. data-name is the label on the button; the text inside is revealed. -->
+
+::: {#pond-dq-evidence-bank}
+::: {.pond-dq-evidence data-name="Calibration records"}
+Show how each instrument's readings were converted and corrected for its known bias, and when it was last checked.
+:::
+
+::: {.pond-dq-evidence data-name="Instrument logs"}
+Record errors, maintenance, and failed readings: was the analyzer working properly on the day PB-004 was measured?
+:::
+
+::: {.pond-dq-evidence data-name="Field notes"}
+Describe the conditions: was the tap at FAIRVIEW ELEM. flushed before sampling? Was the soil at JEFFERSON ELEM. wet?
+:::
+
+::: {.pond-dq-evidence data-name="Replicate measurements"}
+Let you see how much the replicates disagree, and recompute each average yourself.
+:::
+
+::: {.pond-dq-evidence data-name="Standards / reference materials"}
+Samples with a certified lead content, measured alongside the real ones, show whether the instrument read accurately that day.
+:::
+
+::: {.pond-dq-evidence data-name="Processing code"}
+Documents exactly how replicates were averaged, corrections applied, and thresholds chosen, so anyone can rerun or check it.
+:::
+
+::: {.pond-dq-evidence data-name="Photographs or images"}
+Show where each sample was taken: a play area, or a flower bed by the parking lot?
+:::
+
+::: {.pond-dq-evidence data-name="Sample metadata"}
+Who collected each sample, when, and how it was stored and handled before analysis.
+:::
+:::
+
+#### Key takeaway 1.4
+
+Ask for the evidence behind the numbers. Calibration records, replicates, field notes and processing code let you check a value instead of taking it on faith. Many of them are the scientific metadata you met in [Metadata for Reuse](../metadata/index.qmd).
+
+### Key takeaway 1
+
+Evidence supporting data quality may exist outside the numerical dataset itself. More metadata tends to be a good thing, but it often involves a tradeoff because it takes time and effort to maintain complete metadata records, so scientists often land on a compromise between what is ideal and what simply "clears the bar" (which is context-dependent, and might evolve over time). 
+
+## 2. What does this number actually mean?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 10 minutes, plus 5 optional]{.pond-pad-time}
+
+In Activity 1, JEFFERSON ELEM. was reported at 420 ppm of lead in soil, just above the 400 ppm threshold. Before the city closes a playground, it's worth asking what that number really tells us.
+
+### 2.1 Precise, accurate, or both?
+
+To check their instruments, four testing companies each measured the same **reference soil** five times. A reference soil is a sample whose lead content has been certified by a standards laboratory, here at 400 ppm.
+
+**Your turn!** For each analyzer, decide whether its readings are **precise** and whether they are **accurate**.
+
+In each plot, the dots are the five readings and the triangle marks their **average**. The red dashed line is the **certified value** of the reference soil (400 ppm), *not* the average of the readings.
+
+```{=html}
+<div id="pond-dq-analyzers" class="pond-pad pond-pad-cards"></div>
+```
+
+<!-- Readings of a reference soil certified at 400 ppm. data-precise and data-accurate (yes/no) are the answers;
+     the text inside is revealed once the learner has answered both questions. -->
+
+::: {#pond-dq-analyzer-bank}
+::: {.pond-dq-analyzer data-name="Analyzer A" data-readings="360,445,392,418,385" data-precise="no" data-accurate="yes"}
+**Accurate on average, but not precise.** The readings average exactly 400, but any single one can be off by 40 ppm or more.
+:::
+
+::: {.pond-dq-analyzer data-name="Analyzer B" data-readings="380,500,470,395,455" data-precise="no" data-accurate="no"}
+**Neither.** The readings are scattered *and* their average (440 ppm) is too high.
+:::
+
+::: {.pond-dq-analyzer data-name="Analyzer C" data-readings="398,401,399,402,400" data-precise="yes" data-accurate="yes"}
+**Precise and accurate.** The readings agree with each other *and* with the certified value.
+:::
+
+::: {.pond-dq-analyzer data-name="Analyzer D" data-readings="431,433,430,432,434" data-precise="yes" data-accurate="no"}
+**Precise, but not accurate.** The readings agree closely, but all of them are about 32 ppm too high. This is a **bias**, like the known biases mentioned at the start. Because it is consistent, it can be measured and corrected.
+:::
+:::
+
+These four analyzers illustrate three ideas that are easy to confuse:
+
+- **Precision:** how finely or consistently something can be measured. Precise readings agree with each other.
+- **Accuracy:** how close a measurement is to the true value. Accurate readings agree with the truth.
+- **Uncertainty:** the range of plausible values, and the sources of error, associated with a measurement or its interpretation.
+
+Analyzer D shows why the difference matters: precision alone can't tell you whether a measurement is right.
+
+#### Key takeaway 2.1
+
+Precision is agreement between readings; accuracy is agreement with the true value. A precise instrument can still be off, which is why instruments are checked against reference materials.
+
+### 2.2 How many digits?
+
+The testing company's spreadsheet reports the average for JEFFERSON ELEM. as:
+
+::: {.pond-pad-notes}
+**420.250000 ppm**
+:::
+
+The analyzer's nominal precision is **± 20 ppm** per reading.
+
+**Your turn!** How would you report this value to the city council?
+
+```{=html}
+<div class="pond-pad-whatif" role="group" aria-label="How would you report this value?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Too many digits. The last six digits were produced by the spreadsheet, not by the analyzer.">420.250000 ppm</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Still too many. With ± 20 ppm, even the ones digit is uncertain; the hundredths are meaningless.">420.25 ppm</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Better: no digits beyond what the analyzer supports. But nothing tells the reader how uncertain the value is.">420 ppm</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Best: the digits match the precision, and the uncertainty is stated.">420 ± 20 ppm</button>
+</div>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
+```
+
+<details class="pond-pad-reveal">
+<summary>Why it matters</summary>
+
+Six decimal places don't add information; they add **false precision**. A council member reading "420.250000 ppm" could reasonably assume the lead content is known to a millionth of a ppm, and that it is certainly above 400. Neither is true.
+
+The number of digits reported should reflect the precision of the measurement, not the number of digits produced by software or a spreadsheet.
+
+</details>
+
+#### Key takeaway 2.2
+
+Report only the digits that the measurement supports. Extra digits produced by software are false precision: they suggest knowledge that doesn't exist.
+
+### 2.3 How precise is the average? (optional)
+
+<details class="pond-pad-deeper">
+<summary>Go deeper: how averaging narrows the uncertainty (about 5 minutes)</summary>
+
+The 420 ppm for JEFFERSON ELEM. is the average of four replicate readings:
+
+::: {.pond-pad-notes}
+| Reading | 1 | 2 | 3 | 4 | **Mean** | **Standard deviation** |
+|---|---:|---:|---:|---:|---:|---:|
+| Lead (ppm) | 392 | 447 | 403 | 439 | **420** | **27** |
+:::
+
+The readings themselves vary, so the average is uncertain too. If the readings are **independent** (each one a separate, fresh measurement) and all have the same distribution (often a Gaussian - a reasonable assumption), the uncertainty of the mean is the **standard error of the mean**:
+
+$$\text{SEM} = \frac{\text{standard deviation}}{\sqrt{\text{number of readings}}}$$
+
+For JEFFERSON ELEM., that is 27 / √4 = **13.5 ppm**.
+
+A common rule of thumb is that the true value most likely lies within **2 SEM** of the mean (about 95% of the time).
+
+**Your turn!** Is 420 − 2 × 13.5 above the 400 ppm threshold? In other words, can we be confident that JEFFERSON ELEM.'s soil is above the threshold?
+
+```{=html}
+<div class="pond-pad-whatif" role="group" aria-label="Can we be confident that JEFFERSON ELEM. is above 400 ppm?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Not quite: 420 − 2 × 13.5 = 393 ppm, which is below 400. The plausible range, 393 to 447 ppm, straddles the threshold.">Yes</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: 420 − 2 × 13.5 = 393 ppm, which is below 400. The plausible range, 393 to 447 ppm, straddles the threshold, so four readings aren't enough to decide.">No</button>
+</div>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
+```
+
+**How many readings would it take?** Move the slider to see how the uncertainty shrinks as you add readings (assuming the mean and standard deviation stay the same).
+
+```{=html}
+<div class="pond-pad pond-dq-sem">
+  <label for="pond-dq-n"><strong>Number of readings: <output id="pond-dq-n-out">4</output></strong></label>
+  <input id="pond-dq-n" type="range" min="1" max="20" value="4" class="form-range">
+  <svg id="pond-dq-sem-plot" viewBox="0 0 600 90" role="img" aria-labelledby="pond-dq-sem-text"></svg>
+  <p id="pond-dq-sem-text" class="pond-pad-status" aria-live="polite"></p>
+</div>
+```
+
+<details class="pond-pad-reveal">
+<summary>Two important caveats</summary>
+
+**Independence.** The SEM formula assumes each reading is a fresh, independent measurement. Four readings taken without moving the analyzer, or from the same handful of soil, are not independent: they will agree more closely than separate samples would, and the SEM will make you overconfident.
+
+**Bias.** More readings shrink the *random* scatter, but not a bias. Averaging a thousand readings from Analyzer D would give 432 ppm with a tiny SEM: very precise, and still wrong. Only calibration against a reference soil reveals that.
+
+And with WASHINGTON ELEM.'s single reading, you can't compute a standard deviation at all, so there is no way to tell how uncertain it is. That is one reason why procedures require replicates.
+
+(Statisticians would note that with only a few readings, the plausible range is even wider than 2 SEM. We keep things simple here.)
+
+</details>
+
+#### Key takeaway 2.3
+
+Averaging independent readings narrows the uncertainty of the mean. But it can't remove a bias, and it only works if the readings really are independent.
+
+</details>
+
+### 2.4 More than the instrument
+
+The analyzer's ± 20 ppm is only one source of uncertainty. Uncertainty can arise at every stage between the soil in the playground and the number in the spreadsheet.
+
+**Your turn!** Which of these could affect the 420 ppm reported for JEFFERSON ELEM.? Select all that apply, then reveal our take.
+
+```{=html}
+<div id="pond-dq-sources" class="pond-pad"></div>
+```
+
+<!-- Sources of uncertainty. data-name is the label on the button; the text inside is revealed. -->
+
+::: {#pond-dq-sources-bank}
+::: {.pond-dq-source data-name="Instrument precision"}
+Each reading is only good to ± 20 ppm.
+:::
+
+::: {.pond-dq-source data-name="Calibration"}
+If the correction for the analyzer's known bias is off, every reading shifts together, and the replicates won't reveal it.
+:::
+
+::: {.pond-dq-source data-name="Replicate variability"}
+The readings vary by 27 ppm, more than the analyzer's ± 20 ppm. The soil itself is uneven.
+:::
+
+::: {.pond-dq-source data-name="Sample preparation"}
+Wet or unsieved soil reads differently from dry, sieved soil. And whether a value is per kilogram of wet or dry soil changes the number, as you saw in [Metadata for Reuse](../metadata/index.qmd).
+:::
+
+::: {.pond-dq-source data-name="Processing choices"}
+Which readings were kept, how the bias was corrected, and how the average was taken all change the final number.
+:::
+
+::: {.pond-dq-source data-name="Units and reporting"}
+A value in % read as ppm (remember ROOSEVELT HIGH?) is off by a factor of 10,000.
+:::
+
+::: {.pond-dq-source data-name="Spatial sampling"}
+Four readings from one spot may not represent a whole playground. More on this in Activity 3.
+:::
+
+::: {.pond-dq-source data-name="Temporal sampling"}
+Lead in soil can change after renovation work, new mulch, or heavy rain. More on this in Activity 3 too.
+:::
+:::
+
+#### Key takeaway 2.4
+
+The instrument is only one source of uncertainty. Other uncertainties can enter at every step between the soil and the spreadsheet: sampling, preparation, calibration, processing, and reporting.
+
+### Key takeaway 2
+
+A reported number is only as meaningful as what we know about its uncertainty. Report only the digits the measurement supports, state the uncertainty, and remember that the instrument is rarely the only source of uncertainty.
+
+## 3. Are the data adequate to the purpose?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 10 minutes]{.pond-pad-time}
+
+Following Activity 2, the lab took ten readings from the JEFFERSON ELEM. sample instead of four. It now reports **420 ± 17 ppm**: precise enough to say, with confidence, that this soil is above 400 ppm.
+
+That soil came from **one spot**, about 2 meters from the school building's wall, collected on 3 March 2025.
+
+### 3.1 One measurement, four questions
+
+**Your turn!** Is this one measurement enough to answer each of these questions?
+
+```{=html}
+<div id="pond-dq-claims" class="pond-pad"></div>
+```
+
+<!-- Questions of increasing scope. data-answer (enough, partly, not) is our answer;
+     the first paragraph is the question, the rest is revealed after the learner answers. -->
+
+::: {#pond-dq-claims-bank}
+::: {.pond-dq-claim data-answer="enough"}
+What was the lead content of the soil at that spot, on that day?
+
+**Enough.** This is exactly what was measured.
+:::
+
+::: {.pond-dq-claim data-answer="not"}
+What is the lead content across JEFFERSON ELEM.'s playground?
+
+**Not enough.** Lead in soil can vary a lot over a few meters: it tends to be highest next to old painted walls and busy streets. One spot can't tell you about the rest of the playground. This is a question of **spatial representativeness**.
+:::
+
+::: {.pond-dq-claim data-answer="not"}
+Will the playground still be above 400 ppm next school year?
+
+**Not enough.** Rain, new mulch, landscaping, or dust from renovation work can all change the lead at the surface. A measurement from March describes March. This is a question of **temporal representativeness**.
+:::
+
+::: {.pond-dq-claim data-answer="not"}
+Do schools across the district meet the lead standard?
+
+**Not enough.** One sample from one school can't describe dozens of schools. The question is at a much larger scale than the measurement (a **scale mismatch**), and answering it would take many more samples (a higher **sampling density**).
+:::
+:::
+
+The measurement never changed. What changed was the **claim** that could be made from it:
+
+- **Spatial representativeness:** how well a measurement at one place stands for a larger area.
+- **Temporal representativeness:** how well a measurement at one time stands for a longer period.
+- **Sampling density:** how many samples are taken, over how much space or time.
+- **Scale mismatch:** when the question is about a much larger (or smaller) area or period than the measurements cover.
+
+#### Key takeaway 3.1
+
+The same measurement can answer one question well and another not at all. Metadata help others figure out which claims they could make (or not) by re-using your data.
+
+### 3.2 Where would you sample?
+
+The city can afford **four more samples** at JEFFERSON ELEM. The map below shows the playground, divided into a grid of 60 squares. It lies between the school building and a busy road; both can be sources of lead (old paint on the building, and decades of traffic exhaust from the era of leaded gasoline). The ★ marks the spot that was already sampled.
+
+**Your turn!** Choose four squares to sample, then reveal the lead map to see how well your samples represent the playground.
+
+```{=html}
+<div id="pond-dq-playground" class="pond-pad"></div>
+```
+
+<!-- Lead in the playground soil (ppm), one value per grid square. Row 1 runs along the school building;
+     column 1 runs along the street. The sandbox is the block of low values in rows 4–5, columns 6–8. -->
+
+::: {#pond-dq-playground-data}
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 880 | 720 | 650 | 600 | 560 | 610 | 700 | 820 | 760 | 690 |
+| 2 | 430 | 380 | 330 | 300 | 280 | 300 | 350 | 420 | 390 | 360 |
+| 3 | 340 | 210 | 180 | 160 | 150 | 140 | 170 | 190 | 180 | 170 |
+| 4 | 320 | 180 | 150 | 130 | 120 | 25 | 20 | 30 | 150 | 140 |
+| 5 | 310 | 170 | 140 | 120 | 110 | 20 | 15 | 25 | 130 | 120 |
+| 6 | 300 | 160 | 130 | 110 | 100 | 100 | 110 | 120 | 110 | 100 |
+:::
+
+[Fictional values created for The Pond (2026).]{.pond-pad-credit}
+
+**Your turn!** So, is JEFFERSON ELEM.'s playground above the 400 ppm threshold?
+
+```{=html}
+<div class="pond-pad">
+  <label for="pond-dq-playground-response"><strong>My observations</strong></label>
+  <textarea id="pond-dq-playground-response" class="pond-pad-response" rows="3"
+    placeholder="Write your answer here..."></textarea>
+</div>
+```
+
+<details class="pond-pad-reveal">
+<summary>Compare with our answer</summary>
+
+**It depends on the question.**
+
+- **On average, no.** Averaged over the whole playground, the soil contains about 270 ppm of lead, well below 400 ppm.
+- **Along the building, yes.** Every square next to the wall is above 400 ppm, probably because of old lead paint. If children play there, that is the number that matters.
+- **Along the road, elevated but below the threshold.** The squares next to the road (300–340 ppm) are about twice the playground's typical level, from decades of leaded-gasoline exhaust.
+
+The original sample was precise and accurate, but it came from a hotspot, so it overstated the playground as a whole. Four squares chosen at random could just as easily miss the hotspot entirely, and understate the risk.
+
+Good sampling follows the question. To estimate the **average**, spread samples evenly. To find **hotspots**, also sample where lead is likely to collect: next to old buildings, along streets, and where soil is bare.
+
+</details>
+
+#### Key takeaway 3.2
+
+Where you sample decides what you can conclude. Fit the sampling to the question: spread samples out to estimate an average, and target likely sources to find hotspots.
+
+### Key takeaway 3
+
+A measurement can be analytically precise and still be poorly representative of what we want to know. Before using a value, ask what you are trying to get from it: does it cover the place, the time, and the scale of your question? Conversely, when reporting a value, be clear about what questions the data can address. 
+
+## 4. How would you report this value?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 11 minutes, plus 4 optional]{.pond-pad-time}
+
+So far, you have been reading values that someone else reported. This time, you write the report.
+
+The testing company has just sampled the playground soil at a new school, ADAMS ELEM. It used **Analyzer D**, the precise but biased analyzer from Activity 2. On the reference soil, Analyzer D reads 432 ppm instead of 400 ppm, so the company subtracts 32 ppm from every reading. The reference soil's certificate states its lead content as **400 ± 10 ppm**: even the standard has an uncertainty.
+
+### 4.1 From five readings to one number
+
+Here are the company's five replicate readings, before and after the bias correction:
+
+::: {.pond-pad-notes}
+| Reading | 1 | 2 | 3 | 4 | 5 | **Mean** | **Standard deviation** |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Raw (ppm) | 458 | 471 | 446 | 467 | 453 | **459** | **10** |
+| Corrected, −32 (ppm) | 426 | 439 | 414 | 435 | 421 | **427** | **10** |
+
+Sample collected on 10 March 2025, 1 m from the fence along Oak Street. Soil dried and sieved before analysis.
+:::
+
+**Your turn!** Write the line you would send to the city council. Keep your draft: you'll come back to it in 4.4.
+
+```{=html}
+<div class="pond-pad">
+  <label for="pond-dq-report-draft"><strong>My draft report</strong></label>
+  <textarea id="pond-dq-report-draft" class="pond-pad-response" rows="3"
+    placeholder="Lead in playground soil, ADAMS ELEM.: ..."></textarea>
+</div>
+```
+
+#### Key takeaway 4.1
+
+Every step between raw readings and a reported value, such as a bias correction or an average, is a choice. A good report makes those choices visible.
+
+### 4.2 What does the ± mean?
+
+Three colleagues summarized the same five readings in three different ways:
+
+::: {.pond-pad-notes}
+**427 ± 10 ppm** &nbsp;&nbsp;·&nbsp;&nbsp; **427 ± 5 ppm** &nbsp;&nbsp;·&nbsp;&nbsp; **427 ± 14 ppm**
+:::
+
+**Your turn!** Which one is correct?
+
+```{=html}
+<div class="pond-pad-whatif" role="group" aria-label="Which report is correct?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Correct, if the ± is the standard deviation: how much single readings scatter. But it doesn't say how well the average is known.">427 ± 10 ppm</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Correct, if the ± is the standard error of the mean (Activity 2): how well the average of these five readings is known. But it leaves out the uncertainty of the bias correction.">427 ± 5 ppm</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Correct, if the ± is an approximate 95% range that includes both the scatter between readings and the uncertainty of the bias correction.">427 ± 14 ppm</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Yes! All three are correct, but they mean different things. A ± is useless unless the report says what it is.">All of them</button>
+</div>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
+```
+
+<details class="pond-pad-reveal">
+<summary>Where does ± 14 come from?</summary>
+
+Two independent sources of uncertainty contribute to the average:
+
+- the scatter between the readings (the standard error of the mean, about 5 ppm);
+- the bias correction, which is only as good as the reference soil's certificate (about 5 ppm).
+
+Independent uncertainties don't simply add up: some of the time they partly cancel. Combined, they amount to about 7 ppm, and twice that gives an approximate 95% range of **± 14 ppm**. You don't need to do this calculation yourself; the point is that the reported ± should say which sources it includes.
+
+</details>
+
+#### Key takeaway 4.2
+
+A ± means nothing unless the report says what it is: a standard deviation, a standard error, or a range that also covers other sources of uncertainty.
+
+### 4.3 What goes in the report?
+
+Some uncertainties can be put into the ± number. Others can't be, but the reader still needs to know about them.
+
+<details class="pond-pad-deeper">
+<summary>Go deeper: sort six uncertainties (about 4 minutes)</summary>
+
+**Your turn!** For each of these, decide whether it belongs in the ± number, or should be stated in words.
+
+```{=html}
+<div id="pond-dq-parts" class="pond-pad"></div>
+```
+
+<!-- Parts of the ADAMS ELEM. report. data-answer (number, words) is our answer;
+     the first paragraph is the item, the rest is revealed after the learner answers. -->
+
+::: {#pond-dq-parts-bank}
+::: {.pond-dq-claim data-answer="number"}
+The five readings differ from each other.
+
+**In the ± number.** The scatter gives the standard error of the mean, about 5 ppm.
+:::
+
+::: {.pond-dq-claim data-answer="number"}
+The bias correction (−32 ppm) is itself uncertain.
+
+**In the ± number.** The reference soil is only certified to ± 10 ppm, so the correction could be off by a few ppm. Unlike the scatter, this error shifts all five readings together, so taking more readings can't shrink it.
+:::
+
+::: {.pond-dq-claim data-answer="number"}
+Each reading is only good to ± 20 ppm (the analyzer's nominal precision).
+
+**Already in the ± number.** The analyzer's imprecision is one reason the five readings scatter. Adding it again would count it twice.
+:::
+
+::: {.pond-dq-claim data-answer="words"}
+The sample came from one spot, by the fence along Oak Street.
+
+**In words.** No ± can tell how well one spot represents the whole playground (Activity 3). Say where the sample was taken, and that it is a single spot.
+:::
+
+::: {.pond-dq-claim data-answer="words"}
+The sample was collected in March.
+
+**In words.** The date tells the reader what period the value describes.
+:::
+
+::: {.pond-dq-claim data-answer="words"}
+The soil was dried and sieved before analysis.
+
+**In words.** This method choice affects the value. Stating it lets others compare it with labs that prepare soil differently.
+:::
+:::
+
+</details>
+
+**Your turn!** The council wants to know whether children are safe in ADAMS ELEM.'s playground. Which of these uncertainties matters most for *that* question?
+
+```{=html}
+<div class="pond-pad-whatif" role="group" aria-label="Which uncertainty matters most for the council's question?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Small here: about ± 5 ppm. It would matter mostly if the value sat right at the threshold.">Scatter between readings</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="The correction itself mattered a lot: without it, the value would be 459 ppm instead of 427. But its remaining uncertainty is only a few ppm.">Bias correction</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Most likely. In Activity 3, lead varied from 15 to 880 ppm within a single playground. That dwarfs a ± of 14 ppm.">Sampling a single spot</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="It could matter if something changed since March (renovation work, new mulch), but lead in soil usually changes slowly.">Collection date</button>
+</div>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
+```
+
+The answer depends on the question. If the company wanted to know whether Analyzer D is working properly, the calibration would matter most, and the sampling location not at all.
+
+#### Key takeaway 4.3
+
+Put what you can quantify in the ±, and state the rest in words. Which uncertainty matters most depends on the question being asked.
+
+### 4.4 Revise your report
+
+**Your turn!** Look back at your draft from 4.1. What would you add or change? Write your revised report below.
+
+```{=html}
+<div class="pond-pad">
+  <label for="pond-dq-report-final"><strong>My revised report</strong></label>
+  <textarea id="pond-dq-report-final" class="pond-pad-response" rows="4"
+    placeholder="Write your revised report here..."></textarea>
+</div>
+```
+
+<details class="pond-pad-reveal">
+<summary>Compare with our report</summary>
+
+**Lead in playground soil, ADAMS ELEM.: 427 ± 14 ppm**
+
+- Mean of 5 replicate readings with Analyzer D, corrected for the analyzer's known bias (−32 ppm, measured on a reference soil certified at 400 ± 10 ppm).
+- The ± is an approximate 95% range. It includes the scatter between readings and the uncertainty of the bias correction.
+- One sample, collected on 10 March 2025, 1 m from the fence along Oak Street. Soil dried and sieved before analysis.
+- Not included in the ±: how well this one spot represents the rest of the playground.
+
+This report doesn't settle whether the playground is safe. But it tells the council what is known, how well, and what isn't known yet. Your report doesn't need to match ours word for word; what matters is that a reader could tell what the ± means and what the value represents.
+
+</details>
+
+#### Key takeaway 4.4
+
+A good report lets readers judge a value without having to ask you: what was measured, how, how well, and what the number does not cover.
+
+### Key takeaway 4
+
+An uncertainty report is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can't be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question the data are used for.
+
+## 5. Do you trust this dataset?
+
+[<i class="bi bi-clock" aria-hidden="true"></i> About 5 minutes]{.pond-pad-time}
+
+Two laboratories have measured lead in the playground soil at LINCOLN MIDDLE. Here are their reports:
+
+::: {.pond-pad-notes}
+**Lab 1**, a nationally known university laboratory:
+Lead in soil, LINCOLN MIDDLE: 150 ppm.
+
+**Lab 2**, a small company that you have never worked with:
+Lead in soil, LINCOLN MIDDLE: 162 ± 12 ppm (approximate 95% range, covering the scatter between 6 replicate readings and the calibration). Analyzer checked that morning against a reference soil certified at 400 ± 10 ppm. Sample from the top 2 cm, dried and sieved. Raw readings, field photographs and processing notes attached.
+:::
+
+[Fictional laboratories and values created for The Pond (2026).]{.pond-pad-credit}
+
+### 5.1 Which would you trust?
+
+**Your turn!** Which report would you rather rely on?
+
+```{=html}
+<div class="pond-pad-whatif" role="group" aria-label="Which report would you rather rely on?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Its reputation is a reasonable starting point. But its report gives you nothing to check: no replicates, no uncertainty, no method.">Lab 1</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: you have never heard of Lab 2, but everything you need to check its value is there.">Lab 2</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="The two values are close, so here it may not matter. But only one of them can be checked.">Both equally</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Fair: you could ask Lab 1 for its evidence. Until then, only Lab 2's value can be checked.">Neither, without more information</button>
+</div>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
+```
+
+Now think beyond this example.
+
+```{=html}
+<div class="pond-pad">
+  <label for="pond-dq-trust-response"><strong>Would you ever trust data from one laboratory more than another? Why?</strong></label>
+  <textarea id="pond-dq-trust-response" class="pond-pad-response" rows="3"
+    placeholder="Write your answer here..."></textarea>
+</div>
+```
+
+#### Key takeaway 5.1
+
+A report you can check is worth more than a report you have to take on faith, whoever wrote it.
+
+### 5.2 Reputation or evidence?
+
+**Your turn!** Is each of these a matter of reputation, or of evidence?
+
+```{=html}
+<div id="pond-dq-trust" class="pond-pad"></div>
+```
+
+<!-- Reasons to trust a laboratory. data-answer (reputation, evidence) is our answer;
+     the first paragraph is the item, the rest is revealed after the learner answers. -->
+
+::: {#pond-dq-trust-bank}
+::: {.pond-dq-claim data-answer="reputation"}
+The lab is famous.
+
+**Reputation.** A reasonable first impression, but it says nothing about this particular measurement.
+:::
+
+::: {.pond-dq-claim data-answer="reputation"}
+The lab is a government agency.
+
+**Reputation (authority).** Agencies make mistakes too. Good ones document their work, so that you can check it.
+:::
+
+::: {.pond-dq-claim data-answer="reputation"}
+You have used this lab for years without problems.
+
+**Reputation (familiarity).** Familiarity can hide unstated assumptions: remember the senior employee in Activity 1?
+:::
+
+::: {.pond-dq-claim data-answer="evidence"}
+The raw readings and processing notes are archived.
+
+**Evidence.** Anyone can trace the reported value back to the original observations, and reproduce it.
+:::
+
+::: {.pond-dq-claim data-answer="evidence"}
+The analyzer was checked against a reference soil.
+
+**Evidence.** It shows that the instrument read accurately that day.
+:::
+
+::: {.pond-dq-claim data-answer="evidence"}
+The uncertainty is stated, along with what it covers.
+
+**Evidence.** It lets you judge whether the value is good enough for your question.
+:::
+:::
+
+Reputation isn't irrelevant: a lab with a long track record has earned some initial confidence. But reputation, authority and familiarity are reasons to *expect* good data. Transparent provenance, documented methods, calibration, quality control, ancillary evidence, stated uncertainty and reproducibility are reasons to *believe* them.
+
+#### Key takeaway 5.2
+
+Reputation may influence initial confidence, while transparent provenance and documented evidence provide a stronger basis for evaluating data quality.
+
+### Key takeaway 5
+
+Trust data because of the evidence that comes with them. When you share your own data, provide that evidence, so that others don't have to rely on your reputation.
+
+## Wrapping up
+
+::: {#pond-dq-closing}
+> Data quality is not a universal property of a dataset. It depends on how the data were produced, what evidence supports them, what uncertainties they contain, and whether they are appropriate for the scientific question being asked.
+:::
+
+Next, where should data like these live, so that others can find them, and cite the exact version you used? See [Databases, Repositories, Identifiers, and Versions](../db-repo-pid/index.qmd).
+
+```{=html}
+<div class="pond-pad">
+  <p>Keep a record of your answers, side by side with ours, and the key takeaways.</p>
+  <button type="button" class="btn btn-primary" id="pond-dq-download">Download response summary</button>
+</div>
+<script src="../../../scripts/response-summary.js"></script>
+```
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Learner answers stay in this browser only
+  const storageKey = "pond-data-quality";
+  let saved = { notes: {}, picks: [] };
+  try {
+    saved = Object.assign(saved, JSON.parse(localStorage.getItem(storageKey)) || {});
+  } catch (e) {}
+  if (!Array.isArray(saved.picks)) saved.picks = [];
+  function save() {
+    try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch (e) {}
+  }
+
+  // Free-text answers
+  document.querySelectorAll(".pond-pad-response").forEach(box => {
+    box.value = saved.notes[box.id] || "";
+    box.addEventListener("input", () => { saved.notes[box.id] = box.value; save(); });
+  });
+
+  // Single-choice buttons that show a short verdict
+  document.querySelectorAll(".pond-pad-whatif").forEach(group => {
+    const out = group.nextElementSibling;
+    group.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+        out.textContent = btn.dataset.verdict;
+        out.hidden = false;
+      });
+    });
+  });
+
+  // Part 4: pick the evidence you would request, then reveal what each tells you
+  const bank = document.getElementById("pond-dq-evidence-bank");
+  const box = document.getElementById("pond-dq-evidence");
+  const items = [...bank.querySelectorAll(".pond-dq-evidence")].map(div => ({
+    name: div.dataset.name, html: div.innerHTML
+  }));
+  bank.hidden = true;
+
+  box.innerHTML = `
+    <div class="pond-pad-choices" role="group" aria-label="Evidence to request"></div>
+    <p class="pond-pad-status" aria-live="polite"></p>
+    <button type="button" class="btn btn-primary">Reveal what each one tells you</button>
+    <div class="pond-pad-cards" hidden></div>`;
+  const choices = box.querySelector(".pond-pad-choices");
+  const status = box.querySelector(".pond-pad-status");
+  const cards = box.querySelector(".pond-pad-cards");
+  const revealBtn = box.querySelector(".btn-primary");
+
+  function updateStatus() {
+    const n = saved.picks.length;
+    status.textContent = n ? `${n} of ${items.length} selected.` : "Nothing selected yet.";
+  }
+
+  items.forEach(item => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pond-pad-tag";
+    btn.textContent = item.name;
+    btn.setAttribute("aria-pressed", String(saved.picks.includes(item.name)));
+    btn.addEventListener("click", () => {
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", String(on));
+      saved.picks = on ? [...saved.picks, item.name] : saved.picks.filter(p => p !== item.name);
+      save();
+      updateStatus();
+      const card = cards.querySelector(`[data-name="${CSS.escape(item.name)}"]`);
+      if (card) card.classList.toggle("is-picked", on);
+    });
+    choices.append(btn);
+  });
+  updateStatus();
+
+  revealBtn.addEventListener("click", () => {
+    cards.innerHTML = "";
+    items.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "pond-pad-card";
+      card.dataset.name = item.name;
+      card.classList.toggle("is-picked", saved.picks.includes(item.name));
+      card.innerHTML = `<h4></h4><div class="pond-pad-card-text"></div>`;
+      card.querySelector("h4").textContent = item.name;
+      card.querySelector(".pond-pad-card-text").innerHTML = item.html;
+      cards.append(card);
+    });
+    cards.hidden = false;
+    revealBtn.hidden = true;
+  });
+  // ---------- Activity 2 ----------
+
+  // 2.1 Precise / accurate cards with a strip plot of readings
+  const analyzerBank = document.getElementById("pond-dq-analyzer-bank");
+  const analyzerBox = document.getElementById("pond-dq-analyzers");
+  saved.analyzers = saved.analyzers || {};
+  const lo = 340, hi = 520, x = v => 20 + (v - lo) / (hi - lo) * 260;
+  analyzerBank.querySelectorAll(".pond-dq-analyzer").forEach(div => {
+    const name = div.dataset.name;
+    const readings = div.dataset.readings.split(",").map(Number);
+    const card = document.createElement("div");
+    card.className = "pond-pad-card";
+    const mean = Math.round(readings.reduce((a, b) => a + b, 0) / readings.length);
+    const dots = readings.map(v =>
+      `<circle cx="${x(v)}" cy="38" r="6" class="pond-dq-dot"></circle>`).join("");
+    card.innerHTML = `
+      <h4></h4>
+      <svg viewBox="0 0 300 72" role="img" aria-label="${name} readings: ${readings.join(", ")} ppm; average ${mean} ppm; certified value 400 ppm">
+        <line x1="20" x2="280" y1="38" y2="38" class="pond-dq-axis"></line>
+        <line x1="${x(400)}" x2="${x(400)}" y1="24" y2="52" class="pond-dq-target"></line>
+        ${dots}
+        <polygon points="${x(mean) - 5},16 ${x(mean) + 5},16 ${x(mean)},24" class="pond-dq-mean"></polygon>
+        <text x="${x(mean)}" y="11" text-anchor="middle" class="pond-dq-label pond-dq-mean-label">average ${mean}</text>
+        <text x="${x(400)}" y="66" text-anchor="middle" class="pond-dq-label pond-dq-target-label">certified 400</text>
+        <text x="20" y="66" class="pond-dq-label">${lo}</text>
+        <text x="280" y="66" text-anchor="end" class="pond-dq-label">${hi} ppm</text>
+      </svg>
+      <p class="pond-dq-readings"></p>
+      <div class="pond-dq-q"><span>Precise?</span><div class="pond-pad-choices" role="group" data-key="precise"></div></div>
+      <div class="pond-dq-q"><span>Accurate?</span><div class="pond-pad-choices" role="group" data-key="accurate"></div></div>
+      <div class="pond-pad-take" aria-live="polite" hidden></div>`;
+    card.querySelector("h4").textContent = name;
+    card.querySelector(".pond-dq-readings").textContent = `Readings: ${readings.join(", ")} ppm. Average: ${mean} ppm.`;
+    const take = card.querySelector(".pond-pad-take");
+    const mine = saved.analyzers[name] = saved.analyzers[name] || {};
+
+    function update() {
+      if (!mine.precise || !mine.accurate) return;
+      const right = mine.precise === div.dataset.precise && mine.accurate === div.dataset.accurate;
+      take.innerHTML = `<p>${right ? "✓ You got it." : "Not quite."}</p>` + div.innerHTML;
+      take.hidden = false;
+    }
+
+    card.querySelectorAll(".pond-pad-choices").forEach(group => {
+      const key = group.dataset.key;
+      group.setAttribute("aria-label", `${name}: ${key}?`);
+      ["yes", "no"].forEach(value => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pond-pad-tag";
+        btn.textContent = value === "yes" ? "Yes" : "No";
+        btn.setAttribute("aria-pressed", String(mine[key] === value));
+        btn.addEventListener("click", () => {
+          mine[key] = value;
+          save();
+          group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+          update();
+        });
+        group.append(btn);
+      });
+    });
+    update();
+    analyzerBox.append(card);
+  });
+  analyzerBank.hidden = true;
+
+  // 2.3 Slider: mean ± 2 SEM against the 400 ppm threshold
+  const nSlider = document.getElementById("pond-dq-n");
+  const nOut = document.getElementById("pond-dq-n-out");
+  const semPlot = document.getElementById("pond-dq-sem-plot");
+  const semText = document.getElementById("pond-dq-sem-text");
+  const mean = 420, sd = 27, px = v => 30 + (v - 340) / (500 - 340) * 540;
+  function drawSem() {
+    const n = Number(nSlider.value);
+    nOut.textContent = n;
+    if (n < 2) {
+      semPlot.innerHTML = `<text x="300" y="45" text-anchor="middle" class="pond-dq-label">One reading: no standard deviation, so no way to estimate the uncertainty.</text>`;
+      semText.textContent = "With a single reading, the uncertainty of the mean can't be estimated.";
+      return;
+    }
+    const half = 2 * sd / Math.sqrt(n);
+    const a = mean - half, b = mean + half;
+    const above = a > 400;
+    semPlot.innerHTML = `
+      <line x1="30" x2="570" y1="40" y2="40" class="pond-dq-axis"></line>
+      <line x1="${px(400)}" x2="${px(400)}" y1="12" y2="62" class="pond-dq-target"></line>
+      <text x="${px(400)}" y="80" text-anchor="middle" class="pond-dq-label">400 ppm threshold</text>
+      <rect x="${px(a)}" y="32" width="${px(b) - px(a)}" height="16" rx="8" class="pond-dq-range ${above ? "is-above" : ""}"></rect>
+      <circle cx="${px(mean)}" cy="40" r="6" class="pond-dq-dot"></circle>
+      <text x="30" y="80" class="pond-dq-label">340</text>
+      <text x="570" y="80" text-anchor="end" class="pond-dq-label">500 ppm</text>`;
+    semText.textContent = `${n} readings: 420 ± ${half.toFixed(0)} ppm (${a.toFixed(0)} to ${b.toFixed(0)} ppm). ` +
+      (above ? "The whole range is above 400 ppm." : "The range still includes values below 400 ppm.");
+  }
+  nSlider.addEventListener("input", drawSem);
+  drawSem();
+
+  // 2.4 Pick the sources of uncertainty, then reveal
+  saved.sources = Array.isArray(saved.sources) ? saved.sources : [];
+  const sourceBank = document.getElementById("pond-dq-sources-bank");
+  const sourceBox = document.getElementById("pond-dq-sources");
+  const sources = [...sourceBank.querySelectorAll(".pond-dq-source")].map(div => ({
+    name: div.dataset.name, html: div.innerHTML
+  }));
+  sourceBank.hidden = true;
+  sourceBox.innerHTML = `
+    <div class="pond-pad-choices" role="group" aria-label="Sources of uncertainty"></div>
+    <button type="button" class="btn btn-primary">Reveal our take</button>
+    <div class="pond-pad-take" hidden></div>
+    <div class="pond-pad-cards" hidden></div>`;
+  const sourceChoices = sourceBox.querySelector(".pond-pad-choices");
+  const sourceCards = sourceBox.querySelector(".pond-pad-cards");
+  const sourceTake = sourceBox.querySelector(".pond-pad-take");
+  sources.forEach(s => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pond-pad-tag";
+    btn.textContent = s.name;
+    btn.setAttribute("aria-pressed", String(saved.sources.includes(s.name)));
+    btn.addEventListener("click", () => {
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", String(on));
+      saved.sources = on ? [...saved.sources, s.name] : saved.sources.filter(p => p !== s.name);
+      save();
+    });
+    sourceChoices.append(btn);
+  });
+  sourceBox.querySelector(".btn-primary").addEventListener("click", e => {
+    const n = saved.sources.length;
+    sourceTake.innerHTML = `<p><strong>All ${sources.length} of them.</strong> You selected ${n}. ` +
+      `Uncertainty is not just instrument error: it can enter at every stage between the soil and the spreadsheet.</p>`;
+    sourceCards.innerHTML = "";
+    sources.forEach(s => {
+      const card = document.createElement("div");
+      card.className = "pond-pad-card";
+      card.classList.toggle("is-picked", saved.sources.includes(s.name));
+      card.innerHTML = `<h4></h4><div class="pond-pad-card-text"></div>`;
+      card.querySelector("h4").textContent = s.name;
+      card.querySelector(".pond-pad-card-text").innerHTML = s.html;
+      sourceCards.append(card);
+    });
+    sourceTake.hidden = false;
+    sourceCards.hidden = false;
+    e.target.hidden = true;
+  });
+  // ---------- Activity 3 ----------
+
+  // Sorting questions: each item in a bank gets a row of choice buttons, and the
+  // explanation (everything after the first paragraph) is revealed once answered.
+  const sorters = {};                           // remembered for the response summary
+  function buildSorter(bankId, boxId, labels, savedKey, ariaQuestion) {
+    sorters[boxId] = { bankId, labels, savedKey };
+    const answers = saved[savedKey] = saved[savedKey] || {};
+    const bank = document.getElementById(bankId);
+    const list = document.createElement("ol");
+    list.className = "pond-dq-claim-list";
+    bank.querySelectorAll(".pond-dq-claim").forEach((div, n) => {
+      const [question, ...why] = div.children;
+      const li = document.createElement("li");
+      li.className = "pond-dq-claim-item";
+      li.innerHTML = `<div class="pond-dq-claim-q"></div>
+        <div class="pond-pad-choices" role="group"></div>
+        <div class="pond-pad-take" aria-live="polite" hidden></div>`;
+      li.querySelector(".pond-dq-claim-q").append(question.cloneNode(true));
+      const group = li.querySelector(".pond-pad-choices");
+      group.setAttribute("aria-label", `Item ${n + 1}: ${ariaQuestion}`);
+      const take = li.querySelector(".pond-pad-take");
+      function show() {
+        take.innerHTML = "";
+        why.forEach(p => take.append(p.cloneNode(true)));
+        take.hidden = false;
+      }
+      Object.entries(labels).forEach(([value, label]) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pond-pad-tag";
+        btn.textContent = label;
+        btn.setAttribute("aria-pressed", String(answers[n] === value));
+        btn.addEventListener("click", () => {
+          answers[n] = value;
+          save();
+          group.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+          show();
+        });
+        group.append(btn);
+      });
+      if (answers[n]) show();
+      list.append(li);
+    });
+    document.getElementById(boxId).append(list);
+    bank.hidden = true;
+  }
+
+  // 3.1 One measurement, four questions
+  buildSorter("pond-dq-claims-bank", "pond-dq-claims",
+    { enough: "Enough", partly: "Partly", not: "Not enough" },
+    "claims", "is one measurement enough?");
+
+  // 3.2 Where would you sample? Values come from the table in the page.
+  const gridData = document.getElementById("pond-dq-playground-data");
+  const rows = [...gridData.querySelectorAll("tbody tr")].map(tr =>
+    [...tr.querySelectorAll("td")].slice(1).map(td => Number(td.textContent.trim())));
+  gridData.hidden = true;
+  const nRows = rows.length, nCols = rows[0].length, maxPicks = 4;
+  const original = "2-8";                       // the spot sampled in Activities 1–2
+  const sandbox = new Set(["4-6", "4-7", "4-8", "5-6", "5-7", "5-8"]);
+  const all = rows.flat();
+  const trueMean = all.reduce((a, b) => a + b, 0) / all.length;
+  // Sequential bins (one hue, light to dark); the last bin is at or above the threshold
+  const bins = [
+    { max: 100, color: "#cde2fb", label: "under 100" },
+    { max: 200, color: "#86b6ef", label: "100–199" },
+    { max: 400, color: "#3987e5", label: "200–399" },
+    { max: Infinity, color: "#104281", label: "400 or more" }
+  ];
+  const binOf = v => bins.find(b => v < b.max);
+  saved.gridPicks = Array.isArray(saved.gridPicks) ? saved.gridPicks : [];
+  let revealed = false;
+
+  const pg = document.getElementById("pond-dq-playground");
+  pg.innerHTML = `
+    <div class="pond-dq-site">
+      <div class="pond-dq-building" aria-hidden="true">School building (1950s, old lead paint)</div>
+      <div class="pond-dq-road" aria-hidden="true"><span>Road</span></div>
+      <div class="pond-dq-grid" role="group" aria-label="Playground grid. The school building is along the top edge (row 1); the road is along the left edge (column 1)."></div>
+    </div>
+    <ul class="pond-dq-legend pond-dq-sitekey">
+      <li><span class="pond-dq-swatch pond-dq-key-building"></span>School building</li>
+      <li><span class="pond-dq-swatch pond-dq-key-road"></span>Road</li>
+      <li><span class="pond-dq-swatch pond-dq-key-grass"></span>Playground (grass)</li>
+      <li><span class="pond-dq-swatch pond-dq-key-sand"></span>Sandbox</li>
+      <li><span class="pond-dq-key-sym">★</span>Already sampled</li>
+      <li><span class="pond-dq-key-sym">●</span>Your samples</li>
+    </ul>
+    <ul class="pond-dq-legend pond-dq-leadkey" hidden></ul>
+    <p class="pond-pad-status" aria-live="polite"></p>
+    <div class="pond-pad-actions">
+      <button type="button" class="btn btn-primary pond-dq-reveal-map" disabled>Reveal the lead map</button>
+      <button type="button" class="btn btn-outline-secondary pond-dq-reset">Start over</button>
+    </div>
+    <div class="pond-pad-take" aria-live="polite" hidden></div>`;
+  const grid = pg.querySelector(".pond-dq-grid");
+  const pgStatus = pg.querySelector(".pond-pad-status");
+  const revealMap = pg.querySelector(".pond-dq-reveal-map");
+  const pgTake = pg.querySelector(".pond-pad-take");
+  const legend = pg.querySelector(".pond-dq-leadkey");
+  grid.style.gridTemplateColumns = `repeat(${nCols}, minmax(0, 1fr))`;
+  legend.setAttribute("aria-label", "Lead in soil");
+  legend.innerHTML = `<li class="pond-dq-legend-title">Lead in soil:</li>` + bins.map(b =>
+    `<li><span class="pond-dq-swatch" style="background:${b.color}"></span>${b.label} ppm</li>`).join("");
+
+  function drawGrid() {
+    grid.innerHTML = "";
+    rows.forEach((row, r) => row.forEach((v, c) => {
+      const key = `${r + 1}-${c + 1}`;
+      const cell = document.createElement("button");
+      cell.type = "button";
+      cell.className = "pond-dq-cell";
+      cell.dataset.key = key;
+      const picked = saved.gridPicks.includes(key);
+      const isOriginal = key === original;
+      if (sandbox.has(key)) cell.classList.add("is-sandbox");
+      if (picked) cell.classList.add("is-picked");
+      let label = `Row ${r + 1}, column ${c + 1}`;
+      if (sandbox.has(key)) label += ", sandbox";
+      if (isOriginal) label += ", already sampled";
+      if (revealed) {
+        const bin = binOf(v);
+        cell.style.background = bin.color;
+        cell.classList.toggle("is-dark", bins.indexOf(bin) >= 2);
+        cell.textContent = isOriginal ? `★ ${v}` : v;
+        label += `: ${v} ppm`;
+        cell.title = `${v} ppm`;
+      } else {
+        cell.textContent = isOriginal ? "★" : (picked ? "●" : "");
+        cell.setAttribute("aria-pressed", String(picked));
+      }
+      if (isOriginal) cell.classList.add("is-original");
+      cell.setAttribute("aria-label", label);
+      cell.disabled = revealed || isOriginal;
+      cell.addEventListener("click", () => {
+        if (picked) saved.gridPicks = saved.gridPicks.filter(k => k !== key);
+        else if (saved.gridPicks.length < maxPicks) saved.gridPicks = [...saved.gridPicks, key];
+        save();
+        drawGrid();
+        grid.querySelector(`[data-key="${key}"]`).focus();
+      });
+      grid.append(cell);
+    }));
+    const n = saved.gridPicks.length;
+    revealMap.disabled = n < maxPicks || revealed;
+    if (!revealed) pgStatus.textContent = n < maxPicks
+      ? `${n} of ${maxPicks} squares chosen.` : "Four squares chosen. Reveal the map when you're ready.";
+  }
+
+  revealMap.addEventListener("click", () => {
+    revealed = true;
+    drawGrid();
+    revealMap.hidden = true;
+    legend.hidden = false;
+    const values = saved.gridPicks.map(k => { const [r, c] = k.split("-").map(Number); return rows[r - 1][c - 1]; });
+    const yours = values.reduce((a, b) => a + b, 0) / values.length;
+    const above = all.filter(v => v >= 400).length;
+    pgStatus.textContent = "";
+    pgTake.innerHTML = `
+      <p><strong>Your four samples:</strong> ${values.join(", ")} ppm, averaging <strong>${Math.round(yours)} ppm</strong>.</p>
+      <p><strong>The original sample (★):</strong> 420 ppm.</p>
+      <p><strong>The whole playground:</strong> averages <strong>${Math.round(trueMean)} ppm</strong>;
+      ${above} of ${all.length} squares are at or above 400 ppm.</p>`;
+    pgTake.hidden = false;
+    pgTake.setAttribute("tabindex", "-1");
+    pgTake.focus();
+  });
+
+  pg.querySelector(".pond-dq-reset").addEventListener("click", () => {
+    revealed = false;
+    saved.gridPicks = [];
+    save();
+    legend.hidden = true;
+    pgTake.hidden = true;
+    revealMap.hidden = false;
+    drawGrid();
+  });
+  drawGrid();
+
+  // ---------- Activity 4 ----------
+
+  // 4.3 In the ± number, or in words?
+  buildSorter("pond-dq-parts-bank", "pond-dq-parts",
+    { number: "In the ± number", words: "Stated in words" },
+    "parts", "in the ± number, or in words?");
+
+  // ---------- Activity 5 ----------
+
+  // 5.2 Reputation or evidence?
+  buildSorter("pond-dq-trust-bank", "pond-dq-trust",
+    { reputation: "Reputation", evidence: "Evidence" },
+    "trust", "reputation or evidence?");
+
+  // ---------- Response summary (shared builder in scripts/response-summary.js) ----------
+
+  const htmlMd = html => { const d = document.createElement("div"); d.innerHTML = html; return PondSummary.blockMd(d); };
+
+  // Pick-then-reveal lists where every option is relevant
+  const picksMd = (title, list, picked) =>
+    `**${title}** (✓ = I picked it; all of them matter):\n\n` +
+    list.map(it => `- ${picked.includes(it.name) ? "✓" : "○"} **${it.name}:** ${htmlMd(it.html)}`).join("\n");
+
+  // Sorting questions: my answer, then our explanation
+  function sorterMd(box) {
+    const { bankId, labels, savedKey } = sorters[box.id];
+    const answers = saved[savedKey] || {};
+    return [...document.getElementById(bankId).querySelectorAll(".pond-dq-claim")].map((div, n) => {
+      const [question, ...why] = div.children;
+      const mine = answers[n];
+      const mark = !mine ? "*Not answered.*" : `My answer: *${labels[mine]}*${mine === div.dataset.answer ? " ✓" : ""}.`;
+      return `- ${PondSummary.inlineMd(question).trim()} ${mark} ${why.map(PondSummary.elementMd).join(" ")}`;
+    }).join("\n");
+  }
+
+  PondSummary.attach({
+    button: document.getElementById("pond-dq-download"),
+    filename: "data-quality-response-summary.md",
+    title: "Data Quality and Provenance",
+    idea: "Data quality is not simply \"good\" or \"bad.\" A dataset may be appropriate for one scientific use and inadequate for another.",
+    next: { text: "Databases, Repositories, Identifiers, and Versions", href: "../db-repo-pid/index.html" },
+    handlers: [
+      { selector: "#pond-dq-closing", md: el => PondSummary.blockMd(el) },
+      { selector: "#pond-dq-evidence",
+        md: () => picksMd("Evidence I would ask for", items, saved.picks) },
+      { selector: "#pond-dq-analyzers",
+        md: () => "**Precise, accurate, or both?**\n\n" +
+          [...analyzerBank.querySelectorAll(".pond-dq-analyzer")].map(div => {
+            const mine = saved.analyzers[div.dataset.name] || {};
+            const right = mine.precise === div.dataset.precise && mine.accurate === div.dataset.accurate;
+            const said = mine.precise && mine.accurate
+              ? `I said precise: ${mine.precise}, accurate: ${mine.accurate}${right ? " ✓" : ""}.` : "*Not answered.*";
+            return `- **${div.dataset.name}** (readings ${div.dataset.readings.replace(/,/g, ", ")} ppm). ${said} ${htmlMd(div.innerHTML)}`;
+          }).join("\n") },
+      { selector: ".pond-dq-sem",
+        md: () => `**Readings explorer:** ${semText.textContent}` },
+      { selector: "#pond-dq-sources",
+        md: () => picksMd("Sources of uncertainty I picked", sources, saved.sources) },
+      { selector: "#pond-dq-claims, #pond-dq-parts, #pond-dq-trust", md: sorterMd },
+      { selector: "#pond-dq-playground",
+        md: () => {
+          const picks = saved.gridPicks.map(k => {
+            const [r, c] = k.split("-").map(Number);
+            return { k, v: rows[r - 1][c - 1] };
+          });
+          const mine = picks.length
+            ? `${picks.map(p => `row ${p.k.replace("-", ", column ")}: ${p.v} ppm`).join("; ")}. ` +
+              `Average: ${Math.round(picks.reduce((a, p) => a + p.v, 0) / picks.length)} ppm.`
+            : "*No squares chosen.*";
+          return `**My samples:** ${mine}  \n**The whole playground:** averages ${Math.round(trueMean)} ppm; ` +
+            `${all.filter(v => v >= 400).length} of ${all.length} squares are at or above 400 ppm. The original sample (★) read 420 ppm.`;
+        } }
+    ]
+  });
+});
+</script>
