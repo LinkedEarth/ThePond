@@ -206,7 +206,7 @@ Here, Alex's result is the right one. You can tell because you know how the miss
 
 This is a **silent failure**: the code runs, and the numbers look plausible, but they have changed. It's far more dangerous than a crash, because nothing stops you from publishing them. Here, the plot gave it away; a table of averages wouldn't have.
 
-#### What could Alex have done?
+### What could Alex have done?
 
 **Your turn!** Alex's 2024 run printed two warnings (under Cells 2 and 4), each saying that pandas would soon behave differently. What could Alex have done to protect the results? Pick the options you'd recommend, then reveal our take.
 
@@ -318,7 +318,7 @@ A notebook and its data are not enough to reproduce a result: share the computat
 
 ### So, did you reproduce Alex's results?
 
-<details class="pond-md-reveal">
+<details class="pond-md-reveal pond-ct-recap">
 <summary>Compare the three runs</summary>
 
 | | Alex, 2024 (pandas 2.2.1) | You, latest pandas (3.1.1) | You, with Alex's environment |
@@ -351,63 +351,38 @@ Now that you know what it takes to rerun a workflow, how do you get credit for i
 ```
 
 ```{=html}
-<script src="../../../assets/pond-activities.js"></script>
+<script src="../../../scripts/response-summary.js"></script>
+<script src="../../../scripts/pond-activities.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const state = Pond.store("pond-containers");
   Pond.textBoxes(state);
-  const whatifs = Pond.whatifs(state);
+  Pond.whatifs(state);
   const needs = Pond.needBanks(state);
   Pond.restore(state, needs);
 
-  // ---------- Response summary, built from the page so it follows any edits to the text ----------
-  function buildSummary() {
-    const root = document.getElementById("quarto-document-content") || document.querySelector("main") || document.body;
-    const out = [
-      "# Why Containers Matter: my response summary",
-      "",
-      `*From [The Pond](${location.href.split("#")[0]}), downloaded on ${new Date().toLocaleDateString()}.*`
-    ];
-    let pending = null;   // a heading is written only if something follows it
-    const emit = text => {
-      if (pending) { out.push("", pending); pending = null; }
-      out.push("", text);
-    };
-    const selector = "h2, h3, h4, .pond-md-whatif, .pond-md-need, .pond-md-save";
-    root.querySelectorAll(selector).forEach(el => {
-      if (el.closest(".pond-md-cards")) return;
-      const title = el.matches("h2, h3, h4") ? el.textContent.trim() : "";
-      if (/^Key takeaway\b/.test(title)) {     // e.g. "Key takeaway 3"
-        emit(`> **${title}:** ${Pond.takeawayMd(el)}`);
-      } else if (el.tagName === "H2") {
-        pending = `## ${title}`;
-      } else if (el.tagName === "H3" || el.tagName === "H4") {
-        pending = (pending && pending.startsWith("## ") ? pending + "\n\n" : "") + `### ${title}`;
-        if (title.startsWith("So,")) {
-          const table = el.closest("section").querySelector("table");
-          if (table) emit(Pond.elementMd(table));
-        }
-      } else if (el.matches(".pond-md-whatif")) {
-        emit(Pond.whatifMd(state, whatifs, el));
-      } else if (el.matches(".pond-md-need")) {
-        const n = needs.find(x => x.bank === el);
-        if (n) emit(Pond.needMd(n));
-      } else {
-        const text = el.value.trim();
-        let s = `**${Pond.labelFor(el.id)}**\n\n${text || "*No response entered.*"}`;
-        const ours = el.closest(".pond-md").nextElementSibling;   // the "Compare with our answer" panel
-        if (ours && ours.matches("details.pond-md-reveal")) s += "\n\n**Our answer:**\n\n" + Pond.blockMd(ours);
-        emit(s);
-      }
-    });
-    out.push("", "---", "",
-      "Next: how to get credit for a workflow. See [Citing Workflows](" +
-      new URL("../citing-workflows/index.html", location.href).href + ").", "");
-    return out.join("\n");
+  // ---------- Response summary (shared builder in scripts/response-summary.js) ----------
+
+  // A text box, then the "Compare with our answer" panel that follows it
+  function answerMd(box) {
+    const label = document.querySelector(`label[for="${box.id}"]`);
+    let s = `**${label ? label.textContent.trim() : "My answer"}**\n\n${box.value.trim() || "*No response entered.*"}`;
+    const ours = box.closest(".pond-md").nextElementSibling;
+    if (ours && ours.matches("details.pond-md-reveal")) s += "\n\n**Our answer:**\n\n" + PondSummary.blockMd(ours);
+    return s;
   }
 
-  document.getElementById("pond-ct-download").addEventListener("click", () => {
-    Pond.downloadMarkdown("containers-response-summary.md", buildSummary());
+  PondSummary.attach({
+    button: document.getElementById("pond-ct-download"),
+    filename: "containers-response-summary.md",
+    title: "Why Containers Matter",
+    idea: "Sharing your notebook and your data is a great start. But a notebook doesn't run on its own: it runs on top of software, and that software keeps changing.",
+    next: { text: "Citing Workflows", href: "../citing-workflows/index.html" },
+    handlers: [
+      { selector: ".pond-md-need", md: el => Pond.needMd(needs.find(n => n.bank === el)) },
+      { selector: "textarea.pond-md-save", md: answerMd },
+      { selector: ".pond-ct-recap", md: el => PondSummary.blockMd(el) }
+    ]
   });
 });
 </script>

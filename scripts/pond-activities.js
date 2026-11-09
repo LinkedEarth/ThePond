@@ -2,21 +2,22 @@
  * Shared interactive components for The Pond's activity pages.
  * Uses the .pond-md-* styles in styles.css (first designed for lilypads/data/metadata).
  *
- * Load it from a page with a relative path, then call it from an inline script:
- *   <script src="../../../assets/pond-activities.js"></script>
+ * The response summary itself is built by scripts/response-summary.js (PondSummary);
+ * this file only adds Pond.needMd, for PondSummary handlers.
+ *
+ * Load both from a page with a relative path, then call them from an inline script:
+ *   <script src="../../../scripts/response-summary.js"></script>
+ *   <script src="../../../scripts/pond-activities.js"></script>
  *
  *   const state = Pond.store("pond-mypage");     // learner answers, kept in this browser only
  *   Pond.textBoxes(state);                        // .pond-md-save inputs and textareas
- *   const whatifs = Pond.whatifs(state);          // .pond-md-whatif single-choice groups
+ *   Pond.whatifs(state);                          // .pond-md-whatif single-choice groups
  *   const needs = Pond.needBanks(state);          // .pond-md-need "pick, then reveal" activities
  *   Pond.restore(state, needs);                   // re-reveal what was revealed on an earlier visit
- *   Pond.downloadMarkdown("mypage-response-summary.md", text);
+ *   PondSummary.attach({ ..., handlers: [{ selector: ".pond-md-need",
+ *     md: el => Pond.needMd(needs.find(n => n.bank === el)) }] });
  *
  * Markup for each component: see lilypads/workflow/containers/index.qmd.
- *
- * TODO: harmonize with scripts/response-summary.js (PondSummary), added by the data-quality
- * branch (PR #83). Once it is merged, build this page's summary with PondSummary and keep
- * only the widgets (text boxes, single-choice groups, "What would you need?") here.
  */
 (function () {
   "use strict";
@@ -179,57 +180,12 @@
     needs.forEach(n => { if (state.saved.revealed.includes(n.id)) n.reveal(); });
   }
 
-  // ---------- Page HTML to Markdown, for the response summary ----------
+  // ---------- For the response summary (PondSummary handler) ----------
+  // The learner's picks in a "What would you need?" activity, then our answer
 
-  function inlineMd(node) {
-    let s = "";
-    node.childNodes.forEach(n => {
-      if (n.nodeType === Node.TEXT_NODE) { s += n.textContent.replace(/\s+/g, " "); return; }
-      if (n.nodeType !== Node.ELEMENT_NODE || n.classList.contains("anchorjs-link")) return;
-      const inner = inlineMd(n);
-      switch (n.tagName) {
-        case "STRONG": case "B": s += `**${inner.trim()}**`; break;
-        case "EM": case "I": s += `*${inner.trim()}*`; break;
-        case "CODE": s += "`" + n.textContent + "`"; break;
-        case "A": s += `[${inner.trim()}](${n.href})`; break;
-        case "BR": s += "  \n"; break;
-        default: s += inner;
-      }
-    });
-    return s;
-  }
-
-  function blockMd(node) {
-    const blocks = [];
-    [...node.children].forEach(el => {
-      switch (el.tagName) {
-        case "P": blocks.push(inlineMd(el).trim()); break;
-        case "UL": case "OL":
-          blocks.push([...el.children].map(li => "- " + inlineMd(li).trim()).join("\n")); break;
-        case "TABLE": {
-          const rows = [...el.querySelectorAll("tr")].map(tr =>
-            "| " + [...tr.cells].map(c => inlineMd(c).trim().replace(/\|/g, "\\|")).join(" | ") + " |");
-          if (rows.length) rows.splice(1, 0, "|" + " --- |".repeat(el.rows[0].cells.length));
-          blocks.push(rows.join("\n")); break;
-        }
-        case "PRE": blocks.push("```\n" + el.textContent.trim() + "\n```"); break;
-        case "BLOCKQUOTE": blocks.push(blockMd(el).split("\n").map(l => "> " + l).join("\n")); break;
-        case "SUMMARY": case "BUTTON": case "IMG": break;
-        default: if (el.children.length) blocks.push(blockMd(el));
-      }
-    });
-    return blocks.filter(Boolean).join("\n\n");
-  }
-
-  // Markdown for one element (a clone, so the page is untouched)
-  function elementMd(el) {
-    const wrap = document.createElement("div");
-    wrap.append(el.cloneNode(true));
-    return blockMd(wrap);
-  }
-
-  // The learner's picks in a "What would you need?" activity, with our answer
   function needMd(n) {
+    if (!n) return "";
+    const blockMd = window.PondSummary.blockMd;
     const lines = [];
     n.options.forEach(opt => {
       const picked = n.picks.includes(opt.name);
@@ -248,36 +204,5 @@
     return s;
   }
 
-  // The learner's choice in a single-choice group
-  function whatifMd(state, groups, el) {
-    const i = state.saved.whatif[groups.indexOf(el)];
-    const btn = el.querySelectorAll("button")[i];
-    return `**${el.getAttribute("aria-label")}**  \n` +
-      (btn ? `My answer: *${btn.textContent.trim()}*. ${btn.dataset.verdict}` : "*Not answered.*");
-  }
-
-  // A "Key takeaway" heading's text: the paragraph or quote right after it
-  function takeawayMd(heading) {
-    const next = heading.nextElementSibling;
-    return next ? elementMd(next).replace(/^>\s*/gm, "").trim() : "";
-  }
-
-  function labelFor(id) {
-    const label = document.querySelector(`label[for="${id}"]`);
-    return label ? label.textContent.trim() : "My answer";
-  }
-
-  function downloadMarkdown(filename, text) {
-    const a = document.createElement("a");
-    a.href = "data:text/markdown;charset=utf-8," + encodeURIComponent(text);
-    a.download = filename;
-    document.body.append(a);
-    a.click();
-    a.remove();
-  }
-
-  window.Pond = {
-    store, textBoxes, whatifs, needBanks, restore, showAfter,
-    inlineMd, blockMd, elementMd, needMd, whatifMd, takeawayMd, labelFor, downloadMarkdown
-  };
+  window.Pond = { store, textBoxes, whatifs, needBanks, restore, showAfter, needMd };
 })();
