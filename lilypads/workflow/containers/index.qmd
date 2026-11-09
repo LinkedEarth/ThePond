@@ -200,7 +200,7 @@ ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series 
 
 Despite its name, this is a *warning*, not an error: pandas reports it, then carries on, so the notebook runs to the end. The warning was there in both years; it was just easy to ignore.
 
-Here, Alex's result is the right one. You can tell because you know how the missing values were coded, which is the kind of metadata you met in [Metadata for Reuse](../../data/metadata/index.qmd). In a real project, the clue may be far less visible.
+Here, Alex's result is the right one. You can tell only because the convention was written down: on days when the sensor failed, the temperature is recorded as `-999`. Without that note, nothing would tell you that −999 isn't a (very odd) measurement. This is why the way missing values are coded must be flagged in the metadata, as you saw in [Metadata for Reuse](../../data/metadata/index.qmd#missing-values), and why records of failed readings are part of the evidence behind the data, as you saw in [Data Quality and Provenance](../../data/data-quality/index.qmd#how-could-we-do-better). In a real project, the clue may be far less visible.
 
 </details>
 
