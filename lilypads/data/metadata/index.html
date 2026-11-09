@@ -192,18 +192,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#dry-soil-or-wet-soil" id="toc-dry-soil-or-wet-soil" class="nav-link" data-scroll-target="#dry-soil-or-wet-soil">1.5 Dry soil, or wet soil?</a></li>
   <li><a href="#can-you-share-it" id="toc-can-you-share-it" class="nav-link" data-scroll-target="#can-you-share-it">1.6 Can you share it?</a></li>
   <li><a href="#so-is-the-playground-above-400-ppm" id="toc-so-is-the-playground-above-400-ppm" class="nav-link" data-scroll-target="#so-is-the-playground-above-400-ppm">So, is the playground above 400 ppm?</a></li>
-  <li><a href="#key-takeaway-6" id="toc-key-takeaway-6" class="nav-link" data-scroll-target="#key-takeaway-6">Key takeaway</a></li>
+  <li><a href="#key-takeaway-1" id="toc-key-takeaway-1" class="nav-link" data-scroll-target="#key-takeaway-1">Key takeaway 1</a></li>
   </ul></li>
   <li><a href="#what-metadata-did-you-actually-need" id="toc-what-metadata-did-you-actually-need" class="nav-link" data-scroll-target="#what-metadata-did-you-actually-need">2. What metadata did you actually need?</a>
   <ul class="collapse">
-  <li><a href="#key-takeaway-7" id="toc-key-takeaway-7" class="nav-link" data-scroll-target="#key-takeaway-7">Key takeaway</a></li>
+  <li><a href="#key-takeaway-2" id="toc-key-takeaway-2" class="nav-link" data-scroll-target="#key-takeaway-2">Key takeaway 2</a></li>
   </ul></li>
   <li><a href="#from-unstructured-to-structured-metadata" id="toc-from-unstructured-to-structured-metadata" class="nav-link" data-scroll-target="#from-unstructured-to-structured-metadata">3. From unstructured to structured metadata</a>
   <ul class="collapse">
   <li><a href="#organize-the-metadata" id="toc-organize-the-metadata" class="nav-link" data-scroll-target="#organize-the-metadata">3.1 Organize the metadata</a></li>
   <li><a href="#same-information-different-structures" id="toc-same-information-different-structures" class="nav-link" data-scroll-target="#same-information-different-structures">3.2 Same information, different structures</a></li>
   <li><a href="#conventions" id="toc-conventions" class="nav-link" data-scroll-target="#conventions">3.3 Conventions</a></li>
-  <li><a href="#key-takeaway-8" id="toc-key-takeaway-8" class="nav-link" data-scroll-target="#key-takeaway-8">Key takeaway</a></li>
+  <li><a href="#key-takeaway-3" id="toc-key-takeaway-3" class="nav-link" data-scroll-target="#key-takeaway-3">Key takeaway 3</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -233,14 +233,14 @@ ul.task-list li input[type="checkbox"] {
 <p>A data file is not necessarily usable just because it opens. <strong>Metadata</strong> (information about the data) provide the context needed to interpret, evaluate, reuse, and share the data correctly. In this LilyPad, you’ll discover which metadata you need by trying to use a dataset without them.</p>
 <section id="data-usability" class="level2">
 <h2 class="anchored" data-anchor-id="data-usability">1. Data Usability</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes</span></p>
 <p>Imagine that you work for a city office that checks whether schools meet lead (Pb) exposure standards. A testing company has just sampled the soil in the playground at MADISON ELEM., and a colleague forwards you their file:</p>
 <blockquote class="blockquote">
 <p>Here’s the soil data from Madison. Can you tell me whether the playground is above the 400 ppm limit for children’s play areas?</p>
 </blockquote>
 <p>(ppm means <em>parts per million</em>: 400 ppm is 400 milligrams of lead per kilogram of soil.)</p>
 <p>This is the file, <code>madison_soil.csv</code>, exactly as you received it:</p>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>id,loc,d,Pb,m,f
 M-01,road,1,610,12,1
 M-02,road,6,380,15,1
@@ -250,7 +250,7 @@ M-05,sandbox,6,70,14,1
 M-06,wall,1,360,20,1
 M-07,wall,6,730,22,0</code></pre>
 </div>
-<p><span class="pond-md-credit">Fictional school, company and values, created for The Pond (2026).</span></p>
+<p><span class="pond-pad-credit">Fictional school, company and values, created for The Pond (2026).</span></p>
 <p>It opens without any trouble. Let’s see whether you can use it.</p>
 <section id="where-did-this-file-come-from" class="level3">
 <h3 class="anchored" data-anchor-id="where-did-this-file-come-from">1.1 Where did this file come from?</h3>
@@ -284,8 +284,8 @@ Without JavaScript, everything is shown as text.
 </div>
 </div>
 <p>This information about where data came from, and what happened to them along the way, is called <strong>provenance</strong>. It doesn’t make the data trustworthy on its own, but it gives you what you need to <em>evaluate</em> the data. You’ll look at provenance in more depth in <a href="../../../lilypads/data/data-quality/index.html">Data Quality and Provenance</a>.</p>
-<section id="key-takeaway" class="level4">
-<h4 class="anchored" data-anchor-id="key-takeaway">Key takeaway</h4>
+<section id="key-takeaway-1.1" class="level4">
+<h4 class="anchored" data-anchor-id="key-takeaway-1.1">Key takeaway 1.1</h4>
 <p>Before using a dataset, find out who produced it, where you got it, and whether anything changed along the way. This provenance doesn’t make data trustworthy, but without it you can’t judge whether they are.</p>
 </section>
 </section>
@@ -293,16 +293,16 @@ Without JavaScript, everything is shown as text.
 <h3 class="anchored" data-anchor-id="how-deep-is-each-sample">1.2 How deep is each sample?</h3>
 <p>Lead tends to build up near the surface, which is also the soil that children touch. So depth matters.</p>
 <p><strong>Your turn!</strong> Which column do you think contains the depth?</p>
-<div class="pond-md-whatif" role="group" aria-label="Which column contains the depth?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="A reasonable guess: d might stand for depth. But m might stand for meters…">d</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Possible: m might stand for meters. But d might stand for depth…">m</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Fair enough: from the file alone, you can't be sure.">I can't tell</button>
+<div class="pond-pad-whatif" role="group" aria-label="Which column contains the depth?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="A reasonable guess: d might stand for depth. But m might stand for meters…">d</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Possible: m might stand for meters. But d might stand for depth…">m</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Fair enough: from the file alone, you can't be sure.">I can't tell</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 <p>Now <strong>assume that <code>d</code> is the depth.</strong> How deep is sample M-02, in meters?</p>
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-md-depth"><strong>Depth of M-02, in meters</strong></label>
-  <div class="pond-md-row">
+  <div class="pond-pad-row">
     <input id="pond-md-depth" class="form-control pond-md-save" type="number" step="any" placeholder="e.g. 0.5">
   </div>
 </div>
@@ -327,12 +327,12 @@ Without JavaScript, everything is shown as text.
 <p><strong>You ask the testing company, which replies:</strong> <code>d</code> is the depth below the ground surface to the middle of the sample, <strong>in inches</strong>.</p>
 </div>
 </div>
-<div id="pond-md-depth-check" class="pond-md" data-after="pond-md-need-depth">
+<div id="pond-md-depth-check" class="pond-pad" data-after="pond-md-need-depth">
 <button type="button" class="btn btn-primary" id="pond-md-depth-btn">Check my answer</button>
-<p class="pond-md-take" id="pond-md-depth-out" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" id="pond-md-depth-out" aria-live="polite" hidden=""></p>
 </div>
-<section id="key-takeaway-1" class="level4">
-<h4 class="anchored" data-anchor-id="key-takeaway-1">Key takeaway</h4>
+<section id="key-takeaway-1.2" class="level4">
+<h4 class="anchored" data-anchor-id="key-takeaway-1.2">Key takeaway 1.2</h4>
 <p>Raw values are unusable without ancillary information, known as metadata. When you archive your data, make sure you include all the information necessary to use them, from the standpoint of a reasonable person who does not live in your head.</p>
 </section>
 </section>
@@ -340,7 +340,7 @@ Without JavaScript, everything is shown as text.
 <h3 class="anchored" data-anchor-id="missing-values">1.3 Missing Values</h3>
 <p>Before you average anything, you need to remove the missing values: samples for which there is no lead measurement.</p>
 <p><strong>Your turn!</strong> Drop the rows that you think have no lead measurement, and watch the average change.</p>
-<div id="pond-md-drop" class="pond-md-notes pond-md-wide">
+<div id="pond-md-drop" class="pond-pad-notes pond-pad-wide">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -476,8 +476,8 @@ Without JavaScript, everything is shown as text.
 <p>“Not a number,” a special value defined by the <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754 standard</a> for how computers do arithmetic. Nearly all numerical software recognizes it, and it can never be mistaken for a measurement. Arithmetic with NaN gives NaN (1 + NaN = NaN), so a missing value can’t sneak into a calculation as a number: tools either skip it or tell you it’s there.</p>
 </div>
 </div>
-<div class="pond-md" data-after="pond-md-need-code">
-<details class="pond-md-reveal">
+<div class="pond-pad" data-after="pond-md-need-code">
+<details class="pond-pad-reveal">
 <summary>
 NaN isn’t perfect either
 </summary>
@@ -491,8 +491,8 @@ NaN isn’t perfect either
 </details>
 </div>
 </section>
-<section id="key-takeaway-2" class="level4">
-<h4 class="anchored" data-anchor-id="key-takeaway-2">Key takeaway</h4>
+<section id="key-takeaway-1.3" class="level4">
+<h4 class="anchored" data-anchor-id="key-takeaway-1.3">Key takeaway 1.3</h4>
 <p>Even a simple <a href="https://en.wikipedia.org/wiki/Data_cleansing">data cleaning</a> step such as removing missing values hinges on metadata. Before you share data, record missing values in a way that can’t be mistaken for a measurement (such as NaN), flag <em>why</em> a value is reported missing, and document both conventions.</p>
 </section>
 </section>
@@ -500,12 +500,12 @@ NaN isn’t perfect either
 <h3 class="anchored" data-anchor-id="quality-control">1.4 Quality Control</h3>
 <p>Testing companies check their measurements before releasing them. This is called <strong>quality control</strong> (QC). The column <code>f</code> looks like a QC flag.</p>
 <p><strong>Your turn!</strong> To keep only the measurements that passed QC, which rows would you keep?</p>
-<div class="pond-md-whatif" role="group" aria-label="Which rows passed quality control?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Many datasets do use 0 for &quot;no problem&quot;… but many others use 1 for &quot;passed.&quot;">Rows where f = 0</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Many datasets do use 1 for &quot;passed&quot;… but many others use 0 for &quot;no problem.&quot;">Rows where f = 1</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: the numbers 0 and 1 mean nothing until someone says what they stand for.">I can't tell</button>
+<div class="pond-pad-whatif" role="group" aria-label="Which rows passed quality control?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Many datasets do use 0 for &quot;no problem&quot;… but many others use 1 for &quot;passed.&quot;">Rows where f = 0</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Many datasets do use 1 for &quot;passed&quot;… but many others use 0 for &quot;no problem.&quot;">Rows where f = 1</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: the numbers 0 and 1 mean nothing until someone says what they stand for.">I can't tell</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 <p><strong>What would you need to know?</strong></p>
 <div id="pond-md-need-qc" class="pond-md-need">
 <div class="pond-md-option" data-name="What each flag value means" data-needed="true">
@@ -523,8 +523,8 @@ NaN isn’t perfect either
 </div>
 </div>
 <p>Metadata can be specific to a single variable: here the flag tells you about lead, not about the rest of the row. In <a href="../../../lilypads/data/data-type/index.html">Different Types of Data</a>, you met a similar QC/status column; there, its meaning was written out in words.</p>
-<section id="key-takeaway-3" class="level4">
-<h4 class="anchored" data-anchor-id="key-takeaway-3">Key takeaway</h4>
+<section id="key-takeaway-1.4" class="level4">
+<h4 class="anchored" data-anchor-id="key-takeaway-1.4">Key takeaway 1.4</h4>
 <p>Codes such as 0 and 1 mean nothing on their own. The metadata must say what each value stands for, and which variable it applies to.</p>
 </section>
 </section>
@@ -532,10 +532,10 @@ NaN isn’t perfect either
 <h3 class="anchored" data-anchor-id="dry-soil-or-wet-soil">1.5 Dry soil, or wet soil?</h3>
 <p>Look back at how we defined ppm at the start: “400 milligrams of lead per kilogram of soil.” We left out a consequential detail: the limit applies to lead per kilogram of <strong>dry</strong> soil.</p>
 <p><strong>Your turn!</strong> Which of the surface samples (<code>d</code> = 1) are above the 400 ppm limit?</p>
-<div class="pond-md-choices" id="pond-md-surface" role="group" aria-label="Surface samples above 400 ppm">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-01">M-01 (road, 610)</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-04">M-04 (sandbox, 99)</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-06">M-06 (wall, 360)</button>
+<div class="pond-pad-choices" id="pond-md-surface" role="group" aria-label="Surface samples above 400 ppm">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-id="M-01">M-01 (road, 610)</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-id="M-04">M-04 (sandbox, 99)</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-id="M-06">M-06 (wall, 360)</button>
 </div>
 <p>This one requires knowledge specific to soil science. <strong>What would you need to know?</strong></p>
 <div id="pond-md-need-dry" class="pond-md-need">
@@ -591,12 +591,12 @@ NaN isn’t perfect either
 <p>M-01 <em>and</em> M-06 are above 400 ppm.</p>
 </div>
 </div>
-<div id="pond-md-surface-out" class="pond-md" data-after="pond-md-need-dry">
+<div id="pond-md-surface-out" class="pond-pad" data-after="pond-md-need-dry">
 
 </div>
 <p>This is the kind of metadata that a generic checklist (“include units”) would never catch: the units were ppm all along. Each discipline has its own definitions that change what a number means. In <a href="../../../lilypads/data/data-quality/index.html">Data Quality and Provenance</a>, you’ll see how preparing a sample (drying, sieving) affects the measurement itself.</p>
-<section id="key-takeaway-4" class="level4">
-<h4 class="anchored" data-anchor-id="key-takeaway-4">Key takeaway</h4>
+<section id="key-takeaway-1.5" class="level4">
+<h4 class="anchored" data-anchor-id="key-takeaway-1.5">Key takeaway 1.5</h4>
 <p>Some metadata are specific to a discipline, like whether lead was measured in wet or dry soil. No generic checklist will catch them: ask yourself what a specialist in your field would need to know to use your numbers.</p>
 </section>
 </section>
@@ -604,12 +604,12 @@ NaN isn’t perfect either
 <h3 class="anchored" data-anchor-id="can-you-share-it">1.6 Can you share it?</h3>
 <p>You now have a clean dataset. Your office wants to post it in a public data repository, and to include it in a report to denizens of the town.</p>
 <p><strong>Your turn!</strong> Are you allowed to?</p>
-<div class="pond-md-whatif" role="group" aria-label="Are you allowed to share the data?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="The city paid for the sampling, so it seems fair… but paying for a service doesn't always mean owning the data. It depends on the contract.">Yes</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="That's the cautious answer, but nothing in the file says you can't, either.">No</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: nothing in the file says.">I can't tell</button>
+<div class="pond-pad-whatif" role="group" aria-label="Are you allowed to share the data?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="The city paid for the sampling, so it seems fair… but paying for a service doesn't always mean owning the data. It depends on the contract.">Yes</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="That's the cautious answer, but nothing in the file says you can't, either.">No</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: nothing in the file says.">I can't tell</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 <p><strong>What would you need to know?</strong></p>
 <div id="pond-md-need-share" class="pond-md-need">
 <div class="pond-md-option" data-name="The license" data-needed="true">
@@ -632,14 +632,14 @@ NaN isn’t perfect either
 </div>
 </div>
 <p>Permission should be written into the metadata, not left to an email or a hallway conversation, so that it travels with the data. You’ll put this into practice in <a href="../../../lilypads/data/sharing-data/index.html">Preparing Data for Sharing</a>. To learn how licenses work, and how to choose one for your own data, dive into <a href="../../../deep-water/licensing/index.html">Licensing</a> in the Deep End.</p>
-<section id="key-takeaway-5" class="level4">
-<h4 class="anchored" data-anchor-id="key-takeaway-5">Key takeaway</h4>
+<section id="key-takeaway-1.6" class="level4">
+<h4 class="anchored" data-anchor-id="key-takeaway-1.6">Key takeaway 1.6</h4>
 <p>Having data is not the same as being allowed to share them. State the license and any reuse conditions in the metadata, so that permission travels with the data.</p>
 </section>
 </section>
 <section id="so-is-the-playground-above-400-ppm" class="level3">
 <h3 class="anchored" data-anchor-id="so-is-the-playground-above-400-ppm">So, is the playground above 400 ppm?</h3>
-<details class="pond-md-reveal">
+<details class="pond-pad-reveal">
 <summary>
 Compare the file as received with what the metadata told you
 </summary>
@@ -687,20 +687,20 @@ Compare the file as received with what the metadata told you
 <p>With the metadata, two of the three surface spots are above the limit. Without them, you would have reported one. Whether three spots are enough to judge the whole playground is a question about data <em>quality</em>, which you’ll explore in <a href="../../../lilypads/data/data-quality/index.html">Data Quality and Provenance</a>.</p>
 </details>
 </section>
-<section id="key-takeaway-6" class="level3">
-<h3 class="anchored" data-anchor-id="key-takeaway-6">Key takeaway</h3>
+<section id="key-takeaway-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-1">Key takeaway 1</h3>
 <p>At every step, the file opened fine and the numbers looked ordinary. What stopped you was missing <em>context</em>: where the data came from, what each column means, how missing values and QC are coded, what a measurement is relative to, and what you are allowed to do with the data.</p>
 </section>
 </section>
 <section id="what-metadata-did-you-actually-need" class="level2">
 <h2 class="anchored" data-anchor-id="what-metadata-did-you-actually-need">2. What metadata did you actually need?</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes</span></p>
 <p><strong>Your turn!</strong> Think back over the exercise. What information did you need in order to trust, interpret, clean, use, and share the data?</p>
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-md-reflect"><strong>The information I needed</strong></label>
-  <textarea id="pond-md-reflect" class="pond-md-response pond-md-save" rows="5" placeholder="List what you needed, and for which step..."></textarea>
+  <textarea id="pond-md-reflect" class="pond-pad-response pond-md-save" rows="5" placeholder="List what you needed, and for which step..."></textarea>
 </div>
-<details class="pond-md-reveal">
+<details class="pond-pad-reveal">
 <summary>
 Compare with our answer
 </summary>
@@ -746,8 +746,8 @@ Compare with our answer
 </div>
 <p>These categories are not rigid. Provenance appears in both: it helps you interpret the science, <em>and</em> it tells you who is responsible for the data.</p>
 </details>
-<section id="key-takeaway-7" class="level3">
-<h3 class="anchored" data-anchor-id="key-takeaway-7">Key takeaway</h3>
+<section id="key-takeaway-2" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-2">Key takeaway 2</h3>
 <blockquote class="blockquote">
 <p>Metadata serve different purposes. Some help researchers understand and evaluate the science, while others help identify, manage, access, and reuse the dataset.</p>
 </blockquote>
@@ -755,18 +755,18 @@ Compare with our answer
 </section>
 <section id="from-unstructured-to-structured-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="from-unstructured-to-structured-metadata">3. From unstructured to structured metadata</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes</span></p>
 <section id="organize-the-metadata" class="level3">
 <h3 class="anchored" data-anchor-id="organize-the-metadata">3.1 Organize the metadata</h3>
 <p>Suppose that, instead of answering questions one at a time, Northgate Soil Testing had sent all of its metadata in an email:</p>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <p>Soil samples were collected at the MADISON ELEM. playground on October 14, 2026, by our field crew. Depth (d) is the depth below the ground surface to the middle of each sample, in inches. Lead (Pb) is in ppm, measured on the soil as received, without drying; m is the water content, as a percentage of the wet sample’s mass. A lead value of 99 means the sample was not analyzed. The flag f applies to lead only: 1 means the measurement passed quality control, 0 that it failed. As required by our contract with the city, the data are released under a CC0 license.</p>
 </div>
 <p>Everything is there, but finding one piece of information means reading the whole paragraph, and a computer can’t easily check it.</p>
 <p><strong>Your turn!</strong> Organize this information into a structured form: a table, a list of labeled fields, or anything else you like. There is no single correct structure.</p>
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-md-structure"><strong>My structured metadata</strong></label>
-  <textarea id="pond-md-structure" class="pond-md-response pond-md-code pond-md-save" rows="10" placeholder="For example:
+  <textarea id="pond-md-structure" class="pond-pad-response pond-pad-code pond-md-save" rows="10" placeholder="For example:
 depth: ..."></textarea>
 </div>
 </section>
@@ -835,11 +835,11 @@ Pb:
 </div>
 </div>
 <p><strong>Your turn!</strong> All three are structured. Could a computer combine them automatically?</p>
-<div class="pond-md-whatif" role="group" aria-label="Could a computer combine them automatically?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Look again: depth_unit, unit and units are three names for the same idea, and in, inch and inches are three spellings of the same unit. A computer can't know they match unless someone tells it.">Yes</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right. depth_unit, unit and units are three names for the same idea; in, inch and inches are three spellings of one unit; ppm and mg/kg are the same unit under two names; and Person A packed two facts into one value, &quot;ppm (wet)&quot;. Structure alone isn't enough.">No</button>
+<div class="pond-pad-whatif" role="group" aria-label="Could a computer combine them automatically?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Look again: depth_unit, unit and units are three names for the same idea, and in, inch and inches are three spellings of the same unit. A computer can't know they match unless someone tells it.">Yes</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right. depth_unit, unit and units are three names for the same idea; in, inch and inches are three spellings of one unit; ppm and mg/kg are the same unit under two names; and Person A packed two facts into one value, &quot;ppm (wet)&quot;. Structure alone isn't enough.">No</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 </section>
 <section id="conventions" class="level3">
 <h3 class="anchored" data-anchor-id="conventions">3.3 Conventions</h3>
@@ -867,14 +867,14 @@ f:
 <li><a href="https://www.ncei.noaa.gov/products/paleoclimatology/paleoenvironmental-standard-terms-thesaurus">PaST Thesaurus</a>: a controlled vocabulary for describing paleoclimate measurements.</li>
 </ul>
 </section>
-<section id="key-takeaway-8" class="level3">
-<h3 class="anchored" data-anchor-id="key-takeaway-8">Key takeaway</h3>
+<section id="key-takeaway-3" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-3">Key takeaway 3</h3>
 <blockquote class="blockquote">
 <p>Structured metadata are useful, but structure alone does not guarantee interoperability. Communities also need agreement about field names, definitions, allowed values, and vocabularies.</p>
 </blockquote>
 <hr>
 <p>Now that you understand what the MADISON ELEM. data mean, a new question arises: <strong>are they good enough for your purpose?</strong> That’s the subject of the next LilyPad, <a href="../../../lilypads/data/data-quality/index.html">Data Quality and Provenance</a>.</p>
-<div class="pond-md">
+<div class="pond-pad">
   <p>Keep a record of your answers, side by side with ours, the metadata you uncovered, and the key takeaways.</p>
   <button type="button" class="btn btn-primary" id="pond-md-download">Download response summary</button>
 </div>
@@ -899,7 +899,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Single-choice buttons that show a short verdict
-  const whatifs = [...document.querySelectorAll(".pond-md-whatif")];
+  const whatifs = [...document.querySelectorAll(".pond-pad-whatif")];
   whatifs.forEach((group, g) => {
     const out = group.nextElementSibling;
     const buttons = [...group.querySelectorAll("button")];
@@ -937,16 +937,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const picks = saved.picks[id] = Array.isArray(saved.picks[id]) ? saved.picks[id] : [];
 
     const box = document.createElement("div");
-    box.className = "pond-md";
+    box.className = "pond-pad";
     box.innerHTML = `
-      <div class="pond-md-choices" role="group" aria-label="Options to choose from"></div>
-      <p class="pond-md-status" aria-live="polite"></p>
+      <div class="pond-pad-choices" role="group" aria-label="Options to choose from"></div>
+      <p class="pond-pad-status" aria-live="polite"></p>
       <button type="button" class="btn btn-primary"></button>
-      <div class="pond-md-cards" hidden></div>`;
-    const choices = box.querySelector(".pond-md-choices");
-    const status = box.querySelector(".pond-md-status");
+      <div class="pond-pad-cards" hidden></div>`;
+    const choices = box.querySelector(".pond-pad-choices");
+    const status = box.querySelector(".pond-pad-status");
     const revealBtn = box.querySelector(".btn-primary");
-    const cards = box.querySelector(".pond-md-cards");
+    const cards = box.querySelector(".pond-pad-cards");
     revealBtn.textContent = bank.dataset.button || "Reveal our answer";
 
     function updateStatus() {
@@ -956,7 +956,7 @@ document.addEventListener("DOMContentLoaded", () => {
     options.forEach(opt => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "pond-md-tag";
+      btn.className = "pond-pad-tag";
       btn.textContent = opt.name;
       btn.setAttribute("aria-pressed", String(picks.includes(opt.name)));
       btn.addEventListener("click", () => {
@@ -976,13 +976,13 @@ document.addEventListener("DOMContentLoaded", () => {
       cards.innerHTML = "";
       options.forEach(opt => {
         const card = document.createElement("div");
-        card.className = "pond-md-card" + (opt.needed ? " is-needed" : "");
+        card.className = "pond-pad-card" + (opt.needed ? " is-needed" : "");
         card.dataset.name = opt.name;
         card.classList.toggle("is-picked", picks.includes(opt.name));
-        card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-md-card-text"></div>`;
+        card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-pad-card-text"></div>`;
         card.querySelector("h4").textContent = opt.name;
         card.querySelector(".pond-md-badge").textContent = opt.needed ? yes : no;
-        card.querySelector(".pond-md-card-text").innerHTML = opt.html;
+        card.querySelector(".pond-pad-card-text").innerHTML = opt.html;
         cards.append(card);
       });
       cards.hidden = false;
@@ -995,7 +995,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bank.querySelectorAll(":scope > .pond-md-option").forEach(div => div.remove());
     if (meta) {
-      meta.classList.add("pond-md-notes", "pond-md-meta-panel");
+      meta.classList.add("pond-pad-notes", "pond-md-meta-panel");
       meta.hidden = true;
     }
     bank.prepend(box);
@@ -1027,7 +1027,7 @@ document.addEventListener("DOMContentLoaded", () => {
   dropTable.querySelector("thead tr").insertAdjacentHTML("beforeend", "<th>Keep?</th>");
   const dropRows = [...dropTable.querySelectorAll("tbody tr")];
   const dropStatus = document.createElement("p");
-  dropStatus.className = "pond-md-status";
+  dropStatus.className = "pond-pad-status";
   dropStatus.setAttribute("aria-live", "polite");
   dropBox.after(dropStatus);
   const average = rows => Math.round(rows.reduce((a, tr) => a + Number(tr.cells[pbCol].textContent), 0) / rows.length);
@@ -1048,7 +1048,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const td = document.createElement("td");
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "pond-md-tag pond-md-small";
+    btn.className = "pond-pad-tag pond-pad-small";
     td.append(btn);
     tr.append(td);
     function draw() {
@@ -1095,7 +1095,7 @@ document.addEventListener("DOMContentLoaded", () => {
   hooks["pond-md-need-dry"] = () => {
     const out = document.getElementById("pond-md-surface-out");
     const mine = [...saved.surface].sort().join(", ");
-    out.innerHTML = `<p class="pond-md-take"></p>`;
+    out.innerHTML = `<p class="pond-pad-take"></p>`;
     out.firstChild.textContent = mine === "M-01, M-06"
       ? "✓ You picked M-01 and M-06. Did you know about the water content, or was it a lucky guess?"
       : `You picked: ${mine || "none"}. In dry soil, M-01 and M-06 are above 400 ppm.`;
@@ -1188,17 +1188,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (pending) { out.push("", pending); pending = null; }
       out.push("", text);
     };
-    const selector = "h2, h3, h4, .pond-md-whatif, .pond-md-need, #pond-md-depth, #pond-md-drop, #pond-md-surface, textarea.pond-md-save";
+    const selector = "h2, h3, h4, .pond-pad-whatif, .pond-md-need, #pond-md-depth, #pond-md-drop, #pond-md-surface, textarea.pond-md-save";
     root.querySelectorAll(selector).forEach(el => {
-      if (el.closest(".card, .pond-md-cards")) return;
+      if (el.closest(".card, .pond-pad-cards")) return;
       const title = el.matches("h2, h3, h4") ? el.textContent.trim() : "";
-      if (title === "Key takeaway") {
+      if (/^Key takeaway\b/.test(title)) {     // e.g. "Key takeaway 1.2"
         // The takeaway is the paragraph or quote right after the heading
         const next = el.nextElementSibling;
         const wrap = document.createElement("div");
         if (next) wrap.append(next.cloneNode(true));
         const body = blockMd(wrap).replace(/^>\s*/gm, "").trim();
-        emit(`> **Key takeaway:** ${body}`);
+        emit(`> **${title}:** ${body}`);
       } else if (el.tagName === "H2") {
         pending = null;
         out.push("", `## ${title}`);
@@ -1210,7 +1210,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else if (el.tagName === "H4") {
         return;
-      } else if (el.matches(".pond-md-whatif")) {
+      } else if (el.matches(".pond-pad-whatif")) {
         const i = saved.whatif[whatifs.indexOf(el)];
         const btn = el.querySelectorAll("button")[i];
         emit(`**${el.getAttribute("aria-label")}**  \n` +
@@ -1235,7 +1235,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (el.matches("textarea")) {
         const text = el.value.trim();
         const body = !text ? "*No response entered.*"
-          : el.classList.contains("pond-md-code") ? "```\n" + text + "\n```" : text;
+          : el.classList.contains("pond-pad-code") ? "```\n" + text + "\n```" : text;
         emit(`**${labelFor(el.id)}**\n\n${body}`);
       }
     });
