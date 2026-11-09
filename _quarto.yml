@@ -44,7 +44,9 @@ website:
           - href: deep-water/containers/index.qmd
             text: Containers
           - href: deep-water/correlation-workflow/index.qmd
-            text: Correlation Workflow 
+            text: Correlation Workflow
+          - href: deep-water/licensing/index.qmd
+            text: Licensing
 
       - href: spring/index.qmd
         text: The Spring
