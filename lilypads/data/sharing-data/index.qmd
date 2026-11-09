@@ -1121,17 +1121,6 @@ The goal is not to reward the longest documentation. It is to decide what provid
     </div>
   </div>
 
-  <div class="d5-end" id="d5-a3-end" hidden>
-    <h3>Key takeaway</h3>
-    <p>
-      Making data reusable means documenting enough of their scientific context that the intended users can understand and work with them correctly.
-      <strong>Community conventions provide a practical starting point</strong>, without requiring every project to create the most exhaustive metadata package imaginable.
-    </p>
-    <p>
-      This builds on the earlier LilyPads on <strong>data structure, metadata, and provenance</strong>. The next <a href="../citing-data/index.html">LilyPad</a> explores how to <strong>cite data in a manuscript</strong>.
-    </p>
-  </div>
-
 </section>
 
 <script>
@@ -1335,7 +1324,6 @@ The goal is not to reward the longest documentation. It is to decide what provid
 
     root.querySelector('#d5-a3-bridge').hidden = false;
     root.querySelector('#d5-a3-survey').hidden = false;
-    root.querySelector('#d5-a3-end').hidden = false;
   }
 
   revealButton.addEventListener('click', showFeedback);
@@ -2105,3 +2093,26 @@ submit.onclick = async () => {
 </script>
 ```
 
+# 4. Which research products should you preserve?
+
+So far, we've focused on the documentation needed to make a dataset reusable. But scientific research often produces **more than one potentially valuable data product**. Which ones are worth preserving and sharing?
+
+Consider three examples:
+
+- **A benthic isotope stack — the primary research product.** Researchers combine records from multiple sediment cores to build a new stack. The stack is a scientific contribution in its own right and is archived as a new dataset.
+- **New age models — related research products.** The researchers develop new age models for individual cores while building the stack. Those models may be useful for other scientific questions, and their authorship or provenance may differ from the stack's. It may make sense to preserve them separately and link them to the stack.
+- **Time series extracted from NetCDF files — computational intermediates.** A researcher extracts a few time series from large climate-model outputs for an analysis. The extracts may not be independent scientific contributions, but retaining them could make the analysis easier to reproduce or spare others a costly extraction. If they are easy to regenerate from accessible source files and a documented workflow, preserving separate copies may offer little benefit.
+
+**How would you decide?** Consider whether another researcher could reuse the product, whether it would help reproduce the analysis, how much effort or computation recreating it would require, whether it has distinct provenance or authorship, and whether an equivalent product is already available elsewhere.
+
+There is no universal rule. **Not every intermediate file needs to be archived or assigned its own DOI.** Some products may be kept with the main dataset, some may be worth sharing separately, and others can be recreated from well-documented inputs and workflows. The choice should reflect their scientific and practical value.
+
+*Want to learn how to manage and publish these products?* An upcoming Deep End LilyPad will explore the practical steps. You can find it through [The Deep End](../../../deep-water/index.html) when it is available.
+
+<!-- When the Deep End LilyPad on intermediate research outputs is published, replace the overview link above with its direct URL. -->
+
+# Key takeaway
+
+Making data reusable means documenting enough of their scientific context that the intended users can understand and work with them correctly. **Community conventions provide a practical starting point**, without requiring every project to create the most exhaustive metadata package imaginable. It also means thinking deliberately about **which related or intermediate products would be valuable to preserve**.
+
+This builds on the earlier LilyPads on **data structure, metadata, and provenance**. The next [LilyPad](../citing-data/index.html) explores how to **cite data in a manuscript**.
