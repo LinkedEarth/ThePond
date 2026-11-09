@@ -18,6 +18,189 @@ In this LilyPad, you'll explore two common situations:
 By the end, you'll know how to incorporate data citations into a scientific manuscript, including its reference list and Data Availability Statement, and why citing the right dataset matters.
 
 
-## 1. What exactly are you citing?
+
+# 1. What exactly are you citing?
+
+Imagine you're studying how agricultural land use affects nitrate concentrations in rivers. You find an existing dataset containing measurements collected over several decades.
+
+Alongside the dataset, you discover two publications:
+
+- A **scientific paper** investigating how nitrate concentrations have changed over time and what might explain those changes.
+- A **data paper** documenting how the measurements were collected, processed, and quality-controlled.
+
+You also find the **dataset itself**, archived in a repository where you can access the measurements and their metadata.
+
+These three research products serve different purposes.
+
+| Research product | What does it provide? |
+|---|---|
+| **Scientific paper** | Scientific questions, methods, analyses, and interpretations. |
+| **Data paper** | Detailed information about the dataset's creation, quality, and potential for reuse. |
+| **Dataset** | The actual measurements, associated metadata, and information needed to identify and retrieve the data. |
+
+A data paper is a scientific publication focused on describing a dataset rather than primarily presenting new scientific interpretations. Not every dataset has a data paper, and sometimes a single publication combines several of these roles.
+
+### Why does the distinction matter?
+
+Suppose you use the nitrate measurements to develop your own model.
+
+Citing the scientific paper acknowledges the scientific work you build upon. Citing the data paper acknowledges the researchers' work in creating and documenting the dataset. **Citing the dataset itself identifies the research product you actually used.**
+
+These citations are **complementary, not mutually exclusive**. Depending on your research, you may need to cite more than one.
+
+### What if the dataset changes?
+
+Just like scientific workflows, datasets can evolve. Measurements may be corrected, additional observations included, or metadata improved.
+
+As we explored in [the LilyPad on databases](../db-repo-pid/index.qmd), identifying the version you used is important for reproducibility.
+
+When a repository provides a DOI for a specific dataset version, cite that version. Other repositories may provide a single DOI or different mechanisms for identifying releases. Follow the repository's recommended citation and include the relevant version information when available.
+
+::: {.callout-tip}
+## Two questions to remember
+
+When citing data, ask yourself:
+
+1. **Whose work am I building upon?** — Give credit to the researchers who collected, created, documented, or interpreted the data.
+2. **Which data did I actually use?** — Identify the dataset and, when possible, the specific version underlying your results.
+:::
+
+---
+
+
+# 2. Citing someone else's data
+
+## The scenario: Studying nitrate in a river
+
+You're investigating how agricultural land use affects nitrate concentrations in the fictional Alder River watershed.
+
+Rather than collecting new measurements, you find a long-term monitoring dataset containing nitrate observations from 12 stations between 2010 and 2024.
+
+You also discover two publications associated with the monitoring program.
+
+You're now preparing the Methods section of your manuscript. **Which research products should you cite, and where?**
+
+## Activity 1: What belongs in your manuscript?
+
+Start by exploring the three research products below. Click each card to discover what it contains.
+
+<div class="row g-3 mb-4">
+
+<div class="col-md-4">
+<details class="border rounded p-3 h-100">
+<summary><strong>Source A: Scientific paper</strong></summary>
+<p><strong>Nguyen et al. (2025)</strong></p>
+<p><em>Agricultural expansion and nitrate trends in the Alder River watershed</em></p>
+<p>The authors investigate relationships between land use and river nitrate concentrations.</p>
+<p>They find that increasing agricultural activity is associated with higher nitrate concentrations at several monitoring stations.</p>
+<p><strong>Contains:</strong> Scientific hypotheses, analysis methods, figures, and interpretations.</p>
+</details>
+</div>
+
+<div class="col-md-4">
+<details class="border rounded p-3 h-100">
+<summary><strong>Source B: Data paper</strong></summary>
+<p><strong>Rivera et al. (2025)</strong></p>
+<p><em>The Alder River long-term water-quality monitoring program</em></p>
+<p>The authors describe how the monitoring program operates and how the dataset was produced.</p>
+<p>The paper documents station locations, sampling methods, laboratory measurements, and quality-control procedures.</p>
+<p><strong>Contains:</strong> Dataset creation methods, quality assessment, and documentation supporting reuse.</p>
+</details>
+</div>
+
+<div class="col-md-4">
+<details class="border rounded p-3 h-100">
+<summary><strong>Source C: Dataset</strong></summary>
+<p><strong>Alder River Monitoring Team (2025)</strong></p>
+<p><em>Alder River nitrate observations, 2010–2024 (Version 1.0)</em></p>
+<p>An archived dataset containing nitrate measurements, station identifiers, sampling dates, units, and quality-control flags.</p>
+<p>The repository provides metadata, downloadable files, and a persistent identifier.</p>
+<p><strong>Contains:</strong> The actual measurements used in your analysis.</p>
+</details>
+</div>
+
+</div>
+
+*All three sources are fictional examples created for this activity.*
+
+### Build your citation plan
+
+You're drafting three statements for your manuscript.
+
+For each one, select **all the sources you would consider citing**. More than one source may be appropriate, and you don't need to select the same sources for every statement.
+
+**Statement 1 — Introduction**
+
+> Previous research has linked agricultural expansion in the Alder River watershed to increasing nitrate concentrations.
+
+```{ojs}
+//| echo: false
+viewof alderIntro = Inputs.checkbox(
+  ["Source A: Scientific paper", "Source B: Data paper", "Source C: Dataset"],
+  {label: "What would you cite for this statement?"}
+)
+```
+
+**Statement 2 — Methods**
+
+> We interpreted the quality-control flags accompanying the nitrate measurements using the monitoring program's documented procedures.
+
+```{ojs}
+//| echo: false
+viewof alderMethods = Inputs.checkbox(
+  ["Source A: Scientific paper", "Source B: Data paper", "Source C: Dataset"],
+  {label: "What would you cite for this statement?"}
+)
+```
+
+**Statement 3 — Methods**
+
+> We analyzed monthly nitrate concentrations measured at 12 Alder River monitoring stations between 2010 and 2024.
+
+```{ojs}
+//| echo: false
+viewof alderData = Inputs.checkbox(
+  ["Source A: Scientific paper", "Source B: Data paper", "Source C: Dataset"],
+  {label: "What would you cite for this statement?"}
+)
+```
+
+Once you've made your choices, compare them with one possible citation plan.
+
+```{ojs}
+//| echo: false
+viewof alderReveal = Inputs.button("Compare with an example citation plan")
+```
+
+```{ojs}
+//| echo: false
+alderReveal === 0
+  ? md`*Make your selections above, then reveal the example.*`
+  : md`
+**Statement 1 — Scientific interpretation**
+
+The scientific paper (Nguyen et al., 2025) is the most directly relevant reference because it supports the claim about agricultural expansion and nitrate trends.
+
+**Statement 2 — Data collection and quality control**
+
+The data paper (Rivera et al., 2025) explains the monitoring program's quality-control procedures. The dataset citation is also relevant when referring to the actual measurements and flags being interpreted.
+
+**Statement 3 — Data used in the analysis**
+
+The dataset itself (Alder River Monitoring Team, 2025) should be cited because it identifies the measurements used to produce your results.
+
+The data paper may also be cited to provide additional context about how those measurements were obtained and validated.
+
+---
+
+**What should you notice?**
+
+These references do different jobs. The scientific paper supports a scientific interpretation, the data paper documents how the observations were produced, and the dataset citation identifies the data used in the analysis.
+
+You may need all three in your manuscript. The goal isn't to choose one citation over the others, but to give each research product appropriate credit.
+`
+```
+
+
 
 
