@@ -217,6 +217,8 @@ To check their instruments, four testing companies each measured the same **refe
 
 **Your turn!** For each analyzer, decide whether its readings are **precise** and whether they are **accurate**.
 
+In each plot, the dots are the five readings and the triangle marks their **average**. The red dashed line is the **certified value** of the reference soil (400 ppm), *not* the average of the readings.
+
 ```{=html}
 <div id="pond-dq-analyzers" class="pond-pad pond-pad-cards"></div>
 ```
@@ -917,24 +919,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const readings = div.dataset.readings.split(",").map(Number);
     const card = document.createElement("div");
     card.className = "pond-pad-card";
+    const mean = Math.round(readings.reduce((a, b) => a + b, 0) / readings.length);
     const dots = readings.map(v =>
-      `<circle cx="${x(v)}" cy="30" r="6" class="pond-dq-dot"></circle>`).join("");
+      `<circle cx="${x(v)}" cy="38" r="6" class="pond-dq-dot"></circle>`).join("");
     card.innerHTML = `
       <h4></h4>
-      <svg viewBox="0 0 300 62" role="img" aria-label="${name} readings: ${readings.join(", ")} ppm">
-        <line x1="20" x2="280" y1="30" y2="30" class="pond-dq-axis"></line>
-        <line x1="${x(400)}" x2="${x(400)}" y1="10" y2="46" class="pond-dq-target"></line>
+      <svg viewBox="0 0 300 72" role="img" aria-label="${name} readings: ${readings.join(", ")} ppm; average ${mean} ppm; certified value 400 ppm">
+        <line x1="20" x2="280" y1="38" y2="38" class="pond-dq-axis"></line>
+        <line x1="${x(400)}" x2="${x(400)}" y1="24" y2="52" class="pond-dq-target"></line>
         ${dots}
-        <text x="${x(400)}" y="58" text-anchor="middle" class="pond-dq-label">400 (certified)</text>
-        <text x="20" y="58" class="pond-dq-label">${lo}</text>
-        <text x="280" y="58" text-anchor="end" class="pond-dq-label">${hi} ppm</text>
+        <polygon points="${x(mean) - 5},16 ${x(mean) + 5},16 ${x(mean)},24" class="pond-dq-mean"></polygon>
+        <text x="${x(mean)}" y="11" text-anchor="middle" class="pond-dq-label pond-dq-mean-label">average ${mean}</text>
+        <text x="${x(400)}" y="66" text-anchor="middle" class="pond-dq-label pond-dq-target-label">certified 400</text>
+        <text x="20" y="66" class="pond-dq-label">${lo}</text>
+        <text x="280" y="66" text-anchor="end" class="pond-dq-label">${hi} ppm</text>
       </svg>
       <p class="pond-dq-readings"></p>
       <div class="pond-dq-q"><span>Precise?</span><div class="pond-pad-choices" role="group" data-key="precise"></div></div>
       <div class="pond-dq-q"><span>Accurate?</span><div class="pond-pad-choices" role="group" data-key="accurate"></div></div>
       <div class="pond-pad-take" aria-live="polite" hidden></div>`;
     card.querySelector("h4").textContent = name;
-    card.querySelector(".pond-dq-readings").textContent = `Readings: ${readings.join(", ")} ppm`;
+    card.querySelector(".pond-dq-readings").textContent = `Readings: ${readings.join(", ")} ppm. Average: ${mean} ppm.`;
     const take = card.querySelector(".pond-pad-take");
     const mine = saved.analyzers[name] = saved.analyzers[name] || {};
 

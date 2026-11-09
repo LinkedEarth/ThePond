@@ -724,6 +724,9 @@ d-topics-list iframe {
 .pond-dq-target { stroke: #c0392b; stroke-width: 2; stroke-dasharray: 4 3; }
 .pond-dq-dot { fill: var(--bs-primary, #286cc4); fill-opacity: 0.75; }
 .pond-dq-label { font-size: 11px; fill: var(--bs-secondary-color, #666); }
+.pond-dq-mean { fill: var(--bs-body-color, #222); }
+.pond-dq-mean-label { fill: var(--bs-body-color, #222); font-weight: 600; }
+.pond-dq-target-label { fill: #c0392b; }
 .pond-dq-readings { margin: 0; font-size: 0.85rem; color: var(--bs-secondary-color, #666); }
 
 .pond-dq-q { display: flex; align-items: center; gap: 0.6rem; }
