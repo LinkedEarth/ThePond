@@ -76,7 +76,7 @@ Irrelevant: any spreadsheet or text editor opens a CSV (comma-separated values) 
 
 This information about where data came from, and what happened to them along the way, is called **provenance**. It doesn't make the data trustworthy on its own, but it gives you what you need to *evaluate* the data. You'll look at provenance in more depth in [Data Quality and Provenance](../data-quality/index.qmd).
 
-#### Key takeaway
+#### Key takeaway 1.1
 
 Before using a dataset, find out who produced it, where you got it, and whether anything changed along the way. This provenance doesn't make data trustworthy, but without it you can't judge whether they are.
 
@@ -141,7 +141,7 @@ Irrelevant here: the time of day doesn't change how deep a sample was.
 ```
 :::
 
-#### Key takeaway
+#### Key takeaway 1.2
 
 Raw values are unusable without ancillary information, known as metadata. When you archive your data, make sure you include all the information necessary to use them, from the standpoint of a reasonable person who does not live in your head.
 
@@ -235,7 +235,7 @@ Also, not every gap is missing data. A lab may report `<10`: lead is **below the
 </details>
 :::
 
-#### Key takeaway
+#### Key takeaway 1.3
 
 Even a simple [data cleaning](https://en.wikipedia.org/wiki/Data_cleansing) step such as removing missing values hinges on metadata. Before you share data, record missing values in a way that can't be mistaken for a measurement (such as NaN), flag *why* a value is reported missing, and document both conventions. 
 
@@ -278,7 +278,7 @@ So you keep M-01, M-02, M-04, M-05 and M-06. M-07's 730 ppm, the highest value i
 
 Metadata can be specific to a single variable: here the flag tells you about lead, not about the rest of the row. In [Different Types of Data](../data-type/index.qmd), you met a similar QC/status column; there, its meaning was written out in words.
 
-#### Key takeaway
+#### Key takeaway 1.4
 
 Codes such as 0 and 1 mean nothing on their own. The metadata must say what each value stands for, and which variable it applies to.
 
@@ -335,7 +335,7 @@ M-01 *and* M-06 are above 400 ppm.
 
 This is the kind of metadata that a generic checklist ("include units") would never catch: the units were ppm all along. Each discipline has its own definitions that change what a number means. In [Data Quality and Provenance](../data-quality/index.qmd), you'll see how preparing a sample (drying, sieving) affects the measurement itself.
 
-#### Key takeaway
+#### Key takeaway 1.5
 
 Some metadata are specific to a discipline, like whether lead was measured in wet or dry soil. No generic checklist will catch them: ask yourself what a specialist in your field would need to know to use your numbers. 
 
@@ -386,7 +386,7 @@ Requiring open licenses is common for publicly funded data. In the United States
 
 Permission should be written into the metadata, not left to an email or a hallway conversation, so that it travels with the data. You'll put this into practice in [Preparing Data for Sharing](../sharing-data/index.qmd). To learn how licenses work, and how to choose one for your own data, dive into [Licensing](../../../deep-water/licensing/index.qmd) in the Deep End.
 
-#### Key takeaway
+#### Key takeaway 1.6
 
 Having data is not the same as being allowed to share them. State the license and any reuse conditions in the metadata, so that permission travels with the data.
 
@@ -407,7 +407,7 @@ With the metadata, two of the three surface spots are above the limit. Without t
 
 </details>
 
-### Key takeaway
+### Key takeaway 1
 
 At every step, the file opened fine and the numbers looked ordinary. What stopped you was missing *context*: where the data came from, what each column means, how missing values and QC are coded, what a measurement is relative to, and what you are allowed to do with the data.
 
@@ -475,7 +475,7 @@ These categories are not rigid. Provenance appears in both: it helps you interpr
 
 </details>
 
-### Key takeaway
+### Key takeaway 2
 
 > Metadata serve different purposes. Some help researchers understand and evaluate the science, while others help identify, manage, access, and reuse the dataset.
 
@@ -597,7 +597,7 @@ You don't need to learn any particular convention for this LilyPad. If you're cu
 - [DataCite Metadata Schema](https://schema.datacite.org/): administrative metadata for citing datasets in any field.
 - [PaST Thesaurus](https://www.ncei.noaa.gov/products/paleoclimatology/paleoenvironmental-standard-terms-thesaurus): a controlled vocabulary for describing paleoclimate measurements.
 
-### Key takeaway
+### Key takeaway 3
 
 > Structured metadata are useful, but structure alone does not guarantee interoperability. Communities also need agreement about field names, definitions, allowed values, and vocabularies.
 
@@ -927,13 +927,13 @@ document.addEventListener("DOMContentLoaded", () => {
     root.querySelectorAll(selector).forEach(el => {
       if (el.closest(".card, .pond-pad-cards")) return;
       const title = el.matches("h2, h3, h4") ? el.textContent.trim() : "";
-      if (title === "Key takeaway") {
+      if (/^Key takeaway\b/.test(title)) {     // e.g. "Key takeaway 1.2"
         // The takeaway is the paragraph or quote right after the heading
         const next = el.nextElementSibling;
         const wrap = document.createElement("div");
         if (next) wrap.append(next.cloneNode(true));
         const body = blockMd(wrap).replace(/^>\s*/gm, "").trim();
-        emit(`> **Key takeaway:** ${body}`);
+        emit(`> **${title}:** ${body}`);
       } else if (el.tagName === "H2") {
         pending = null;
         out.push("", `## ${title}`);

@@ -13,7 +13,7 @@
 //
 // The summary walks the page in order and writes:
 //   - activity headings (h2) and sub-activity headings (h3, only if something follows);
-//   - every "Key takeaway" (the paragraph or quote after an h3/h4 with that title);
+//   - every "Key takeaway" or "Key takeaway 3.2" (the paragraph or quote after an h3/h4 with that title);
 //   - every text box (textarea), under its label;
 //   - every single-choice group (role="group" with buttons carrying data-verdict):
 //     the learner's choice and its verdict;
@@ -87,10 +87,10 @@
     return `**${label ? label.textContent.trim() : "My answer"}**\n\n${body}`;
   }
 
-  function takeawayMd(heading) {
+  function takeawayMd(heading, title) {
     const next = heading.nextElementSibling;
     const body = next ? elementMd(next).replace(/^>\s*/gm, "").trim() : "";
-    return `> **Key takeaway:** ${body}`;
+    return `> **${title}:** ${body}`;
   }
 
   // ---------- The summary ----------
@@ -122,7 +122,7 @@
 
       if (/^H[234]$/.test(el.tagName)) {
         const title = el.textContent.trim();
-        if (title === "Key takeaway") emit(takeawayMd(el));
+        if (/^Key takeaway\b/.test(title)) emit(takeawayMd(el, title));   // e.g. "Key takeaway 3.2"
         else if (el.tagName === "H2") { pending = null; out.push("", `## ${title}`); }
         else if (el.tagName === "H3") pending = `### ${title}`;
       } else if (el.tagName === "TEXTAREA") {
