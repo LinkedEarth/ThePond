@@ -506,3 +506,154 @@ d-topics-list iframe {
 }
 
 .why-worry-small { font-size: 1rem; }
+
+/* Metadata for Reuse (lilypads/data/metadata). Same look as Data Pads 1 and 3. */
+
+.pond-md { max-width: 1050px; margin: 1.5rem auto; }
+
+.pond-md-notes {
+  background: var(--bs-tertiary-bg, #f7f7f7);
+  color: var(--bs-body-color, #222);
+  border-left: 4px solid var(--bs-primary, #286cc4);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+}
+
+.pond-md-notes p:last-child,
+.pond-md-notes table,
+.pond-md-notes pre { margin-bottom: 0; }
+.pond-md-notes table:not(:last-child) { margin-bottom: 1rem; }
+
+.pond-md-meta-panel { margin-top: 1rem; }
+
+.pond-md-wide { overflow-x: auto; }
+
+.pond-md-credit {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--bs-secondary-color, #666);
+  margin: 0.6rem 0 1rem;
+}
+
+.pond-md-time {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bs-tertiary-bg, #f7f7f7);
+  color: var(--bs-secondary-color, #666);
+  font-size: 0.9rem;
+}
+
+.pond-md-response {
+  width: 100%;
+  min-height: 110px;
+  margin-top: 0.35rem;
+  padding: 0.75rem;
+  border: 1px solid var(--bs-border-color, #ccc);
+  border-radius: 8px;
+  background: var(--bs-body-bg, white);
+  color: var(--bs-body-color, #222);
+}
+
+.pond-md-code { font-family: var(--bs-font-monospace, monospace); font-size: 0.9rem; }
+
+.pond-md-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.35rem; }
+.pond-md-row input { max-width: 10rem; }
+
+.pond-md-reveal {
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+}
+
+.pond-md-reveal summary { cursor: pointer; font-weight: 600; }
+.pond-md-reveal[open] summary { margin-bottom: 0.75rem; }
+
+.pond-md-choices,
+.pond-md-whatif { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.75rem 0; }
+
+.pond-md-tag {
+  border: 1px solid var(--bs-border-color, #bbb);
+  background: var(--bs-tertiary-bg, #f7f7f7);
+  color: var(--bs-body-color, #222);
+  border-radius: 22px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.pond-md-tag:hover { border-color: var(--bs-primary, #286cc4); }
+
+.pond-md-tag[aria-pressed="true"] {
+  background: var(--bs-primary, #286cc4);
+  border-color: var(--bs-primary, #286cc4);
+  color: white;
+}
+
+.pond-md-small { padding: 0.1rem 0.6rem; font-size: 0.85rem; }
+
+.pond-md-status { margin-top: 0.75rem; color: var(--bs-secondary-color, #666); }
+
+.pond-md-take {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--bs-primary-bg-subtle, #e4efff);
+  font-size: 0.95rem;
+}
+
+.pond-md-take p:last-child { margin-bottom: 0; }
+
+.pond-md-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.pond-md-cards:not([hidden]) { margin-top: 1rem; }
+
+.pond-md-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.1rem;
+  border: 1px solid var(--bs-border-color, #ddd);
+  border-radius: 14px;
+  background: var(--bs-body-bg, white);
+}
+
+.pond-md-card h4 { margin: 0; font-size: 1.05rem; }
+.pond-md-card-text p { margin: 0; }
+.pond-md-card.is-picked { border: 2px solid var(--bs-primary, #286cc4); }
+
+/* "Needed" / "Not needed" label: text, not color alone */
+.pond-md-badge {
+  align-self: flex-start;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--bs-tertiary-bg, #eee);
+  color: var(--bs-secondary-color, #555);
+}
+
+.pond-md-card.is-needed .pond-md-badge {
+  background: var(--bs-primary-bg-subtle, #e4efff);
+  color: var(--bs-primary-text-emphasis, #174c87);
+}
+
+#pond-md-drop tr.is-dropped td:not(:last-child) {
+  text-decoration: line-through;
+  color: var(--bs-secondary-color, #888);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pond-md-tag { transition: none; }
+}
+
+/* Without JavaScript, show each option's name before its explanation */
+.pond-md-option::before { content: attr(data-name) ": "; font-weight: 600; }
+.pond-md-option p { display: inline; }
