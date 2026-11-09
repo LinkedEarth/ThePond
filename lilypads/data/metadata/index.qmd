@@ -7,7 +7,7 @@ A data file is not necessarily usable just because it opens. **Metadata** (infor
 
 ## 1. Data Usability
 
-[<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-md-time}
+[<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-pad-time}
 
 Imagine that you work for a city office that checks whether schools meet lead (Pb) exposure standards. A testing company has just sampled the soil in the playground at MADISON ELEM., and a colleague forwards you their file:
 
@@ -17,7 +17,7 @@ Imagine that you work for a city office that checks whether schools meet lead (P
 
 This is the file, `madison_soil.csv`, exactly as you received it:
 
-::: {.pond-md-notes}
+::: {.pond-pad-notes}
 ```
 id,loc,d,Pb,m,f
 M-01,road,1,610,12,1
@@ -30,7 +30,7 @@ M-07,wall,6,730,22,0
 ```
 :::
 
-[Fictional school, company and values, created for The Pond (2026).]{.pond-md-credit}
+[Fictional school, company and values, created for The Pond (2026).]{.pond-pad-credit}
 
 It opens without any trouble. Let's see whether you can use it.
 
@@ -87,20 +87,20 @@ Lead tends to build up near the surface, which is also the soil that children to
 **Your turn!** Which column do you think contains the depth?
 
 ```{=html}
-<div class="pond-md-whatif" role="group" aria-label="Which column contains the depth?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="A reasonable guess: d might stand for depth. But m might stand for meters…">d</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Possible: m might stand for meters. But d might stand for depth…">m</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Fair enough: from the file alone, you can't be sure.">I can't tell</button>
+<div class="pond-pad-whatif" role="group" aria-label="Which column contains the depth?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="A reasonable guess: d might stand for depth. But m might stand for meters…">d</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Possible: m might stand for meters. But d might stand for depth…">m</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Fair enough: from the file alone, you can't be sure.">I can't tell</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden></p>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
 ```
 
 Now **assume that `d` is the depth.** How deep is sample M-02, in meters?
 
 ```{=html}
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-md-depth"><strong>Depth of M-02, in meters</strong></label>
-  <div class="pond-md-row">
+  <div class="pond-pad-row">
     <input id="pond-md-depth" class="form-control pond-md-save" type="number" step="any" placeholder="e.g. 0.5">
   </div>
 </div>
@@ -134,10 +134,10 @@ Irrelevant here: the time of day doesn't change how deep a sample was.
 :::
 :::
 
-::: {#pond-md-depth-check .pond-md data-after="pond-md-need-depth"}
+::: {#pond-md-depth-check .pond-pad data-after="pond-md-need-depth"}
 ```{=html}
 <button type="button" class="btn btn-primary" id="pond-md-depth-btn">Check my answer</button>
-<p class="pond-md-take" id="pond-md-depth-out" aria-live="polite" hidden></p>
+<p class="pond-pad-take" id="pond-md-depth-out" aria-live="polite" hidden></p>
 ```
 :::
 
@@ -151,7 +151,7 @@ Before you average anything, you need to remove the missing values: samples for 
 
 **Your turn!** Drop the rows that you think have no lead measurement, and watch the average change.
 
-::: {#pond-md-drop .pond-md-notes .pond-md-wide}
+::: {#pond-md-drop .pond-pad-notes .pond-pad-wide}
 | id | loc | d | Pb | m | f |
 | :--- | :--- | ---: | ---: | ---: | ---: |
 | M-01 | road | 1 | 610 | 12 | 1 |
@@ -221,8 +221,8 @@ Short for "not available." It's widely used, but it's just text: whether it's re
 :::
 :::
 
-::: {.pond-md data-after="pond-md-need-code"}
-<details class="pond-md-reveal">
+::: {.pond-pad data-after="pond-md-need-code"}
+<details class="pond-pad-reveal">
 <summary>NaN isn't perfect either</summary>
 
 - **In a CSV file, `NaN` is just three letters.** Python's pandas and R read it as a number; a spreadsheet may show it as text.
@@ -246,12 +246,12 @@ Testing companies check their measurements before releasing them. This is called
 **Your turn!** To keep only the measurements that passed QC, which rows would you keep?
 
 ```{=html}
-<div class="pond-md-whatif" role="group" aria-label="Which rows passed quality control?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Many datasets do use 0 for &quot;no problem&quot;… but many others use 1 for &quot;passed.&quot;">Rows where f = 0</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Many datasets do use 1 for &quot;passed&quot;… but many others use 0 for &quot;no problem.&quot;">Rows where f = 1</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: the numbers 0 and 1 mean nothing until someone says what they stand for.">I can't tell</button>
+<div class="pond-pad-whatif" role="group" aria-label="Which rows passed quality control?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Many datasets do use 0 for &quot;no problem&quot;… but many others use 1 for &quot;passed.&quot;">Rows where f = 0</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Many datasets do use 1 for &quot;passed&quot;… but many others use 0 for &quot;no problem.&quot;">Rows where f = 1</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: the numbers 0 and 1 mean nothing until someone says what they stand for.">I can't tell</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden></p>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
 ```
 
 **What would you need to know?**
@@ -289,10 +289,10 @@ Look back at how we defined ppm at the start: "400 milligrams of lead per kilogr
 **Your turn!** Which of the surface samples (`d` = 1) are above the 400 ppm limit?
 
 ```{=html}
-<div class="pond-md-choices" id="pond-md-surface" role="group" aria-label="Surface samples above 400 ppm">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-01">M-01 (road, 610)</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-04">M-04 (sandbox, 99)</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-id="M-06">M-06 (wall, 360)</button>
+<div class="pond-pad-choices" id="pond-md-surface" role="group" aria-label="Surface samples above 400 ppm">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-id="M-01">M-01 (road, 610)</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-id="M-04">M-04 (sandbox, 99)</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-id="M-06">M-06 (wall, 360)</button>
 </div>
 ```
 
@@ -330,7 +330,7 @@ M-01 *and* M-06 are above 400 ppm.
 :::
 :::
 
-::: {#pond-md-surface-out .pond-md data-after="pond-md-need-dry"}
+::: {#pond-md-surface-out .pond-pad data-after="pond-md-need-dry"}
 :::
 
 This is the kind of metadata that a generic checklist ("include units") would never catch: the units were ppm all along. Each discipline has its own definitions that change what a number means. In [Data Quality and Provenance](../data-quality/index.qmd), you'll see how preparing a sample (drying, sieving) affects the measurement itself.
@@ -346,12 +346,12 @@ You now have a clean dataset. Your office wants to post it in a public data repo
 **Your turn!** Are you allowed to?
 
 ```{=html}
-<div class="pond-md-whatif" role="group" aria-label="Are you allowed to share the data?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="The city paid for the sampling, so it seems fair… but paying for a service doesn't always mean owning the data. It depends on the contract.">Yes</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="That's the cautious answer, but nothing in the file says you can't, either.">No</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: nothing in the file says.">I can't tell</button>
+<div class="pond-pad-whatif" role="group" aria-label="Are you allowed to share the data?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="The city paid for the sampling, so it seems fair… but paying for a service doesn't always mean owning the data. It depends on the contract.">Yes</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="That's the cautious answer, but nothing in the file says you can't, either.">No</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: nothing in the file says.">I can't tell</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden></p>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
 ```
 
 **What would you need to know?**
@@ -392,7 +392,7 @@ Having data is not the same as being allowed to share them. State the license an
 
 ### So, is the playground above 400 ppm?
 
-<details class="pond-md-reveal">
+<details class="pond-pad-reveal">
 <summary>Compare the file as received with what the metadata told you</summary>
 
 | | From the file alone | With the metadata |
@@ -413,19 +413,19 @@ At every step, the file opened fine and the numbers looked ordinary. What stoppe
 
 ## 2. What metadata did you actually need?
 
-[<i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes]{.pond-md-time}
+[<i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes]{.pond-pad-time}
 
 **Your turn!** Think back over the exercise. What information did you need in order to trust, interpret, clean, use, and share the data?
 
 ```{=html}
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-md-reflect"><strong>The information I needed</strong></label>
-  <textarea id="pond-md-reflect" class="pond-md-response pond-md-save" rows="5"
+  <textarea id="pond-md-reflect" class="pond-pad-response pond-md-save" rows="5"
     placeholder="List what you needed, and for which step..."></textarea>
 </div>
 ```
 
-<details class="pond-md-reveal">
+<details class="pond-pad-reveal">
 <summary>Compare with our answer</summary>
 
 Metadata are often grouped into two broad kinds:
@@ -481,13 +481,13 @@ These categories are not rigid. Provenance appears in both: it helps you interpr
 
 ## 3. From unstructured to structured metadata
 
-[<i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes]{.pond-md-time}
+[<i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes]{.pond-pad-time}
 
 ### 3.1 Organize the metadata
 
 Suppose that, instead of answering questions one at a time, Northgate Soil Testing had sent all of its metadata in an email:
 
-::: {.pond-md-notes}
+::: {.pond-pad-notes}
 Soil samples were collected at the MADISON ELEM. playground on October 14, 2026, by our field crew. Depth (d) is the depth below the ground surface to the middle of each sample, in inches. Lead (Pb) is in ppm, measured on the soil as received, without drying; m is the water content, as a percentage of the wet sample's mass. A lead value of 99 means the sample was not analyzed. The flag f applies to lead only: 1 means the measurement passed quality control, 0 that it failed. As required by our contract with the city, the data are released under a CC0 license.
 :::
 
@@ -496,9 +496,9 @@ Everything is there, but finding one piece of information means reading the whol
 **Your turn!** Organize this information into a structured form: a table, a list of labeled fields, or anything else you like. There is no single correct structure.
 
 ```{=html}
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-md-structure"><strong>My structured metadata</strong></label>
-  <textarea id="pond-md-structure" class="pond-md-response pond-md-code pond-md-save" rows="10"
+  <textarea id="pond-md-structure" class="pond-pad-response pond-pad-code pond-md-save" rows="10"
     placeholder="For example:&#10;depth: ..."></textarea>
 </div>
 ```
@@ -560,11 +560,11 @@ Pb:
 **Your turn!** All three are structured. Could a computer combine them automatically?
 
 ```{=html}
-<div class="pond-md-whatif" role="group" aria-label="Could a computer combine them automatically?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Look again: depth_unit, unit and units are three names for the same idea, and in, inch and inches are three spellings of the same unit. A computer can't know they match unless someone tells it.">Yes</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right. depth_unit, unit and units are three names for the same idea; in, inch and inches are three spellings of one unit; ppm and mg/kg are the same unit under two names; and Person A packed two facts into one value, &quot;ppm (wet)&quot;. Structure alone isn't enough.">No</button>
+<div class="pond-pad-whatif" role="group" aria-label="Could a computer combine them automatically?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Look again: depth_unit, unit and units are three names for the same idea, and in, inch and inches are three spellings of the same unit. A computer can't know they match unless someone tells it.">Yes</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right. depth_unit, unit and units are three names for the same idea; in, inch and inches are three spellings of one unit; ppm and mg/kg are the same unit under two names; and Person A packed two facts into one value, &quot;ppm (wet)&quot;. Structure alone isn't enough.">No</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden></p>
+<p class="pond-pad-take" aria-live="polite" hidden></p>
 ```
 
 ### 3.3 Conventions
@@ -606,7 +606,7 @@ You don't need to learn any particular convention for this LilyPad. If you're cu
 Now that you understand what the MADISON ELEM. data mean, a new question arises: **are they good enough for your purpose?** That's the subject of the next LilyPad, [Data Quality and Provenance](../data-quality/index.qmd).
 
 ```{=html}
-<div class="pond-md">
+<div class="pond-pad">
   <p>Keep a record of your answers, side by side with ours, the metadata you uncovered, and the key takeaways.</p>
   <button type="button" class="btn btn-primary" id="pond-md-download">Download response summary</button>
 </div>
@@ -634,7 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Single-choice buttons that show a short verdict
-  const whatifs = [...document.querySelectorAll(".pond-md-whatif")];
+  const whatifs = [...document.querySelectorAll(".pond-pad-whatif")];
   whatifs.forEach((group, g) => {
     const out = group.nextElementSibling;
     const buttons = [...group.querySelectorAll("button")];
@@ -672,16 +672,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const picks = saved.picks[id] = Array.isArray(saved.picks[id]) ? saved.picks[id] : [];
 
     const box = document.createElement("div");
-    box.className = "pond-md";
+    box.className = "pond-pad";
     box.innerHTML = `
-      <div class="pond-md-choices" role="group" aria-label="Options to choose from"></div>
-      <p class="pond-md-status" aria-live="polite"></p>
+      <div class="pond-pad-choices" role="group" aria-label="Options to choose from"></div>
+      <p class="pond-pad-status" aria-live="polite"></p>
       <button type="button" class="btn btn-primary"></button>
-      <div class="pond-md-cards" hidden></div>`;
-    const choices = box.querySelector(".pond-md-choices");
-    const status = box.querySelector(".pond-md-status");
+      <div class="pond-pad-cards" hidden></div>`;
+    const choices = box.querySelector(".pond-pad-choices");
+    const status = box.querySelector(".pond-pad-status");
     const revealBtn = box.querySelector(".btn-primary");
-    const cards = box.querySelector(".pond-md-cards");
+    const cards = box.querySelector(".pond-pad-cards");
     revealBtn.textContent = bank.dataset.button || "Reveal our answer";
 
     function updateStatus() {
@@ -691,7 +691,7 @@ document.addEventListener("DOMContentLoaded", () => {
     options.forEach(opt => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "pond-md-tag";
+      btn.className = "pond-pad-tag";
       btn.textContent = opt.name;
       btn.setAttribute("aria-pressed", String(picks.includes(opt.name)));
       btn.addEventListener("click", () => {
@@ -711,13 +711,13 @@ document.addEventListener("DOMContentLoaded", () => {
       cards.innerHTML = "";
       options.forEach(opt => {
         const card = document.createElement("div");
-        card.className = "pond-md-card" + (opt.needed ? " is-needed" : "");
+        card.className = "pond-pad-card" + (opt.needed ? " is-needed" : "");
         card.dataset.name = opt.name;
         card.classList.toggle("is-picked", picks.includes(opt.name));
-        card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-md-card-text"></div>`;
+        card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-pad-card-text"></div>`;
         card.querySelector("h4").textContent = opt.name;
         card.querySelector(".pond-md-badge").textContent = opt.needed ? yes : no;
-        card.querySelector(".pond-md-card-text").innerHTML = opt.html;
+        card.querySelector(".pond-pad-card-text").innerHTML = opt.html;
         cards.append(card);
       });
       cards.hidden = false;
@@ -730,7 +730,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bank.querySelectorAll(":scope > .pond-md-option").forEach(div => div.remove());
     if (meta) {
-      meta.classList.add("pond-md-notes", "pond-md-meta-panel");
+      meta.classList.add("pond-pad-notes", "pond-md-meta-panel");
       meta.hidden = true;
     }
     bank.prepend(box);
@@ -762,7 +762,7 @@ document.addEventListener("DOMContentLoaded", () => {
   dropTable.querySelector("thead tr").insertAdjacentHTML("beforeend", "<th>Keep?</th>");
   const dropRows = [...dropTable.querySelectorAll("tbody tr")];
   const dropStatus = document.createElement("p");
-  dropStatus.className = "pond-md-status";
+  dropStatus.className = "pond-pad-status";
   dropStatus.setAttribute("aria-live", "polite");
   dropBox.after(dropStatus);
   const average = rows => Math.round(rows.reduce((a, tr) => a + Number(tr.cells[pbCol].textContent), 0) / rows.length);
@@ -783,7 +783,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const td = document.createElement("td");
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "pond-md-tag pond-md-small";
+    btn.className = "pond-pad-tag pond-pad-small";
     td.append(btn);
     tr.append(td);
     function draw() {
@@ -830,7 +830,7 @@ document.addEventListener("DOMContentLoaded", () => {
   hooks["pond-md-need-dry"] = () => {
     const out = document.getElementById("pond-md-surface-out");
     const mine = [...saved.surface].sort().join(", ");
-    out.innerHTML = `<p class="pond-md-take"></p>`;
+    out.innerHTML = `<p class="pond-pad-take"></p>`;
     out.firstChild.textContent = mine === "M-01, M-06"
       ? "✓ You picked M-01 and M-06. Did you know about the water content, or was it a lucky guess?"
       : `You picked: ${mine || "none"}. In dry soil, M-01 and M-06 are above 400 ppm.`;
@@ -923,9 +923,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (pending) { out.push("", pending); pending = null; }
       out.push("", text);
     };
-    const selector = "h2, h3, h4, .pond-md-whatif, .pond-md-need, #pond-md-depth, #pond-md-drop, #pond-md-surface, textarea.pond-md-save";
+    const selector = "h2, h3, h4, .pond-pad-whatif, .pond-md-need, #pond-md-depth, #pond-md-drop, #pond-md-surface, textarea.pond-md-save";
     root.querySelectorAll(selector).forEach(el => {
-      if (el.closest(".card, .pond-md-cards")) return;
+      if (el.closest(".card, .pond-pad-cards")) return;
       const title = el.matches("h2, h3, h4") ? el.textContent.trim() : "";
       if (title === "Key takeaway") {
         // The takeaway is the paragraph or quote right after the heading
@@ -945,7 +945,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else if (el.tagName === "H4") {
         return;
-      } else if (el.matches(".pond-md-whatif")) {
+      } else if (el.matches(".pond-pad-whatif")) {
         const i = saved.whatif[whatifs.indexOf(el)];
         const btn = el.querySelectorAll("button")[i];
         emit(`**${el.getAttribute("aria-label")}**  \n` +
@@ -970,7 +970,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (el.matches("textarea")) {
         const text = el.value.trim();
         const body = !text ? "*No response entered.*"
-          : el.classList.contains("pond-md-code") ? "```\n" + text + "\n```" : text;
+          : el.classList.contains("pond-pad-code") ? "```\n" + text + "\n```" : text;
         emit(`**${labelFor(el.id)}**\n\n${body}`);
       }
     });
