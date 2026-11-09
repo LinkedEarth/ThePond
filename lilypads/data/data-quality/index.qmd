@@ -696,7 +696,7 @@ A good report lets readers judge a value without having to ask you: what was mea
 
 ### Key takeaway 4
 
-An uncertainty is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can't be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question the data are used for.
+An uncertainty report is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can't be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question the data are used for.
 
 ## 5. Do you trust this dataset?
 
