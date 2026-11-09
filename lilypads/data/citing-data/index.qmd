@@ -80,126 +80,1896 @@ You also discover two publications associated with the monitoring program.
 
 You're now preparing the Methods section of your manuscript. **Which research products should you cite, and where?**
 
-## Activity 1: What belongs in your manuscript?
 
-Start by exploring the three research products below. Click each card to discover what it contains.
+## Activity 1: Complete the manuscript paragraph
 
-<div class="row g-3 mb-4">
+You have three references available: a scientific paper, a data paper, and an archived dataset.
 
-<div class="col-md-4">
-<details class="border rounded p-3 h-100">
-<summary><strong>Source A: Scientific paper</strong></summary>
-<p><strong>Nguyen et al. (2025)</strong></p>
-<p><em>Agricultural expansion and nitrate trends in the Alder River watershed</em></p>
-<p>The authors investigate relationships between land use and river nitrate concentrations.</p>
-<p>They find that increasing agricultural activity is associated with higher nitrate concentrations at several monitoring stations.</p>
-<p><strong>Contains:</strong> Scientific hypotheses, analysis methods, figures, and interpretations.</p>
+Your coauthor has drafted a paragraph, but the citations are missing.
+
+**Drag each citation into the blank where it best supports the statement.** You can also click a citation and then click a blank to place it.
+
+All references and the Alder River study are fictional examples created for this activity.
+
+```{=html}
+<style>
+#alder-citation-activity {
+  --pond: #147E78;
+  --pond-dark: #125D4B;
+  --pond-light: #e9f5f2;
+  margin: 1.25rem 0;
+}
+#alder-citation-activity .alder-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: 1rem;
+  background: #f5f8f7;
+  border: 1px solid #d4dfdc;
+  border-radius: 10px;
+  min-height: 78px;
+  margin-bottom: 1.25rem;
+}
+#alder-citation-activity .alder-card {
+  background: white;
+  border: 2px solid var(--pond);
+  color: var(--pond-dark);
+  border-radius: 7px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: grab;
+  line-height: 1.4;
+  text-align: center;
+}
+#alder-citation-activity .alder-card small {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: #52635e;
+}
+#alder-citation-activity .alder-card.selected {
+  background: var(--pond-light);
+  outline: 3px solid var(--pond);
+  outline-offset: 2px;
+}
+#alder-citation-activity .alder-manuscript {
+  background: #fff;
+  border: 1px solid #cbd5d1;
+  border-left: 5px solid var(--pond);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+#alder-citation-activity .alder-manuscript p {
+  line-height: 2.5;
+  margin: 0;
+}
+#alder-citation-activity .alder-slot {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  min-width: 155px;
+  min-height: 45px;
+  padding: 3px;
+  border: 2px dashed #7a9d94;
+  border-radius: 7px;
+  background: var(--pond-light);
+  cursor: pointer;
+}
+#alder-citation-activity .alder-slot.over {
+  background: #d4ece6;
+  border-color: var(--pond-dark);
+}
+#alder-citation-activity .alder-slot:focus-visible,
+#alder-citation-activity .alder-card:focus-visible {
+  outline: 3px solid var(--pond-dark);
+  outline-offset: 3px;
+}
+#alder-citation-activity .alder-slot .alder-card {
+  font-size: 0.82rem;
+  padding: 0.35rem 0.45rem;
+  cursor: grab;
+}
+#alder-citation-activity .alder-slot .alder-card small {
+  display: none;
+}
+#alder-citation-activity .alder-placeholder {
+  color: #52756b;
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+}
+#alder-citation-activity .alder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+#alder-citation-activity .alder-btn {
+  border-radius: 6px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+#alder-citation-activity .alder-reveal {
+  background: #147E78 !important;
+  color: white !important;
+  border: 1px solid #147E78 !important;
+}
+#alder-citation-activity .alder-reveal:hover {
+  background: #125D4B !important;
+}
+#alder-citation-activity .alder-reset {
+  background: white;
+  color: var(--pond-dark);
+  border: 1px solid var(--pond);
+}
+#alder-citation-activity .alder-answer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f1f7f5;
+  border-left: 4px solid var(--pond);
+  border-radius: 6px;
+}
+#alder-citation-activity .alder-answer[hidden] {
+  display: none;
+}
+</style>
+
+<div id="alder-citation-activity">
+
+<p><strong>Available citations</strong></p>
+
+<div class="alder-bank" data-bank
+     aria-label="Available citation cards">
+
+  <button type="button" class="alder-card"
+          draggable="true" data-source="data-paper">
+    (Rivera et al., 2025)
+    <small>Data paper</small>
+  </button>
+
+  <button type="button" class="alder-card"
+          draggable="true" data-source="scientific">
+    (Nguyen et al., 2025)
+    <small>Scientific paper</small>
+  </button>
+
+  <button type="button" class="alder-card"
+          draggable="true" data-source="dataset">
+    (Alder River Monitoring Team, 2025)
+    <small>Dataset</small>
+  </button>
+
+</div>
+
+<div class="alder-manuscript">
+  <p>
+    Long-term monitoring in the Alder River watershed
+    has revealed associations between agricultural expansion
+    and increasing nitrate concentrations
+    <span class="alder-slot" data-slot="scientific"
+          role="button" tabindex="0"
+          aria-label="Citation blank 1">
+      <span class="alder-placeholder">Citation 1</span>
+    </span>.
+    To investigate these trends, we analyzed monthly nitrate
+    measurements collected at 12 monitoring stations
+    between 2010 and 2024
+    <span class="alder-slot" data-slot="dataset"
+          role="button" tabindex="0"
+          aria-label="Citation blank 2">
+      <span class="alder-placeholder">Citation 2</span>
+    </span>.
+    Quality-control flags were interpreted following
+    the monitoring program's published sampling
+    and validation procedures
+    <span class="alder-slot" data-slot="data-paper"
+          role="button" tabindex="0"
+          aria-label="Citation blank 3">
+      <span class="alder-placeholder">Citation 3</span>
+    </span>.
+  </p>
+</div>
+
+<p class="small text-muted mt-2" data-status
+   aria-live="polite">
+  Drag a citation or click one to select it.
+</p>
+
+<div class="alder-actions">
+  <button type="button"
+          class="alder-btn alder-reveal"
+          data-reveal>Reveal the answer</button>
+
+  <button type="button"
+          class="alder-btn alder-reset"
+          data-reset>Start over</button>
+</div>
+
+<div class="alder-answer" data-answer hidden>
+  <p><strong>One appropriate citation plan</strong></p>
+
+  <p>
+    Long-term monitoring in the Alder River watershed
+    has revealed associations between agricultural expansion
+    and increasing nitrate concentrations
+    <strong>(Nguyen et al., 2025)</strong>.
+    To investigate these trends, we analyzed monthly nitrate
+    measurements collected at 12 monitoring stations
+    between 2010 and 2024
+    <strong>(Alder River Monitoring Team, 2025)</strong>.
+    Quality-control flags were interpreted following
+    the monitoring program's published sampling
+    and validation procedures
+    <strong>(Rivera et al., 2025)</strong>.
+  </p>
+
+  <hr>
+
+  <p><strong>Why these citations?</strong></p>
+  <ul>
+    <li><strong>Nguyen et al.</strong> supports the
+    scientific interpretation connecting agriculture
+    with nitrate trends.</li>
+    <li><strong>Alder River Monitoring Team</strong>
+    identifies the actual dataset used in the analysis.</li>
+    <li><strong>Rivera et al.</strong> documents how
+    the measurements were collected and validated.</li>
+  </ul>
+
+  <p>
+    Notice that the scientific paper, data paper, and dataset
+    serve different purposes. In an actual manuscript,
+    multiple citations may be appropriate for a statement.
+    Here we have selected the most directly relevant
+    reference for each one.
+  </p>
+</div>
+
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById(
+    "alder-citation-activity"
+  );
+
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const bank = root.querySelector("[data-bank]");
+  const slots = [...root.querySelectorAll(".alder-slot")];
+  const cards = [...root.querySelectorAll(".alder-card")];
+  const answer = root.querySelector("[data-answer]");
+  const status = root.querySelector("[data-status]");
+
+  let selected = null;
+
+  function selectCard(card) {
+    selected = card;
+    cards.forEach(c => {
+      c.classList.toggle("selected", c === card);
+      c.setAttribute("aria-pressed", String(c === card));
+    });
+    status.textContent =
+      "Citation selected. Click a blank to place it.";
+  }
+
+  function clearSelection() {
+    selected = null;
+    cards.forEach(c => {
+      c.classList.remove("selected");
+      c.setAttribute("aria-pressed", "false");
+    });
+  }
+
+  function updatePlaceholders() {
+    slots.forEach((slot, i) => {
+      const card = slot.querySelector(".alder-card");
+      const placeholder = slot.querySelector(
+        ".alder-placeholder"
+      );
+
+      if (card && placeholder) {
+        placeholder.remove();
+      } else if (!card && !placeholder) {
+        const span = document.createElement("span");
+        span.className = "alder-placeholder";
+        span.textContent = "Citation " + (i + 1);
+        slot.appendChild(span);
+      }
+    });
+  }
+
+  function placeCard(card, slot) {
+    if (!card || !slot) return;
+
+    const existing = slot.querySelector(".alder-card");
+
+    if (existing && existing !== card) {
+      bank.appendChild(existing);
+    }
+
+    slot.appendChild(card);
+    updatePlaceholders();
+    clearSelection();
+
+    const filled = slots.filter(s =>
+      s.querySelector(".alder-card")
+    ).length;
+
+    status.textContent = filled === slots.length
+      ? "All citations placed. Reveal the answer to compare."
+      : filled + " of " + slots.length + " citations placed.";
+  }
+
+  root.addEventListener("click", e => {
+    const card = e.target.closest(".alder-card");
+    const slot = e.target.closest(".alder-slot");
+
+    if (card) {
+      selectCard(card);
+    } else if (slot && selected) {
+      placeCard(selected, slot);
+    }
+  });
+
+  slots.forEach(slot => {
+    slot.addEventListener("keydown", e => {
+      if (e.target !== slot) return;
+      if ((e.key === "Enter" || e.key === " ") && selected) {
+        e.preventDefault();
+        placeCard(selected, slot);
+      }
+    });
+
+    slot.addEventListener("dragover", e => {
+      e.preventDefault();
+      slot.classList.add("over");
+    });
+
+    slot.addEventListener("dragleave", () => {
+      slot.classList.remove("over");
+    });
+
+    slot.addEventListener("drop", e => {
+      e.preventDefault();
+      slot.classList.remove("over");
+
+      const source = e.dataTransfer.getData("text/plain");
+      const card = cards.find(c => c.dataset.source === source);
+      placeCard(card, slot);
+    });
+  });
+
+  cards.forEach(card => {
+    card.addEventListener("dragstart", e => {
+      e.dataTransfer.setData(
+        "text/plain", card.dataset.source
+      );
+      e.dataTransfer.effectAllowed = "move";
+    });
+  });
+
+  bank.addEventListener("dragover", e => e.preventDefault());
+
+  bank.addEventListener("drop", e => {
+    e.preventDefault();
+    const source = e.dataTransfer.getData("text/plain");
+    const card = cards.find(c => c.dataset.source === source);
+    if (card) {
+      bank.appendChild(card);
+      updatePlaceholders();
+      clearSelection();
+      status.textContent = "Citation returned to the bank.";
+    }
+  });
+
+  root.querySelector("[data-reveal]").addEventListener(
+    "click", () => {
+      answer.hidden = false;
+
+      const correct = slots.filter(slot => {
+        const card = slot.querySelector(".alder-card");
+        return card && card.dataset.source === slot.dataset.slot;
+      }).length;
+
+      status.textContent =
+        correct + " of " + slots.length +
+        " citations matched the example.";
+    }
+  );
+
+  root.querySelector("[data-reset]").addEventListener(
+    "click", () => {
+      const order = ["data-paper", "scientific", "dataset"];
+      order.forEach(source => {
+        const card = cards.find(c => c.dataset.source === source);
+        bank.appendChild(card);
+      });
+      updatePlaceholders();
+      clearSelection();
+      answer.hidden = true;
+      status.textContent =
+        "Drag a citation or click one to select it.";
+    }
+  );
+
+  updatePlaceholders();
+})();
+</script>
+```
+
+
+## Activity 2: Which dataset did you actually use?
+
+You're finishing your manuscript on nitrate concentrations in the Alder River watershed.
+
+Your analysis is complete, and you're checking the references before submission. When you return to the dataset's repository page, you notice something unexpected: **the dataset has been updated.**
+
+### Investigate what happened
+
+Your analysis notebook contains the following information:
+
+```text
+Dataset: Alder River nitrate observations
+File: alder_nitrate_2010-2024_v1.0.csv
+Downloaded: March 12, 2025
+Analysis completed: March 20, 2025
+```
+
+The repository now shows two versions. Expand each record to investigate what changed.
+
+::: {.callout-note}
+## About this example
+
+The Alder River dataset, repository records, and citations below are fictional. The DOI labels are placeholders, not real identifiers.
+:::
+
+
+```{=html}
+<style>
+#alder-version-activity {
+  --pond: #147E78;
+  --pond-dark: #125D4B;
+  --pond-light: #e9f5f2;
+  margin: 1.25rem 0;
+}
+#alder-version-activity .av-records,
+#alder-version-activity .av-paths,
+#alder-version-activity .av-citations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0;
+}
+#alder-version-activity .av-record {
+  border: 1px solid #cbd8d4;
+  border-radius: 9px;
+  padding: 1rem;
+  background: white;
+}
+#alder-version-activity .av-record summary {
+  cursor: pointer;
+  color: var(--pond-dark);
+  font-weight: 650;
+}
+#alder-version-activity .av-record p {
+  margin: 0.7rem 0;
+  font-size: 0.92rem;
+}
+#alder-version-activity .av-tag {
+  display: inline-block;
+  background: var(--pond-light);
+  color: var(--pond-dark);
+  padding: 0.15rem 0.55rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+#alder-version-activity .av-draft {
+  padding: 0.8rem 1rem;
+  background: #faf7ef;
+  border-left: 4px solid #b38b44;
+  margin-bottom: 1.5rem;
+}
+#alder-version-activity .av-choice {
+  padding: 0.9rem;
+  text-align: left;
+  background: white;
+  border: 2px solid #9bb7ae;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+  font-weight: 600;
+  line-height: 1.4;
+}
+#alder-version-activity .av-choice small {
+  display: block;
+  margin-top: 0.35rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+#alder-version-activity .av-choice:hover:not(:disabled) {
+  background: var(--pond-light);
+}
+#alder-version-activity .av-choice[aria-pressed="true"] {
+  background: var(--pond-light);
+  border-color: var(--pond);
+}
+#alder-version-activity .av-choice:disabled {
+  opacity: 0.35;
+  background: #e9ecea;
+  cursor: not-allowed;
+}
+#alder-version-activity button:focus-visible,
+#alder-version-activity summary:focus-visible {
+  outline: 3px solid var(--pond);
+  outline-offset: 3px;
+}
+#alder-version-activity .av-flow {
+  margin: 1.25rem 0;
+}
+#alder-version-activity .av-selected {
+  padding: 0.8rem 1rem;
+  background: var(--pond-light);
+  border: 1px solid var(--pond);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--pond-dark);
+  font-weight: 600;
+}
+#alder-version-activity .av-arrow {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--pond);
+  line-height: 1.5;
+}
+#alder-version-activity .av-next {
+  padding: 1rem;
+  border: 1px solid #cbd8d4;
+  border-radius: 9px;
+  background: #f7faf9;
+}
+#alder-version-activity .av-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+#alder-version-activity .av-action {
+  padding: 0.6rem 0.95rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#alder-version-activity .av-reveal {
+  background: #147E78 !important;
+  color: white !important;
+  border: 1px solid #147E78 !important;
+}
+#alder-version-activity .av-reveal:hover {
+  background: #125D4B !important;
+}
+#alder-version-activity .av-secondary {
+  background: white;
+  color: var(--pond-dark);
+  border: 1px solid var(--pond);
+}
+#alder-version-activity .av-feedback,
+#alder-version-activity .av-summary {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f1f7f5;
+  border-left: 4px solid var(--pond);
+  border-radius: 7px;
+}
+#alder-version-activity .av-citation-example {
+  background: white;
+  border: 1px solid #d1dfd9;
+  border-radius: 6px;
+  padding: 0.8rem;
+  overflow-wrap: anywhere;
+}
+#alder-version-activity [hidden] {
+  display: none !important;
+}
+</style>
+
+<div id="alder-version-activity">
+
+<div class="av-records">
+
+<details class="av-record">
+  <summary>
+    <span class="av-tag">Archived March 2025</span>
+    <span style="display:block">Dataset version 1.0</span>
+  </summary>
+  <p><strong>Creator:</strong> Alder River Monitoring Team</p>
+  <p><strong>Title:</strong> Alder River nitrate observations, 2010–2024</p>
+  <p><strong>Version:</strong> 1.0</p>
+  <p><strong>Contents:</strong> Monthly nitrate measurements from 12 stations.</p>
+  <p><strong>Identifier:</strong> [Version 1.0 DOI]</p>
+  <p>This is the original archived release.</p>
 </details>
-</div>
 
-<div class="col-md-4">
-<details class="border rounded p-3 h-100">
-<summary><strong>Source B: Data paper</strong></summary>
-<p><strong>Rivera et al. (2025)</strong></p>
-<p><em>The Alder River long-term water-quality monitoring program</em></p>
-<p>The authors describe how the monitoring program operates and how the dataset was produced.</p>
-<p>The paper documents station locations, sampling methods, laboratory measurements, and quality-control procedures.</p>
-<p><strong>Contains:</strong> Dataset creation methods, quality assessment, and documentation supporting reuse.</p>
+<details class="av-record">
+  <summary>
+    <span class="av-tag">Archived July 2025</span>
+    <span style="display:block">Dataset version 1.1</span>
+  </summary>
+  <p><strong>Creator:</strong> Alder River Monitoring Team</p>
+  <p><strong>Title:</strong> Alder River nitrate observations, 2010–2024</p>
+  <p><strong>Version:</strong> 1.1</p>
+  <p><strong>Contents:</strong> Six corrected nitrate measurements and improved station metadata.</p>
+  <p><strong>Identifier:</strong> [Version 1.1 DOI]</p>
+  <p>This is the latest archived release.</p>
 </details>
-</div>
-
-<div class="col-md-4">
-<details class="border rounded p-3 h-100">
-<summary><strong>Source C: Dataset</strong></summary>
-<p><strong>Alder River Monitoring Team (2025)</strong></p>
-<p><em>Alder River nitrate observations, 2010–2024 (Version 1.0)</em></p>
-<p>An archived dataset containing nitrate measurements, station identifiers, sampling dates, units, and quality-control flags.</p>
-<p>The repository provides metadata, downloadable files, and a persistent identifier.</p>
-<p><strong>Contains:</strong> The actual measurements used in your analysis.</p>
-</details>
-</div>
 
 </div>
 
-*All three sources are fictional examples created for this activity.*
+<p>Your draft reference list currently contains:</p>
 
-### Build your citation plan
+<div class="av-draft">
+  <strong>Dataset reference (draft)</strong>
+  <p style="margin:0.5rem 0 0">
+    Alder River Monitoring Team. (2025).
+    <em>Alder River nitrate observations, 2010–2024</em>
+    (Version 1.1) [Dataset].
+    Alder River Data Repository.
+    [Version 1.1 DOI]
+  </p>
+</div>
 
-You're drafting three statements for your manuscript.
+<p>
+  But your original analysis was performed with version 1.0.
+</p>
 
-For each one, select **all the sources you would consider citing**. More than one source may be appropriate, and you don't need to select the same sources for every statement.
+<h3>Explore a path</h3>
 
-**Statement 1 — Introduction**
+<p>
+  You have two possible approaches. Choose one to explore what
+  it means for your dataset citation. Then return to investigate
+  the other path.
+</p>
 
-> Previous research has linked agricultural expansion in the Alder River watershed to increasing nitrate concentrations.
+<div class="av-paths" role="group"
+     aria-label="Choose an analysis approach">
 
-```{ojs}
-//| echo: false
-viewof alderIntro = Inputs.checkbox(
-  ["Source A: Scientific paper", "Source B: Data paper", "Source C: Dataset"],
-  {label: "What would you cite for this statement?"}
-)
+  <button type="button" class="av-choice"
+          data-path="keep" aria-pressed="false">
+    Keep the existing analysis
+    <small>
+      Assess whether the corrections affect your conclusions.
+      If they do not, retain the analysis performed with v1.0.
+    </small>
+  </button>
+
+  <button type="button" class="av-choice"
+          data-path="rerun" aria-pressed="false">
+    Reanalyze the corrected data
+    <small>
+      Download v1.1, rerun the analysis, and update the
+      results and manuscript as necessary.
+    </small>
+  </button>
+
+</div>
+
+<div class="av-flow" data-flow hidden>
+
+  <div class="av-selected" data-selected></div>
+
+  <div class="av-arrow" aria-hidden="true">↓</div>
+
+  <div class="av-next">
+    <p><strong>Which dataset version would you cite?</strong></p>
+
+    <div class="av-citations" role="group"
+         aria-label="Choose the dataset citation">
+
+      <button type="button" class="av-choice"
+              data-citation="1.0" aria-pressed="false">
+        Version 1.0
+        <small>Archived March 2025 — [Version 1.0 DOI]</small>
+      </button>
+
+      <button type="button" class="av-choice"
+              data-citation="1.1" aria-pressed="false">
+        Version 1.1
+        <small>Archived July 2025 — [Version 1.1 DOI]</small>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="av-actions">
+    <button type="button" class="av-action av-reveal"
+            data-reveal>Reveal the consequence</button>
+  </div>
+
+  <div class="av-feedback" data-feedback hidden>
+    <p><strong data-heading></strong></p>
+    <p data-explanation></p>
+
+    <p><strong>Appropriate dataset citation:</strong></p>
+    <div class="av-citation-example" data-example></div>
+
+    <p style="margin-top:1rem" data-lesson></p>
+
+    <button type="button" class="av-action av-reveal"
+            data-switch hidden>
+      Explore the other path
+    </button>
+  </div>
+
+</div>
+
+<div class="av-summary" data-summary hidden>
+  <p><strong>You've explored both paths!</strong></p>
+
+  <p>
+    <strong>Keep the existing analysis</strong>
+    → After assessing the corrections and confirming they
+    do not change your conclusions, cite version 1.0.
+  </p>
+
+  <p>
+    <strong>Rerun the analysis with corrected data</strong>
+    → Once the analysis uses version 1.1, cite version 1.1.
+  </p>
+
+  <p style="margin-bottom:0">
+    <strong>Key lesson:</strong> The version you cite must
+    correspond to the data underlying your published results.
+    Updating the citation alone does not update the analysis.
+  </p>
+</div>
+
+<p class="small text-muted" data-status aria-live="polite">
+  Choose a path to begin.
+</p>
+
+<div class="av-actions">
+  <button type="button" class="av-action av-secondary"
+          data-reset>Start over</button>
+</div>
+
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById(
+    "alder-version-activity"
+  );
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  let path = null;
+  let citation = null;
+  const explored = new Set();
+
+  const pathButtons = [...root.querySelectorAll("[data-path]")];
+  const citationButtons = [...root.querySelectorAll("[data-citation]")];
+  const flow = root.querySelector("[data-flow]");
+  const feedback = root.querySelector("[data-feedback]");
+  const summary = root.querySelector("[data-summary]");
+  const switchButton = root.querySelector("[data-switch]");
+  const status = root.querySelector("[data-status]");
+
+  function activatePath(newPath) {
+    path = newPath;
+    citation = null;
+
+    pathButtons.forEach(button => {
+      const active = button.dataset.path === path;
+      button.disabled = !active;
+      button.setAttribute("aria-pressed", String(active));
+    });
+
+    citationButtons.forEach(button => {
+      button.setAttribute("aria-pressed", "false");
+    });
+
+    root.querySelector("[data-selected]").textContent =
+      path === "keep"
+        ? "Your decision: Keep the existing analysis"
+        : "Your decision: Reanalyze the corrected data";
+
+    flow.hidden = false;
+    feedback.hidden = true;
+    summary.hidden = true;
+    switchButton.hidden = true;
+
+    status.textContent =
+      "Now choose the dataset version you would cite.";
+  }
+
+  pathButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      activatePath(button.dataset.path);
+    });
+  });
+
+  citationButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      citation = button.dataset.citation;
+
+      citationButtons.forEach(b => {
+        b.setAttribute(
+          "aria-pressed",
+          String(b.dataset.citation === citation)
+        );
+      });
+
+      feedback.hidden = true;
+      status.textContent =
+        "Reveal the consequence to examine your decision.";
+    });
+  });
+
+  root.querySelector("[data-reveal]").addEventListener(
+    "click", () => {
+      if (!citation) {
+        status.textContent =
+          "Choose a dataset version before revealing the consequence.";
+        return;
+      }
+
+      const expected = path === "keep" ? "1.0" : "1.1";
+      const matched = citation === expected;
+
+      root.querySelector("[data-heading]").textContent =
+        matched
+          ? "Your citation matches your analysis decision."
+          : "There is a mismatch between the data and the citation.";
+
+      let explanation;
+      let lesson;
+
+      if (path === "keep") {
+        explanation = matched
+          ? "You retained the original analysis, so version 1.0 is the appropriate citation."
+          : "Your results still come from version 1.0. Citing version 1.1 would incorrectly identify the corrected dataset as the source of your results.";
+
+        lesson =
+          "This path is appropriate only after evaluating whether the corrections affect your findings. If they materially change your conclusions, you should update the analysis rather than simply keep the old version.";
+      } else {
+        explanation = matched
+          ? "Once you have rerun the analysis with version 1.1, the corrected release is the appropriate citation."
+          : "If your new analysis uses version 1.1, citing version 1.0 would identify the wrong dataset.";
+
+        lesson =
+          "Changing the reference alone is not enough. The results, figures, and manuscript must reflect the corrected data you actually analyzed.";
+      }
+
+      root.querySelector("[data-explanation]").textContent =
+        explanation;
+
+      root.querySelector("[data-lesson]").textContent =
+        lesson;
+
+      root.querySelector("[data-example]").textContent =
+        "Alder River Monitoring Team. (2025). " +
+        "Alder River nitrate observations, 2010–2024 " +
+        "(Version " + expected + ") [Dataset]. " +
+        "Alder River Data Repository. " +
+        "[Version " + expected + " DOI]";
+
+      feedback.hidden = false;
+      explored.add(path);
+
+      if (explored.size === 1) {
+        switchButton.hidden = false;
+        status.textContent =
+          "You've explored one path. Now investigate the other.";
+      } else {
+        switchButton.hidden = true;
+        summary.hidden = false;
+        status.textContent =
+          "Both paths explored. Compare their consequences below.";
+      }
+    }
+  );
+
+  switchButton.addEventListener("click", () => {
+    activatePath(path === "keep" ? "rerun" : "keep");
+  });
+
+  root.querySelector("[data-reset]").addEventListener(
+    "click", () => {
+      path = null;
+      citation = null;
+      explored.clear();
+
+      pathButtons.forEach(button => {
+        button.disabled = false;
+        button.setAttribute("aria-pressed", "false");
+      });
+
+      citationButtons.forEach(button => {
+        button.setAttribute("aria-pressed", "false");
+      });
+
+      flow.hidden = true;
+      feedback.hidden = true;
+      summary.hidden = true;
+      switchButton.hidden = true;
+
+      status.textContent = "Choose a path to begin.";
+    }
+  );
+})();
+</script>
 ```
 
-**Statement 2 — Methods**
 
-> We interpreted the quality-control flags accompanying the nitrate measurements using the monitoring program's documented procedures.
+### What if the repository doesn't provide version-specific DOIs?
 
-```{ojs}
-//| echo: false
-viewof alderMethods = Inputs.checkbox(
-  ["Source A: Scientific paper", "Source B: Data paper", "Source C: Dataset"],
-  {label: "What would you cite for this statement?"}
-)
-```
+The example above is relatively straightforward because both versions have their own persistent identifiers. But repositories handle dataset updates differently.
 
-**Statement 3 — Methods**
+Some provide a DOI for each archived version. Others provide a single DOI, use different identifiers, or do not maintain separately retrievable versions.
 
-> We analyzed monthly nitrate concentrations measured at 12 Alder River monitoring stations between 2010 and 2024.
+**There is no universal DOI scheme across data repositories.**
 
-```{ojs}
-//| echo: false
-viewof alderData = Inputs.checkbox(
-  ["Source A: Scientific paper", "Source B: Data paper", "Source C: Dataset"],
-  {label: "What would you cite for this statement?"}
-)
-```
+The goal is to identify the dataset you actually analyzed as precisely as possible.
 
-Once you've made your choices, compare them with one possible citation plan.
+::: {.callout-tip}
+## When a version-specific DOI isn't available
 
-```{ojs}
-//| echo: false
-viewof alderReveal = Inputs.button("Compare with an example citation plan")
-```
+Follow the repository's recommended citation, and include any available version, release, or snapshot information.
 
-```{ojs}
-//| echo: false
-alderReveal === 0
-  ? md`*Make your selections above, then reveal the example.*`
-  : md`
-**Statement 1 — Scientific interpretation**
+For datasets that change over time without preserved versions, document the access date and relevant details of the data extraction, such as query parameters or the temporal and spatial subset used.
 
-The scientific paper (Nguyen et al., 2025) is the most directly relevant reference because it supports the claim about agricultural expansion and nitrate trends.
+A citation may identify the source without guaranteeing that someone can retrieve the exact earlier state of a changing dataset. This is why preserving reproducible snapshots, when possible, matters.
+:::
 
-**Statement 2 — Data collection and quality control**
-
-The data paper (Rivera et al., 2025) explains the monitoring program's quality-control procedures. The dataset citation is also relevant when referring to the actual measurements and flags being interpreted.
-
-**Statement 3 — Data used in the analysis**
-
-The dataset itself (Alder River Monitoring Team, 2025) should be cited because it identifies the measurements used to produce your results.
-
-The data paper may also be cited to provide additional context about how those measurements were obtained and validated.
+**Remember:** Cite the scientific or data paper when it supports your methods or provides important context, and cite the dataset to identify the actual data used in your analysis. These are complementary practices.
 
 ---
 
-**What should you notice?**
 
-These references do different jobs. The scientific paper supports a scientific interpretation, the data paper documents how the observations were produced, and the dataset citation identifies the data used in the analysis.
+# 3. Citing your own data
 
-You may need all three in your manuscript. The goal isn't to choose one citation over the others, but to give each research product appropriate credit.
-`
+So far, you've used data collected by other researchers. But what happens when you're the one producing the dataset?
+
+Let's follow a graduate student who collected new nitrate measurements during storm events in the Alder River watershed and is preparing a manuscript for an AGU journal.
+
+## The scenario: From conference poster to published paper
+
+The dataset changes throughout the research project.
+
+**Version 0 — The AGU poster**
+
+The student presents preliminary results from several sampling stations. Discussions at the conference lead to additional quality-control checks.
+
+**Version 1 — Manuscript submission**
+
+The student finishes processing the observations and submits a manuscript. The data supporting the submitted results are ready, but the dataset has not yet been made public.
+
+**Version 2 — Accepted manuscript**
+
+Reviewers request corrections and additional analyses. The student produces a revised dataset that supports the final figures and conclusions.
+
+*These are working version labels for our fictional study. They don't necessarily correspond to archived releases or DOIs.*
+
+## Activity 3: Making your data available during peer review
+
+The student is about to submit the manuscript to an AGU journal.
+
+The journal requires reviewers to have access to the data supporting the results. However, **the student would prefer not to make the dataset public until the manuscript is accepted**.
+
+What could they do?
+
+Explore the possible submission plans below. Consider both what reviewers can access **now** and what readers will need **after publication**.
+
+```{=html}
+<style>
+#alder-review-activity {
+  --pond: #147E78;
+  --pond-dark: #125D4B;
+  --pond-light: #e9f5f2;
+  margin: 1.25rem 0;
+}
+#alder-review-activity .ar-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+#alder-review-activity .ar-option {
+  background: white;
+  border: 2px solid #a0bcb3;
+  color: inherit;
+  border-radius: 9px;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.4;
+}
+#alder-review-activity .ar-option small {
+  display: block;
+  font-weight: 400;
+  margin-top: 0.45rem;
+  line-height: 1.45;
+}
+#alder-review-activity .ar-option:hover:not(:disabled) {
+  background: var(--pond-light);
+}
+#alder-review-activity .ar-option[aria-pressed="true"] {
+  border-color: var(--pond);
+  background: var(--pond-light);
+}
+#alder-review-activity .ar-option:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+#alder-review-activity .ar-flow {
+  margin-top: 1rem;
+}
+#alder-review-activity .ar-selected {
+  background: var(--pond-light);
+  border: 1px solid var(--pond);
+  padding: 0.9rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--pond-dark);
+}
+#alder-review-activity .ar-arrow {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--pond);
+  line-height: 1.5;
+}
+#alder-review-activity .ar-action {
+  background: var(--pond);
+  color: white;
+  border: 1px solid var(--pond);
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0.6rem 0.5rem 0.6rem 0;
+}
+#alder-review-activity .ar-action:hover {
+  background: var(--pond-dark);
+}
+#alder-review-activity .ar-secondary {
+  background: white;
+  color: var(--pond-dark);
+}
+#alder-review-activity .ar-secondary:hover {
+  background: var(--pond-light);
+}
+#alder-review-activity .ar-feedback {
+  padding: 1.15rem;
+  border: 1px solid #cbd8d4;
+  border-left: 4px solid var(--pond);
+  border-radius: 8px;
+  background: #f7faf9;
+  margin-top: 0.8rem;
+}
+#alder-review-activity .ar-statement {
+  background: white;
+  border: 1px solid #d2ded9;
+  border-radius: 6px;
+  padding: 0.85rem;
+  margin: 0.75rem 0;
+  font-style: italic;
+  line-height: 1.6;
+}
+#alder-review-activity button:focus-visible {
+  outline: 3px solid var(--pond-dark);x
+  outline-offset: 3px;
+}
+#alder-review-activity [hidden] {
+  display: none !important;
+}
+</style>
+
+<div id="alder-review-activity">
+
+<p><strong>Choose a submission plan to explore:</strong></p>
+
+<div class="ar-options" role="group"
+     aria-label="Possible data submission plans">
+
+  
+<button class="ar-option" type="button"
+        data-plan="public" aria-pressed="false">
+  Publish the dataset now
+  <small>
+    Deposit the submitted dataset in a trusted repository
+    and make it publicly accessible with a DOI.
+    This provides immediate access, but it also makes the
+    measurements available to other researchers before
+    your manuscript is published.
+  </small>
+</button>
+
+
+  <button class="ar-option" type="button"
+          data-plan="private" aria-pressed="false">
+    Provide confidential repository access
+    <small>
+      Keep the dataset nonpublic in a repository that supports
+      confidential reviewer links, then release it later.
+    </small>
+  </button>
+
+  <button class="ar-option" type="button"
+          data-plan="review" aria-pressed="false">
+    Upload files for peer review
+    <small>
+      Supply the exact submitted dataset through the journal's
+      review system and identify the intended archival repository.
+    </small>
+  </button>
+
+  <button class="ar-option" type="button"
+          data-plan="later" aria-pressed="false">
+    Wait until the paper is accepted
+    <small>
+      State that the dataset will be available upon request
+      after publication.
+    </small>
+  </button>
+
+</div>
+
+<div class="ar-flow" data-flow hidden>
+  <div class="ar-selected" data-selected></div>
+
+  <div class="ar-arrow" aria-hidden="true">↓</div>
+
+  <div style="text-align:center">
+    <button type="button" class="ar-action"
+            data-reveal>Reveal the consequences</button>
+  </div>
+
+  <div class="ar-feedback" data-feedback hidden>
+    <p><strong data-heading></strong></p>
+    <p data-explanation></p>
+
+    <p><strong>What happens next?</strong></p>
+    <p data-next></p>
+
+    <p><strong>Example Data Availability Statement:</strong></p>
+    <div class="ar-statement" data-statement></div>
+
+    <p class="small">
+      This is a fictional example. Repository names,
+      access links, and identifiers are placeholders.
+    </p>
+
+    <button type="button"
+            class="ar-action ar-secondary"
+            data-other>Explore another plan</button>
+  </div>
+</div>
+
+<p class="small text-muted" data-status
+   aria-live="polite">Select a plan to begin.</p>
+
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById(
+    "alder-review-activity"
+  );
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const plans = {
+    
+public: {
+  title: "Publish the dataset now",
+  heading:
+    "This meets AGU's requirements, but consider the trade-offs.",
+  explanation:
+    "Reviewers can access the archived dataset immediately, " +
+    "and the repository provides a persistent record of the " +
+    "data supporting the submitted manuscript. However, " +
+    "other researchers can also download and reuse the data " +
+    "before your paper is published. If you're concerned " +
+    "about being scooped, immediate public release may not " +
+    "be your preferred approach. A license establishes " +
+    "reuse conditions, but it cannot guarantee appropriate " +
+    "credit or prevent misuse.",
+  next:
+    "If you prefer to wait, consider confidential reviewer " +
+    "access or a review-only upload. However, check your " +
+    "funder's data-sharing requirements first: some require " +
+    "public release before publication. If you release " +
+    "the dataset now and subsequently correct it during " +
+    "review, archive the updated version and revise the " +
+    "citation and availability statement accordingly.",
+  statement:
+    "The Alder River storm-event nitrate measurements " +
+    "used in this study (version 1) are available from " +
+    "[Trusted Repository] at [Version DOI], under " +
+    "[License]. The dataset is cited in the References."
+},
+
+
+    private: {
+      title: "Provide confidential repository access",
+      heading: "This approach can meet the requirements.",
+      explanation:
+        "Reviewers can evaluate the submitted dataset " +
+        "using a confidential access link, provided the " +
+        "repository supports this feature and the link " +
+        "actually grants access to the files.",
+      next:
+        "The student must arrange for the dataset to become " +
+        "publicly accessible by publication, update the " +
+        "Data Availability Statement with the persistent " +
+        "identifier, and include a formal data citation.",
+      statement:
+        "The Alder River storm-event nitrate dataset " +
+        "(version 1) has been deposited in [Trusted Repository]. " +
+        "Editors and reviewers can access the submitted files " +
+        "through [Confidential Review Link]. The archived " +
+        "dataset will be made publicly available by publication, " +
+        "and its persistent identifier and citation will " +
+        "be included in the final manuscript."
+    },
+
+    review: {
+      title: "Upload files for peer review",
+      heading: "AGU explicitly permits this approach.",
+      explanation:
+        "The student can upload the files using AGU's " +
+        "'Data File(s) for Peer Review (will not publish)' " +
+        "file type. Reviewers receive access to the data " +
+        "underlying the submitted results.",
+      next:
+        "The review upload is not an archival repository. " +
+        "The student must separately arrange preservation " +
+        "in a trusted repository and update the final " +
+        "manuscript with the appropriate citation and " +
+        "access information.",
+      statement:
+        "The Alder River storm-event nitrate measurements " +
+        "supporting this manuscript (version 1) have been " +
+        "provided to editors and reviewers through the " +
+        "journal's confidential peer-review files. " +
+        "The dataset will be archived in [Trusted Repository] " +
+        "by publication, with its persistent identifier " +
+        "and citation added to the final manuscript."
+    },
+
+    later: {
+      title: "Wait until the paper is accepted",
+      heading: "This plan does not meet AGU's requirements.",
+      explanation:
+        "Promising to share the data later does not give " +
+        "reviewers access to the observations needed to " +
+        "evaluate the manuscript. 'Available upon request' " +
+        "is also not an acceptable substitute for " +
+        "repository access under AGU's general policy.",
+      next:
+        "Before submission, the student needs to provide " +
+        "the actual data to reviewers. They could use a " +
+        "trusted repository, a confidential reviewer link, " +
+        "or the journal's peer-review-only upload option.",
+      statement:
+        "The data will be available from the authors " +
+        "upon reasonable request after publication. " +
+        "[This statement is insufficient under AGU's " +
+        "general data policy.]"
+    }
+  };
+
+  const buttons = [...root.querySelectorAll("[data-plan]")];
+  const flow = root.querySelector("[data-flow]");
+  const feedback = root.querySelector("[data-feedback]");
+  const status = root.querySelector("[data-status]");
+
+  let current = null;
+  const explored = new Set();
+
+  function choosePlan(key) {
+    current = key;
+
+    buttons.forEach(button => {
+      const selected = button.dataset.plan === key;
+      button.disabled = !selected;
+      button.setAttribute("aria-pressed", String(selected));
+    });
+
+    root.querySelector("[data-selected]").textContent =
+      "Your plan: " + plans[key].title;
+
+    flow.hidden = false;
+    feedback.hidden = true;
+    status.textContent =
+      "Reveal what this plan means for peer review and publication.";
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      choosePlan(button.dataset.plan);
+    });
+  });
+
+  root.querySelector("[data-reveal]").addEventListener(
+    "click", () => {
+      const plan = plans[current];
+
+      root.querySelector("[data-heading]").textContent =
+        plan.heading;
+      root.querySelector("[data-explanation]").textContent =
+        plan.explanation;
+      root.querySelector("[data-next]").textContent =
+        plan.next;
+      root.querySelector("[data-statement]").textContent =
+        plan.statement;
+
+      explored.add(current);
+      feedback.hidden = false;
+
+      status.textContent =
+        explored.size + " of 4 submission plans explored.";
+    }
+  );
+
+  root.querySelector("[data-other]").addEventListener(
+    "click", () => {
+      current = null;
+      flow.hidden = true;
+      feedback.hidden = true;
+
+      buttons.forEach(button => {
+        button.disabled = false;
+        button.setAttribute("aria-pressed", "false");
+      });
+
+      status.textContent =
+        explored.size === 4
+        ? "All four plans explored! You can revisit any plan."
+        : "Choose another plan to compare its consequences.";
+    }
+  );
+})();
+</script>
 ```
+
+### What should you take away?
+
+For an AGU manuscript, **data must be available for peer review, but they do not necessarily need to be public at submission**.
+
+Review-only access can be arranged through a repository offering confidential sharing or through the journal's dedicated peer-review upload option. Neither should be confused with permanent archiving.
+
+By publication, the manuscript should identify the preserved dataset through an appropriate citation and Data Availability Statement.
+
+AGU's [Data and Software for Authors](https://www.agu.org/publications/authors/journals/data-software-for-authors) guidance provides the detailed requirements. Always check the policies of the journal to which you're submitting.
+
+
+### But what does your funder require?
+
+Your preferred data-sharing strategy may not be the one your funder allows.
+
+For example, the [NSF Directorate for Geosciences](https://www.nsf.gov/geo/data-management-sharing-plans) requires final datasets and related research products to be made publicly accessible **upon publication or within two years of collection, whichever comes first**.
+
+This means a researcher may have to release a dataset before publishing the scientific paper that describes or analyzes it.
+
+More generally, NSF requires data supporting funded publications to be publicly accessible at publication, with justified exceptions documented in the Data Management and Sharing Plan.
+
+There is a real tension here:
+
+- **Sharing early** supports transparency, reuse, and timely access to publicly funded research.
+- **Waiting until publication** gives researchers time to complete their analyses and receive recognition for their work, potentially reducing the risk of being scooped.
+- **Funder and journal requirements** may limit when and how long data can remain nonpublic.
+
+::: {.callout-tip}
+## There is no one-size-fits-all answer
+
+Before deciding when to make your data public, consider your journal's requirements, your funder's policies, your project's Data Management and Sharing Plan, and the repository's available access controls.
+
+These policies continue to evolve. Always check the requirements that apply to your particular research project.
+:::
+
+---
+
+
+## Activity 4: The paper has been accepted!
+
+Good news! The manuscript has been accepted, but the student still has some work to do.
+
+During peer review, the student corrected several nitrate measurements and incorporated additional quality-control checks. The final figures and results were generated using **version 2 of the dataset**.
+
+However, the manuscript still refers to version 1, which supported the original submission.
+
+It's time to prepare the final publication.
+
+### Check the manuscript proofs
+
+Imagine you're the student checking the proofs before publication. You discover three things that need attention.
+
+For each, examine the draft and decide how you would revise it. Then reveal the completed publication package.
+
+*This is a fictional example. For this exercise, the final dataset will be archived as version 2.0 in a trusted repository.*
+
+```{=html}
+<style>
+#alder-publication-activity {
+  --pond: #147E78;
+  --pond-dark: #125D4B;
+  --pond-light: #e9f5f2;
+  margin: 1.25rem 0;
+}
+#alder-publication-activity .ap-proof {
+  border: 1px solid #cbd8d4;
+  border-radius: 9px;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+  background: white;
+}
+#alder-publication-activity .ap-label {
+  font-weight: 700;
+  color: var(--pond-dark);
+  margin-bottom: 0.65rem;
+}
+#alder-publication-activity .ap-draft {
+  padding: 0.8rem;
+  background: #faf7ef;
+  border-left: 4px solid #b38b44;
+  border-radius: 4px;
+  margin: 0.65rem 0 1rem;
+  font-size: 0.92rem;
+}
+#alder-publication-activity select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #88aaa0;
+  border-radius: 7px;
+  background: white;
+  color: inherit;
+  font-size: 0.92rem;
+  white-space: normal;
+}
+#alder-publication-activity select:focus-visible,
+#alder-publication-activity button:focus-visible {
+  outline: 3px solid var(--pond);
+  outline-offset: 3px;
+}
+#alder-publication-activity .ap-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+#alder-publication-activity .ap-button {
+  border-radius: 6px;
+  padding: 0.6rem 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+#alder-publication-activity .ap-reveal {
+  background: #147E78 !important;
+  color: white !important;
+  border: 1px solid #147E78 !important;
+}
+#alder-publication-activity .ap-reveal:hover {
+  background: #125D4B !important;
+}
+#alder-publication-activity .ap-reset {
+  background: white;
+  color: var(--pond-dark);
+  border: 1px solid var(--pond);
+}
+#alder-publication-activity .ap-feedback {
+  background: #f1f7f5;
+  border-left: 4px solid var(--pond);
+  padding: 0.85rem;
+  border-radius: 5px;
+  margin-top: 0.85rem;
+  line-height: 1.6;
+}
+#alder-publication-activity .ap-package {
+  border: 1px solid #cbd8d4;
+  border-radius: 9px;
+  padding: 1.1rem;
+  margin-top: 1.5rem;
+  background: #f7faf9;
+}
+#alder-publication-activity .ap-example {
+  padding: 0.9rem;
+  background: white;
+  border: 1px solid #d4dfdb;
+  border-radius: 6px;
+  margin: 0.6rem 0 1rem;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+#alder-publication-activity [hidden] {
+  display: none !important;
+}
+</style>
+
+<div id="alder-publication-activity">
+
+<div class="ap-proof">
+  <div class="ap-label">
+    1. The dataset supporting the final results
+  </div>
+
+  <p>
+    The student provided version 1 to reviewers.
+    Version 2 contains the corrected measurements
+    underlying the accepted manuscript.
+  </p>
+
+  <div class="ap-draft">
+    <strong>Current plan:</strong>
+    Keep the version 1 files provided during peer review
+    as the record of the data supporting the paper.
+  </div>
+
+  <label for="ap-archive">
+    <strong>What should the student do?</strong>
+  </label>
+
+  <select id="ap-archive" data-question="archive">
+    <option value="">Choose an action...</option>
+    <option value="old">
+      Publish version 1 because it was used during review
+    </option>
+    <option value="final">
+      Archive version 2 in a trusted repository, preserving
+      earlier public releases if applicable
+    </option>
+    <option value="supplement">
+      Upload version 2 only as journal supplementary information
+    </option>
+  </select>
+
+  <div class="ap-feedback" data-feedback="archive" hidden></div>
+</div>
+
+<div class="ap-proof">
+  <div class="ap-label">
+    2. The reference list
+  </div>
+
+  <p>
+    The manuscript's dataset citation still identifies
+    the submitted version.
+  </p>
+
+  <div class="ap-draft">
+    <strong>Current reference:</strong>
+    Alder River Monitoring Team. (2027).
+    <em>Alder River storm-event nitrate measurements</em>
+    (Version 1.0) [Dataset].
+    [Version 1 DOI, if assigned]
+  </div>
+
+  <label for="ap-reference">
+    <strong>How should the reference be updated?</strong>
+  </label>
+
+  <select id="ap-reference" data-question="reference">
+    <option value="">Choose a revision...</option>
+    <option value="old">
+      Keep citing version 1 because it was used for submission
+    </option>
+    <option value="paper">
+      Remove the dataset citation; the scientific paper is enough
+    </option>
+    <option value="final">
+      Cite the archived version 2 dataset supporting
+      the final results
+    </option>
+  </select>
+
+  <div class="ap-feedback" data-feedback="reference" hidden></div>
+</div>
+
+<div class="ap-proof">
+  <div class="ap-label">
+    3. The Data Availability Statement
+  </div>
+
+  <p>
+    The statement was written when the dataset
+    was not yet publicly available.
+  </p>
+
+  <div class="ap-draft">
+    <strong>Current statement:</strong>
+    The data supporting this study are available
+    from the authors upon reasonable request.
+  </div>
+
+  <label for="ap-availability">
+    <strong>What should the final statement say?</strong>
+  </label>
+
+  <select id="ap-availability" data-question="availability">
+    <option value="">Choose a revision...</option>
+    <option value="request">
+      Keep the statement; readers can contact the authors
+    </option>
+    <option value="review">
+      Refer readers to the confidential files uploaded
+      during peer review
+    </option>
+    <option value="final">
+      Identify the public repository record for version 2,
+      its identifier, and access conditions
+    </option>
+  </select>
+
+  <div class="ap-feedback" data-feedback="availability" hidden></div>
+</div>
+
+<div class="ap-actions">
+  <button type="button" class="ap-button ap-reveal"
+          data-reveal>
+    Reveal the completed publication package
+  </button>
+  <button type="button" class="ap-button ap-reset"
+          data-reset>
+    Start over
+  </button>
+</div>
+
+<p class="small text-muted" data-status
+   aria-live="polite">
+  Review all three parts of the manuscript before
+  revealing the example.
+</p>
+
+<div class="ap-package" data-package hidden>
+
+  <h4>The final publication package</h4>
+
+  <p>
+    Here's what a completed manuscript could contain.
+  </p>
+
+  <p><strong>Methods section</strong></p>
+
+  <div class="ap-example">
+    Storm-event nitrate concentrations were measured
+    in the Alder River watershed and processed using
+    the quality-control procedures described above.
+    The final observations used in our analysis
+    are archived as version 2.0
+    (Alder River Monitoring Team, 2027).
+  </div>
+
+  <p><strong>Reference list</strong></p>
+
+  <div class="ap-example">
+    Alder River Monitoring Team. (2027).
+    <em>Alder River storm-event nitrate measurements</em>
+    (Version 2.0) [Dataset].
+    Alder River Data Repository.
+    [Version 2 DOI]
+  </div>
+
+  <p><strong>Data Availability Statement</strong></p>
+
+  <div class="ap-example">
+    The storm-event nitrate measurements supporting
+    this study (Alder River Monitoring Team, 2027)
+    are archived in the Alder River Data Repository
+    as version 2.0, accessible at [Version 2 DOI]
+    under [License].
+  </div>
+
+  <p class="small text-muted">
+    All citation details, identifiers, and repository
+    names in this example are fictional.
+  </p>
+
+  <hr>
+
+  <p><strong>What happened to version 1?</strong></p>
+
+  <p>
+    If version 1 was already publicly archived,
+    it should remain identifiable as an earlier release.
+    The researcher should not silently replace it
+    with different measurements.
+  </p>
+
+  <p>
+    If version 1 was only shared privately during
+    peer review, that review copy does not necessarily
+    need to become a separate public dataset.
+    What matters for the published paper is that
+    the final data supporting its results are properly
+    preserved and cited.
+  </p>
+
+</div>
+
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById(
+    "alder-publication-activity"
+  );
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const answers = {
+    archive: {
+      old:
+        "Version 1 supported the original submission, " +
+        "not the accepted results. Publishing only that " +
+        "version would leave readers without the final data.",
+      final:
+        "This preserves the dataset underlying the " +
+        "published results. Earlier public versions " +
+        "should remain identifiable when applicable.",
+      supplement:
+        "AGU requires data to be preserved in a " +
+        "trusted repository. Supplementary files " +
+        "are not a substitute for that archive."
+    },
+    reference: {
+      old:
+        "The citation would identify measurements " +
+        "that no longer match the final analysis.",
+      paper:
+        "A scientific paper is not a substitute " +
+        "for a formal citation to the archived dataset.",
+      final:
+        "The dataset citation now identifies the " +
+        "measurements supporting the final results."
+    },
+    availability: {
+      request:
+        "AGU generally does not accept 'available upon " +
+        "request' as a substitute for repository access.",
+      review:
+        "Confidential peer-review files are not a " +
+        "public, preserved dataset record for readers.",
+      final:
+        "The statement tells readers where to find " +
+        "the final data and under what conditions " +
+        "they can access and reuse them."
+    }
+  };
+
+  const selects = [...root.querySelectorAll(
+    "[data-question]"
+  )];
+  const packageView = root.querySelector(
+    "[data-package]"
+  );
+  const status = root.querySelector("[data-status]");
+
+  selects.forEach(select => {
+    select.addEventListener("change", () => {
+      const question = select.dataset.question;
+      root.querySelector(
+        '[data-feedback="' + question + '"]'
+      ).hidden = true;
+      packageView.hidden = true;
+    });
+  });
+
+  root.querySelector("[data-reveal]").addEventListener(
+    "click", () => {
+      const complete = selects.every(select => select.value);
+
+      if (!complete) {
+        status.textContent =
+          "Choose a revision for all three parts " +
+          "before revealing the publication package.";
+        return;
+      }
+
+      let matched = 0;
+
+      selects.forEach(select => {
+        const question = select.dataset.question;
+        const feedback = root.querySelector(
+          '[data-feedback="' + question + '"]'
+        );
+
+        const correct = select.value === "final";
+        if (correct) matched++;
+
+        feedback.textContent =
+          (correct ? "This fits the final manuscript. " :
+                     "Consider revising this choice. ") +
+          answers[question][select.value];
+
+        feedback.hidden = false;
+      });
+
+      packageView.hidden = false;
+
+      status.textContent =
+        matched + " of 3 revisions match the example. " +
+        "Compare your choices with the completed " +
+        "publication package below.";
+    }
+  );
+
+  root.querySelector("[data-reset]").addEventListener(
+    "click", () => {
+      selects.forEach(select => {
+        select.value = "";
+      });
+
+      root.querySelectorAll("[data-feedback]").forEach(
+        item => item.hidden = true
+      );
+
+      packageView.hidden = true;
+      status.textContent =
+        "Review all three parts of the manuscript " +
+        "before revealing the example.";
+    }
+  );
+})();
+</script>
+```
+
+### What should you take away?
+
+A dataset citation is more than a formality added at submission. It must remain consistent with the data supporting the published results.
+
+Before publication, check that:
+
+- The final dataset is preserved in an appropriate repository.
+- The reference list cites the correct dataset and version, when available.
+- The Data Availability Statement explains how readers can access it.
+
+The [AGU Data and Software for Authors guidelines](https://www.agu.org/publications/authors/journals/data-software-for-authors) provide examples of dataset citations and Availability Statements.
+
+---
+
+
+# 4. Before you submit your paper…
+
+Whether you're using someone else's data or publishing your own, citing datasets is about more than providing a link. It's about giving credit to the people who produced the data and helping others identify the measurements behind your scientific results.
+
+Before submitting your next manuscript, ask yourself:
+
+- **Am I giving credit?** Have I cited the datasets I used, along with relevant scientific publications or data papers?
+- **Am I citing the right data?** Do my references identify the actual datasets and versions used in my analysis?
+- **Can someone access the data?** Are the data available to reviewers, and have I planned for their preservation and accessibility at publication?
+- **Have I included a Data Availability Statement?** Does it explain where readers can find the data, including identifiers and access conditions?
+- **Have I checked the final citations?** If the data changed during peer review, do my references and Data Availability Statement reflect the data supporting the published results?
+
+::: {.callout-tip}
+## One last thing to remember
+
+**A dataset citation and a Data Availability Statement serve complementary purposes.**
+
+- The **citation** gives credit to the data creators and identifies the dataset used in your research.
+- The **Data Availability Statement** tells readers where and how they can access the data.
+
+A scientific paper or data paper may provide valuable context, but it doesn't replace the citation to the data themselves.
+
+And remember: **the latest dataset isn't necessarily the one you used!**
+:::
+
+## Want to go further?
+
+In this LilyPad, we've focused on how to cite datasets in scientific manuscripts. If you'd like to revisit some of the concepts behind these decisions:
+
+- **[Databases, Repositories, Identifiers, and Versions](../db-repo-pid/index.qmd)** explores how repositories, persistent identifiers, and dataset versions help researchers find and retrieve data.
+- **[Preparing Data for Sharing and Reuse](../sharing-data/index.qmd)** explores what makes a dataset understandable and reusable by others.
+
+For practical examples of data citations and Data Availability Statements, consult the [AGU Data and Software for Authors guidelines](https://www.agu.org/publications/authors/journals/data-software-for-authors).
+
+The specific requirements may differ across journals, disciplines, and funders, so always check the policies that apply to your research.
 
 
 
