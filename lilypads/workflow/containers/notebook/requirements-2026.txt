@@ -1,0 +1,4 @@
+# What "pip install pandas matplotlib" gave in November 2026 (Python 3.12)
+pandas==3.1.1
+numpy==2.5.4
+matplotlib==3.11.2

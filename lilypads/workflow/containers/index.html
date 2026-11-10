@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Containers – The Pond</title>
+<title>Why Containers Matter – The Pond</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -178,15 +213,40 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-inherited-notebook" id="toc-the-inherited-notebook" class="nav-link active" data-scroll-target="#the-inherited-notebook">1. The inherited notebook</a></li>
+  <li><a href="#the-notebook-crashes" id="toc-the-notebook-crashes" class="nav-link" data-scroll-target="#the-notebook-crashes">2. The notebook crashes</a>
+  <ul class="collapse">
+  <li><a href="#key-takeaway-2" id="toc-key-takeaway-2" class="nav-link" data-scroll-target="#key-takeaway-2">Key takeaway 2</a></li>
+  </ul></li>
+  <li><a href="#it-runs-are-we-done" id="toc-it-runs-are-we-done" class="nav-link" data-scroll-target="#it-runs-are-we-done">3. It runs! Are we done?</a>
+  <ul class="collapse">
+  <li><a href="#what-could-alex-have-done" id="toc-what-could-alex-have-done" class="nav-link" data-scroll-target="#what-could-alex-have-done">What could Alex have done?</a></li>
+  <li><a href="#key-takeaway-3" id="toc-key-takeaway-3" class="nav-link" data-scroll-target="#key-takeaway-3">Key takeaway 3</a></li>
+  </ul></li>
+  <li><a href="#what-should-alex-have-shared" id="toc-what-should-alex-have-shared" class="nav-link" data-scroll-target="#what-should-alex-have-shared">4. What should Alex have shared?</a>
+  <ul class="collapse">
+  <li><a href="#key-takeaway-4" id="toc-key-takeaway-4" class="nav-link" data-scroll-target="#key-takeaway-4">Key takeaway 4</a></li>
+  </ul></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">5. Your turn</a>
+  <ul class="collapse">
+  <li><a href="#so-did-you-reproduce-alexs-results" id="toc-so-did-you-reproduce-alexs-results" class="nav-link" data-scroll-target="#so-did-you-reproduce-alexs-results">So, did you reproduce Alex’s results?</a></li>
+  <li><a href="#key-takeaway-5" id="toc-key-takeaway-5" class="nav-link" data-scroll-target="#key-takeaway-5">Key takeaway 5</a></li>
+  </ul></li>
+  <li><a href="#try-it-yourself-optional" id="toc-try-it-yourself-optional" class="nav-link" data-scroll-target="#try-it-yourself-optional">Try it yourself (optional)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Containers</h1>
+<h1 class="title">Why Containers Matter</h1>
 </div>
 
 
@@ -203,27 +263,352 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Sharing your notebook and your data is a great start. But a notebook doesn’t run on its own: it runs on top of a <a href="https://en.wikipedia.org/wiki/Solution_stack">software stack</a>, and that stacks is always evolving. In this LilyPad, you’ll see what consequences this can have for scientific reproducibility, and one popular solution to this problem.</p>
+<section id="the-inherited-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="the-inherited-notebook">1. The inherited notebook</h2>
+<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 5 minutes</span></p>
+<p>It’s fall 2026, and you’ve just joined a lab. Your advisor asks you to extend a project that Alex, a former lab member, started: an analysis of five years (2019–2023) of daily temperatures from the lab’s weather station. Before adding new years, you want to check that you can reproduce Alex’s results.</p>
+<p>Alex left you two files. The first is the data, <code>station_daily.csv</code>: one row per day, with the day’s average temperature in °C. On days when the sensor failed, the temperature is recorded as <code>-999</code>:</p>
+<div class="pond-md-notes">
+<pre><code>date,temp_C
+2019-01-01,2.3
+2019-01-02,3.6
+2019-01-03,6.5
+...
+2020-02-11,-999.0
+...</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Coming soon
+<p><span class="pond-md-credit">Fictional weather station and values, created for The Pond (2026).</span></p>
+<p>The second is a <a href="../../../lilypads/workflow/sketches-vs-notebooks/index.html">Jupyter notebook</a>, saved in March 2024 with its outputs. It’s written in Python and uses <a href="https://pandas.pydata.org/">pandas</a>, a widely used package for working with data tables. You don’t need to know Python programming for this exercise: the comments (lines that start with <code>#</code>) say what each step does.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Cell 1</strong></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="Cell 1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tools: pandas for tables, matplotlib for plots</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data: one row per day</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"station_daily.csv"</span>, parse_dates<span class="op">=</span>[<span class="st">"date"</span>], index_col<span class="op">=</span><span class="st">"date"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-body-container callout-body">
-<p><strong>A frog will be here shortly.</strong><br>
-This part of The Pond is still being prepared. Check back soon for new learning materials.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Cell 2</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="Cell 2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mark the sensor failures (-999) as missing</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"temp_C"</span>][df[<span class="st">"temp_C"</span>] <span class="op">==</span> <span class="op">-</span><span class="dv">999</span>] <span class="op">=</span> <span class="va">None</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="pond-md-notes">
+<pre><code>FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain
+cases, but when using Copy-on-Write (which will become the default behaviour in
+pandas 3.0) this will never work to update the original DataFrame or Series [...]
+Use `df.loc[row_indexer, "col"] = values` instead [...]</code></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Cell 3</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="Cell 3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize: the average temperature, and the number of days below freezing</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Average temperature (°C):"</span>, <span class="bu">round</span>(df[<span class="st">"temp_C"</span>].mean(), <span class="dv">2</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Frost days, 2019–2023:"</span>, (df[<span class="st">"temp_C"</span>] <span class="op">&lt;</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="pond-md-notes">
+<pre><code>Average temperature (°C): 11.77
+Frost days, 2019–2023: 57</code></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Cell 4</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="Cell 4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average the days of each month ("M"), then plot</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>monthly <span class="op">=</span> df[<span class="st">"temp_C"</span>].resample(<span class="st">"M"</span>).mean()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>monthly.plot(ylabel<span class="op">=</span><span class="st">"Monthly average temperature (°C)"</span>, xlabel<span class="op">=</span><span class="st">""</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="pond-md-notes">
+<pre><code>FutureWarning: 'M' is deprecated and will be removed in a future version,
+please use 'ME' instead.</code></pre>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../../images/frog_soon.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" width="250"></p>
+<p><img src="images/monthly-pandas-2.2.1.png" class="img-fluid figure-img" alt="Line plot of monthly average temperature from 2019 to 2023. The line rises and falls smoothly with the seasons, from about 2 °C in winter to about 23 °C in summer."></p>
+<figcaption>Alex’s plot (2024): monthly average temperature rises and falls with the seasons, between about 2 °C in winter and 23 °C in summer.</figcaption>
 </figure>
 </div>
+<p>Cells 2 and 4 printed warnings. Like most of us, Alex scrolled past them: the notebook ran, and the results looked fine. Apart from the two files, Alex left no other notes.</p>
+<p><strong>Your turn!</strong> You’ll run the same notebook, on the same data. What do you expect?</p>
+<div class="pond-md-whatif" role="group" aria-label="Same notebook, same data: what do you expect?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="That's what most people expect: same code, same data, same numbers. Let's find out.">Exactly the same results</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Why would they differ? Keep your reason in mind, and let's find out.">Slightly different results</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="A cautious guess. What could stop it? Let's find out.">It might not run at all</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden=""></p>
+</section>
+<section id="the-notebook-crashes" class="level2">
+<h2 class="anchored" data-anchor-id="the-notebook-crashes">2. The notebook crashes</h2>
+<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 5 minutes</span></p>
+<p>You install Python on your laptop, then pandas and matplotlib the usual way (<code>pip install pandas matplotlib</code>), which gives you their latest versions. You run the notebook. Cells 1 to 3 run. Cell 4 stops with an error:</p>
+<div class="pond-md-notes">
+<pre><code>ValueError: Invalid frequency: M. Failed to parse with error message:
+ValueError("'M' is no longer supported for offsets. Please use 'ME' instead.")</code></pre>
+</div>
+<p><strong>Your turn!</strong> Code that ran for Alex fails for you. Why do you think that is?</p>
+<div class="pond-md-whatif" role="group" aria-label="Why does the code fail now?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Unlikely: cells 1 to 3 read and used the data without trouble. And the error is about &quot;M&quot;, which is in the code, not in the data.">The data file is damaged</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Alex's notebook ran, and saved its outputs, in 2024. The code worked then. What has changed since?">Alex's code always had a bug</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right. Same code, same data: the difference is the software it runs on. The message even says so: &quot;'M' is no longer supported&quot;.">The software has changed</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="It happens, but this message is specific: &quot;'M' is no longer supported&quot;. That's the software telling you that it changed.">Something is wrong with my computer</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p>You email Alex, who finds the old laptop and checks: in March 2024, they used <strong>pandas 2.2.1</strong>. Your laptop has <strong>pandas 3.1.1</strong>. In between, pandas 3.0 (<a href="https://pandas.pydata.org/docs/whatsnew/v3.0.0.html">released in January 2026</a>) stopped accepting <code>"M"</code> to mean “month”, in favor of <code>"ME"</code> (“month end”).</p>
+<p>Here, the error message says what to do. You follow pandas’ suggestion, change <code>"M"</code> to <code>"ME"</code> in Cell 4, and the cell runs.</p>
+<p>This is a <strong>gross failure</strong>: code that ran with one version of the software doesn’t run with another. It’s annoying, but it’s honest: you <em>know</em> that something is wrong, and the error message often tells you how to fix it.</p>
+<p>In fact, pandas had warned Alex. Scroll back up to Cell 4: in 2024, it printed “<code>'M' is deprecated and will be removed in a future version, please use 'ME' instead</code>”. <em>Deprecated</em> means “still works, but will be removed”: the developers’ way of giving users time to update their code.</p>
+<section id="key-takeaway-2" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-2">Key takeaway 2</h3>
+<p>Software changes over time, and code that ran yesterday can stop running today. An error is frustrating, but at least it tells you that something is wrong.</p>
+</section>
+</section>
+<section id="it-runs-are-we-done" class="level2">
+<h2 class="anchored" data-anchor-id="it-runs-are-we-done">3. It runs! Are we done?</h2>
+<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 8 minutes</span></p>
+<p>With that change, the notebook runs to the end. Here is what Cell 3 prints on your laptop:</p>
+<div class="pond-md-notes">
+<pre><code>Average temperature (°C): 10.66
+Frost days, 2019–2023: 59</code></pre>
+</div>
+<p><strong>Your turn!</strong> Scroll up and compare with Alex’s results. Did you reproduce them?</p>
+<div class="pond-md-whatif" role="group" aria-label="Did you reproduce Alex's results?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Look again: 10.66 °C instead of 11.77 °C, and 59 frost days instead of 57.">Yes, exactly</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Tempting: 1.1 °C and 2 frost days out of 1,826 days look small. But same code and same data should give the same numbers. And 1.1 °C is about how much Earth's average surface temperature has risen since the late 1800s: not a small number for a climate scientist.">Close enough</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: same data, (almost) same code, different numbers. The average is 1.1 °C lower, and there are 2 more frost days.">No</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p><strong>Your turn!</strong> Which result is right?</p>
+<div class="pond-md-whatif" role="group" aria-label="Which result is right?">
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Maybe, but how would you know? Alex's result is older, not necessarily better.">Alex's (2024)</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Maybe, but how would you know? Your software is newer, not necessarily better.">Mine (2026)</button>
+  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: from the numbers alone, you can't tell. Both came from the same data and code. You need to look more closely.">I can't tell</button>
+</div>
+<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p>Let’s look more closely. Here is the plot from Cell 4, on your laptop:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/monthly-pandas-3.1.1.png" class="img-fluid figure-img" alt="Line plot of monthly average temperature from 2019 to 2023. The line rises and falls with the seasons, but drops to about −30 °C in February 2020 and to about −10 °C in July 2022."></p>
+<figcaption>Your plot (2026).</figcaption>
+</figure>
+</div>
+<div class="pond-md">
+  <label for="pond-ct-notice"><strong>What do you notice? Compare it with Alex's plot.</strong></label>
+  <textarea id="pond-ct-notice" class="pond-md-response pond-md-save" rows="3" placeholder="Anything odd?"></textarea>
+</div>
+<details class="pond-md-reveal">
+<summary>
+Compare with our answer
+</summary>
+<p>Your plot has two dips that Alex’s doesn’t: an average of about <strong>−30 °C in February 2020</strong>, and of about <strong>−10 °C in July 2022</strong>, in the middle of summer. These are the two sensor failures, recorded as <code>-999</code>.</p>
+<p>Cell 2 was supposed to mark them as missing. With pandas 2, it did. With pandas 3, the very same line <strong>silently does nothing</strong>. So the two <code>-999</code> values stayed in the data:</p>
+<ul>
+<li>they pulled the <strong>average</strong> down, from 11.77 °C to 10.66 °C;</li>
+<li>and since −999 is below 0, they were each counted as a <strong>frost day</strong>: 57 + 2 = 59.</li>
+</ul>
+<p><strong>Why?</strong> Cell 2 is unchanged, and it still says what it means. What changed is how pandas carries out this kind of instruction. With pandas 3, Cell 2 cleans a temporary <em>copy</em> of the temperatures, which is then thrown away, and the table itself is left untouched. It’s like copying a column of a spreadsheet into a new sheet, cleaning it there, and never pasting it back. Nothing in Alex’s code is wrong: the software underneath it changed.</p>
+<p>Did pandas warn anyone? Yes, twice. In 2024, Cell 2 warned Alex that this way of writing would stop working in pandas 3.0, and suggested another (scroll back up to see). In 2026, Cell 2 printed:</p>
+<div class="pond-md-notes">
+<pre><code>ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment.</code></pre>
+</div>
+<p>Despite its name, this is a <em>warning</em>, not an error: pandas reports it, then carries on, so the notebook runs to the end. The warning was there in both years; it was just easy to ignore.</p>
+<p>Here, Alex’s result is the right one. You can tell only because the convention was written down: on days when the sensor failed, the temperature is recorded as <code>-999</code>. Without that note, nothing would tell you that −999 isn’t a (very odd) measurement. This is why the way missing values are coded must be flagged in the metadata, as you saw in <a href="../../../lilypads/data/metadata/index.html#missing-values">Metadata for Reuse</a>, and why records of failed readings are part of the evidence behind the data, as you saw in <a href="../../../lilypads/data/data-quality/index.html#how-could-we-do-better">Data Quality and Provenance</a>. In a real project, the clue may be far less visible.</p>
+</details>
+<p>This is a <strong>silent failure</strong>: the code runs, and the numbers look plausible, but they have changed. It’s far more dangerous than a crash, because nothing stops you from publishing them. Here, the plot gave it away; a table of averages wouldn’t have.</p>
+<section id="what-could-alex-have-done" class="level3">
+<h3 class="anchored" data-anchor-id="what-could-alex-have-done">What could Alex have done?</h3>
+<p><strong>Your turn!</strong> Alex’s 2024 run printed two warnings (under Cells 2 and 4), each saying that pandas would soon behave differently. What could Alex have done to protect the results? Pick the options you’d recommend, then reveal our take.</p>
+<div id="pond-ct-need-warnings" class="pond-md-need" data-yes="Helps" data-no="Risky" data-button="Reveal our take">
+<div class="pond-md-option" data-name="Ignore the warnings">
+<p>That’s what Alex did, and it’s what most of us do. The code did run, and gave the right numbers, in 2024. The warnings were about the future: your present.</p>
+</div>
+<div class="pond-md-option" data-name="Turn warnings off">
+<p>A common habit in notebooks, to keep the output tidy. It hides the only clue you would have had in 2026.</p>
+</div>
+<div class="pond-md-option" data-name="Implement pandas' suggested changes" data-needed="true">
+<p>It would have worked, this time. But it only covers the changes that pandas had announced by 2024. pandas, or any other package, may change again, and the updated code could then break, loudly or silently. It also means that someone has to keep updating the notebook, for as long as anyone uses it.</p>
+</div>
+<div class="pond-md-option" data-name="Share the computational environment" data-needed="true">
+<p>The general solution. Record exactly which software, and which versions, the notebook ran with, and share that record with the notebook. Then anyone can rerun the notebook as it ran in 2024, whatever pandas does next, without changing a line of code. More on this below.</p>
 </div>
 </div>
+</section>
+<section id="key-takeaway-3" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-3">Key takeaway 3</h3>
+<p>The most dangerous failure is a silent one: the code runs, the numbers look plausible, but they have changed. Updating the code can deal with the changes announced so far, but not with those to come. Sharing the computational environment lets anyone rerun the code exactly as it ran.</p>
+</section>
+</section>
+<section id="what-should-alex-have-shared" class="level2">
+<h2 class="anchored" data-anchor-id="what-should-alex-have-shared">4. What should Alex have shared?</h2>
+<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes</span></p>
+<p>Alex shared the notebook and the data. <strong>Your turn!</strong> What else would you need to reproduce Alex’s results exactly, in 2026 or in 2036?</p>
+<div id="pond-ct-need-env" class="pond-md-need">
+<div class="pond-md-option" data-name="The version of pandas" data-needed="true">
+<p>The package that changed in this story.</p>
+</div>
+<div class="pond-md-option" data-name="The versions of all other packages" data-needed="true">
+<p>pandas relies on <a href="https://numpy.org/">NumPy</a> for its arithmetic, and the plot uses <a href="https://matplotlib.org/">matplotlib</a>. Any of them can change too.</p>
+</div>
+<div class="pond-md-option" data-name="The version of Python" data-needed="true">
+<p>Old versions of packages often can’t be installed on a newer Python, and new versions of packages drop support for older Pythons.</p>
+</div>
+<div class="pond-md-option" data-name="The operating system" data-needed="true">
+<p>Often overlooked. Most Python code behaves the same on Windows, macOS and Linux, but not always: some packages rely on parts of the operating system, which change too.</p>
+</div>
+<div class="pond-md-option" data-name="The date Alex ran the notebook">
+<p>A useful clue: it lets you guess which versions were current at the time. But a guess isn’t a record.</p>
+</div>
+<div class="pond-md-option" data-name="The brand of Alex's laptop">
+<p>Irrelevant, almost always: what matters is the software, not the hardware.</p>
+</div>
+<div class="pond-md-meta">
+<p><strong>Alex’s computational environment</strong>, as Alex reconstructed it from the old laptop:</p>
+<pre><code># Python 3.12, on macOS
+pandas==2.2.1
+numpy==1.26.4
+matplotlib==3.8.3</code></pre>
+<p>This short text file, usually called <code>requirements.txt</code>, lists each package and its exact version (<code>==</code> <em>pins</em> the version). With it, anyone can rebuild Alex’s environment with a single command, <code>pip install -r requirements.txt</code>. We did: in that environment, Alex’s original notebook gives exactly Alex’s numbers, with no crash and without changing a line of code. That will stay true whatever pandas does next.</p>
+<p>A <code>requirements.txt</code> file can’t install Python itself, or the operating system. Two other tools go further:</p>
+<ul>
+<li><strong>An environment file</strong> (e.g.&nbsp;<code>environment.yml</code>, for the <a href="https://docs.conda.io/">conda</a> package manager) can also pin the version of Python.</li>
+<li><strong>A container</strong> packages <em>everything</em>: the operating system, Python, and every package, in a single <em>image</em> that runs the same way on any computer, today or in ten years. Services such as <a href="https://mybinder.org/">Binder</a> build one from your repository and run your notebooks in a web browser, with nothing to install.</li>
+</ul>
+</div>
+</div>
+<p>All of this, the operating system, Python, and every package with its version, is called the <strong>computational environment</strong>. It is as much a part of a workflow as the code and the data.</p>
+<p>To learn how to describe your environment, share it with Binder, and build a container, dive into <a href="../../../deep-water/containers/index.html">Containers</a> in the Deep End.</p>
+<section id="key-takeaway-4" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-4">Key takeaway 4</h3>
+<p>A notebook and its data are not enough to reproduce a result: share the computational environment too. At a minimum, list every package with its exact version; to capture everything, use a container.</p>
+</section>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">5. Your turn</h2>
+<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes</span></p>
+<p><strong>Your turn!</strong> Think of an analysis you’ve done, with code, a spreadsheet, or a program with menus and buttons. If someone redid it in three years, what might have changed underneath it?</p>
+<div class="pond-md">
+  <label for="pond-ct-reflect"><strong>What might change under my analysis</strong></label>
+  <textarea id="pond-ct-reflect" class="pond-md-response pond-md-save" rows="5" placeholder="List the software, versions, or settings your analysis depends on..."></textarea>
+</div>
+<details class="pond-md-reveal">
+<summary>
+Compare with our answer
+</summary>
+<ul>
+<li><strong>Packages and libraries</strong>, as in this LilyPad: in Python, R, MATLAB, Julia, and others.</li>
+<li><strong>The programming language itself</strong>: Python 3.12 and Python 3.14 are not the same.</li>
+<li><strong>Spreadsheets and programs with menus</strong>: many update themselves automatically, so you may not even know which version you used. Write it down (it’s usually under “About”).</li>
+<li><strong>Online tools and services</strong>, which can change at any time without notice, or disappear.</li>
+<li><strong>Default settings</strong>: a new version may change a default, such as the number of decimals, how missing values are handled, or which method is used, without you changing a thing.</li>
+<li><strong>The operating system</strong>, and the libraries that come with it.</li>
+</ul>
+</details>
+<section id="so-did-you-reproduce-alexs-results" class="level3">
+<h3 class="anchored" data-anchor-id="so-did-you-reproduce-alexs-results">So, did you reproduce Alex’s results?</h3>
+<details class="pond-md-reveal pond-ct-recap">
+<summary>
+Compare the three runs
+</summary>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Alex, 2024 (pandas 2.2.1)</th>
+<th style="text-align: left;">You, latest pandas (3.1.1)</th>
+<th style="text-align: left;">You, with Alex’s environment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cell 4 (monthly plot)</td>
+<td style="text-align: left;">Runs, with a warning</td>
+<td style="text-align: left;"><strong>Crashes</strong>, until you implement pandas’ suggested change</td>
+<td style="text-align: left;">Runs, with no change to the code</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Average temperature</td>
+<td style="text-align: left;">11.77 °C</td>
+<td style="text-align: left;"><strong>10.66 °C</strong></td>
+<td style="text-align: left;">11.77 °C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Frost days</td>
+<td style="text-align: left;">57</td>
+<td style="text-align: left;"><strong>59</strong></td>
+<td style="text-align: left;">57</td>
+</tr>
+</tbody>
+</table>
+<p>Only by knowing Alex’s environment could you rerun the notebook as it was, and confirm which numbers were right.</p>
+</details>
+</section>
+<section id="key-takeaway-5" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-5">Key takeaway 5</h3>
+<blockquote class="blockquote">
+<p>Software changes, sometimes loudly (the code no longer runs) and sometimes silently (the code runs, but the numbers change). To make a workflow reproducible, share the computational environment along with the code and the data. (And if you have time, read the warnings your software gives you!)</p>
+</blockquote>
+</section>
+</section>
+<section id="try-it-yourself-optional" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-yourself-optional">Try it yourself (optional)</h2>
+<p>If you know some Python, you can rerun both versions yourself. Download the <a href="notebook/station_daily.csv">data</a>, <a href="notebook/station_analysis.ipynb">Alex’s notebook</a>, and the two environments: <a href="notebook/requirements-2024.txt">Alex’s (2024)</a> and <a href="notebook/requirements-2026.txt">ours (2026)</a>. Then, for each environment, create a separate Python 3.12 <a href="https://docs.python.org/3/library/venv.html">virtual environment</a>, install the packages with <code>pip install -r requirements-2024.txt</code> (or <code>-2026</code>), and run the notebook in it.</p>
+<hr>
+<p>Now that you know what it takes to rerun a workflow, how do you get credit for it? That’s the subject of the next LilyPad, <a href="../../../lilypads/workflow/citing-workflows/index.html">Citing Workflows</a>.</p>
+<div class="pond-md">
+  <p>Keep a record of your answers, side by side with ours, and the key takeaways.</p>
+  <button type="button" class="btn btn-primary" id="pond-ct-download">Download response summary</button>
+</div>
+<script src="../../../scripts/response-summary.js"></script>
+<script src="../../../scripts/pond-activities.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const state = Pond.store("pond-containers");
+  Pond.textBoxes(state);
+  Pond.whatifs(state);
+  const needs = Pond.needBanks(state);
+  Pond.restore(state, needs);
+
+  // ---------- Response summary (shared builder in scripts/response-summary.js) ----------
+
+  // A text box, then the "Compare with our answer" panel that follows it
+  function answerMd(box) {
+    const label = document.querySelector(`label[for="${box.id}"]`);
+    let s = `**${label ? label.textContent.trim() : "My answer"}**\n\n${box.value.trim() || "*No response entered.*"}`;
+    const ours = box.closest(".pond-md").nextElementSibling;
+    if (ours && ours.matches("details.pond-md-reveal")) s += "\n\n**Our answer:**\n\n" + PondSummary.blockMd(ours);
+    return s;
+  }
+
+  PondSummary.attach({
+    button: document.getElementById("pond-ct-download"),
+    filename: "containers-response-summary.md",
+    title: "Why Containers Matter",
+    idea: "Sharing your notebook and your data is a great start. But a notebook doesn't run on its own: it runs on top of software, and that software keeps changing.",
+    next: { text: "Citing Workflows", href: "../citing-workflows/index.html" },
+    handlers: [
+      { selector: ".pond-md-need", md: el => Pond.needMd(needs.find(n => n.bank === el)) },
+      { selector: "textarea.pond-md-save", md: answerMd },
+      { selector: ".pond-ct-recap", md: el => PondSummary.blockMd(el) }
+    ]
+  });
+});
+</script>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
