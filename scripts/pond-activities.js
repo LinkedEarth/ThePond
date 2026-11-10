@@ -1,6 +1,6 @@
 /*
  * Shared interactive components for The Pond's activity pages.
- * Uses the .pond-md-* styles in styles.css (first designed for lilypads/data/metadata).
+ * Uses the shared .pond-pad-* styles in styles.css (and .pond-md-* for "What would you need?").
  *
  * The response summary itself is built by scripts/response-summary.js (PondSummary);
  * this file only adds Pond.needMd, for PondSummary handlers.
@@ -11,7 +11,7 @@
  *
  *   const state = Pond.store("pond-mypage");     // learner answers, kept in this browser only
  *   Pond.textBoxes(state);                        // .pond-md-save inputs and textareas
- *   Pond.whatifs(state);                          // .pond-md-whatif single-choice groups
+ *   Pond.whatifs(state);                          // .pond-pad-whatif single-choice groups
  *   const needs = Pond.needBanks(state);          // .pond-md-need "pick, then reveal" activities
  *   Pond.restore(state, needs);                   // re-reveal what was revealed on an earlier visit
  *   PondSummary.attach({ ..., handlers: [{ selector: ".pond-md-need",
@@ -48,13 +48,13 @@
   }
 
   // ---------- Single-choice buttons that show a short verdict ----------
-  // <div class="pond-md-whatif" role="group" aria-label="Question">
-  //   <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="...">Option</button>
+  // <div class="pond-pad-whatif" role="group" aria-label="Question">
+  //   <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="...">Option</button>
   // </div>
-  // <p class="pond-md-take" aria-live="polite" hidden></p>
+  // <p class="pond-pad-take" aria-live="polite" hidden></p>
 
   function whatifs(state) {
-    const groups = [...document.querySelectorAll(".pond-md-whatif")];
+    const groups = [...document.querySelectorAll(".pond-pad-whatif")];
     groups.forEach((group, g) => {
       const out = group.nextElementSibling;
       const buttons = [...group.querySelectorAll("button")];
@@ -108,16 +108,16 @@
       const picks = saved.picks[id] = Array.isArray(saved.picks[id]) ? saved.picks[id] : [];
 
       const box = document.createElement("div");
-      box.className = "pond-md";
+      box.className = "pond-pad";
       box.innerHTML = `
-        <div class="pond-md-choices" role="group" aria-label="Options to choose from"></div>
-        <p class="pond-md-status" aria-live="polite"></p>
+        <div class="pond-pad-choices" role="group" aria-label="Options to choose from"></div>
+        <p class="pond-pad-status" aria-live="polite"></p>
         <button type="button" class="btn btn-primary"></button>
-        <div class="pond-md-cards" hidden></div>`;
-      const choices = box.querySelector(".pond-md-choices");
-      const status = box.querySelector(".pond-md-status");
+        <div class="pond-pad-cards" hidden></div>`;
+      const choices = box.querySelector(".pond-pad-choices");
+      const status = box.querySelector(".pond-pad-status");
       const revealBtn = box.querySelector(".btn-primary");
-      const cards = box.querySelector(".pond-md-cards");
+      const cards = box.querySelector(".pond-pad-cards");
       revealBtn.textContent = bank.dataset.button || "Reveal our answer";
 
       function updateStatus() {
@@ -127,7 +127,7 @@
       options.forEach(opt => {
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "pond-md-tag";
+        btn.className = "pond-pad-tag";
         btn.textContent = opt.name;
         btn.setAttribute("aria-pressed", String(picks.includes(opt.name)));
         btn.addEventListener("click", () => {
@@ -147,13 +147,13 @@
         cards.innerHTML = "";
         options.forEach(opt => {
           const card = document.createElement("div");
-          card.className = "pond-md-card" + (opt.needed ? " is-needed" : "");
+          card.className = "pond-pad-card" + (opt.needed ? " is-needed" : "");
           card.dataset.name = opt.name;
           card.classList.toggle("is-picked", picks.includes(opt.name));
-          card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-md-card-text"></div>`;
+          card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-pad-card-text"></div>`;
           card.querySelector("h4").textContent = opt.name;
           card.querySelector(".pond-md-badge").textContent = opt.needed ? yes : no;
-          card.querySelector(".pond-md-card-text").innerHTML = opt.html;
+          card.querySelector(".pond-pad-card-text").innerHTML = opt.html;
           cards.append(card);
         });
         cards.hidden = false;
@@ -166,7 +166,7 @@
 
       bank.querySelectorAll(":scope > .pond-md-option").forEach(div => div.remove());
       if (meta) {
-        meta.classList.add("pond-md-notes", "pond-md-meta-panel");
+        meta.classList.add("pond-pad-notes", "pond-md-meta-panel");
         meta.hidden = true;
       }
       bank.prepend(box);
