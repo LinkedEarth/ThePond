@@ -266,10 +266,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sharing your notebook and your data is a great start. But a notebook doesn’t run on its own: it runs on top of a <a href="https://en.wikipedia.org/wiki/Solution_stack">software stack</a>, and that stacks is always evolving. In this LilyPad, you’ll see what consequences this can have for scientific reproducibility, and one popular solution to this problem.</p>
 <section id="the-inherited-notebook" class="level2">
 <h2 class="anchored" data-anchor-id="the-inherited-notebook">1. The inherited notebook</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 5 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 5 minutes</span></p>
 <p>It’s fall 2026, and you’ve just joined a lab. Your advisor asks you to extend a project that Alex, a former lab member, started: an analysis of five years (2019–2023) of daily temperatures from the lab’s weather station. Before adding new years, you want to check that you can reproduce Alex’s results.</p>
 <p>Alex left you two files. The first is the data, <code>station_daily.csv</code>: one row per day, with the day’s average temperature in °C. On days when the sensor failed, the temperature is recorded as <code>-999</code>:</p>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>date,temp_C
 2019-01-01,2.3
 2019-01-02,3.6
@@ -278,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2020-02-11,-999.0
 ...</code></pre>
 </div>
-<p><span class="pond-md-credit">Fictional weather station and values, created for The Pond (2026).</span></p>
+<p><span class="pond-pad-credit">Fictional weather station and values, created for The Pond (2026).</span></p>
 <p>The second is a <a href="../../../lilypads/workflow/sketches-vs-notebooks/index.html">Jupyter notebook</a>, saved in March 2024 with its outputs. It’s written in Python and uses <a href="https://pandas.pydata.org/">pandas</a>, a widely used package for working with data tables. You don’t need to know Python programming for this exercise: the comments (lines that start with <code>#</code>) say what each step does.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -298,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="Cell 2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mark the sensor failures (-999) as missing</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"temp_C"</span>][df[<span class="st">"temp_C"</span>] <span class="op">==</span> <span class="op">-</span><span class="dv">999</span>] <span class="op">=</span> <span class="va">None</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain
 cases, but when using Copy-on-Write (which will become the default behaviour in
@@ -313,7 +313,7 @@ Use `df.loc[row_indexer, "col"] = values` instead [...]</code></pre>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Average temperature (°C):"</span>, <span class="bu">round</span>(df[<span class="st">"temp_C"</span>].mean(), <span class="dv">2</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Frost days, 2019–2023:"</span>, (df[<span class="st">"temp_C"</span>] <span class="op">&lt;</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>Average temperature (°C): 11.77
 Frost days, 2019–2023: 57</code></pre>
 </div>
@@ -326,7 +326,7 @@ Frost days, 2019–2023: 57</code></pre>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>monthly.plot(ylabel<span class="op">=</span><span class="st">"Monthly average temperature (°C)"</span>, xlabel<span class="op">=</span><span class="st">""</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>FutureWarning: 'M' is deprecated and will be removed in a future version,
 please use 'ME' instead.</code></pre>
 </div>
@@ -338,29 +338,29 @@ please use 'ME' instead.</code></pre>
 </div>
 <p>Cells 2 and 4 printed warnings. Like most of us, Alex scrolled past them: the notebook ran, and the results looked fine. Apart from the two files, Alex left no other notes.</p>
 <p><strong>Your turn!</strong> You’ll run the same notebook, on the same data. What do you expect?</p>
-<div class="pond-md-whatif" role="group" aria-label="Same notebook, same data: what do you expect?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="That's what most people expect: same code, same data, same numbers. Let's find out.">Exactly the same results</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Why would they differ? Keep your reason in mind, and let's find out.">Slightly different results</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="A cautious guess. What could stop it? Let's find out.">It might not run at all</button>
+<div class="pond-pad-whatif" role="group" aria-label="Same notebook, same data: what do you expect?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="That's what most people expect: same code, same data, same numbers. Let's find out.">Exactly the same results</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Why would they differ? Keep your reason in mind, and let's find out.">Slightly different results</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="A cautious guess. What could stop it? Let's find out.">It might not run at all</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 </section>
 <section id="the-notebook-crashes" class="level2">
 <h2 class="anchored" data-anchor-id="the-notebook-crashes">2. The notebook crashes</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 5 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 5 minutes</span></p>
 <p>You install Python on your laptop, then pandas and matplotlib the usual way (<code>pip install pandas matplotlib</code>), which gives you their latest versions. You run the notebook. Cells 1 to 3 run. Cell 4 stops with an error:</p>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>ValueError: Invalid frequency: M. Failed to parse with error message:
 ValueError("'M' is no longer supported for offsets. Please use 'ME' instead.")</code></pre>
 </div>
 <p><strong>Your turn!</strong> Code that ran for Alex fails for you. Why do you think that is?</p>
-<div class="pond-md-whatif" role="group" aria-label="Why does the code fail now?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Unlikely: cells 1 to 3 read and used the data without trouble. And the error is about &quot;M&quot;, which is in the code, not in the data.">The data file is damaged</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Alex's notebook ran, and saved its outputs, in 2024. The code worked then. What has changed since?">Alex's code always had a bug</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right. Same code, same data: the difference is the software it runs on. The message even says so: &quot;'M' is no longer supported&quot;.">The software has changed</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="It happens, but this message is specific: &quot;'M' is no longer supported&quot;. That's the software telling you that it changed.">Something is wrong with my computer</button>
+<div class="pond-pad-whatif" role="group" aria-label="Why does the code fail now?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Unlikely: cells 1 to 3 read and used the data without trouble. And the error is about &quot;M&quot;, which is in the code, not in the data.">The data file is damaged</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Alex's notebook ran, and saved its outputs, in 2024. The code worked then. What has changed since?">Alex's code always had a bug</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right. Same code, same data: the difference is the software it runs on. The message even says so: &quot;'M' is no longer supported&quot;.">The software has changed</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="It happens, but this message is specific: &quot;'M' is no longer supported&quot;. That's the software telling you that it changed.">Something is wrong with my computer</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 <p>You email Alex, who finds the old laptop and checks: in March 2024, they used <strong>pandas 2.2.1</strong>. Your laptop has <strong>pandas 3.1.1</strong>. In between, pandas 3.0 (<a href="https://pandas.pydata.org/docs/whatsnew/v3.0.0.html">released in January 2026</a>) stopped accepting <code>"M"</code> to mean “month”, in favor of <code>"ME"</code> (“month end”).</p>
 <p>Here, the error message says what to do. You follow pandas’ suggestion, change <code>"M"</code> to <code>"ME"</code> in Cell 4, and the cell runs.</p>
 <p>This is a <strong>gross failure</strong>: code that ran with one version of the software doesn’t run with another. It’s annoying, but it’s honest: you <em>know</em> that something is wrong, and the error message often tells you how to fix it.</p>
@@ -372,26 +372,26 @@ ValueError("'M' is no longer supported for offsets. Please use 'ME' instead.")</
 </section>
 <section id="it-runs-are-we-done" class="level2">
 <h2 class="anchored" data-anchor-id="it-runs-are-we-done">3. It runs! Are we done?</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 8 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 8 minutes</span></p>
 <p>With that change, the notebook runs to the end. Here is what Cell 3 prints on your laptop:</p>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>Average temperature (°C): 10.66
 Frost days, 2019–2023: 59</code></pre>
 </div>
 <p><strong>Your turn!</strong> Scroll up and compare with Alex’s results. Did you reproduce them?</p>
-<div class="pond-md-whatif" role="group" aria-label="Did you reproduce Alex's results?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Look again: 10.66 °C instead of 11.77 °C, and 59 frost days instead of 57.">Yes, exactly</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Tempting: 1.1 °C and 2 frost days out of 1,826 days look small. But same code and same data should give the same numbers. And 1.1 °C is about how much Earth's average surface temperature has risen since the late 1800s: not a small number for a climate scientist.">Close enough</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: same data, (almost) same code, different numbers. The average is 1.1 °C lower, and there are 2 more frost days.">No</button>
+<div class="pond-pad-whatif" role="group" aria-label="Did you reproduce Alex's results?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Look again: 10.66 °C instead of 11.77 °C, and 59 frost days instead of 57.">Yes, exactly</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Tempting: 1.1 °C and 2 frost days out of 1,826 days look small. But same code and same data should give the same numbers. And 1.1 °C is about how much Earth's average surface temperature has risen since the late 1800s: not a small number for a climate scientist.">Close enough</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: same data, (almost) same code, different numbers. The average is 1.1 °C lower, and there are 2 more frost days.">No</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 <p><strong>Your turn!</strong> Which result is right?</p>
-<div class="pond-md-whatif" role="group" aria-label="Which result is right?">
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Maybe, but how would you know? Alex's result is older, not necessarily better.">Alex's (2024)</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Maybe, but how would you know? Your software is newer, not necessarily better.">Mine (2026)</button>
-  <button type="button" class="pond-md-tag" aria-pressed="false" data-verdict="Right: from the numbers alone, you can't tell. Both came from the same data and code. You need to look more closely.">I can't tell</button>
+<div class="pond-pad-whatif" role="group" aria-label="Which result is right?">
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Maybe, but how would you know? Alex's result is older, not necessarily better.">Alex's (2024)</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Maybe, but how would you know? Your software is newer, not necessarily better.">Mine (2026)</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Right: from the numbers alone, you can't tell. Both came from the same data and code. You need to look more closely.">I can't tell</button>
 </div>
-<p class="pond-md-take" aria-live="polite" hidden=""></p>
+<p class="pond-pad-take" aria-live="polite" hidden=""></p>
 <p>Let’s look more closely. Here is the plot from Cell 4, on your laptop:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -399,11 +399,11 @@ Frost days, 2019–2023: 59</code></pre>
 <figcaption>Your plot (2026).</figcaption>
 </figure>
 </div>
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-ct-notice"><strong>What do you notice? Compare it with Alex's plot.</strong></label>
-  <textarea id="pond-ct-notice" class="pond-md-response pond-md-save" rows="3" placeholder="Anything odd?"></textarea>
+  <textarea id="pond-ct-notice" class="pond-pad-response pond-md-save" rows="3" placeholder="Anything odd?"></textarea>
 </div>
-<details class="pond-md-reveal">
+<details class="pond-pad-reveal">
 <summary>
 Compare with our answer
 </summary>
@@ -415,7 +415,7 @@ Compare with our answer
 </ul>
 <p><strong>Why?</strong> Cell 2 is unchanged, and it still says what it means. What changed is how pandas carries out this kind of instruction. With pandas 3, Cell 2 cleans a temporary <em>copy</em> of the temperatures, which is then thrown away, and the table itself is left untouched. It’s like copying a column of a spreadsheet into a new sheet, cleaning it there, and never pasting it back. Nothing in Alex’s code is wrong: the software underneath it changed.</p>
 <p>Did pandas warn anyone? Yes, twice. In 2024, Cell 2 warned Alex that this way of writing would stop working in pandas 3.0, and suggested another (scroll back up to see). In 2026, Cell 2 printed:</p>
-<div class="pond-md-notes">
+<div class="pond-pad-notes">
 <pre><code>ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment.</code></pre>
 </div>
 <p>Despite its name, this is a <em>warning</em>, not an error: pandas reports it, then carries on, so the notebook runs to the end. The warning was there in both years; it was just easy to ignore.</p>
@@ -447,7 +447,7 @@ Compare with our answer
 </section>
 <section id="what-should-alex-have-shared" class="level2">
 <h2 class="anchored" data-anchor-id="what-should-alex-have-shared">4. What should Alex have shared?</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 6 minutes</span></p>
 <p>Alex shared the notebook and the data. <strong>Your turn!</strong> What else would you need to reproduce Alex’s results exactly, in 2026 or in 2036?</p>
 <div id="pond-ct-need-env" class="pond-md-need">
 <div class="pond-md-option" data-name="The version of pandas" data-needed="true">
@@ -491,13 +491,13 @@ matplotlib==3.8.3</code></pre>
 </section>
 <section id="your-turn" class="level2">
 <h2 class="anchored" data-anchor-id="your-turn">5. Your turn</h2>
-<p><span class="pond-md-time"><i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes</span></p>
+<p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 4 minutes</span></p>
 <p><strong>Your turn!</strong> Think of an analysis you’ve done, with code, a spreadsheet, or a program with menus and buttons. If someone redid it in three years, what might have changed underneath it?</p>
-<div class="pond-md">
+<div class="pond-pad">
   <label for="pond-ct-reflect"><strong>What might change under my analysis</strong></label>
-  <textarea id="pond-ct-reflect" class="pond-md-response pond-md-save" rows="5" placeholder="List the software, versions, or settings your analysis depends on..."></textarea>
+  <textarea id="pond-ct-reflect" class="pond-pad-response pond-md-save" rows="5" placeholder="List the software, versions, or settings your analysis depends on..."></textarea>
 </div>
-<details class="pond-md-reveal">
+<details class="pond-pad-reveal">
 <summary>
 Compare with our answer
 </summary>
@@ -512,7 +512,7 @@ Compare with our answer
 </details>
 <section id="so-did-you-reproduce-alexs-results" class="level3">
 <h3 class="anchored" data-anchor-id="so-did-you-reproduce-alexs-results">So, did you reproduce Alex’s results?</h3>
-<details class="pond-md-reveal pond-ct-recap">
+<details class="pond-pad-reveal pond-ct-recap">
 <summary>
 Compare the three runs
 </summary>
@@ -567,7 +567,7 @@ Compare the three runs
 <p>If you know some Python, you can rerun both versions yourself. Download the <a href="notebook/station_daily.csv">data</a>, <a href="notebook/station_analysis.ipynb">Alex’s notebook</a>, and the two environments: <a href="notebook/requirements-2024.txt">Alex’s (2024)</a> and <a href="notebook/requirements-2026.txt">ours (2026)</a>. Then, for each environment, create a separate Python 3.12 <a href="https://docs.python.org/3/library/venv.html">virtual environment</a>, install the packages with <code>pip install -r requirements-2024.txt</code> (or <code>-2026</code>), and run the notebook in it.</p>
 <hr>
 <p>Now that you know what it takes to rerun a workflow, how do you get credit for it? That’s the subject of the next LilyPad, <a href="../../../lilypads/workflow/citing-workflows/index.html">Citing Workflows</a>.</p>
-<div class="pond-md">
+<div class="pond-pad">
   <p>Keep a record of your answers, side by side with ours, and the key takeaways.</p>
   <button type="button" class="btn btn-primary" id="pond-ct-download">Download response summary</button>
 </div>
@@ -587,8 +587,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function answerMd(box) {
     const label = document.querySelector(`label[for="${box.id}"]`);
     let s = `**${label ? label.textContent.trim() : "My answer"}**\n\n${box.value.trim() || "*No response entered.*"}`;
-    const ours = box.closest(".pond-md").nextElementSibling;
-    if (ours && ours.matches("details.pond-md-reveal")) s += "\n\n**Our answer:**\n\n" + PondSummary.blockMd(ours);
+    const ours = box.closest(".pond-pad").nextElementSibling;
+    if (ours && ours.matches("details.pond-pad-reveal")) s += "\n\n**Our answer:**\n\n" + PondSummary.blockMd(ours);
     return s;
   }
 
