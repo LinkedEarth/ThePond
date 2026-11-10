@@ -29,6 +29,8 @@ The recommended thresholds also vary by medium:
 | **Tap water** | Public utility action level | 10 ppb (0.010 mg/L) |
 :::
 
+<br>
+
 ## 1. Where did this value come from?
 
 [<i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes]{.pond-pad-time}
@@ -116,11 +118,11 @@ Here is the same survey, with the information that was missing:
 | PB-005 | WASHINGTON ELEM. | Tap water | 1 | Lab spectrometer | 8 | ppb | ± 1 | 10 ppb | Yes |
 :::
 
-Two schools have changed from "Yes" to "No." The new employee had applied the soil threshold, 400, to every row, whatever the medium and units.
+Two schools have changed from "Yes" to "No." The new employee had applied the soil threshold, 400, to every row, regardless of the medium and units.
 
 **Your turn!**
 
-1. Which stage of the data has actually been archived?
+1. Which stage of the data processing is reflected in what was archived?
 2. Can the processed value be traced back to the original observations?
 3. What transformations occurred?
 4. Are those transformations documented?
@@ -404,7 +406,7 @@ The instrument is only one source of uncertainty. Other uncertainties can enter 
 
 ### Key takeaway 2
 
-A reported number is only as meaningful as what we know about its uncertainty. Report only the digits the measurement supports, state the uncertainty, and remember that the instrument is rarely the only source of uncertainty.
+A reported number is only as meaningful as its significant digits, i.e. its uncertainty. Report only the digits the measurement supports, state the uncertainty, and remember that the instrument is rarely the only source of uncertainty.
 
 ## 3. Are the data adequate to the purpose?
 
@@ -416,7 +418,7 @@ That soil came from **one spot**, about 2 meters from the school building's wall
 
 ### 3.1 One measurement, four questions
 
-**Your turn!** Is this one measurement enough to answer each of these questions?
+**Your turn!** Is this one measurement sufficient to answer each of these questions?
 
 ```{=html}
 <div id="pond-dq-claims" class="pond-pad"></div>
@@ -460,7 +462,7 @@ The measurement never changed. What changed was the **claim** that could be made
 
 #### Key takeaway 3.1
 
-The same measurement can answer one question well and another not at all. Metadata help others figure out which claims they could make (or not) by re-using your data.
+The same measurement can simultaneously answer one question well and another not at all. Metadata help others figure out which claims they could make (or not) by re-using your data.
 
 ### 3.2 Where would you sample?
 
@@ -515,7 +517,7 @@ Good sampling follows the question. To estimate the **average**, spread samples 
 
 #### Key takeaway 3.2
 
-Where you sample decides what you can conclude. Fit the sampling to the question: spread samples out to estimate an average, and target likely sources to find hotspots.
+Where you sample affects what you can conclude. Fit the sampling to the question: spread samples out to estimate an average, and target likely sources to find hotspots.
 
 ### Key takeaway 3
 
@@ -584,7 +586,7 @@ Two independent sources of uncertainty contribute to the average:
 - the scatter between the readings (the standard error of the mean, about 5 ppm);
 - the bias correction, which is only as good as the reference soil's certificate (about 5 ppm).
 
-Independent uncertainties don't simply add up: some of the time they partly cancel. Combined, they amount to about 7 ppm, and twice that gives an approximate 95% range of **± 14 ppm**. You don't need to do this calculation yourself; the point is that the reported ± should say which sources it includes.
+Independent uncertainties don't simply add up; some of the time they partly cancel. Combined, they amount to about 7 ppm, and twice that gives an approximate 95% range of **± 14 ppm**. You don't need to do this calculation yourself; the point is that the reported ± should say which sources it includes.
 
 </details>
 
@@ -652,10 +654,10 @@ The soil was dried and sieved before analysis.
 
 ```{=html}
 <div class="pond-pad-whatif" role="group" aria-label="Which uncertainty matters most for the council's question?">
-  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Small here: about ± 5 ppm. It would matter mostly if the value sat right at the threshold.">Scatter between readings</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Small here: about ± 5 ppm. It would be consequential if the value sat right at the threshold.">Scatter between readings</button>
   <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="The correction itself mattered a lot: without it, the value would be 459 ppm instead of 427. But its remaining uncertainty is only a few ppm.">Bias correction</button>
   <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Most likely. In Activity 3, lead varied from 15 to 880 ppm within a single playground. That dwarfs a ± of 14 ppm.">Sampling a single spot</button>
-  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="It could matter if something changed since March (renovation work, new mulch), but lead in soil usually changes slowly.">Collection date</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="It could matter if something had changed since March (renovation work, new mulch), but lead in soil usually changes slowly.">Collection date</button>
 </div>
 <p class="pond-pad-take" aria-live="polite" hidden></p>
 ```
@@ -694,11 +696,11 @@ This report doesn't settle whether the playground is safe. But it tells the coun
 
 #### Key takeaway 4.4
 
-A good report lets readers judge a value without having to ask you: what was measured, how, how well, and what the number does not cover.
+A good report provides ample context for a reader to interpret a value without having to ask follow up questions like: What was measured? How was it measured? How precisely/accurately? What is not captured by the reported value?
 
 ### Key takeaway 4
 
-An uncertainty report is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can't be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question the data are used for.
+An uncertainty report is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can't be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question for which the data are used.
 
 ## 5. Do you trust this dataset?
 

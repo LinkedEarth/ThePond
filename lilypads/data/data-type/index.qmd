@@ -5,9 +5,12 @@ title: "Different Types of Data"
 
 ## 1. What types of data do you work with?
 
-When we think about scientific data, we often picture a spreadsheet filled with numbers. But scientific data come in many different forms.
+When we think about scientific data, we often picture a spreadsheet filled with numbers. Yet scientific data may come in many shapes and sizes:
 
-A climate scientist might work with temperature measurements, satellite images, and climate model outputs. A geologist might use field notes, maps, and photographs of rock samples. A biologist might work with DNA sequences, microscope images, or observations of animal behavior.
+- A climate scientist might work with temperature measurements, satellite images, and climate model output.
+- A geologist might use field notes, maps, and photographs of rock samples. 
+- An astronomer might use high-resolution pictures of the night sky at various wavelengths. 
+- A biologist might work with DNA sequences, microscope images, or observations of animal behavior. 
 
 All of these contain scientific information, but they represent that information in very different ways.
 
@@ -28,7 +31,7 @@ viewof dataExamples = Inputs.textarea({
 
 ### A question to challenge your thinking
 
-**Is a laboratory or field notebook scientific data? Why or why not?**
+**Are the raw contents of a lab or field notebook scientific data in their own right? Why or why not?**
 
 There isn't necessarily a single right answer. Think about what information a notebook contains and how that information might be used in scientific research.
 
@@ -51,7 +54,7 @@ downloadReflection = {
     "",
     dataExamples || "_No response entered._",
     "",
-    "## Is a laboratory or field notebook scientific data?",
+    "## Are the raw contents of a lab or field notebook scientific data in their own right?",
     "",
     notebookResponse || "_No response entered._",
     ""
