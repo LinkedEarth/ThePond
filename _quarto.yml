@@ -66,5 +66,7 @@ format:
     css: styles.css
     toc: true
 
-
-
+# Breadcrumbs (top of page) and previous/next links (bottom), built from the
+# site map in _navigation.yml.
+filters:
+  - filters/pond-nav.lua
