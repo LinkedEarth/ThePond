@@ -12,7 +12,7 @@ These LilyPads build on one another. **Start with LilyPad 1 and work through the
 ::: {.card-body}
 ### 1. Different Types of Data
 
-Data can be structured in very different ways. The structure of the data affects how it is interpreted, documented, and reused.
+What kinds of data are there, and why does the difference matter?
 
 [Start LilyPad →](data-type/index.qmd)
 :::
@@ -24,7 +24,7 @@ Data can be structured in very different ways. The structure of the data affects
 ::: {.card-body}
 ### 2. Metadata for Reuse
 
-Having the data file is not enough to use it correctly. Metadata are needed to interpret variables, units, missing values, QC fields, provenance, and reuse conditions.
+What do you need to know about a dataset before you can use it?
 
 [Start LilyPad →](metadata/index.qmd)
 :::
@@ -36,7 +36,7 @@ Having the data file is not enough to use it correctly. Metadata are needed to i
 ::: {.card-body}
 ### 3. Data Quality and Provenance
 
-Data quality is not simply “good” or “bad”; it depends on the scientific question. Provenance records how data were created and transformed, allowing users to assess whether they are appropriate for a particular use. 
+How do you judge whether a dataset is fit for your purpose?
 
 [Start LilyPad →](data-quality/index.qmd)
 :::
@@ -48,7 +48,7 @@ Data quality is not simply “good” or “bad”; it depends on the scientific
 ::: {.card-body}
 ### 4. Databases, Repositories, Identifiers, and Versions
 
-Databases and repositories serve different purposes. Repositories support preservation, discovery, access, and citation, while databases often support querying and ongoing data access. Persistent identifiers and versioning help ensure that researchers can find and refer to the specific data product that was actually used.
+Where do data live, and how can others find the exact version you used?
 
 [Start LilyPad →](db-repo-pid/index.qmd)
 :::
@@ -60,7 +60,7 @@ Databases and repositories serve different purposes. Repositories support preser
 ::: {.card-body}
 ### 5. Preparing Data for Sharing and Reuse
 
-Publishing a file is not the same as making data reusable. A reusable dataset needs sufficient documentation, metadata, provenance, appropriate licensing, clear organization, and information about how the data were processed. 
+What does it take to get a dataset ready for others to reuse?
 
 [Start LilyPad →](sharing-data/index.qmd)
 :::
@@ -72,7 +72,7 @@ Publishing a file is not the same as making data reusable. A reusable dataset ne
 ::: {.card-body}
 ### 6. Citing Data in Manuscripts
 
-Explore how datasets can be documented, shared, and cited as research products.
+How should you give credit to the data you use in your work?
 
 [Start LilyPad →](citing-data/index.qmd)
 :::
