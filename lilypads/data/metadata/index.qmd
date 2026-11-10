@@ -392,7 +392,7 @@ Having data is not the same as being allowed to share them. State the license an
 
 ### So, is the playground above 400 ppm?
 
-<details class="pond-pad-reveal">
+<details class="pond-pad-reveal pond-md-recap">
 <summary>Compare the file as received with what the metadata told you</summary>
 
 | | From the file alone | With the metadata |
@@ -613,129 +613,17 @@ Now that you understand what the MADISON ELEM. data mean, a new question arises:
 ```
 
 ```{=html}
+<script src="../../../scripts/response-summary.js"></script>
+<script src="../../../scripts/pond-activities.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Learner answers stay in this browser only
-  const storageKey = "pond-metadata";
-  let saved = {};
-  try {
-    saved = JSON.parse(localStorage.getItem(storageKey)) || {};
-  } catch (e) {}
-  ["revealed", "dropped", "surface"].forEach(k => { if (!Array.isArray(saved[k])) saved[k] = []; });
-  ["notes", "picks", "whatif"].forEach(k => { if (typeof saved[k] !== "object" || !saved[k]) saved[k] = {}; });
-  function save() {
-    try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch (e) {}
-  }
-
-  // Free-text and number answers
-  document.querySelectorAll(".pond-md-save").forEach(box => {
-    box.value = saved.notes[box.id] || "";
-    box.addEventListener("input", () => { saved.notes[box.id] = box.value; save(); });
-  });
-
-  // Single-choice buttons that show a short verdict
-  const whatifs = [...document.querySelectorAll(".pond-pad-whatif")];
-  whatifs.forEach((group, g) => {
-    const out = group.nextElementSibling;
-    const buttons = [...group.querySelectorAll("button")];
-    function choose(i) {
-      buttons.forEach((b, j) => b.setAttribute("aria-pressed", String(i === j)));
-      out.textContent = buttons[i].dataset.verdict;
-      out.hidden = false;
-    }
-    buttons.forEach((btn, i) => btn.addEventListener("click", () => {
-      saved.whatif[g] = i;
-      save();
-      choose(i);
-    }));
-    if (buttons[saved.whatif[g]]) choose(saved.whatif[g]);
-  });
-
-  // Elements shown only after a given "What would you need?" activity is revealed
-  const hooks = {};
-  document.querySelectorAll("[data-after]").forEach(el => { el.hidden = true; });
-  function showAfter(id) {
-    document.querySelectorAll(`[data-after="${id}"]`).forEach(el => { el.hidden = false; });
-    if (hooks[id]) hooks[id]();
-  }
-
-  // "What would you need?": pick options, then reveal what each one is for, and the metadata
-  const needs = [];
-  document.querySelectorAll(".pond-md-need").forEach(bank => {
-    const id = bank.id;
-    const yes = bank.dataset.yes || "Needed";
-    const no = bank.dataset.no || "Not needed";
-    const options = [...bank.querySelectorAll(":scope > .pond-md-option")].map(div => ({
-      name: div.dataset.name, needed: div.dataset.needed === "true", html: div.innerHTML
-    }));
-    const meta = bank.querySelector(":scope > .pond-md-meta");
-    const picks = saved.picks[id] = Array.isArray(saved.picks[id]) ? saved.picks[id] : [];
-
-    const box = document.createElement("div");
-    box.className = "pond-pad";
-    box.innerHTML = `
-      <div class="pond-pad-choices" role="group" aria-label="Options to choose from"></div>
-      <p class="pond-pad-status" aria-live="polite"></p>
-      <button type="button" class="btn btn-primary"></button>
-      <div class="pond-pad-cards" hidden></div>`;
-    const choices = box.querySelector(".pond-pad-choices");
-    const status = box.querySelector(".pond-pad-status");
-    const revealBtn = box.querySelector(".btn-primary");
-    const cards = box.querySelector(".pond-pad-cards");
-    revealBtn.textContent = bank.dataset.button || "Reveal our answer";
-
-    function updateStatus() {
-      status.textContent = picks.length ? `${picks.length} of ${options.length} selected.` : "Nothing selected yet.";
-    }
-
-    options.forEach(opt => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "pond-pad-tag";
-      btn.textContent = opt.name;
-      btn.setAttribute("aria-pressed", String(picks.includes(opt.name)));
-      btn.addEventListener("click", () => {
-        const on = btn.getAttribute("aria-pressed") !== "true";
-        btn.setAttribute("aria-pressed", String(on));
-        if (on) picks.push(opt.name); else picks.splice(picks.indexOf(opt.name), 1);
-        save();
-        updateStatus();
-        const card = cards.querySelector(`[data-name="${CSS.escape(opt.name)}"]`);
-        if (card) card.classList.toggle("is-picked", on);
-      });
-      choices.append(btn);
-    });
-    updateStatus();
-
-    function reveal() {
-      cards.innerHTML = "";
-      options.forEach(opt => {
-        const card = document.createElement("div");
-        card.className = "pond-pad-card" + (opt.needed ? " is-needed" : "");
-        card.dataset.name = opt.name;
-        card.classList.toggle("is-picked", picks.includes(opt.name));
-        card.innerHTML = `<h4></h4><span class="pond-md-badge"></span><div class="pond-pad-card-text"></div>`;
-        card.querySelector("h4").textContent = opt.name;
-        card.querySelector(".pond-md-badge").textContent = opt.needed ? yes : no;
-        card.querySelector(".pond-pad-card-text").innerHTML = opt.html;
-        cards.append(card);
-      });
-      cards.hidden = false;
-      revealBtn.hidden = true;
-      if (meta) meta.hidden = false;
-      if (!saved.revealed.includes(id)) { saved.revealed.push(id); save(); }
-      showAfter(id);
-    }
-    revealBtn.addEventListener("click", reveal);
-
-    bank.querySelectorAll(":scope > .pond-md-option").forEach(div => div.remove());
-    if (meta) {
-      meta.classList.add("pond-pad-notes", "pond-md-meta-panel");
-      meta.hidden = true;
-    }
-    bank.prepend(box);
-    needs.push({ id, reveal, bank, options, picks, yes, no, meta });
-  });
+  // Learner answers stay in this browser only (shared widgets in scripts/pond-activities.js)
+  const state = Pond.store("pond-metadata");
+  const { saved, save, hooks } = state;
+  ["dropped", "surface"].forEach(k => { if (!Array.isArray(saved[k])) saved[k] = []; });
+  Pond.textBoxes(state);
+  Pond.whatifs(state);
+  const needs = Pond.needBanks(state);
 
   // 1.2 What does the learner's depth answer imply?
   function depthMessage(v) {
@@ -837,156 +725,39 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Restore activities revealed on an earlier visit (after the hooks exist)
-  needs.forEach(n => { if (saved.revealed.includes(n.id)) n.reveal(); });
+  Pond.restore(state, needs);
 
-  // ---------- Response summary ----------
-  // Built from the page itself, so it follows any edits to the text.
-
-  // Convert page HTML to Markdown (only the elements this page uses)
-  function inlineMd(node) {
-    let s = "";
-    node.childNodes.forEach(n => {
-      if (n.nodeType === Node.TEXT_NODE) { s += n.textContent.replace(/\s+/g, " "); return; }
-      if (n.nodeType !== Node.ELEMENT_NODE || n.classList.contains("anchorjs-link")) return;
-      const inner = inlineMd(n);
-      switch (n.tagName) {
-        case "STRONG": case "B": s += `**${inner.trim()}**`; break;
-        case "EM": case "I": s += `*${inner.trim()}*`; break;
-        case "CODE": s += "`" + n.textContent + "`"; break;
-        case "A": s += `[${inner.trim()}](${n.href})`; break;
-        case "BR": s += "  \n"; break;
-        default: s += inner;
-      }
-    });
-    return s;
-  }
-  function blockMd(node) {
-    const blocks = [];
-    [...node.children].forEach(el => {
-      switch (el.tagName) {
-        case "P": blocks.push(inlineMd(el).trim()); break;
-        case "UL": case "OL":
-          blocks.push([...el.children].map(li => "- " + inlineMd(li).trim()).join("\n")); break;
-        case "TABLE": {
-          const rows = [...el.querySelectorAll("tr")].map(tr =>
-            "| " + [...tr.cells].map(c => inlineMd(c).trim().replace(/\|/g, "\\|")).join(" | ") + " |");
-          if (rows.length) rows.splice(1, 0, "|" + " --- |".repeat(el.rows[0].cells.length));
-          blocks.push(rows.join("\n")); break;
-        }
-        case "PRE": blocks.push("```\n" + el.textContent.trim() + "\n```"); break;
-        case "BLOCKQUOTE": blocks.push(blockMd(el).split("\n").map(l => "> " + l).join("\n")); break;
-        case "SUMMARY": case "BUTTON": break;
-        default: if (el.children.length) blocks.push(blockMd(el));
-      }
-    });
-    return blocks.filter(Boolean).join("\n\n");
-  }
+  // ---------- Response summary (shared builder in scripts/response-summary.js) ----------
 
   const limitText = v => v > 400 ? "**above** the 400 ppm limit" : "below the 400 ppm limit";
-  const labelFor = id => {
-    const label = document.querySelector(`label[for="${id}"]`);
-    return label ? label.textContent.trim() : "My answer";
-  };
+  const csv = document.querySelector("#quarto-document-content pre, main pre");
 
-  function needMd(n) {
-    const lines = [];
-    n.options.forEach(opt => {
-      const picked = n.picks.includes(opt.name);
-      if (picked && opt.needed) lines.push(`- ✓ ${opt.name}`);
-      else if (picked) lines.push(`- ✗ ${opt.name} (${n.no.toLowerCase()})`);
-      else if (opt.needed) lines.push(`- ○ ${opt.name} (missed)`);
-    });
-    let s = "**My choices** (✓ = matches our answer, ✗ = doesn't, ○ = missed):\n\n" + lines.join("\n");
-    if (n.meta) s += "\n\n" + blockMd(n.meta);
-    else s += "\n\n" + n.options.filter(o => o.needed).map(o => {
-      const tmp = document.createElement("div");
-      tmp.innerHTML = o.html;
-      return `**Our take: ${o.name}.** ${blockMd(tmp)}`;
-    }).join("\n\n");
-    return s;
-  }
-
-  function buildSummary() {
-    const root = document.getElementById("quarto-document-content") || document.querySelector("main") || document.body;
-    const out = [
-      "# Metadata for Reuse: my response summary",
-      "",
-      `*From [The Pond](${location.href.split("#")[0]}), downloaded on ${new Date().toLocaleDateString()}.*`,
-      "",
-      "> A data file is not necessarily usable just because it opens."
-    ];
-    const csv = root.querySelector("pre");
-    if (csv) out.push("", "## The file I was given", "", "```", csv.textContent.trim(), "```");
-
-    let pending = null;                     // a heading is written only if something follows it
-    const emit = text => {
-      if (pending) { out.push("", pending); pending = null; }
-      out.push("", text);
-    };
-    const selector = "h2, h3, h4, .pond-pad-whatif, .pond-md-need, #pond-md-depth, #pond-md-drop, #pond-md-surface, textarea.pond-md-save";
-    root.querySelectorAll(selector).forEach(el => {
-      if (el.closest(".card, .pond-pad-cards")) return;
-      const title = el.matches("h2, h3, h4") ? el.textContent.trim() : "";
-      if (/^Key takeaway\b/.test(title)) {     // e.g. "Key takeaway 1.2"
-        // The takeaway is the paragraph or quote right after the heading
-        const next = el.nextElementSibling;
-        const wrap = document.createElement("div");
-        if (next) wrap.append(next.cloneNode(true));
-        const body = blockMd(wrap).replace(/^>\s*/gm, "").trim();
-        emit(`> **${title}:** ${body}`);
-      } else if (el.tagName === "H2") {
-        pending = null;
-        out.push("", `## ${title}`);
-      } else if (el.tagName === "H3") {
-        pending = `### ${title}`;
-        if (title.startsWith("So,")) {
-          const table = el.closest("section").querySelector("table");
-          if (table) { const wrap = document.createElement("div"); wrap.append(table.cloneNode(true)); emit(blockMd(wrap)); }
-        }
-      } else if (el.tagName === "H4") {
-        return;
-      } else if (el.matches(".pond-pad-whatif")) {
-        const i = saved.whatif[whatifs.indexOf(el)];
-        const btn = el.querySelectorAll("button")[i];
-        emit(`**${el.getAttribute("aria-label")}**  \n` +
-          (btn ? `My answer: *${btn.textContent.trim()}*. ${btn.dataset.verdict}` : "*Not answered.*"));
-      } else if (el.matches(".pond-md-need")) {
-        const n = needs.find(x => x.bank === el);
-        if (n) emit(needMd(n));
-      } else if (el.id === "pond-md-depth") {
-        const v = parseFloat(el.value);
-        emit(Number.isNaN(v) ? "**My depth for M-02:** *not answered.* It's 6 inches, or 0.15 m."
-          : `**My depth for M-02:** ${v} m. ${depthMessage(v)}`);
-      } else if (el.id === "pond-md-drop") {
-        const kept = dropRows.filter(tr => !saved.dropped.includes(tr.cells[0].textContent.trim()));
-        const right = average(dropRows.filter(tr => tr.cells[0].textContent.trim() !== "M-03"));
-        const mine = kept.length ? `${average(kept)} ppm, ${limitText(average(kept))}` : "no rows left";
-        emit(`**Rows I dropped:** ${saved.dropped.length ? [...saved.dropped].sort().join(", ") : "none"}.  \n` +
-          `Raw average: ${average(dropRows)} ppm. My cleaned average: ${mine}. ` +
-          `Correctly cleaned (M-03 only): ${right} ppm, ${limitText(right)}.`);
-      } else if (el.id === "pond-md-surface") {
-        const mine = [...saved.surface].sort().join(", ") || "none";
-        emit(`**Surface samples I thought were above 400 ppm:** ${mine}. In dry soil, it's M-01 and M-06.`);
-      } else if (el.matches("textarea")) {
-        const text = el.value.trim();
-        const body = !text ? "*No response entered.*"
-          : el.classList.contains("pond-pad-code") ? "```\n" + text + "\n```" : text;
-        emit(`**${labelFor(el.id)}**\n\n${body}`);
-      }
-    });
-    out.push("", "---", "",
-      "Next: are the data good enough for your purpose? See [Data Quality and Provenance](" +
-      new URL("../data-quality/index.html", location.href).href + ").", "");
-    return out.join("\n");
-  }
-
-  document.getElementById("pond-md-download").addEventListener("click", () => {
-    const a = document.createElement("a");
-    a.href = "data:text/markdown;charset=utf-8," + encodeURIComponent(buildSummary());
-    a.download = "metadata-response-summary.md";
-    document.body.append(a);
-    a.click();
-    a.remove();
+  PondSummary.attach({
+    button: document.getElementById("pond-md-download"),
+    filename: "metadata-response-summary.md",
+    title: "Metadata for Reuse",
+    idea: "A data file is not necessarily usable just because it opens.",
+    intro: csv ? ["## The file I was given\n\n```\n" + csv.textContent.trim() + "\n```"] : [],
+    next: { text: "Data Quality and Provenance", href: "../data-quality/index.html" },
+    handlers: [
+      { selector: ".pond-md-need", md: el => Pond.needMd(needs.find(n => n.bank === el)) },
+      { selector: "#pond-md-depth", md: el => {
+          const v = parseFloat(el.value);
+          return Number.isNaN(v) ? "**My depth for M-02:** *not answered.* It's 6 inches, or 0.15 m."
+            : `**My depth for M-02:** ${v} m. ${depthMessage(v)}`;
+        } },
+      { selector: "#pond-md-drop", md: () => {
+          const kept = dropRows.filter(tr => !saved.dropped.includes(tr.cells[0].textContent.trim()));
+          const right = average(dropRows.filter(tr => tr.cells[0].textContent.trim() !== "M-03"));
+          const mine = kept.length ? `${average(kept)} ppm, ${limitText(average(kept))}` : "no rows left";
+          return `**Rows I dropped:** ${saved.dropped.length ? [...saved.dropped].sort().join(", ") : "none"}.  \n` +
+            `Raw average: ${average(dropRows)} ppm. My cleaned average: ${mine}. ` +
+            `Correctly cleaned (M-03 only): ${right} ppm, ${limitText(right)}.`;
+        } },
+      { selector: "#pond-md-surface", md: () =>
+          `**Surface samples I thought were above 400 ppm:** ${[...saved.surface].sort().join(", ") || "none"}. In dry soil, it's M-01 and M-06.` },
+      { selector: ".pond-md-recap", md: el => PondSummary.elementMd(el.querySelector("table")) }
+    ]
   });
 });
 </script>
