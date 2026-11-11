@@ -182,8 +182,8 @@ window.Quarto = {
  <span class="dropdown-text">Containers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../deep-water/correlation-workflow/index.html">
- <span class="dropdown-text">Correlation Workflow</span></a>
+    <a class="dropdown-item" href="../../../deep-water/solar-controversy/index.html">
+ <span class="dropdown-text">Associations</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../deep-water/licensing/index.html">
@@ -274,6 +274,9 @@ window.Quarto = {
 </header>
 
 
+<div class="pond-breadcrumbs" aria-label="Breadcrumb" role="navigation">
+<a href="../../../index.html">Home</a><span class="pond-crumb-sep" aria-hidden="true"> › </span><a href="../../../lilypads/index.html">LilyPads</a><span class="pond-crumb-sep" aria-hidden="true"> › </span><a href="../../../lilypads/data/index.html">Data</a><span class="pond-crumb-sep" aria-hidden="true"> › </span><span aria-current="page">3. Data Quality and Provenance</span>
+</div>
 <p>Imagine that you are a city official charged with determining whether schools in your district meet lead (Pb) exposure standards. Sampling in the district is done by various testing companies, using various instruments, each with a given nominal precision. State and city procedures mandate that each measurement be replicated at least once (preferably more). The instruments have known biases that can be corrected for.</p>
 <p>You met this office in <a href="../../../lilypads/data/metadata/index.html">Metadata for Reuse</a>, where the question was whether you had enough information to <em>use</em> a dataset. Here, the question is whether, given that information, the data are good enough for a particular purpose.</p>
 <p>Lead concentrations can be reported in several units:</p>
@@ -349,6 +352,7 @@ window.Quarto = {
 </tbody>
 </table>
 </div>
+<p><br></p>
 <section id="where-did-this-value-come-from" class="level2">
 <h2 class="anchored" data-anchor-id="where-did-this-value-come-from">1. Where did this value come from?</h2>
 <p><span class="pond-pad-time"><i class="bi bi-clock" aria-hidden="true"></i> About 15 minutes</span></p>
@@ -537,10 +541,10 @@ Why it matters
 </tbody>
 </table>
 </div>
-<p>Two schools have changed from “Yes” to “No.” The new employee had applied the soil threshold, 400, to every row, whatever the medium and units.</p>
+<p>Two schools have changed from “Yes” to “No.” The new employee had applied the soil threshold, 400, to every row, regardless of the medium and units.</p>
 <p><strong>Your turn!</strong></p>
 <ol type="1">
-<li>Which stage of the data has actually been archived?</li>
+<li>Which stage of the data processing is reflected in what was archived?</li>
 <li>Can the processed value be traced back to the original observations?</li>
 <li>What transformations occurred?</li>
 <li>Are those transformations documented?</li>
@@ -779,7 +783,7 @@ Two important caveats
 </section>
 <section id="key-takeaway-2" class="level3">
 <h3 class="anchored" data-anchor-id="key-takeaway-2">Key takeaway 2</h3>
-<p>A reported number is only as meaningful as what we know about its uncertainty. Report only the digits the measurement supports, state the uncertainty, and remember that the instrument is rarely the only source of uncertainty.</p>
+<p>A reported number is only as meaningful as its significant digits, i.e.&nbsp;its uncertainty. Report only the digits the measurement supports, state the uncertainty, and remember that the instrument is rarely the only source of uncertainty.</p>
 </section>
 
 <section id="are-the-data-adequate-to-the-purpose" class="level2">
@@ -789,7 +793,7 @@ Two important caveats
 <p>That soil came from <strong>one spot</strong>, about 2 meters from the school building’s wall, collected on 3 March 2025.</p>
 <section id="one-measurement-four-questions" class="level3">
 <h3 class="anchored" data-anchor-id="one-measurement-four-questions">3.1 One measurement, four questions</h3>
-<p><strong>Your turn!</strong> Is this one measurement enough to answer each of these questions?</p>
+<p><strong>Your turn!</strong> Is this one measurement sufficient to answer each of these questions?</p>
 <div id="pond-dq-claims" class="pond-pad"></div>
 <!-- Questions of increasing scope. data-answer (enough, partly, not) is our answer;
      the first paragraph is the question, the rest is revealed after the learner answers. -->
@@ -820,7 +824,7 @@ Two important caveats
 </ul>
 <section id="key-takeaway-3.1" class="level4">
 <h4 class="anchored" data-anchor-id="key-takeaway-3.1">Key takeaway 3.1</h4>
-<p>The same measurement can answer one question well and another not at all. Metadata help others figure out which claims they could make (or not) by re-using your data.</p>
+<p>The same measurement can simultaneously answer one question well and another not at all. Metadata help others figure out which claims they could make (or not) by re-using your data.</p>
 </section>
 </section>
 <section id="where-would-you-sample" class="level3">
@@ -950,7 +954,7 @@ Compare with our answer
 </details>
 <section id="key-takeaway-3.2" class="level4">
 <h4 class="anchored" data-anchor-id="key-takeaway-3.2">Key takeaway 3.2</h4>
-<p>Where you sample decides what you can conclude. Fit the sampling to the question: spread samples out to estimate an average, and target likely sources to find hotspots.</p>
+<p>Where you sample affects what you can conclude. Fit the sampling to the question: spread samples out to estimate an average, and target likely sources to find hotspots.</p>
 </section>
 </section>
 <section id="key-takeaway-3" class="level3">
@@ -1048,7 +1052,7 @@ Where does ± 14 come from?
 <li>the scatter between the readings (the standard error of the mean, about 5 ppm);</li>
 <li>the bias correction, which is only as good as the reference soil’s certificate (about 5 ppm).</li>
 </ul>
-<p>Independent uncertainties don’t simply add up: some of the time they partly cancel. Combined, they amount to about 7 ppm, and twice that gives an approximate 95% range of <strong>± 14 ppm</strong>. You don’t need to do this calculation yourself; the point is that the reported ± should say which sources it includes.</p>
+<p>Independent uncertainties don’t simply add up; some of the time they partly cancel. Combined, they amount to about 7 ppm, and twice that gives an approximate 95% range of <strong>± 14 ppm</strong>. You don’t need to do this calculation yourself; the point is that the reported ± should say which sources it includes.</p>
 </details>
 <section id="key-takeaway-4.2" class="level4">
 <h4 class="anchored" data-anchor-id="key-takeaway-4.2">Key takeaway 4.2</h4>
@@ -1095,10 +1099,10 @@ Go deeper: sort six uncertainties (about 4 minutes)
 </details>
 <p><strong>Your turn!</strong> The council wants to know whether children are safe in ADAMS ELEM.’s playground. Which of these uncertainties matters most for <em>that</em> question?</p>
 <div class="pond-pad-whatif" role="group" aria-label="Which uncertainty matters most for the council's question?">
-  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Small here: about ± 5 ppm. It would matter mostly if the value sat right at the threshold.">Scatter between readings</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Small here: about ± 5 ppm. It would be consequential if the value sat right at the threshold.">Scatter between readings</button>
   <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="The correction itself mattered a lot: without it, the value would be 459 ppm instead of 427. But its remaining uncertainty is only a few ppm.">Bias correction</button>
   <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="Most likely. In Activity 3, lead varied from 15 to 880 ppm within a single playground. That dwarfs a ± of 14 ppm.">Sampling a single spot</button>
-  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="It could matter if something changed since March (renovation work, new mulch), but lead in soil usually changes slowly.">Collection date</button>
+  <button type="button" class="pond-pad-tag" aria-pressed="false" data-verdict="It could matter if something had changed since March (renovation work, new mulch), but lead in soil usually changes slowly.">Collection date</button>
 </div>
 <p class="pond-pad-take" aria-live="polite" hidden=""></p>
 <p>The answer depends on the question. If the company wanted to know whether Analyzer D is working properly, the calibration would matter most, and the sampling location not at all.</p>
@@ -1129,12 +1133,12 @@ Compare with our report
 </details>
 <section id="key-takeaway-4.4" class="level4">
 <h4 class="anchored" data-anchor-id="key-takeaway-4.4">Key takeaway 4.4</h4>
-<p>A good report lets readers judge a value without having to ask you: what was measured, how, how well, and what the number does not cover.</p>
+<p>A good report provides ample context for a reader to interpret a value without having to ask follow up questions like: What was measured? How was it measured? How precisely/accurately? What is not captured by the reported value?</p>
 </section>
 </section>
 <section id="key-takeaway-4" class="level3">
 <h3 class="anchored" data-anchor-id="key-takeaway-4">Key takeaway 4</h3>
-<p>An uncertainty report is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can’t be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question the data are used for.</p>
+<p>An uncertainty report is only useful if readers know what it includes. Report the digits the measurement supports, say what the ± means and which sources it covers, and state in words the uncertainties that can’t be put in a number, such as where and when the sample was taken. Which uncertainty matters most depends on the question for which the data are used.</p>
 </section>
 </section>
 <section id="do-you-trust-this-dataset" class="level2">
@@ -1713,6 +1717,12 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+<div id="pond-pager" class="pond-pager" aria-label="Pages in this section" role="navigation">
+<a href="../../../lilypads/data/db-repo-pid/index.html" class="pond-next-card"><span class="pond-next-kicker">Onto the next part</span><span class="pond-next-title">4. Databases, Repositories, Identifiers, and Versions</span><span class="pond-next-arrow" aria-hidden="true">→</span></a>
+<div class="pond-pager-links">
+<a href="../../../lilypads/data/metadata/index.html">← 2. Metadata for Reuse</a><span class="pond-pager-sep" aria-hidden="true"> | </span><a href="../../../lilypads/data/index.html">↑ Data overview</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
