@@ -603,7 +603,7 @@ You don't need to learn any particular convention for this LilyPad. If you're cu
 
 ---
 
-Now that you understand what the MADISON ELEM. data mean, a new question arises: **are they good enough for your purpose?** That's the subject of the next LilyPad, [Data Quality and Provenance](../data-quality/index.qmd).
+Now that you understand what the MADISON ELEM. dataset contains, a new question arises: **is it good enough for your purpose?** That's the subject of the next LilyPad, [Data Quality and Provenance](../data-quality/index.qmd).
 
 ```{=html}
 <div class="pond-pad">

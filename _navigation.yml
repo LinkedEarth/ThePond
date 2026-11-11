@@ -1,0 +1,78 @@
+# Site map for the breadcrumbs (top of page) and previous/next links (bottom)
+# that filters/pond-nav.lua adds to every page listed here (issue #86).
+#
+# - `text` is the label shown to learners; `href` is the page, relative to the
+#   project root.
+# - The order of each `pages` list is the previous/next order.
+# - When you add a page to the site, add it here too so learners can find
+#   their way back. Unlisted pages get no breadcrumbs or previous/next links.
+
+pond-nav:
+  - text: The Shallows
+    href: shallows/index.qmd
+    pages:
+      - text: What is Open Science?
+        href: shallows/what-is-open-science.qmd
+      - text: Why Open Science?
+        href: shallows/why-open-science.qmd
+  - text: LilyPads
+    href: lilypads/index.qmd
+    pages:
+      - text: Data
+        href: lilypads/data/index.qmd
+        pages:
+          - text: 1. Different Types of Data
+            href: lilypads/data/data-type/index.qmd
+          - text: 2. Metadata for Reuse
+            href: lilypads/data/metadata/index.qmd
+          - text: 3. Data Quality and Provenance
+            href: lilypads/data/data-quality/index.qmd
+          - text: 4. Databases, Repositories, Identifiers, and Versions
+            href: lilypads/data/db-repo-pid/index.qmd
+          - text: 5. Preparing Data for Sharing and Reuse
+            href: lilypads/data/sharing-data/index.qmd
+          - text: 6. Citing Data in Manuscripts
+            href: lilypads/data/citing-data/index.qmd
+      - text: Software
+        href: lilypads/software/index.qmd
+      - text: Workflows
+        href: lilypads/workflow/index.qmd
+        pages:
+          - text: 1. Are Methods Actionable?
+            href: lilypads/workflow/methods-actionable/index.qmd
+          - text: 2. What Is a Workflow?
+            href: lilypads/workflow/what-is-a-workflow/index.qmd
+          - text: 3. Sketching a Workflow
+            href: lilypads/workflow/sketching-workflows/index.qmd
+          - text: 4. From Sketch to Notebook
+            href: lilypads/workflow/sketches-vs-notebooks/index.qmd
+          - text: 5. Why Containers Matter
+            href: lilypads/workflow/containers/index.qmd
+          - text: 6. Citing Workflows
+            href: lilypads/workflow/citing-workflows/index.qmd
+  - text: The Deep End
+    href: deep-water/index.qmd
+    pages:
+      - text: GitHub
+        href: deep-water/github/index.qmd
+        pages:
+          - text: 1. Start a Research Repository
+            href: deep-water/github/start-research-repository/index.qmd
+          - text: 2. Save and Share Changes
+            href: deep-water/github/save-share-changes/index.qmd
+          - text: 3. Collaborate on a Change
+            href: deep-water/github/collaborate-change/index.qmd
+          - text: 4. Plan Work with GitHub
+            href: deep-water/github/plan-work/index.qmd
+          - text: 5. Release and Cite Your Work
+            href: deep-water/github/release-cite/index.qmd
+          - text: 6. Automate a Task
+            href: deep-water/github/automate/index.qmd
+      - text: Containers
+        href: deep-water/containers/index.qmd
+      - text: Associations
+        href: deep-water/solar-controversy/index.qmd
+      - text: Licensing
+        href: deep-water/licensing/index.qmd
+  - text: The Spring
+    href: spring/index.qmd

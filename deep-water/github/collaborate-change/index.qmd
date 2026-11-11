@@ -25,7 +25,7 @@ By the end of this LilyPad, you will be able to:
 For this LilyPad, you'll need:
 
 - A [GitHub account](https://github.com/signup) and [GitHub Desktop](https://desktop.github.com/) installed on your computer.
-- The research repository you created in [Starting a Research Repository on GitHub](../start-a-research-repository/index.qmd) and cloned to your computer in [Save and Share Changes on GitHub](../save-share-changes/index.qmd).
+- The research repository you created in [Starting a Research Repository on GitHub](../start-research-repository/index.qmd) and cloned to your computer in [Save and Share Changes on GitHub](../save-share-changes/index.qmd).
 - A small improvement you could make to your project, such as clarifying documentation, adding information about your data, or correcting an explanation.
 
 **You don't need to know Python or find a collaborator to complete this LilyPad.**
@@ -1050,7 +1050,7 @@ Once you've created your branch, look at two things: Which branch is now selecte
 
 Now let's do this in your own repository.
 
-1. Open **GitHub Desktop** and select the repository you created in [Starting a Research Repository on GitHub](../start-a-research-repository/index.qmd).
+1. Open **GitHub Desktop** and select the repository you created in [Starting a Research Repository on GitHub](../start-research-repository/index.qmd).
 2. Make sure you're on `main`, using the **Current Branch** dropdown. If you have uncommitted changes, save or commit them appropriately before proceeding.
 3. Click **Current Branch → New Branch**.
 4. Give the branch a descriptive name that reflects an improvement you'd like to make. For example, `improve-data-documentation`.

@@ -1,12 +1,12 @@
 ---
-title: "Correlations: The Deep End"
+title: "Associations: The Deep End"
 execute:
   echo: false
 resources:
   - correlation/images/**
 ---
 
-This is the full version of the Correlations scenario from the LilyPad [Are Methods Actionable?](../../lilypads/workflow/methods-actionable/index.qmd). The LilyPad version focuses on what the paper's description leaves ambiguous; here you make all the choices that go into the analysis, including whether the correlation is statistically significant, something the original paper never tested.
+This is a fuller exploration of the Associations scenario from the LilyPad [Are Methods Actionable?](../../lilypads/workflow/methods-actionable/index.qmd). The LilyPad version focuses on what the paper's description leaves ambiguous; here we dive into all the choices that went into the original analysis, including whether the association is statistically significant, something the original paper never tested. 
 
 ## Reproducible, robust, replicable
 
@@ -536,7 +536,7 @@ corrActivity = {
 
     let output =
       "ARE METHODS ACTIONABLE?\n" +
-      "Workflow reproduction exercise: Correlations\n" +
+      "Workflow reproduction exercise: Associations\n" +
       "========================================\n\n";
 
     if (attempts.length === 0) {

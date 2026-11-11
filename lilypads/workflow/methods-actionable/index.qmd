@@ -13,7 +13,7 @@ resources:
 
 Chances are you have come across results in scientific publications, posters or talks, and wondered: "How did they get here?". Supposedly that is what the Methods section explains, but that information is not always actionable. 
 
-Each scenario below starts from an excerpt of a methods section (a real one for Correlations, a fictitious one for Spectral Analysis). The goal of the exercise is to determine whether the provided instructions are sufficient to reproduce the results shown in Figure 1. As you complete this exercise, take careful notes about what information is missing from the methods section that would help you reproduce the results.
+Each scenario below starts from an excerpt of a methods section (a real one for Associations, a fictitious one for Spectral Analysis). The goal of the exercise is to determine whether the provided instructions are sufficient to reproduce the results shown in Figure 1. As you complete this exercise, take careful notes about what information is missing from the methods section that would help you reproduce the results.
 
 :::
 
@@ -21,7 +21,7 @@ Each scenario below starts from an excerpt of a methods section (a real one for 
 
 ::: {.panel-tabset}
 
-## Correlations
+## Associations
 
 [Friis-Christensen & Lassen (1991)](https://doi.org/10.1126/science.254.5032.698) compared the length of the Sun's activity cycle with Northern Hemisphere temperature (Figure 1) and concluded:
 
@@ -33,7 +33,7 @@ Each scenario below starts from an excerpt of a methods section (a real one for 
 
 The paper's methods section leaves three steps open to interpretation. Try different readings of each and see whether the claim still holds, especially **since 1970** (shaded). Some of these gaps matter, and others don't.
 
-If you want to go further (correlations, statistical significance, data up to the present), try the [Deep End version](../../../deep-water/correlation-workflow/index.qmd) of this exercise.
+If you want to go further (correlations, statistical significance, data up to the present), try the [Deep End version](../../../deep-water/solar-controversy/index.qmd) of this exercise.
 
 ```{ojs}
 //| echo: false
@@ -356,7 +356,7 @@ corrActivity = {
 
     let output =
       "ARE METHODS ACTIONABLE?\n" +
-      "Workflow reproduction exercise: Correlations\n" +
+      "Workflow reproduction exercise: Associations\n" +
       "========================================\n\n";
 
     if (attempts.length === 0) {

@@ -1,5 +1,5 @@
 ---
-title: "Tracing a Workflow in a Notebook"
+title: "Tracing a Workflow from a Notebook"
 format:
   html:
     toc: false
@@ -8,7 +8,9 @@ resources:
   - activities/**
 ---
 
-A scientific notebook brings together the question, data, methodological choices, code, and results of an investigation. In this LiLyPad, you will trace how those pieces connect.
+Science is increasingly shared as notebooks bringing together the question, data, methodological choices, code, and results of an investigation. Familiar examples might be [Jupyter](https://jupyter.org) notebooks or [R vignettes](https://nickmckay.org/GeoChronR/articles/PlotTimeseriesStack.html).  
+
+In this LilyPad, you will learn how to "route read" a notebook, parsing its steps to retrace the underlying workflow. 
 
 ## Choose a scenario
 

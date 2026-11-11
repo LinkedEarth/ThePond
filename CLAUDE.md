@@ -17,5 +17,6 @@ Learners should *do* something on every page, not only read. Prefer active forma
 - **End with a response summary.** Pages where learners answer anything end with a **Download response summary** button. It saves a Markdown file (`<page>-response-summary.md`) with the learner's answers next to ours, what was revealed at each step, and every key takeaway, built from the page when clicked. Model: `lilypads/data/metadata/index.qmd` (issue #79).
 - **Number the key takeaways by section.** Each sub-activity ends with `#### Key takeaway 3.2` (its section number) and each activity with `### Key takeaway 3`, so consecutive takeaways stay distinguishable on the page and in the response summary.
 - **Accessible by default.** Use real buttons and form labels, keep everything keyboard-operable, and respect `prefers-reduced-motion`.
+- **List every new page in `_navigation.yml`.** The breadcrumbs and previous/next links (`filters/pond-nav.lua`) are built from it, in its order; a page missing from it gets neither (issue #86).
 
 Existing examples: `shallows/what-is-open-science.qmd` (word cloud + flip cards), `lilypads/workflow/sketching-workflows/index.qmd` (sketch, then show the answer), `deep-water/github/index.qmd` (filterable cards).

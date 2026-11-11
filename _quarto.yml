@@ -6,7 +6,7 @@ project:
     - "*.md"
     # Backend notebooks for the correlation exercises; not pages
     - "!lilypads/workflow/methods-actionable/correlation/workflow.ipynb"
-    - "!deep-water/correlation-workflow/correlation/workflow.ipynb"
+    - "!deep-water/solar-controversy/correlation/workflow.ipynb"
     # Downloadable notebook for the containers LilyPad; not a page
     - "!lilypads/workflow/containers/notebook/station_analysis.ipynb"
     # Instructions for Claude Code; not a page
@@ -49,8 +49,8 @@ website:
             text: GitHub
           - href: deep-water/containers/index.qmd
             text: Containers
-          - href: deep-water/correlation-workflow/index.qmd
-            text: Correlation Workflow
+          - href: deep-water/solar-controversy/index.qmd
+            text: Associations
           - href: deep-water/licensing/index.qmd
             text: Licensing
 
@@ -66,5 +66,7 @@ format:
     css: styles.css
     toc: true
 
-
-
+# Breadcrumbs (top of page) and previous/next links (bottom), built from the
+# site map in _navigation.yml.
+filters:
+  - filters/pond-nav.lua
